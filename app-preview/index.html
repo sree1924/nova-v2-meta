@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Utah Driver Handbook — Section 9 Rules of the Road</title>
+<title>Utah Driver Handbook — Written-Test Prep</title>
 <link rel="stylesheet" href="styles.css">
 <script src="data-embedded.js" defer></script>
 <script src="data-real-embedded.js" defer></script>
 </head>
 <body>
-<div class="real-banner" id="banner" role="note">REAL — Utah Section 9, belt-validated, audit pending</div>
+<div class="real-banner" id="banner" role="note">REAL — Utah Driver Handbook, belt-validated, audit pending</div>
 <header class="site">
   <div class="wrap">
-    <span class="brand">Utah Section 9 — Rules of the Road</span>
+    <span class="brand">Utah Driver Handbook — Written-Test Prep</span>
     <nav class="main" aria-label="Learner">
       <a href="#/" data-nav="home">Home</a>
-      <a href="#/chapters" data-nav="chapters">Modules</a>
+      <a href="#/chapters" data-nav="chapters">Chapters</a>
       <a href="#/practice" data-nav="practice">Practice tests</a>
       <a href="#/settings" data-nav="settings">Settings</a>
     </nav>
@@ -25,7 +25,29 @@
 <footer class="site">dev preview — no production claims · text-first pilot, no audio</footer>
 <script type="module">
 const SYNTHETIC_NOTE = "SYNTHETIC SAMPLE — not Utah content.";
-const REAL_NOTE = "REAL — Utah Section 9, belt-validated, audit pending";
+const REAL_NOTE = "REAL — Utah Driver Handbook, belt-validated, audit pending";
+// Handbook chapters in handbook order (sec01 … sec16). Titles humanize the
+// belt section slugs; only chapters with accepted belt artifacts are built.
+const SECTIONS = [
+  { id: "sec01-definitions", n: 1, title: "Definitions" },
+  { id: "sec02-licensing-requirements", n: 2, title: "Licensing Requirements" },
+  { id: "sec03-driver-education-permits", n: 3, title: "Driver Education and Permits" },
+  { id: "sec04-license-types-id-documents", n: 4, title: "License Types and ID Documents" },
+  { id: "sec05-vision-health", n: 5, title: "Vision and Health" },
+  { id: "sec06-examinations", n: 6, title: "Examinations" },
+  { id: "sec07-preparing-vehicle", n: 7, title: "Preparing Your Vehicle" },
+  { id: "sec08-basic-driving", n: 8, title: "Basic Driving" },
+  { id: "sec09-rules-of-the-road", n: 9, title: "Rules of the Road" },
+  { id: "sec10-alcohol-drugs", n: 10, title: "Alcohol and Drugs" },
+  { id: "sec11-distractions-challenges", n: 11, title: "Distractions and Challenges" },
+  { id: "sec12-crashes-insurance", n: 12, title: "Crashes and Insurance" },
+  { id: "sec13-suspensions-record", n: 13, title: "Suspensions and Your Record" },
+  { id: "sec14-sharing-the-road", n: 14, title: "Sharing the Road" },
+  { id: "sec15-vehicle-equipment", n: 15, title: "Vehicle Equipment" },
+  { id: "sec16-towing", n: 16, title: "Towing" }
+];
+const sectionMeta = (id) => SECTIONS.find((s) => s.id === id) || null;
+const shortSection = (id) => { const m = sectionMeta(id); return m ? `Chapter ${m.n} — ${m.title}` : "Utah Driver Handbook"; };
 const REVIEWER_EMPTY_NOTE = "REVIEWER VIEW — no accepted Utah content yet";
 
 function setBanner(kind, text) {
@@ -74,7 +96,7 @@ async function loadData() {
 
 // ---- Learner progress (real syllabus namespace) ----
 const store = {
-  key: "nova-preview:v1:ut-sec09",
+  key: "nova-preview:v1:ut-handbook",
   read() { try { return JSON.parse(localStorage.getItem(this.key)) || {}; } catch { return {}; } },
   write(s) { localStorage.setItem(this.key, JSON.stringify(s)); }
 };
@@ -101,23 +123,37 @@ function realArt(entry) {
   if (!entry) return null;
   return (R.files || {})[entry.file.replace(/^data\/real\//, "")] || null;
 }
-function kgDoc() {
+function kgDocs() {
   const { kg } = realEntries();
-  return kg.length ? realArt(kg[0]) : null;
+  return kg.map((e) => ({ entry: e, art: realArt(e) })).filter((x) => x.art);
 }
-function modulesReal() {
-  const kg = kgDoc();
-  if (!kg) return [];
-  const hints = Array.isArray(kg.curriculum_unit_hints) ? kg.curriculum_unit_hints : [];
-  const hintByModule = {};
-  hints.forEach((h) => { hintByModule[h.module_id] = h; });
-  return (Array.isArray(kg.modules) ? kg.modules : []).map((m) => ({
-    module_id: m.module_id,
-    title: m.title,
-    domain: m.domain,
-    nodeCount: (m.node_ids || []).length,
-    unit_id: (hintByModule[m.module_id] || {}).unit_id || null
-  }));
+// Modules across every section with an accepted KG. Belt ids are already
+// namespaced per section (sec05-m01 …); Section 9 keeps unprefixed ids and is
+// told apart by its export entry's section_id.
+function modulesReal(sectionId) {
+  const out = [];
+  for (const { entry, art: kg } of kgDocs()) {
+    if (sectionId && entry.section_id !== sectionId) continue;
+    const hints = Array.isArray(kg.curriculum_unit_hints) ? kg.curriculum_unit_hints : [];
+    const hintByModule = {};
+    hints.forEach((h) => { hintByModule[h.module_id] = h; });
+    for (const m of (Array.isArray(kg.modules) ? kg.modules : [])) {
+      out.push({
+        module_id: m.module_id,
+        title: m.title,
+        domain: m.domain,
+        nodeCount: (m.node_ids || []).length,
+        unit_id: (hintByModule[m.module_id] || {}).unit_id || null,
+        section_id: entry.section_id || "unknown"
+      });
+    }
+  }
+  return out;
+}
+// Sections with an accepted KG, in handbook order — the built chapters.
+function builtSections() {
+  const has = new Set(modulesReal().map((m) => m.section_id));
+  return SECTIONS.filter((s) => has.has(s.id));
 }
 function unitForModule(moduleId) {
   const m = modulesReal().find((x) => x.module_id === moduleId);
@@ -171,30 +207,43 @@ function recapForModule(moduleId) {
   }
   return null;
 }
-function examDoc() {
+function examDocs() {
   const { exam } = realEntries();
-  return exam.length ? realArt(exam[0]) : null;
+  return exam.map((e) => ({ entry: e, art: realArt(e) })).filter((x) => x.art);
 }
 function examItemsById() {
-  const doc = examDoc();
   const byId = {};
-  for (const it of ((doc && doc.items) || [])) byId[it.item_id] = it;
+  for (const { entry, art: doc } of examDocs()) {
+    for (const it of (doc.items || [])) byId[it.item_id] = { ...it, section_id: entry.section_id };
+  }
   return byId;
 }
 function moduleQuizForUnit(unitId) {
-  const doc = examDoc();
-  return ((doc && doc.module_quizzes) || []).find((q) => q.unit_id === unitId) || null;
+  for (const { entry, art: doc } of examDocs()) {
+    const q = (doc.module_quizzes || []).find((x) => x.unit_id === unitId);
+    if (q) return { ...q, section_id: entry.section_id };
+  }
+  return null;
 }
 function practiceForms() {
-  const doc = examDoc();
-  return ((doc && doc.practice_forms) || []);
+  const out = [];
+  for (const { entry, art: doc } of examDocs()) {
+    for (const f of (doc.practice_forms || [])) out.push({ ...f, section_id: entry.section_id });
+  }
+  return out;
 }
-// fact id -> handbook page, from accepted card + item source refs
+// fact id -> {ref, section}, from accepted KG node + card + item source refs
 function factPageMap() {
   const map = {};
-  for (const c of (examDoc() && examDoc().items) || []) {
-    for (const f of (c.fact_ids || [])) {
-      if (!map[f] && c.source_ref) map[f] = c.source_ref;
+  const put = (f, ref, section) => { if (f && !map[f] && ref) map[f] = { ref, section }; };
+  for (const { entry, art: kg } of kgDocs()) {
+    for (const n of (kg.nodes || [])) {
+      for (const f of (n.fact_ids || [n.id])) put(f, n.source_ref, entry.section_id);
+    }
+  }
+  for (const { entry, art: doc } of examDocs()) {
+    for (const c of (doc.items || [])) {
+      for (const f of (c.fact_ids || [])) put(f, c.source_ref, entry.section_id);
     }
   }
   const { cards } = realEntries();
@@ -202,9 +251,7 @@ function factPageMap() {
     const art = realArt(e);
     for (const d of ((art && art.decks) || [])) {
       for (const c of (d.cards || [])) {
-        for (const f of (c.claims_fact_ids || [])) {
-          if (!map[f] && c.source_ref) map[f] = c.source_ref;
-        }
+        for (const f of (c.claims_fact_ids || [])) put(f, c.source_ref, e.section_id);
       }
     }
   }
@@ -214,51 +261,119 @@ let _factPages = null;
 function sourceLine(factIds) {
   if (!_factPages) _factPages = factPageMap();
   const ids = (factIds || []).filter(Boolean);
-  if (!ids.length) return `<p class="muted">Source: <a href="#/dossier">Utah Driver Handbook Sec 9</a></p>`;
+  const secOf = (f) => (_factPages[f] || {}).section || null;
+  const secs = [...new Set(ids.map(secOf).filter(Boolean))];
+  const label = secs.length === 1 ? shortSection(secs[0]) : "Utah Driver Handbook";
+  if (!ids.length) return `<p class="muted">Source: <a href="#/dossier">Utah Driver Handbook</a></p>`;
   const pages = ids.map((f) => {
-    const ref = _factPages[f];
+    const rec = _factPages[f] || {};
+    const ref = rec.ref;
     const pg = ref && (ref.printed_page || ref.pdf_page) ? `, p. ${esc(ref.printed_page || ("PDF " + ref.pdf_page))}` : "";
     return `<a href="#/dossier">${esc(f)}</a>${pg}`;
   }).join(" · ");
-  return `<p class="muted">Source: ${pages} · Utah Driver Handbook Sec 9</p>`;
+  return `<p class="muted">Source: ${pages} · ${esc(label)}</p>`;
 }
 
-// ---- Learner views (REAL Utah Section 9) ----
+// ---- Learner views (REAL Utah Driver Handbook) ----
+// Aggregate counts straight from the exports: chapters built = sections with
+// an accepted KG; cards/items/lessons summed over accepted artifacts.
+function handbookCounts() {
+  const mods = modulesReal();
+  const byId = examItemsById();
+  let cards = 0;
+  for (const e of realEntries().cards) {
+    const art = realArt(e);
+    for (const d of ((art && art.decks) || [])) cards += (d.cards || []).length;
+  }
+  let lessons = 0, slides = 0;
+  for (const e of realEntries().sessions) {
+    const art = realArt(e);
+    for (const u of ((art && art.units) || [])) { lessons += 1; slides += (u.slides || []).length; }
+  }
+  return { chapters: builtSections().length, total: SECTIONS.length, cards, items: Object.keys(byId).length, lessons, slides, modules: mods.length };
+}
 function realEmpty(what) {
-  return `<h1>Utah Section 9 — Rules of the Road</h1>
+  return `<h1>Utah Driver Handbook</h1>
   <div class="card"><h2>No accepted ${esc(what)} yet</h2>
   <p>The belt has no accepted artifact for this yet. Run <code>node tools/preview/export-content.mjs</code> after the belt accepts it, then re-open this page.</p></div>`;
 }
+// A section exists in the KG (so the module/unit is real) but the artifact
+// behind this step is not accepted yet: honest pending state, never filler.
+function realPending(sectionId, what) {
+  return `<h1>${esc(shortSection(sectionId))}</h1>
+  <div class="card"><h2>${esc(what)} — not yet built</h2>
+  <p>The belt has not accepted this artifact for this chapter yet. Nothing synthetic is shown in its place.</p>
+  <p><a class="btn" href="#/chapter/${esc(sectionId)}">Back to the chapter</a></p></div>`;
+}
+function sectionOfModule(moduleId) {
+  const m = modulesReal().find((x) => x.module_id === moduleId);
+  return m ? m.section_id : null;
+}
 
 function vHome() {
-  const mods = modulesReal();
-  if (!mods.length) return realEmpty("knowledge graph");
-  return `<h1>Utah Driver Handbook — Section 9: Rules of the Road</h1>
-  <p class="muted">${esc(REAL_NOTE)}. Written-test preparation for regular non-commercial passenger-car rules.</p>
+  const c = handbookCounts();
+  if (!c.chapters) return realEmpty("knowledge graph");
+  const built = builtSections();
+  return `<h1>Utah Driver Handbook — written-test prep</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Written-test preparation for regular non-commercial passenger-car rules. Everything below is a belt-accepted artifact, shown word-for-word; full audit is still pending.</p>
+  <div class="card"><h2>${c.chapters} of ${c.total} chapters built · ${c.cards} flashcards · ${c.items} quiz items · ${c.lessons} lessons (${c.slides} slides)</h2>
+  <p class="muted">Counts come from the accepted exports — no synthetic filler anywhere on learner routes.</p>
+  <p><a class="btn" href="#/chapters">Browse all ${c.total} chapters</a> <a class="btn" href="#/practice">Practice tests</a> <a href="trace.html">How it was made — belt trace</a></p></div>
+  ${built.map((s) => {
+    const mods = modulesReal(s.id);
+    const cards = mods.reduce((n, m) => n + (m.unit_id ? deckForUnit(m.unit_id).length : 0), 0);
+    return `<div class="card"><h2>Chapter ${s.n} — ${esc(s.title)}</h2>
+    <p class="muted">${mods.length} modules · ${cards} flashcards</p>
+    <p><a class="btn" href="#/chapter/${esc(s.id)}">Open chapter</a></p></div>`;
+  }).join("")}`;
+}
+
+function vChapters() {
+  const c = handbookCounts();
+  if (!c.chapters) return realEmpty("knowledge graph");
+  const has = new Set(builtSections().map((s) => s.id));
+  return `<h1>Chapters — Utah Driver Handbook</h1>
+  <p class="muted">${esc(REAL_NOTE)}. One chapter per handbook section, in handbook order. ${c.chapters} of ${c.total} built so far.</p>
+  ${SECTIONS.map((s) => {
+    const mods = has.has(s.id) ? modulesReal(s.id) : [];
+    return `<div class="card"><h2>Chapter ${s.n} — ${esc(s.title)}</h2>
+    ${has.has(s.id)
+      ? `<p class="muted">${mods.length} modules from the accepted knowledge graph</p><p><a class="btn" href="#/chapter/${esc(s.id)}">Open chapter</a></p>`
+      : `<p class="muted">Not yet built — the belt has no accepted artifacts for this chapter yet.</p>`}</div>`;
+  }).join("")}`;
+}
+
+function vChapter(sectionId) {
+  const meta = sectionMeta(sectionId);
+  if (!meta) return vMissing();
+  const mods = modulesReal(sectionId);
+  if (!mods.length) {
+    return `<h1>Chapter ${meta.n} — ${esc(meta.title)}</h1>
+    <div class="card"><h2>Not yet built</h2>
+    <p>The belt has no accepted artifacts for this chapter yet. Nothing synthetic is shown in its place.</p>
+    <p><a class="btn" href="#/chapters">Back to all chapters</a></p></div>`;
+  }
+  return `<h1>Chapter ${meta.n} — ${esc(meta.title)}</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Study each module in order: lesson, then flashcards, then the quiz.</p>
   ${mods.map((m) => {
-    const unit = sessionUnit(m.unit_id);
+    const unit = m.unit_id ? sessionUnit(m.unit_id) : null;
     const deck = m.unit_id ? deckForUnit(m.unit_id) : [];
     const quiz = m.unit_id ? moduleQuizForUnit(m.unit_id) : null;
     const s = (m.unit_id && store.read().progress?.[m.unit_id]) || {};
     return `<div class="card"><h2>${esc(m.module_id)} — ${esc(m.title)}</h2>
-    <p class="muted">${m.nodeCount} handbook nodes · ${(unit ? unit.slides : []).length} lesson slides · ${deck.length} flashcards · ${(quiz ? quiz.item_ids : []).length} quiz questions</p>
-    <dl class="kv"><dt>Lesson</dt><dd>${s.lesson ? "done" : "not started"}</dd>
-    <dt>Cards seen</dt><dd>${s.cards ? "yes" : "no"}</dd></dl>
+    <p class="muted">${m.nodeCount} handbook nodes · ${(unit ? unit.slides : []).length || "no"} lesson slides · ${deck.length || "no"} flashcards · ${(quiz ? quiz.item_ids : []).length || "no"} quiz questions</p>
+    <dl class="kv"><dt>Lesson</dt><dd>${unit ? (s.lesson ? "done" : "not started") : "not yet built"}</dd>
+    <dt>Cards seen</dt><dd>${deck.length ? (s.cards ? "yes" : "no") : "not yet built"}</dd></dl>
     <p><a class="btn" href="#/module/${esc(m.module_id)}">Open module hub</a></p></div>`;
   }).join("")}
   <div class="card"><h2>Practice tests</h2>
-  <p>Two full practice forms drawn from the accepted exam bank. Practice only — no official pass claim.</p>
+  <p>Practice forms drawn from this chapter's accepted exam bank, if any. Practice only — no official pass claim.</p>
   <p><a class="btn" href="#/practice">Choose a practice form</a></p></div>`;
 }
 
-function vChapters() {
-  const mods = modulesReal();
-  if (!mods.length) return realEmpty("knowledge graph");
-  return `<h1>Modules — Utah Section 9</h1>
-  <p class="muted">${esc(REAL_NOTE)}. Three modules from the accepted knowledge graph, in learning order.</p>
-  ${mods.map((m) => `<div class="card"><h2>${esc(m.module_id)} — ${esc(m.title)}</h2>
-    <p class="muted">${esc(m.domain || "")} · ${m.nodeCount} nodes</p>
-    <p><a class="btn" href="#/module/${esc(m.module_id)}">Open module hub</a></p></div>`).join("")}`;
+function sectionOfUnit(unitId) {
+  const m = modulesReal().find((x) => x.unit_id === unitId);
+  return m ? m.section_id : null;
 }
 
 function vModule(moduleId) {
@@ -269,21 +384,28 @@ function vModule(moduleId) {
   const quiz = moduleQuizForUnit(m.unit_id);
   const s = store.read().progress?.[m.unit_id] || {};
   return `<h1>Module hub — ${esc(m.title)}</h1>
-  <p class="muted">${esc(REAL_NOTE)}. Study in order: lesson, then flashcards, then the quiz.</p>
+  <p class="muted">${esc(REAL_NOTE)} · ${esc(shortSection(m.section_id))}. Study in order: lesson, then flashcards, then the quiz.</p>
   <div class="card"><h2>1 · Lesson</h2>
-  <p class="muted">${(unit ? unit.slides : []).length} slides · ${s.lesson ? "done" : "not started"}</p>
-  <p><a class="btn" href="#/lesson/${esc(m.unit_id)}">Start the lesson</a></p></div>
+  ${unit
+    ? `<p class="muted">${unit.slides.length} slides · ${s.lesson ? "done" : "not started"}</p><p><a class="btn" href="#/lesson/${esc(m.unit_id)}">Start the lesson</a></p>`
+    : `<p class="muted">Not yet built — the belt has no accepted lesson for this module yet.</p>`}</div>
   <div class="card"><h2>2 · Flashcards</h2>
-  <p class="muted">${deck.length} cards · ${s.cards ? "seen" : "not started"}</p>
-  <p><a class="btn" href="#/cards/${esc(m.unit_id)}">Drill the cards</a></p></div>
+  ${deck.length
+    ? `<p class="muted">${deck.length} cards · ${s.cards ? "seen" : "not started"}</p><p><a class="btn" href="#/cards/${esc(m.unit_id)}">Drill the cards</a></p>`
+    : `<p class="muted">Not yet built — the belt has no accepted cards for this module yet.</p>`}</div>
   <div class="card"><h2>3 · Quiz</h2>
-  <p class="muted">${(quiz ? quiz.item_ids : []).length} questions · ${esc((quiz && quiz.title) || "")}</p>
-  <p>${quiz ? `<a class="btn" href="#/quiz/${esc(m.unit_id)}">Take the module quiz</a>` : "No accepted quiz for this module yet."}</p></div>`;
+  ${quiz
+    ? `<p class="muted">${quiz.item_ids.length} questions · ${esc(quiz.title || "")}</p><p><a class="btn" href="#/quiz/${esc(m.unit_id)}">Take the module quiz</a></p>`
+    : `<p class="muted">Not yet built — the belt has no accepted quiz for this module yet.</p>`}</div>
+  <p><a class="btn" href="#/chapter/${esc(m.section_id)}">Back to ${esc(shortSection(m.section_id))}</a></p>`;
 }
 
 function vLesson(unitId) {
   const unit = sessionUnit(unitId);
-  if (!unit) return vMissing();
+  if (!unit) {
+    const sec = sectionOfUnit(unitId);
+    return sec ? realPending(sec, "Lesson") : vMissing();
+  }
   const moduleId = moduleForUnit(unitId);
   const wx = unit.worked_example || {}, mc = unit.misconception || {}, sc = unit.self_check || {};
   const mcClaim = mc.claim || {}, mcFix = mc.correction || {};
@@ -310,7 +432,10 @@ function vLesson(unitId) {
 
 function vCards(unitId) {
   const list = deckForUnit(unitId);
-  if (!list.length) return vMissing();
+  if (!list.length) {
+    const sec = sectionOfUnit(unitId);
+    return sec ? realPending(sec, "Flashcards") : vMissing();
+  }
   const moduleId = moduleForUnit(unitId);
   const byCard = scriptsByCard();
   const recap = moduleId ? recapForModule(moduleId) : null;
@@ -390,7 +515,10 @@ function realQuizBlock(ids, formId, title, policyNote, practiceLabel) {
 
 function vQuiz(unitId) {
   const quiz = moduleQuizForUnit(unitId);
-  if (!quiz) return vMissing();
+  if (!quiz) {
+    const sec = sectionOfUnit(unitId);
+    return sec ? realPending(sec, "Quiz") : vMissing();
+  }
   return realQuizBlock(quiz.item_ids, "quiz:" + quiz.quiz_id, quiz.title,
     "Module quiz with supported rationales. Missed questions are listed for review after you check.", null)
     + `<p><a class="btn" href="#/module/${esc(moduleForUnit(unitId) || "")}">Back to module hub</a> <a class="btn" href="#/practice">Try a practice test</a></p>`;
@@ -407,11 +535,13 @@ function vPractice(formId) {
       `${f.title} — practice form`)
       + `<p><a class="btn" href="#/practice">Choose the other form</a> <a class="btn" href="#/">Back home</a></p>`;
   }
-  return `<h1>Practice tests — Utah Section 9</h1>
-  <p class="muted">${esc(REAL_NOTE)}. ${forms.length} accepted practice forms, ${(forms[0] && forms[0].item_ids.length) || 0} questions each. Practice only — no official pass claim.</p>
-  ${forms.map((f) => `<div class="card"><h2>${esc(f.title)}</h2>
-  <p class="muted">${(f.item_ids || []).length} questions · practice ${esc(f.form_id)}</p>
-  <p><a class="btn" href="#/practice/${esc(f.form_id)}">Start ${esc(f.form_id === "form-a" ? "form A" : f.form_id === "form-b" ? "form B" : f.form_id)}</a></p></div>`).join("")}`;
+  const bySec = {};
+  for (const f of forms) { (bySec[f.section_id] = bySec[f.section_id] || []).push(f); }
+  return `<h1>Practice tests — Utah Driver Handbook</h1>
+  <p class="muted">${esc(REAL_NOTE)}. ${forms.length} accepted practice forms across ${Object.keys(bySec).length} chapter(s). Practice only — no official pass claim.</p>
+  ${Object.entries(bySec).map(([sec, list]) => `<div class="card"><h2>${esc(shortSection(sec))}</h2>
+  ${list.map((f) => `<p class="muted">${esc(f.title)} · ${(f.item_ids || []).length} questions · practice ${esc(f.form_id)}</p>
+  <p><a class="btn" href="#/practice/${esc(f.form_id)}">Start ${esc(f.title || f.form_id)}</a></p>`).join("")}</div>`).join("")}`;
 }
 
 function vResults(attemptId) {
@@ -433,7 +563,8 @@ function vResults(attemptId) {
 function vSettings() {
   return `<h1>Settings and about</h1>
   <div class="card"><h2>About this course</h2>
-  <p>Utah Driver Handbook Section 9, Rules of the Road — written-test preparation for regular non-commercial passenger-car rules. Everything is free, with no account and no audio. Lesson slides, cards and questions are the belt's accepted artifacts, shown word-for-word.</p>
+  <p>Utah Driver Handbook — written-test preparation for regular non-commercial passenger-car rules. Everything is free, with no account and no audio. Lesson slides, cards and questions are the belt's accepted artifacts, shown word-for-word. Chapters without accepted artifacts show as "not yet built" — nothing synthetic stands in for them.</p>
+  <p><a href="trace.html">How it was made — belt trace</a></p>
   <p class="muted">Data source: ${(R && R.from === "fetch") ? "app-preview/data/real/*.json over HTTP" : "embedded fallback copy (identical content, used because local files could not be fetched)"}.</p></div>
   <div class="card"><h2>Reviewer</h2>
   <p><a class="btn" href="#/dossier">Source dossier (reviewer view)</a>
@@ -446,7 +577,7 @@ function vSettings() {
   <p><a class="btn" href="#/synthetic-sample">Fictional synthetic sample (for comparison)</a></p>
   <p class="muted">The old invented sample lives only on that screen — not on any learner screen.</p></div>
   <div class="card"><h2>Progress on this device</h2>
-  <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the Utah Section 9 syllabus. Changing the syllabus invalidates them.</p>
+  <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the Utah handbook syllabus. Changing the syllabus invalidates them.</p>
   <p><button id="reset-progress" class="secondary">Erase my preview progress</button></p></div>`;
 }
 
@@ -464,7 +595,7 @@ function vDossier() {
     <p>Stage 02 (dossier) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts a part: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Source dossier — Utah Section 9</h1>
+  return `<h1>Source dossier — Utah Driver Handbook</h1>
   <p class="muted">${esc(REAL_NOTE)}. Reviewer view, not a learner lesson: fact blocks as extracted, with provenance. Full audit is still pending.</p>
   ${dossier.map((e) => {
     const art = realArt(e);
@@ -504,7 +635,7 @@ function vModules() {
     <p>Stage 03 (combined KG) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts the KG: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Module structure — Utah Section 9</h1>
+  return `<h1>Module structure — Utah Driver Handbook</h1>
   <p class="muted">${esc(REAL_NOTE)}. Reviewer view, not a learner lesson: accepted knowledge-graph modules, nodes and learning path, with provenance. Full audit is still pending.</p>
   ${kg.map((e) => {
     const art = realArt(e);
@@ -534,12 +665,12 @@ function vRealCards() {
     for (const s of (art && art.audio_scripts) || []) scriptByCard[s.card_id] = s;
   }
   if (!cards.length) {
-    return `<h1>Real flashcards — Utah Section 9</h1>
+    return `<h1>Real flashcards — Utah Driver Handbook</h1>
     <div class="card"><h2>No accepted cards yet</h2>
     <p>Stage 04 (cards) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts cards: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Real flashcards — Utah Section 9</h1>
+  return `<h1>Real flashcards — Utah Driver Handbook</h1>
   <p class="muted">${esc(REAL_NOTE)}. Accepted stage-04 cards with provenance. Full audit is still pending. No images in this text-first preview: each card gives a page-sourced verbal cue task instead of a claimed visual-recognition measurement.</p>
   ${cards.map((e) => {
     const art = realArt(e);
@@ -564,12 +695,12 @@ function vRealCards() {
 function vRealQuiz() {
   const { exam } = realEntries();
   if (!exam.length) {
-    return `<h1>Real quiz — Utah Section 9</h1>
+    return `<h1>Real quiz — Utah Driver Handbook</h1>
     <div class="card"><h2>No accepted exam bank yet</h2>
     <p>Stage 06 (exam bank) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts the exam bank: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Real quiz — Utah Section 9</h1>
+  return `<h1>Real quiz — Utah Driver Handbook</h1>
   <p class="muted">${esc(REAL_NOTE)}. Accepted stage-06 exam items with provenance. Full audit is still pending. Scores describe observed practice only — never licensing eligibility, driving competence, or predicted success.</p>
   ${exam.map((e) => {
     const art = realArt(e);
@@ -598,12 +729,12 @@ function vRealQuiz() {
 function vRealLesson() {
   const { sessions } = realEntries();
   if (!sessions.length) {
-    return `<h1>Real lesson — Utah Section 9</h1>
+    return `<h1>Real lesson — Utah Driver Handbook</h1>
     <div class="card"><h2>No accepted lesson yet</h2>
     <p>Stage 05.sessions has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts sessions: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Real lesson — Utah Section 9</h1>
+  return `<h1>Real lesson — Utah Driver Handbook</h1>
   <p class="muted">${esc(REAL_NOTE)}. Accepted stage-05 teaching units with provenance. Full audit is still pending. Narration text is shown as written copy; no audio is generated in this preview.</p>
   ${sessions.map((e) => {
     const art = realArt(e);
@@ -773,6 +904,7 @@ function route() {
   let html = "", nav = "home", banner = "real", bannerText = REAL_NOTE;
   if (parts[0] === "") html = vHome();
   else if (parts[0] === "chapters") { html = vChapters(); nav = "chapters"; }
+  else if (parts[0] === "chapter") html = vChapter(decodeURIComponent(parts[1] || ""));
   else if (parts[0] === "module") html = vModule(decodeURIComponent(parts[1] || ""));
   else if (parts[0] === "lesson") html = vLesson(decodeURIComponent(parts[1] || ""));
   else if (parts[0] === "cards") html = vCards(decodeURIComponent(parts[1] || ""));

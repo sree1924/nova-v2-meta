@@ -44,8 +44,11 @@ function indexFact(id, section, pageMap) {
   // line after the body began, or at a heading / bold lead / next FACT_ID.
   let start = i + 1;
   if (match[1] !== undefined) while (start < lines.length && !lines[start].trim()) start++;
+  // The block also ends where ANOTHER fact of this chunk starts on the next line (legacy one-line-per-fact layout without
+  // blank lines, e.g. sec06 C2: "sec06-R02: … [A01]." right under R01).
+  const otherMarker = new RegExp(`^\\s*(?:[-*+]\\s+)?(?:\\*\\*)?(?:${(section.fact_ids ?? []).filter(f => f !== id).map(escape).join('|') || '(?!x)x'})(?:\\*\\*)?[.:]`);
   let end = start;
-  while (end < lines.length && lines[end].trim() && !/^\s*(?:#{1,6}\s|\*\*|§|FACT_ID:)/.test(lines[end])) end++;
+  while (end < lines.length && lines[end].trim() && !/^\s*(?:#{1,6}\s|\*\*|§|FACT_ID:)/.test(lines[end]) && !(end > start && otherMarker.test(lines[end]))) end++;
   const lead = match[1] ?? match[2] ?? '';
   // "Source: [Axx -> page]" trailers and "Why it matters:"-style commentary lines are bookkeeping, not fact wording; they stay
   // in the verbatim span only.
@@ -74,6 +77,8 @@ function indexFact(id, section, pageMap) {
   // Scaffold lines ("Group: x | Prereq: y | Difficulty: 2 | Confusable: z") are dossier bookkeeping, never fact wording;
   // anchor removal leaves " ." / " ," which is closed up. Both fixes are learner-facing: 04 backs must equal this statement.
   statement = statement.split('\n').filter(l => !/^\s*(?:[A-Za-z][A-Za-z _-]{0,20}:\s*[^|\n]*\|\s*){1,}[A-Za-z][A-Za-z _-]{0,20}:\s*[^|\n]*$/.test(l)).join('\n');
+  // KG-hint clauses ("group …; prereq …; difficulty N; confusable …") are C2 bookkeeping, never learner wording.
+  statement = statement.replace(/;\s*(?:group|prereq|prerequisite|difficulty|confusable|confusables|tags?)\s*:?\s*[^;.\n]*/gi, '').replace(/^\s*(?:group|prereq|prerequisite|difficulty|confusable|confusables)\s*:?\s*[^;.\n]*;\s*/i, '');
   statement = statement.replace(/\s+([.,;:!?])/g, '$1').replace(/[ \t]+(?=\n|$)/g, '').trim();
   if (!statement || /\(\s*verify\b/i.test(statement)) return {error: `${id}: empty or unresolved fact span cannot enter accepted wording`};
   const page = pages[0].page;
