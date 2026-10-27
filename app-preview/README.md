@@ -30,17 +30,22 @@ to the generated `*-embedded.js` copies (identical content) when opened via `fil
 - **Real learner content:** all 9 accepted parts of the stage-02 dossier
   plus the accepted stage-03 combined KG — `data/real/manifest.json`
   (written by `node tools/preview/export-content.mjs`, accepted ledger
-  tasks only) lists 10 files (`02_dossier_sections` ×9, tasks accepted,
+  tasks only) lists 12 files (`02_dossier_sections` ×9, tasks accepted,
   sha256-verified: section C 24 FACT_ID blocks, section C2 15 FACT_ID
   blocks, sections A/B/D/E/E2/F/G structural prose with no FACT_ID blocks;
   `03_combined_kg` ×1: 3 modules, 39 nodes, 18 edges, 39-step learning
   path). The `#/dossier` reviewer route renders every part's FACT_ID blocks
   (full prose for sections without FACT_ID blocks) and the `#/modules`
   reviewer route renders the KG module structure (modules → nodes,
-  learning path, unit hints, provenance), both with the
+  learning path, unit hints, provenance), the `#/real-cards` reviewer
+  route renders the accepted stage-04 cards (1 deck batch), and the
+  `#/real-quiz` reviewer route renders the accepted stage-06 exam bank
+  (39 items, 3 module quizzes, 2 practice forms, interactive with
+  rationales), all with the
   "REAL — Utah Section 9, validated, audit pending" banner (not lessons);
-  every learner screen keeps the SYNTHETIC banner. All other parts/panels
-  remain synthetic until the belt accepts them.
+  every learner screen keeps the SYNTHETIC banner. The real lesson stays
+  unwired until stage 05.sessions has an accepted task; all other
+  parts/panels remain synthetic until the belt accepts them.
 
 ## Learner routes (hash-based, in index.html)
 
@@ -57,6 +62,10 @@ sec09 parts (A, B, C, C2, D, E, E2, F, G); empty state for any part with no
 accepted task. `#/modules` module-structure view — the accepted stage-03
 combined KG (3 modules, 39 nodes, 18 edges, learning path, unit hints,
 provenance); empty state until stage 03 has an accepted task.
+`#/real-cards` real flashcards — the accepted stage-04 cards with provenance.
+`#/real-quiz` real quiz — the accepted stage-06 exam bank (39 items,
+3 module quizzes, 2 practice forms), interactive with per-option rationales
+and device-local results; empty state until stage 06 has an accepted task.
 
 ## Files (sha256, 2026-10-27 build)
 

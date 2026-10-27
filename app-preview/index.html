@@ -191,7 +191,10 @@ function vResults(attemptId) {
   <p class="muted">This describes observed practice only — never licensing eligibility, driving competence, or predicted success.</p></div>
   ${missed.length ? `<div class="card"><h2>Review these next</h2>${missed.map((a) => {
     const it = itemById(a.itemId);
-    return `<p><b>Question:</b> ${esc(it ? it.stem : a.itemId)}<br><b>You chose ${esc(a.picked)}; correct answer ${esc(it ? it.correct_key : "?")}.</b> ${esc(it ? it.correct_rationale : "")}</p>`; }).join("")}</div>`
+    const stem = it ? it.stem : (a.stem || a.itemId);
+    const why = it ? it.correct_rationale : (a.why || "");
+    const key = it ? it.correct_key : "?";
+    return `<p><b>Question:</b> ${esc(stem)}<br><b>You chose ${esc(a.picked)}; correct answer ${esc(key)}.</b> ${esc(why)}</p>`; }).join("")}</div>`
   : `<div class="card"><h2>Clean sweep</h2><p>Every answer matched. A useful next step: re-drill the flashcards from memory, then retake the practice set tomorrow.</p></div>`}
   <p><a class="btn" href="#/chapters">Back to the chapter hub</a></p>`;
 }
@@ -204,8 +207,9 @@ function vSettings() {
   <div class="card"><h2>Reviewer</h2>
   <p><a class="btn" href="#/dossier">Source dossier (reviewer view)</a>
   <a class="btn" href="#/modules">Module structure (reviewer view)</a>
-  <a class="btn" href="#/real-cards">Real flashcards (reviewer view)</a></p>
-  <p class="muted">Accepted belt artifacts only. Dossier shows an empty state until stage 02 has an accepted task; module structure until stage 03 has one; real flashcards until stage 04 has one. Never linked from the learner screens above.</p></div>
+  <a class="btn" href="#/real-cards">Real flashcards (reviewer view)</a>
+  <a class="btn" href="#/real-quiz">Real quiz (reviewer view)</a></p>
+  <p class="muted">Accepted belt artifacts only. Dossier shows an empty state until stage 02 has an accepted task; module structure until stage 03 has one; real flashcards until stage 04 has one; real quiz until stage 06 has one. The real lesson stays unwired until stage 05.sessions has an accepted task. Never linked from the learner screens above.</p></div>
   <div class="card"><h2>Progress on this device</h2>
   <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the sample syllabus. Changing the syllabus invalidates them.</p>
   <p><button id="reset-progress" class="secondary">Erase my preview progress</button></p></div>`;
@@ -219,7 +223,8 @@ function realEntries() {
     dossier: list.filter((e) => e.stage_id === "02.dossier_sections"),
     kg: list.filter((e) => e.stage_id === "03.combined_kg"),
     cards: list.filter((e) => e.stage_id === "04.cards"),
-    other: list.filter((e) => e.stage_id !== "02.dossier_sections" && e.stage_id !== "03.combined_kg" && e.stage_id !== "04.cards")
+    exam: list.filter((e) => e.stage_id === "06.exam_bank"),
+    other: list.filter((e) => e.stage_id !== "02.dossier_sections" && e.stage_id !== "03.combined_kg" && e.stage_id !== "04.cards" && e.stage_id !== "06.exam_bank")
   };
 }
 
@@ -228,7 +233,7 @@ function factBlocks(md) {
 }
 
 function vDossier() {
-  const { dossier, kg, cards, other } = realEntries();
+  const { dossier, kg, cards, exam, other } = realEntries();
   if (!dossier.length && !other.length) {
     return `<h1>Source dossier — reviewer view</h1>
     <div class="card"><h2>No accepted dossier parts yet</h2>
@@ -257,6 +262,8 @@ function vDossier() {
   <p>Stage 03 combined KG: ${kg.length} accepted task(s). <a class="btn" href="#/modules">View module structure</a></p></div>` : ""}
   ${cards.length ? `<div class="card"><h2>Accepted flashcards</h2>
   <p>Stage 04 cards: ${cards.length} accepted task(s). <a class="btn" href="#/real-cards">Study the real cards</a></p></div>` : ""}
+  ${exam.length ? `<div class="card"><h2>Accepted exam bank</h2>
+  <p>Stage 06 exam bank: ${exam.length} accepted task(s). <a class="btn" href="#/real-quiz">Take the real quiz</a></p></div>` : ""}
   ${other.length ? `<div class="card"><h2>Other accepted stages (learner wiring pending)</h2>
   <ul>${other.map((e) => `<li><code>${esc(e.stage_id)}</code> — task <code>${esc(e.task_id)}</code> · sha256 <code>${esc(e.sha256)}</code></li>`).join("")}</ul></div>` : ""}`;
 }
@@ -319,6 +326,72 @@ function vRealCards() {
   }).join("")}`;
 }
 
+function vRealQuiz() {
+  const { exam } = realEntries();
+  if (!exam.length) {
+    return `<h1>Real quiz — Utah Section 9</h1>
+    <div class="card"><h2>No accepted exam bank yet</h2>
+    <p>Stage 06 (exam bank) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here. The synthetic learner screens remain fully synthetic.</p>
+    <p class="muted">Operator step after the belt accepts the exam bank: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
+  }
+  return `<h1>Real quiz — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Accepted stage-06 exam items with provenance. Full audit is still pending. Scores describe observed practice only — never licensing eligibility, driving competence, or predicted success.</p>
+  ${exam.map((e) => {
+    const art = (R.files || {})[e.file.replace(/^data\/real\//, "")];
+    if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
+    const items = Array.isArray(art.items) ? art.items : [];
+    const byId = {};
+    items.forEach((it) => { byId[it.item_id] = it; });
+    const quizzes = Array.isArray(art.module_quizzes) ? art.module_quizzes : [];
+    const forms = Array.isArray(art.practice_forms) ? art.practice_forms : [];
+    const block = (ids, formId, title) => `<form data-rquiz="${esc(formId)}">
+      ${ids.map((id, i) => { const it = byId[id]; if (!it) return "";
+        return `<div class="card" data-ritem="${esc(it.item_id)}" data-correct="${esc(it.correct_key)}" data-why="${esc(it.correct_rationale)}" data-stem="${esc(it.stem)}"><h2>Question ${i + 1}</h2>
+        <p>${esc(it.stem)}</p>
+        <ol class="choices">${(it.options || []).map((o) => `<li><button type="button" class="option" data-key="${o.key}"><b>${o.key}.</b> ${esc(o.text)}</button></li>`).join("")}</ol>
+        <div hidden data-feedback></div>
+        <p class="muted">Module ${esc(it.module_id)} · node ${esc(it.node_id)} · ${esc(it.difficulty)} · source ${esc(it.source_ref && it.source_ref.ref)}${it.needs_review ? " · NEEDS REVIEW" : ""}</p></div>`; }).join("")}
+      <p><button type="submit">Check answers</button></p>
+      <div data-summary></div></form>`;
+    return `<div class="card"><h2>Stage 06 exam bank: ${items.length} items · ${quizzes.length} module quiz(zes) · ${forms.length} practice form(s)</h2>
+    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    + forms.map((f) => `<div class="card"><h2>${esc(f.title)} (practice form)</h2></div>` + block(f.item_ids || [], "real:form:" + f.form_id, f.title)).join("")
+    + quizzes.map((q) => `<div class="card"><h2>${esc(q.title)} (module quiz)</h2></div>` + block(q.item_ids || [], "real:quiz:" + q.quiz_id, q.title)).join("");
+  }).join("")}`;
+}
+
+function realGradeQuiz(form, formId, title) {
+  const answers = [];
+  form.querySelectorAll("[data-ritem]").forEach((box) => {
+    const correct = box.dataset.correct;
+    const why = box.dataset.why || "";
+    const stem = box.dataset.stem || box.dataset.ritem;
+    const picked = box.querySelector(".option[aria-pressed='true']")?.dataset.key || null;
+    const ok = picked === correct;
+    const correctBtn = box.querySelector(`.option[data-key="${correct}"]`);
+    answers.push({ itemId: box.dataset.ritem, picked, correct: ok, stem, why });
+    const fb = box.querySelector("[data-feedback]");
+    fb.hidden = false;
+    fb.innerHTML = picked
+      ? (ok ? `<p class="result-good">Correct.</p>` : `<p class="result-bad">Not quite — you chose ${esc(picked)}.</p>`) + `<p><b>Why ${esc(correct)}:</b> ${esc(why)}</p>`
+      : `<p class="result-bad">No answer chosen.</p><p><b>Correct answer ${esc(correct)}:</b> ${esc(correctBtn ? correctBtn.textContent : "")} — ${esc(why)}</p>`;
+    box.querySelectorAll(".option").forEach((b) => {
+      b.disabled = true;
+      if (b.dataset.key === correct) b.classList.add("picked-correct");
+      else if (b.getAttribute("aria-pressed") === "true") b.classList.add("picked-wrong");
+      else b.classList.add("dim");
+    });
+  });
+  const correctCount = answers.filter((a) => a.correct).length;
+  const attemptId = "attempt-" + Date.now().toString(36);
+  saveResult({ attemptId, formId, title, answers, correctCount, takenAt: new Date().toISOString() });
+  form.querySelector("[data-summary]").innerHTML =
+    `<div class="card"><h2>You answered ${correctCount} of ${answers.length}</h2>
+    <p class="muted">Observed practice only — never licensing eligibility or predicted success.</p>
+    <p><a class="btn" href="#/results/${attemptId}">See results and next steps</a></p></div>`;
+  form.querySelector("[data-summary]").scrollIntoView();
+}
+
 function gradeQuiz(form, formId, title) {
   const answers = [];
   form.querySelectorAll("[data-item]").forEach((box) => {
@@ -373,6 +446,12 @@ function wire() {
       gradeQuiz(form, form.dataset.quiz, document.querySelector("#view h1")?.textContent || "Practice");
     });
   });
+  view.querySelectorAll("form[data-rquiz]").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      realGradeQuiz(form, form.dataset.rquiz, document.querySelector("#view h1")?.textContent || "Real quiz");
+    });
+  });
   const reset = view.querySelector("#reset-progress");
   if (reset) reset.addEventListener("click", () => {
     localStorage.removeItem(store.key);
@@ -396,10 +475,11 @@ function route() {
   else if (parts[0] === "dossier") html = vDossier();
   else if (parts[0] === "modules") html = vModules();
   else if (parts[0] === "real-cards") html = vRealCards();
+  else if (parts[0] === "real-quiz") html = vRealQuiz();
   else html = vMissing();
-  if (parts[0] === "dossier" || parts[0] === "modules" || parts[0] === "real-cards") {
+  if (parts[0] === "dossier" || parts[0] === "modules" || parts[0] === "real-cards" || parts[0] === "real-quiz") {
     const re = realEntries();
-    const n = parts[0] === "dossier" ? re.dossier.length + re.kg.length + re.cards.length + re.other.length : parts[0] === "modules" ? re.kg.length : re.cards.length;
+    const n = parts[0] === "dossier" ? re.dossier.length + re.kg.length + re.cards.length + re.exam.length + re.other.length : parts[0] === "modules" ? re.kg.length : parts[0] === "real-quiz" ? re.exam.length : re.cards.length;
     setBanner(n ? "real" : "review", n ? REAL_NOTE : REVIEWER_EMPTY_NOTE);
   } else setBanner("synthetic", SYNTHETIC_NOTE);
   view.innerHTML = html;
