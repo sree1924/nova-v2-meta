@@ -531,3 +531,21 @@
 - 2026-10-27T21:51:07.506Z retry nonce 02.dossier_sections:C@sec15-vehicle-equipment → 3 after HOLD (sec15-vehicle-equipment); non-PASS: 02.FACT_LINES_CITED=FAIL
 
 - 2026-10-27T21:51:07.618Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:124 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:51:50.135Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:125 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:52:13.845Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:126 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:52:37.549Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:127 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:52:48.874Z retry nonce 02.dossier_sections:E2@sec15-vehicle-equipment → 1 after HOLD (sec15-vehicle-equipment); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:52:59.742Z retry nonce 02.dossier_sections:E2@sec15-vehicle-equipment → 2 after HOLD (sec15-vehicle-equipment); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:52:59.887Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:128 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:53:12.588Z retry nonce 02.dossier_sections:E2@sec15-vehicle-equipment → 3 after HOLD (sec15-vehicle-equipment); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:53:23.273Z retry nonce 02.dossier_sections:E2@sec15-vehicle-equipment → 4 after HOLD (sec15-vehicle-equipment); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:53:23.514Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:129 for 02.dossier_sections (sec16-towing) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
