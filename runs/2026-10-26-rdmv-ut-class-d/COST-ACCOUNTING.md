@@ -70,7 +70,7 @@ floor of ~15 accepted calls (9 dossier parts + 5 learner stages + retries).
 | Belt (product), conventions already stable | **≈ $35** | 16 × $2.17; no learning section |
 | Belt, first-of-kind state with a different handbook shape | ≈ $45–50 | one learning section at ~$11 |
 | Operator (Muse Code) | $0 marginal | subscription, flat |
-| Narration audio (optional, not Meta) | ≈ $12–15 | OpenAI TTS via the Nova minter at ~$0.005/clip; Meta has no TTS |
+| Narration audio (not Meta) | ≈ $7.50 (Utah actual: 1,509 clips, dry-run $7.54, 0 failures, 2026-10-27 23:08–23:45Z) | OpenAI gpt-4o-mini-tts via tools/audio/mint-utah-audio.mjs (fleet recipe); Meta has no TTS |
 | Spoken recall (Muse Voice Transcribe) | cents | $0.18 / audio-hour, learner-driven |
 
 50 states at belt-only ≈ $1,750; with narration ≈ $2,500.
