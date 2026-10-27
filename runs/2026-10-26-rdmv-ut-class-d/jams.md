@@ -165,3 +165,21 @@
 - 2026-10-27T18:25:21.147Z retry nonce 06.exam_bank: → 9 after HOLD (sec09-rules-of-the-road); non-PASS: 06.ANSWER_RATIONALE_AGREEMENT=FAIL
 
 - 2026-10-27T18:26:28.678Z retry nonce 06.exam_bank: → 10 after HOLD (sec09-rules-of-the-road); non-PASS: 06.ANSWER_RATIONALE_AGREEMENT=FAIL
+
+- 2026-10-27T18:31:02.956Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:31 for 06.exam_bank (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T18:32:40.158Z retry nonce 05.sessions: → 1 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SLIDE_ARC=FAIL, 05.SELF_CHECK_ALIGNED=FAIL, 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T18:33:14.958Z retry nonce 05.sessions: → 2 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SLIDE_COUNT=FAIL, 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T18:33:15.076Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:32 for 05.sessions (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.SLIDE_COUNT=FAIL,05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T18:33:51.043Z retry nonce 05.sessions: → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SLIDE_COUNT=FAIL, 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T18:34:20.011Z retry nonce 05.sessions: → 4 after HOLD (sec09-rules-of-the-road); non-PASS: 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T18:34:20.138Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:33 for 05.sessions (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T18:34:47.888Z retry nonce 05.sessions: → 5 after HOLD (sec09-rules-of-the-road); non-PASS: 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T18:35:19.204Z retry nonce 05.sessions: → 6 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SELF_CHECK_ALIGNED=FAIL, 05.STAGE_DIRECTIONS=FAIL
