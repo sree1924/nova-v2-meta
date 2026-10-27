@@ -161,8 +161,16 @@ sectionLoop: for (section of sections) {
       let c;
       // The compile may need to re-bind the ledger to a changed run-config (cap amendments); it does so under a GO minted from
       // the standing authority, exactly like a dispatch.
-      try { c = await compileAcceptedDossier({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, sectionIds: [section], approvalRef: dry ? null : mintApproval('16.compile', Math.min(1, standing.usd_cap_total - spentUsd())) }); }
-      catch (e) { console.log(`  16.compile: ERROR — ${e.message.slice(0, 300)}`); console.log(`STOP ${section}: compile threw (an attempt may be left running — reconcile it)`); outcomes[section] = 'ERROR 16.compile'; break sectionLoop; }
+      // The C28 lineage attempt cap counts compile tasks too; several sections' compiles share a lineage, so on
+      // LINEAGE_ATTEMPT_LIMIT (thrown before any attempt row exists) reset the lineage and compile again, like a dispatch.
+      for (let tries = 0; ; tries++) {
+        try { c = await compileAcceptedDossier({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, sectionIds: [section], approvalRef: dry ? null : mintApproval('16.compile', Math.min(1, standing.usd_cap_total - spentUsd())) });; break; }
+        catch (e) {
+          if (/LINEAGE_ATTEMPT_LIMIT/.test(e.message) && tries < 2) { const to = resetLineage('16.compile', `compile attempt cap on shared lineage (${section})`); console.log(`  16.compile: lineage → ${to}`); continue; }
+          console.log(`  16.compile: ERROR — ${e.message.slice(0, 300)}`); console.log(`STOP ${section}: compile threw`); outcomes[section] = 'ERROR 16.compile'; c = null; break;
+        }
+      }
+      if (!c) continue sectionLoop;
       console.log(`  16.compile: ${c.status}${c.reused ? ' (reused ' + (c.reused_from ?? 'accepted compile') + ')' : ''}${c.reason ? ' — ' + c.reason : ''}${c.errors ? ' — ' + JSON.stringify(c.errors).slice(0, 300) : ''}`);
       if (c.status !== 'PASS') { console.log(`STOP ${section}: compile not PASS`); outcomes[section] = 'HOLD 16.compile'; continue sectionLoop; }
       continue;

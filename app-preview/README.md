@@ -16,17 +16,22 @@ it is NOT in the learner top nav.
 
 - **Real (belt ledger, accepted only):** every learner screen. The course is the whole
   Utah Driver Handbook — one chapter per handbook section in handbook order
-  (sec01 … sec16). 4 of 16 chapters are built (sections with an accepted
-  stage-03 KG): Chapter 2 Licensing Requirements (KG only: 3 modules, 17 nodes —
-  lesson/cards/quiz show "not yet built"), Chapter 4 License Types and ID
-  Documents (KG only: 3 modules, 22 nodes — lesson/cards/quiz "not yet built"),
-  Chapter 5 Vision and Health (full chain: 3 modules, 16 nodes, 21 slides in
+  (sec01 … sec16). 5 of 16 chapters are built (sections with an accepted
+  stage-03 KG), all five full chains: Chapter 2 Licensing Requirements
+  (3 modules, 17 nodes, 22 slides in 3 lessons, 17 flashcards + teaching
+  scripts + recaps, 18 quiz items, 2 practice forms of 9 + 9),
+  Chapter 3 Driver Education and Permits (3 modules, 19 nodes, 21 slides in
+  3 lessons, 19 flashcards + teaching scripts + recaps, 19 quiz items,
+  2 practice forms of 9 + 10), Chapter 4 License Types and ID Documents
+  (3 modules, 22 nodes, 21 slides in 3 lessons, 22 flashcards + teaching
+  scripts + recaps, 22 quiz items, 2 practice forms of 8 + 8),
+  Chapter 5 Vision and Health (3 modules, 16 nodes, 21 slides in
   3 lessons, 16 flashcards + teaching scripts + recaps, 16 quiz items,
-  2 × 8 practice forms), Chapter 9 Rules of the Road (full chain: 3 modules,
+  2 × 8 practice forms), Chapter 9 Rules of the Road (3 modules,
   39 nodes, 21 slides in 3 lessons, 39 flashcards + teaching scripts + recaps,
   39 quiz items, 2 × 19 practice forms). Home shows the aggregate counts from
-  the exports (4 of 16 chapters · 55 flashcards · 55 quiz items · 6 lessons,
-  42 slides) with the REAL banner and the trace link. Section 9 keeps its
+  the exports (5 of 16 chapters · 113 flashcards · 114 quiz items · 15 lessons,
+  106 slides) with the REAL banner and the trace link. Section 9 keeps its
   unprefixed belt ids (m01, u01, card-F01, q01…, form-a/b); all other sections
   use the belt's per-section namespaced ids (sec05-m01, sec05-u01,
   sec05-card-…, sec05-itm-…, sec05-form-a/b) and are told apart by each export
@@ -34,7 +39,7 @@ it is NOT in the learner top nav.
   "REAL — Utah Driver Handbook, belt-validated, audit pending" plus
   per-card/item/slide source links (fact id + handbook page + chapter).
   `data/real/manifest.json` (written by `node tools/preview/export-content.mjs`,
-  accepted ledger tasks only, one `section_id` per file) lists 76 files.
+  accepted ledger tasks only, one `section_id` per file) lists 89 files.
   Practice forms are practice only — no official pass claim. Chapters without
   accepted artifacts render "not yet built" — no synthetic filler anywhere.
 - **Synthetic (invented):** one screen only, `#/synthetic-sample` — the old sample about
@@ -47,9 +52,9 @@ it is NOT in the learner top nav.
   `{call-receipt, validation, reservation, request-envelope}.json` files.
   Raw prompts/responses are never embedded (sha256 + bytes only); secrets never printed;
   every unknown is null with a reason. Exported 2026-10-27 by
-  `node tools/preview/export-trace.mjs` (177 attempts,
-  11,089,593 prompt tokens, 1,267,540 completion tokens, estimated $19.249055,
-  ledger actual 20,249,055 micro-USD; exported 2026-10-27T20:11:10.237Z).
+  `node tools/preview/export-trace.mjs` (204 attempts,
+  12,697,489 prompt tokens, 1,476,089 completion tokens, estimated $22.145262,
+  ledger actual 23,145,262 micro-USD; exported 2026-10-27T20:27:51.543Z).
 
 ## Learner routes (hash-based, in index.html)
 
@@ -70,12 +75,12 @@ Reviewer routes (not in the top nav; linked from settings/about):
 blocks with section/task/attempt/sha256 provenance (9 accepted parts each for
 sec01, sec02, sec03, sec04, sec05, sec06, sec09, plus sec07 part C).
 `#/modules` module-structure view — accepted stage-03 combined KGs per section
-(sec02, sec04, sec05, sec09) with provenance. `#/real-cards` real flashcards —
-accepted stage-04 cards with provenance (sec05, sec09),
+(sec02, sec03, sec04, sec05, sec09) with provenance. `#/real-cards` real flashcards —
+accepted stage-04 cards with provenance (sec02, sec03, sec04, sec05, sec09),
 plus accepted stage-05 card_scripts narration (teaching text per card) under each answer.
-`#/real-quiz` real quiz — accepted stage-06 exam banks (sec05, sec09), interactive
-with per-option rationales and device-local results. `#/real-lesson` real lesson —
-accepted stage-05 teaching units (sec05, sec09) with provenance.
+`#/real-quiz` real quiz — accepted stage-06 exam banks (sec02, sec03, sec04, sec05, sec09),
+interactive with per-option rationales and device-local results. `#/real-lesson` real lesson —
+accepted stage-05 teaching units (sec02, sec03, sec04, sec05, sec09) with provenance.
 
 ## Files (sha256, 2026-10-27 build)
 
@@ -85,11 +90,11 @@ accepted stage-05 teaching units (sec05, sec09) with provenance.
 | trace.html | 6d4501a1dfad55d54ed0f30d0eb77cf4ca0a5fe7a22c5e9eb04880098631e325 | 6662 |
 | styles.css | c864b32d7dd77369c0c5045be514b969ac4fc64235f3f78c0ab8279cfe1fceee | 4509 |
 | data-embedded.js (generated) | c84fa9dbcf7eea8de9cc04509752ab2b33924a0df106507190e6e78ad75e6eaf | 15625 |
-| trace-embedded.js (generated) | c4016688272ab3502875232a224ff87b8f5a5db4b2894b047ed50966ba0a5649 | 1225947 |
-| data-real-embedded.js (generated) | 25fe712cfbbf982e6f89ee461c31dc73f1b1eb3668447d906b6d88e2c5c65c53 | 743231 |
+| trace-embedded.js (generated) | 1e11f5cafbd1c72764224a5753bdb9c30c7e8d56401c2768450f6fa6ff2a0a7f | 1397764 |
+| data-real-embedded.js (generated) | 25f8d600e2e460e53ea308321f7a70ca75005c6bc2ae55d3b9c77cf5ab0bcf31 | 1134991 |
 | data/manifest.json | c0b86c105fbf9b71514d41bf2aa3a3881e863c32bfb2f8cf94747aef470afd21 | 578 |
-| data/trace.json (generated) | b392268d9ded5dc84684472b63188733fb96b3e0889a56029741051897610b7e | 1677959 |
-| data/real/manifest.json (generated) | 1ea1b674fa4c28ebadd5f8b5a6e844b1cd7c4d58d79f2f1aec66ce76b4d1b477 | 59655 |
+| data/trace.json (generated) | cd58d9df956d2e3582164148468597f987bbd2c35dd47fd0ce329c196cecdce5 | 1916517 |
+| data/real/manifest.json (generated) | 056e2285bd9c3e66d200cbbd120e1e7c100d624c590bd66f8c85c43be1574c46 | 69696 |
 | data/synthetic/04-carddeck.synthetic.json | 0b180dcf649357a0af65ad81d0fa9e0e0cc8950366c35213a765efd127adc08b | 4718 |
 | data/synthetic/05b-session-scripts.synthetic.json | faa656715d57040de79dc457be06922224eb43ab8317319eabdf2041d4d73d35 | 3676 |
 | data/synthetic/06-exambank.synthetic.json | b6ae8486eb7ecca2265f27b30d514210cd71653e2fbd405606e75c93f57ce686 | 6382 |

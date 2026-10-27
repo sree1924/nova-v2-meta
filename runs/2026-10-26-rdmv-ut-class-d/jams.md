@@ -353,3 +353,9 @@
 - 2026-10-27T20:21:33.072Z retry nonce 05.sessions:@sec02-licensing-requirements → 2 after HOLD (sec02-licensing-requirements); non-PASS: 05.SLIDE_ARC=FAIL
 
 - 2026-10-27T20:21:33.323Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:76 for 05.sessions (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.SLIDE_ARC=FAIL
+
+- 2026-10-27T20:21:59.399Z retry nonce 05.sessions:@sec02-licensing-requirements → 3 after HOLD (sec02-licensing-requirements); non-PASS: 05.SLIDE_ARC=FAIL
+
+- 2026-10-27T20:24:41.517Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:77 for 05.sessions (sec03-driver-education-permits) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T20:36:42.116Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:78 for 16.compile (sec06-examinations) under standing authority; cause: compile attempt cap on shared lineage (sec06-examinations)
