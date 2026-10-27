@@ -209,3 +209,23 @@
 - 2026-10-27T19:23:49.870Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:38 for 02.dossier_sections (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
 
 - 2026-10-27T19:24:21.964Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:39 for 02.dossier_sections (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:24:49.794Z retry nonce 02.dossier_sections:E@sec01-definitions → 1 after HOLD (sec01-definitions); non-PASS: 02.CORPUS_STABILITY=FAIL
+
+- 2026-10-27T19:24:49.888Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:40 for 02.dossier_sections (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.CORPUS_STABILITY=FAIL
+
+- 2026-10-27T19:25:16.913Z retry nonce 02.dossier_sections:E2@sec01-definitions → 1 after HOLD (sec01-definitions); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:25:17.165Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:41 for 02.dossier_sections (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:25:46.143Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:42 for 02.dossier_sections (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:26:08.513Z retry nonce 02.dossier_sections:G@sec01-definitions → 1 after HOLD (sec01-definitions); non-PASS: 02.DEBT_TYPED=FAIL
+
+- 2026-10-27T19:26:24.743Z retry nonce 02.dossier_sections:G@sec01-definitions → 2 after HOLD (sec01-definitions); non-PASS: 02.G_MATRIX=FAIL
+
+- 2026-10-27T19:26:24.887Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:43 for 02.dossier_sections (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.G_MATRIX=FAIL
+
+- 2026-10-27T19:26:45.644Z retry nonce 02.dossier_sections:G@sec01-definitions → 3 after HOLD (sec01-definitions); non-PASS: 02.G_MATRIX=FAIL
+
+- 2026-10-27T19:27:09.969Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:44 for 02.dossier_sections (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
