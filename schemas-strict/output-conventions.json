@@ -1,0 +1,22 @@
+{
+  "artifact_type": "StageOutputConventions",
+  "version": "0.4.0",
+  "owner": "Claude lane (schemas-strict) — the exact conventions tools/belt/checks/* enforce; injected by the controller into inputData.output_conventions so the generator is graded only on rules it was told. Sol folds these into prompts/*.md at the next re-pin.",
+  "stages": {
+    "02.dossier_sections": {
+      "envelope_scope": "chunk_index and chunk_total are 1-based integers with 1 <= chunk_index <= chunk_total; kind complete_dossier requires chunk 1/1 and all nine section ids A,B,C,C2,D,E,E2,F,G; kind partial_chunk carries exactly its assigned_section_ids.",
+      "sections.merge_seq": "merge_seq values are 1..N contiguous and unique across the chunks of this envelope (N = number of chunks in the envelope); never reuse a global counter.",
+      "sections.learner_facing": "sections A and C are learner_facing:true (their prose may be shown to learners); B, C2, D, E, E2, F, G are learner_facing:false.",
+      "sections.char_count": "char_count = number of Unicode code points of sections[].markdown exactly as emitted; the validator recomputes it; it must be below section_char_limit (max 12000).",
+      "citations": "every fact-bearing line (any line containing a number, threshold, distance, time, age, fee, penalty, or a rule) must cite a declared source anchor: either inline as [Axx] on that line, or as the lead line of a fact block in the form 'FACT_ID: <id> | anchor: Axx' followed by the block's lines and a trailer 'Source: [Axx -> <source_page>]'. A line with no supporting page carries '(verify)' plus an open verification_debt claim_id instead of a value.",
+      "source_anchors": "every anchor id used in markdown is declared in sections[].source_anchors with its registered source_page code; anchors never map to two pages.",
+      "exam_facts": "exam_facts entries are {value, status, source_page}; status unknown REQUIRES value null and source_page null; status verified REQUIRES a non-null value and a registered source_page; never fill a placeholder, never guess an exam name, body, count, time or threshold; verified facts supplied in safe_run_config.exam_facts may be restated with their source_page.",
+      "numerals": "no numeral whose fact status is not verified, and no value listed in verification_debt[].withheld_values, may appear in learner_facing sections.",
+      "high_yield_ranked": "one contiguous ranked list per knowledge domain present in the chunk; each entry names item_refs that exist in the chunk's fact ids.",
+      "verification_debt": "typed per the 02 contract: blocker_kind, source_tier_required, owner_worker, ship_blocking, expires_by, claim_id, located_at (chunk_id:Lnn).",
+      "no_reproduction": "no handbook sentence, table, image or official question is copied; original wording; no learner text overlaps the handbook by more than 12 consecutive normalized words.",
+      "lineage": "lineage.input_manifest_sha256 = the system header value bindings.input_manifest_sha256 (also runtime_bindings.input_manifest_sha256 when present); lineage.candidate_lineage_id = the system header value task.candidate_lineage_id; lineage.source_registry_sha256 = runtime_bindings.source_registry_sha256; lineage.source_liveness_sha256 = runtime_bindings.source_liveness_sha256. Copy exactly; never null, never invented.",
+      "expected_merged_sha256": "you cannot compute SHA-256 of your own output: set merge.expected_merged_sha256 to null (or 64 zeros); the validator computes and records the merged hash. For partial_chunk envelopes the merged hash is not compared."
+    }
+  }
+}

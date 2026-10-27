@@ -95,16 +95,23 @@ export function uncitedFactLines(section, openDebtIds) {
   const debtRe = openDebtIds.length ? new RegExp(`(^|[^A-Za-z0-9-])(${openDebtIds.map(escapeRe).join('|')})(?![A-Za-z0-9])`) : null;
   const out = [];
   let lead = null; let inFence = false; let factLines = 0;
+  // Fact-block lead: "FACT_ID: <id> | anchor: Axx" with a declared anchor covers the block's lines until the next blank line
+  // (output-conventions.json, 02 citations). A "Source: [Axx -> page]" trailer is itself anchored.
+  const blockLeadRe = /^\s*FACT_ID:\s*\S+\s*\|\s*anchor:\s*([A-Za-z0-9_-]+)\s*$/;
+  let blockAnchored = false;
   const lines = (section.markdown ?? '').split('\n');
   lines.forEach((line, i) => {
     if (/^\s*```/.test(line)) { inFence = !inFence; return; }
     if (inFence) return;
-    if (line.trim() === '') { lead = null; return; }
+    if (line.trim() === '') { lead = null; blockAnchored = false; return; }
+    const bl = line.match(blockLeadRe);
+    if (bl) { blockAnchored = anchorIds.includes(bl[1]); }
     const cont = isContinuation(line);
     if (!cont) lead = line;                        // lead = nearest preceding non-list/non-table line in the same block
     if (!isFactBearing(line, anchorIds)) return;
     factLines++;
     if (hasAnchor(line)) return;
+    if (blockAnchored) return;
     if (cont && lead !== null && hasAnchor(lead)) return;
     if (/\(verify/i.test(line) && debtRe && debtRe.test(line)) return;
     out.push(`${section.chunk_id}:L${i + 1}${/\(verify/i.test(line) ? '(verify-without-open-debt-id)' : ''}`);
@@ -176,18 +183,19 @@ export function run(artifact, context = {}) {
   // SECTION_BOUNDS — truncation guard part 1: declared vs computed size, hard cap.
   {
     const limit = Math.min(Number.isInteger(a.section_char_limit) && a.section_char_limit > 0 ? a.section_char_limit : CONTRACT_MAX_SECTION_CHARS, CONTRACT_MAX_SECTION_CHARS);
-    const errs = [];
+    const errs = []; const selfCountMismatch = [];
     let maxSeen = 0;
     for (const s of sections) {
-      const n = cp(s.markdown);
+      const n = cp(s.markdown);                     // the validator's count is authoritative; the model's char_count is advisory
       maxSeen = Math.max(maxSeen, n);
       if (n === 0) errs.push(`${s.chunk_id} empty markdown`);
-      if (s.char_count !== n) errs.push(`${s.chunk_id} char_count ${s.char_count} != computed ${n}`);
+      if (s.char_count !== n) selfCountMismatch.push(`${s.chunk_id} declared ${s.char_count} vs computed ${n}`);
       if (n >= limit) errs.push(`${s.chunk_id} ${n} code points >= cap ${limit} (treated as truncated)`);
     }
     if (a.section_char_limit > CONTRACT_MAX_SECTION_CHARS) errs.push(`declared section_char_limit ${a.section_char_limit} exceeds contract max ${CONTRACT_MAX_SECTION_CHARS}`);
-    out.push(errs.length ? chk('SECTION_BOUNDS', F, head(errs), { effective_limit: limit, max_chunk_chars: maxSeen })
-      : chk('SECTION_BOUNDS', P, `all ${sections.length} chunks < ${limit} code points; char_count exact`, { effective_limit: limit, max_chunk_chars: maxSeen }));
+    const metrics = { effective_limit: limit, max_chunk_chars: maxSeen, self_count_mismatches: selfCountMismatch.length };
+    out.push(errs.length ? chk('SECTION_BOUNDS', F, head(errs), metrics)
+      : chk('SECTION_BOUNDS', P, `all ${sections.length} chunks < ${limit} code points (computed)${selfCountMismatch.length ? `; self-reported char_count off on ${selfCountMismatch.length}: ${head(selfCountMismatch)}` : '; char_count exact'}`, metrics));
   }
 
   // TRUNCATION_GUARD — part 2: structural balance + clean ending.
@@ -214,7 +222,10 @@ export function run(artifact, context = {}) {
     if (m1.sha256 !== m2.sha256) errs.push('merge differs with input order');
     // expected_merged_sha256 names the FULL merged dossier: compared to this envelope's own merge when it is a
     // complete_dossier, and to the cross-envelope merge when sibling envelopes are supplied for a partial_chunk.
-    const exp = a.merge?.expected_merged_sha256;
+    // A generator cannot hash its own output: null or 64 zeros means "not computed" (output-conventions.json); the validator
+    // computes and records the merged hash. Only a real declared hash is compared.
+    const expRaw = a.merge?.expected_merged_sha256;
+    const exp = typeof expRaw === 'string' && /^[a-f0-9]{64}$/.test(expRaw) && !/^0{64}$/.test(expRaw) ? expRaw : null;
     const partial = a.envelope_scope?.kind === 'partial_chunk';
     if (exp && !partial && exp !== m1.sha256) errs.push(`expected_merged_sha256 ${exp} != computed ${m1.sha256}`);
     let siblingNote = '';

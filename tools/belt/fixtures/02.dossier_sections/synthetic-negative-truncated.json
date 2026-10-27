@@ -4,10 +4,10 @@
     "label": "SYNTHETIC negative — truncated section chunk",
     "expected_status_with_context": "FAIL",
     "expected_failing_checks": [
-      "02.SECTION_BOUNDS",
       "02.TRUNCATION_GUARD",
       "02.MERGE_DETERMINISTIC"
-    ]
+    ],
+    "note_2026_10_27": "SECTION_BOUNDS now treats a declared-vs-computed char_count mismatch as a metric (self_count_mismatches) and FAILs only on empty chunk, chunk >= limit, or declared limit > contract max; truncation here is caught by TRUNCATION_GUARD and MERGE_DETERMINISTIC."
   },
   "artifact": "SmeDossierEnvelope",
   "schema_version": "0.4.0",
