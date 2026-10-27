@@ -415,3 +415,25 @@
 - 2026-10-27T21:09:43.023Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:89 for 05.sessions (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.NARRATION_DEPTH=FAIL,05.SELF_CHECK_ALIGNED=FAIL
 
 - 2026-10-27T21:10:09.014Z retry nonce 05.sessions:@sec06-examinations → 3 after HOLD (sec06-examinations); non-PASS: 05.NARRATION_DEPTH=FAIL
+
+- 2026-10-27T21:12:02.071Z retry nonce 06.exam_bank:@sec07-preparing-vehicle → 1 after HOLD (sec07-preparing-vehicle); non-PASS: 06.OPTIONS_SHAPE=FAIL
+
+- 2026-10-27T21:12:45.413Z retry nonce 06.exam_bank:@sec07-preparing-vehicle → 2 after HOLD (sec07-preparing-vehicle); non-PASS: 06.OPTIONS_SHAPE=FAIL
+
+- 2026-10-27T21:12:45.609Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:90 for 06.exam_bank (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 06.OPTIONS_SHAPE=FAIL
+
+- 2026-10-27T21:15:09.479Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:91 for 02.dossier_sections (sec08-basic-driving) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:15:34.730Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:92 for 02.dossier_sections (sec08-basic-driving) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:15:59.786Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:93 for 02.dossier_sections (sec08-basic-driving) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:16:21.298Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:94 for 02.dossier_sections (sec08-basic-driving) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:18:28.807Z retry nonce 05.sessions:@sec08-basic-driving → 1 after HOLD (sec08-basic-driving); non-PASS: 05.SLIDE_ARC=FAIL, 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T21:18:53.453Z retry nonce 05.sessions:@sec08-basic-driving → 2 after HOLD (sec08-basic-driving); non-PASS: 05.SLIDE_ARC=FAIL, 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T21:18:53.639Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:95 for 05.sessions (sec08-basic-driving) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.SLIDE_ARC=FAIL,05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T21:19:22.325Z retry nonce 05.sessions:@sec08-basic-driving → 3 after HOLD (sec08-basic-driving); non-PASS: 05.SLIDE_ARC=FAIL
