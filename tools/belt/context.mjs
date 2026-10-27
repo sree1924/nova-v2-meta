@@ -187,6 +187,9 @@ export function assembleContext({projectRoot, runRoot, stageId, acceptedArtifact
       context.accepted_inputs.high_yield_ids = copy(context.accepted_inputs.high_yield_fact_ids);
     }
     if (compiled.blueprint_mnemonics && !context.accepted_inputs.blueprint_mnemonics) context.accepted_inputs.blueprint_mnemonics = copy(compiled.blueprint_mnemonics);
+    // The pilot 02 adapter carries no SME mnemonic map (mnemonics live only as the G05 DoD box), so an accepted compile without one
+    // binds an EMPTY map: every 04 hook is therefore "minted" (04.HOOK_ORIGIN mnemonic-first rule has nothing to carry). Recorded, not guessed.
+    else if (!context.accepted_inputs.blueprint_mnemonics) { context.accepted_inputs.blueprint_mnemonics = {}; context.accepted_inputs.blueprint_mnemonics_source = 'none_in_pilot_02_adapter'; }
   }
   const kg = context.accepted_inputs.knowledge_graph;
   if (kg) {

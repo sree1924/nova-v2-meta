@@ -67,19 +67,19 @@
     },
     "total_usd": 30
   },
-  "exported_at": "2026-10-27T17:52:40.628Z",
+  "exported_at": "2026-10-27T17:57:22.564Z",
   "exporter": "tools/preview/export-trace.mjs (read-only ledger export, no model calls)",
   "ledger_path": "runs/2026-10-26-rdmv-ut-class-d/ledger/run.sqlite",
   "totals": {
-    "attempts": 50,
-    "model_calls_completed": 43,
-    "prompt_tokens": 2670584,
-    "completion_tokens": 309641,
-    "reasoning_tokens_observed": 147056,
-    "estimated_usd": 4.654209,
-    "actual_microusd_exact": 5654209,
-    "reserved_microusd_total": 46000000,
-    "actual_usd_exact": 5.654209
+    "attempts": 51,
+    "model_calls_completed": 44,
+    "prompt_tokens": 2737677,
+    "completion_tokens": 325512,
+    "reasoning_tokens_observed": 149890,
+    "estimated_usd": 4.805527,
+    "actual_microusd_exact": 5805527,
+    "reserved_microusd_total": 47000000,
+    "actual_usd_exact": 5.805527
   },
   "lineages": [
     {
@@ -240,6 +240,12 @@
         "attempt_12aeae81ec0dcb4e25f1ecf8451fc0d926cd456d500f0e87e341e923f8bc038d",
         "attempt_230cb9ecb818870a107ba90f34749d7fefb2ee7d8eb6173f095df83ef7809d2f",
         "attempt_b473c3dd69cab9235980ad9397f26805e72a5b22ea66e67ad605c3c69b7c50a6"
+      ]
+    },
+    {
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:23",
+      "attempts": [
+        "attempt_47174e1f10addb39889e3eb7c954a5a925787ba2ad7034836be19d94e57349ce"
       ]
     }
   ],
@@ -10251,12 +10257,12 @@
       "stage_id": "16.compile",
       "role_id": "16",
       "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:22",
-      "attempt_status": "running",
-      "task_status": "running",
+      "attempt_status": "failed",
+      "task_status": "retry_wait",
       "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
       "generation": 139,
       "created_at": "2026-10-27T17:52:15.487Z",
-      "updated_at": "2026-10-27T17:52:15.487Z",
+      "updated_at": "2026-10-27T17:55:17.865Z",
       "model_requested": null,
       "model_returned": null,
       "prompt_tokens": null,
@@ -10282,7 +10288,12 @@
         "note": "no request-envelope.json on disk for this attempt"
       },
       "acceptance": null,
-      "error_ref": null,
+      "error_ref": {
+        "path": "receipts/attempt-reconciliation-b473c3dd-crashed.json",
+        "sha256": "38914751a4c3178fce00ad582d124ab6fe0ff33c4872390d97923ecab794cfdc",
+        "bytes": null,
+        "reused": null
+      },
       "unknown_reasons": [
         {
           "field": "prompt_tokens",
@@ -10357,6 +10368,235 @@
           "reason": "no acceptance file present for this attempt"
         }
       ]
+    },
+    {
+      "attempt_id": "attempt_47174e1f10addb39889e3eb7c954a5a925787ba2ad7034836be19d94e57349ce",
+      "attempt_no": 1,
+      "task_id": "task_eb5a4df235e4c9b412ac11bf6b6ca701cffa9527b89d7ba1383ca8c6898fda73",
+      "stage_id": "03.combined_kg",
+      "role_id": "03",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:23",
+      "attempt_status": "accepted",
+      "task_status": "accepted",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 143,
+      "created_at": "2026-10-27T17:56:23.526Z",
+      "updated_at": "2026-10-27T17:57:17.774Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 67093,
+      "completion_tokens": 15871,
+      "reasoning_tokens": 2834,
+      "cached_tokens": 0,
+      "estimated_usd": 0.151318,
+      "estimated_usd_microusd": 151318,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 151318,
+      "reservation_state": "reported",
+      "elapsed_ms": 54074,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "03.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/03-knowledge-graph.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "03.PROBE_SLUG",
+          "status": "PASS",
+          "evidence": "probe \"rdmv-ut-class-d\" matches ^[a-z0-9][a-z0-9-]*$",
+          "metrics": null
+        },
+        {
+          "check_id": "03.LINEAGE",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 matches; candidate_lineage_id=2026-10-26-rdmv-ut-class-d:lineage:23",
+          "metrics": null
+        },
+        {
+          "check_id": "03.ID_INTEGRITY",
+          "status": "PASS",
+          "evidence": "39 nodes, 0 dynamic, 3 modules; ids unique, dynamic disjoint",
+          "metrics": null
+        },
+        {
+          "check_id": "03.KG01_GAPS",
+          "status": "PASS",
+          "evidence": "verdict PASS; 0 gap(s), 0 blocking; nodes_extracted=39",
+          "metrics": {
+            "blocking_gaps": 0
+          }
+        },
+        {
+          "check_id": "03.KG01_ROUTE_BACK",
+          "status": "PASS",
+          "evidence": "verdict PASS; no blocking gap, no route_back to 02 required",
+          "metrics": null
+        },
+        {
+          "check_id": "03.ONTOLOGY",
+          "status": "PASS",
+          "evidence": "1 node type(s), 4 edge type(s) declared; all used types legal",
+          "metrics": null
+        },
+        {
+          "check_id": "03.EDGE_TYPED",
+          "status": "PASS",
+          "evidence": "18 edges typed with resolvable endpoints",
+          "metrics": {
+            "edges": 18
+          }
+        },
+        {
+          "check_id": "03.EDGES_MIRROR",
+          "status": "PASS",
+          "evidence": "kg03.edges == edges (18)",
+          "metrics": null
+        },
+        {
+          "check_id": "03.ACYCLIC",
+          "status": "PASS",
+          "evidence": "prerequisite subgraph acyclic (13 edges, Kahn)",
+          "metrics": null
+        },
+        {
+          "check_id": "03.ONE_MODULE_PER_NODE",
+          "status": "PASS",
+          "evidence": "39/39 nodes in exactly one module",
+          "metrics": null
+        },
+        {
+          "check_id": "03.PATH_COVERAGE",
+          "status": "PASS",
+          "evidence": "path covers 39/39 stable nodes; 0 dynamic excluded; rule recorded",
+          "metrics": null
+        },
+        {
+          "check_id": "03.PATH_TOPOLOGICAL",
+          "status": "PASS",
+          "evidence": "0 prerequisite violations over 13 prerequisite edges",
+          "metrics": null
+        },
+        {
+          "check_id": "03.HIGH_YIELD_SET",
+          "status": "PASS",
+          "evidence": "high-yield set equals source (28)",
+          "metrics": null
+        },
+        {
+          "check_id": "03.CONFUSABLE_SOURCE_BOUND",
+          "status": "PASS",
+          "evidence": "28 confusable record(s) cite both endpoint facts; every high-yield node covered",
+          "metrics": {
+            "pairs": 28
+          }
+        },
+        {
+          "check_id": "03.FACT_IDS_REGISTERED",
+          "status": "PASS",
+          "evidence": "39/39 fact ids registered",
+          "metrics": null
+        },
+        {
+          "check_id": "03.WEIGHT_HONESTY",
+          "status": "PASS",
+          "evidence": "official weights honest: {\"unknown\":39}; no number under unknown status",
+          "metrics": {
+            "unknown": 39
+          }
+        },
+        {
+          "check_id": "03.VERIFIED_WEIGHTS_REGISTERED",
+          "status": "PASS",
+          "evidence": "no verified official weights claimed",
+          "metrics": null
+        },
+        {
+          "check_id": "03.DOMAIN_EMPHASIS",
+          "status": "PASS",
+          "evidence": "2 domain row(s) recomputed within 0.1pp; verified-basis drift <= 2pp",
+          "metrics": {
+            "domains": 2
+          }
+        },
+        {
+          "check_id": "03.WEIGHT_CLOSURE",
+          "status": "PASS",
+          "evidence": "basis unknown; recomputed sum null (unclaimed)",
+          "metrics": {
+            "recomputed_sum": null
+          }
+        },
+        {
+          "check_id": "03.KG05_ASSERTIONS",
+          "status": "PASS",
+          "evidence": "claims agree with recomputation (null = unclaimed): {\"prerequisite_violations\":0,\"orphan_nodes\":0,\"double_homes\":0,\"dynamic_quarantined\":0,\"path_check\":\"PASS\"}",
+          "metrics": {
+            "prerequisite_violations": 0,
+            "orphan_nodes": 0,
+            "double_homes": 0,
+            "dynamic_quarantined": 0,
+            "path_check": "PASS"
+          }
+        },
+        {
+          "check_id": "03.CURRICULUM_HINTS",
+          "status": "PASS",
+          "evidence": "3 unit hint(s), one per module; session>flashcards>module_hub with hub options",
+          "metrics": null
+        },
+        {
+          "check_id": "03.SCOUT_SENTINEL",
+          "status": "PASS",
+          "evidence": "media disposition lists 20A inactive and image-scout checks non-applicable",
+          "metrics": null
+        },
+        {
+          "check_id": "03.LEARNING_INPUT_BOUND",
+          "status": "PASS",
+          "evidence": "learning_loop ref matches accepted input runs/2026-10-26-rdmv-ut-class-d/19-learning-loop.json",
+          "metrics": null
+        }
+      ],
+      "validation_overall": "PASS",
+      "stage_outputs": [
+        {
+          "artifact_id": "accepted_bf0298278c5a0184294b5f55f2efce15282258151e8108bf7ffbac07548721b8",
+          "kind": "stage_output",
+          "status": "accepted",
+          "path": "artifacts/task_eb5a4df235e4c9b412ac11bf6b6ca701cffa9527b89d7ba1383ca8c6898fda73/attempt_47174e1f10addb39889e3eb7c954a5a925787ba2ad7034836be19d94e57349ce/artifact.json",
+          "sha256": "38067232cbf826a05f3c8d45b5f82b94c685c7adfb9abbdea6e0a1117260861a",
+          "bytes": 57602
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_87a69c710125e6354f90dcf39c9e7862488eb1245979cedf9425e94fff502442",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_eb5a4df235e4c9b412ac11bf6b6ca701cffa9527b89d7ba1383ca8c6898fda73/attempt_47174e1f10addb39889e3eb7c954a5a925787ba2ad7034836be19d94e57349ce/raw-response.json",
+          "sha256": "8357904258785c292c9735a657700dd847bb5cbea5cd812d5da296394dbc436c",
+          "bytes": 47291
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_eb5a4df235e4c9b412ac11bf6b6ca701cffa9527b89d7ba1383ca8c6898fda73\\attempt_47174e1f10addb39889e3eb7c954a5a925787ba2ad7034836be19d94e57349ce\\request-envelope.json",
+        "sha256": "8d4585cebf5c706b3ca2870891f2086a2696bba0e117b7c1eb476fea5a16723f",
+        "bytes": 13095,
+        "request_sha256": "7f8bff0b4300eb5464d1511264b1aa09f0fb6282a109a89cf0c43f0f8b1a208f"
+      },
+      "acceptance": {
+        "status": "PASS",
+        "kind": "deterministic_validation_only",
+        "auditors": "pending 07/08",
+        "output_sha256": "38067232cbf826a05f3c8d45b5f82b94c685c7adfb9abbdea6e0a1117260861a"
+      },
+      "error_ref": null,
+      "unknown_reasons": []
     }
   ],
   "tasks_without_attempts": [
@@ -11209,6 +11449,33 @@
         "usd_ceiling": 1
       },
       {
+        "file": "approvals/GO-03.combined_kg-2026-10-27T17-56-23-321Z.json",
+        "stage_id": "03.combined_kg",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T17:56:23.322Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-03.combined_kg-2026-10-27T17-56-23-432Z.json",
+        "stage_id": "03.combined_kg",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T17:56:23.433Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T17-57-17-784Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T17:57:17.784Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
         "file": "approvals/GO-2-2026-10-27T17-38-34-321Z.json",
         "stage_id": "2",
         "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
@@ -11584,6 +11851,22 @@
           "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
         },
         "recorded_at": "2026-10-27T17:48:23.681Z"
+      },
+      {
+        "file": "receipts/lineage-reset-03combinedkg-lineage23.json",
+        "schema_version": "nova-lineage-reset.v0.4.0",
+        "run_id": "2026-10-26-rdmv-ut-class-d",
+        "stage_id": "03.combined_kg",
+        "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:22",
+        "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:23",
+        "authority": "standing authority (founder, $30 cap, no per-call ceremony)",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "cause": "attempt limit after HOLDs; last non-PASS: ",
+        "recorded_by": {
+          "actor_id": "claude-code-runner",
+          "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+        },
+        "recorded_at": "2026-10-27T17:56:23.429Z"
       },
       {
         "file": "receipts/lineage-reset-02-lineage4.json",
