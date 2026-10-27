@@ -121,6 +121,7 @@ async function runStage(stageId, partIds) {
     catch (e) {
       if (/LINEAGE_ATTEMPT_LIMIT/.test(e.message) && resets < maxResets) { resets++; const to = resetLineage(stageId, `attempt limit after HOLDs; last non-PASS: ${(global.__last ?? []).join(',')}`); console.log(`  lineage → ${to} (reset ${resets}/${maxResets})`); continue; }
       if (/not eligible for a new attempt/.test(e.message)) { bumpRetryNonce(stageId, partIds, global.__last ?? ['blocked_task']); continue; }
+      if (/BUDGET_CAP|budget cap|cap exceeded/i.test(e.message)) { console.log(`CAP: ${e.message.slice(0, 160)}`); return { status: 'CAP' }; }
       if (/SEQUENTIAL_TASK_BUSY|Rebind is blocked while an attempt or uncertain provider result remains active/.test(e.message)) {
         // Another task is parked unknown_provider_result (lost response on an earlier part): reconcile it, then retry this dispatch.
         const lost = reconcileLostResponse(stageId);
@@ -134,6 +135,7 @@ async function runStage(stageId, partIds) {
     const np = nonPass(r); global.__last = np;
     console.log(`  ${label}: ${r.status}${r.estimated_usd != null ? ` $${r.estimated_usd.toFixed(3)}` : ''}${r.status !== 'accepted' ? ' — ' + np.join(', ') : ''}  [spent $${spentUsd().toFixed(3)}]`);
     if (r.status === 'accepted' || r.reused) return r;
+    if (r.reason === 'budget_cap') { console.log(`CAP: reservation refused — ${r.detail ?? 'budget cap'} (spent $${spentUsd().toFixed(3)} / cap $${standing.usd_cap_total})`); return { status: 'CAP' }; }
     if (r.reason === 'unknown_provider_result_requires_reconciliation' || r.reason === 'unknown_provider_result') {
       const lost = reconcileLostResponse(stageId);
       if (!lost) return { status: 'NEEDS_RECONCILE' };

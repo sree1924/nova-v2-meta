@@ -1,0 +1,22 @@
+{
+  "schema_version": "nova-attempt-reconciliation.v0.4.0",
+  "run_id": "2026-10-26-rdmv-ut-class-d",
+  "task_id": "task_6236cd1c2c846324ca5d485c0590a5e2097b192fd1be49730eab21174634c899",
+  "attempt_id": "attempt_2b9da907e3b948fdf1203679de1ecfdeb04a7141acf45d5970292dd50da5142e",
+  "kind": "crashed_no_provider",
+  "no_request_sent": true,
+  "request_sent": false,
+  "response_received": false,
+  "evidence": {
+    "stage": "02.dossier_sections part C2, section sec07-preparing-vehicle, lineage 73",
+    "attempt_started_at": "2026-10-27T19:51:06.140Z",
+    "ledger_state_before": "attempt running; NO model_calls row; NO reservations row; only event attempt.started",
+    "cause": "ledger.reserveBudget threw BUDGET_CAP_EXCEEDED: limits.per_role_usd_caps['02'] = $12 was exhausted by the 64 accepted + held dossier parts across sections 01–07 (total belt $20.25 of the $30 standing cap). The dispatcher raised the error after startAttempt and before any provider request; the runner had no handler for it, exited, and every later section cascaded SEQUENTIAL_TASK_BUSY (Muse full-handbook report, launch 20).",
+    "money_spent_usd": 0,
+    "fix_shipped": "dispatch.mjs fails the attempt cleanly on reservation errors (reason budget_cap); run-utah.mjs treats budget_cap as CAP and stops; per-role sub-caps raised in run-config (total standing cap unchanged until the founder raises it)"
+  },
+  "disposition": "attempt -> failed (crashed, pre-provider), task -> retry_wait|failed; part C2 of sec07 is re-dispatched by the next launch once the 02 role cap allows",
+  "authority": "standing authority (founder, $30 cap, no per-call ceremony) — approvals/STANDING-AUTHORITY-utah-full-run.json",
+  "recorded_by": { "actor_id": "claude-code-runner", "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03", "model": "claude-fable-5-1" },
+  "recorded_at": "2026-10-27T20:02:00Z"
+}

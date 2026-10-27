@@ -199,7 +199,15 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
   }
   const attempt=ledger.startAttempt(fence,{taskId,commandId:'dispatch:'+taskId+':'+(old.length+1)}),attemptId=attempt.attemptId??attempt.attempt_id;
   const folder='artifacts/'+taskId+'/'+attemptId;
-  const reservation=ledger.reserveBudget(fence,{attemptId,provider:'meta',roleId:p.roleId,maxUsd:p.config.limits.max_call_usd,pricingRef:p.pricingRef,approvalRef:p.policy.approval_ref,approvalUsdCeiling:p.policy.caps.approval_usd});
+  // A refused reservation (role/total budget cap) must fail the attempt here, never leave it `running` (sec07 C2, 2026-10-27:
+  // BUDGET_CAP_EXCEEDED thrown out of the dispatcher stranded the attempt and SEQUENTIAL_TASK_BUSY cascaded over 9 sections).
+  let reservation;
+  try{reservation=ledger.reserveBudget(fence,{attemptId,provider:'meta',roleId:p.roleId,maxUsd:p.config.limits.max_call_usd,pricingRef:p.pricingRef,approvalRef:p.policy.approval_ref,approvalUsdCeiling:p.policy.caps.approval_usd});}
+  catch(error){
+    const failure=writeImmutable(p.runDir,folder+'/reservation-refused.json',{status:'failed_pre_send',reason:'budget_cap',error_message:String(error.message).slice(0,400),money_spent_usd:0},{lockHandle});
+    ledger.failAttempt(fence,{attemptId,status:'failed',errorRef:failure});
+    return{status:'HOLD',reason:'budget_cap',detail:String(error.message).slice(0,200),raw_ref:failure,new_model_calls:0};
+  }
   const reservationId=reservation.reservationId??reservation.reservation_id;
   const reservationRef=writeImmutable(p.runDir,folder+'/reservation.json',reservation,{lockHandle});
   const bound=renderRequest({...p.renderingInputs,bindings:{...p.rendered.header,render_only:false,execution_authorized:true,task:{...p.rendered.header.task,logical_task_id:taskId,attempt_id:attemptId,budget_reservation_ref:reservationRef.path,budget_reservation_sha256:reservationRef.sha256}}});
