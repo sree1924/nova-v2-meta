@@ -114,7 +114,7 @@ export const STAGE_DIRECTION_PATTERNS = [
   { id: 'paren_direction', re: /\(\s*(beat|pause|silence|music|sfx|breath)[^)]*\)/i },
   // Only the INSTRUCTION use of "pause" is a stage direction (sentence-initial imperative, "pause here/now/for…", "let's pause");
   // the verb in content ("a citation can pause driving", "the officer paused traffic") is narration (2026-10-27, sec02 u03).
-  { id: 'pause_word', re: /(?:^|[.!?]\s+|[:;—-]\s*)paus(?:e|ing)\b(?!\s+(?:driving|traffic|the\b|your\b|their\b|his\b|her\b|its\b|a\b|an\b|that\b|this\b|all\b|any\b))|\bpause\s+(?:here|now|for\s+(?:a|one|two|three|\d)|and\s+(?:think|test|recall|try|answer)|to\s+(?:think|recall|answer)|before\s+(?:you|answering))\b|\blet'?s\s+pause\b|\btake\s+a\s+(?:pause|moment\s+to)\b/i },
+  { id: 'pause_word', re: /(?:^|[.!?]\s+|[:;—-]\s*)paus(?:e|ing)\b(?!\s+(?:driving|traffic|the\b|your\b|their\b|his\b|her\b|its\b|a\b|an\b|that\b|this\b|all\b|any\b))|\bpause\s+(?:here|now|for\s+(?:a|one|two|three|\d)|and\s+(?:think|test|recall|try|answer)|to\s+(?:think|recall|answer)|before\s+(?:you|answering))\b|\blet'?s\s+pause\b|\btake\s+a\s+pause\b/i },
   { id: 'timed_instruction', re: /\b(wait|hold|pause|think|stop)\b[^.?!]{0,30}\b(one|two|three|four|five|ten|\d+)[- ]seconds?\b/i },
   { id: 'seconds_of_silence', re: /\b(one|two|three|four|five|ten|\d+)[- ]seconds?\s+(of silence|pause|beat|to think|to recall|to answer)\b/i },
   { id: 'ellipsis_timing_marker', re: /\.\.\.|…/ },
