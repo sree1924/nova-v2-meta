@@ -405,3 +405,13 @@
 - 2026-10-27T21:07:23.102Z retry nonce 03.combined_kg:@sec06-examinations → 8 after HOLD (sec06-examinations); non-PASS: 03.ONE_MODULE_PER_NODE=FAIL, 03.FACT_IDS_REGISTERED=FAIL, 03.CURRICULUM_HINTS=FAIL
 
 - 2026-10-27T21:07:23.322Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:88 for 03.combined_kg (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.ONE_MODULE_PER_NODE=FAIL,03.FACT_IDS_REGISTERED=FAIL,03.CURRICULUM_HINTS=FAIL
+
+- 2026-10-27T21:07:52.973Z retry nonce 03.combined_kg:@sec06-examinations → 9 after HOLD (sec06-examinations); non-PASS: 03.EDGES_MIRROR=FAIL, 03.FACT_IDS_REGISTERED=FAIL
+
+- 2026-10-27T21:09:17.192Z retry nonce 05.sessions:@sec06-examinations → 1 after HOLD (sec06-examinations); non-PASS: 05.NARRATION_DEPTH=FAIL
+
+- 2026-10-27T21:09:42.891Z retry nonce 05.sessions:@sec06-examinations → 2 after HOLD (sec06-examinations); non-PASS: 05.NARRATION_DEPTH=FAIL, 05.SELF_CHECK_ALIGNED=FAIL
+
+- 2026-10-27T21:09:43.023Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:89 for 05.sessions (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.NARRATION_DEPTH=FAIL,05.SELF_CHECK_ALIGNED=FAIL
+
+- 2026-10-27T21:10:09.014Z retry nonce 05.sessions:@sec06-examinations → 3 after HOLD (sec06-examinations); non-PASS: 05.NARRATION_DEPTH=FAIL

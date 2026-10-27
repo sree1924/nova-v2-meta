@@ -5,9 +5,9 @@
   "schema_version": "executor-lock.v0.4.0",
   "run_id": "2026-10-26-rdmv-ut-class-d",
   "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
-  "lock_id": "f736b508-7609-44a1-a429-5ac8f6e46002",
+  "lock_id": "f5378a91-3457-443f-ad1b-7ec449ef5ec9",
   "pid": 110744,
   "hostname": "datapig",
-  "acquired_at": "2026-10-27T21:07:23.487Z"
+  "acquired_at": "2026-10-27T21:10:34.315Z"
 }
 ```
