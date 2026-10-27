@@ -238,12 +238,13 @@ function vDossier() {
     if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
     const scope = art.envelope_scope || {};
     const secs = Array.isArray(art.sections) ? art.sections : [];
+    const chunkLabel = scope.chunk_id || secs.map((s) => s.chunk_id).filter(Boolean).join(", ");
     return `<div class="card"><h2>Dossier part: ${(scope.assigned_section_ids || []).map(esc).join(", ") || esc(e.task_id)}</h2>
-    <dl class="kv"><dt>Chunk</dt><dd><code>${esc(scope.chunk_id || "")}</code> (${esc(scope.kind || "")})</dd>
+    <dl class="kv"><dt>Chunk</dt><dd><code>${esc(chunkLabel)}</code> (${esc(scope.kind || "")})</dd>
     <dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
     + secs.map((s) => `<div class="card"><h2>${esc(s.heading || s.chunk_id || "")}</h2>
       <p class="muted">${(s.fact_ids || []).length} fact blocks · learner_facing: ${esc(s.learner_facing)}</p>
-      ${factBlocks(s.markdown).map((b) => {
+      ${factBlocks(s.markdown).filter((b) => /^FACT_ID: /.test(b)).map((b) => {
         const id = (b.match(/^FACT_ID:\s*(\S+)/) || [])[1] || "block";
         return `<h2>${esc(id)}</h2><pre class="fact">${esc(b)}</pre>`;
       }).join("")}</div>`).join("");

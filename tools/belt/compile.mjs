@@ -96,7 +96,7 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes = [], so
   }
   const merged = mergeEnvelopes(envelopes);
   errors.push(...merged.errors);
-  const sections = envelopes.flatMap(e => e.sections ?? []).sort((a, b) => a.merge_seq - b.merge_seq);
+  const sections = merged.sections; // the merge's own order (one envelope: merge_seq; several: section order, then merge_seq)
   const factEntries = [];
   const seen = new Set();
   for (const section of sections) for (const id of section.fact_ids ?? []) {

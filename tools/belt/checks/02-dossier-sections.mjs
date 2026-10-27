@@ -21,17 +21,24 @@ const head = (list, n = 8) => list.slice(0, n).join('; ') + (list.length > n ? `
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 // ---------- deterministic merge (exported; role 16 uses the same rule) ----------
-export function mergeSections(sections) {
-  const ordered = [...arr(sections)].sort((a, b) => a.merge_seq - b.merge_seq);
+// merge_seq is scoped to ONE envelope ("1..N contiguous and unique across the chunks of this envelope" — output-conventions).
+// Within one envelope the merge order is merge_seq ascending (V1 complete dossiers keep their document order byte-exact).
+// ACROSS envelopes (per-part dispatch, JAM-UT-03: every part numbers its own chunks from 1) the order is canonical
+// section order (SECTION_IDS), then merge_seq within the section. Both rules are pure functions of the input set.
+export const sectionOrderCompare = (a, b) => (SECTION_IDS.indexOf(a.section_id) - SECTION_IDS.indexOf(b.section_id)) || (a.merge_seq - b.merge_seq);
+export function mergeSections(sections, { crossEnvelope = false } = {}) {
+  const ordered = [...arr(sections)].sort(crossEnvelope ? sectionOrderCompare : (a, b) => a.merge_seq - b.merge_seq);
   const markdown = ordered.map(s => s.markdown ?? '').join('');
   return { markdown, sha256: sha256Bytes(Buffer.from(markdown, 'utf8')), order: ordered.map(s => s.chunk_id) };
 }
 
-export function mergeEnvelopes(envelopes) {
+// requireComplete=false: a partial_chunk merged with its accepted siblings is checked for conflicts only; completeness is
+// role 16's job on the full accepted set (compile passes the default, true).
+export function mergeEnvelopes(envelopes, { requireComplete = true } = {}) {
   const errors = [];
   const all = [];
   const seenChunk = new Map();
-  const seenSeq = new Map();
+  const seenSeq = new Map();          // keyed per section: `${section_id}#${merge_seq}`
   const factVals = new Map();
   const registryShas = new Set();
   for (const [i, env] of arr(envelopes).entries()) {
@@ -39,8 +46,9 @@ export function mergeEnvelopes(envelopes) {
     for (const s of arr(env?.sections)) {
       if (seenChunk.has(s.chunk_id)) errors.push(`duplicate chunk_id ${s.chunk_id} (envelopes ${seenChunk.get(s.chunk_id)} and ${i})`);
       else seenChunk.set(s.chunk_id, i);
-      if (seenSeq.has(s.merge_seq)) errors.push(`duplicate merge_seq ${s.merge_seq} (${seenSeq.get(s.merge_seq)} vs ${s.chunk_id})`);
-      else seenSeq.set(s.merge_seq, s.chunk_id);
+      const seqKey = `${s.section_id}#${s.merge_seq}`;
+      if (seenSeq.has(seqKey)) errors.push(`duplicate merge_seq ${s.merge_seq} within section ${s.section_id} (${seenSeq.get(seqKey)} vs ${s.chunk_id})`);
+      else seenSeq.set(seqKey, s.chunk_id);
       all.push(s);
     }
     for (const k of EXAM_FACT_KEYS) {
@@ -54,11 +62,14 @@ export function mergeEnvelopes(envelopes) {
   if (registryShas.size > 1) errors.push(`conflicting source_registry_sha256 across envelopes: ${[...registryShas].join(', ')}`);
   const present = new Set(all.map(s => s.section_id));
   const missing = SECTION_IDS.filter(id => !present.has(id));
-  if (missing.length) errors.push(`merged dossier missing section(s) ${missing.join(',')}`);
-  const seqs = all.map(s => s.merge_seq).sort((a, b) => a - b);
-  seqs.forEach((v, idx) => { if (v !== idx + 1) errors.push(`merge_seq not contiguous at position ${idx + 1} (found ${v})`); });
-  const merged = mergeSections(all);
-  return { ok: errors.length === 0, errors: [...new Set(errors)], ...merged };
+  if (requireComplete && missing.length) errors.push(`merged dossier missing section(s) ${missing.join(',')}`);
+  for (const id of SECTION_IDS) {
+    const seqs = all.filter(s => s.section_id === id).map(s => s.merge_seq).sort((a, b) => a - b);
+    seqs.forEach((v, idx) => { if (idx > 0 && v <= seqs[idx - 1]) errors.push(`section ${id} merge_seq not strictly ascending at position ${idx + 1} (found ${v})`); });
+  }
+  const merged = mergeSections(all, { crossEnvelope: arr(envelopes).length > 1 });
+  const sections = [...all].sort(arr(envelopes).length > 1 ? sectionOrderCompare : (a, b) => a.merge_seq - b.merge_seq);
+  return { ok: errors.length === 0, errors: [...new Set(errors)], ...merged, sections };
 }
 
 // ---------- registry resolution ----------
@@ -231,7 +242,7 @@ export function run(artifact, context = {}) {
     let siblingNote = '';
     const hasSib = Array.isArray(context.sibling_envelopes) && context.sibling_envelopes.length > 0;
     if (hasSib) {
-      const mm = mergeEnvelopes([a, ...context.sibling_envelopes]);
+      const mm = mergeEnvelopes([a, ...context.sibling_envelopes], { requireComplete: !partial });
       if (!mm.ok) errs.push(...mm.errors);
       if (exp && partial && exp !== mm.sha256) errs.push(`expected_merged_sha256 ${exp} != cross-envelope merge ${mm.sha256}`);
       siblingNote = `; merged with ${context.sibling_envelopes.length} sibling envelope(s) -> ${mm.sha256}`;
@@ -320,7 +331,8 @@ export function run(artifact, context = {}) {
 
   // HIGH_YIELD_PER_DOMAIN — explicit ranked high_yield for every knowledge domain.
   {
-    const domains = [...new Set(sections.filter(s => s.section_id === 'C' && s.domain).map(s => s.domain))];
+    // Knowledge chunks live in C and its continuation C2 (per-part dispatch emits C2 alone with its own domain label).
+    const domains = [...new Set(sections.filter(s => (s.section_id === 'C' || s.section_id === 'C2') && s.domain).map(s => s.domain))];
     const byDomain = new Map(arr(a.high_yield_ranked).map(h => [h.domain, h]));
     const errs = [];
     for (const d of domains) {

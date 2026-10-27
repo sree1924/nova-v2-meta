@@ -21,3 +21,15 @@
 - Spend to date: 6 live calls, ≈ $0.55 total.
 
 - 2026-10-27T16:50:27.670Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:5 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T17:04:12.234Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:6 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T17:04:30.471Z retry nonce 02.dossier_sections:C2 → 1 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.HIGH_YIELD_PER_DOMAIN=FAIL
+
+- 2026-10-27T17:05:06.770Z retry nonce 02.dossier_sections:C2 → 2 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.HIGH_YIELD_PER_DOMAIN=FAIL
+
+- 2026-10-27T17:05:06.855Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:7 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.MERGE_DETERMINISTIC=FAIL,02.HIGH_YIELD_PER_DOMAIN=FAIL
+
+- 2026-10-27T17:05:24.271Z retry nonce 02.dossier_sections:C2 → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.FACT_LINES_CITED=FAIL, 02.HIGH_YIELD_PER_DOMAIN=FAIL
+
+- 2026-10-27T17:05:46.451Z retry nonce 02.dossier_sections:C2 → 4 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL

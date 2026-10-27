@@ -1,112 +1,129 @@
-# MUSE belt-operator report — Utah sec09 run, 2026-10-27
+# MUSE belt-operator report — Utah sec09 run, second launch 2026-10-27
 
 Operator: Muse Code (belt OPERATOR per founder rule 2026-10-27).
 Authority: `runs/2026-10-26-rdmv-ut-class-d/approvals/STANDING-AUTHORITY-utah-full-run.json`
 ($30 Meta free-credit cap; stages 02 / 03 / 04 / 05.sessions / 05.card_scripts / 06).
 Lane kept: belt only via `tools/belt/run-utah.mjs`; ledger read-only via
-`node:sqlite {readOnly:true}`; writes only under `app-preview/` and `tools/preview/`.
+`node:sqlite {readOnly:true}`; writes only under `app-preview/`, `tools/preview/`,
+`coordination/` (this report), `tests/.tmp/` (throwaway harnesses).
 No `.env` contents printed. No `tools/belt/*`, schemas, prompts, contracts touched.
+(`git status` was unavailable — dubious-ownership sandbox block — so the lane
+claim rests on the command list below, not on a diff.)
 
-## 1. Belt run (step 1) — STOPPED at stage 02 part C
+## 1. Belt run (step 1) — part C ACCEPTED; STOP at part C2
 
 Command: `node tools/belt/run-utah.mjs --section sec09-rules-of-the-road --stages 02`
 Exit code: **1**. Full console output, verbatim:
 
 ```
-UTAH RUN — section sec09-rules-of-the-road; stages 02; spent so far $0.755 / cap $30
-  lineage → 2026-10-26-rdmv-ut-class-d:lineage:5 (reset 1/2)
-  02.dossier_sections part C: HOLD $0.112 — 02.SECTION_BOUNDS=FAIL, 02.G_MATRIX=FAIL  [spent $0.867]
-  ERROR 02.dossier_sections part C: Task is not eligible for a new attempt: blocked
-STOP at 02.dossier_sections C: ERROR
+UTAH RUN — section sec09-rules-of-the-road; stages 02; spent so far $0.867 / cap $30
+  02.dossier_sections part C: accepted $0.103  [spent $0.970]
+  lineage → 2026-10-26-rdmv-ut-class-d:lineage:6 (reset 1/2)
+  02.dossier_sections part C2: HOLD $0.095 — 02.MERGE_DETERMINISTIC=FAIL, 02.HIGH_YIELD_PER_DOMAIN=FAIL  [spent $1.065]
+  retry → 02.dossier_sections:C2 nonce 1
+  02.dossier_sections part C2: HOLD $0.120 — 02.MERGE_DETERMINISTIC=FAIL, 02.HIGH_YIELD_PER_DOMAIN=FAIL  [spent $1.185]
+  retry → 02.dossier_sections:C2 nonce 2
+  lineage → 2026-10-26-rdmv-ut-class-d:lineage:7 (reset 2/2)
+  02.dossier_sections part C2: HOLD $0.095 — 02.MERGE_DETERMINISTIC=FAIL, 02.FACT_LINES_CITED=FAIL, 02.HIGH_YIELD_PER_DOMAIN=FAIL  [spent $1.280]
+  retry → 02.dossier_sections:C2 nonce 3
+  02.dossier_sections part C2: HOLD $0.102 — 02.MERGE_DETERMINISTIC=FAIL  [spent $1.382]
+  retry → 02.dossier_sections:C2 nonce 4
+  ERROR 02.dossier_sections part C2: LINEAGE_ATTEMPT_LIMIT: changing task/model/input IDs cannot reset attempts
+STOP at 02.dossier_sections C2: ERROR
 ```
 
-Per the brief I did NOT retry: recorded here and moved on. What this means:
-one paid call was made on this turn (part C, ~$0.112, ~25 s class). The runner
-reset lineage 4 → 5 first (`receipts/lineage-reset-02dossiersections-lineage5.json`,
-cause: attempt limit after HOLDs; logged in `jams.md`), the part C attempt on the
-new lineage HELD on `02.SECTION_BOUNDS` + `02.G_MATRIX`, and the following attempt
-was refused by the controller (`blocked`), which `run-utah.mjs` surfaces as
-`ERROR` → `STOP`. Parts C2/A/B/D/E/E2/F/G were never dispatched this turn.
-Spend attributable to this turn: $0.755 → $0.867 (≈$0.112). Cap is not a concern
-($29.13 remaining).
+Per-part status this turn (console + ledger read-only probe agree to the micro-USD):
 
-Ledger state after the run (`data/trace.json`, 10 attempts total):
-`15.sources` accepted (registration, no model call, pre-existing) plus 9
-`02.dossier_sections` attempts, NONE accepted:
+| part | result | USD (ledger actual) | failing checks |
+|---|---|---|---|
+| C | **accepted** (task `205cb0ae`, lineage 5) | $0.102954 | none (validation PASS) |
+| C2 nonce 1 (lineage 6) | HOLD → task blocked | $0.095003 | MERGE_DETERMINISTIC, HIGH_YIELD_PER_DOMAIN |
+| C2 nonce 2 (lineage 6) | HOLD → task blocked | $0.120010 | MERGE_DETERMINISTIC, HIGH_YIELD_PER_DOMAIN |
+| C2 nonce 3 (lineage 7) | HOLD → task blocked | $0.094833 | MERGE_DETERMINISTIC, FACT_LINES_CITED, HIGH_YIELD_PER_DOMAIN |
+| C2 nonce 4 (lineage 7) | HOLD → task blocked | $0.102051 | MERGE_DETERMINISTIC |
+| A / B / D / E / E2 / F / G | never dispatched | $0 | runner STOPped at C2 |
 
-| attempt (ledger order) | attempt_status / task_status | est. USD | validation | non-PASS checks |
-|---|---|---|---|---|
-| 02 #1 | failed / retry_wait | null (no receipt; released $1 reservation) | none | no validation.json |
-| 02 #2 | failed / failed | $0.104330 | none | no validation.json |
-| 02 #3 | blocked / blocked | $0.096769 | HOLD | CHUNK_IDENTITY, SECTION_BOUNDS, FACT_LINES_CITED, EXAM_FACT_STATUS, NUMERAL_LEAK |
-| 02 #4 | blocked / blocked | $0.100225 | HOLD | LINEAGE, MERGE_DETERMINISTIC |
-| 02 #5 | blocked / blocked | $0.103518 | HOLD | SCOPE_COMPLETENESS, FACT_LINES_CITED, G_MATRIX |
-| 02 #6 | blocked / blocked | $0.139771 | HOLD | TRUNCATION_GUARD, DEPTH_FLOOR, G_MATRIX |
-| 02 #7 | blocked / blocked | $0.097382 | HOLD | G_MATRIX |
-| 02 #8 | blocked / blocked | $0.113074 | HOLD | DEDICATED_SURFACE |
-| 02 #9 (this turn, part C) | blocked / blocked | $0.111829 | HOLD | SECTION_BOUNDS, G_MATRIX |
-
-Each blocked attempt has a `stage_output` artifact on disk, but every owning
-task is `blocked`, so **zero are eligible for the preview** (accepted-only rule).
-`03/04/05/06/19A/07/08/09` tasks remain `queued` on lineage 1; two further
-`02.dossier_sections` tasks are `queued` (lineages 1 and 4).
+Spend: $0.867 → $1.382 this turn (+$0.514851 = exact sum of the 5 ledger
+actuals above). Cap usage 4.6%; ~$28.62 remaining. Per the hard rule I did NOT
+retry after STOP: recorded here and moved on. The retry-nonce + lineage-reset
+machinery worked as briefed (resets 1/2 → lineage 6, 2/2 → lineage 7); the
+`--max-resets 2` bound is now exhausted, so the next launch starts at lineage 7
+with C2 nonce at 4 and one queued 02 task each on lineages 5/6/7.
+Recurring `02.MERGE_DETERMINISTIC` HOLDs on C2 belong to the runner +
+validator owners, not this lane.
 
 ## 2. Trace export (step 2) — done, exit 0
 
-`node tools/preview/export-trace.mjs` → `wrote app-preview/data/trace.json`
-`attempts=10 prompt_tokens=458368 completion_tokens=69162 estimated_usd=0.866898 actual_microusd_exact=866898`.
-`trace.html` needed no edit (it fetches `data/trace.json` when served), but its
-`file://` fallback `trace-embedded.js` was stale (6 attempts). New owned tool
-`tools/preview/embed-trace.mjs` regenerates it; ran clean
-(`attempts=10 estimated_usd=0.866898`). Both trace paths now show 10 attempts,
-6 approvals, 4 lineage resets, 3 jam entries. `node --check` clean on both scripts.
+- `node tools/preview/export-trace.mjs` → exit 0:
+  `wrote app-preview\data\trace.json attempts=16 prompt_tokens=758681
+  completion_tokens=101976 estimated_usd=1.381749 actual_microusd_exact=1381749`.
+- `node tools/preview/embed-trace.mjs` → exit 0:
+  `wrote app-preview/trace-embedded.js attempts=16 estimated_usd=1.381749`.
+- `trace.html` confirmed by inspection: fetches `data/trace.json` when served
+  (16 attempts, $1.381749, 12 model calls completed), `trace-embedded.js`
+  fallback for `file://` regenerated with the same 16 attempts. No edit needed.
 
-## 3. Real-artifact wiring (step 3) — done; result: nothing real to show (by design)
+## 3. Real-artifact wiring (step 3) — done; section C is now REAL
 
-New owned tool `tools/preview/export-content.mjs` (read-only ledger,
-`accepted` learner-stage `stage_output`s only → `app-preview/data/real/<stage>/`
-+ `manifest.json` with recomputed sha256s; prunes files whose tasks leave
-`accepted`; also refreshes the `file://` fallback `data-real-embedded.js`).
-Run result: **copied=0 skipped_non_accepted=7** — the 7 blocked stage outputs
-were correctly refused. Exit 0, `node --check` clean.
-
-`index.html` gained a `#/dossier` reviewer route (linked only from settings/about,
-never from learner nav): renders accepted stage-02 `sections[].markdown`
-FACT_ID blocks with task/attempt/sha256 provenance, plus the
-"REAL — Utah Section 9, validated, audit pending" banner. With today's empty
-manifest it shows the empty state ("No accepted dossier parts yet") under a
-neutral reviewer banner. All learner screens keep the SYNTHETIC banner, now
-applied per-route. `styles.css` gained `.real-banner` / `.review-banner` /
-`pre.fact`. `app-preview/README.md` updated (new totals, new route, fresh sha256
-table). Verification: throwaway dependency-free DOM harness (10 checks:
-banners, empty states on fetch + file paths, FACT_ID render against the real
-envelope shape, settings link, chapters/cards regressions) — **10 passed,
-0 failed**; harness deleted afterwards. Live-browser/HTTP smoke was impossible:
-loopback `listen()` is denied in this sandbox (same blocker as the prior preview
-report). Recommend one human double-click of `index.html` (`#/dossier`) and
-`trace.html`.
+- `node tools/preview/export-content.mjs` first run → **crashed**:
+  `ENOENT ... app-preview\data\real\02_dossier_sections\task_205c...__attempt_3dae....json`
+  at line 130. Root cause (preview-lane bug, latent while `copied=0`): the
+  `prune()` step compared `path.relative(OUT_DIR, p)` (backslashes on Windows)
+  against `wanted` entries (forward slashes), so it deleted the just-copied
+  file and the embed step re-read a missing path. Fix (one line, owned file):
+  normalize with `.replace(/\\/g, '/')` before the `wanted.has(...)` check.
+  `node --check` clean. No maintained test added: the repo has no harness for
+  `tools/preview` (only `npm run smoke` + stage-validator suites), so per
+  proportionate practice the re-run below is the verification; disclosed here.
+- Re-run → exit 0: `copied=1 skipped_non_accepted=11`.
+  Manifest (`app-preview/data/real/manifest.json`, sha re-verified against file
+  bytes: match): 1 accepted file, `02.dossier_sections`, task `205cb0ae`,
+  12,522 bytes, section C (`C.01`, "Rules of the Road"), 1 section,
+  24 `fact_ids`, 6,092-char markdown. `data-real-embedded.js` refreshed
+  (12,022 bytes, contains the task id).
+- `index.html` `#/dossier` needed two minimal data-shape fixes (owned lane;
+  taste preflight loaded, no styling touched):
+  1. chunk line fell back to empty (`envelope_scope` carries
+     `chunk_index/chunk_total`, not `chunk_id`) → falls back to the sections'
+     `chunk_id` ("C.01").
+  2. preamble block before the first `FACT_ID:` rendered as an untitled
+     "block" card → filter to `^FACT_ID: ` lines (exactly the 24 `fact_ids`).
+- Verification: throwaway harness `tests/.tmp/dossier-check.mjs` extracts the
+  REAL `vDossier`/`factBlocks`/`esc` code from `index.html` and runs it against
+  the exported manifest + artifact — **9 passed, 0 failed** (part-C heading,
+  C.01 chunk, sha256 provenance, 24 fact `<pre>` blocks, F01 first, no
+  file-missing card, no empty state, empty-manifest state preserved, embedded
+  fallback contains the task). Harness left in `tests/.tmp/` (scratch, not
+  committed, not part of the app).
+- `app-preview/README.md` refreshed: trace totals (16 attempts, $1.381749),
+  real-content section (section C, 24 FACT_ID blocks), dossier-route note, and
+  the sha256/bytes table (recomputed; untouched files match their old hashes).
 
 ## 4. Later stages (step 4) — NOT triggered, nothing run
 
-Condition was "later stages already enabled by the runner": not met. `03/04/06/
-05.sessions/05.card_scripts` tasks are still `queued`; the runner dispatched
-nothing beyond 02, and `16.compile` cannot PASS with zero accepted dossier parts,
-so I dispatched nothing further. No 04 cards / 05 sessions / 06 items exist to
-wire; the dossier view lists any future non-02 accepted stages as "learner
-wiring pending".
+Precondition "later stages already enabled by the runner" not met: `03/04/05/
+05.card_scripts/06/19A/07/08/09` tasks are all still `queued` on lineage 1
+(confirmed in the fresh `trace.json`), and the runner STOPped at 02/C2. No
+`16.compile`, no 04 cards / 05 sessions / 06 items exist to wire; the dossier
+view's "other accepted stages" section will list them if they ever appear.
 
 ## 5. Real vs synthetic in the app (as shipped)
 
-- REAL: `trace.html` (10-attempt ledger trace) and `data/real/manifest.json`
-  (empty file list — an honest zero). Nothing else.
+- REAL: `#/dossier` section-C view (24 FACT_ID blocks with task/attempt/sha256
+  provenance) under the "REAL — Utah Section 9, validated, audit pending"
+  banner; `trace.html` (16-attempt ledger trace, $1.381749).
 - SYNTHETIC: every learner screen (home, chapters, lesson, cards, quiz,
-  practice, results, settings) — fictional Nowhere sample, unchanged.
-- REVIEWER-EMPTY: `#/dossier` until the belt accepts a stage-02 part.
+  practice, results, settings) — fictional Nowhere sample, SYNTHETIC banner.
+- REVIEWER-EMPTY: `#/dossier` for every part except C until the belt accepts more.
 
 ## 6. Could not do / open items
 
-- Stage 02 part C (and C2/A/B/D/E/E2/F/G) has no accepted artifact; the
-  recurring `02.G_MATRIX` / `02.SECTION_BOUNDS` HOLDs belong to the runner +
-  validator owners, not this lane.
-- No live-browser or static-server smoke (sandbox denies loopback listen).
-- No later-stage dispatch (runner-owned; precondition absent).
+- Parts C2/A/B/D/E/E2/F/G have no accepted artifact; C2's recurring
+  `02.MERGE_DETERMINISTIC` (+`HIGH_YIELD_PER_DOMAIN`, `FACT_LINES_CITED`)
+  HOLDs and the exhausted `--max-resets 2` bound are runner/validator-owner
+  matters. Next launch resumes at lineage 7.
+- No live-browser or static-server smoke: loopback `listen()` is denied in
+  this sandbox (same blocker as the prior report). Rendering is proven by the
+  9/9 harness against the real functions + real bytes, not by a browser.
+- Recommend one human double-click of `app-preview/index.html` (`#/dossier`)
+  and `app-preview/trace.html`.

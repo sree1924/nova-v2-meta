@@ -103,7 +103,7 @@ const prune = (dir) => {
     const p = path.join(dir, f.name);
     if (f.isDirectory()) { prune(p); continue; }
     if (f.name === 'manifest.json') continue;
-    if (!wanted.has(path.relative(OUT_DIR, p))) fs.rmSync(p);
+    if (!wanted.has(path.relative(OUT_DIR, p).replace(/\\/g, '/'))) fs.rmSync(p);
   }
 };
 prune(OUT_DIR);
