@@ -19,3 +19,5 @@
 - L3#2 (attempt 8cdf5afb): HTTP 200, $0.140, 13.4 KB; complete_dossier; C 11 facts/2619cp; B/C2/D/E/E2/F/G one-line stubs → TRUNCATION_GUARD, DEPTH_FLOOR, G_MATRIX. 17/20. Reasoning tokens 12,018 at reasoning_effort low.
 - Pattern across L2#1, L3#1, L3#2: section C is consistently substantive; asking for all nine parts in one call degrades the rest. Design change (stop rule): dispatch one dossier part per call (`--part C` first), merge with mergeEnvelopes (role 16). Conventions rule `assigned_dossier_parts` added; dispatch/controller `--part` plumbing added by the runner.
 - Spend to date: 6 live calls, ≈ $0.55 total.
+
+- 2026-10-27T16:50:27.670Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:5 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
