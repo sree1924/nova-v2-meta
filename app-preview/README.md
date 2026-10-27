@@ -30,7 +30,7 @@ to the generated `*-embedded.js` copies (identical content) when opened via `fil
 - **Real learner content:** all 9 accepted parts of the stage-02 dossier
   plus the accepted stage-03 combined KG — `data/real/manifest.json`
   (written by `node tools/preview/export-content.mjs`, accepted ledger
-  tasks only) lists 12 files (`02_dossier_sections` ×9, tasks accepted,
+  tasks only) lists 13 files (`02_dossier_sections` ×9, tasks accepted,
   sha256-verified: section C 24 FACT_ID blocks, section C2 15 FACT_ID
   blocks, sections A/B/D/E/E2/F/G structural prose with no FACT_ID blocks;
   `03_combined_kg` ×1: 3 modules, 39 nodes, 18 edges, 39-step learning
@@ -41,11 +41,14 @@ to the generated `*-embedded.js` copies (identical content) when opened via `fil
   route renders the accepted stage-04 cards (1 deck batch), and the
   `#/real-quiz` reviewer route renders the accepted stage-06 exam bank
   (39 items, 3 module quizzes, 2 practice forms, interactive with
-  rationales), all with the
+  rationales), and the `#/real-lesson` reviewer route renders the
+  accepted stage-05 teaching units (3 units u01–u03, 21 slides with
+  narration copy, worked examples, misconception corrections,
+  self-checks), all with the
   "REAL — Utah Section 9, validated, audit pending" banner (not lessons);
-  every learner screen keeps the SYNTHETIC banner. The real lesson stays
-  unwired until stage 05.sessions has an accepted task; all other
-  parts/panels remain synthetic until the belt accepts them.
+  every learner screen keeps the SYNTHETIC banner. Card narration text
+  stays unwired until stage 05.card_scripts has an accepted task; all
+  other parts/panels remain synthetic until the belt accepts them.
 
 ## Learner routes (hash-based, in index.html)
 
@@ -66,6 +69,9 @@ provenance); empty state until stage 03 has an accepted task.
 `#/real-quiz` real quiz — the accepted stage-06 exam bank (39 items,
 3 module quizzes, 2 practice forms), interactive with per-option rationales
 and device-local results; empty state until stage 06 has an accepted task.
+`#/real-lesson` real lesson — the accepted stage-05 teaching units (3 units,
+21 slides, narration copy, worked examples, misconceptions, self-checks);
+empty state until stage 05.sessions has an accepted task.
 
 ## Files (sha256, 2026-10-27 build)
 

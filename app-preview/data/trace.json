@@ -67,19 +67,19 @@
     },
     "total_usd": 30
   },
-  "exported_at": "2026-10-27T18:35:25.918Z",
+  "exported_at": "2026-10-27T18:47:12.878Z",
   "exporter": "tools/preview/export-trace.mjs (read-only ledger export, no model calls)",
   "ledger_path": "runs/2026-10-26-rdmv-ut-class-d/ledger/run.sqlite",
   "totals": {
-    "attempts": 76,
-    "model_calls_completed": 68,
-    "prompt_tokens": 4817548,
-    "completion_tokens": 630337,
-    "reasoning_tokens_observed": 185762,
-    "estimated_usd": 8.700875,
-    "actual_microusd_exact": 9700875,
-    "reserved_microusd_total": 71000000,
-    "actual_usd_exact": 9.700875
+    "attempts": 84,
+    "model_calls_completed": 76,
+    "prompt_tokens": 5654326,
+    "completion_tokens": 764654,
+    "reasoning_tokens_observed": 195470,
+    "estimated_usd": 10.317696,
+    "actual_microusd_exact": 11317696,
+    "reserved_microusd_total": 79000000,
+    "actual_usd_exact": 11.317696
   },
   "lineages": [
     {
@@ -321,6 +321,29 @@
       "attempts": [
         "attempt_227a2deab48ab15a77767a290ee23e1e3553e7ee4ecfb80ab9dc3905e01f60f0",
         "attempt_d8b7cc00457bf3fdf3a63793cc537b829a2fa35c02ee884272ca59615dacb282"
+      ]
+    },
+    {
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:34",
+      "attempts": [
+        "attempt_e1d8930638e25d23e3b74accdce031560fb8b30db3e88a6ddc86d2798cbb60c4",
+        "attempt_41712004e1ae54af0095c92b4f69b50fc54e653798457f22fe1ddd17598531d6",
+        "attempt_a772988b4dad89f214469762a1a01eba4194838656b1f2bee02b6098223ed2a4",
+        "attempt_737826e00915f2bed25b8914e88531a3a099b764ae03f9d973d55b0aa00c140b"
+      ]
+    },
+    {
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:35",
+      "attempts": [
+        "attempt_2a95811180685cb0e107cab20f1484f47b7f8af067193d8fd7895839c1567ef9",
+        "attempt_149d02d220670c2b62a3a412a58ad9a766d84302e294a6ab2c49ecf2e1841317"
+      ]
+    },
+    {
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:36",
+      "attempts": [
+        "attempt_54808a89ccebd7cdf9f01f61cd1701e834cfefd191de0d7f9c8e68812dcba3a0",
+        "attempt_31e9b4c34f3d9b3a035873f4c56c8cc5caf7ba90ad68a24871bd8d3313905663"
       ]
     }
   ],
@@ -16775,6 +16798,1776 @@
           "reason": "no acceptance file present for this attempt"
         }
       ]
+    },
+    {
+      "attempt_id": "attempt_e1d8930638e25d23e3b74accdce031560fb8b30db3e88a6ddc86d2798cbb60c4",
+      "attempt_no": 1,
+      "task_id": "task_ca39267cad34e29e8765990b8ef20a715b706537d5ad497e3e665867aca19a9d",
+      "stage_id": "05.sessions",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:34",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 218,
+      "created_at": "2026-10-27T18:40:17.398Z",
+      "updated_at": "2026-10-27T18:40:49.338Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 99860,
+      "completion_tokens": 7189,
+      "reasoning_tokens": 891,
+      "cached_tokens": 0,
+      "estimated_usd": 0.155378,
+      "estimated_usd_microusd": 155378,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 155378,
+      "reservation_state": "reported",
+      "elapsed_ms": 31801,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/05b-session-scripts.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS",
+          "evidence": "root hashes are 64-hex, lineage id present, 3 unit(s)",
+          "metrics": {
+            "violations": 0,
+            "units": 3
+          }
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 and source_registry_sha256 equal the scoped context hashes",
+          "metrics": null
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "135 spans and all ids non-empty",
+          "metrics": {
+            "violations": 0,
+            "spans": 135
+          }
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS",
+          "evidence": "objective_ids and every span's fact_ids are non-empty and unique; 3 unit ids, 21 slide ids unique",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS",
+          "evidence": "169/169 span fact references resolve to accepted publishable facts (ratio 1); source entailment is NOT checked here",
+          "metrics": {
+            "references": 169,
+            "resolved": 169,
+            "ratio": 1
+          }
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS",
+          "evidence": "slide counts 6,7,8 within 6..8",
+          "metrics": {
+            "failing_units": 0
+          }
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "FAIL",
+          "evidence": "u01: last slide self_check (must be close); u02: last slide self_check (must be close); u03: last slide self_check (must be close)",
+          "metrics": {
+            "trap_or_bridge_slides": 3,
+            "self_check_slides": 3
+          }
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS",
+          "evidence": "every slide has 1..4 lines; every concept slide 2..4",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS",
+          "evidence": "titles <= 6 words (max 4); lines <= 15 words (max 7)",
+          "metrics": {
+            "max_title_words": 4,
+            "max_line_words": 7
+          }
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "FAIL",
+          "evidence": "2 unit(s) below 400-char average narration: u02: avg 382.1 chars; u03: avg 399.4 chars",
+          "metrics": {
+            "min_unit_avg_chars": 382.1
+          }
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS",
+          "evidence": "every estimated_narration_seconds in 30..60 (text-cadence estimate; no audio or playback claim)",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS",
+          "evidence": "slide-count vector [6,7,8] is not uniform",
+          "metrics": {
+            "comparison": "varied",
+            "vector": "6,7,8"
+          }
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS",
+          "evidence": "every unit populates why_how (6), worked example (3), misconception/correction (3), memory support (3), self-check (3)",
+          "metrics": {
+            "why_how": 6,
+            "worked_examples": 3,
+            "misconception_corrections": 3,
+            "memory_supports": 3,
+            "self_checks": 3
+          }
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS",
+          "evidence": "each self_check answer shares facts with its prompt, tests taught facts and is carried by a self_check slide",
+          "metrics": {
+            "misaligned_units": 0
+          }
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS",
+          "evidence": "no self-check prompt/line equals any of 39 accepted exam stems (normalized)",
+          "metrics": {
+            "verbatim_hits": 0
+          }
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS",
+          "evidence": "every misconception claim carries an explicit label (\\b(misconception|myth|common mistake|mistaken|wrong|incorrec…); correction fact ids covered by 05.FACT_RESOLUTION",
+          "metrics": {
+            "unlabelled": 0
+          }
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS",
+          "evidence": "135 learner spans free of \"(verify\", QA scaffold, doubled article, trace metadata and internal ids",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS",
+          "evidence": "no narrated pause/beat/timed-silence/ellipsis direction and no request to speak",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS",
+          "evidence": "no countable promise (\"Top N\", \"All N\", \"N rules…\") in any title",
+          "metrics": {
+            "promises": 0
+          }
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_1dfd55fb861501c3bc5932a1b57a252974ed2a054d29e757c5e5d64f00d50f7c",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_ca39267cad34e29e8765990b8ef20a715b706537d5ad497e3e665867aca19a9d/attempt_e1d8930638e25d23e3b74accdce031560fb8b30db3e88a6ddc86d2798cbb60c4/artifact.json",
+          "sha256": "df7e82e042fc16a5589d309bd7373544bec4c692f1e03b57de5aa748e141595e",
+          "bytes": 36591
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_9aa195038005b8dc16dad5d84c9fea8586fe15443e560a2f14e1ca30719c07d5",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_ca39267cad34e29e8765990b8ef20a715b706537d5ad497e3e665867aca19a9d/attempt_e1d8930638e25d23e3b74accdce031560fb8b30db3e88a6ddc86d2798cbb60c4/raw-response.json",
+          "sha256": "ca9a994fcee7dd2fe1fe2401466e2c984da7dbf9048018c658d62a192b7a9556",
+          "bytes": 25920
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_ca39267cad34e29e8765990b8ef20a715b706537d5ad497e3e665867aca19a9d\\attempt_e1d8930638e25d23e3b74accdce031560fb8b30db3e88a6ddc86d2798cbb60c4\\request-envelope.json",
+        "sha256": "18c75efd5cb8d2e61d21a7958d387502f6cdec06b93f3206e0352583c3a2dc92",
+        "bytes": 14145,
+        "request_sha256": "b3854b4dc4e735914307662d4b13f7731b7479e279d7b7a499f8e93ca6a31796"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_41712004e1ae54af0095c92b4f69b50fc54e653798457f22fe1ddd17598531d6",
+      "attempt_no": 1,
+      "task_id": "task_4fb4fff1f79150640f9ea80971c97b979c5f4eaf2534070fcb1102297ad36cbe",
+      "stage_id": "05.sessions",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:34",
+      "attempt_status": "accepted",
+      "task_status": "accepted",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 220,
+      "created_at": "2026-10-27T18:40:49.466Z",
+      "updated_at": "2026-10-27T18:41:17.037Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 99872,
+      "completion_tokens": 6209,
+      "reasoning_tokens": 536,
+      "cached_tokens": 0,
+      "estimated_usd": 0.151228,
+      "estimated_usd_microusd": 151228,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 151228,
+      "reservation_state": "reported",
+      "elapsed_ms": 27497,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/05b-session-scripts.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS",
+          "evidence": "root hashes are 64-hex, lineage id present, 3 unit(s)",
+          "metrics": {
+            "violations": 0,
+            "units": 3
+          }
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 and source_registry_sha256 equal the scoped context hashes",
+          "metrics": null
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "132 spans and all ids non-empty",
+          "metrics": {
+            "violations": 0,
+            "spans": 132
+          }
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS",
+          "evidence": "objective_ids and every span's fact_ids are non-empty and unique; 3 unit ids, 21 slide ids unique",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS",
+          "evidence": "183/183 span fact references resolve to accepted publishable facts (ratio 1); source entailment is NOT checked here",
+          "metrics": {
+            "references": 183,
+            "resolved": 183,
+            "ratio": 1
+          }
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS",
+          "evidence": "slide counts 7,6,8 within 6..8",
+          "metrics": {
+            "failing_units": 0
+          }
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS",
+          "evidence": "3 unit(s): opening first, close last, >=1 trap/bridge and >=1 self_check each",
+          "metrics": {
+            "trap_or_bridge_slides": 3,
+            "self_check_slides": 3
+          }
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS",
+          "evidence": "every slide has 1..4 lines; every concept slide 2..4",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS",
+          "evidence": "titles <= 6 words (max 4); lines <= 15 words (max 7)",
+          "metrics": {
+            "max_title_words": 4,
+            "max_line_words": 7
+          }
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS",
+          "evidence": "per-unit average narration 442.0,444.5,434.5 chars (>= 400)",
+          "metrics": {
+            "min_unit_avg_chars": 434.5
+          }
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS",
+          "evidence": "every estimated_narration_seconds in 30..60 (text-cadence estimate; no audio or playback claim)",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS",
+          "evidence": "slide-count vector [7,6,8] is not uniform",
+          "metrics": {
+            "comparison": "varied",
+            "vector": "7,6,8"
+          }
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS",
+          "evidence": "every unit populates why_how (6), worked example (3), misconception/correction (3), memory support (3), self-check (3)",
+          "metrics": {
+            "why_how": 6,
+            "worked_examples": 3,
+            "misconception_corrections": 3,
+            "memory_supports": 3,
+            "self_checks": 3
+          }
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS",
+          "evidence": "each self_check answer shares facts with its prompt, tests taught facts and is carried by a self_check slide",
+          "metrics": {
+            "misaligned_units": 0
+          }
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS",
+          "evidence": "no self-check prompt/line equals any of 39 accepted exam stems (normalized)",
+          "metrics": {
+            "verbatim_hits": 0
+          }
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS",
+          "evidence": "every misconception claim carries an explicit label (\\b(misconception|myth|common mistake|mistaken|wrong|incorrec…); correction fact ids covered by 05.FACT_RESOLUTION",
+          "metrics": {
+            "unlabelled": 0
+          }
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS",
+          "evidence": "132 learner spans free of \"(verify\", QA scaffold, doubled article, trace metadata and internal ids",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS",
+          "evidence": "no narrated pause/beat/timed-silence/ellipsis direction and no request to speak",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS",
+          "evidence": "no countable promise (\"Top N\", \"All N\", \"N rules…\") in any title",
+          "metrics": {
+            "promises": 0
+          }
+        }
+      ],
+      "validation_overall": "PASS",
+      "stage_outputs": [
+        {
+          "artifact_id": "accepted_106db6c8b5a7e9cd3748189d28dbb3847f9c663ec4e8c3df9e67b436b845cd8c",
+          "kind": "stage_output",
+          "status": "accepted",
+          "path": "artifacts/task_4fb4fff1f79150640f9ea80971c97b979c5f4eaf2534070fcb1102297ad36cbe/attempt_41712004e1ae54af0095c92b4f69b50fc54e653798457f22fe1ddd17598531d6/artifact.json",
+          "sha256": "9dec62195f600a6505f75cba1020fbde8fb363aafe4127b616315b9ac03f964d",
+          "bytes": 37890
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_5a776ca53fff9680fb65b5968b644e003da3a7adbc4c89fcf78f21a5e6e042ce",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_4fb4fff1f79150640f9ea80971c97b979c5f4eaf2534070fcb1102297ad36cbe/attempt_41712004e1ae54af0095c92b4f69b50fc54e653798457f22fe1ddd17598531d6/raw-response.json",
+          "sha256": "874b2a51d42427161fe02232b610c7870ad6b8755184ac5654178d02c8f0cdb0",
+          "bytes": 26353
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_4fb4fff1f79150640f9ea80971c97b979c5f4eaf2534070fcb1102297ad36cbe\\attempt_41712004e1ae54af0095c92b4f69b50fc54e653798457f22fe1ddd17598531d6\\request-envelope.json",
+        "sha256": "288030f3b84b84f23734e84f1716705f66d45ae3447bf6159ccf14ce62c08e1f",
+        "bytes": 14145,
+        "request_sha256": "19b5441c0a1cac8304ae303cc904d53040ac1e19b016f66a475d3ebefde7972f"
+      },
+      "acceptance": {
+        "status": "PASS",
+        "kind": "deterministic_validation_only",
+        "auditors": "pending 07/08",
+        "output_sha256": "9dec62195f600a6505f75cba1020fbde8fb363aafe4127b616315b9ac03f964d"
+      },
+      "error_ref": null,
+      "unknown_reasons": []
+    },
+    {
+      "attempt_id": "attempt_a772988b4dad89f214469762a1a01eba4194838656b1f2bee02b6098223ed2a4",
+      "attempt_no": 1,
+      "task_id": "task_1cf83e63732019b2983a8ff39b5b721439453f304fda4d3be1f92e48dd25baed",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:34",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 221,
+      "created_at": "2026-10-27T18:41:17.147Z",
+      "updated_at": "2026-10-27T18:42:16.116Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 106172,
+      "completion_tokens": 20286,
+      "reasoning_tokens": 1510,
+      "cached_tokens": 0,
+      "estimated_usd": 0.218931,
+      "estimated_usd_microusd": 218931,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 218931,
+      "reservation_state": "reported",
+      "elapsed_ms": 58877,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/05-voicescripts.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "slug, hashes, non-empty ids/segments, repeat_count>=1, pause_after_ms>=0 over 42 scripts",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS",
+          "evidence": "42 unique script ids; 39 card scripts, 3 recap scripts",
+          "metrics": {
+            "card_scripts": 39,
+            "recap_scripts": 3
+          }
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS",
+          "evidence": "every narrated script sets tone, pacing, repeat_count and pause_after_ms (parent if/then restored)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS",
+          "evidence": "card scripts carry segments + both equality targets; recaps carry is_recap and no back; figural scripts route to tap_ui",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "FAIL",
+          "evidence": "39 script(s) out of order (required question -> think_ref -> recall_pause_ms -> answer -> teaching): script.card-F01: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F02: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F03: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F04: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F05: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F06: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F07: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F08: [answer,question,recall_pause_ms,teaching,think_ref]; …(+31 more)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS",
+          "evidence": "recall_pause_ms == 3000 on every segmented script (silent data, not spoken words)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS",
+          "evidence": "every think_ref resolves to the one shared cue think.shared; cue text has no direction or speak request",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS",
+          "evidence": "39 scripts: answer == must_match_card_back and teaching contains must_match_memory_hook verbatim",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS",
+          "evidence": "39/39 accepted cards scripted exactly once",
+          "metrics": {
+            "accepted_cards": 39,
+            "missing": 0,
+            "extra": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS",
+          "evidence": "question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, module/unit/source_ref/fact_ids carried through",
+          "metrics": {
+            "question": 0,
+            "answer": 0,
+            "back_target": 0,
+            "hook_target": 0,
+            "teaching_hook": 0,
+            "carry": 0
+          }
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS",
+          "evidence": "3 accepted recaps each scripted with hooks spoken verbatim",
+          "metrics": null
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS",
+          "evidence": "every teaching segment binds >=1 unique accepted fact id",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS",
+          "evidence": "no \"[beat]\", pause, timed-silence, ellipsis timing marker or speak request in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS",
+          "evidence": "no \"official answer\", \"actual test\", \"real question\" (or variants) in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, QA label or doubled article in narrated content",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS",
+          "evidence": "no deictic visual question without a bound image asset; no image asset bound while image cards are disabled",
+          "metrics": null
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS",
+          "evidence": "0 hint(s): token-equal or flagged proper-noun respelling (0)",
+          "metrics": {
+            "hints": 0,
+            "proper_noun_respellings": 0,
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS",
+          "evidence": "audio_render sentinel bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (no rendered audio, no live TTS, role 20 inactive)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest a62a7d72f7c06711265f9787d0adb9bf503eb018f9d2d65fc9a3c5b189fa63ad",
+          "metrics": null
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_dfe22dc06572e218bb98ab55b46b643bd7a85b8b7dfdf0ac0e2db7d82e1026e9",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_1cf83e63732019b2983a8ff39b5b721439453f304fda4d3be1f92e48dd25baed/attempt_a772988b4dad89f214469762a1a01eba4194838656b1f2bee02b6098223ed2a4/artifact.json",
+          "sha256": "e69d36f11ac2cc2215e9626346ebeebd8d52c83fa85dbc29980294a7c4044f58",
+          "bytes": 85489
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_3fd902517e1091b2b9fe38071710e5f5c80093e2d29d7eca363924d6375d26bc",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_1cf83e63732019b2983a8ff39b5b721439453f304fda4d3be1f92e48dd25baed/attempt_a772988b4dad89f214469762a1a01eba4194838656b1f2bee02b6098223ed2a4/raw-response.json",
+          "sha256": "9aeb1440926d13324ccc5e226db02dd6aff7c774a06267624853f67829e6d856",
+          "bytes": 73998
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_1cf83e63732019b2983a8ff39b5b721439453f304fda4d3be1f92e48dd25baed\\attempt_a772988b4dad89f214469762a1a01eba4194838656b1f2bee02b6098223ed2a4\\request-envelope.json",
+        "sha256": "a4c1c796310fd148a10fc960b5dd655680d49cb995e390d8c0735dc1211f47dd",
+        "bytes": 14494,
+        "request_sha256": "6a47602e55ffc2bff87d791c5610a4910d249a1b89fbb807425ecbff5dc806fc"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_737826e00915f2bed25b8914e88531a3a099b764ae03f9d973d55b0aa00c140b",
+      "attempt_no": 1,
+      "task_id": "task_cb8fd7739a33e372f02228776ae7d5454f5ba653742296a6e388531c92fa0271",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:34",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 223,
+      "created_at": "2026-10-27T18:42:16.233Z",
+      "updated_at": "2026-10-27T18:43:10.916Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 106166,
+      "completion_tokens": 20124,
+      "reasoning_tokens": 1357,
+      "cached_tokens": 0,
+      "estimated_usd": 0.218235,
+      "estimated_usd_microusd": 218235,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 218235,
+      "reservation_state": "reported",
+      "elapsed_ms": 54624,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/05-voicescripts.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "slug, hashes, non-empty ids/segments, repeat_count>=1, pause_after_ms>=0 over 42 scripts",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS",
+          "evidence": "42 unique script ids; 39 card scripts, 3 recap scripts",
+          "metrics": {
+            "card_scripts": 39,
+            "recap_scripts": 3
+          }
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS",
+          "evidence": "every narrated script sets tone, pacing, repeat_count and pause_after_ms (parent if/then restored)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS",
+          "evidence": "card scripts carry segments + both equality targets; recaps carry is_recap and no back; figural scripts route to tap_ui",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "FAIL",
+          "evidence": "39 script(s) out of order (required question -> think_ref -> recall_pause_ms -> answer -> teaching): script.card-F01: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F02: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F03: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F04: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F05: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F06: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F07: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F08: [answer,question,recall_pause_ms,teaching,think_ref]; …(+31 more)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS",
+          "evidence": "recall_pause_ms == 3000 on every segmented script (silent data, not spoken words)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS",
+          "evidence": "every think_ref resolves to the one shared cue think.shared; cue text has no direction or speak request",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS",
+          "evidence": "39 scripts: answer == must_match_card_back and teaching contains must_match_memory_hook verbatim",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS",
+          "evidence": "39/39 accepted cards scripted exactly once",
+          "metrics": {
+            "accepted_cards": 39,
+            "missing": 0,
+            "extra": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS",
+          "evidence": "question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, module/unit/source_ref/fact_ids carried through",
+          "metrics": {
+            "question": 0,
+            "answer": 0,
+            "back_target": 0,
+            "hook_target": 0,
+            "teaching_hook": 0,
+            "carry": 0
+          }
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS",
+          "evidence": "3 accepted recaps each scripted with hooks spoken verbatim",
+          "metrics": null
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS",
+          "evidence": "every teaching segment binds >=1 unique accepted fact id",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS",
+          "evidence": "no \"[beat]\", pause, timed-silence, ellipsis timing marker or speak request in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS",
+          "evidence": "no \"official answer\", \"actual test\", \"real question\" (or variants) in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, QA label or doubled article in narrated content",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS",
+          "evidence": "no deictic visual question without a bound image asset; no image asset bound while image cards are disabled",
+          "metrics": null
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS",
+          "evidence": "0 hint(s): token-equal or flagged proper-noun respelling (0)",
+          "metrics": {
+            "hints": 0,
+            "proper_noun_respellings": 0,
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS",
+          "evidence": "audio_render sentinel bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (no rendered audio, no live TTS, role 20 inactive)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 3fc4e465eadeb727bfa84f477e58c22c9f6d6cb6d830351d16b629102ae89732",
+          "metrics": null
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_f5bacc966c917fae7c408144cc64f6f6602104589bd8feea8aa1f0a8998d2c86",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_cb8fd7739a33e372f02228776ae7d5454f5ba653742296a6e388531c92fa0271/attempt_737826e00915f2bed25b8914e88531a3a099b764ae03f9d973d55b0aa00c140b/artifact.json",
+          "sha256": "6b099e257d8f6a80982b1190b1cfe0dc69d6255ab23a66cc8d87171974afcbff",
+          "bytes": 85894
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_15797f0f3992905cc63835cc49193fa0a6802bba5b0d193a8a1fab17b1233e3c",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_cb8fd7739a33e372f02228776ae7d5454f5ba653742296a6e388531c92fa0271/attempt_737826e00915f2bed25b8914e88531a3a099b764ae03f9d973d55b0aa00c140b/raw-response.json",
+          "sha256": "0be06a2afb71f270595464d738305ca63c4c3bf8d2545096a7eea7084337b091",
+          "bytes": 74359
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_cb8fd7739a33e372f02228776ae7d5454f5ba653742296a6e388531c92fa0271\\attempt_737826e00915f2bed25b8914e88531a3a099b764ae03f9d973d55b0aa00c140b\\request-envelope.json",
+        "sha256": "fd9ab3ea4d05827ca50b50d8a8a1cb8c8eb1ffee6a06ed027bd3939945cf7da2",
+        "bytes": 14494,
+        "request_sha256": "8f937cb2aa18ffdca33118b70c221ceacea362df72ea7d24d7dd131bdaf607e9"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_2a95811180685cb0e107cab20f1484f47b7f8af067193d8fd7895839c1567ef9",
+      "attempt_no": 1,
+      "task_id": "task_b55d85199e949ff0ec6b89968e4d0f50b0c0d46d047462d4b034faa6fb094ec9",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:35",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 227,
+      "created_at": "2026-10-27T18:43:11.154Z",
+      "updated_at": "2026-10-27T18:44:08.560Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 106178,
+      "completion_tokens": 20004,
+      "reasoning_tokens": 1285,
+      "cached_tokens": 0,
+      "estimated_usd": 0.21774,
+      "estimated_usd_microusd": 217740,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 217740,
+      "reservation_state": "reported",
+      "elapsed_ms": 57349,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/05-voicescripts.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "slug, hashes, non-empty ids/segments, repeat_count>=1, pause_after_ms>=0 over 42 scripts",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS",
+          "evidence": "42 unique script ids; 39 card scripts, 3 recap scripts",
+          "metrics": {
+            "card_scripts": 39,
+            "recap_scripts": 3
+          }
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS",
+          "evidence": "every narrated script sets tone, pacing, repeat_count and pause_after_ms (parent if/then restored)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS",
+          "evidence": "card scripts carry segments + both equality targets; recaps carry is_recap and no back; figural scripts route to tap_ui",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "FAIL",
+          "evidence": "39 script(s) out of order (required question -> think_ref -> recall_pause_ms -> answer -> teaching): script.card-F01: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F02: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F03: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F04: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F05: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F06: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F07: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F08: [answer,question,recall_pause_ms,teaching,think_ref]; …(+31 more)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS",
+          "evidence": "recall_pause_ms == 3000 on every segmented script (silent data, not spoken words)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS",
+          "evidence": "every think_ref resolves to the one shared cue think.shared; cue text has no direction or speak request",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS",
+          "evidence": "39 scripts: answer == must_match_card_back and teaching contains must_match_memory_hook verbatim",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS",
+          "evidence": "39/39 accepted cards scripted exactly once",
+          "metrics": {
+            "accepted_cards": 39,
+            "missing": 0,
+            "extra": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS",
+          "evidence": "question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, module/unit/source_ref/fact_ids carried through",
+          "metrics": {
+            "question": 0,
+            "answer": 0,
+            "back_target": 0,
+            "hook_target": 0,
+            "teaching_hook": 0,
+            "carry": 0
+          }
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS",
+          "evidence": "3 accepted recaps each scripted with hooks spoken verbatim",
+          "metrics": null
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS",
+          "evidence": "every teaching segment binds >=1 unique accepted fact id",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS",
+          "evidence": "no \"[beat]\", pause, timed-silence, ellipsis timing marker or speak request in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS",
+          "evidence": "no \"official answer\", \"actual test\", \"real question\" (or variants) in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, QA label or doubled article in narrated content",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS",
+          "evidence": "no deictic visual question without a bound image asset; no image asset bound while image cards are disabled",
+          "metrics": null
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS",
+          "evidence": "0 hint(s): token-equal or flagged proper-noun respelling (0)",
+          "metrics": {
+            "hints": 0,
+            "proper_noun_respellings": 0,
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS",
+          "evidence": "audio_render sentinel bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (no rendered audio, no live TTS, role 20 inactive)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest f972c0ae642b90517442701c486942903f08d8abaa0ec67b0c133e1f5aeacfd9",
+          "metrics": null
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_97bc71d953c9c20091baf4f14a793a9988c0be71634e2b1e4694832d1fb69980",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_b55d85199e949ff0ec6b89968e4d0f50b0c0d46d047462d4b034faa6fb094ec9/attempt_2a95811180685cb0e107cab20f1484f47b7f8af067193d8fd7895839c1567ef9/artifact.json",
+          "sha256": "f5ba9320adb750523d051859b67ca63aeaf9dc360fd8440045241dc2b7adc315",
+          "bytes": 85345
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_b9d7893a8b8021ad3d27888fd5b43f5d9cc910ff18f79cc477dd71c3737d6dde",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_b55d85199e949ff0ec6b89968e4d0f50b0c0d46d047462d4b034faa6fb094ec9/attempt_2a95811180685cb0e107cab20f1484f47b7f8af067193d8fd7895839c1567ef9/raw-response.json",
+          "sha256": "7139544f5f30b6c097315d0a9890cf7a1f00801dce3681a973c27eeb2c2c3fab",
+          "bytes": 73854
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_b55d85199e949ff0ec6b89968e4d0f50b0c0d46d047462d4b034faa6fb094ec9\\attempt_2a95811180685cb0e107cab20f1484f47b7f8af067193d8fd7895839c1567ef9\\request-envelope.json",
+        "sha256": "15b29a4d55890ab2115baea0b52921fd1766c05055d3bb8ef0ada3140927f3ae",
+        "bytes": 14494,
+        "request_sha256": "f3ed5d36627856dcadb3466b0fe4b341207e50a3e81f9eed6a46ca5fff19d310"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_149d02d220670c2b62a3a412a58ad9a766d84302e294a6ab2c49ecf2e1841317",
+      "attempt_no": 1,
+      "task_id": "task_da36cdb026d4adb13bc33cc23793d502f260827d15440a5e012324e5e0db11df",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:35",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 229,
+      "created_at": "2026-10-27T18:44:08.667Z",
+      "updated_at": "2026-10-27T18:45:03.312Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 106174,
+      "completion_tokens": 20233,
+      "reasoning_tokens": 1399,
+      "cached_tokens": 0,
+      "estimated_usd": 0.218708,
+      "estimated_usd_microusd": 218708,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 218708,
+      "reservation_state": "reported",
+      "elapsed_ms": 54588,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/05-voicescripts.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "slug, hashes, non-empty ids/segments, repeat_count>=1, pause_after_ms>=0 over 42 scripts",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS",
+          "evidence": "42 unique script ids; 39 card scripts, 3 recap scripts",
+          "metrics": {
+            "card_scripts": 39,
+            "recap_scripts": 3
+          }
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS",
+          "evidence": "every narrated script sets tone, pacing, repeat_count and pause_after_ms (parent if/then restored)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS",
+          "evidence": "card scripts carry segments + both equality targets; recaps carry is_recap and no back; figural scripts route to tap_ui",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "FAIL",
+          "evidence": "39 script(s) out of order (required question -> think_ref -> recall_pause_ms -> answer -> teaching): script.card-F01: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F02: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F03: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F04: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F05: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F06: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F07: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F08: [answer,question,recall_pause_ms,teaching,think_ref]; …(+31 more)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS",
+          "evidence": "recall_pause_ms == 3000 on every segmented script (silent data, not spoken words)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS",
+          "evidence": "every think_ref resolves to the one shared cue think.shared; cue text has no direction or speak request",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS",
+          "evidence": "39 scripts: answer == must_match_card_back and teaching contains must_match_memory_hook verbatim",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS",
+          "evidence": "39/39 accepted cards scripted exactly once",
+          "metrics": {
+            "accepted_cards": 39,
+            "missing": 0,
+            "extra": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS",
+          "evidence": "question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, module/unit/source_ref/fact_ids carried through",
+          "metrics": {
+            "question": 0,
+            "answer": 0,
+            "back_target": 0,
+            "hook_target": 0,
+            "teaching_hook": 0,
+            "carry": 0
+          }
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS",
+          "evidence": "3 accepted recaps each scripted with hooks spoken verbatim",
+          "metrics": null
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS",
+          "evidence": "every teaching segment binds >=1 unique accepted fact id",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS",
+          "evidence": "no \"[beat]\", pause, timed-silence, ellipsis timing marker or speak request in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS",
+          "evidence": "no \"official answer\", \"actual test\", \"real question\" (or variants) in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, QA label or doubled article in narrated content",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS",
+          "evidence": "no deictic visual question without a bound image asset; no image asset bound while image cards are disabled",
+          "metrics": null
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS",
+          "evidence": "0 hint(s): token-equal or flagged proper-noun respelling (0)",
+          "metrics": {
+            "hints": 0,
+            "proper_noun_respellings": 0,
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS",
+          "evidence": "audio_render sentinel bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (no rendered audio, no live TTS, role 20 inactive)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 94172692f22d94131cc45c8a2d4b6b7433b1b8fd6849ff0b20b3fe4899b1b779",
+          "metrics": null
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_0bf0cdb7e5abf00ee2f5043c77086391b3a109b5322a23d687803f786b06671c",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_da36cdb026d4adb13bc33cc23793d502f260827d15440a5e012324e5e0db11df/attempt_149d02d220670c2b62a3a412a58ad9a766d84302e294a6ab2c49ecf2e1841317/artifact.json",
+          "sha256": "f966dc95a9422f7d692ec7735f605d8115677a2adaa7e064f7550343c0cf9d20",
+          "bytes": 86056
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_62f71d3b38d0cd5a6cc25a6905ac278fecee3767bf95500bf0f1653823b6daa2",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_da36cdb026d4adb13bc33cc23793d502f260827d15440a5e012324e5e0db11df/attempt_149d02d220670c2b62a3a412a58ad9a766d84302e294a6ab2c49ecf2e1841317/raw-response.json",
+          "sha256": "4558563fc052b3e62b87feca1dc09dd2af1b0ac194cce08f2e9368b9ec939179",
+          "bytes": 74527
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_da36cdb026d4adb13bc33cc23793d502f260827d15440a5e012324e5e0db11df\\attempt_149d02d220670c2b62a3a412a58ad9a766d84302e294a6ab2c49ecf2e1841317\\request-envelope.json",
+        "sha256": "9c18ef7743367378dd035b2aa6feb1e0931372ed9b022c483e094f117386626d",
+        "bytes": 14494,
+        "request_sha256": "33d014f28eb8aba010281ad3c5d8529ffe8218bd9ef54c6ddf6e171ace5a95d4"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_54808a89ccebd7cdf9f01f61cd1701e834cfefd191de0d7f9c8e68812dcba3a0",
+      "attempt_no": 1,
+      "task_id": "task_54524828ca2d11a063f699a9b45d30965b74bfad6aa12e2eb1e73464b2eb6a09",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:36",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 233,
+      "created_at": "2026-10-27T18:45:03.585Z",
+      "updated_at": "2026-10-27T18:46:01.862Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 106186,
+      "completion_tokens": 19841,
+      "reasoning_tokens": 1013,
+      "cached_tokens": 0,
+      "estimated_usd": 0.217057,
+      "estimated_usd_microusd": 217057,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 217057,
+      "reservation_state": "reported",
+      "elapsed_ms": 58222,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/05-voicescripts.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "slug, hashes, non-empty ids/segments, repeat_count>=1, pause_after_ms>=0 over 42 scripts",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS",
+          "evidence": "42 unique script ids; 39 card scripts, 3 recap scripts",
+          "metrics": {
+            "card_scripts": 39,
+            "recap_scripts": 3
+          }
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS",
+          "evidence": "every narrated script sets tone, pacing, repeat_count and pause_after_ms (parent if/then restored)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS",
+          "evidence": "card scripts carry segments + both equality targets; recaps carry is_recap and no back; figural scripts route to tap_ui",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "FAIL",
+          "evidence": "39 script(s) out of order (required question -> think_ref -> recall_pause_ms -> answer -> teaching): script.card-F01: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F02: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F03: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F04: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F05: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F06: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F07: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F08: [answer,question,recall_pause_ms,teaching,think_ref]; …(+31 more)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS",
+          "evidence": "recall_pause_ms == 3000 on every segmented script (silent data, not spoken words)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS",
+          "evidence": "every think_ref resolves to the one shared cue think.shared; cue text has no direction or speak request",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS",
+          "evidence": "39 scripts: answer == must_match_card_back and teaching contains must_match_memory_hook verbatim",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS",
+          "evidence": "39/39 accepted cards scripted exactly once",
+          "metrics": {
+            "accepted_cards": 39,
+            "missing": 0,
+            "extra": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS",
+          "evidence": "question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, module/unit/source_ref/fact_ids carried through",
+          "metrics": {
+            "question": 0,
+            "answer": 0,
+            "back_target": 0,
+            "hook_target": 0,
+            "teaching_hook": 0,
+            "carry": 0
+          }
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS",
+          "evidence": "3 accepted recaps each scripted with hooks spoken verbatim",
+          "metrics": null
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS",
+          "evidence": "every teaching segment binds >=1 unique accepted fact id",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS",
+          "evidence": "no \"[beat]\", pause, timed-silence, ellipsis timing marker or speak request in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS",
+          "evidence": "no \"official answer\", \"actual test\", \"real question\" (or variants) in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, QA label or doubled article in narrated content",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS",
+          "evidence": "no deictic visual question without a bound image asset; no image asset bound while image cards are disabled",
+          "metrics": null
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS",
+          "evidence": "0 hint(s): token-equal or flagged proper-noun respelling (0)",
+          "metrics": {
+            "hints": 0,
+            "proper_noun_respellings": 0,
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS",
+          "evidence": "audio_render sentinel bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (no rendered audio, no live TTS, role 20 inactive)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 77fb45b4d1a07deb671a1dcd8af02e40705b79e35e0973174c4ce4f12956e7e0",
+          "metrics": null
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_5a7f0cdc7c2582d594a029ca3e9cee1a2be9a2d4fc63c37cbb06be21072ea6c5",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_54524828ca2d11a063f699a9b45d30965b74bfad6aa12e2eb1e73464b2eb6a09/attempt_54808a89ccebd7cdf9f01f61cd1701e834cfefd191de0d7f9c8e68812dcba3a0/artifact.json",
+          "sha256": "62ee87ed75cd32aac53c188126fb5e96348e5e2190ad7645945cc6efd0470412",
+          "bytes": 86068
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_2d5e1778017abe49bfe299dd25b17d0e427a53adffb29bee7a860b84171eab41",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_54524828ca2d11a063f699a9b45d30965b74bfad6aa12e2eb1e73464b2eb6a09/attempt_54808a89ccebd7cdf9f01f61cd1701e834cfefd191de0d7f9c8e68812dcba3a0/raw-response.json",
+          "sha256": "84c30dc16f08105388ededf2da55dfe767c55acc0cc3bd8b2ec456dbcfff1821",
+          "bytes": 74533
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_54524828ca2d11a063f699a9b45d30965b74bfad6aa12e2eb1e73464b2eb6a09\\attempt_54808a89ccebd7cdf9f01f61cd1701e834cfefd191de0d7f9c8e68812dcba3a0\\request-envelope.json",
+        "sha256": "7284a7cf9c0e3a5a0d01980cd99831daae411ae64f5fe23ac04bc1524df7b99c",
+        "bytes": 14494,
+        "request_sha256": "f505f5b2f063c16658950a66209cb6b3dcce9576902fb77dc1565dc91122df86"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_31e9b4c34f3d9b3a035873f4c56c8cc5caf7ba90ad68a24871bd8d3313905663",
+      "attempt_no": 1,
+      "task_id": "task_275929c0aa16dc619bbc6a5e212fbc4b195e2a1560defccded0f084960544a7d",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:36",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 235,
+      "created_at": "2026-10-27T18:46:01.977Z",
+      "updated_at": "2026-10-27T18:47:01.530Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 106170,
+      "completion_tokens": 20431,
+      "reasoning_tokens": 1717,
+      "cached_tokens": 0,
+      "estimated_usd": 0.219544,
+      "estimated_usd_microusd": 219544,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 219544,
+      "reservation_state": "reported",
+      "elapsed_ms": 59499,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/05-voicescripts.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "slug, hashes, non-empty ids/segments, repeat_count>=1, pause_after_ms>=0 over 42 scripts",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS",
+          "evidence": "42 unique script ids; 39 card scripts, 3 recap scripts",
+          "metrics": {
+            "card_scripts": 39,
+            "recap_scripts": 3
+          }
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS",
+          "evidence": "every narrated script sets tone, pacing, repeat_count and pause_after_ms (parent if/then restored)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS",
+          "evidence": "card scripts carry segments + both equality targets; recaps carry is_recap and no back; figural scripts route to tap_ui",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "FAIL",
+          "evidence": "39 script(s) out of order (required question -> think_ref -> recall_pause_ms -> answer -> teaching): script.card-F01: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F02: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F03: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F04: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F05: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F06: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F07: [answer,question,recall_pause_ms,teaching,think_ref]; script.card-F08: [answer,question,recall_pause_ms,teaching,think_ref]; …(+31 more)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS",
+          "evidence": "recall_pause_ms == 3000 on every segmented script (silent data, not spoken words)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS",
+          "evidence": "every think_ref resolves to the one shared cue think.shared; cue text has no direction or speak request",
+          "metrics": null
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS",
+          "evidence": "39 scripts: answer == must_match_card_back and teaching contains must_match_memory_hook verbatim",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS",
+          "evidence": "39/39 accepted cards scripted exactly once",
+          "metrics": {
+            "accepted_cards": 39,
+            "missing": 0,
+            "extra": 0
+          }
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS",
+          "evidence": "question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, module/unit/source_ref/fact_ids carried through",
+          "metrics": {
+            "question": 0,
+            "answer": 0,
+            "back_target": 0,
+            "hook_target": 0,
+            "teaching_hook": 0,
+            "carry": 0
+          }
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS",
+          "evidence": "3 accepted recaps each scripted with hooks spoken verbatim",
+          "metrics": null
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS",
+          "evidence": "every teaching segment binds >=1 unique accepted fact id",
+          "metrics": {
+            "defects": 0
+          }
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS",
+          "evidence": "no \"[beat]\", pause, timed-silence, ellipsis timing marker or speak request in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS",
+          "evidence": "no \"official answer\", \"actual test\", \"real question\" (or variants) in any narrated span",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, QA label or doubled article in narrated content",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS",
+          "evidence": "no deictic visual question without a bound image asset; no image asset bound while image cards are disabled",
+          "metrics": null
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS",
+          "evidence": "0 hint(s): token-equal or flagged proper-noun respelling (0)",
+          "metrics": {
+            "hints": 0,
+            "proper_noun_respellings": 0,
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS",
+          "evidence": "audio_render sentinel bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (no rendered audio, no live TTS, role 20 inactive)",
+          "metrics": null
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 91a31cc1837863186f564dd68c12928cf7040d2fcb4af36d0598ef522330b59d",
+          "metrics": null
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_fdd263b423bc4ea074791698f9b7f7ff690a0e6d4a215168754dc91ea250f491",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_275929c0aa16dc619bbc6a5e212fbc4b195e2a1560defccded0f084960544a7d/attempt_31e9b4c34f3d9b3a035873f4c56c8cc5caf7ba90ad68a24871bd8d3313905663/artifact.json",
+          "sha256": "9423019185b535aee792a43c472f40a37302e4b482d1fcc3a4f112282dc859e6",
+          "bytes": 85413
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_8afbbb0e799da6d5a2775cb59caebb325fc8a95d31403d4c88e39098d002f3cc",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_275929c0aa16dc619bbc6a5e212fbc4b195e2a1560defccded0f084960544a7d/attempt_31e9b4c34f3d9b3a035873f4c56c8cc5caf7ba90ad68a24871bd8d3313905663/raw-response.json",
+          "sha256": "dca9d85ef69e499af6a587133e9cd9413558524a4faa8c26a19df1f5527e0e64",
+          "bytes": 73916
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_275929c0aa16dc619bbc6a5e212fbc4b195e2a1560defccded0f084960544a7d\\attempt_31e9b4c34f3d9b3a035873f4c56c8cc5caf7ba90ad68a24871bd8d3313905663\\request-envelope.json",
+        "sha256": "944ec837227a2cf8e76302b83946a0f65cc09df12ecf94b8117bfa12eb64bf83",
+        "bytes": 14494,
+        "request_sha256": "3d55fe4f77fd2baa5d1abb74a4eabd1e2b1a2655c37a0e1be499ecc126074970"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
     }
   ],
   "tasks_without_attempts": [
@@ -17084,6 +18877,27 @@
       "stage_id": "05.sessions",
       "role_id": "05",
       "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:33",
+      "status": "queued"
+    },
+    {
+      "task_id": "task_b80ebda5bc7b7c92453f8383baa62e585fe2287439451843b5e1f90415786bdc",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:34",
+      "status": "queued"
+    },
+    {
+      "task_id": "task_afcca5b100264816435f566e687065f98b7e522fa14e954713b59408ead6024b",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:35",
+      "status": "queued"
+    },
+    {
+      "task_id": "task_17f3813cd9e93b2d4f8ba9eaed4f9340841ad360cb8504de501e539bf3436f70",
+      "stage_id": "05.card_scripts",
+      "role_id": "05",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:36",
       "status": "queued"
     }
   ],
@@ -17837,6 +19651,87 @@
         "usd_ceiling": 1
       },
       {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-41-17-050Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:41:17.050Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-42-16-129Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:42:16.130Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-43-10-926Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:43:10.926Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-43-11-041Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:43:11.041Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-44-08-571Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:44:08.571Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-45-03-323Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:45:03.324Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-45-03-463Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:45:03.463Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-46-01-874Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:46:01.874Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.card_scripts-2026-10-27T18-47-01-541Z.json",
+        "stage_id": "05.card_scripts",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:47:01.541Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
         "file": "approvals/GO-05.sessions-2026-10-27T18-32-05-713Z.json",
         "stage_id": "05.sessions",
         "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
@@ -17914,6 +19809,33 @@
         "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
         "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
         "recorded_at": "2026-10-27T18:35:19.207Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.sessions-2026-10-27T18-40-17-131Z.json",
+        "stage_id": "05.sessions",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:40:17.133Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.sessions-2026-10-27T18-40-17-275Z.json",
+        "stage_id": "05.sessions",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:40:17.275Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-05.sessions-2026-10-27T18-40-49-348Z.json",
+        "stage_id": "05.sessions",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:40:49.349Z",
         "expires_at": "2026-11-05T02:00:00Z",
         "usd_ceiling": 1
       },
@@ -18670,6 +20592,54 @@
           "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
         },
         "recorded_at": "2026-10-27T18:34:20.136Z"
+      },
+      {
+        "file": "receipts/lineage-reset-05sessions-lineage34.json",
+        "schema_version": "nova-lineage-reset.v0.4.0",
+        "run_id": "2026-10-26-rdmv-ut-class-d",
+        "stage_id": "05.sessions",
+        "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:33",
+        "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:34",
+        "authority": "standing authority (founder, $30 cap, no per-call ceremony)",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "cause": "attempt limit after HOLDs; last non-PASS: ",
+        "recorded_by": {
+          "actor_id": "claude-code-runner",
+          "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+        },
+        "recorded_at": "2026-10-27T18:40:17.272Z"
+      },
+      {
+        "file": "receipts/lineage-reset-05cardscripts-lineage35.json",
+        "schema_version": "nova-lineage-reset.v0.4.0",
+        "run_id": "2026-10-26-rdmv-ut-class-d",
+        "stage_id": "05.card_scripts",
+        "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:34",
+        "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:35",
+        "authority": "standing authority (founder, $30 cap, no per-call ceremony)",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "cause": "attempt limit after HOLDs; last non-PASS: 05.SEGMENT_ORDER=FAIL",
+        "recorded_by": {
+          "actor_id": "claude-code-runner",
+          "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+        },
+        "recorded_at": "2026-10-27T18:43:11.036Z"
+      },
+      {
+        "file": "receipts/lineage-reset-05cardscripts-lineage36.json",
+        "schema_version": "nova-lineage-reset.v0.4.0",
+        "run_id": "2026-10-26-rdmv-ut-class-d",
+        "stage_id": "05.card_scripts",
+        "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:35",
+        "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:36",
+        "authority": "standing authority (founder, $30 cap, no per-call ceremony)",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "cause": "attempt limit after HOLDs; last non-PASS: 05.SEGMENT_ORDER=FAIL",
+        "recorded_by": {
+          "actor_id": "claude-code-runner",
+          "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+        },
+        "recorded_at": "2026-10-27T18:45:03.460Z"
       }
     ],
     "jams": {

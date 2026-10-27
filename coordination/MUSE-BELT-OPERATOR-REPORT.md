@@ -1,10 +1,10 @@
-# Muse belt-operator report — Utah eighth launch (2026-10-27 ~12:35 MDT)
+# Muse belt-operator report — Utah ninth launch (2026-10-27 ~12:55 MDT)
 
 Authority: `runs/2026-10-26-rdmv-ut-class-d/approvals/STANDING-AUTHORITY-utah-full-run.json`
 ($30 cap, stages 02/03/04/05.sessions/05.card_scripts/06, all 16 handbook sections).
 Lane: belt operator. Ran belt ONLY via `tools/belt/run-utah.mjs`;
 preview work ONLY in `app-preview/` + `tools/preview/`. No key printed.
-This overwrites the ~12:26 MDT seventh-launch report per instructions.
+This overwrites the ~12:35 MDT eighth-launch report per instructions.
 
 ## 1. Belt chain (step 1)
 
@@ -13,117 +13,121 @@ Command (stages value quoted exactly as instructed):
 `node tools/belt/run-utah.mjs --section sec09-rules-of-the-road --stages "02,16,03,04,06,05.sessions,05.card_scripts"`
 
 Exit: **non-zero** (runner STOP; process exit code 1).
-Full console: `coordination/step1-sec09-full-console.log`. Exact output:
+Full console: `coordination/step1-sec09-ninth-launch-console.log`. Exact output:
 
-- Banner: `UTAH RUN — section sec09-rules-of-the-road; stages 02 → 16 → 03 → 04 → 06 → 05.sessions → 05.card_scripts; spent so far $8.574 / cap $30`
+- Banner: `UTAH RUN — section sec09-rules-of-the-road; stages 02 → 16 → 03 → 04 → 06 → 05.sessions → 05.card_scripts; spent so far $9.701 / cap $30`
 - `02.dossier_sections` parts C, C2, A, B, D, E, E2, F, G: **already accepted — skipped** (9/9, $0 new spend)
 - `16.compile`: **PASS** (reused `runs/2026-10-26-rdmv-ut-class-d/16/cb74264f/16-compiled-dossier.json`)
 - `03.combined_kg`: **already accepted — skipped** ($0 new spend)
 - `04.cards`: **already accepted — skipped** ($0 new spend)
-- `lineage → 2026-10-26-rdmv-ut-class-d:lineage:31 (reset 1/2)` → `06.exam_bank`: **accepted $0.183** [spent $8.757]
-- `05.sessions`: **HOLD $0.154** — `05.SLIDE_ARC=FAIL, 05.SELF_CHECK_ALIGNED=FAIL, 05.STAGE_DIRECTIONS=FAIL` [spent $8.912]
-- `retry → 05.sessions: nonce 1` → **HOLD $0.161** — `05.SLIDE_COUNT=FAIL, 05.STAGE_DIRECTIONS=FAIL` [spent $9.072]
-- `retry → 05.sessions: nonce 2` → `lineage → ...:lineage:32 (reset 1/2)` → **HOLD $0.159** — `05.SLIDE_COUNT=FAIL, 05.STAGE_DIRECTIONS=FAIL` [spent $9.232]
-- `retry → 05.sessions: nonce 3` → **HOLD $0.157** — `05.STAGE_DIRECTIONS=FAIL` [spent $9.388]
-- `retry → 05.sessions: nonce 4` → `lineage → ...:lineage:33 (reset 2/2)` → **HOLD $0.157** — `05.STAGE_DIRECTIONS=FAIL` [spent $9.545]
-- `retry → 05.sessions: nonce 5` → **HOLD $0.155** — `05.SELF_CHECK_ALIGNED=FAIL, 05.STAGE_DIRECTIONS=FAIL` [spent $9.701]
-- `retry → 05.sessions: nonce 6` → `ERROR 05.sessions: LINEAGE_ATTEMPT_LIMIT: changing task/model/input IDs cannot reset attempts`
-- `STOP at 05.sessions : ERROR`
+- `06.exam_bank`: **already accepted — skipped** ($0 new spend)
+- `lineage → 2026-10-26-rdmv-ut-class-d:lineage:34 (reset 1/2)` → `05.sessions`: **HOLD $0.155** — `05.SLIDE_ARC=FAIL, 05.NARRATION_DEPTH=FAIL` [spent $9.856]
+- `retry → 05.sessions: nonce 7` → **accepted $0.151** [spent $10.007]
+- `05.card_scripts`: **HOLD $0.219** — `05.SEGMENT_ORDER=FAIL` [spent $10.226]
+- `retry → 05.card_scripts: nonce 1` → **HOLD $0.218** — `05.SEGMENT_ORDER=FAIL` [spent $10.445]
+- `retry → 05.card_scripts: nonce 2` → `lineage → ...:lineage:35 (reset 1/2)` → **HOLD $0.218** — `05.SEGMENT_ORDER=FAIL` [spent $10.662]
+- `retry → 05.card_scripts: nonce 3` → **HOLD $0.219** — `05.SEGMENT_ORDER=FAIL` [spent $10.881]
+- `retry → 05.card_scripts: nonce 4` → `lineage → ...:lineage:36 (reset 2/2)` → **HOLD $0.217** — `05.SEGMENT_ORDER=FAIL` [spent $11.098]
+- `retry → 05.card_scripts: nonce 5` → **HOLD $0.220** — `05.SEGMENT_ORDER=FAIL` [spent $11.318]
+- `retry → 05.card_scripts: nonce 6` → `ERROR 05.card_scripts: LINEAGE_ATTEMPT_LIMIT: changing task/model/input IDs cannot reset attempts`
+- `STOP at 05.card_scripts : ERROR`
 
 Per-part USD this launch: 02 $0.00 (skipped), 16 $0.00 (reused),
-03 $0.00 (skipped), 04 $0.00 (skipped),
-06 **$0.183** (1 accepted attempt),
-05.sessions **$0.943** over 6 HOLD attempts (0.154+0.161+0.159+0.157+0.157+0.155),
-05.card_scripts $0.00 (never dispatched — downstream of the 05.sessions STOP).
-Runner banner: spent $8.574 → **$9.701** ($20.30 of cap remaining).
+03 $0.00 (skipped), 04 $0.00 (skipped), 06 $0.00 (skipped),
+05.sessions **$0.306** (1 HOLD $0.155 + 1 accepted $0.151),
+05.card_scripts **$1.311** over 6 HOLD attempts (0.219+0.218+0.218+0.219+0.217+0.220).
+Runner banner: spent $9.701 → **$11.318** ($18.68 of cap remaining).
 Cap NOT hit. Per instructions I did NOT retry manually
 and did NOT touch `tools/belt/*`.
 
-What changed vs the seventh launch: the 06.exam_bank wall is broken —
-first-try **accepted** on lineage 31 ($0.183), after 14 consecutive HOLDs
-across the prior launches. The STOP moved one stage downstream:
-05.sessions now dispatches and retries by itself (6 HOLDs across lineages
-31→32→33, both resets consumed) but every attempt fails post-validator
-checks; `05.STAGE_DIRECTIONS` failed on all 6 attempts, with
-`05.SLIDE_COUNT` on 2/6, `05.SELF_CHECK_ALIGNED` on 2/6, `05.SLIDE_ARC`
-on 1/6. The 7th retry is refused by the runner's own
-`LINEAGE_ATTEMPT_LIMIT`.
+What changed vs the eighth launch: the 05.sessions wall is broken —
+first HOLD (`SLIDE_ARC`, `NARRATION_DEPTH`) then **accepted on retry
+nonce 7** ($0.151, lineage 34). The STOP moved one stage downstream:
+05.card_scripts now dispatches and retries by itself (6 HOLDs across
+lineages 34→35→36, both resets consumed) but every attempt fails the
+post-validator check `05.SEGMENT_ORDER` and nothing else. The 7th retry
+is refused by the runner's own `LINEAGE_ATTEMPT_LIMIT`.
 
-Ledger tail (read-only, this launch): 76 attempts in trace export (was 69;
-+1 accepted 06 + 6 HOLD 05.sessions), **16 accepted** tasks (was 15; +1 =
-06.exam_bank). No accepted 05.sessions/05.card_scripts artifact exists.
+Ledger tail (read-only, this launch): 84 attempts in trace export (was 76;
++2 05.sessions, +6 05.card_scripts), **17 accepted** tasks (was 16; +1 =
+05.sessions). No accepted 05.card_scripts artifact exists.
 
 ## 2. Trace export (step 2)
 
 - `node tools/preview/export-trace.mjs` → exit 0: `wrote app-preview\data\trace.json`,
-  `attempts=76 prompt_tokens=4817548 completion_tokens=630337
-  estimated_usd=8.700875 actual_microusd_exact=9700875`. (The
+  `attempts=84 prompt_tokens=5654326 completion_tokens=764654
+  estimated_usd=10.317696 actual_microusd_exact=11317696`. (The
   SQLite-ExperimentalWarning/RemoteException shell noise is the known cosmetic
   PowerShell artifact; the exporter printed success.)
 - `node tools/preview/embed-trace.mjs` → exit 0: `wrote app-preview/trace-embedded.js
-  attempts=76 estimated_usd=8.700875`.
+  attempts=84 estimated_usd=10.317696`.
 - `trace.html` needs no edit: it fetches `data/trace.json` live with the
-  regenerated `trace-embedded.js` as file:// fallback. Totals card (76
-  attempts, 16 accepted / 4 failed / 56 blocked, 33 lineages),
-  per-attempt cards, lineage timeline, queued-stages list, and
-  approvals/resets/jams sections all read from the new 76-attempt export
-  (`exported_at 2026-10-27T18:35:25Z`; lineages 1–33 present).
+  regenerated `trace-embedded.js` as file:// fallback (verified the file
+  fetches `data/trace.json` and falls back to `window.__TRACE_EMBEDDED`).
+  Totals: 84 attempts, 17 accepted / 1 failed / 3 retry-wait / 63 blocked,
+  36 lineages, ledger actual $11.317696 (≈ runner banner $11.318),
+  `exported_at 2026-10-27T18:47:12Z`.
 
 ## 3. Real-content wiring (steps 3–4)
 
-- `node tools/preview/export-content.mjs` → exit 0: `copied=12
-  skipped_non_accepted=56` (was 11/50; +1 new 06 accepted copied, +6 new
-  05.sessions HOLD attempts correctly excluded as non-accepted) into
-  `app-preview/data/real/` (`exported_at 2026-10-27T18:35:45Z`;
+- `node tools/preview/export-content.mjs` → exit 0: `copied=13
+  skipped_non_accepted=63` (was 12/56; +1 new 05.sessions accepted copied, +6 new
+  05.card_scripts HOLD attempts correctly excluded as non-accepted) into
+  `app-preview/data/real/` (`exported_at 2026-10-27T18:47:26Z`;
   `data-real-embedded.js` regenerated by the exporter itself, verified to
-  contain the 06 task_id with matching `exported_at`). Accepted set:
+  contain the `05_sessions/` file with matching `exported_at`). Accepted set:
   9 × `02_dossier_sections` + 1 × `03_combined_kg` +
-  1 × `04_cards` + **1 × `06_exam_bank` (new: 39 items, 3 module quizzes,
-  2 practice forms, 76,069 bytes, sha256-verified against the manifest)**.
+  1 × `04_cards` + 1 × `06_exam_bank` +
+  **1 × `05_sessions` (new: 3 units u01–u03, 21 slides, 37,890 bytes,
+  sha256-verified against the manifest)**.
 - `app-preview/index.html` extended (preview lane; no belt/contract files touched):
-  new `#/real-quiz` reviewer route rendering the accepted 06 exam bank —
-  both practice forms (19 items each) and all 3 module quizzes, interactive
-  (option select → check answers → per-option rationale feedback,
-  device-local results via the existing `#/results/:attempt` screen, which
-  now prefers stored stem/rationale for real items), each item with
-  module/node/difficulty/source provenance. `#/dossier` gained an
-  "Accepted exam bank" cross-link card; `#/settings` reviewer block links
-  `#/real-quiz`. REAL banner ("REAL — Utah Section 9, validated, audit
-  pending") on `#/dossier`, `#/modules`, `#/real-cards`, `#/real-quiz`;
-  SYNTHETIC banner on all synthetic learner screens. `#/real-cards`
-  (accepted sec09 flashcards) unchanged and still wired.
-- `app-preview/README.md` updated: 12 real files, `#/real-quiz` documented,
-  real lesson noted as pending 05.sessions acceptance.
-- Verification (scratch probe via stdin; no preview test harness exists in
-  the repo so no maintained test was added): 17/17 PASS — inline module
-  script parses; manifest is 9×02+03+04+06 all `accepted`; 06 sha256
-  matches; every quiz/form item_id resolves with ABCD options, valid
-  correct_key, non-empty stem + rationale (bad=0); file:// fallback fresh;
-  trace totals 76 attempts / 16 accepted. Not run in a browser: load smoke
-  is parse + data-shape only; visual behavior unverified.
+  new `#/real-lesson` reviewer route rendering the accepted 05 teaching units —
+  unit headers with module/objective provenance, why/how blocks with fact IDs,
+  every slide (kind, lines, narration copy with seconds), worked examples,
+  misconception claim/correction, memory support, self-checks with
+  reveal buttons, and a continue-to-real-cards link. `realEntries()` now
+  tracks `05.sessions` (removed from the pending `other` bucket);
+  `#/dossier` gained an "Accepted lesson sessions" cross-link card;
+  `#/settings` reviewer block links `#/real-lesson`. REAL banner
+  ("REAL — Utah Section 9, validated, audit pending") on `#/dossier`,
+  `#/modules`, `#/real-cards`, `#/real-quiz`, `#/real-lesson`;
+  SYNTHETIC banner on all synthetic learner screens.
+- `app-preview/README.md` updated: 13 real files, `#/real-lesson` documented
+  (3 units, 21 slides), card narration noted as pending 05.card_scripts
+  acceptance.
+- Verification (temporary node probe in `tools/preview/`, deleted after the
+  run; no preview test harness exists in the repo so no maintained test was
+  added): SMOKE PASS — inline module script parses (34,263 bytes); manifest
+  holds 1 sessions entry; all 3 units have title text, worked_example
+  (scenario/reasoning/result), misconception (claim/correction),
+  memory_support, self_check (prompt/answer/rationale); all 21 slides have
+  kind, lines, narration text (bad=0); file:// fallback fresh
+  (`05_sessions/` present, `exported_at` matches); `#/real-lesson` route
+  present. Not run in a browser: load smoke is parse + data-shape only;
+  visual behavior unverified.
 - Step-4 conditional rerun (`--stages 16,03,04,...`) NOT attempted:
   step 1 already dispatched every later stage in the same command, and
-  05.sessions STOPped with ERROR (`LINEAGE_ATTEMPT_LIMIT`, both resets
+  05.card_scripts STOPped with ERROR (`LINEAGE_ATTEMPT_LIMIT`, both resets
   consumed) — rerunning would be a prohibited blind retry of the STOPped
-  stage. 05.sessions has no accepted artifact, so the real lesson stays
-  synthetic; 05.card_scripts was never dispatched.
+  stage. 05.card_scripts has no accepted artifact, so card narration stays
+  unwired.
 
 Real vs synthetic now: REAL = `#/dossier` (9 accepted sec09 dossier
 parts) + `#/modules` (1 accepted sec09 combined KG) + `#/real-cards`
 (accepted sec09 flashcards) + `#/real-quiz` (accepted sec09 exam bank:
-39 items, 3 quizzes, 2 forms) + `trace.html` (76-attempt
+39 items, 3 quizzes, 2 forms) + **`#/real-lesson` (accepted sec09
+teaching units: 3 units, 21 slides)** + `trace.html` (84-attempt
 ledger data), all under "REAL — Utah Section 9, validated, audit
-pending". SYNTHETIC = lesson, synthetic flashcards, synthetic quiz,
-synthetic practice (sample content, banners kept).
+pending". SYNTHETIC = synthetic lesson, synthetic flashcards, synthetic quiz,
+synthetic practice, card narration (sample content, banners kept).
 
 ## 4. Could not do
 
-- Advance 05.sessions/05.card_scripts: 05.sessions fails post-validator
-  checks on all 6 attempts (`STAGE_DIRECTIONS` persistent across lineages
-  31/32/33) and the runner itself refuses further retries
-  (`LINEAGE_ATTEMPT_LIMIT`, both resets consumed) — runner/validator-side
-  behavior, needs whoever owns `tools/belt/*` plus the 05 post-validator.
-  No code inspected or touched there per hard rules.
+- Advance 05.card_scripts: all 6 attempts fail the single post-validator
+  check `05.SEGMENT_ORDER` across lineages 34/35/36 and the runner itself
+  refuses further retries (`LINEAGE_ATTEMPT_LIMIT`, both resets consumed) —
+  runner/validator-side behavior, needs whoever owns `tools/belt/*` plus
+  the 05 post-validator. No code inspected or touched there per hard rules.
 - Serve or publish the preview: static files only, no server started, no
   browser run; open `app-preview/index.html` (or serve the folder) and use
-  `#/real-quiz`. Nothing committed, pushed, deployed, or published.
+  `#/real-lesson`. Nothing committed, pushed, deployed, or published.
