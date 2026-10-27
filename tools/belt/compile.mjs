@@ -51,7 +51,9 @@ function indexFact(id, section, pageMap) {
   // in the verbatim span only.
   const body = lines.slice(start, end).filter(l => !/^\s*Source:\s*\[[A-Za-z0-9_-]+\s*->\s*\S+\]\s*$/.test(l) && !/^\s*(?:Why it matters|Why|Example|Tip|Note|Context|Remember|Exam angle|Trap)\s*:/i.test(l));
   const raw = [lead, ...body].join('\n');
-  const anchors = (section.source_anchors ?? []).filter(a => raw.includes(`[${a.anchor_id}]`));
+  // The block-lead anchor ("| anchor: Axx") is an explicit citation by construction, even when the body does not repeat [Axx].
+  const leadAnchorId = lines[i].match(/\|\s*anchor:\s*([A-Za-z0-9_-]+)/)?.[1] ?? null;
+  const anchors = (section.source_anchors ?? []).filter(a => raw.includes(`[${a.anchor_id}]`) || a.anchor_id === leadAnchorId);
   if (!anchors.length) return {error: `${id}: exact marked fact span has no explicit source anchor`};
   let pages = anchors.map(a => ({anchor: a, page: findPage(a.source_page, pageMap)}));
   const unresolved = pages.filter(p => !p.page);

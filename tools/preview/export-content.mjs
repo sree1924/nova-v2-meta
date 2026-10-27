@@ -49,7 +49,21 @@ const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
 const stageDir = (stageId) => stageId.replace(/[^A-Za-z0-9]+/g, '_');
 
 const db = new DatabaseSync(path.join(RUN_DIR, 'ledger', 'run.sqlite'), { readOnly: true });
-const tasks = db.prepare('SELECT * FROM tasks WHERE run_id = ?').all(RUN_ID);
+const tasks = db.prepare('SELECT *, identity_json FROM tasks WHERE run_id = ?').all(RUN_ID);
+// Section each task belongs to: config.section_ids[0] when present, else the
+// first secNN slug in the identity JSON, else "unknown". Lets the preview
+// group per-task export files by handbook section.
+const sectionOf = (task) => {
+  try {
+    const id = JSON.parse(task.identity_json || '{}');
+    const fromConfig = id && id.config && id.config.section_ids && id.config.section_ids[0];
+    if (fromConfig) return fromConfig;
+    const m = (task.identity_json || '').match(/sec\d\d[a-z-]*/);
+    if (m) return m[0];
+  } catch { /* fall through to unknown */ }
+  return 'unknown';
+};
+const sectionByTask = new Map(tasks.map((t) => [t.task_id, sectionOf(t)]));
 const attempts = db.prepare('SELECT * FROM attempts WHERE run_id = ?').all(RUN_ID);
 const artifacts = db.prepare('SELECT * FROM artifacts WHERE run_id = ?').all(RUN_ID);
 db.close();
@@ -86,6 +100,7 @@ for (const art of artifacts) {
   copied.push({
     file: 'data/real/' + rel.replace(/\\/g, '/'),
     stage_id: task.stage_id,
+    section_id: sectionByTask.get(task.task_id) || 'unknown',
     task_id: task.task_id,
     attempt_id: attempt.attempt_id,
     lineage_id: task.lineage_id,
@@ -116,7 +131,7 @@ const manifest = {
   policy: 'only ledger tasks with status accepted in learner stages are copied; everything else stays synthetic',
   files: copied,
   skipped_non_accepted: skipped.length,
-  banner_real: 'REAL — Utah Section 9, validated, audit pending',
+  banner_real: 'REAL — Utah Driver Handbook, validated, audit pending',
   banner_synthetic: 'SYNTHETIC SAMPLE — not Utah content',
 };
 fs.mkdirSync(OUT_DIR, { recursive: true });
