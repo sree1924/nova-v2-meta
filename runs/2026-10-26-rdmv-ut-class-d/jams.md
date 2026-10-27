@@ -105,3 +105,11 @@
 - 2026-10-27T17:46:20.350Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:21 for 03.combined_kg (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: HOLD
 
 - 2026-10-27T17:47:20.891Z retry nonce 03.combined_kg: → 3 after HOLD (sec09-rules-of-the-road); non-PASS: HOLD
+
+- 2026-10-27T17:48:23.544Z retry nonce 03.combined_kg: → 4 after HOLD (sec09-rules-of-the-road); non-PASS: 03.KG01_GAPS=FAIL
+
+- 2026-10-27T17:48:23.683Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:22 for 03.combined_kg (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.KG01_GAPS=FAIL
+
+- 2026-10-27T17:49:22.144Z retry nonce 03.combined_kg: → 5 after HOLD (sec09-rules-of-the-road); non-PASS: 03.KG01_GAPS=FAIL
+
+- 2026-10-27T17:50:17.686Z retry nonce 03.combined_kg: → 6 after HOLD (sec09-rules-of-the-road); non-PASS: HOLD

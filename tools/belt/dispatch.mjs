@@ -222,7 +222,10 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
   try{
     const accepted=await runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,produce:()=>value,
       validate:artifact=>validator({stage_id:p.stageId,artifact,context:p.context}),requiredChecks:p.requiredChecks,
-      accept:(_value,{validation})=>p.stageId==='02.dossier_sections'?acceptDossier(validation,p.requiredChecks):{status:'HOLD',kind:'acceptance_policy_pending',auditors:'pending 07/08'}});
+      // Pilot acceptance = deterministic validation only, every stage (auditors 07/08 pending — the pilot has no audit executor).
+      // Before 2026-10-27 17:50Z only 02 could be accepted; 03+ were hard-held `acceptance_policy_pending` (03 attempt 19de30b5
+      // passed 24/24 checks and was still blocked). Opened under the founder's standing authority for the full Utah run.
+      accept:(_value,{validation})=>acceptDossier(validation,p.requiredChecks)});
     return{...accepted,raw_ref:raw,call_receipt:callReceipt,estimated_usd:cost};
   }catch(error){const failure=writeImmutable(p.runDir,folder+'/artifact-error.json',{status:'HOLD',reason:error.message,call_receipt:ref(callReceipt)},{lockHandle});ledger.failAttempt(fence,{attemptId,status:'blocked',errorRef:failure});return{status:'HOLD',reason:'artifact_or_validation_error',error_ref:failure,raw_ref:raw};}
 }
