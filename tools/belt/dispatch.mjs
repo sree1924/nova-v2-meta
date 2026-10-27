@@ -32,15 +32,27 @@ export function readNativeSnapshot(runDir,config){
   }finally{db.close();}
 }
 
-export function acceptedRuntimeRefs(snapshot,projectRoot,runDir){
+// Section scope of an accepted task, from its identity (config.section_ids). Run-level tasks (15 sources, 19 learning loop) have
+// none. The two 16.compile tasks accepted before section scoping (2026-10-27 <19:10Z) carry none either but ARE Section 9's.
+const LEGACY_UNSCOPED_COMPILE_SECTION=['sec09-rules-of-the-road'];
+export function taskSectionIds(task){
+  try{const raw=task.identity_json??task.identity??null;const identity=typeof raw==='string'?JSON.parse(raw):raw;const ids=identity?.config?.section_ids;if(Array.isArray(ids)&&ids.length)return ids;}catch{}
+  return task.stage_id==='16.compile'?LEGACY_UNSCOPED_COMPILE_SECTION:[];
+}
+const sectionKey=ids=>JSON.stringify([...(ids||[])].sort());
+export function acceptedRuntimeRefs(snapshot,projectRoot,runDir,{sectionIds=null}={}){
   const out=[];
-  // Latest accepted wins per stage (except 02, whose parts are deduped per part set by the compiler): a stage re-run after a
-  // fix supersedes its earlier accepted artifact for downstream context (context forbids duplicate accepted kinds).
+  // Latest accepted wins per (stage, section) (except 02, whose parts are deduped per part set by the compiler): a stage re-run
+  // after a fix supersedes its earlier accepted artifact for downstream context (context forbids duplicate accepted kinds).
+  // With sectionIds, only that section's scoped artifacts plus run-level ones are returned (per-section belt, 2026-10-27).
+  const want=sectionIds?sectionKey(sectionIds):null;
   const latest=new Map();
-  for(const task of snapshot.tasks||[]){if(task.status!=='accepted'||task.stage_id==='02.dossier_sections')continue;const prev=latest.get(task.stage_id);if(!prev||String(task.updated_at)>String(prev.updated_at)||(String(task.updated_at)===String(prev.updated_at)&&task.task_id>prev.task_id))latest.set(task.stage_id,task);}
+  for(const task of snapshot.tasks||[]){if(task.status!=='accepted'||task.stage_id==='02.dossier_sections')continue;const k=task.stage_id+'@'+sectionKey(taskSectionIds(task));const prev=latest.get(k);if(!prev||String(task.updated_at)>String(prev.updated_at)||(String(task.updated_at)===String(prev.updated_at)&&task.task_id>prev.task_id))latest.set(k,task);}
   for(const task of snapshot.tasks||[]){
     if(task.status!=='accepted')continue;
-    if(task.stage_id!=='02.dossier_sections'&&latest.get(task.stage_id)?.task_id!==task.task_id)continue;
+    const secs=taskSectionIds(task);
+    if(want!==null&&secs.length&&sectionKey(secs)!==want)continue;
+    if(task.stage_id!=='02.dossier_sections'&&latest.get(task.stage_id+'@'+sectionKey(secs))?.task_id!==task.task_id)continue;
     const main=(snapshot.artifacts||[]).find(a=>a.artifact_id===task.accepted_artifact_id);
     if(!main)throw new Error('Accepted task has no accepted artifact.');
     const outputFile=verifyRef(main,runDir),validationFile=verifyRef(main.validation_ref_json,runDir),acceptanceFile=verifyRef(main.acceptance_ref_json,runDir);
@@ -48,7 +60,7 @@ export function acceptedRuntimeRefs(snapshot,projectRoot,runDir){
     if(validation.status!=='PASS'||acceptance.status!=='PASS'||validation.output_sha256!==main.sha256||acceptance.output_sha256!==main.sha256)throw new Error('Stale accepted artifact receipts.');
     if(Array.isArray(validation.companions)){
       for(const companion of validation.companions||[]){const file=verifyRef(companion,runDir);out.push({...ref(companion),path:file,kind:companion.kind,stage_id:task.stage_id,accepted:true});}
-    }else out.push({...ref(main),path:outputFile,kind:task.stage_id,stage_id:task.stage_id,accepted:true,accepted_at:task.updated_at,task_id:task.task_id,identity:task.identity_json??null});
+    }else out.push({...ref(main),path:outputFile,kind:task.stage_id,stage_id:task.stage_id,accepted:true,accepted_at:task.updated_at,task_id:task.task_id,identity:task.identity_json??null,section_ids:secs});
   }
   return out;
 }
@@ -89,7 +101,7 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   const promptPath=path.join(projectRoot,stage.prompt_path),promptText=fs.readFileSync(promptPath,'utf8');
   if(promptText.match(/^schema_sha256: ([a-f0-9]{64})$/m)?.[1]!==schema.sha256)throw new Error('Prompt schema hash drift.');
   snapshot??=readNativeSnapshot(runDir,config);
-  const acceptedArtifacts=acceptedRuntimeRefs(snapshot,projectRoot,runDir);
+  const acceptedArtifacts=acceptedRuntimeRefs(snapshot,projectRoot,runDir,{sectionIds:sectionIds.length?sectionIds:null});
   const bindings=Object.fromEntries(Object.entries({overlay:'pilot-overrides-v0.4.0.json',policy:'source-fact-policy.json',media_disposition:'media-disposition.json',finish_criteria:'pilot-finish-criteria.json',prompt_authorship:'prompt-authorship.json'}).map(([k,name])=>[k,pin(path.join(projectRoot,'contracts',name))]));
   const assembled=assembleContext({projectRoot,runRoot:runDir,stageId,acceptedArtifacts,bindings,config,configRef,nowUtc});
   // Depth floor (run-config scope.depth_floor) rides in the validation context so 02.DEPTH_FLOOR can reject hollow envelopes.
@@ -151,8 +163,10 @@ export function acceptDossier(validation,requiredChecks){
   return{status:validation?.status==='PASS'&&complete&&!checks.some(c=>c.status!=='PASS')&&!validation.errors?.length?'PASS':'HOLD',kind:'deterministic_validation_only',auditors:'pending 07/08'};
 }
 
-export function retryNonceKey(stageId,partIds=[]){return stageId+':'+(partIds||[]).join('+');}
-function retryNonce(p){const n=p.config.execution?.retry_nonces?.[retryNonceKey(p.stageId,p.partIds)];return Number.isInteger(n)&&n>0?{retry_nonce:n}:{};}
+// Keyed per stage + part + section so a HOLD on one section never renumbers another's tasks. Section-less keys (pre-scoping
+// Section 9 entries) stay valid for sec09.
+export function retryNonceKey(stageId,partIds=[],sectionIds=[]){const base=stageId+':'+(partIds||[]).join('+');const secs=[...(sectionIds||[])].sort();return secs.length&&!(secs.length===1&&secs[0]==='sec09-rules-of-the-road')?base+'@'+secs.join('+'):base;}
+function retryNonce(p){const n=p.config.execution?.retry_nonces?.[retryNonceKey(p.stageId,p.partIds,p.sectionIds)];return Number.isInteger(n)&&n>0?{retry_nonce:n}:{};}
 
 export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandle,client,validator=validateArtifact}){
   if(p.preflight.status!=='PASS')throw new Error('Dispatch inputs remain HOLD: '+p.preflight.blockers.join(', '));

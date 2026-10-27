@@ -157,7 +157,9 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: accepte
   // Output paths: the root names for the first compile; a RE-compile over the same inputs (compiler fix) goes under
   // 16/<fact-registry sha8>/ so the immutable first files stay as history. Basenames are kept (context binds kinds by basename).
   const registrySha = sha256(jsonBytes(factRegistry));
-  const dir = outputDir === 'root' ? '' : `16/${registrySha.slice(0, 8)}/`;
+  // outputDir: 'root' (legacy Section 9 first compile) | 'versioned' (recompile of the root compile) | any explicit prefix such as
+  // '16/sec10-alcohol-drugs/' (per-section compiles); an explicit prefix ending in '*/' versions under it.
+  const dir = outputDir === 'root' ? '' : outputDir === 'versioned' ? `16/${registrySha.slice(0, 8)}/` : outputDir.endsWith('*/') ? `${outputDir.slice(0, -2)}/${registrySha.slice(0, 8)}/` : outputDir;
   return {status, blueprint, factRegistry, markdown: merged.markdown, errors: [...new Set(errors)], inputRefs, fact_registry_sha256: registrySha,
     writePlan: [
       {path: dir + '16-compiled-dossier.json', value_key: 'blueprint', sha256: sha256(jsonBytes(blueprint))},

@@ -19,12 +19,17 @@ const RUN = 'runs/2026-10-26-rdmv-ut-class-d';
 const EXECUTOR = '2bdcad95-d4cc-467e-a88d-be4a6260cf03';
 const args = process.argv.slice(2);
 const get = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
-const section = get('--section');
 const stages = get('--stages', '02,16,03,04,06,05.sessions,05.card_scripts').split(',');
 const parts = get('--parts', 'C,C2,A,B,D,E,E2,F,G').split(',');
 const maxResets = Number(get('--max-resets', '2'));
 const dry = args.includes('--dry');
-if (!section) { console.error('--section required'); process.exit(2); }
+// --section <id> runs one section; --sections all|a,b,c runs several in handbook order (per-section belt, 2026-10-27).
+const sectionsArg = get('--sections');
+const allSections = Object.keys(JSON.parse(fs.readFileSync(path.join(path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..', '..'), RUN, 'run-config.json'), 'utf8')).scope.section_page_ranges);
+const sections = sectionsArg ? (sectionsArg === 'all' ? allSections : sectionsArg.split(',')) : (get('--section') ? [get('--section')] : []);
+if (!sections.length) { console.error('--section <id> or --sections all|a,b required'); process.exit(2); }
+for (const s of sections) if (!allSections.includes(s)) { console.error(`unknown section ${s}; known: ${allSections.join(', ')}`); process.exit(2); }
+let section = sections[0]; // current section; helpers below read it
 if (!process.env.MODEL_API_KEY) { console.error('MODEL_API_KEY absent (.env)'); process.exit(2); }
 
 const sha = (buf) => createHash('sha256').update(buf).digest('hex');
@@ -61,7 +66,7 @@ function resetLineage(stageId, cause) {
 }
 function bumpRetryNonce(stageId, partIds, np) {
   const cfgPath = `${RUN}/run-config.json`; const cfg = readJ(cfgPath);
-  const key = retryNonceKey(stageId, partIds); cfg.execution.retry_nonces ??= {};
+  const key = retryNonceKey(stageId, partIds, [section]); cfg.execution.retry_nonces ??= {};
   cfg.execution.retry_nonces[key] = (cfg.execution.retry_nonces[key] ?? 0) + 1;
   cfg.execution.retry_nonces_note = 'per stage+part retry counter: each bump after a HOLD mints a NEW logical task (the held task stays blocked); the lineage attempt cap (C28) still bounds spend and triggers lineage resets';
   writeJ(cfgPath, cfg);
@@ -71,7 +76,7 @@ function bumpRetryNonce(stageId, partIds, np) {
 // Parts already accepted under ANY task identity/lineage (the validator closure may have been resealed since) are not re-bought.
 function acceptedParts(stageId) {
   const db = new DatabaseSync(path.join(ROOT, RUN, 'ledger/run.sqlite'), { readOnly: true });
-  try { return db.prepare("select identity_json from tasks where stage_id=? and status='accepted'").all(stageId).map(r => JSON.stringify(JSON.parse(r.identity_json)?.config?.dossier_parts ?? [])); }
+  try { return db.prepare("select identity_json from tasks where stage_id=? and status='accepted'").all(stageId).map(r => JSON.parse(r.identity_json)?.config).filter(c => JSON.stringify(c?.section_ids ?? []) === JSON.stringify([section])).map(c => JSON.stringify(c?.dossier_parts ?? [])); }
   finally { db.close(); }
 }
 // A request that was sent but whose response was lost (client timeout/abort) parks the task as unknown_provider_result and
@@ -143,23 +148,34 @@ async function runStage(stageId, partIds) {
   }
 }
 
-console.log(`UTAH RUN — section ${section}; stages ${stages.join(' → ')}; spent so far $${spentUsd().toFixed(3)} / cap $${standing.usd_cap_total}`);
-for (const st of stages) {
-  if (st === '16') {
-    let c;
-    try { c = await compileAcceptedDossier({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR }); }
-    catch (e) { console.log(`  16.compile: ERROR — ${e.message.slice(0, 300)}`); console.log('STOP: compile threw (an attempt may be left running — reconcile it)'); process.exit(1); }
-    console.log(`  16.compile: ${c.status}${c.reused ? ' (reused ' + (c.reused_from ?? 'accepted compile') + ')' : ''}${c.reason ? ' — ' + c.reason : ''}${c.errors ? ' — ' + JSON.stringify(c.errors).slice(0, 300) : ''}`);
-    if (c.status !== 'PASS') { console.log('STOP: compile not PASS'); process.exit(1); }
-    continue;
+// One section at a time, every stage; a section that STOPs is recorded and the run moves to the next section (the ledger keeps
+// the per-task state, so a later launch resumes exactly where each section left off). Exit 1 if any section did not finish.
+const outcomes = {};
+console.log(`UTAH RUN — ${sections.length} section(s): ${sections.join(', ')}; stages ${stages.join(' → ')}; spent so far $${spentUsd().toFixed(3)} / cap $${standing.usd_cap_total}`);
+sectionLoop: for (section of sections) {
+  console.log(`\n=== ${section} ===`);
+  for (const st of stages) {
+    if (st === '16') {
+      let c;
+      try { c = await compileAcceptedDossier({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, sectionIds: [section] }); }
+      catch (e) { console.log(`  16.compile: ERROR — ${e.message.slice(0, 300)}`); console.log(`STOP ${section}: compile threw (an attempt may be left running — reconcile it)`); outcomes[section] = 'ERROR 16.compile'; break sectionLoop; }
+      console.log(`  16.compile: ${c.status}${c.reused ? ' (reused ' + (c.reused_from ?? 'accepted compile') + ')' : ''}${c.reason ? ' — ' + c.reason : ''}${c.errors ? ' — ' + JSON.stringify(c.errors).slice(0, 300) : ''}`);
+      if (c.status !== 'PASS') { console.log(`STOP ${section}: compile not PASS`); outcomes[section] = 'HOLD 16.compile'; continue sectionLoop; }
+      continue;
+    }
+    const stageId = STAGE_IDS[st] ?? st;
+    const partList = stageId === '02.dossier_sections' ? parts.map(p => [p]) : [[]];
+    const done = acceptedParts(stageId);
+    for (const partIds of partList) {
+      if (done.includes(JSON.stringify(partIds))) { console.log(`  ${stageId}${partIds.length ? ' part ' + partIds.join('+') : ''}: already accepted — skipped`); continue; }
+      const r = await runStage(stageId, partIds);
+      if (r.status === 'CAP') { outcomes[section] = 'CAP'; break sectionLoop; }
+      if (!['accepted'].includes(r.status) && !r.reused) { console.log(`STOP ${section} at ${stageId} ${partIds.join('+')}: ${r.status}`); outcomes[section] = `STOP ${stageId} ${partIds.join('+')} ${r.status}`; continue sectionLoop; }
+    }
   }
-  const stageId = STAGE_IDS[st] ?? st;
-  const partList = stageId === '02.dossier_sections' ? parts.map(p => [p]) : [[]];
-  const done = acceptedParts(stageId);
-  for (const partIds of partList) {
-    if (done.includes(JSON.stringify(partIds))) { console.log(`  ${stageId}${partIds.length ? ' part ' + partIds.join('+') : ''}: already accepted — skipped`); continue; }
-    const r = await runStage(stageId, partIds);
-    if (!['accepted'].includes(r.status) && !r.reused) { console.log(`STOP at ${stageId} ${partIds.join('+')}: ${r.status}`); process.exit(1); }
-  }
+  outcomes[section] = 'DONE';
+  console.log(`DONE ${section}; spent $${spentUsd().toFixed(3)}`);
 }
-console.log(`DONE section ${section}; spent $${spentUsd().toFixed(3)}`);
+console.log(`\nSUMMARY spent $${spentUsd().toFixed(3)} / cap $${standing.usd_cap_total}`);
+for (const s of sections) console.log(`  ${s}: ${outcomes[s] ?? 'not reached'}`);
+process.exit(Object.values(outcomes).every(v => v === 'DONE') && Object.keys(outcomes).length === sections.length ? 0 : 1);

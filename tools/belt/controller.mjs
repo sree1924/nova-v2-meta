@@ -156,13 +156,17 @@ async function registerSource({projectRoot,loaded,ledger,fence,lockHandle}) {
   return {...receipt,receipt_ref:receiptRef,reused:false};
 }
 
-export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfigPath,executorId}={}){
+export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfigPath,executorId,sectionIds=[]}={}){
   const loaded=loadRun({projectRoot,runConfigPath});
-  const snapshot=readNativeSnapshot(loaded.runDir,loaded.config),accepted=acceptedRuntimeRefs(snapshot,projectRoot,loaded.runDir);
+  // Per-section compile (2026-10-27): only this section's accepted 02 parts; outputs under 16/<section>/ (Section 9's history
+  // stays at the root / 16/<sha8>/ — those legacy compiles are mapped to sec09 by acceptedRuntimeRefs).
+  const sectionDir=sectionIds.length?`16/${[...sectionIds].sort().join('+')}/`:null;
+  const snapshot=readNativeSnapshot(loaded.runDir,loaded.config),accepted=acceptedRuntimeRefs(snapshot,projectRoot,loaded.runDir,{sectionIds:sectionIds.length?sectionIds:null});
   const envelopes=accepted.filter(a=>a.kind==='02.dossier_sections'),source=accepted.find(a=>a.kind==='source_registry'),pages=accepted.find(a=>a.kind==='page_map');
   if(!envelopes.length||!source||!pages)return{status:'HOLD',reason:'Accepted02 envelopes, registered source and page map are required.',model_calls:0};
   const overlay=pin(path.join(projectRoot,'contracts/pilot-overrides-v0.4.0.json'));
-  const result0=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id});
+  const firstDir=sectionDir&&!sectionIds.includes('sec09-rules-of-the-road')?sectionDir:'root';
+  const result0=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id,outputDir:firstDir});
   if(result0.status!=='PASS')return{status:'HOLD',errors:result0.errors,model_calls:0};
   // Reuse across lineage resets: a compile already accepted in this run over the SAME accepted inputs (input_manifest_sha256) is the
   // compile. Without this, a reset mints a new 16 task whose output differs only by candidate_lineage_id and collides with the
@@ -173,7 +177,7 @@ export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfig
     // Same inputs AND same fact index => the accepted compile IS this compile (lineage id alone never forces a re-compile).
     if(prev.input_manifest_sha256===result.blueprint.input_manifest_sha256&&prev.fact_registry_sha256===result.fact_registry_sha256)return{status:'PASS',reused:true,reused_from:priorCompiled.path,model_calls:0};
     // Same inputs, different fact index => compiler fix; re-compile under a versioned dir (root files are immutable history).
-    result=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id,outputDir:'versioned'});
+    result=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id,outputDir:firstDir==='root'?'versioned':sectionDir+'*/'});
   }catch(e){if(!/ENOENT/.test(e.message))throw e;}}
   const lockHandle=acquireExecutorLock({runDir:loaded.runDir,runId:loaded.config.run_id,executorId});let ledger,fence;
   try{
@@ -181,7 +185,7 @@ export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfig
     const previous=ledger.getRun(loaded.config.run_id);
     if(previous?.binding_sha256!==loaded.configRef.sha256)throw new Error('Explicit configuration reconciliation is required before compile.');
     fence=ledger.claimRun({runId:loaded.config.run_id,bindingSha256:previous.binding_sha256,mode:previous.mode,budget:previous.budget_json});
-    const task=ledger.ensureTask(fence,{lineageId:loaded.config.candidate_lineage_id,stageId:'16.compile',roleId:'16',inputs:result.inputRefs,versions:{script:pin(path.join(projectRoot,'tools/belt/compile.mjs')).sha256,overlay:overlay.sha256},model:null,config:{stage17:'n/a_pilot'},maxAttempts:2});
+    const task=ledger.ensureTask(fence,{lineageId:loaded.config.candidate_lineage_id,stageId:'16.compile',roleId:'16',inputs:result.inputRefs,versions:{script:pin(path.join(projectRoot,'tools/belt/compile.mjs')).sha256,overlay:overlay.sha256},model:null,config:{stage17:'n/a_pilot',...(sectionIds.length?{section_ids:[...sectionIds].sort()}:{})},maxAttempts:2});
     if(task.status==='accepted')return{status:'PASS',reused:true,model_calls:0};
     const attempt=ledger.startAttempt(fence,{taskId:task.taskId,commandId:'compile:'+task.taskId});
     const values={'blueprint':result.blueprint,'factRegistry':result.factRegistry,'markdown':result.markdown,'blueprint.stage17':result.blueprint.stage17};

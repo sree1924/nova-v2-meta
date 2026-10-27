@@ -222,3 +222,590 @@ function sourceLine(factIds) {
   }).join(" · ");
   return `<p class="muted">Source: ${pages} · Utah Driver Handbook Sec 9</p>`;
 }
+
+// ---- Learner views (REAL Utah Section 9) ----
+function realEmpty(what) {
+  return `<h1>Utah Section 9 — Rules of the Road</h1>
+  <div class="card"><h2>No accepted ${esc(what)} yet</h2>
+  <p>The belt has no accepted artifact for this yet. Run <code>node tools/preview/export-content.mjs</code> after the belt accepts it, then re-open this page.</p></div>`;
+}
+
+function vHome() {
+  const mods = modulesReal();
+  if (!mods.length) return realEmpty("knowledge graph");
+  return `<h1>Utah Driver Handbook — Section 9: Rules of the Road</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Written-test preparation for regular non-commercial passenger-car rules.</p>
+  ${mods.map((m) => {
+    const unit = sessionUnit(m.unit_id);
+    const deck = m.unit_id ? deckForUnit(m.unit_id) : [];
+    const quiz = m.unit_id ? moduleQuizForUnit(m.unit_id) : null;
+    const s = (m.unit_id && store.read().progress?.[m.unit_id]) || {};
+    return `<div class="card"><h2>${esc(m.module_id)} — ${esc(m.title)}</h2>
+    <p class="muted">${m.nodeCount} handbook nodes · ${(unit ? unit.slides : []).length} lesson slides · ${deck.length} flashcards · ${(quiz ? quiz.item_ids : []).length} quiz questions</p>
+    <dl class="kv"><dt>Lesson</dt><dd>${s.lesson ? "done" : "not started"}</dd>
+    <dt>Cards seen</dt><dd>${s.cards ? "yes" : "no"}</dd></dl>
+    <p><a class="btn" href="#/module/${esc(m.module_id)}">Open module hub</a></p></div>`;
+  }).join("")}
+  <div class="card"><h2>Practice tests</h2>
+  <p>Two full practice forms drawn from the accepted exam bank. Practice only — no official pass claim.</p>
+  <p><a class="btn" href="#/practice">Choose a practice form</a></p></div>`;
+}
+
+function vChapters() {
+  const mods = modulesReal();
+  if (!mods.length) return realEmpty("knowledge graph");
+  return `<h1>Modules — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Three modules from the accepted knowledge graph, in learning order.</p>
+  ${mods.map((m) => `<div class="card"><h2>${esc(m.module_id)} — ${esc(m.title)}</h2>
+    <p class="muted">${esc(m.domain || "")} · ${m.nodeCount} nodes</p>
+    <p><a class="btn" href="#/module/${esc(m.module_id)}">Open module hub</a></p></div>`).join("")}`;
+}
+
+function vModule(moduleId) {
+  const m = modulesReal().find((x) => x.module_id === moduleId);
+  if (!m || !m.unit_id) return vMissing();
+  const unit = sessionUnit(m.unit_id);
+  const deck = deckForUnit(m.unit_id);
+  const quiz = moduleQuizForUnit(m.unit_id);
+  const s = store.read().progress?.[m.unit_id] || {};
+  return `<h1>Module hub — ${esc(m.title)}</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Study in order: lesson, then flashcards, then the quiz.</p>
+  <div class="card"><h2>1 · Lesson</h2>
+  <p class="muted">${(unit ? unit.slides : []).length} slides · ${s.lesson ? "done" : "not started"}</p>
+  <p><a class="btn" href="#/lesson/${esc(m.unit_id)}">Start the lesson</a></p></div>
+  <div class="card"><h2>2 · Flashcards</h2>
+  <p class="muted">${deck.length} cards · ${s.cards ? "seen" : "not started"}</p>
+  <p><a class="btn" href="#/cards/${esc(m.unit_id)}">Drill the cards</a></p></div>
+  <div class="card"><h2>3 · Quiz</h2>
+  <p class="muted">${(quiz ? quiz.item_ids : []).length} questions · ${esc((quiz && quiz.title) || "")}</p>
+  <p>${quiz ? `<a class="btn" href="#/quiz/${esc(m.unit_id)}">Take the module quiz</a>` : "No accepted quiz for this module yet."}</p></div>`;
+}
+
+function vLesson(unitId) {
+  const unit = sessionUnit(unitId);
+  if (!unit) return vMissing();
+  const moduleId = moduleForUnit(unitId);
+  const wx = unit.worked_example || {}, mc = unit.misconception || {}, sc = unit.self_check || {};
+  const mcClaim = mc.claim || {}, mcFix = mc.correction || {};
+  return `<h1>Lesson: ${esc(unit.title && unit.title.text)}</h1>
+  <p class="muted">${esc(REAL_NOTE)}.</p>
+  ${(unit.slides || []).map((sl, i) => `<div class="card"><h2>Slide ${i + 1} of ${unit.slides.length} — ${esc(sl.title && sl.title.text)}</h2>
+    ${((sl.lines) || []).map((l) => `<p>${esc(l.text)}</p>`).join("")}
+    <div class="card"><h2>Teacher says (about ${esc(String(sl.estimated_narration_seconds))}s)</h2>
+    <p>${esc(sl.narration && sl.narration.text)}</p></div>
+    ${sourceLine([...new Set([...((sl.title && sl.title.fact_ids) || []), ...((sl.lines || []).flatMap((l) => l.fact_ids || [])), ...((sl.narration && sl.narration.fact_ids) || [])])])}</div>`).join("")}
+  ${((unit.why_how) || []).map((w) => `<div class="card"><h2>Why and how</h2><p>${esc(w.text)}</p>${sourceLine(w.fact_ids)}</div>`).join("")}
+  <div class="card"><h2>Worked example</h2>
+    <p><b>Situation.</b> ${esc(wx.scenario && wx.scenario.text)}</p>
+    <p><b>Reasoning.</b> ${esc(wx.reasoning && wx.reasoning.text)}</p>
+    <p><b>Outcome.</b> ${esc(wx.result && wx.result.text)}</p></div>
+  <div class="card"><h2>Common misconception</h2>
+    <p><b>False:</b> ${esc(mcClaim.text)}</p><p><b>Truth:</b> ${esc(mcFix.text)}</p></div>
+  <div class="card"><h2>Memory support</h2><p>${esc(unit.memory_support && unit.memory_support.text)}</p></div>
+  <div class="card"><h2>Self-check</h2><p>${esc(sc.prompt && sc.prompt.text)}</p>
+    <p><button data-reveal>Reveal answer</button></p>
+    <p hidden data-answer><b>Answer.</b> ${esc(sc.answer && sc.answer.text)}<br><b>Why.</b> ${esc(sc.rationale && sc.rationale.text)}</p></div>
+  <p><a class="btn" href="#/cards/${esc(unitId)}">Continue to flashcards</a>${moduleId ? ` <a class="btn" href="#/module/${esc(moduleId)}">Back to module hub</a>` : ""}</p>`;
+}
+
+function vCards(unitId) {
+  const list = deckForUnit(unitId);
+  if (!list.length) return vMissing();
+  const moduleId = moduleForUnit(unitId);
+  const byCard = scriptsByCard();
+  const recap = moduleId ? recapForModule(moduleId) : null;
+  return `<h1>Flashcards — recall, then reveal</h1>
+  <p class="muted">${esc(REAL_NOTE)}. ${list.length} accepted cards, worded exactly as accepted.</p>
+  ${list.map((c, i) => `<div class="card"><h2>Card ${i + 1} of ${list.length}</h2>
+    <p>${esc(c.front)}</p>
+    <p><button data-recall>Recall, then reveal</button></p>
+    <p class="muted" data-beat hidden>Take about 3 seconds to recall…</p>
+    <div hidden data-answer><p><b>Answer.</b> ${esc(c.back)}</p>
+    <p><b>Memory hook.</b> ${esc(c.memory_hook)}</p>
+    ${byCard[c.card_id] ? `<p><b>Teaching.</b> ${esc(byCard[c.card_id].segments && byCard[c.card_id].segments.teaching && byCard[c.card_id].segments.teaching.text)}</p>` : ""}
+    ${sourceLine(c.claims_fact_ids)}</div></div>`).join("")}
+  ${recap ? `<div class="card"><h2>Deck recap</h2><p>${esc(recap.recap && recap.recap.narration_text)}</p><p class="muted">Hooks: ${esc((recap.recap && recap.recap.hooks_spoken || []).join("; "))}</p></div>` : ""}
+  <p class="muted">Text-first pilot: the 3-second recall pause is a visual beat only — no audio is generated.</p>
+  <p><a class="btn" href="#/quiz/${esc(unitId)}">Continue to the quiz</a>${moduleId ? ` <a class="btn" href="#/module/${esc(moduleId)}">Back to module hub</a>` : ""}</p>`;
+}
+
+// ---- Synthetic sample (comparison route #/synthetic-sample only) ----
+function sUnitRefs() {
+  const ch = D.manifest.chapters[0];
+  const u = ch.units[0];
+  const cards = D.cards.decks[0].cards.filter((c) => c.unit_id === u.unit_id);
+  const unit = D.teaching.units.find((x) => x.unit_id === u.unit_id);
+  const items = D.exam.items.filter((i) => i.unit_id === u.unit_id);
+  const quiz = D.exam.module_quizzes.find((q) => q.unit_id === u.unit_id);
+  const form = D.exam.practice_forms[0];
+  return { ch, u, cards, unit, items, quiz, form };
+}
+function sItemById(id) { return D.exam.items.find((i) => i.item_id === id); }
+
+function vSyntheticSample() {
+  if (!D) return `<h1>Synthetic sample</h1><p>Sample data is still loading. Re-open this route in a moment.</p>`;
+  const { ch, cards, unit, quiz, form } = sUnitRefs();
+  const sBlock = (ids, formId, title, policyNote) => `<h2>${esc(title)}</h2>
+  <p class="muted">${esc(policyNote)}</p>
+  <form data-squiz="${esc(formId)}">
+  ${ids.map((id, i) => { const it = sItemById(id); if (!it) return "";
+    return `<div class="card" data-sitem="${esc(it.item_id)}"><h2>Question ${i + 1}</h2>
+    <p>${esc(it.stem)}</p>
+    <ol class="choices">${it.options.map((o) => `<li><button type="button" class="option" data-key="${o.key}"><b>${o.key}.</b> ${esc(o.text)}</button></li>`).join("")}</ol>
+    <div hidden data-feedback></div></div>`; }).join("")}
+  <p><button type="submit">Check answers</button></p>
+  <div data-summary></div></form>`;
+  return `<h1>Synthetic sample — for comparison only</h1>
+  <p>${esc(SYNTHETIC_NOTE)} Every sign and rule below is invented for the pretend island of Nowhere. Nothing here is Utah content or a real driving rule. The real course starts on the <a href="#/">home screen</a>.</p>
+  <div class="card"><h2>${esc(ch.title)}</h2>
+  <p class="muted">${cards.length} flashcards · 1 lesson · free · no account · text only</p></div>
+  <div class="card"><h2>Lesson: ${esc(unit.title.text)}</h2>
+  ${unit.why_how.map((w) => `<p><b>Why this exists.</b> ${esc(w.text)}</p>`).join("")}
+  ${unit.slides.map((sl) => `<h2>${esc(sl.title.text)}</h2>${sl.lines.map((l) => `<p>${esc(l.text)}</p>`).join("")}`).join("")}</div>
+  ${cards.map((c, i) => `<div class="card"><h2>Sample card ${i + 1} of ${cards.length}</h2>
+    <p>${esc(c.front)}</p>
+    <p><button data-reveal>Reveal answer</button></p>
+    <div hidden data-answer><p><b>Answer.</b> ${esc(c.back)}</p>
+    <p><b>Memory hook.</b> ${esc(c.memory_hook)}</p></div></div>`).join("")}
+  ${sBlock(quiz.item_ids, "squiz:" + quiz.quiz_id, quiz.title, "Unit practice with supported rationales.")}
+  ${sBlock(form.item_ids, "sform:" + form.form_id, form.title, "Cumulative authored practice. This score predicts nothing.")}`;
+}
+
+// ---- Real quiz / practice / results / settings ----
+function realQuizBlock(ids, formId, title, policyNote, practiceLabel) {
+  const byId = examItemsById();
+  return `<h1>${esc(title)}</h1>
+  <p class="muted">${esc(REAL_NOTE)}. ${esc(policyNote)}</p>
+  ${practiceLabel ? `<div class="card"><h2>${esc(practiceLabel)}</h2><p class="muted">Practice only — not an official test. No pass or fail is claimed; the score describes this attempt alone.</p></div>` : ""}
+  <form data-rquiz="${esc(formId)}">
+  ${ids.map((id, i) => { const it = byId[id]; if (!it) return "";
+    return `<div class="card" data-ritem="${esc(it.item_id)}" data-correct="${esc(it.correct_key)}" data-why="${esc(it.correct_rationale)}" data-stem="${esc(it.stem)}"><h2>Question ${i + 1} of ${ids.length}</h2>
+    <p>${esc(it.stem)}</p>
+    <ol class="choices">${(it.options || []).map((o) => `<li><button type="button" class="option" data-key="${o.key}" data-otext="${esc(o.text)}" data-orationale="${esc(o.rationale || "")}"><b>${o.key}.</b> ${esc(o.text)}</button></li>`).join("")}</ol>
+    <div hidden data-feedback></div>
+    ${sourceLine(it.fact_ids)}</div>`; }).join("")}
+  <p><button type="submit">Check answers</button></p>
+  <div data-summary></div></form>`;
+}
+
+function vQuiz(unitId) {
+  const quiz = moduleQuizForUnit(unitId);
+  if (!quiz) return vMissing();
+  return realQuizBlock(quiz.item_ids, "quiz:" + quiz.quiz_id, quiz.title,
+    "Module quiz with supported rationales. Missed questions are listed for review after you check.", null)
+    + `<p><a class="btn" href="#/module/${esc(moduleForUnit(unitId) || "")}">Back to module hub</a> <a class="btn" href="#/practice">Try a practice test</a></p>`;
+}
+
+function vPractice(formId) {
+  const forms = practiceForms();
+  if (!forms.length) return realEmpty("exam bank");
+  if (formId) {
+    const f = forms.find((x) => x.form_id === formId);
+    if (!f) return vMissing();
+    return realQuizBlock(f.item_ids, "form:" + f.form_id, f.title,
+      "Full practice form drawn from the accepted exam bank. Scores describe observed practice only — never licensing eligibility, driving competence, or predicted success.",
+      `${f.title} — practice form`)
+      + `<p><a class="btn" href="#/practice">Choose the other form</a> <a class="btn" href="#/">Back home</a></p>`;
+  }
+  return `<h1>Practice tests — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. ${forms.length} accepted practice forms, ${(forms[0] && forms[0].item_ids.length) || 0} questions each. Practice only — no official pass claim.</p>
+  ${forms.map((f) => `<div class="card"><h2>${esc(f.title)}</h2>
+  <p class="muted">${(f.item_ids || []).length} questions · practice ${esc(f.form_id)}</p>
+  <p><a class="btn" href="#/practice/${esc(f.form_id)}">Start ${esc(f.form_id === "form-a" ? "form A" : f.form_id === "form-b" ? "form B" : f.form_id)}</a></p></div>`).join("")}`;
+}
+
+function vResults(attemptId) {
+  const r = getResult(attemptId);
+  if (!r) return `<h1>Results</h1><p>No practice attempt <code>${esc(attemptId)}</code> is stored in this browser. Scores live only here, on this device.</p><p><a class="btn" href="#/practice">Take a practice test</a></p>`;
+  const missed = r.answers.filter((a) => !a.correct);
+  return `<h1>Results — observed practice only</h1>
+  <p class="muted">${esc(REAL_NOTE)}.</p>
+  <div class="card"><h2>${esc(r.title)}</h2>
+  <p>You answered <b>${r.correctCount} of ${r.answers.length}</b> in this practice set, taken ${esc(r.takenAt)}.</p>
+  <p class="muted">This describes observed practice only — never licensing eligibility, driving competence, or predicted success.</p></div>
+  ${missed.length ? `<div class="card"><h2>Review these next</h2>${missed.map((a) => {
+    const opts = (a.options || []).map((o) => `<br>· <b>${esc(o.key)}.</b> ${esc(o.text)} — ${esc(o.rationale || "")}`).join("");
+    return `<p><b>Question:</b> ${esc(a.stem)}<br><b>You chose ${esc(a.picked || "(no answer)")}; correct answer ${esc(a.key)}.</b> ${esc(a.why)}${opts}</p>`; }).join("")}</div>`
+  : `<div class="card"><h2>Clean sweep</h2><p>Every answer matched. A useful next step: re-drill the flashcards from memory, then retake a practice form tomorrow.</p></div>`}
+  <p><a class="btn" href="#/practice">Back to practice tests</a> <a class="btn" href="#/">Back home</a></p>`;
+}
+
+function vSettings() {
+  return `<h1>Settings and about</h1>
+  <div class="card"><h2>About this course</h2>
+  <p>Utah Driver Handbook Section 9, Rules of the Road — written-test preparation for regular non-commercial passenger-car rules. Everything is free, with no account and no audio. Lesson slides, cards and questions are the belt's accepted artifacts, shown word-for-word.</p>
+  <p class="muted">Data source: ${(R && R.from === "fetch") ? "app-preview/data/real/*.json over HTTP" : "embedded fallback copy (identical content, used because local files could not be fetched)"}.</p></div>
+  <div class="card"><h2>Reviewer</h2>
+  <p><a class="btn" href="#/dossier">Source dossier (reviewer view)</a>
+  <a class="btn" href="#/modules">Module structure (reviewer view)</a>
+  <a class="btn" href="#/real-cards">Real flashcards (reviewer view)</a>
+  <a class="btn" href="#/real-quiz">Real quiz (reviewer view)</a>
+  <a class="btn" href="#/real-lesson">Real lesson (reviewer view)</a></p>
+  <p class="muted">Accepted belt artifacts only. Card narration (stage 05.card_scripts) is shown under each flashcard answer.</p></div>
+  <div class="card"><h2>Comparison</h2>
+  <p><a class="btn" href="#/synthetic-sample">Fictional synthetic sample (for comparison)</a></p>
+  <p class="muted">The old invented sample lives only on that screen — not on any learner screen.</p></div>
+  <div class="card"><h2>Progress on this device</h2>
+  <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the Utah Section 9 syllabus. Changing the syllabus invalidates them.</p>
+  <p><button id="reset-progress" class="secondary">Erase my preview progress</button></p></div>`;
+}
+
+function vMissing() { return `<h1>Nothing here</h1><p>That module or unit is not part of this course.</p><p><a class="btn" href="#/chapters">Modules</a></p>`; }
+
+function factBlocks(md) {
+  return String(md || "").split(/(?=^FACT_ID: )/m).map((b) => b.trim()).filter(Boolean);
+}
+
+function vDossier() {
+  const { dossier, kg, cards, exam, sessions, scripts, other } = realEntries();
+  if (!dossier.length && !other.length && !scripts.length) {
+    return `<h1>Source dossier — reviewer view</h1>
+    <div class="card"><h2>No accepted dossier parts yet</h2>
+    <p>Stage 02 (dossier) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
+    <p class="muted">Operator step after the belt accepts a part: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
+  }
+  return `<h1>Source dossier — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Reviewer view, not a learner lesson: fact blocks as extracted, with provenance. Full audit is still pending.</p>
+  ${dossier.map((e) => {
+    const art = realArt(e);
+    if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
+    const scope = art.envelope_scope || {};
+    const secs = Array.isArray(art.sections) ? art.sections : [];
+    const chunkLabel = scope.chunk_id || secs.map((s) => s.chunk_id).filter(Boolean).join(", ") || ("chunk " + (scope.chunk_index ?? "?") + "/" + (scope.chunk_total ?? "?"));
+    return `<div class="card"><h2>Dossier part: ${(scope.assigned_section_ids || []).map(esc).join(", ") || esc(e.task_id)}</h2>
+    <dl class="kv"><dt>Chunk</dt><dd><code>${esc(chunkLabel)}</code> (${esc(scope.kind || "")})</dd>
+    <dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    + secs.map((s) => `<div class="card"><h2>${esc(s.heading || s.chunk_id || "")}</h2>
+      <p class="muted">${(s.fact_ids || []).length} fact blocks · learner_facing: ${esc(s.learner_facing)}</p>
+      ${(factBlocks(s.markdown).filter((b) => /^FACT_ID: /.test(b)).map((b) => {
+        const id = (b.match(/^FACT_ID:\s*(\S+)/) || [])[1] || "block";
+        return `<h2 id="fact-${esc(id)}">${esc(id)}</h2><pre class="fact">${esc(b)}</pre>`;
+      }).join("") || `<pre class="fact">${esc((s.markdown || "").trim() || "(empty section)")}</pre>`)}</div>`).join("");
+  }).join("")}
+  ${kg.length ? `<div class="card"><h2>Accepted knowledge graph</h2>
+  <p>Stage 03 combined KG: ${kg.length} accepted task(s). <a class="btn" href="#/modules">View module structure</a></p></div>` : ""}
+  ${cards.length ? `<div class="card"><h2>Accepted flashcards</h2>
+  <p>Stage 04 cards: ${cards.length} accepted task(s). <a class="btn" href="#/real-cards">Study the real cards</a></p></div>` : ""}
+  ${exam.length ? `<div class="card"><h2>Accepted exam bank</h2>
+  <p>Stage 06 exam bank: ${exam.length} accepted task(s). <a class="btn" href="#/real-quiz">Take the real quiz</a></p></div>` : ""}
+  ${sessions.length ? `<div class="card"><h2>Accepted lesson sessions</h2>
+  <p>Stage 05 sessions: ${sessions.length} accepted task(s). <a class="btn" href="#/real-lesson">Study the real lesson</a></p></div>` : ""}
+  ${scripts.length ? `<div class="card"><h2>Accepted card narration</h2>
+  <p>Stage 05 card_scripts: ${scripts.length} accepted task(s). Narration text is shown under each answer on the <a class="btn" href="#/real-cards">real flashcards</a>.</p></div>` : ""}
+  ${other.length ? `<div class="card"><h2>Other accepted stages (learner wiring pending)</h2>
+  <ul>${other.map((e) => `<li><code>${esc(e.stage_id)}</code> — task <code>${esc(e.task_id)}</code> · sha256 <code>${esc(e.sha256)}</code></li>`).join("")}</ul></div>` : ""}`;
+}
+
+function vModules() {
+  const { kg } = realEntries();
+  if (!kg.length) {
+    return `<h1>Module structure — reviewer view</h1>
+    <div class="card"><h2>No accepted knowledge graph yet</h2>
+    <p>Stage 03 (combined KG) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
+    <p class="muted">Operator step after the belt accepts the KG: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
+  }
+  return `<h1>Module structure — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Reviewer view, not a learner lesson: accepted knowledge-graph modules, nodes and learning path, with provenance. Full audit is still pending.</p>
+  ${kg.map((e) => {
+    const art = realArt(e);
+    if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
+    const mods = Array.isArray(art.modules) ? art.modules : [];
+    const nodes = Array.isArray(art.nodes) ? art.nodes : [];
+    const edges = Array.isArray(art.edges) ? art.edges : [];
+    const byMod = {};
+    nodes.forEach((n) => { (byMod[n.module_id] = byMod[n.module_id] || []).push(n); });
+    const hints = Array.isArray(art.curriculum_unit_hints) ? art.curriculum_unit_hints : [];
+    const lp = Array.isArray(art.learning_path) ? art.learning_path : [];
+    return `<div class="card"><h2>Combined KG: ${mods.length} modules · ${nodes.length} nodes · ${edges.length} edges</h2>
+    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd>
+    <dt>Learning path</dt><dd>${lp.map((x) => esc(x)).join(" → ") || "(none declared)"}</dd></dl></div>`
+    + mods.map((m) => `<div class="card"><h2>${esc(m.module_id)} — ${esc(m.title)}</h2>
+      <p class="muted">${esc(m.domain)} · ${(m.node_ids || []).length} nodes</p>
+      ${((byMod[m.module_id]) || []).map((n) => `<h2>${esc(n.id)} — ${esc(n.label)}</h2><p class="muted">${esc(n.node_type)} · difficulty ${esc(n.difficulty)} · confidence ${esc(n.confidence)}${n.high_yield ? " · high-yield" : ""}${n.needs_review ? " · NEEDS REVIEW" : ""}</p>`).join("") || "<p>(no nodes in this module)</p>"}</div>`).join("")
+    + (hints.length ? `<div class="card"><h2>Curriculum unit hints</h2><ul>${hints.map((u) => `<li><code>${esc(u.unit_id)}</code> → module <code>${esc(u.module_id)}</code> · ${(u.node_ids || []).length} nodes</li>`).join("")}</ul></div>` : "");
+  }).join("")}`;
+}
+
+function vRealCards() {
+  const { cards, scripts } = realEntries();
+  const scriptByCard = {};
+  for (const e of scripts) {
+    const art = realArt(e);
+    for (const s of (art && art.audio_scripts) || []) scriptByCard[s.card_id] = s;
+  }
+  if (!cards.length) {
+    return `<h1>Real flashcards — Utah Section 9</h1>
+    <div class="card"><h2>No accepted cards yet</h2>
+    <p>Stage 04 (cards) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
+    <p class="muted">Operator step after the belt accepts cards: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
+  }
+  return `<h1>Real flashcards — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Accepted stage-04 cards with provenance. Full audit is still pending. No images in this text-first preview: each card gives a page-sourced verbal cue task instead of a claimed visual-recognition measurement.</p>
+  ${cards.map((e) => {
+    const art = realArt(e);
+    if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
+    const decks = Array.isArray(art.decks) ? art.decks : [];
+    const all = decks.flatMap((d) => d.cards || []);
+    return `<div class="card"><h2>Stage 04 cards: ${all.length} cards · ${decks.length} deck(s)</h2>
+    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    + decks.map((d, di) => `<div class="card"><h2>Deck ${di + 1} of ${decks.length} — ${(d.cards || []).length} cards</h2></div>`
+      + (d.cards || []).map((c, i) => `<div class="card"><h2>Card ${i + 1} of ${(d.cards || []).length} — ${esc(c.card_id)}</h2>
+      <p>${esc(c.front)}</p>
+      <p><button data-reveal>Reveal answer</button></p>
+      <div hidden data-answer><p><b>Answer.</b> ${esc(c.back)}</p>
+      <p><b>Memory hook.</b> ${esc(c.memory_hook)}</p>
+      ${scriptByCard[c.card_id] ? `<p><b>Narration.</b> ${esc(scriptByCard[c.card_id].segments && scriptByCard[c.card_id].segments.teaching && scriptByCard[c.card_id].segments.teaching.text)}</p>
+      <p class="muted">Script ${esc(scriptByCard[c.card_id].script_id)} · mode ${esc(scriptByCard[c.card_id].mode)} · pacing ${esc(scriptByCard[c.card_id].pacing)}</p>` : `<p class="muted">No accepted narration script for this card.</p>`}
+      <p class="muted">Module ${esc(c.module_id)} · node ${esc(c.node_id)} · difficulty ${esc(c.difficulty)}${c.high_yield ? " · high-yield" : ""}</p>
+      <p class="muted">Source: ${esc(c.source_ref && c.source_ref.ref)} · tier ${esc(c.source_ref && c.source_ref.tier)} · hook origin ${esc(c.hook_origin)}</p></div></div>`).join("")).join("");
+  }).join("")}`;
+}
+
+function vRealQuiz() {
+  const { exam } = realEntries();
+  if (!exam.length) {
+    return `<h1>Real quiz — Utah Section 9</h1>
+    <div class="card"><h2>No accepted exam bank yet</h2>
+    <p>Stage 06 (exam bank) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
+    <p class="muted">Operator step after the belt accepts the exam bank: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
+  }
+  return `<h1>Real quiz — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Accepted stage-06 exam items with provenance. Full audit is still pending. Scores describe observed practice only — never licensing eligibility, driving competence, or predicted success.</p>
+  ${exam.map((e) => {
+    const art = realArt(e);
+    if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
+    const items = Array.isArray(art.items) ? art.items : [];
+    const byId = {};
+    items.forEach((it) => { byId[it.item_id] = it; });
+    const quizzes = Array.isArray(art.module_quizzes) ? art.module_quizzes : [];
+    const forms = Array.isArray(art.practice_forms) ? art.practice_forms : [];
+    const block = (ids, formId, title) => `<form data-rquiz="${esc(formId)}">
+      ${ids.map((id, i) => { const it = byId[id]; if (!it) return "";
+        return `<div class="card" data-ritem="${esc(it.item_id)}" data-correct="${esc(it.correct_key)}" data-why="${esc(it.correct_rationale)}" data-stem="${esc(it.stem)}"><h2>Question ${i + 1}</h2>
+        <p>${esc(it.stem)}</p>
+        <ol class="choices">${(it.options || []).map((o) => `<li><button type="button" class="option" data-key="${o.key}" data-otext="${esc(o.text)}" data-orationale="${esc(o.rationale || "")}"><b>${o.key}.</b> ${esc(o.text)}</button></li>`).join("")}</ol>
+        <div hidden data-feedback></div>
+        <p class="muted">Module ${esc(it.module_id)} · node ${esc(it.node_id)} · ${esc(it.difficulty)} · source ${esc(it.source_ref && it.source_ref.ref)}${it.needs_review ? " · NEEDS REVIEW" : ""}</p></div>`; }).join("")}
+      <p><button type="submit">Check answers</button></p>
+      <div data-summary></div></form>`;
+    return `<div class="card"><h2>Stage 06 exam bank: ${items.length} items · ${quizzes.length} module quiz(zes) · ${forms.length} practice form(s)</h2>
+    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    + forms.map((f) => `<div class="card"><h2>${esc(f.title)} (practice form)</h2></div>` + block(f.item_ids || [], "real:form:" + f.form_id, f.title)).join("")
+    + quizzes.map((q) => `<div class="card"><h2>${esc(q.title)} (module quiz)</h2></div>` + block(q.item_ids || [], "real:quiz:" + q.quiz_id, q.title)).join("");
+  }).join("")}`;
+}
+
+function vRealLesson() {
+  const { sessions } = realEntries();
+  if (!sessions.length) {
+    return `<h1>Real lesson — Utah Section 9</h1>
+    <div class="card"><h2>No accepted lesson yet</h2>
+    <p>Stage 05.sessions has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
+    <p class="muted">Operator step after the belt accepts sessions: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
+  }
+  return `<h1>Real lesson — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Accepted stage-05 teaching units with provenance. Full audit is still pending. Narration text is shown as written copy; no audio is generated in this preview.</p>
+  ${sessions.map((e) => {
+    const art = realArt(e);
+    if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
+    const units = Array.isArray(art.units) ? art.units : [];
+    return `<div class="card"><h2>Stage 05 sessions: ${units.length} teaching unit(s)</h2>
+    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    + units.map((u) => {
+      const wx = u.worked_example || {}, mc = u.misconception || {}, sc = u.self_check || {};
+      const mcClaim = mc.claim || {}, mcFix = mc.correction || {};
+      return `<div class="card"><h2>Unit ${esc(u.unit_id)} (module ${esc(u.module_id)}) — ${esc(u.title && u.title.text)}</h2>
+      <p class="muted">Objectives: ${((u.objective_ids) || []).map(esc).join(", ") || "(none declared)"}</p></div>`
+      + ((u.why_how || []).map((w) => `<div class="card"><h2>Why this exists</h2><p>${esc(w.text)}</p><p class="muted">Facts: ${((w.fact_ids) || []).map(esc).join(", ")}</p></div>`).join(""))
+      + ((u.slides || []).map((sl, i) => `<div class="card"><h2>Slide ${i + 1} — ${esc(sl.kind)}</h2>
+        ${((sl.lines) || []).map((l) => `<p>${esc(l.text)}</p>`).join("")}
+        <p><b>Narration (${esc(String(sl.estimated_narration_seconds))}s).</b> ${esc(sl.narration && sl.narration.text)}</p></div>`).join(""))
+      + `<div class="card"><h2>Worked example</h2>
+        <p><b>Situation.</b> ${esc(wx.scenario && wx.scenario.text)}</p>
+        <p><b>Reasoning.</b> ${esc(wx.reasoning && wx.reasoning.text)}</p>
+        <p><b>Outcome.</b> ${esc(wx.result && wx.result.text)}</p></div>
+      <div class="card"><h2>Common misconception</h2>
+        <p><b>False:</b> ${esc(mcClaim.text)}</p><p><b>Truth:</b> ${esc(mcFix.text)}</p></div>
+      <div class="card"><h2>Memory support</h2><p>${esc(u.memory_support && u.memory_support.text)}</p></div>
+      <div class="card"><h2>Self-check</h2><p>${esc(sc.prompt && sc.prompt.text)}</p>
+        <p><button data-reveal>Reveal answer</button></p>
+        <p hidden data-answer><b>Answer.</b> ${esc(sc.answer && sc.answer.text)}<br><b>Why.</b> ${esc(sc.rationale && sc.rationale.text)}</p></div>`;
+    }).join("");
+  }).join("")}
+  <p><a class="btn" href="#/real-cards">Continue to the real flashcards</a></p>`;
+}
+
+function realGradeQuiz(form, formId, title) {
+  const answers = [];
+  form.querySelectorAll("[data-ritem]").forEach((box) => {
+    const correct = box.dataset.correct;
+    const why = box.dataset.why || "";
+    const stem = box.dataset.stem || box.dataset.ritem;
+    const pickedBtn = box.querySelector(".option[aria-pressed='true']");
+    const picked = pickedBtn ? pickedBtn.dataset.key : null;
+    const ok = picked === correct;
+    const options = [];
+    box.querySelectorAll(".option").forEach((b) => {
+      options.push({ key: b.dataset.key, text: b.dataset.otext || b.textContent || "", rationale: b.dataset.orationale || "" });
+    });
+    answers.push({ itemId: box.dataset.ritem, picked, correct: ok, stem, why, key: correct, options });
+    const fb = box.querySelector("[data-feedback]");
+    fb.hidden = false;
+    const optLines = options.map((o) => `<br>· <b>${esc(o.key)}.</b> ${esc(o.text)} — ${esc(o.rationale || "")}`).join("");
+    fb.innerHTML = picked
+      ? (ok ? `<p class="result-good">Correct.</p>` : `<p class="result-bad">Not quite — you chose ${esc(picked)}.</p>`) + `<p><b>Why ${esc(correct)}:</b> ${esc(why)}${optLines}</p>`
+      : `<p class="result-bad">No answer chosen.</p><p><b>Correct answer ${esc(correct)}:</b> ${esc(why)}${optLines}</p>`;
+    box.querySelectorAll(".option").forEach((b) => {
+      b.disabled = true;
+      if (b.dataset.key === correct) b.classList.add("picked-correct");
+      else if (b.getAttribute("aria-pressed") === "true") b.classList.add("picked-wrong");
+      else b.classList.add("dim");
+    });
+  });
+  const correctCount = answers.filter((a) => a.correct).length;
+  const attemptId = "attempt-" + Date.now().toString(36);
+  saveResult({ attemptId, formId, title, answers, correctCount, takenAt: new Date().toISOString() });
+  form.querySelector("[data-summary]").innerHTML =
+    `<div class="card"><h2>You answered ${correctCount} of ${answers.length}</h2>
+    <p class="muted">Observed practice only — never licensing eligibility or predicted success.</p>
+    <p><a class="btn" href="#/results/${attemptId}">See results and next steps</a></p></div>`;
+  form.querySelector("[data-summary]").scrollIntoView();
+}
+
+function synthGradeQuiz(form, formId, title) {
+  const answers = [];
+  form.querySelectorAll("[data-sitem]").forEach((box) => {
+    const item = sItemById(box.dataset.sitem);
+    const picked = box.querySelector(".option[aria-pressed='true']")?.dataset.key || null;
+    const correct = picked === item.correct_key;
+    answers.push({ itemId: item.item_id, picked, correct, stem: item.stem, why: item.correct_rationale, key: item.correct_key, options: item.options });
+    const fb = box.querySelector("[data-feedback]");
+    fb.hidden = false;
+    fb.innerHTML = picked
+      ? (correct ? `<p class="result-good">Correct.</p>` : `<p class="result-bad">Not quite — you chose ${esc(picked)}.</p>`) + `<p><b>Why ${esc(item.correct_key)}:</b> ${esc(item.correct_rationale)}</p>`
+      : `<p class="result-bad">No answer chosen.</p><p><b>Correct answer ${esc(item.correct_key)}:</b> ${esc(item.correct_rationale)}</p>`;
+    box.querySelectorAll(".option").forEach((b) => {
+      b.disabled = true;
+      if (b.dataset.key === item.correct_key) b.classList.add("picked-correct");
+      else if (b.getAttribute("aria-pressed") === "true") b.classList.add("picked-wrong");
+      else b.classList.add("dim");
+    });
+  });
+  const correctCount = answers.filter((a) => a.correct).length;
+  form.querySelector("[data-summary]").innerHTML =
+    `<div class="card"><h2>You answered ${correctCount} of ${answers.length}</h2>
+    <p class="muted">${esc(SYNTHETIC_NOTE)} Observed practice only.</p></div>`;
+  form.querySelector("[data-summary]").scrollIntoView();
+}
+
+function wire() {
+  view.querySelectorAll("[data-reveal]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const ans = btn.closest(".card").querySelector("[data-answer]");
+      ans.hidden = !ans.hidden;
+      btn.textContent = ans.hidden ? "Reveal answer" : "Hide answer";
+    });
+  });
+  view.querySelectorAll("[data-recall]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.disabled) return;
+      btn.disabled = true;
+      const card = btn.closest(".card");
+      const beat = card.querySelector("[data-beat]");
+      const ans = card.querySelector("[data-answer]");
+      const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) {
+        ans.hidden = false;
+        btn.textContent = "Answer shown";
+        return;
+      }
+      beat.hidden = false;
+      let left = 3;
+      beat.textContent = `Take about ${left} seconds to recall…`;
+      const tick = setInterval(() => {
+        left -= 1;
+        if (left <= 0) {
+          clearInterval(tick);
+          beat.hidden = true;
+          ans.hidden = false;
+          btn.textContent = "Answer shown";
+        } else {
+          beat.textContent = `Take about ${left} seconds to recall…`;
+        }
+      }, 1000);
+    });
+  });
+  const h = location.hash || "#/";
+  const lessonHit = h.startsWith("#/lesson/");
+  const cardsHit = h.startsWith("#/cards/");
+  if (lessonHit) markDone(h.split("/")[2], "lesson");
+  if (cardsHit) markDone(h.split("/")[2], "cards");
+  view.querySelectorAll(".option").forEach((b) => {
+    b.addEventListener("click", () => {
+      const scope = b.closest("[data-ritem]") || b.closest("[data-sitem]");
+      if (scope) scope.querySelectorAll(".option").forEach((x) => x.removeAttribute("aria-pressed"));
+      b.setAttribute("aria-pressed", "true");
+    });
+  });
+  view.querySelectorAll("form[data-rquiz]").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      realGradeQuiz(form, form.dataset.rquiz, document.querySelector("#view h1")?.textContent || "Quiz");
+    });
+  });
+  view.querySelectorAll("form[data-squiz]").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      synthGradeQuiz(form, form.dataset.squiz, document.querySelector("#view h1")?.textContent || "Synthetic practice");
+    });
+  });
+  const reset = view.querySelector("#reset-progress");
+  if (reset) reset.addEventListener("click", () => {
+    localStorage.removeItem(store.key);
+    view.querySelector("[data-reset-done]")?.remove();
+    reset.insertAdjacentHTML("afterend", `<p data-reset-done class="result-good">Preview progress erased on this device.</p>`);
+  });
+}
+
+function route() {
+  const h = location.hash || "#/";
+  const parts = h.replace(/^#\//, "").split("/");
+  let html = "", nav = "home", banner = "real", bannerText = REAL_NOTE;
+  if (parts[0] === "") html = vHome();
+  else if (parts[0] === "chapters") { html = vChapters(); nav = "chapters"; }
+  else if (parts[0] === "module") html = vModule(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "lesson") html = vLesson(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "cards") html = vCards(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "quiz") html = vQuiz(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "practice" && parts[1]) { html = vPractice(decodeURIComponent(parts[1])); nav = "practice"; }
+  else if (parts[0] === "practice") { html = vPractice(null); nav = "practice"; }
+  else if (parts[0] === "results") html = vResults(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "settings") { html = vSettings(); nav = "settings"; }
+  else if (parts[0] === "synthetic-sample") { html = vSyntheticSample(); banner = "synthetic"; bannerText = SYNTHETIC_NOTE; }
+  else if (parts[0] === "dossier") { html = vDossier(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else if (parts[0] === "modules") { html = vModules(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else if (parts[0] === "real-cards") { html = vRealCards(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else if (parts[0] === "real-quiz") { html = vRealQuiz(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else if (parts[0] === "real-lesson") { html = vRealLesson(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else html = vMissing();
+  if (banner === "review") {
+    const re = realEntries();
+    const n = parts[0] === "dossier" ? re.dossier.length + re.kg.length + re.cards.length + re.exam.length + re.sessions.length + re.scripts.length + re.other.length : parts[0] === "modules" ? re.kg.length : parts[0] === "real-quiz" ? re.exam.length : parts[0] === "real-lesson" ? re.sessions.length : re.cards.length + re.scripts.length;
+    if (n) { banner = "real"; bannerText = REAL_NOTE; }
+  }
+  setBanner(banner, bannerText);
+  view.innerHTML = html;
+  document.querySelectorAll("nav.main a").forEach((a) => {
+    if (a.dataset.nav === nav) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  });
+  wire();
+  view.focus({ preventScroll: true });
+  window.scrollTo(0, 0);
+}
+
+window.addEventListener("hashchange", route);
+loadReal().then((r) => { R = r; _factPages = null; return loadData(); }).then((d) => { D = d; route(); }).catch(() => {});
+</script>
+</body>
+</html>
