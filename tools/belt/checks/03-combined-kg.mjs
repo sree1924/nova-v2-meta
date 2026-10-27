@@ -194,6 +194,18 @@ export function run(artifact, context = {}) {
   out.push(rc.prerequisite_violations ? chk('PATH_TOPOLOGICAL', F, `${rc.prerequisite_violations} prerequisite violation(s): ${head(rc.violations)}`)
     : chk('PATH_TOPOLOGICAL', P, `0 prerequisite violations over ${edges.filter(e => e.type === 'prerequisite').length} prerequisite edges`));
 
+  // NODE_COVERAGE — every registry fact is a node (facts dropped from the graph never reach cards/items/lessons). kg_hints are not facts.
+  {
+    const regFactsAll = context.fact_registry?.facts && typeof context.fact_registry.facts === 'object' ? Object.keys(context.fact_registry.facts) : null;
+    if (!regFactsAll) out.push(chk('NODE_COVERAGE', P, 'context.fact_registry absent; node coverage not applicable (resolution is FACT_IDS_REGISTERED\'s concern)'));
+    else {
+      const nodeFacts = new Set([...nodes.flatMap(n => arr(n.fact_ids)), ...arr(a.dynamic_nodes).flatMap(d => arr(d.fact_ids))]); // dynamic nodes carry facts too
+      const dropped = regFactsAll.filter(id => !nodeFacts.has(id) && !byId.has(id));
+      out.push(dropped.length ? chk('NODE_COVERAGE', F, `${dropped.length}/${regFactsAll.length} registry fact(s) have no node (every fact_registry.facts entry must be a node; C2 R-ids included): ${head(dropped)}`, { dropped: dropped.length })
+        : chk('NODE_COVERAGE', P, `all ${regFactsAll.length} registry facts are nodes`, { dropped: 0 }));
+    }
+  }
+
   // HIGH_YIELD_SET — high_yield nodes == accepted source high-yield set.
   {
     const srcRaw = context.accepted_inputs?.high_yield_ids;

@@ -32,6 +32,29 @@ function findPage(sourcePage, pageMap) {
   return found.length === 1 ? found[0] : null;
 }
 
+// Deterministic spoken rendering used for spoken_statement (04 backs must be spoken-form AND byte-equal to accepted wording):
+// symbol shorthand, percent/ampersand, unit abbreviations, decimals and integers (0–9999) rendered as words.
+const ONES = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+const TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+export function numberToWords(n) {
+  if (!Number.isInteger(n) || n < 0 || n > 9999) return null;
+  if (n < 20) return ONES[n];
+  if (n < 100) return TENS[Math.floor(n / 10)] + (n % 10 ? '-' + ONES[n % 10] : '');
+  if (n < 1000) return ONES[Math.floor(n / 100)] + ' hundred' + (n % 100 ? ' ' + numberToWords(n % 100) : '');
+  return numberToWords(Math.floor(n / 1000)) + ' thousand' + (n % 1000 ? ' ' + numberToWords(n % 1000) : '');
+}
+const UNIT_WORDS = {mph: 'miles per hour', 'mi/h': 'miles per hour', kph: 'kilometers per hour', ft: 'feet', yd: 'yards', yds: 'yards', mi: 'miles', lb: 'pounds', lbs: 'pounds', oz: 'ounces', sec: 'seconds', secs: 'seconds', hr: 'hours', hrs: 'hours', min: 'minutes', mins: 'minutes', mo: 'months', yr: 'years', yrs: 'years'};
+export function spokenize(text) {
+  let s = String(text ?? '');
+  s = s.replace(/\b([A-Za-z0-9]{1,3})((?:\/[A-Za-z0-9]{1,3}\b)+)/g, (_, first, rest) => { const parts = [first, ...rest.split('/').filter(Boolean)]; return parts.length > 2 ? parts.slice(0, -1).join(', ') + ' or ' + parts.at(-1) : parts.join(' or '); });
+  s = s.replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ');
+  s = s.replace(/\$\s?(\d[\d,]*(?:\.\d+)?)/g, '$1 dollars');
+  s = s.replace(/\b(\d+)\s*(mph|mi\/h|kph|ft|yds?|mi|lbs?|oz|secs?|hrs?|mins?|mo|yrs?)\b\.?/gi, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()] ?? unit}`);
+  s = s.replace(/\b(\d+)\.(\d+)\b/g, (_, a, b) => `${numberToWords(Number(a)) ?? a} point ${[...b].map(d => ONES[Number(d)]).join(' ')}`);
+  s = s.replace(/\b(\d{1,3}(?:,\d{3})+|\d+)\b/g, (m) => { const n = Number(m.replace(/,/g, '')); const w = numberToWords(n); return w ?? m; });
+  return s.replace(/[ \t]{2,}/g, ' ');
+}
+
 function indexFact(id, section, pageMap) {
   const lines = section.markdown.split('\n');
   // Two marker forms: the legacy inline lead ("**F01** text" / "F01: text") and the 02 block lead the Utah pilot's
@@ -94,9 +117,7 @@ function indexFact(id, section, pageMap) {
   const page = pages[0].page;
   // Deterministic spoken rendering of symbol shorthand (the 04 back must be spoken-form AND equal the accepted wording):
   // "A/B/C" → "A, B or C", "%" → " percent", "&" → " and ". Emitted as spoken_statement only when it differs from statement.
-  const spoken = statement
-    .replace(/\b([A-Za-z0-9]{1,3})((?:\/[A-Za-z0-9]{1,3}\b)+)/g, (_, first, rest) => { const parts = [first, ...rest.split('/').filter(Boolean)]; return parts.length > 2 ? parts.slice(0, -1).join(', ') + ' or ' + parts.at(-1) : parts.join(' or '); })
-    .replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ').replace(/[ \t]{2,}/g, ' ');
+  const spoken = spokenize(statement);
   const spokenExtra = spoken !== statement ? {spoken_statement: spoken} : {};
   return {fact: {
     fact_id: id, text: statement, statement, ...spokenExtra, ...(supportingPages.length ? {supporting_pages: supportingPages} : {}),
