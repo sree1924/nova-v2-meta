@@ -196,7 +196,10 @@ export function run(artifact, context = {}) {
 
   // HIGH_YIELD_SET — high_yield nodes == accepted source high-yield set.
   {
-    const src = context.accepted_inputs?.high_yield_ids;
+    const srcRaw = context.accepted_inputs?.high_yield_ids;
+    // High-yield ids that are not facts in the registry (C2 KG-hint ids) cannot be nodes and are not expected (2026-10-27, sec01).
+    const regFacts = context.fact_registry?.facts && typeof context.fact_registry.facts === 'object' ? context.fact_registry.facts : null;
+    const src = Array.isArray(srcRaw) ? srcRaw.filter(id => !regFacts || id in regFacts) : srcRaw;
     const mine = nodes.filter(n => n.high_yield).map(n => n.id);
     if (!Array.isArray(src)) out.push(chk('HIGH_YIELD_SET', H, `context.accepted_inputs.high_yield_ids absent; artifact flags ${mine.length} high-yield node(s)`, { high_yield_nodes: mine.length }));
     else {

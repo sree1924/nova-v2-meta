@@ -331,3 +331,9 @@
 - 2026-10-27T19:50:50.806Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:73 for 02.dossier_sections (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
 
 - 2026-10-27T20:06:33.310Z founder amendment: standing cap $30 → $60 ("cap $60 go finish all 16"); per-role sub-caps already raised; Muse operator tokens on subscription
+
+- 2026-10-27T20:17:23.847Z retry nonce 03.combined_kg:@sec01-definitions → 1 after HOLD (sec01-definitions); non-PASS: 03.ONTOLOGY=FAIL, 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:17:50.133Z retry nonce 03.combined_kg:@sec01-definitions → 2 after HOLD (sec01-definitions); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:17:50.251Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:74 for 03.combined_kg (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
