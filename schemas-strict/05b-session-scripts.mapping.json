@@ -1,0 +1,716 @@
+{
+  "stage_id": "05.sessions",
+  "adapter_schema": {
+    "path": "schemas-strict/05b-session-scripts.schema.json",
+    "sha256": "2457854f6f129e80be4465ac7a132295fd34e83425378365a4f491704aa88e41"
+  },
+  "parent_schema": {
+    "path": "schemas/session-script.schema.json",
+    "sha256": "82aad2b15dd77c58e9770f6b809d07b1be9f3b5b91de550b6837f11bc5695ff2"
+  },
+  "local_owned_schema": {
+    "path": "contracts/teaching-unit.schema.json",
+    "sha256": "0eb8189a6d4aac9ac2ce455c9d65f632e88c977200280748b6173f76de3a4b35",
+    "owner": "Sol qualification worker — consumed, never edited",
+    "relation": "strict-mode projection: same fields; #/$defs/span inlined at all 21 use sites; const -> single-value enum; soft keywords omitted and restored as checks. adapter + 05S checks accept exactly what teaching-unit.schema.json + its x-post-validation accept (except entailment, see unexecuted)."
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "relative to the parent SessionScripts schema the payload is a different artifact (TeachingUnit collection: spans with fact_ids, no claims map, no est_minutes/skippable/minted_by)",
+  "overlay_authority": {
+    "path": "contracts/pilot-overrides-v0.4.0.json",
+    "sha256": "35a1237a237b6e03172ca6dae063de2c552103845c2d8ef4dd5a351c6f2d37d1",
+    "pointer": "/role_overrides/05",
+    "canonical_contract": {
+      "path": "factory/workers/05-voice-coach.md",
+      "sha256": "714aad6d555eaa802f05d115c1c1ed1dc6bac79dd1cad4b97889234406bfaf6c"
+    },
+    "also": [
+      {
+        "path": "qualification/CRITERIA-04-text-first.json",
+        "sha256": "bfbad3437ba947c9adeb33348ca5f5a88b14ff922882035680921d52d5c1d8de"
+      },
+      {
+        "path": "AMENDMENT-ORDER-Q-2026-07-25-sol-format-canon-and-pristine-gate.md",
+        "sha256": "785d750caee5425a5e33b16528a75b973ad6530d314a177c7c3f3f640a85e65e",
+        "rules": [
+          "§4 rule 1 (n/a: exam items)",
+          "§4 rule 5 (n/a: mock forms)",
+          "§4 rule 6 (n/a: exam items)",
+          "§4 rule 7 -> 05.SLIDE_COUNT/NARRATION_DEPTH/SLIDE_ARC/UNIFORM_VECTOR",
+          "§4 rule 3/4 -> 05.LEARNER_TRACE_LEAK",
+          "§4 rule 8 -> 05.SELF_CHECK_ORIGINALITY",
+          "§4 rule 15 -> 05.TITLED_PROMISE"
+        ]
+      }
+    ]
+  },
+  "prompt": {
+    "path": "prompts/05-sessions.md",
+    "sha256": "955b518582503c566f1c1a8db53ce23e8d4bca104ca1e3856a4291046ca642d1"
+  },
+  "checks_module": {
+    "path": "tools/belt/checks/05-sessions.mjs",
+    "sha256": "7032cd24e43e4ba6bcc1f01ec6dc4570ae2ba890a6ffc139d6bcd596708857d7"
+  },
+  "shared_lib": {
+    "path": "tools/belt/lib/cards-sessions-common.mjs",
+    "sha256": "602f7b91ad2408e7bdf3286a23512becceaaf64653d34d793b86152267a49c85"
+  },
+  "projector": {
+    "path": "tools/belt/project/05-sessions.mjs",
+    "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+  },
+  "context_contract": {
+    "fact_registry": "{facts:{<fact_id>:{statement, status, source_page?}}} — 100% resolution required; unknown/verify/debt statuses are unresolved debt",
+    "input_manifest_sha256": "scoped input manifest digest",
+    "source_registry_sha256": "scoped source registry digest",
+    "accepted_inputs.exam_stems": "string[] of accepted exam-bank stems (Order Q §4 rule 8)"
+  },
+  "x_post_validation_map": [
+    {
+      "bullet": "Resolve every span fact_ids entry against accepted facts; require 100% resolution and independently check entailment.",
+      "checks": [
+        "05.FACT_RESOLUTION"
+      ],
+      "unexecuted_part": "entailment"
+    },
+    {
+      "bullet": "Per unit: first slide opening; last close; at least one trap/bridge and one self_check; concept slides have 2-4 lines.",
+      "checks": [
+        "05.SLIDE_ARC",
+        "05.SLIDE_LINES"
+      ]
+    },
+    {
+      "bullet": "Per unit: at least six slides, average narration text length at least400 characters; titles at most6 words, each line at most15 words.",
+      "checks": [
+        "05.SLIDE_COUNT",
+        "05.NARRATION_DEPTH",
+        "05.WORD_LIMITS"
+      ]
+    },
+    {
+      "bullet": "Estimated narration duration30-60 seconds is a text-cadence estimate, not an audio file or measured playback claim.",
+      "checks": [
+        "05.NARRATION_SECONDS"
+      ]
+    },
+    {
+      "bullet": "Across two or more units reject a uniform slide-count vector; for one unit report comparison not_applicable_single_unit.",
+      "checks": [
+        "05.UNIFORM_VECTOR"
+      ]
+    },
+    {
+      "bullet": "Why/how, worked example, misconception correction, memory support and aligned self-check are present for every unit; counters are computed by scripts.",
+      "checks": [
+        "05.DECOMPRESSION_FIELDS",
+        "05.SELF_CHECK_ALIGNED",
+        "05.UNIQUE_ITEMS"
+      ]
+    },
+    {
+      "bullet": "A source-bound misconception is explicitly labelled as a misconception; its correction and reasoning need supported fact IDs.",
+      "checks": [
+        "05.MISCONCEPTION_LABELLED",
+        "05.FACT_RESOLUTION",
+        "05.UNIQUE_ITEMS"
+      ]
+    },
+    {
+      "bullet": "No unresolved verification debt, source/edition mismatch or learner-visible internal trace metadata is permitted in an accepted unit.",
+      "checks": [
+        "05.FACT_RESOLUTION (debt statuses)",
+        "05.LEARNER_TRACE_LEAK"
+      ],
+      "unexecuted_part": "source/edition mismatch (needs edition data in the registry)"
+    }
+  ],
+  "checks": [
+    "05.SCHEMA",
+    "05.ROOT_BOUNDS",
+    "05.INPUT_BINDING",
+    "05.STRING_BOUNDS",
+    "05.UNIQUE_ITEMS",
+    "05.FACT_RESOLUTION",
+    "05.SLIDE_COUNT",
+    "05.SLIDE_ARC",
+    "05.SLIDE_LINES",
+    "05.WORD_LIMITS",
+    "05.NARRATION_DEPTH",
+    "05.NARRATION_SECONDS",
+    "05.UNIFORM_VECTOR",
+    "05.DECOMPRESSION_FIELDS",
+    "05.SELF_CHECK_ALIGNED",
+    "05.SELF_CHECK_ORIGINALITY",
+    "05.MISCONCEPTION_LABELLED",
+    "05.LEARNER_TRACE_LEAK",
+    "05.STAGE_DIRECTIONS",
+    "05.TITLED_PROMISE"
+  ],
+  "deviations": [
+    {
+      "field": "(document)",
+      "parent_rule": "SessionScripts {minted_by, probe, schema_version 1.0.0, source_pins, sessions[{module_id,title,est_minutes,skippable,slides,claims}]}",
+      "adapter_rule": "TeachingUnit {schema_version teaching-unit.v0.4.0, input_manifest_sha256, candidate_lineage_id, source_registry_sha256, units[]}",
+      "reason": "overlay role 05: 05.sessions emits the structured TeachingUnit pilot adapter (owned local schema)",
+      "compensating_check": "05.SCHEMA — whole-document adapter (TeachingUnit); every carried constraint is mapped row-by-row below; previously: all 05.* checks"
+    },
+    {
+      "field": "/units/*/slides/*/title|lines|narration",
+      "parent_rule": "plain strings + separate claims[] map",
+      "adapter_rule": "Span {text, fact_ids[]} on every learner string",
+      "reason": "teaching-unit.schema.json: every learner string fact-tagged",
+      "compensating_check": "05.FACT_RESOLUTION, 05.UNIQUE_ITEMS"
+    },
+    {
+      "field": "/units/*/slides",
+      "parent_rule": "minItems 3, maxItems 9, contains self_check",
+      "adapter_rule": "6..8 (restored), >=1 self_check + >=1 trap/bridge (restored)",
+      "reason": "Order Q §4 rule 7 six-slide floor supersedes parent minimum",
+      "compensating_check": "05.SLIDE_COUNT, 05.SLIDE_ARC"
+    },
+    {
+      "field": "/units/*/slides/*/kind",
+      "parent_rule": "enum incl. \"closing\"",
+      "adapter_rule": "enum opening|concept|bridge|trap|self_check|close",
+      "reason": "owned schema enum",
+      "compensating_check": "05.SCHEMA"
+    },
+    {
+      "field": "/units/*/slides/*/media_role, media_absence_reason",
+      "parent_rule": "media_role enum (9 roles); media_absence_reason enum without text_first_pilot; visual/media_slot_id",
+      "adapter_rule": "media_role enum [\"none\"], media_absence_reason enum [\"text_first_pilot\"]; no visual/media_slot_id",
+      "reason": "text-first pilot media disposition (owned schema const values, kept as single-value enums)",
+      "compensating_check": "05.SCHEMA"
+    },
+    {
+      "field": "/units/*/slides/*/estimated_narration_seconds",
+      "parent_rule": "absent (narration_text \"30-60s\" description only)",
+      "adapter_rule": "number, 30..60 restored",
+      "reason": "owned schema minimum/maximum",
+      "compensating_check": "05.NARRATION_SECONDS"
+    },
+    {
+      "field": "/units/* decompression fields",
+      "parent_rule": "absent",
+      "adapter_rule": "why_how[], worked_example, misconception, memory_support, self_check required",
+      "reason": "owned schema; overlay role 04/05: decompression owned by 05.sessions",
+      "compensating_check": "05.DECOMPRESSION_FIELDS, 05.MISCONCEPTION_LABELLED, 05.SELF_CHECK_ALIGNED"
+    },
+    {
+      "field": "#/$defs/span ($ref)",
+      "parent_rule": "local owned schema uses $ref to #/$defs/span",
+      "adapter_rule": "span object inlined at every use site; no $ref",
+      "reason": "strict subset forbids $ref (CONVENTIONS §1)",
+      "compensating_check": "05.SCHEMA (structurally identical object)"
+    },
+    {
+      "field": "/units/*/slides/*/kind (type)",
+      "parent_rule": "owned schema: enum without type",
+      "adapter_rule": "type string + same enum",
+      "reason": "explicit type for strict mode; no value change",
+      "compensating_check": "05.SCHEMA"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/schema_version",
+      "keyword": "const",
+      "parent_value": "teaching-unit.v0.4.0",
+      "compensating_check": "05.SCHEMA (enum) + 05.ROOT_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/input_manifest_sha256",
+      "keyword": "pattern",
+      "parent_value": "^[a-f0-9]{64}$",
+      "compensating_check": "05.ROOT_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/candidate_lineage_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.ROOT_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/source_registry_sha256",
+      "keyword": "pattern",
+      "parent_value": "^[a-f0-9]{64}$",
+      "compensating_check": "05.ROOT_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "05.ROOT_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/unit_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/module_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/objective_ids",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "05.UNIQUE_ITEMS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/objective_ids",
+      "keyword": "uniqueItems",
+      "parent_value": true,
+      "compensating_check": "05.UNIQUE_ITEMS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/objective_ids/items",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/why_how",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "05.UNIQUE_ITEMS, 05.DECOMPRESSION_FIELDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides",
+      "keyword": "minItems",
+      "parent_value": 6,
+      "compensating_check": "05.SLIDE_COUNT"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides",
+      "keyword": "maxItems",
+      "parent_value": 8,
+      "compensating_check": "05.SLIDE_COUNT"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/slide_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/lines",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "05.SLIDE_LINES"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/lines",
+      "keyword": "maxItems",
+      "parent_value": 4,
+      "compensating_check": "05.SLIDE_LINES"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/estimated_narration_seconds",
+      "keyword": "minimum",
+      "parent_value": 30,
+      "compensating_check": "05.NARRATION_SECONDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/estimated_narration_seconds",
+      "keyword": "maximum",
+      "parent_value": 60,
+      "compensating_check": "05.NARRATION_SECONDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/media_role",
+      "keyword": "const",
+      "parent_value": "none",
+      "compensating_check": "05.SCHEMA (enum [\"none\"])"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/media_absence_reason",
+      "keyword": "const",
+      "parent_value": "text_first_pilot",
+      "compensating_check": "05.SCHEMA (enum [\"text_first_pilot\"])"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/$defs/span/properties/text",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/$defs/span/properties/fact_ids",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "05.UNIQUE_ITEMS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/$defs/span/properties/fact_ids",
+      "keyword": "uniqueItems",
+      "parent_value": true,
+      "compensating_check": "05.UNIQUE_ITEMS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/$defs/span/properties/fact_ids/items",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "schema": "local_owned",
+      "json_pointer": "/$defs/span",
+      "keyword": "$ref (21 use sites)",
+      "parent_value": "#/$defs/span",
+      "compensating_check": "05.SCHEMA (inlined identical object)"
+    },
+    {
+      "schema": "parent",
+      "json_pointer": "/properties/sessions/items/properties/slides",
+      "keyword": "contains/minContains",
+      "parent_value": "{kind: self_check} x>=1",
+      "compensating_check": "05.SLIDE_ARC"
+    },
+    {
+      "schema": "parent",
+      "json_pointer": "/properties/sessions/items/properties/slides/items/properties/title",
+      "keyword": "maxLength",
+      "parent_value": 60,
+      "compensating_check": "05.WORD_LIMITS (<= 6 words supersedes 60 chars)"
+    },
+    {
+      "schema": "parent",
+      "json_pointer": "/properties/sessions/items/properties/slides/items/properties/lines/items",
+      "keyword": "maxLength",
+      "parent_value": 140,
+      "compensating_check": "05.WORD_LIMITS (<= 15 words supersedes 140 chars)"
+    },
+    {
+      "schema": "parent",
+      "json_pointer": "/properties/sessions/items/properties/slides/items/properties/narration_text",
+      "keyword": "minLength",
+      "parent_value": 40,
+      "compensating_check": "05.NARRATION_DEPTH (avg >= 400 chars) + 05.STRING_BOUNDS"
+    },
+    {
+      "schema": "parent",
+      "json_pointer": "/properties/sessions/items/properties/slides/items",
+      "keyword": "if/then",
+      "parent_value": "media_role none -> media_absence_reason required",
+      "compensating_check": "05.SCHEMA (both fields required, single-value enums)"
+    },
+    {
+      "schema": "parent",
+      "json_pointer": "/properties/sessions/items/properties/est_minutes",
+      "keyword": "minimum/maximum",
+      "parent_value": "0.5..6",
+      "compensating_check": "n/a — est_minutes not carried (Order Q §4 rule 7: not a floor key); per-slide estimates via 05.NARRATION_SECONDS"
+    },
+    {
+      "schema": "parent",
+      "json_pointer": "/properties/sessions/items/properties/skippable",
+      "keyword": "const",
+      "parent_value": true,
+      "compensating_check": "05.SCHEMA — not carried; skippable is product policy (prompt 05-sessions); previously: n/a — not carried; sessions are skippable by product policy (prompt 05-sessions), not asserted per unit"
+    }
+  ],
+  "sentinels": [],
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-hold-no-context.json",
+      "sha256": "07255ee86862aea8edf1140fe23dc09761dbb645778e391f75524cca417a1538",
+      "context_path": null,
+      "context_sha256": null,
+      "kind": "synthetic_hold",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "HOLD",
+      "expected_check_status": {},
+      "transformation_notes": [
+        "Sol payload with NO context: fact resolution, input binding and self-check originality must HOLD"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-neg-arc.json",
+      "sha256": "458d5b6d541309bd8aff56ca79b180678bcd29791b976e7e01f80c0cacccc4a7",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-neg-arc.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.SLIDE_ARC": "FAIL"
+      },
+      "transformation_notes": [
+        "trap slide turned into concept and the close slide moved before self_check"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-neg-depth-limits.json",
+      "sha256": "de5d4fa232e1aaad076b9c3887ceb1e49ac978c1e30b27287cb33d2f686cf35f",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-neg-depth-limits.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.NARRATION_DEPTH": "FAIL",
+        "05.WORD_LIMITS": "FAIL",
+        "05.NARRATION_SECONDS": "FAIL"
+      },
+      "transformation_notes": [
+        "short narration on every slide, a 9-word title, a 17-word line and a 75 s estimate"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-neg-five-slide.json",
+      "sha256": "a4ef47d495977fbe35d46e0c03ff388185e766b1b31ebe93722718fad37e5019",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-neg-five-slide.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.SLIDE_COUNT": "FAIL"
+      },
+      "transformation_notes": [
+        "FIVE-SLIDE lesson: one concept slide removed from Sol unit (parent minimum 5 is superseded by the six-slide floor)"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-neg-missing-decompression.json",
+      "sha256": "ef431957e82c660bc2262b08aa0d6e00857072401e6598651cb2071358d3dd85",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-neg-missing-decompression.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.UNIQUE_ITEMS": "FAIL",
+        "05.DECOMPRESSION_FIELDS": "FAIL"
+      },
+      "transformation_notes": [
+        "why_how emptied: strict schema accepts [] (minItems dropped), the restored checks reject it"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-neg-stage-direction.json",
+      "sha256": "c6a3b31c97370867b1054becc9dfc93c16f95e75466c5a6c9f16be58a02aa75d",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-neg-stage-direction.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.STAGE_DIRECTIONS": "FAIL"
+      },
+      "transformation_notes": [
+        "concept narration carries \"[beat]\" and \"Pause for three seconds.\""
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-neg-uniform-vector.json",
+      "sha256": "3820e2fcf2e2a52be22008e5c2269bb97d97da1e5ec964861f087fc61082775b",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-neg-uniform-vector.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.UNIFORM_VECTOR": "FAIL"
+      },
+      "transformation_notes": [
+        "two units with identical slide-count vector [6,6]"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-neg-unresolved-fact.json",
+      "sha256": "23426e510580f982236b25594b56967b181c3c21801f76c4932db2cf7ba37081",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-neg-unresolved-fact.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.FACT_RESOLUTION": "FAIL"
+      },
+      "transformation_notes": [
+        "one why_how span cites fixture-fact-404, absent from the registry"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-neg-verify-leak.json",
+      "sha256": "31665c2e61a81eb5b799473aa9998a9e7829e8932221cf4dc6c8f78e97f51fda",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-neg-verify-leak.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.LEARNER_TRACE_LEAK": "FAIL",
+        "05.MISCONCEPTION_LABELLED": "FAIL"
+      },
+      "transformation_notes": [
+        "why_how leaks \"(verify)\" + an internal fact id; the misconception claim loses its label"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-positive-sol.json",
+      "sha256": "68724acac5b8ff8c6cee3ff7f0c6bcebfc3699219a56ca5711fdce03f82081cf",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-positive-sol.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_positive",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "PASS",
+      "expected_check_status": {},
+      "transformation_notes": [
+        "Sol payload copied unchanged; wrapper fields fixture_kind/not_a_qualification_or_source/synthetic_fact_ids moved into _fixture.derived_from.wrapper"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.sessions/synthetic-positive-two-units.json",
+      "sha256": "79a1b9e26fe81a28836e3e3e8d7937553bce57a25b4982057e3d6bb542131307",
+      "context_path": "tools/belt/fixtures/05.sessions/synthetic-positive-two-units.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_positive",
+      "source": {
+        "path": "qualification/fixtures/TEACHING-UNIT.synthetic.json",
+        "sha256": "e28d4751cd7a836d67822d4b8e18a222cb7b9a3dde13a64570c7796c5f7375a5",
+        "generator": {
+          "path": "tools/belt/project/05-sessions.mjs",
+          "sha256": "9342908e5cbd29660ff17d0d15a9276148b95a524577e3bcbb15f50b99650748"
+        }
+      },
+      "expected_status": "PASS",
+      "expected_check_status": {},
+      "transformation_notes": [
+        "two units with slide-count vector [6,7] — the uniform-vector comparison is exercised, not skipped"
+      ]
+    }
+  ],
+  "v1_projection": {
+    "status": "HOLD",
+    "expected_status": "HOLD",
+    "source": {
+      "path": "runs/2026-06-11-citizenship/05b-session-scripts.json",
+      "sha256": "33166c23369fd50ff996874d8b041f3d114638e099256f97536881e04783dbd5"
+    },
+    "reason": "V1 sessions carry no fact-tagged decompression spans; projecting would require inventing why_how/worked_example/misconception/memory_support/self_check spans and fact ids. No V1 fixture is written.",
+    "observed_v1_structure_not_a_verdict": {
+      "sessions": 26,
+      "slide_count_vector": "6,6,6,6,7,7,7,6,7,7,7,7,7,7,7,6,7,7,7,7,7,7,7,7,7,7",
+      "sessions_with_unit_decompression_fields": 0,
+      "slides_with_span_fact_ids": 0,
+      "claims_rows": 268,
+      "claims_fact_ids_are_kg_node_ids": "e.g. [\"gov-a.15\",\"gov-b.01\"]",
+      "sessions_first_slide_opening": 26,
+      "sessions_last_slide_close": 0,
+      "sessions_with_trap_or_bridge": 23,
+      "min_session_avg_narration_chars": 337.5,
+      "computed_by": "tools/belt/project/05-sessions.mjs observeV1()"
+    },
+    "positive_fixture_instead": "tools/belt/fixtures/05.sessions/synthetic-positive-sol.json (Sol qualification/fixtures/TEACHING-UNIT.synthetic.json payload, unchanged)"
+  },
+  "unexecuted": [
+    "Span entailment (does the fact actually support the sentence?) — x-post-validation bullet 1 second half; not deterministic, owned by 08/independent audit.",
+    "Source/edition mismatch — requires edition fields in the accepted fact registry, not yet defined.",
+    "Trap reasoning from KG confusable_with with both fact_ids (prompt 05-sessions) — needs the accepted KG confusable map in context; not implemented.",
+    "Originality vs registered source text for 05 spans (Q04-ORIGINALITY scope is 04) — not implemented for 05.sessions.",
+    "V1 projection: HOLD by design (see v1_projection).",
+    "Provider strict-mode acceptance of this adapter is unverified (no endpoint call made)."
+  ]
+}

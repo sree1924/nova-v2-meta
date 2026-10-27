@@ -1,0 +1,501 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "adapter_schema": {
+    "path": "schemas-strict/02-sme-dossier-envelope.schema.json",
+    "sha256": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111"
+  },
+  "mapping": {
+    "path": "schemas-strict/02-sme-dossier-envelope.mapping.json",
+    "sha256": "9efa0ac9149c424e9c5b22cd358ef9356c7df425028f055df338cb4188265744",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 13,
+    "dropped_constraints": 13,
+    "sentinels": [
+      {
+        "field": "/exam_facts/*",
+        "kind": "official_number_record",
+        "shape": "{value: null|string|number, status: unknown|verified|authored, source_page: null|string}",
+        "rule": "unknown => value null; verified => value non-null + registered source_page; authored => value non-null and treated as non-verified for the learner-facing numeral guard",
+        "compensating_check": "02.EXAM_FACT_STATUS"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/blueprint.schema.json",
+    "sha256_pinned": "3fbd6ddeaa402b2819d6e859d16034b002d78bc55f1727a388a722509c86de54",
+    "sha256_actual": "3fbd6ddeaa402b2819d6e859d16034b002d78bc55f1727a388a722509c86de54",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 7
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "02.dossier_sections",
+      "fixture": "tools/belt/fixtures/02.dossier_sections/v1-projected.json",
+      "sha256": "5b830f704344eebe08f4b220fe5d0051fc5513afd25394c847a883f107843388",
+      "context": "tools/belt/fixtures/02.dossier_sections/v1-projected.context.json",
+      "context_sha256": "31a9fdb73368e1e8f940dc9f1ca9bbaa050aa5c9c547dffc01e47565984f32b8",
+      "kind": "v1_projected",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "02.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.LINEAGE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "02.CHUNK_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SCOPE_COMPLETENESS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.SECTION_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.TRUNCATION_GUARD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MERGE_DETERMINISTIC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.ANCHORS_REGISTERED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.FACT_LINES_CITED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.EXAM_FACT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.NUMERAL_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.HIGH_YIELD_PER_DOMAIN",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.DEDICATED_SURFACE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.CORPUS_STABILITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEBT_TYPED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MARKET_SIGNAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.G_MATRIX",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "fixture": "tools/belt/fixtures/02.dossier_sections/synthetic-positive.json",
+      "sha256": "02e7056016f8a458cf010ec57b38d582f5c65f0cb1b12ae541bb28b71ea18d52",
+      "context": "tools/belt/fixtures/02.dossier_sections/synthetic-positive.context.json",
+      "context_sha256": "1db8f9ba6c6902d8b8d78e5befe36ef2afc8e880e6cf48c8ff8473efca573d68",
+      "kind": "synthetic",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "02.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.CHUNK_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SCOPE_COMPLETENESS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SECTION_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.TRUNCATION_GUARD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MERGE_DETERMINISTIC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.ANCHORS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.FACT_LINES_CITED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.EXAM_FACT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.NUMERAL_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.HIGH_YIELD_PER_DOMAIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEDICATED_SURFACE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.CORPUS_STABILITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEBT_TYPED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MARKET_SIGNAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.G_MATRIX",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "fixture": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-numeral-leak.json",
+      "sha256": "0a39854dfdd675cffb49b890687eb8d6d75d06451b2a0c2be4349f9f89bb1861",
+      "context": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-numeral-leak.context.json",
+      "context_sha256": "1db8f9ba6c6902d8b8d78e5befe36ef2afc8e880e6cf48c8ff8473efca573d68",
+      "kind": "synthetic",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "02.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.CHUNK_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SCOPE_COMPLETENESS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SECTION_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.TRUNCATION_GUARD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MERGE_DETERMINISTIC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.ANCHORS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.FACT_LINES_CITED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.EXAM_FACT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.NUMERAL_LEAK",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.HIGH_YIELD_PER_DOMAIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEDICATED_SURFACE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.CORPUS_STABILITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEBT_TYPED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MARKET_SIGNAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.G_MATRIX",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "fixture": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-truncated.json",
+      "sha256": "732846be62e154412f9e879460d16971bbbd3792c7934a7d421dce49db203646",
+      "context": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-truncated.context.json",
+      "context_sha256": "1db8f9ba6c6902d8b8d78e5befe36ef2afc8e880e6cf48c8ff8473efca573d68",
+      "kind": "synthetic",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "02.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.CHUNK_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SCOPE_COMPLETENESS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SECTION_BOUNDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.TRUNCATION_GUARD",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.MERGE_DETERMINISTIC",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "02.ANCHORS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.FACT_LINES_CITED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.EXAM_FACT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.NUMERAL_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.HIGH_YIELD_PER_DOMAIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEDICATED_SURFACE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.CORPUS_STABILITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEBT_TYPED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MARKET_SIGNAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.G_MATRIX",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "fixture": "tools/belt/fixtures/02.dossier_sections/synthetic-hold-no-context.json",
+      "sha256": "f9fc37f07c217f2b34ac4d711d9947cc6b7faaecb25364157b17a1cfcafcbcc7",
+      "context": null,
+      "context_sha256": null,
+      "kind": "synthetic",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "02.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.LINEAGE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "02.CHUNK_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SCOPE_COMPLETENESS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.SECTION_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.TRUNCATION_GUARD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MERGE_DETERMINISTIC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.ANCHORS_REGISTERED",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "02.FACT_LINES_CITED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.EXAM_FACT_STATUS",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "02.NUMERAL_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.HIGH_YIELD_PER_DOMAIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEDICATED_SURFACE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.CORPUS_STABILITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.DEBT_TYPED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.MARKET_SIGNAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "02.G_MATRIX",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": {
+    "file": "tests/belt/02-dossier-sections.test.mjs",
+    "stage_id": "02.dossier_sections",
+    "command": "node --test tests/belt/02-dossier-sections.test.mjs",
+    "exit_code": 0,
+    "pass": 17,
+    "fail": 0,
+    "skipped": 0,
+    "tap_sha256": "9b3744c2d5e96f59793b091600e3b943d28a4a181cbcf337cda1a832bcccb600"
+  },
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

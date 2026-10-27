@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nova-local:strict-adapter:06-exambank.v0.4.0",
+  "title": "ExamBank strict adapter (practice-only pilot overlay)",
+  "description": "Provider-facing strict-subset adapter for stage 06.exam_bank. Practice-only overlay per contracts/pilot-overrides-v0.4.0.json role_overrides.06: official count/passing/time are nullable {value,status,source_page} records, never an authored setting; scoring is LearningLoop product policy by ref. Bounds, cross-field agreement and Order Q rules 1/5/6/15 are restored in tools/belt/checks/06-exam-bank.mjs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "adapter_version", "overlay_kind", "probe", "minted_by", "input_manifest_sha256", "candidate_lineage_id", "source_refs", "items", "module_quizzes", "practice_forms", "self_flagged_distractors", "page_debt", "derived_in_forms_disposition_ref", "needs_review_count"],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["ExamBank"] },
+    "adapter_version": { "type": "string", "enum": ["0.4.0"] },
+    "overlay_kind": { "type": "string", "enum": ["practice_only_pilot_overlay"] },
+    "probe": { "type": "string" },
+    "minted_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "lane", "pass"],
+      "properties": {
+        "model": { "type": "string" },
+        "lane": { "type": "string" },
+        "pass": { "type": "string" }
+      }
+    },
+    "input_manifest_sha256": { "type": "string" },
+    "candidate_lineage_id": { "type": "string" },
+    "source_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["knowledge_graph", "curriculum_unit_hints"],
+      "properties": {
+        "knowledge_graph": { "type": "string" },
+        "curriculum_unit_hints": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item_id", "objective_id", "node_id", "module_id", "unit_id", "domain", "fact_ids", "source_ref", "stem", "options", "correct_key", "correct_rationale", "distractor_source", "difficulty", "is_derived", "self_flagged", "needs_review"],
+        "properties": {
+          "item_id": { "type": "string" },
+          "objective_id": { "type": "string" },
+          "node_id": { "type": "string" },
+          "module_id": { "type": "string" },
+          "unit_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "domain": { "type": "string" },
+          "fact_ids": { "type": "array", "items": { "type": "string" } },
+          "source_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["ref", "tier", "pdf_page", "printed_page"],
+            "properties": {
+              "ref": { "type": "string" },
+              "tier": { "type": "string", "enum": ["official", "regulator", "exam_owner", "standards_body", "reputable", "unverified"] },
+              "pdf_page": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+              "printed_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            }
+          },
+          "stem": { "type": "string" },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["key", "text", "rationale"],
+              "properties": {
+                "key": { "type": "string", "enum": ["A", "B", "C", "D"] },
+                "text": { "type": "string" },
+                "rationale": { "type": "string" }
+              }
+            }
+          },
+          "correct_key": { "type": "string", "enum": ["A", "B", "C", "D"] },
+          "correct_rationale": { "type": "string" },
+          "distractor_source": { "type": "array", "items": { "type": "string" } },
+          "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] },
+          "is_derived": { "type": "boolean" },
+          "self_flagged": { "type": "boolean" },
+          "needs_review": { "type": "boolean" }
+        }
+      }
+    },
+    "module_quizzes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["quiz_id", "module_id", "unit_id", "domain", "title", "item_ids"],
+        "properties": {
+          "quiz_id": { "type": "string" },
+          "module_id": { "type": "string" },
+          "unit_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "domain": { "type": "string" },
+          "title": { "type": "string" },
+          "item_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "practice_forms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["form_id", "title", "item_ids", "declared_count", "overlap_note", "official_mirror", "scoring_policy"],
+        "properties": {
+          "form_id": { "type": "string" },
+          "title": { "type": "string" },
+          "item_ids": { "type": "array", "items": { "type": "string" } },
+          "declared_count": { "type": "integer" },
+          "overlap_note": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "official_mirror": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "n_questions", "passing", "passing_unit", "time"],
+            "properties": {
+              "status": { "type": "string", "enum": ["NOT_APPLICABLE_PRACTICE_ONLY", "verified"] },
+              "n_questions": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["value", "status", "source_page"],
+                "properties": {
+                  "value": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+                  "status": { "type": "string", "enum": ["unknown", "verified"] },
+                  "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                }
+              },
+              "passing": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["value", "status", "source_page"],
+                "properties": {
+                  "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "status": { "type": "string", "enum": ["unknown", "verified"] },
+                  "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                }
+              },
+              "passing_unit": { "type": "string", "enum": ["correct_count", "percent_correct", "scaled_score", "unknown"] },
+              "time": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["value", "status", "source_page"],
+                "properties": {
+                  "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "status": { "type": "string", "enum": ["unknown", "verified"] },
+                  "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                }
+              }
+            }
+          },
+          "scoring_policy": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "learning_loop_ref"],
+            "properties": {
+              "kind": { "type": "string", "enum": ["product_policy"] },
+              "learning_loop_ref": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "self_flagged_distractors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item_id", "option_key", "why_possibly_correct"],
+        "properties": {
+          "item_id": { "type": "string" },
+          "option_key": { "type": "string", "enum": ["A", "B", "C", "D"] },
+          "why_possibly_correct": { "type": "string" }
+        }
+      }
+    },
+    "page_debt": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item_id", "reason", "route_to"],
+        "properties": {
+          "item_id": { "type": "string" },
+          "reason": { "type": "string" },
+          "route_to": { "type": "string", "enum": ["02", "15"] }
+        }
+      }
+    },
+    "derived_in_forms_disposition_ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "needs_review_count": { "type": "integer" }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schema_version": "rdmv.run-config.draft.0.2.0",
+  "derived_from_template": "../../RDMV-RUN-CONFIG.template.json",
+  "status": "INTAKE_PROPOSED_AWAITING_FOUNDER_STATE_CONFIRMATION",
+  "execution_enabled": false,
+  "execution_opens_utc": "2026-10-27T06:00:00Z",
+  "run_id": "2026-10-27-rdmv-tx-class-c",
+  "working_product_id": "rdmv",
+  "founder_decision_2026_10_26": "DMV mint is for the hackathon only, not Nova canon. No canonical probe ID is minted; dmv-permit stays pruned in the manifest.",
+  "catalog": {
+    "historical_slug": "dmv-permit",
+    "observed_status": "pruned",
+    "observed_reason": "reason_weak_engine_fit",
+    "canonical_probe_id": null,
+    "intake_disposition": "hackathon_only_mint_outside_catalog",
+    "authority_ref": "founder chat 2026-10-26 ('its a mint just for the hackathon not nova')",
+    "manifest_changed_by_template": false
+  },
+  "scope": {
+    "jurisdiction": "US-TX",
+    "jurisdiction_rationale": "2nd-largest permit market; DL-7 notice is personal-use/no-commercial-reproduction (least restrictive of TX/CA/FL: CA = CC BY-NC + written permission for commercial, FL = all rights reserved + written permission to modify/distribute). None blocks fact-grounded original authoring; all block reproduction.",
+    "issuing_authority": "Texas Department of Public Safety (DPS), Driver License Division",
+    "license_or_permit_class": "Class C (non-commercial) knowledge test",
+    "audience_age_band": "first-time applicants, all ages; sub-paths (15-17 learner license via driver education, 18-24 adult driver education, 25+) to be (verify)-resolved from DL-7 by Role 15 before content binds to any age-specific rule",
+    "application_path": "first_time",
+    "language": "en",
+    "coverage_kind": "full_knowledge_test",
+    "coverage_manifest_ref": null,
+    "excluded_requirements": ["vision exam", "driving (road) skills test", "driver education course completion", "Impact Texas Drivers (ITD/ITYD) program", "licensing eligibility and documents", "commercial (CDL) classes", "motorcycle"],
+    "handbook_edition": "Texas Driver Handbook DL-7, Rev. Jan 2026, (c) 2026 Texas DPS",
+    "handbook_url": "https://www.dps.texas.gov/internetforms/Forms/DL-7.pdf",
+    "handbook_form_page": "https://www.dps.texas.gov/InternetForms/Home/Details/304",
+    "source_effective_date": "(verify) from the DL-7 PDF front matter",
+    "exam_facts": {
+      "passing_percent": 70,
+      "passing_percent_status": "(verify) widely cited as stated in DL-7 and 37 TAC; confirm page in PDF",
+      "question_count": null,
+      "question_count_status": "(verify) 30 is claimed by prep sites, NOT found on dps.texas.gov; do not publish a count without an official source",
+      "format": "multiple choice, (verify)",
+      "retake_rules": "(verify)",
+      "spanish_test_offered": "(verify)"
+    },
+    "exam_facts_ref": null,
+    "source_registry_ref": null,
+    "rights_report_ref": null,
+    "rights_posture": {
+      "handbook": "fact authority only; no handbook text, tables or images reproduced; every fact cites DL-7 section/page; DPS notice recorded verbatim in the source registry",
+      "sign_graphics": "FHWA MUTCD sign designs are US federal public domain (17 USC 105; MUTCD Introduction) except the Interstate shield and FHWA-owned items; Texas MUTCD signs likewise with State-owned exceptions. Use official MUTCD/Standard Highway Signs renderings, never DL-7 scans.",
+      "sample_questions": "none reproduced; all items authored and labelled as practice, never 'actual exam questions'"
+    }
+  },
+  "baseline": {
+    "kind": "none_new_product",
+    "existing_dmv_v1_verified": false,
+    "artifact_manifest_ref": null,
+    "comparison_question": "Can a Meta model (muse-spark-1.3) execute Nova's role contracts end-to-end for a new product with recorded cost, time, and human intervention, producing an independently accepted learning unit? (Decompression depth is measured against the V1 citizenship reference frozen at ../../baseline/citizenship/BASELINE.json as a methodology control, not as a DMV V1.)",
+    "matched_control_required_for_model_superiority": true
+  },
+  "policy": {
+    "scope_reconciliation_ref": "this file + BOARD.md; the approved application proposed existing-probe decompression; founder redirected to a new DMV product on 2026-10-26",
+    "event_rules_snapshot_ref": "../../RULES-REVIEW.md",
+    "reuse_disposition_ref": null,
+    "contribution_ledger_ref": "../../ENV-SETUP.md (pre-event inventory) + ../../baseline/citizenship/BASELINE.json",
+    "public_repository_url": null,
+    "repository_visibility_evidence_ref": null,
+    "contract_review_disposition_ref": null
+  },
+  "producer": {
+    "provider": "meta",
+    "endpoint_profile_ref": "https://api.meta.ai/v1/chat/completions (OpenAI-compatible); structured output via response_format json_schema strict",
+    "model": "muse-spark-1.3",
+    "model_is_candidate_until_qualified": true,
+    "key_env_name": "MODEL_API_KEY",
+    "contributor_mode_allowed": false,
+    "qualification_report_ref": null,
+    "qualification_task": "Role 04 cards for ONE handbook chapter (road signs), held-out fact check against DL-7 + MUTCD",
+    "role_bindings_ref": "../../contracts/bot-contract-bindings.json#/roles",
+    "generation_parameters_ref": null,
+    "resolved_stage_assignments_ref": null
+  },
+  "audit_pool": {
+    "required_providers": ["openai", "anthropic"],
+    "dropped_from_template": {"google": "scope cut for the 8-day window; two independent non-Meta auditors satisfy 'generator never approves its own output'"},
+    "model_and_scope_assignments_ref": null,
+    "qualification_reports_ref": null,
+    "rubric_ref": null,
+    "blocking_criteria_ref": null,
+    "content_manifest_ref": null,
+    "release_manifest_ref": null,
+    "contract_bindings_ref": "../../contracts/bot-contract-bindings.json#/review_bots"
+  },
+  "limits": {
+    "max_active_probe_runs": 1,
+    "max_parallel_curriculum_jobs": 3,
+    "max_parallel_audit_jobs": 2,
+    "max_transport_redeliveries": 2,
+    "max_automatic_attempts_per_logical_task": 2,
+    "max_escalations_per_stage_input_lineage": 1,
+    "max_escalated_attempts_per_stage_input_lineage": 1,
+    "max_candidate_remediation_cycles": 1,
+    "candidate_remediation_counter_scope": "root_candidate_lineage",
+    "max_total_usd": 100,
+    "max_call_usd": 1.0,
+    "per_role_limits_ref": null,
+    "per_provider_usd_caps": {
+      "meta": 60,
+      "openai": 15,
+      "anthropic": 15,
+      "google": 0,
+      "media": 10
+    },
+    "pricing_snapshot_ref": "../../ENV-SETUP.md#meta-model-api (read 2026-10-26: spark in 1.25 / out 4.25 per 1M)",
+    "task_timeouts_ref": null,
+    "run_deadline_utc": "2026-11-05T02:00:00Z",
+    "max_human_intervention_budget_ref": null,
+    "spend_mode": "dry_run",
+    "uncertain_provider_result_policy_ref": null
+  },
+  "execution": {
+    "executor_id": null,
+    "lock_ref": "EXECUTOR.lock.md",
+    "fencing_generation": null,
+    "task_graph_ref": null,
+    "candidate_repair_lineage_ref": null,
+    "artifact_schema_registry_ref": "D:/nova/schemas (read-only; strict-subset projections kept under ../../schemas-strict/ when needed)",
+    "tool_allowlist_ref": null,
+    "network_policy_ref": null,
+    "run_write_root": "D:/nova/fb-ai-hackathon/runs/2026-10-27-rdmv-tx-class-c",
+    "binding_registry_snapshot_hash": "55183dbf4181 (prefix; full hash in ../../REVIEW-BUNDLE.json)",
+    "stage_assignments_ref": null
+  },
+  "scope_cut_proposed_2026_10_26": {
+    "proposed_by": "Claude Code session 2bdcad95 (engineering assistant), after reading BELT-V2-CONTRACT.md v0.2.0",
+    "reason": "8-day window, one founder, zero infrastructure code exists on 2026-10-26; RabbitMQ is not installed; the rubric awards Meta-tooling points for Meta use in the product, not for transport or visualization",
+    "keep": [
+      "Meta as the measured executor for 02/03/04/05/06 through Nova role contracts with strict structured output",
+      "node:sqlite ledger (runs, tasks, attempts, model_calls, artifacts, events) — single process, WAL",
+      "independent 07/08 audit by two non-Meta models bound to the ContentCandidateManifest hash",
+      "one complete learning unit per handbook chapter: session -> memory hook -> flashcards -> hub -> quiz, plus a full-length practice test",
+      "pre-generated narration (existing OpenAI TTS lane) if budget allows; otherwise text-only unit, declared",
+      "dev preview only (no Clerk/Stripe) as a standalone app under this folder",
+      "static trace page rendered from the ledger (stage, model, usage, cost, elapsed, attempts, human edits)",
+      "three fault tests: duplicate command, crash-resume from ledger, source-defect blocks acceptance"
+    ],
+    "defer": [
+      "RabbitMQ transport / outbox / fencing (in-process sequential controller instead)",
+      "animated robot factory floor with live/replay",
+      "third audit provider (google)",
+      "Clerk/Stripe prod variant and 66th store",
+      "marketing and sales belt",
+      "remaining 12 fault-injection tests in C55"
+    ],
+    "founder_disposition": null
+  },
+  "transport": {"kind": "in_process", "status": "planned", "note": "template said rabbitmq; cut above"},
+  "ledger": {"kind": "sqlite", "driver": "node:sqlite (Node 22.13.1, experimental)", "status": "planned", "path": "ledger/run.sqlite", "journal_mode": "WAL", "synchronous": "FULL", "serialized_writer": true, "events_append_only": true, "artifact_files_immutable": true},
+  "factory_floor": {"mode": "ledger_trace_static", "note": "template said design_preview robot floor; cut above"},
+  "release": {"intent": "dev_preview_only"},
+  "review": {
+    "requested_reviewers": ["Fable", "Argon"],
+    "fable_report_ref": null,
+    "argon_report_ref": null,
+    "bundle_ref": "../../REVIEW-BUNDLE.json",
+    "bundle_version": "0.2.0",
+    "scope": "contracts_and_configuration_only"
+  },
+  "open_before_first_paid_call": [
+    "founder confirms jurisdiction = Texas (or names another state)",
+    "founder disposition on scope_cut_proposed_2026_10_26",
+    "MODEL_API_KEY in ../../.env and `npm run smoke` green",
+    "Role 15 registers DL-7 Jan 2026 PDF (hash, pages, notice) and resolves every (verify) above from the PDF itself",
+    "qualification task on the road-signs chapter passes held-out fact check"
+  ]
+}

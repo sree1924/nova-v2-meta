@@ -1,0 +1,1025 @@
+{
+  "_fixture": {
+    "kind": "v1_projected_context",
+    "label": "context for the V1 projection: V1 SourceRegistry verbatim, fact_registry = fact_ids of the V1 compiled Blueprint (knowledge[].facts[] + updatable[]), lane media disposition; no input manifest, no machine-readable source high-yield set exists for V1",
+    "sources": [
+      {
+        "path": "D:/nova/runs/2026-06-11-citizenship/15-source-registry.json",
+        "sha256": "fc1a3e7c63b921c81cf152a1eb313d43e10c1b02e27db831bf29fa3e76027e88"
+      },
+      {
+        "path": "D:/nova/runs/2026-06-11-citizenship/16-blueprint.json",
+        "sha256": "eb099603f5bb922c476dc4914b7d0adf0f4d4574148f45f00a2bb021c0131bf8"
+      },
+      {
+        "path": "contracts/media-disposition.json",
+        "sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd"
+      }
+    ]
+  },
+  "source_registry": {
+    "minted_by": {
+      "model": "sonnet",
+      "lane": "mint",
+      "pass": 1
+    },
+    "probe": "us-citizenship",
+    "schema_version": "1.0.0-contract-derived",
+    "artifact": "SourceRegistry",
+    "registry_version": "1.0",
+    "updated": "2026-06-12T18:16:47.120Z",
+    "artifact_hash": "sha256:1a1459a892107c37af92cf50e22f6c511e3d63996d93c8b9bc7fffe61d329fad",
+    "sources": [
+      {
+        "source_ref": "src:us-citizenship:uscis:001",
+        "blueprint_s_code": "S1",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "128 Civics Questions and Answers (2025 version) — Form M-1778 (09/25)",
+        "locator": {
+          "url": "https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf",
+          "local_snapshot": "sources/2025-Civics-Test-128-Questions-and-Answers.pdf",
+          "local_extracted_text": "sources/128qa-extracted.txt",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:f280608c0fb6dc1eba344b4746a7ba52d02fe411fba30cedd4371819f0abe11c",
+        "extracted_text_hash": "sha256:222cda42ffa1ce38030694b9c2f2c2d264e8488f87ac7e80d26c7d8b03fc4263",
+        "refresh_cadence": "365d",
+        "expires_or_review_by": "2027-06-11",
+        "refresh_policy": "Per official bank revision; USCIS republishes M-1778 when test changes (last: Sep 2025 — 2025 version implementing EO 14161). Re-pull on each major bank version release.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Primary corpus: all 128 Q&A verbatim. PDF metadata: created 2025-09-26, modified 2025-10-14. Public-domain U.S. government work. Fetched HTTP 200 via curl+browser-UA (JAM-03 route). anchors 128 per-fact source_refs (Q1-Q128 in blueprint knowledge[])."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:002",
+        "blueprint_s_code": "S2",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "2025 Civics Test — uscis.gov (Last Reviewed/Updated 09/17/2025)",
+        "locator": {
+          "url": "https://www.uscis.gov/citizenship-resource-center/naturalization-test-and-study-resources/2025-civics-test",
+          "local_snapshot": "sources/2025-civics-test.html",
+          "local_extracted_text": "sources/2025-civics-test.txt",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:4d401632425454d9b476f8f02f7f938bab05f0c3a69bc2a6cd1602500b936949",
+        "extracted_text_hash": "sha256:4ed6b7d87d752180e6d79af4c70d415eadb6ea943775a38ea90d13555059518e",
+        "refresh_cadence": "90d",
+        "expires_or_review_by": "2026-09-11",
+        "refresh_policy": "Re-pull each build (per blueprint updatable U10: static rule, re-confirm each build). Also re-pull after any USCIS policy update or test version change.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Anchors: exam pass/fail rules (12-correct/9-incorrect), test version applicability rule (N-400 filed on/after Oct 20 2025), early-stop rule. Co-anchors U10 with S3."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:003",
+        "blueprint_s_code": "S3",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "Check for Test Updates — uscis.gov/citizenship/testupdates (Last Reviewed/Updated 09/18/2025)",
+        "locator": {
+          "url": "https://www.uscis.gov/citizenship/testupdates",
+          "local_snapshot": "sources/testupdates.html",
+          "local_extracted_text": "sources/testupdates.txt",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:2f4e1e401df9c0312fdcfd83878db662f14711be02a6573b40f6781676227735",
+        "extracted_text_hash": "sha256:8e8012effc72424b1218bd25a12c00ed133265cebf7adf7c8b96fb7c7c94f078",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull EVERY build (Dynamic Facts Monitor 18 owns this cadence per blueprint U11, U1-U4, U9). Officeholder answers (president, VP, speaker, SCOTUS justices, cabinet) churn on elections/appointments. 30-day max staleness.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "The officeholder authority: U1 (president), U2 (VP/cabinet), U3 (speaker), U4 (SCOTUS CJ), U9 (test version rule), U10 (filing-date rule), U11 (re-pull marker). Must be re-fetched before each build that touches updatable facts."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:006",
+        "blueprint_s_code": "S4",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "USCIS Policy Manual Vol. 12, Part E, Chapter 2 — \"English and Civics Testing\"",
+        "locator": {
+          "url": "https://www.uscis.gov/policy-manual/volume-12-part-e-chapter-2",
+          "local_snapshot": "sources/policy-manual-12e2.html",
+          "local_extracted_text": "sources/policy-manual-12e2.txt",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:1383bc14469887ad399c74fec2bf7b9809933eea24614e19af92e67e47792d7b",
+        "extracted_text_hash": "sha256:53e84df8c889efeb084414de4c5c042363cc4e26f469d04315499a581bafc20d",
+        "refresh_cadence": "180d",
+        "expires_or_review_by": "2026-12-11",
+        "refresh_policy": "Policy manual sections update when USCIS policy changes. Re-pull semi-annually or on any USCIS policy announcement affecting the naturalization civics/English testing rules.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Anchors: test format (oral Q&A, random selection), English reading/writing test rules, exemptions (50/20, 55/15, N-648 medical), special consideration 65/20 rule, officer stop rules, retake rules. Cited in exam_meta, not per-fact source_refs. Snapshot present."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:004",
+        "blueprint_s_code": "S5a",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "Reading Vocabulary for the Naturalization Test — Form M-715 (01/10)",
+        "locator": {
+          "url": "https://www.uscis.gov/sites/default/files/document/guides/M-715_reading.pdf",
+          "local_snapshot": "sources/M-715_reading.pdf",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:e399dc8070440a786480469e5748d4f4e0c56746299e6cd05020b2b130e530ae",
+        "refresh_cadence": "365d",
+        "expires_or_review_by": "2027-06-11",
+        "refresh_policy": "Static vocabulary list; re-pull annually or on any USCIS test update announcement. Form dated 01/10 — check for revision when M-1778 is revised.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Anchors fact eng.01 (reading vocabulary list). One of two M-715 forms comprising blueprint S5. Public-domain U.S. government work."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:005",
+        "blueprint_s_code": "S5b",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "Writing Vocabulary for the Naturalization Test — Form M-715 (01/10)",
+        "locator": {
+          "url": "https://www.uscis.gov/sites/default/files/document/guides/M-715_writing.pdf",
+          "local_snapshot": "sources/M-715_writing.pdf",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:b645226dfe37c8cf533b72704675f6cb118e68b8035247cd23e3e63f01248236",
+        "refresh_cadence": "365d",
+        "expires_or_review_by": "2027-06-11",
+        "refresh_policy": "Static vocabulary list; re-pull annually or on any USCIS test update announcement. Form dated 01/10 — check for revision when M-1778 is revised.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Anchors fact eng.02 (writing vocabulary list). One of two M-715 forms comprising blueprint S5. Public-domain U.S. government work."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:007",
+        "blueprint_s_code": "S6",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "Naturalization Test Performance — uscis.gov",
+        "locator": {
+          "url": "https://www.uscis.gov/citizenship-resource-center/naturalization-related-data-and-statistics/naturalization-test-performance",
+          "local_snapshot_primary": "sources/test-performance.html",
+          "local_snapshot_alt1": "sources/natz-stats.html",
+          "local_snapshot_alt2": "sources/natz-statistics.html",
+          "fetch_route": "curl+browser-UA",
+          "snapshot_note": "Three snapshot files present; primary is test-performance.html (URL-matched); natz-stats.html and natz-statistics.html are parallel fetches of the statistics page at a related URL (uscis.gov/...naturalization-related-data-and-statistics)"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:af27a7b8a094c09bf13d6d0dfa82696faf1aac696cb3b216db52ecf467fd8495",
+        "refresh_cadence": "180d",
+        "expires_or_review_by": "2026-12-11",
+        "refresh_policy": "Statistics page; re-pull semi-annually or when USCIS publishes updated naturalization data. Anchors retake policy (S6 ref in exam_meta).",
+        "anchors_high_risk": false,
+        "high_risk_kinds": [],
+        "status": "active",
+        "notes": "Cited in exam_meta (retake policy). Not referenced in per-fact source_refs. Snapshot present (test-performance.html). Two additional related-URL snapshots in sources/."
+      },
+      {
+        "source_ref": "src:us-citizenship:whitehouse:001",
+        "blueprint_s_code": null,
+        "publisher": "The White House (whitehouse.gov)",
+        "title": "White House Administration — whitehouse.gov/administration",
+        "locator": {
+          "url": "https://www.whitehouse.gov/administration/",
+          "local_snapshot": "sources/wh-admin.html",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:e2462cb66aebab69c5733582b2eae3a3cca6ec5c473da70e6478921bfc287c79",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull each build alongside S3/testupdates. Officeholder answers (president, VP, cabinet) churn on elections and appointments. 30-day max staleness; must refresh after any inauguration or cabinet change.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Cross-check source for U1 (president/name) and U2 (VP, cabinet list). Cited in updatable source_ref strings as \"whitehouse.gov/administration (cross-checked 2026-06-11)\"."
+      },
+      {
+        "source_ref": "src:us-citizenship:speaker-gov:001",
+        "blueprint_s_code": null,
+        "publisher": "Office of the Speaker of the House (speaker.gov)",
+        "title": "Speaker.gov — current House Speaker",
+        "locator": {
+          "url": "https://www.speaker.gov/",
+          "local_snapshot": "sources/speaker.html",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:e932ce0d109ee8290366a003da0c6e6cc18dec8cc04acbe98b5e273e3fb97160",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull each build alongside S3/testupdates. Speaker can change on election or House vote. 30-day max staleness.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Cross-check source for U3 (House Speaker name). Cited in updatable source_ref string as \"speaker.gov (cross-checked 2026-06-11)\"."
+      },
+      {
+        "source_ref": "src:us-citizenship:supremecourt:001",
+        "blueprint_s_code": null,
+        "publisher": "Supreme Court of the United States (supremecourt.gov)",
+        "title": "Supreme Court Justices Biographies — supremecourt.gov/about/biographies.aspx",
+        "locator": {
+          "url": "https://www.supremecourt.gov/about/biographies.aspx",
+          "local_snapshot": "sources/scotus-bios.html",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:0d7bd5fcf15779a8de6065e50ad175a657e0ca6f983560ec038f1d00f0cfee9f",
+        "refresh_cadence": "90d",
+        "expires_or_review_by": "2026-09-11",
+        "refresh_policy": "Re-pull each build alongside S3/testupdates. Chief Justice changes only on appointment/retirement; 90-day cadence is conservative. Refresh immediately on any SCOTUS vacancy news.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Cross-check source for U4 (Chief Justice name). Cited in updatable source_ref string as \"supremecourt.gov/about/biographies.aspx (cross-checked 2026-06-11)\"."
+      },
+      {
+        "source_ref": "src:us-citizenship:senate-gov:001",
+        "blueprint_s_code": null,
+        "publisher": "United States Senate (senate.gov)",
+        "title": "U.S. Senate — Official Senator Directory",
+        "locator": {
+          "url": "https://www.senate.gov",
+          "local_snapshot": null,
+          "fetch_route": "curl+browser-UA",
+          "snapshot_note": "No local snapshot captured at stage 02. Per-user dynamic fact (U5: user's 2 senators depend on their state); re-fetch at build time per [S3] instruction."
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": null,
+        "snapshot_hash_flag": "NO_LOCAL_SNAPSHOT — per-user dynamic; re-fetch at build time",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull each build + after every Senate election. Per [S3] instruction for U5 (user's state senators). No static snapshot useful; per-user state lookup required.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Source for U5 (your two U.S. senators — per-user, state-dependent). Snapshot null: no single snapshot captures a per-user value. Must be fetched at build/study-session time with user's state."
+      },
+      {
+        "source_ref": "src:us-citizenship:house-gov:001",
+        "blueprint_s_code": null,
+        "publisher": "United States House of Representatives (house.gov)",
+        "title": "U.S. House of Representatives — \"Find Your Representative\"",
+        "locator": {
+          "url": "https://www.house.gov",
+          "local_snapshot": null,
+          "fetch_route": "curl+browser-UA",
+          "snapshot_note": "No local snapshot captured. Per-user dynamic fact (U6: user's representative depends on their congressional district). Re-fetch at build time per [S3] instruction."
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": null,
+        "snapshot_hash_flag": "NO_LOCAL_SNAPSHOT — per-user dynamic; re-fetch at build time",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull each build + after every House election. Per [S3] instruction for U6 (user's House representative). No static snapshot useful; requires user's ZIP/district.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Source for U6 (your U.S. representative — per-user, district-dependent). Snapshot null for same reason as senate.gov U5."
+      },
+      {
+        "source_ref": "src:us-citizenship:usa-gov:001",
+        "blueprint_s_code": null,
+        "publisher": "USA.gov (General Services Administration)",
+        "title": "States and Territories — usa.gov/states-and-territories",
+        "locator": {
+          "url": "https://www.usa.gov/states-and-territories",
+          "local_snapshot": null,
+          "fetch_route": "curl+browser-UA",
+          "snapshot_note": "No local snapshot captured. Per-user dynamic fact (U7: governor depends on user's state; U8: state capital also state-dependent). Re-fetch at build time per [S3] instruction."
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": null,
+        "snapshot_hash_flag": "NO_LOCAL_SNAPSHOT — per-user dynamic; re-fetch at build time",
+        "refresh_cadence": "90d",
+        "expires_or_review_by": "2026-09-11",
+        "refresh_policy": "Re-pull each build + after gubernatorial elections. U7 (governor) changes on elections; U8 (state capital) is static but re-confirmed annually. Per [S3] instruction.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Source for U7 (governor of your state) and U8 (capital of your state). Both are per-user/state-dependent. usa.gov is an official GSA-operated portal; trust_tier = official_body."
+      }
+    ],
+    "high_risk_gate": {
+      "high_risk_facts": 130,
+      "anchored_by_official_or_regulator": 12,
+      "rejected_low_trust": []
+    },
+    "coverage": {
+      "refs_in_blueprint": 141,
+      "refs_resolved": 141,
+      "unresolved": [],
+      "exam_meta_sources_count": 6,
+      "exam_meta_resolved": 6,
+      "exam_meta_resolution": [
+        {
+          "id": "S1",
+          "url": "https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf",
+          "resolved_to": "src:us-citizenship:uscis:001"
+        },
+        {
+          "id": "S2",
+          "url": "https://www.uscis.gov/citizenship-resource-center/naturalization-test-and-study-resources/2025-civics-test",
+          "resolved_to": "src:us-citizenship:uscis:002"
+        },
+        {
+          "id": "S3",
+          "url": "https://www.uscis.gov/citizenship/testupdates",
+          "resolved_to": "src:us-citizenship:uscis:003"
+        },
+        {
+          "id": "S4",
+          "url": "https://www.uscis.gov/policy-manual/volume-12-part-e-chapter-2",
+          "resolved_to": "src:us-citizenship:uscis:006"
+        },
+        {
+          "id": "S5",
+          "url": "https://www.uscis.gov/sites/default/files/document/guides/M-715_reading.pdf + https://www.uscis.gov/sites/default/files/document/guides/M-715_writing.pdf",
+          "resolved_to": "src:us-citizenship:uscis:004"
+        },
+        {
+          "id": "S6",
+          "url": "https://www.uscis.gov/citizenship-resource-center/naturalization-related-data-and-statistics/naturalization-test-performance",
+          "resolved_to": "src:us-citizenship:uscis:007"
+        }
+      ]
+    }
+  },
+  "fact_registry": {
+    "facts": {
+      "gov-a.01": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q1 · p.2] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 1, PDF page 2 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.02": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q2 · p.2] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 2, PDF page 2 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.03": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q3 · p.2] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 3, PDF page 2 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.04": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q4 · p.2] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 4, PDF page 2 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.05": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q5 · p.2] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 5, PDF page 2 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.06": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q6 · p.2] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 6, PDF page 2 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.07": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q7 · p.2] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 7, PDF page 2 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.08": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q8 · p.2] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 8, PDF page 2 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.09": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q9 · p.3] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 9, PDF page 3 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.10": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q10 · p.3] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 10, PDF page 3 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.11": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q11 · p.3] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 11, PDF page 3 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.12": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q12 · p.3] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 12, PDF page 3 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.13": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q13 · p.3] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 13, PDF page 3 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.14": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q14 · p.3] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 14, PDF page 3 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-a.15": {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "source_ref": "[Q15 · p.3] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 15, PDF page 3 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.01": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q16 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 16, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.02": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q17 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 17, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.03": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q18 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 18, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.04": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q19 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 19, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.05": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q20 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 20, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.06": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q21 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 21, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.07": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q22 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 22, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.08": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q23 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 23, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.09": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q24 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 24, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.10": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q25 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 25, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.11": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q26 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 26, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.12": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q27 · p.4] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 27, PDF page 4 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.13": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q28 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 28, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.14": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q29 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 29, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.15": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q30 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 30, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.16": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q31 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 31, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.17": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q32 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 32, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.18": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q33 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 33, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.19": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q34 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 34, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.20": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q35 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 35, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.21": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q36 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 36, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.22": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q37 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 37, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.23": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q38 · p.5] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 38, PDF page 5 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.24": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q39 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 39, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.25": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q40 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 40, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.26": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q41 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 41, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.27": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q42 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 42, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.28": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q43 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 43, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.29": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q44 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 44, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.30": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q45 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 45, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.31": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q46 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 46, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.32": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q47 · p.6] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 47, PDF page 6 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.33": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q48 · p.7] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 48, PDF page 7 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.34": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q49 · p.7] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 49, PDF page 7 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.35": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q50 · p.7] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 50, PDF page 7 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.36": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q51 · p.7] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 51, PDF page 7 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.37": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q52 · p.7] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 52, PDF page 7 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.38": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q53 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 53, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.39": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q54 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 54, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.40": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q55 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 55, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.41": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q56 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 56, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.42": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q57 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 57, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.43": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q58 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 58, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.44": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q59 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 59, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.45": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q60 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 60, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.46": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q61 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 61, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-b.47": {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "source_ref": "[Q62 · p.8] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 62, PDF page 8 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.01": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q63 · p.9] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 63, PDF page 9 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.02": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q64 · p.9] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 64, PDF page 9 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.03": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q65 · p.9] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 65, PDF page 9 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.04": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q66 · p.9] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 66, PDF page 9 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.05": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q67 · p.9] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 67, PDF page 9 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.06": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q68 · p.9] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 68, PDF page 9 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.07": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q69 · p.10] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 69, PDF page 10 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.08": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q70 · p.10] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 70, PDF page 10 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.09": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q71 · p.10] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 71, PDF page 10 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "gov-c.10": {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "source_ref": "[Q72 · p.10] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 72, PDF page 10 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.01": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q73 · p.11] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 73, PDF page 11 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.02": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q74 · p.11] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 74, PDF page 11 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.03": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q75 · p.11] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 75, PDF page 11 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.04": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q76 · p.11] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 76, PDF page 11 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.05": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q77 · p.11] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 77, PDF page 11 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.06": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q78 · p.11] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 78, PDF page 11 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.07": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q79 · p.11] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 79, PDF page 11 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.08": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q80 · p.12] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 80, PDF page 12 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.09": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q81 · p.12] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 81, PDF page 12 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.10": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q82 · p.12] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 82, PDF page 12 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.11": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q83 · p.12] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 83, PDF page 12 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.12": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q84 · p.12] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 84, PDF page 12 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.13": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q85 · p.12] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 85, PDF page 12 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.14": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q86 · p.13] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 86, PDF page 13 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.15": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q87 · p.13] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 87, PDF page 13 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.16": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q88 · p.13] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 88, PDF page 13 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-a.17": {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "source_ref": "[Q89 · p.13] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 89, PDF page 13 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.01": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q90 · p.13] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 90, PDF page 13 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.02": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q91 · p.13] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 91, PDF page 13 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.03": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q92 · p.13] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 92, PDF page 13 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.04": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q93 · p.14] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 93, PDF page 14 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.05": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q94 · p.14] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 94, PDF page 14 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.06": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q95 · p.14] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 95, PDF page 14 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.07": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q96 · p.14] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 96, PDF page 14 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.08": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q97 · p.14] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 97, PDF page 14 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.09": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q98 · p.14] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 98, PDF page 14 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-b.10": {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "source_ref": "[Q99 · p.14] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 99, PDF page 14 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.01": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q100 · p.15] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 100, PDF page 15 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.02": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q101 · p.15] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 101, PDF page 15 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.03": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q102 · p.15] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 102, PDF page 15 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.04": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q103 · p.15] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 103, PDF page 15 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.05": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q104 · p.15] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 104, PDF page 15 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.06": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q105 · p.15] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 105, PDF page 15 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.07": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q106 · p.15] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 106, PDF page 15 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.08": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q107 · p.15] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 107, PDF page 15 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.09": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q108 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 108, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.10": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q109 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 109, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.11": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q110 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 110, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.12": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q111 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 111, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.13": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q112 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 112, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.14": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q113 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 113, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.15": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q114 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 114, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.16": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q115 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 115, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.17": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q116 · p.16] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 116, PDF page 16 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.18": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q117 · p.17] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 117, PDF page 17 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "hist-c.19": {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "source_ref": "[Q118 · p.17] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 118, PDF page 17 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-a.01": {
+        "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+        "source_ref": "[Q119 · p.18] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 119, PDF page 18 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-a.02": {
+        "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+        "source_ref": "[Q120 · p.18] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 120, PDF page 18 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-a.03": {
+        "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+        "source_ref": "[Q121 · p.18] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 121, PDF page 18 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-a.04": {
+        "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+        "source_ref": "[Q122 · p.18] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 122, PDF page 18 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-a.05": {
+        "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+        "source_ref": "[Q123 · p.18] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 123, PDF page 18 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-a.06": {
+        "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+        "source_ref": "[Q124 · p.18] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 124, PDF page 18 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-b.01": {
+        "domain": "SYMBOLS AND HOLIDAYS — B: Holidays",
+        "source_ref": "[Q125 · p.19] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 125, PDF page 19 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-b.02": {
+        "domain": "SYMBOLS AND HOLIDAYS — B: Holidays",
+        "source_ref": "[Q126 · p.19] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 126, PDF page 19 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-b.03": {
+        "domain": "SYMBOLS AND HOLIDAYS — B: Holidays",
+        "source_ref": "[Q127 · p.19] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 127, PDF page 19 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "sym-b.04": {
+        "domain": "SYMBOLS AND HOLIDAYS — B: Holidays",
+        "source_ref": "[Q128 · p.19] \"128 Civics Questions and Answers (2025 version)\", USCIS form M-1778 (09/25), question 128, PDF page 19 — source [S1], downloaded direct HTTP 200, retrieved 2026-06-11"
+      },
+      "eng.01": {
+        "domain": "ENGLISH COMPONENT (meta only — official M-715 reading/writing vocabulary; no delivery loop designed this run)",
+        "source_ref": "\"Reading Vocabulary for the Naturalization Test\", USCIS form M-715 (01/10) — source [S5], downloaded direct 2026-06-11; confirmed current on Study for the Test page same day (V10/AF-6)"
+      },
+      "eng.02": {
+        "domain": "ENGLISH COMPONENT (meta only — official M-715 reading/writing vocabulary; no delivery loop designed this run)",
+        "source_ref": "\"Writing Vocabulary for the Naturalization Test\", USCIS form M-715 (01/10) — source [S5], downloaded direct 2026-06-11; confirmed current on Study for the Test page same day (V10/AF-6)"
+      },
+      "U1": {
+        "domain": "updatable",
+        "source_ref": "[S3] + whitehouse.gov/administration (cross-checked 2026-06-11) · each build + every inauguration — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U2": {
+        "domain": "updatable",
+        "source_ref": "[S3] + whitehouse.gov/administration (cross-checked 2026-06-11) · each build — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U3": {
+        "domain": "updatable",
+        "source_ref": "[S3] + speaker.gov (cross-checked 2026-06-11) · each build — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U4": {
+        "domain": "updatable",
+        "source_ref": "[S3] + supremecourt.gov/about/biographies.aspx (cross-checked 2026-06-11) · each build — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U5": {
+        "domain": "updatable",
+        "source_ref": "senate.gov (official directory, per [S3] instruction) · each build + after elections — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U6": {
+        "domain": "updatable",
+        "source_ref": "house.gov \"Find Your Representative\" (official, per [S3] instruction) · each build + after elections — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U7": {
+        "domain": "updatable",
+        "source_ref": "usa.gov/states-and-territories (official, per [S3] instruction) · each build + after gubernatorial elections — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U8": {
+        "domain": "updatable",
+        "source_ref": "usa.gov/states-and-territories · verify once per state, re-check annually — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U9": {
+        "domain": "updatable",
+        "source_ref": "[S3] testupdates · each build — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U10": {
+        "domain": "updatable",
+        "source_ref": "[S2][S3] · static rule, re-confirm each build — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      },
+      "U11": {
+        "domain": "updatable",
+        "source_ref": "[S3] · re-pull EVERY build (owner: Dynamic Facts Monitor 18) — authoritative answer source [S3] uscis.gov/citizenship/testupdates, fetched live 2026-06-11; values retrieved_at 2026-06-11; official rule: answer with the official serving at the time of the naturalization interview [S1 p.1]"
+      }
+    }
+  },
+  "media_disposition": {
+    "artifact_type": "PilotMediaDisposition",
+    "version": "0.4.0",
+    "status": "REVIEW_POLICY",
+    "owner_roles": [
+      "00",
+      "13"
+    ],
+    "scope": "dev_preview_only",
+    "source_of_media_required": "early UI media intent before07; finalUiSpecmaynotretroactivelyweakenit",
+    "inactive_roles": [
+      "20",
+      "20A",
+      "20B"
+    ],
+    "rendered_audio_required": false,
+    "live_tts_allowed": false,
+    "image_cards_enabled": false,
+    "road_sign_mode": "verbal_page_sourced_cues",
+    "text_cue_must_bind_fact_id_and_source_page": true,
+    "visual_recognition_claims_allowed_without_assets": false,
+    "visual_override_requires": [
+      "role15boundsignlist",
+      "perassetrights/liveness/hash",
+      "selected-state supplement/applicability",
+      "earlyUIrequiredslot",
+      "freshaffectedQA"
+    ],
+    "non_applicable_checks": [
+      {
+        "check": "rendered audio manifest/files/provider",
+        "reason": "Text-only preview, no20render task."
+      },
+      {
+        "check": "pre/post image scout plans",
+        "reason": "20Ainactive; no scout success claimed."
+      },
+      {
+        "check": "audio timing/loudness/renderback",
+        "reason": "No rendered audio; text-script segment/parity checks stay mandatory."
+      }
+    ],
+    "still_required": [
+      "Fact/source parity",
+      "Structured recall ordering",
+      "Back/hook equality",
+      "Real required visual assets if an image task is later enabled",
+      "Independent content and product QA"
+    ],
+    "execution_enabled": false
+  }
+}

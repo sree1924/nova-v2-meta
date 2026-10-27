@@ -1,0 +1,305 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nova-hackathon://schemas-strict/09-product-package/0.4.0",
+  "title": "ProductPackage pilot adapter (09.package, v0.4.0)",
+  "description": "Provider-facing strict adapter for the pilot content package. pilot_adapter (NOT a subset of schemas/product-package.schema.json): legacy status stays 'blocked' with a scoped reason, pilot_status carries the real content-package verdict, deploy/audio/listing/market refs are sentinels, audio_teacher_loop never claims the parent's openai_audio_api const while role 20 is inactive. Every dropped parent bound/pattern/const/allOf invariant is restored in tools/belt/checks/09-package.mjs (see 09-product-package.mapping.json).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "minted_by",
+    "probe",
+    "schema_version",
+    "adapter_version",
+    "package_version",
+    "status",
+    "pilot_status",
+    "status_scope",
+    "status_reason",
+    "candidate_manifest_ref",
+    "candidate_sha256",
+    "qa_gates",
+    "uispec",
+    "early_media_intent_ref",
+    "media_disposition_ref",
+    "media_disposition_sha256",
+    "finish_criteria_ref",
+    "finish_criteria_sha256",
+    "pilot_overlay_ref",
+    "pilot_overlay_sha256",
+    "deploy",
+    "contents",
+    "integrity",
+    "exam_config",
+    "audio_teacher_loop",
+    "learner_features",
+    "provenance_preserved",
+    "market_signal_ref"
+  ],
+  "properties": {
+    "minted_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "lane", "pass"],
+      "properties": {
+        "model": { "type": "string" },
+        "lane": { "type": "string" },
+        "pass": { "type": "string" }
+      }
+    },
+    "probe": { "type": "string" },
+    "schema_version": { "type": "string", "enum": ["1.0.0"] },
+    "adapter_version": { "type": "string", "enum": ["0.4.0"] },
+    "package_version": { "type": "string" },
+    "status": { "type": "string", "enum": ["shipped", "blocked"] },
+    "pilot_status": { "type": "string", "enum": ["preview_ready", "blocked"] },
+    "status_scope": { "type": "string", "enum": ["content_package"] },
+    "status_reason": { "type": "string" },
+    "candidate_manifest_ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "candidate_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "qa_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["coverage", "facts", "all_assigned_providers_pass", "blocking_findings"],
+      "properties": {
+        "coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["report_ref", "sha256", "verdict"],
+          "properties": {
+            "report_ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+            "sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+            "verdict": { "type": "string", "enum": ["PASS", "FAIL", "HOLD", "NOT_RUN"] }
+          }
+        },
+        "facts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["report_ref", "sha256", "verdict"],
+          "properties": {
+            "report_ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+            "sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+            "verdict": { "type": "string", "enum": ["PASS", "FAIL", "HOLD", "NOT_RUN"] }
+          }
+        },
+        "all_assigned_providers_pass": { "type": "boolean" },
+        "blocking_findings": { "type": "integer" }
+      }
+    },
+    "uispec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref", "sha256", "validate_1_receipt", "validate_2_receipt"],
+      "properties": {
+        "ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "validate_1_receipt": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["schema_receipt", "independent_receipt"],
+              "properties": {
+                "schema_receipt": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["path", "sha256"],
+                  "properties": { "path": { "type": "string" }, "sha256": { "type": "string" } }
+                },
+                "independent_receipt": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["path", "sha256"],
+                  "properties": { "path": { "type": "string" }, "sha256": { "type": "string" } }
+                }
+              }
+            },
+            { "type": "null" }
+          ]
+        },
+        "validate_2_receipt": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["schema_receipt", "independent_receipt"],
+              "properties": {
+                "schema_receipt": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["path", "sha256"],
+                  "properties": { "path": { "type": "string" }, "sha256": { "type": "string" } }
+                },
+                "independent_receipt": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["path", "sha256"],
+                  "properties": { "path": { "type": "string" }, "sha256": { "type": "string" } }
+                }
+              }
+            },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "early_media_intent_ref": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "sha256"],
+          "properties": { "path": { "type": "string" }, "sha256": { "type": "string" } }
+        },
+        { "type": "null" }
+      ]
+    },
+    "media_disposition_ref": { "type": "string" },
+    "media_disposition_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "finish_criteria_ref": { "type": "string" },
+    "finish_criteria_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "pilot_overlay_ref": { "type": "string" },
+    "pilot_overlay_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "deploy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supabase_dataset_ref",
+        "mobile_api_payload_refs",
+        "listing_assets_ref",
+        "image_scout_plan_ref",
+        "audio_manifest_ref",
+        "exam_config_ref",
+        "curriculum_unit_map_ref",
+        "curriculum_unit_map_sha256",
+        "preview_payload_refs"
+      ],
+      "properties": {
+        "supabase_dataset_ref": { "type": "string", "enum": ["deferred:not_applicable_pilot"] },
+        "mobile_api_payload_refs": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["deferred:not_applicable_pilot"] }
+        },
+        "listing_assets_ref": { "type": "string", "enum": ["deferred:not_applicable_pilot"] },
+        "image_scout_plan_ref": { "type": "string", "enum": ["deferred:not_applicable_pilot"] },
+        "audio_manifest_ref": { "type": "string", "enum": ["deferred:not_applicable_pilot"] },
+        "exam_config_ref": { "type": "string" },
+        "curriculum_unit_map_ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "curriculum_unit_map_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "preview_payload_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256"],
+            "properties": { "path": { "type": "string" }, "sha256": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "contents": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deck_count", "card_count", "text_script_count", "session_count", "unit_count", "item_count", "form_count"],
+      "properties": {
+        "deck_count": { "type": "integer" },
+        "card_count": { "type": "integer" },
+        "text_script_count": { "type": "integer" },
+        "session_count": { "type": "integer" },
+        "unit_count": { "type": "integer" },
+        "item_count": { "type": "integer" },
+        "form_count": { "type": "integer" }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["computed_by", "orphans", "unresolved_refs", "cards_missing_text_script", "forms_missing_items", "units_missing_refs", "cross_product_refs"],
+      "properties": {
+        "computed_by": { "type": "string", "enum": ["deterministic_script"] },
+        "orphans": { "type": "integer" },
+        "unresolved_refs": { "type": "integer" },
+        "cards_missing_text_script": { "type": "integer" },
+        "forms_missing_items": { "type": "integer" },
+        "units_missing_refs": { "type": "integer" },
+        "cross_product_refs": { "type": "integer" }
+      }
+    },
+    "exam_config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["practice_only", "official_mirror_status", "n_questions", "passing_threshold", "domain_weights"],
+      "properties": {
+        "practice_only": { "type": "boolean" },
+        "official_mirror_status": { "type": "string", "enum": ["unknown", "verified"] },
+        "n_questions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "status", "source_page", "fact_id"],
+          "properties": {
+            "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+            "status": { "type": "string", "enum": ["unknown", "verified", "authored"] },
+            "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+            "fact_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+          }
+        },
+        "passing_threshold": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "status", "source_page", "fact_id"],
+          "properties": {
+            "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+            "status": { "type": "string", "enum": ["unknown", "verified", "authored"] },
+            "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+            "fact_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+          }
+        },
+        "domain_weights": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["domain", "weight"],
+            "properties": {
+              "domain": { "type": "string" },
+              "weight": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["value", "status", "source_page", "fact_id"],
+                "properties": {
+                  "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "status": { "type": "string", "enum": ["unknown", "verified", "authored"] },
+                  "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+                  "fact_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "audio_teacher_loop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "generation_mode", "output_manifest", "live_tts_in_user_flow"],
+      "properties": {
+        "provider": { "type": "string", "enum": ["none_text_only_pilot", "openai_audio_api"] },
+        "generation_mode": { "type": "string", "enum": ["none", "pre_generated_batch"] },
+        "output_manifest": { "type": "string", "enum": ["none", "AudioAssetManifest"] },
+        "live_tts_in_user_flow": { "type": "boolean" }
+      }
+    },
+    "learner_features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["auth", "checkout", "rendered_audio", "trace_in_learner_navigation"],
+      "properties": {
+        "auth": { "type": "boolean" },
+        "checkout": { "type": "boolean" },
+        "rendered_audio": { "type": "boolean" },
+        "trace_in_learner_navigation": { "type": "boolean" }
+      }
+    },
+    "provenance_preserved": { "type": "boolean" },
+    "market_signal_ref": { "type": "string", "enum": ["deferred:not_applicable_pilot"] }
+  }
+}

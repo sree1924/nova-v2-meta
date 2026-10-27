@@ -1,0 +1,393 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "06.exam_bank",
+  "adapter_schema": {
+    "path": "schemas-strict/06-exambank.schema.json",
+    "sha256": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22"
+  },
+  "mapping": {
+    "path": "schemas-strict/06-exambank.mapping.json",
+    "sha256": "2837d28d0dec105f7340940b567b9414eeb6aff002473d1eb65e6bdc85987933",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 14,
+    "dropped_constraints": 26,
+    "sentinels": [
+      {
+        "field": "/practice_forms/*/official_mirror/{n_questions,passing,time}",
+        "kind": "official_number_record",
+        "shape": "{value:null|number, status:unknown|verified, source_page:null|string}",
+        "rule": "status unknown => value null (no numeric hint); verified => value + source_page non-null",
+        "compensating_check": "06.OFFICIAL_MIRROR"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/exambank.schema.json",
+    "sha256_pinned": "c0c885cc34e1cbea41ea8b91585733c3ebbed6c17e7228436735a33f6bd81b13",
+    "sha256_actual": "c0c885cc34e1cbea41ea8b91585733c3ebbed6c17e7228436735a33f6bd81b13",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 6
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "06.exam_bank",
+      "fixture": "tools/belt/fixtures/06.exam_bank/v1-projected.json",
+      "sha256": "9a39c8e09c970456f7f163c7351c42d8e3863e2eced62a52f341d0bd0024fa25",
+      "context": "tools/belt/fixtures/06.exam_bank/context-v1.json",
+      "context_sha256": "71c8188fdb21ddaa175c0f9a4ed59dec058966cd102bd6eb218960067ff4f773",
+      "kind": "v1_projected",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "06.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.INPUT_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ID_INTEGRITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ITEM_BINDING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.PAGE_OR_DEBT",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "06.OPTIONS_SHAPE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.DISTRACTOR_SOURCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ANSWER_RATIONALE_AGREEMENT",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.BANNED_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.PRACTICE_LABEL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.FORM_NUMERALS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ITEM_NUMERALS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.OFFICIAL_MIRROR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.SCORING_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DECLARED_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.TITLED_PROMISE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.FORM_OVERLAP",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.DUPLICATE_STEM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ITEM_CLONE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.NEEDS_REVIEW_ZERO",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.SELF_FLAGGED_RESOLVED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.DERIVED_PLACEMENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.FORM_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.MODULE_QUIZ_COVERAGE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "fixture": "tools/belt/fixtures/06.exam_bank/synthetic-pass.json",
+      "sha256": "19f2874b7cbe092b8b2cdeda9a8331094a92bd3269c92a66bd52ec5a2ce757cd",
+      "context": "tools/belt/fixtures/06.exam_bank/context-synthetic.json",
+      "context_sha256": "626fb89c6936f1af1af6ad13f3653c9258689ce2022c05a917f48202f3c12b9e",
+      "kind": "synthetic",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "06.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.INPUT_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ID_INTEGRITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ITEM_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.PAGE_OR_DEBT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.OPTIONS_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DISTRACTOR_SOURCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ANSWER_RATIONALE_AGREEMENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.BANNED_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.PRACTICE_LABEL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.FORM_NUMERALS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ITEM_NUMERALS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.OFFICIAL_MIRROR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.SCORING_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DECLARED_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.TITLED_PROMISE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.FORM_OVERLAP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DUPLICATE_STEM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ITEM_CLONE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.NEEDS_REVIEW_ZERO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.SELF_FLAGGED_RESOLVED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DERIVED_PLACEMENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.FORM_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.MODULE_QUIZ_COVERAGE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "fixture": "tools/belt/fixtures/06.exam_bank/synthetic-neg-source-debt-numeral.json",
+      "sha256": "d52523ecda273ac4f08358454d3a8028887c02dd5d00802c778832a29b2ddf27",
+      "context": "tools/belt/fixtures/06.exam_bank/context-synthetic.json",
+      "context_sha256": "626fb89c6936f1af1af6ad13f3653c9258689ce2022c05a917f48202f3c12b9e",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "06.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.INPUT_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ID_INTEGRITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ITEM_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.PAGE_OR_DEBT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.OPTIONS_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DISTRACTOR_SOURCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ANSWER_RATIONALE_AGREEMENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.BANNED_CLAIMS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.PRACTICE_LABEL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.FORM_NUMERALS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.ITEM_NUMERALS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.OFFICIAL_MIRROR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.SCORING_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DECLARED_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.TITLED_PROMISE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "06.FORM_OVERLAP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DUPLICATE_STEM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.ITEM_CLONE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.NEEDS_REVIEW_ZERO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.SELF_FLAGGED_RESOLVED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.DERIVED_PLACEMENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.FORM_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "06.MODULE_QUIZ_COVERAGE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": {
+    "file": "tests/belt/06-exam-bank.test.mjs",
+    "stage_id": "06.exam_bank",
+    "command": "node --test tests/belt/06-exam-bank.test.mjs",
+    "exit_code": 0,
+    "pass": 19,
+    "fail": 0,
+    "skipped": 0,
+    "tap_sha256": "2b520166f87a841183845f472b3650a318b8c3ba66d83fe4459481f0f52a7f28"
+  },
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

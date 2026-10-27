@@ -1,0 +1,233 @@
+{
+  "schema_version": "rdmv.run-config.draft.0.3.0",
+  "status": "REVIEW_ONLY_STATE_PENDING",
+  "execution_enabled": false,
+  "run_id": null,
+  "working_product_id": "rdmv",
+  "catalog": {
+    "historical_slug": "dmv-permit",
+    "observed_status": "pruned",
+    "observed_reason": "reason_weak_engine_fit",
+    "canonical_probe_id": null,
+    "intake_disposition": "hackathon_only_mint_outside_catalog",
+    "authority_ref": null,
+    "manifest_changed_by_template": false
+  },
+  "scope": {
+    "jurisdiction": null,
+    "issuing_authority": null,
+    "license_or_permit_class": "Regular non-commercial passenger-car written/knowledge-test preparation; local class label pending state selection",
+    "audience_age_band": null,
+    "application_path": null,
+    "language": null,
+    "coverage_kind": null,
+    "coverage_manifest_ref": null,
+    "excluded_requirements": [
+      "commercial (CDL)",
+      "motorcycle",
+      "driving/road skills test",
+      "licensing eligibility or completion of required driver education"
+    ],
+    "handbook_edition": null,
+    "source_effective_date": null,
+    "exam_facts_ref": null,
+    "source_registry_ref": null,
+    "rights_report_ref": null
+  },
+  "baseline": {
+    "kind": null,
+    "existing_dmv_v1_verified": false,
+    "artifact_manifest_ref": null,
+    "comparison_question": null,
+    "matched_control_required_for_model_superiority": true
+  },
+  "policy": {
+    "scope_reconciliation_ref": null,
+    "event_rules_snapshot_ref": null,
+    "reuse_disposition_ref": null,
+    "contribution_ledger_ref": null,
+    "public_repository_url": null,
+    "repository_visibility_evidence_ref": null,
+    "contract_review_disposition_ref": null
+  },
+  "producer": {
+    "provider": "meta",
+    "endpoint_profile_ref": null,
+    "model": "muse-spark-1.3",
+    "model_is_candidate_until_qualified": true,
+    "key_env_name": "MODEL_API_KEY",
+    "contributor_mode_allowed": false,
+    "qualification_report_ref": null,
+    "role_bindings_ref": "contracts/bot-contract-bindings.json#/roles",
+    "generation_parameters_ref": null,
+    "resolved_stage_assignments_ref": null
+  },
+  "audit_pool": {
+    "required_providers": [
+      "openai",
+      "anthropic"
+    ],
+    "model_and_scope_assignments_ref": null,
+    "qualification_reports_ref": null,
+    "rubric_ref": null,
+    "blocking_criteria_ref": null,
+    "content_manifest_ref": null,
+    "release_manifest_ref": null,
+    "contract_bindings_ref": "contracts/bot-contract-bindings.json#/review_bots",
+    "inactive_providers": [
+      "google"
+    ]
+  },
+  "limits": {
+    "max_active_probe_runs": 1,
+    "max_parallel_curriculum_jobs": 1,
+    "max_parallel_audit_jobs": 1,
+    "max_transport_redeliveries": null,
+    "max_automatic_attempts_per_logical_task": 2,
+    "max_escalations_per_stage_input_lineage": 1,
+    "max_escalated_attempts_per_stage_input_lineage": 1,
+    "max_candidate_remediation_cycles": 1,
+    "candidate_remediation_counter_scope": "root_candidate_lineage",
+    "max_total_usd": null,
+    "max_call_usd": null,
+    "per_role_limits_ref": null,
+    "per_provider_usd_caps": {
+      "meta": null,
+      "openai": null,
+      "anthropic": null,
+      "google": null,
+      "media": null
+    },
+    "max_call_tokens_ref": null,
+    "pricing_snapshot_ref": null,
+    "task_timeouts_ref": null,
+    "run_deadline_utc": null,
+    "max_human_intervention_budget_ref": null,
+    "spend_mode": "dry_run",
+    "uncertain_provider_result_policy_ref": null,
+    "max_active_tasks": 1
+  },
+  "execution": {
+    "executor_id": null,
+    "lock_ref": null,
+    "fencing_generation": null,
+    "task_graph_ref": null,
+    "candidate_repair_lineage_ref": null,
+    "artifact_schema_registry_ref": null,
+    "tool_allowlist_ref": null,
+    "network_policy_ref": null,
+    "run_write_root": null,
+    "binding_registry_snapshot_hash": null,
+    "stage_assignments_ref": null
+  },
+  "transport": {
+    "kind": "in_process_sequential",
+    "status": "planned",
+    "process_count": 1,
+    "tasks_at_a_time": 1,
+    "queue_source": "sqlite_tasks_ledger",
+    "rabbitmq": "DEFERRED_TO_V3",
+    "outbox": "DEFERRED_TO_V3"
+  },
+  "ledger": {
+    "kind": "sqlite",
+    "status": "planned",
+    "path": null,
+    "journal_mode": "WAL",
+    "synchronous": "FULL",
+    "serialized_writer": true,
+    "transactional_outbox": false,
+    "events_append_only": true,
+    "artifact_files_immutable": true,
+    "jsonl_is_derived_export": true,
+    "recovery_test_report_ref": null,
+    "driver": "node:sqlite",
+    "node_version_profile": "22.13.1",
+    "experimental_api_acknowledged": true
+  },
+  "factory_floor": {
+    "mode": "ledger_trace_static",
+    "events_from_committed_ledger_only": true,
+    "replay_label_required": true,
+    "disconnected_state_required": true,
+    "unknown_usage_is_null": true,
+    "role_map_ref": "contracts/bot-contract-bindings.json#/roles",
+    "animated_floor": "DEFERRED_TO_V3"
+  },
+  "release": {
+    "intent": "dev_preview_only",
+    "product_playbook_ref": null,
+    "independent_product_qa_ref": null,
+    "external_review_ref_when_required": null,
+    "deploy_approval_ref": null,
+    "launch_approval_ref": null,
+    "deployment_receipt_ref": null,
+    "live_verification_ref": null,
+    "auth": "none",
+    "money": "none"
+  },
+  "review": {
+    "requested_reviewers": [
+      "Fable",
+      "Argon"
+    ],
+    "fable_report_ref": null,
+    "argon_report_ref": null,
+    "consolidated_disposition_ref": null,
+    "bundle_ref": "REVIEW-BUNDLE.json",
+    "bundle_version": "0.3.0",
+    "scope": "contracts_and_configuration_only"
+  },
+  "template_note": "Review only. Regular passenger-car written-test prep is locked; state selection is pending. Candidate Texas config remains historical/provisional and owned by its existing lock holder. No belt execution, qualification, service start, spend or publication is authorized.",
+  "contract_binding_registry": {
+    "path": "contracts/bot-contract-bindings.json",
+    "required": true,
+    "validation_command": "node tools/check-bot-contracts.mjs",
+    "require_contract_hash_match": true,
+    "require_qualified_stage_assignments": true,
+    "integrity_pass_is_execution_ready": false,
+    "known_prerequisites": [
+      {
+        "kind": "state_selection",
+        "status": "pending",
+        "disposition_ref": null
+      },
+      {
+        "kind": "qualification",
+        "status": "pending",
+        "rubric_ref": "qualification/RUBRIC-04-road-signs.json"
+      },
+      {
+        "kind": "schema_dispositions",
+        "status": "absent_not_applicable_pilot",
+        "role_id": "13",
+        "paths": [
+          "schemas/teaching-presentation.schema.json",
+          "schemas/teaching.schema.json"
+        ],
+        "scope": "No pilot TeachingPresentation artifact; actual script shapes still need applicable validation/projection."
+      }
+    ]
+  },
+  "pilot_profile": "0.3.0",
+  "locked_product_scope": {
+    "vehicle": "regular_non_commercial_passenger_car",
+    "preparation": "written_knowledge_test",
+    "state_selected": false,
+    "authority": "founder instruction: regular driver license written test prep; state later; review only"
+  },
+  "state_selection": {
+    "status": "pending",
+    "confirmed_by": null,
+    "jurisdiction": null,
+    "candidate_jurisdiction": "US-TX",
+    "candidate_config_ref": "runs/2026-10-27-rdmv-tx-class-c/run-config.json"
+  },
+  "qualification": {
+    "rubric_ref": "qualification/RUBRIC-04-road-signs.json",
+    "report_ref": "qualification/QUALIFICATION-REPORT-04.json",
+    "status": "defined_only_not_executed",
+    "strict_projection_status": "planned_unbound",
+    "heldout_status": "awaiting_independent_auditor_seal"
+  }
+}

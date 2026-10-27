@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nova-local:strict-adapter:07-coverage-report.v0.4.0",
+  "title": "CoverageReport strict adapter (post-seal, candidate-bound)",
+  "description": "Provider-facing strict-subset adapter for stage 07.content_coverage. Echoes the sealed candidate_sha256 and fixed-key input hashes; HOLD verdict added; route_back targets extended to typed responsible owners per contracts/pilot-overrides-v0.4.0.json role_overrides.07; media non-applicability bound to contracts/media-disposition.json. Parent allOf (PASS => no unit/media/cross-product gaps) and all bounds are restored in tools/belt/checks/07-content-coverage.mjs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "adapter_version", "probe", "minted_by", "candidate_sha256", "input_hashes", "source_refs", "coverage_matrix_ref", "coverage_basis", "provider_family", "assigned_scope", "verdict", "required_checks_not_run", "blocking_findings", "domain_coverage", "missing_high_yield", "dropped_facts", "practice_form_drift", "voice_gaps", "curriculum_unit_gaps", "media", "media_gaps", "pending_media", "cross_product_refs", "sme_dod_unsatisfied", "titled_promises", "route_back"],
+  "properties": {
+    "artifact_type": { "type": "string", "enum": ["CoverageReport"] },
+    "adapter_version": { "type": "string", "enum": ["0.4.0"] },
+    "probe": { "type": "string" },
+    "minted_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "lane", "pass"],
+      "properties": {
+        "model": { "type": "string" },
+        "lane": { "type": "string" },
+        "pass": { "type": "string" }
+      }
+    },
+    "candidate_sha256": { "type": "string" },
+    "input_hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blueprint", "knowledge_graph", "carddeck", "session_scripts", "voice_scripts", "exambank", "curriculum_unit_map", "learning_loop", "early_media_intent", "source_registry"],
+      "properties": {
+        "blueprint": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "knowledge_graph": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "carddeck": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "session_scripts": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "voice_scripts": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "exambank": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "curriculum_unit_map": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "learning_loop": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "early_media_intent": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "source_registry": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "source_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blueprint", "knowledge_graph", "carddeck", "session_scripts", "exambank", "curriculum_unit_map", "image_scout_plan"],
+      "properties": {
+        "blueprint": { "type": "string" },
+        "knowledge_graph": { "type": "string" },
+        "carddeck": { "type": "string" },
+        "session_scripts": { "type": "string" },
+        "exambank": { "type": "string" },
+        "curriculum_unit_map": { "type": "string" },
+        "image_scout_plan": { "type": "string" }
+      }
+    },
+    "coverage_matrix_ref": { "type": "string" },
+    "coverage_basis": { "type": "string", "enum": ["official_objectives", "handbook_sections"] },
+    "provider_family": { "type": "string" },
+    "assigned_scope": { "type": "string" },
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "HOLD"] },
+    "required_checks_not_run": { "type": "array", "items": { "type": "string" } },
+    "blocking_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["finding_id", "check_id", "issue", "evidence", "route_to"],
+        "properties": {
+          "finding_id": { "type": "string" },
+          "check_id": { "type": "string" },
+          "issue": { "type": "string" },
+          "evidence": { "type": "string" },
+          "route_to": { "type": "string", "enum": ["02", "03", "04", "05", "06", "13", "15", "19A", "09", "08", "00"] }
+        }
+      }
+    },
+    "domain_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["domain", "weight_check", "weight_pct", "content_share", "weighting_drift", "ok"],
+        "properties": {
+          "domain": { "type": "string" },
+          "weight_check": { "type": "string", "enum": ["not_applicable", "checked"] },
+          "weight_pct": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "content_share": { "type": "number" },
+          "weighting_drift": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "ok": { "type": "boolean" }
+        }
+      }
+    },
+    "missing_high_yield": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["domain", "high_yield_area", "missing"],
+        "properties": {
+          "domain": { "type": "string" },
+          "high_yield_area": { "type": "string" },
+          "missing": { "type": "string", "enum": ["card", "item", "both"] }
+        }
+      }
+    },
+    "dropped_facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fact_id", "source_ref", "statement", "domain"],
+        "properties": {
+          "fact_id": { "type": "string" },
+          "source_ref": { "type": "string" },
+          "statement": { "type": "string" },
+          "domain": { "type": "string" }
+        }
+      }
+    },
+    "practice_form_drift": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["form_id", "issue", "expected", "actual"],
+        "properties": {
+          "form_id": { "type": "string" },
+          "issue": { "type": "string", "enum": ["distribution", "threshold", "count", "overlap_disclosure"] },
+          "expected": { "type": "string" },
+          "actual": { "type": "string" }
+        }
+      }
+    },
+    "voice_gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["card_id"],
+        "properties": { "card_id": { "type": "string" } }
+      }
+    },
+    "curriculum_unit_gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["unit_id", "issue", "ref"],
+        "properties": {
+          "unit_id": { "type": "string" },
+          "issue": { "type": "string", "enum": ["missing_session", "missing_cards", "missing_quiz_items", "missing_mock_refs", "missing_user_cycle", "orphan_ref"] },
+          "ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["media_disposition_ref", "media_disposition_sha256", "early_media_intent_ref", "non_applicable_checks"],
+      "properties": {
+        "media_disposition_ref": { "type": "string" },
+        "media_disposition_sha256": { "type": "string" },
+        "early_media_intent_ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "non_applicable_checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["check", "reason"],
+            "properties": {
+              "check": { "type": "string" },
+              "reason": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "media_gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["media_slot_id", "issue", "required", "owner"],
+        "properties": {
+          "media_slot_id": { "type": "string" },
+          "issue": { "type": "string", "enum": ["required_unresolved", "rights_unverified", "missing_alt", "missing_caption", "slot_target_missing"] },
+          "required": { "type": "boolean" },
+          "owner": { "type": "string", "enum": ["20A", "20", "04", "05", "19A", "15"] }
+        }
+      }
+    },
+    "pending_media": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["media_slot_id", "target", "required"],
+        "properties": {
+          "media_slot_id": { "type": "string" },
+          "target": { "type": "string", "enum": ["knowledge_graph", "session", "flashcard", "runtime"] },
+          "required": { "type": "boolean", "enum": [false] }
+        }
+      }
+    },
+    "cross_product_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "expected_tenant_dir", "actual_tenant_dir"],
+        "properties": {
+          "ref": { "type": "string" },
+          "expected_tenant_dir": { "type": "string" },
+          "actual_tenant_dir": { "type": "string" }
+        }
+      }
+    },
+    "sme_dod_unsatisfied": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["checklist_item", "evidence_missing"],
+        "properties": {
+          "checklist_item": { "type": "string" },
+          "evidence_missing": { "type": "string" }
+        }
+      }
+    },
+    "titled_promises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["surface_id", "title", "promised_count", "actual_count", "ok"],
+        "properties": {
+          "surface_id": { "type": "string" },
+          "title": { "type": "string" },
+          "promised_count": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+          "actual_count": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+          "ok": { "type": "boolean" }
+        }
+      }
+    },
+    "route_back": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["to_worker", "gap_ref"],
+        "properties": {
+          "to_worker": { "type": "string", "enum": ["02", "03", "04", "05", "06", "13", "15", "19A", "09", "08", "00"] },
+          "gap_ref": { "type": "string" }
+        }
+      }
+    }
+  }
+}

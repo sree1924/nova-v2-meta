@@ -1,0 +1,109 @@
+{
+  "artifact_type": "StrictAdapterStageMap",
+  "version": "0.4.0",
+  "owner": "Claude Code (session 2bdcad95) — schema/post-validator lane per CLAUDE-V0.4.0-SCHEMA-HANDOFF.md",
+  "lane_root": "D:/nova/fb-ai-hackathon",
+  "parent_schema_root": "D:/nova/schemas",
+  "parent_pins_read_only": true,
+  "stages": {
+    "02.dossier_sections": {
+      "prefix": "02",
+      "prompt_path": "prompts/02.md",
+      "adapter_schema": "schemas-strict/02-sme-dossier-envelope.schema.json",
+      "mapping": "schemas-strict/02-sme-dossier-envelope.mapping.json",
+      "checks_module": "tools/belt/checks/02-dossier-sections.mjs",
+      "parent_schema": { "path": "schemas/blueprint.schema.json", "sha256": "3fbd6ddeaa402b2819d6e859d16034b002d78bc55f1727a388a722509c86de54", "note": "parent is the COMPILED Blueprint (role 16 output); the 02 envelope wraps section-wise prose that 16 compiles — pilot_adapter by construction" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/02-blueprint.md", "kind": "prose_dossier" }
+    },
+    "03.combined_kg": {
+      "prefix": "03",
+      "prompt_path": "prompts/03.md",
+      "adapter_schema": "schemas-strict/03-knowledge-graph.schema.json",
+      "mapping": "schemas-strict/03-knowledge-graph.mapping.json",
+      "checks_module": "tools/belt/checks/03-combined-kg.mjs",
+      "parent_schema": { "path": "schemas/knowledge-graph.schema.json", "sha256": "19081f3514098118383a65b32534fde9730d2f1b001a01a3c2ef6606db9bf2bc" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/03-knowledge-graph.json", "kind": "json" }
+    },
+    "04.cards": {
+      "prefix": "04",
+      "prompt_path": "prompts/04.md",
+      "adapter_schema": "schemas-strict/04-carddeck.schema.json",
+      "mapping": "schemas-strict/04-carddeck.mapping.json",
+      "checks_module": "tools/belt/checks/04-cards.mjs",
+      "parent_schema": { "path": "schemas/carddeck.schema.json", "sha256": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/04-carddeck.json", "kind": "json" }
+    },
+    "05.sessions": {
+      "prefix": "05",
+      "prompt_path": "prompts/05-sessions.md",
+      "adapter_schema": "schemas-strict/05b-session-scripts.schema.json",
+      "mapping": "schemas-strict/05b-session-scripts.mapping.json",
+      "checks_module": "tools/belt/checks/05-sessions.mjs",
+      "parent_schema": { "path": "schemas/session-script.schema.json", "sha256": "82aad2b15dd77c58e9770f6b809d07b1be9f3b5b91de550b6837f11bc5695ff2", "note": "singular session schema; the 05b collection + TeachingUnit decompression fields come from the owned local schema" },
+      "local_owned_schema": { "path": "contracts/teaching-unit.schema.json", "sha256": "0eb8189a6d4aac9ac2ce455c9d65f632e88c977200280748b6173f76de3a4b35", "owner": "Sol qualification worker — consumed, never edited" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/05b-session-scripts.json", "kind": "json", "expected_projection": "HOLD — V1 sessions carry no why_how/worked_example/misconception/self_check spans with fact_ids; synthetic fixture required" }
+    },
+    "05.card_scripts": {
+      "prefix": "05",
+      "prompt_path": "prompts/05-card-scripts.md",
+      "adapter_schema": "schemas-strict/05-voicescripts.schema.json",
+      "mapping": "schemas-strict/05-voicescripts.mapping.json",
+      "checks_module": "tools/belt/checks/05-card-scripts.mjs",
+      "parent_schema": { "path": "schemas/voicescripts.schema.json", "sha256": "dacca78436481539c7ca3bd5c7d95f67cc7cc99b16e4f6e0d7a4da19ca19b3ca" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/05-voicescripts.json", "kind": "json", "companion": "runs/2026-06-11-citizenship/audio-segments.json" }
+    },
+    "06.exam_bank": {
+      "prefix": "06",
+      "prompt_path": "prompts/06.md",
+      "adapter_schema": "schemas-strict/06-exambank.schema.json",
+      "mapping": "schemas-strict/06-exambank.mapping.json",
+      "checks_module": "tools/belt/checks/06-exam-bank.mjs",
+      "parent_schema": { "path": "schemas/exambank.schema.json", "sha256": "c0c885cc34e1cbea41ea8b91585733c3ebbed6c17e7228436735a33f6bd81b13" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/06-exambank.json", "kind": "json" }
+    },
+    "07.content_coverage": {
+      "prefix": "07",
+      "prompt_path": "prompts/07.md",
+      "adapter_schema": "schemas-strict/07-coverage-report.schema.json",
+      "mapping": "schemas-strict/07-coverage-report.mapping.json",
+      "checks_module": "tools/belt/checks/07-content-coverage.mjs",
+      "parent_schema": { "path": "schemas/coverage-report.schema.json", "sha256": "7b462eb53cbd2e27d66da59079cf96ef918f9b85928693a455f91e56d9ce3085" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/07-coverage-report.json", "kind": "json" }
+    },
+    "08.content_facts": {
+      "prefix": "08",
+      "prompt_path": "prompts/08.md",
+      "adapter_schema": "schemas-strict/08-fact-report.schema.json",
+      "mapping": "schemas-strict/08-fact-report.mapping.json",
+      "checks_module": "tools/belt/checks/08-content-facts.mjs",
+      "parent_schema": { "path": "schemas/fact-report.schema.json", "sha256": "42c17d5f518376b7c1ff692b42a1e864a84e1bae82f64b5825ce310b905c394a" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/08-fact-report.json", "kind": "json" }
+    },
+    "09.package": {
+      "prefix": "09",
+      "prompt_path": "prompts/09.md",
+      "adapter_schema": "schemas-strict/09-product-package.schema.json",
+      "mapping": "schemas-strict/09-product-package.mapping.json",
+      "checks_module": "tools/belt/checks/09-package.mjs",
+      "parent_schema": { "path": "schemas/product-package.schema.json", "sha256": "ed7005ca43944ebde3c5b9778c89694adeebbc6f39482ea31708dfe23520f721" },
+      "v1_reference": { "path": "runs/2026-06-11-citizenship/09-product-package.json", "kind": "json" }
+    },
+    "19A.units": {
+      "prefix": "19A",
+      "prompt_path": "prompts/19A.md",
+      "adapter_schema": "schemas-strict/19a-curriculum-unit-map.schema.json",
+      "mapping": "schemas-strict/19a-curriculum-unit-map.mapping.json",
+      "checks_module": "tools/belt/checks/19a-units.mjs",
+      "parent_schema": { "path": "schemas/curriculum-unit-map.schema.json", "sha256": "16f942a9b4c09a85d723c9fd485c629f3b36cdbccb8bd332b340642348eddd26" },
+      "v1_reference": { "path": null, "kind": "absent", "expected_projection": "HOLD — the citizenship run has no 19A CurriculumUnitMap artifact on disk; synthetic fixture required" }
+    }
+  },
+  "shared_context_artifacts": {
+    "overlay": "contracts/pilot-overrides-v0.4.0.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "source_fact_policy": "contracts/source-fact-policy.json",
+    "finish_criteria": "contracts/pilot-finish-criteria.json",
+    "teaching_unit_schema": "contracts/teaching-unit.schema.json",
+    "source_liveness_receipt_schema": "contracts/source-liveness-receipt.schema.json"
+  }
+}

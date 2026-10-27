@@ -1,0 +1,823 @@
+{
+  "stage_id": "04.cards",
+  "adapter_schema": {
+    "path": "schemas-strict/04-carddeck.schema.json",
+    "sha256": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d"
+  },
+  "parent_schema": {
+    "path": "schemas/carddeck.schema.json",
+    "sha256": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "sentinel source_refs.image_scout_post_kg and the official-number exam_weight shape (+ separate authored pedagogic_emphasis) change payload meaning; documents are NOT parent-valid (card_id vs id, exam_weight object, recap hook objects)",
+  "overlay_authority": {
+    "path": "contracts/pilot-overrides-v0.4.0.json",
+    "sha256": "35a1237a237b6e03172ca6dae063de2c552103845c2d8ef4dd5a351c6f2d37d1",
+    "pointer": "/role_overrides/04",
+    "canonical_contract": {
+      "path": "factory/workers/04-flashcard-engineer.md",
+      "sha256": "ce0ce21843ee327138cab43252369c780868cacd1ed95dce4859fa5c3b732db3"
+    },
+    "also": [
+      {
+        "path": "contracts/media-disposition.json",
+        "sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd"
+      },
+      {
+        "path": "contracts/source-fact-policy.json",
+        "sha256": "525934833394b1b37cc5ce8eb58939ae78aff0fb0c814e70df7718253795d05d"
+      },
+      {
+        "path": "qualification/CRITERIA-04-text-first.json",
+        "sha256": "bfbad3437ba947c9adeb33348ca5f5a88b14ff922882035680921d52d5c1d8de"
+      }
+    ]
+  },
+  "prompt": {
+    "path": "prompts/04.md",
+    "sha256": "a6f009971a4a6368165c5975b569b2aa4e2f44222fe2cd4d428ef45e42d90605"
+  },
+  "checks_module": {
+    "path": "tools/belt/checks/04-cards.mjs",
+    "sha256": "5278a5f516c2d3b2c17d10b9058e049ed93812e9a8bde27497c3d4761376f184"
+  },
+  "shared_lib": {
+    "path": "tools/belt/lib/cards-sessions-common.mjs",
+    "sha256": "602f7b91ad2408e7bdf3286a23512becceaaf64653d34d793b86152267a49c85"
+  },
+  "projector": {
+    "path": "tools/belt/project/04-cards.mjs",
+    "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+  },
+  "srs_policy_binding": {
+    "source": {
+      "path": "runs/2026-06-11-citizenship/04-carddeck.json",
+      "pointer": "/srs_policy"
+    },
+    "base_tier_by_difficulty": {
+      "easy": "relaxed",
+      "medium": "standard",
+      "hard": "tight"
+    },
+    "high_yield_rule": "tighten_one_step (relaxed->standard, standard->tight, tight stays tight)",
+    "enforced_by": [
+      "adapter enums on /srs_policy",
+      "04.SRS_POLICY"
+    ]
+  },
+  "spoken_form_lint": {
+    "enforced_by": "04.BACK_SPOKEN_FORM",
+    "definition": "tools/belt/lib/cards-sessions-common.mjs spokenFormViolations",
+    "forbidden_symbols": [
+      "|",
+      "/",
+      "\\",
+      "%",
+      "&",
+      "#",
+      "@",
+      "+",
+      "=",
+      "<",
+      ">",
+      "~",
+      "^",
+      "*",
+      "°",
+      "·",
+      "•"
+    ],
+    "bare_unit_abbreviations": [
+      "mph",
+      "kph",
+      "kmh",
+      "ft",
+      "yd",
+      "yds",
+      "lb",
+      "lbs",
+      "oz",
+      "mg",
+      "mcg",
+      "ml",
+      "psi",
+      "hr",
+      "hrs",
+      "mins",
+      "secs",
+      "sq"
+    ],
+    "number_adjacent_units": [
+      "mi",
+      "km",
+      "cm",
+      "mm",
+      "kg",
+      "sec",
+      "min",
+      "gal",
+      "qt",
+      "pt",
+      "yr",
+      "yrs",
+      "mo"
+    ],
+    "number_glued_units": [
+      "in",
+      "m",
+      "h",
+      "l",
+      "g"
+    ],
+    "unspelled_decimals": "digit.digit flagged",
+    "allowed_spelled_forms": [
+      "miles per hour",
+      "kilometers per hour",
+      "feet",
+      "foot",
+      "yards",
+      "pounds",
+      "ounces",
+      "inches",
+      "miles",
+      "meters",
+      "seconds",
+      "minutes",
+      "hours",
+      "percent",
+      "degrees",
+      "and",
+      "or",
+      "point"
+    ],
+    "note": "Stricter than CRITERIA-04 forbidden_back_hook_pattern on symbols; narrower on \"in\" (only glued \"12in\", so \"in 1787 in Philadelphia\" is not flagged)."
+  },
+  "context_contract": {
+    "fact_registry": "{facts:{<fact_id>:{statement, spoken_statement?, components?:string[], status:\"verified\"|\"authored\"|\"unknown\", source_page?}}} — BACK_FIDELITY uses spoken_statement ?? statement; atomics may equal a component; status unknown/verify/debt/unverified/blocked is not publishable",
+    "accepted_inputs.blueprint_mnemonics": "{<node_id>: mnemonic string}; absent key = no Blueprint mnemonic",
+    "accepted_inputs.knowledge_graph": "{modules:[{module_id|id}], nodes:[{id, module_id}], dynamic_nodes:[id|{id}]}",
+    "page_map.pages": "[{page_map_id, pdf_page, printed_page}]",
+    "source_document.text": "registered full source text for ORIGINALITY (CRITERIA-04 originality normalization)",
+    "media_disposition": "contracts/media-disposition.json body + its byte hash at loaded_refs.media_disposition.sha256 or ref_sha256.media_disposition",
+    "learning_loop": "required only when srs_policy.learning_loop_ref is non-null (+ hash at loaded_refs/ref_sha256 learning_loop)",
+    "input_manifest_sha256": "scoped input manifest digest (hash-boundary correction)"
+  },
+  "qualification_check_map": {
+    "Q04-ADAPTER-POSTVALIDATION": "aggregate validateArtifact status for stage 04.cards (PASS only when every 04.* check PASSes)",
+    "Q04-PAGE-CITATIONS": [
+      "04.PAGE_CITATIONS",
+      "04.PAGE_RESOLUTION",
+      "04.FACT_IDS"
+    ],
+    "Q04-HOOK-FIDELITY": [
+      "04.HOOK_LENGTH",
+      "04.HOOK_ORIGIN",
+      "04.BACK_FIDELITY",
+      "04.BACK_SPOKEN_FORM",
+      "04.ATOMIC_CLUSTER",
+      "04.LEARNER_SCAFFOLD"
+    ],
+    "Q04-ORIGINALITY": [
+      "04.ORIGINALITY"
+    ],
+    "Q04-MEDIA-DISPOSITION": [
+      "04.MEDIA_DISPOSITION"
+    ],
+    "Q04-COUNT-COVERAGE": [
+      "04.DECKS_MIRROR_KG",
+      "04.DUPLICATE_BACKS",
+      "04.CARD_IDS (metric only; the >=25 minimum is a binding-instance threshold, not an adapter rule)"
+    ],
+    "not_covered_here": [
+      "Q04-FACTS-HELDOUT",
+      "Q04-INDEPENDENCE",
+      "Q04-PROVENANCE",
+      "Q04-USAGE-COST-LATENCY",
+      "Q04-ATTEMPT-CHRONOLOGY",
+      "Q04-BOUND-INPUTS (only 04.INPUT_BINDING + 04.MEDIA_DISPOSITION hash parts)"
+    ]
+  },
+  "checks": [
+    "04.SCHEMA",
+    "04.STRING_BOUNDS",
+    "04.CARD_IDS",
+    "04.MERGES",
+    "04.EXAM_WEIGHT_STATUS",
+    "04.SRS_POLICY",
+    "04.BACK_SPOKEN_FORM",
+    "04.HOOK_LENGTH",
+    "04.HOOK_ORIGIN",
+    "04.FACT_IDS",
+    "04.BACK_FIDELITY",
+    "04.ATOMIC_CLUSTER",
+    "04.DUPLICATE_BACKS",
+    "04.PAGE_CITATIONS",
+    "04.PAGE_RESOLUTION",
+    "04.LEARNER_SCAFFOLD",
+    "04.MEDIA_DISPOSITION",
+    "04.RECAP_PER_DECK",
+    "04.DECKS_MIRROR_KG",
+    "04.ORIGINALITY",
+    "04.INPUT_BINDING",
+    "04.VERIFICATION_DEBT"
+  ],
+  "deviations": [
+    {
+      "field": "(every object)",
+      "parent_rule": "additionalProperties true",
+      "adapter_rule": "additionalProperties false; every property required (nullable via anyOf)",
+      "reason": "Meta strict subset",
+      "compensating_check": "04.SCHEMA"
+    },
+    {
+      "field": "/schema_version",
+      "parent_rule": "const \"1.0.0\"",
+      "adapter_rule": "enum [\"1.0.0\"]",
+      "reason": "const not relied on in strict mode; single-value enum is equivalent",
+      "compensating_check": "04.SCHEMA"
+    },
+    {
+      "field": "/adapter_version, /input_manifest_sha256, /candidate_lineage_id, /media_disposition_ref, /back_format, /srs_policy, /merges, /verification_debt",
+      "parent_rule": "absent",
+      "adapter_rule": "required pilot fields",
+      "reason": "hash-boundary correction (input manifest + lineage, never final candidate digest); pinned media disposition; spoken_text back format; deterministic SRS policy; recorded merges and typed debt",
+      "compensating_check": "04.STRING_BOUNDS, 04.INPUT_BINDING, 04.MEDIA_DISPOSITION, 04.BACK_SPOKEN_FORM, 04.SRS_POLICY, 04.MERGES, 04.VERIFICATION_DEBT"
+    },
+    {
+      "field": "/artifact_hash",
+      "parent_rule": "optional string (SHA-256 over canonical body)",
+      "adapter_rule": "omitted",
+      "reason": "an artifact cannot carry its own digest; bytes are hashed by the dispatcher/manifest",
+      "compensating_check": "04.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate.mjs CLI artifact_sha256"
+    },
+    {
+      "field": "/source_refs/image_scout_post_kg",
+      "parent_rule": "required string (post-KG ImageScoutPlan ref)",
+      "adapter_rule": "enum [\"deferred:not_applicable_pilot\"]",
+      "reason": "role 20A inactive; no scout plan exists — sentinel instead of an invented plan",
+      "compensating_check": "04.MEDIA_DISPOSITION"
+    },
+    {
+      "field": "/source_refs/curriculum_unit_hints",
+      "parent_rule": "optional string",
+      "adapter_rule": "required string|null",
+      "reason": "strict mode requires every key",
+      "compensating_check": "04.SCHEMA"
+    },
+    {
+      "field": "/decks/*/exam_weight",
+      "parent_rule": "number, minimum 0",
+      "adapter_rule": "OFFICIAL only: {value:number|null, status:unknown|verified, source_page:string|null}; unknown => value null; verified => value>=0 + source_page",
+      "reason": "source-fact-policy official_fact_shape; handoff integration note 6: an authored status must never promote an official weight",
+      "compensating_check": "04.EXAM_WEIGHT_STATUS, 04.STRING_BOUNDS"
+    },
+    {
+      "field": "/decks/*/pedagogic_emphasis",
+      "parent_rule": "absent (parent exam_weight conflated official and computed weight)",
+      "adapter_rule": "{value:number|null, kind:\"authored_product_policy\"}",
+      "reason": "source-fact-policy numerical_weights.pedagogic_emphasis = labelled authored product policy",
+      "compensating_check": "04.EXAM_WEIGHT_STATUS"
+    },
+    {
+      "field": "/decks/*/cards/*/id",
+      "parent_rule": "id (minLength 1)",
+      "adapter_rule": "card_id",
+      "reason": "pilot field name per design (stable card id)",
+      "compensating_check": "04.CARD_IDS, 04.STRING_BOUNDS"
+    },
+    {
+      "field": "/decks/*/cards/*/module_id",
+      "parent_rule": "absent on card (deck-level)",
+      "adapter_rule": "required, must equal deck module_id",
+      "reason": "Amendment 2026-06-14: flashcards carry module_id",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "field": "/decks/*/cards/*/unit_id",
+      "parent_rule": "optional string",
+      "adapter_rule": "required string|null",
+      "reason": "strict mode",
+      "compensating_check": "04.SCHEMA"
+    },
+    {
+      "field": "/decks/*/cards/*/media_slot_id",
+      "parent_rule": "optional string (scout slot)",
+      "adapter_rule": "not carried",
+      "reason": "image cards disabled in the text-first pilot; no scout slots exist",
+      "compensating_check": "04.MEDIA_DISPOSITION"
+    },
+    {
+      "field": "/decks/*/cards/*/{hook_origin,cluster_id,cluster_role,claims_fact_ids}",
+      "parent_rule": "absent (contract SOP 1/3 only)",
+      "adapter_rule": "required; hook_origin enum sme-carried|sme-adapted|minted; cluster_role umbrella|atomic|null; claims_fact_ids[]",
+      "reason": "contract SOP 1 (atomize + cluster_id), SOP 3 (hook_origin), prompt 04 (fact_ids resolve to accepted facts)",
+      "compensating_check": "04.HOOK_ORIGIN, 04.ATOMIC_CLUSTER, 04.FACT_IDS, 04.BACK_FIDELITY"
+    },
+    {
+      "field": "/decks/*/cards/* (decompression)",
+      "parent_rule": "additionalProperties true would admit why_how/example/misconception text",
+      "adapter_rule": "no why_how/example/misconception/recall-pause field exists; additionalProperties false rejects them",
+      "reason": "overlay role 04 adaptations: decompression belongs to 05.sessions, recall pause to 05.card_scripts",
+      "compensating_check": "04.SCHEMA"
+    },
+    {
+      "field": "/decks/*/cards/*/source_ref",
+      "parent_rule": "{ref, tier, url?, retrieved_at? (date-time)}, additionalProperties true",
+      "adapter_rule": "{ref, tier, url|null, pdf_page:int|null, printed_page:string|null, page_map_id:string|null}",
+      "reason": "page-bound citation for Q04-PAGE-CITATIONS; retrieval/liveness evidence lives in the source registry + liveness receipt, not the card",
+      "compensating_check": "04.PAGE_CITATIONS, 04.PAGE_RESOLUTION, 04.STRING_BOUNDS"
+    },
+    {
+      "field": "/recaps/*",
+      "parent_rule": "{module, recap_hooks: string[] minItems 1}",
+      "adapter_rule": "{module, module_id, recap_hooks: [{text, fact_ids[]}]}",
+      "reason": "prompt 04: every fact-bearing recap has fact_ids",
+      "compensating_check": "04.RECAP_PER_DECK, 04.FACT_IDS, 04.STRING_BOUNDS, 04.BACK_SPOKEN_FORM"
+    },
+    {
+      "field": "/srs_policy",
+      "parent_rule": "absent (contract SOP 5 prose)",
+      "adapter_rule": "enum-bound {easy:relaxed, medium:standard, hard:tight} + tighten_one_step, policy_kind product_policy, learning_loop_ref",
+      "reason": "deterministic policy bound from V1 (srs_policy_binding); never invented interval values",
+      "compensating_check": "04.SRS_POLICY"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "/$defs/probeSlug",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "adapter_pointer": "/properties/probe",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/properties/schema_version",
+      "keyword": "const",
+      "parent_value": "1.0.0",
+      "adapter_pointer": "/properties/schema_version (enum)",
+      "compensating_check": "04.SCHEMA"
+    },
+    {
+      "json_pointer": "/properties/decks/items/properties/module",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/properties/decks/items/properties/module_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/properties/decks/items/properties/domain",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/properties/decks/items/properties/exam_weight",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "adapter_pointer": ".../exam_weight/properties/value",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/properties/recaps/items/properties/module",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/properties/recaps/items/properties/recap_hooks",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/sourceRef/properties/ref",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "parent_value": "date-time",
+      "compensating_check": "04.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: n/a — field not carried by the adapter (see deviations /source_ref)"
+    },
+    {
+      "json_pointer": "/$defs/card/properties/id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "adapter_pointer": ".../cards/items/properties/card_id",
+      "compensating_check": "04.STRING_BOUNDS, 04.CARD_IDS"
+    },
+    {
+      "json_pointer": "/$defs/card/properties/node_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/card/properties/front",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/card/properties/back",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/card/properties/memory_hook",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "04.STRING_BOUNDS, 04.HOOK_LENGTH"
+    },
+    {
+      "json_pointer": "/$defs/card/properties/intro_order",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "04.STRING_BOUNDS"
+    }
+  ],
+  "sentinels": [
+    {
+      "json_pointer": "/source_refs/image_scout_post_kg",
+      "value": "deferred:not_applicable_pilot",
+      "authority": "contracts/media-disposition.json#/non_applicable_checks (\"pre/post image scout plans\": 20A inactive) + image_cards_enabled false",
+      "compensating_check": "04.MEDIA_DISPOSITION"
+    },
+    {
+      "json_pointer": "/decks/*/exam_weight",
+      "value": "{value:null|number, status:unknown|verified, source_page} (+ separate pedagogic_emphasis)",
+      "authority": "contracts/source-fact-policy.json#/official_fact_shape + CONVENTIONS.md sentinel vocabulary",
+      "compensating_check": "04.EXAM_WEIGHT_STATUS"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-hold-no-context.json",
+      "sha256": "384a7088ee57d84e5f4b2ade5710e8731e9b5a588c1dd23c77fbd4f9aa91597e",
+      "context_path": null,
+      "context_sha256": null,
+      "kind": "synthetic_hold",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "HOLD",
+      "expected_check_status": {},
+      "transformation_notes": [
+        "positive bytes with NO context: every context-bound check must HOLD, never PASS"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-hold-page-debt.json",
+      "sha256": "04af35327adc46036d625f3e9e326e868d5b5d0a55447660f70497e306b32bdb",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-hold-page-debt.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_hold",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "HOLD",
+      "expected_check_status": {
+        "04.PAGE_CITATIONS": "HOLD",
+        "04.VERIFICATION_DEBT": "HOLD"
+      },
+      "transformation_notes": [
+        "syn-card-01 cites no page but carries an open missing_page_citation debt -> HOLD, never PASS"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-atomic.json",
+      "sha256": "b0ada17d3a9b57c265a9047b53339adfadcae90600c1b45ad6c7b7c04d2a5a41",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-atomic.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.ATOMIC_CLUSTER": "FAIL"
+      },
+      "transformation_notes": [
+        "atomic syn-card-02-b back is neither an umbrella span nor an accepted component"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-back-drift.json",
+      "sha256": "42047305df0ff44ca570f3a292564407bfbbc7acd518c01274d68b380880b8db",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-back-drift.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.BACK_FIDELITY": "FAIL"
+      },
+      "transformation_notes": [
+        "syn-card-01 back paraphrased away from accepted wording"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-deictic-visual.json",
+      "sha256": "1041d71f0e8c7841b875773fc397f0a2815349b235c87c9eb9e4676ec36f4245",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-deictic-visual.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.MEDIA_DISPOSITION": "FAIL"
+      },
+      "transformation_notes": [
+        "front says \"this sign\" while image cards are disabled and no asset can be bound"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-duplicate-back.json",
+      "sha256": "9907e4741a0e034343abd62e071ffb9a539cbf518936d260563a17e89bf78f04",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-duplicate-back.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.DUPLICATE_BACKS": "FAIL"
+      },
+      "transformation_notes": [
+        "a second card repeats syn-card-01 back"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-hook-srs.json",
+      "sha256": "272d96ec05a179b2f2df4db49ff270a963ea150275db4c41a2fae59cac20277c",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-hook-srs.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.HOOK_LENGTH": "FAIL",
+        "04.SRS_POLICY": "FAIL",
+        "04.HOOK_ORIGIN": "FAIL"
+      },
+      "transformation_notes": [
+        "syn-card-01 ten-word hook, tier tight for easy/non-high-yield, sme-carried no longer equal to mnemonic"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-official-number.json",
+      "sha256": "3cf9bbff5d036cd7fd00f187b0d67012d0861edfc5b34523b5e4da256ce2650f",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-official-number.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.EXAM_WEIGHT_STATUS": "FAIL"
+      },
+      "transformation_notes": [
+        "deck 1 carries a numeric official weight hint (40) under status unknown; deck 2 claims verified with no source page"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-originality.json",
+      "sha256": "d2ce2394d574f885a57c9f36fed9fe377ea273f35a842b0fcdbb5d8ff2242a10",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-originality.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.ORIGINALITY": "FAIL"
+      },
+      "transformation_notes": [
+        "syn-card-03 front copies a 20-word run of the registered synthetic source"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-spoken-form.json",
+      "sha256": "9db457eaeca621f05911f2d6d02f13e1b431077216005fbb0ccb4bbe72401543",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-spoken-form.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.BACK_SPOKEN_FORM": "FAIL"
+      },
+      "transformation_notes": [
+        "syn-card-03 back uses \"20 ft\" and \" | \" shorthand"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-uncited.json",
+      "sha256": "dbe5ef870d2242a9549a8a074d90a4321f78cfd82aeb7fe9c70c68011e860661",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-uncited.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.PAGE_CITATIONS": "FAIL"
+      },
+      "transformation_notes": [
+        "syn-card-01 cites no page and carries no debt"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-neg-verify-leak.json",
+      "sha256": "6e2697f0738d66cd50ac2e132f1ade5e0be6076f2b5678c44ad3e22f29af821e",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-neg-verify-leak.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.LEARNER_SCAFFOLD": "FAIL"
+      },
+      "transformation_notes": [
+        "syn-card-01 hook carries \"(verify)\" into learner text"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/synthetic-positive.json",
+      "sha256": "d4beadcdcd3a5c46664820b014e433550acedd615bf45aed84aca6089df3e3df",
+      "context_path": "tools/belt/fixtures/04.cards/synthetic-positive.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_positive",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/04-cards.mjs",
+          "sha256": "79e3a00bebae8eabeb3a71f625c1fdd398697e947bc92b2ba1d75629123dadb2"
+        }
+      },
+      "expected_status": "PASS",
+      "expected_check_status": {},
+      "transformation_notes": [
+        "all 04 checks satisfiable with the sibling synthetic context"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/v1-projected-spokenform-fixed.json",
+      "sha256": "fd2e741c9d7f4873d37928f4a6a3b959c376c12caf044696e438576a607c0ab7",
+      "context_path": "tools/belt/fixtures/04.cards/v1-projected-spokenform-fixed.context.json",
+      "context_sha256": "b1a92909b90a3cf55d70aae226e1628c1d863679cbb17c427e004441c2d8d4b9",
+      "kind": "v1_projection_spokenform_normalized",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/04-carddeck.json",
+        "sha256": "650d0547e7080d453ecc80c5ae2f8804cbf3c801de4fa2b294466ace0f7510ff"
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.SCHEMA": "FAIL",
+        "04.CARD_IDS": "FAIL",
+        "04.SRS_POLICY": "FAIL",
+        "04.BACK_SPOKEN_FORM": "PASS",
+        "04.HOOK_LENGTH": "FAIL",
+        "04.FACT_IDS": "FAIL",
+        "04.ATOMIC_CLUSTER": "FAIL",
+        "04.DUPLICATE_BACKS": "FAIL",
+        "04.PAGE_CITATIONS": "FAIL",
+        "04.DECKS_MIRROR_KG": "FAIL",
+        "04.HOOK_ORIGIN": "HOLD",
+        "04.BACK_FIDELITY": "HOLD",
+        "04.PAGE_RESOLUTION": "HOLD",
+        "04.ORIGINALITY": "HOLD",
+        "04.INPUT_BINDING": "HOLD",
+        "04.MEDIA_DISPOSITION": "PASS",
+        "04.RECAP_PER_DECK": "PASS",
+        "04.LEARNER_SCAFFOLD": "PASS",
+        "04.EXAM_WEIGHT_STATUS": "PASS",
+        "04.STRING_BOUNDS": "PASS",
+        "04.MERGES": "PASS",
+        "04.VERIFICATION_DEBT": "PASS"
+      },
+      "transformation_notes": [
+        "Same projection + minimal spoken-form normalization of back/memory_hook/recap text only (102 fields): R1-R4 are the V1 run's own pronunciation lexicon (\" | \" -> \", or, \", URL spelled out, \"(01/10)\" -> \"the January twenty ten edition\", \"·\" -> \", \"); R5 \"/\" -> \" or \" and R6 \" + \" -> \" plus \" are projection rules with no V1 lexicon entry. Full before/after diff in _fixture.diff.",
+        "04.BACK_SPOKEN_FORM flips FAIL -> PASS; every other V1 FAIL is unrelated to spoken form and remains. The normalization is a fixture demonstration, not an accepted rewrite of V1 facts."
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/04.cards/v1-projected.json",
+      "sha256": "a2acbb9e5326749cab06d125831f1dc15066a4ba0d68534d82ae0a80c19bc8c2",
+      "context_path": "tools/belt/fixtures/04.cards/v1-projected.context.json",
+      "context_sha256": "b1a92909b90a3cf55d70aae226e1628c1d863679cbb17c427e004441c2d8d4b9",
+      "kind": "v1_projection",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/04-carddeck.json",
+        "sha256": "650d0547e7080d453ecc80c5ae2f8804cbf3c801de4fa2b294466ace0f7510ff"
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "04.SCHEMA": "FAIL",
+        "04.CARD_IDS": "FAIL",
+        "04.SRS_POLICY": "FAIL",
+        "04.BACK_SPOKEN_FORM": "FAIL",
+        "04.HOOK_LENGTH": "FAIL",
+        "04.FACT_IDS": "FAIL",
+        "04.ATOMIC_CLUSTER": "FAIL",
+        "04.DUPLICATE_BACKS": "FAIL",
+        "04.PAGE_CITATIONS": "FAIL",
+        "04.DECKS_MIRROR_KG": "FAIL",
+        "04.HOOK_ORIGIN": "HOLD",
+        "04.BACK_FIDELITY": "HOLD",
+        "04.PAGE_RESOLUTION": "HOLD",
+        "04.ORIGINALITY": "HOLD",
+        "04.INPUT_BINDING": "HOLD",
+        "04.MEDIA_DISPOSITION": "PASS",
+        "04.RECAP_PER_DECK": "PASS",
+        "04.LEARNER_SCAFFOLD": "PASS",
+        "04.EXAM_WEIGHT_STATUS": "PASS",
+        "04.STRING_BOUNDS": "PASS",
+        "04.MERGES": "PASS",
+        "04.VERIFICATION_DEBT": "PASS"
+      },
+      "transformation_notes": [
+        "FIXTURE/REFERENCE projection of V1 bytes (147 cards / 26 decks / 26 recaps); never a DMV result. Every projection decision is listed in the fixture _fixture.decisions.",
+        "LEGITIMATE V1 FAILs (V1 bytes, not adapter bugs): 04.BACK_SPOKEN_FORM 102/320 fields (80 backs joined with \" | \", URL and variant slashes, \"·\" separators, \" + \" in hooks); 04.HOOK_LENGTH 146/147 hooks > 6 words (V1 hooks are sentences); 04.SCHEMA + 04.SRS_POLICY: 14 M-715 cards carry review_interval_tier \"2\" (out of enum; expected tight); 04.CARD_IDS: those 14 cards share intro_order 0 in m26; 04.FACT_IDS: V1 has no fact ids at all; 04.ATOMIC_CLUSTER: the 3 branch atomics cite a different source_ref (\"Derived from M-1778 ... questions 16-18\") than their umbrella and their backs (\"Legislative - Congress\") are not verbatim umbrella spans; 04.DUPLICATE_BACKS: 5 groups of distinct bank questions with the same official answer (gov-b.27..30 etc.) — the rule may need a reviewed exemption for issuer-identical answers, flagged for Sol, not waived here; 04.PAGE_CITATIONS: 19 cards without a page (3 derived atomics, 16 M-715 English cards) and no debt entry; 04.DECKS_MIRROR_KG: 14 eng.* card nodes are absent from the V1 KG (added after the KG mint).",
+        "HOLDs: no V1 fact registry, Blueprint mnemonic map, page map, registered source text or input manifest exists; the context supplies only the V1 KG view and the pilot media disposition."
+      ]
+    }
+  ],
+  "v1_projection": {
+    "status": "projected",
+    "source": {
+      "path": "runs/2026-06-11-citizenship/04-carddeck.json",
+      "sha256": "650d0547e7080d453ecc80c5ae2f8804cbf3c801de4fa2b294466ace0f7510ff"
+    },
+    "fixtures": [
+      "tools/belt/fixtures/04.cards/v1-projected.json",
+      "tools/belt/fixtures/04.cards/v1-projected-spokenform-fixed.json"
+    ],
+    "expected_status": "FAIL",
+    "label": "fixture/reference only"
+  },
+  "unexecuted": [
+    "Source entailment of backs/hooks (does the cited page state the claim?) — not deterministic; owned by 08/independent audit. BACK_FIDELITY checks byte equality to the registry wording only.",
+    "Hook \"no new factual assertion / no misleading shortcut\" semantics — not machine-checkable here.",
+    "Q04 held-out, independence, provenance, cost and chronology checks — owned by tools/qualify-04.mjs (Sol).",
+    "No real fact registry, page map, Blueprint mnemonic map or registered source text exists yet (state/chapter unselected): HOOK_ORIGIN, BACK_FIDELITY, PAGE_RESOLUTION, ORIGINALITY, INPUT_BINDING exercised only with synthetic context.",
+    "Provider strict-mode acceptance of this adapter is unverified (no endpoint call made)."
+  ]
+}

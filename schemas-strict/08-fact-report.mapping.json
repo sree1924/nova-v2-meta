@@ -1,0 +1,429 @@
+{
+  "stage_id": "08.content_facts",
+  "adapter_schema": {
+    "path": "schemas-strict/08-fact-report.schema.json",
+    "sha256": "8a60a2ea4b4ceda131a7966a77883fb04b3ccc2e3d179989cee5ac20d1248502"
+  },
+  "parent_schema": {
+    "path": "schemas/fact-report.schema.json",
+    "sha256": "42c17d5f518376b7c1ff692b42a1e864a84e1bae82f64b5825ce310b905c394a"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "Adds HOLD verdict, candidate binding, tier-first claim rows, liveness receipts, extended flagged evidence/severity/owner/route, auditor identity, dissent and check-execution fields; parent free-form unsourced/severity become typed. Not a strict subset.",
+  "overlay_authority": {
+    "path": "contracts/pilot-overrides-v0.4.0.json",
+    "pointer": "/role_overrides/08",
+    "sha256": "35a1237a237b6e03172ca6dae063de2c552103845c2d8ef4dd5a351c6f2d37d1",
+    "adaptations": [
+      "Extended pilot report evidence/severity/debt fields and candidate_sha256"
+    ]
+  },
+  "checks_module": "tools/belt/checks/08-content-facts.mjs",
+  "compensating_checks": [
+    "08.SCHEMA",
+    "08.ENVELOPE",
+    "08.CANDIDATE_ECHO",
+    "08.INPUT_MEMBERSHIP",
+    "08.ROW_FIELDS",
+    "08.VERDICT_INVARIANT",
+    "08.VERDICT_CONSISTENCY",
+    "08.REQUIRED_CHECKS_RUN",
+    "08.TIER_FIRST",
+    "08.LIVENESS_RECEIPT_SHAPE",
+    "08.LIVENESS_COVERAGE",
+    "08.LIVENESS_AGE",
+    "08.FLAGGED_BINDING",
+    "08.EXTERNAL_REVIEW",
+    "08.INDEPENDENCE",
+    "08.DISSENT_NOT_OUTVOTED",
+    "08.VERDICT_GATE"
+  ],
+  "acceptance_semantics": "post-validator status = acceptance status: 08.VERDICT_GATE mirrors the report verdict; liveness gaps are HOLD on an honest non-PASS report (policy unknown_effective_date_without_accepted_disposition: HOLD) and FAIL when the report claims PASS over them.",
+  "context_keys": {
+    "candidate_manifest": "as 07 — 08.CANDIDATE_ECHO / 08.INPUT_MEMBERSHIP / 08.FLAGGED_BINDING (HOLD absent)",
+    "now_utc": "ISO date-time supplied by the dispatcher; checks never read a clock — 08.LIVENESS_AGE (HOLD absent)",
+    "policy": "contracts/source-fact-policy.json shape; freshness.max_receipt_age_hours (default 24)",
+    "accepted_dispositions": "[{source_ref, kind:'effective_date_not_applicable', ref}] — the only escape from the dated-effective-date rule",
+    "intervention_lineage": "{lineage_complete, actors[]} (tools/check-audit-independence.mjs actor shape) — 08.INDEPENDENCE (HOLD absent)",
+    "prompt_authorship": "contracts/prompt-authorship.json document — prompt-template authors folded into lineage",
+    "auditor_qualification": "{status:'qualified'} for this auditor+scope; absent -> 08.INDEPENDENCE HOLD (auditor_not_qualified_for_scope) unless a conflict already FAILs",
+    "peer_reports": "other scoped 08 reports on the same candidate — 08.DISSENT_NOT_OUTVOTED"
+  },
+  "deviations": [
+    {
+      "field": "/verdict",
+      "parent_rule": "enum PASS|FAIL",
+      "adapter_rule": "enum PASS|FAIL|HOLD",
+      "reason": "prompt 08: candidate mismatch -> HOLD; liveness policy HOLD",
+      "compensating_check": "08.VERDICT_CONSISTENCY, 08.VERDICT_GATE"
+    },
+    {
+      "field": "/flagged/items",
+      "parent_rule": "{item_id, issue, severity: free string} additionalProperties true",
+      "adapter_rule": "{check_id, item_id, artifact_hash, source_page|null, issue, evidence, severity enum blocking|major|minor (aligned to prompts/08.md) — previously low|medium|high|blocking, owner_worker enum, repair_route enum}",
+      "reason": "handoff item 7: reports require evidence, severity and unresolved-debt handling. NOTE prompts/08.md text says severity blocking|major|minor; this adapter follows the lane assignment (low|medium|high|blocking, aligned with parent visual/grouped severities + blocking) — a prompt/adapter vocabulary mismatch Sol must reconcile",
+      "compensating_check": "08.FLAGGED_BINDING, 08.ROW_FIELDS, 08.VERDICT_CONSISTENCY (high|blocking => not PASS)"
+    },
+    {
+      "field": "/candidate_sha256, /input_hashes",
+      "parent_rule": "absent",
+      "adapter_rule": "required; fixed-key input_hashes {blueprint,carddeck,voice_scripts,session_scripts,exambank,source_registry,curriculum_unit_map,source_liveness}",
+      "reason": "post-seal echo of the exact candidate; strict mode forbids open maps",
+      "compensating_check": "08.CANDIDATE_ECHO, 08.INPUT_MEMBERSHIP (required non-null: blueprint, carddeck, voice_scripts, session_scripts, exambank, source_registry, source_liveness)"
+    },
+    {
+      "field": "/tier_resolution_first, /claim_tiers",
+      "parent_rule": "absent",
+      "adapter_rule": "tier_resolution_first enum [true]; claim_tiers[]{claim_id,item_ref,source_ref,tier,fact_ids[]}",
+      "reason": "overlay 08 retained 'Tier-first claim validation'",
+      "compensating_check": "08.TIER_FIRST"
+    },
+    {
+      "field": "/source_liveness",
+      "parent_rule": "absent",
+      "adapter_rule": "array of receipts with exactly the contracts/source-liveness-receipt.schema.json properties (pattern/format/allOf stripped from the adapter)",
+      "reason": "overlay 08 retained 'Dated current official-source liveness evidence'; current_edition_confirmed is DERIVED (issuer_current_edition_ref + 64-hex sha present) rather than a new field, so receipts stay byte-conformant to the contract",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE (validates each entry against the contract schema), 08.LIVENESS_COVERAGE, 08.LIVENESS_AGE"
+    },
+    {
+      "field": "/auditor",
+      "parent_rule": "absent (minted_by only)",
+      "adapter_rule": "{provider_family, actor_id, session_id, model}",
+      "reason": "overlay 08 retained 'independent actor/provider family'",
+      "compensating_check": "08.INDEPENDENCE (delegates to tools/check-audit-independence.mjs evaluateAuditIndependence)"
+    },
+    {
+      "field": "/source_supported_blocking_findings",
+      "parent_rule": "absent",
+      "adapter_rule": "[{finding_id, flagged_item_id, source_ref, source_page, evidence}]",
+      "reason": "overlay 08 retained 'No source-supported defect can be outvoted'",
+      "compensating_check": "08.DISSENT_NOT_OUTVOTED, 08.FLAGGED_BINDING"
+    },
+    {
+      "field": "/unsourced/items",
+      "parent_rule": "anyOf string | open object",
+      "adapter_rule": "{claim_id, item_ref, text}",
+      "reason": "strict mode: no open object; typed row",
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "field": "/verification_debt/items",
+      "parent_rule": "{claim_id,blocker_kind,source_tier_required,owner_worker: free string,ship_blocking} open",
+      "adapter_rule": "adds required detail; owner_worker enum 01b|02|03|04|05|06|13|15|19A|20A|09|00",
+      "reason": "typed owner for routing; V1 owners 02-sme/01b-competitive-intel map to 02/01b",
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "field": "/external_review_requests/items",
+      "parent_rule": "{..., claim_ids minItems 1, blocking const true}",
+      "adapter_rule": "adds required legal_requirement_ref; blocking enum [true]; claim_ids minItems restored by check",
+      "reason": "ExternalReviewRequest only for legally required review",
+      "compensating_check": "08.EXTERNAL_REVIEW"
+    },
+    {
+      "field": "/visual_claim_issues/items/claim, /grouped_unit_claim_issues/items/claim",
+      "parent_rule": "optional string",
+      "adapter_rule": "required string",
+      "reason": "strict mode requires every property",
+      "compensating_check": "08.SCHEMA"
+    },
+    {
+      "field": "/checks_run, /required_checks_not_run, /assigned_scope",
+      "parent_rule": "absent",
+      "adapter_rule": "required",
+      "reason": "prompt 08: inspect structured check outputs and mark sampled/unrun scope honestly; PASS requires every required check executed",
+      "compensating_check": "08.REQUIRED_CHECKS_RUN, 08.VERDICT_CONSISTENCY"
+    },
+    {
+      "field": "/source_refs/image_scout_plan, /source_refs/curriculum_unit_map",
+      "parent_rule": "optional strings",
+      "adapter_rule": "required strings; sentinel deferred:not_applicable_pilot allowed only for these two",
+      "reason": "strict mode requires every property; media disposition marks 20A inactive",
+      "compensating_check": "08.ENVELOPE"
+    },
+    {
+      "field": "/schema_version",
+      "parent_rule": "const \"1.0.0\"",
+      "adapter_rule": "adapter_version enum [\"0.4.0\"] + artifact_type enum",
+      "reason": "const not relied on",
+      "compensating_check": "08.SCHEMA"
+    },
+    {
+      "field": "/artifact_hash",
+      "parent_rule": "optional string",
+      "adapter_rule": "absent",
+      "reason": "hashes computed by the dispatcher over bytes",
+      "compensating_check": "08.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate CLI artifact_sha256"
+    },
+    {
+      "field": "(every object)",
+      "parent_rule": "additionalProperties true",
+      "adapter_rule": "additionalProperties false, all properties required",
+      "reason": "provider strict subset",
+      "compensating_check": "08.SCHEMA"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "parent:/allOf/0",
+      "keyword": "allOf(if verdict PASS then visual_claim_issues/grouped_unit_claim_issues maxItems 0)",
+      "parent_value": {
+        "if": {
+          "verdict": "PASS"
+        },
+        "then": {
+          "visual_claim_issues": {
+            "maxItems": 0
+          },
+          "grouped_unit_claim_issues": {
+            "maxItems": 0
+          }
+        }
+      },
+      "compensating_check": "08.VERDICT_INVARIANT"
+    },
+    {
+      "json_pointer": "parent:/$defs/probeSlug",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "08.ENVELOPE"
+    },
+    {
+      "json_pointer": "parent:/properties/schema_version",
+      "keyword": "const",
+      "parent_value": "1.0.0",
+      "compensating_check": "08.SCHEMA (adapter_version enum)"
+    },
+    {
+      "json_pointer": "parent:/properties/source_refs/properties/*",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "08.ENVELOPE"
+    },
+    {
+      "json_pointer": "parent:/properties/flagged/items/properties/{item_id,issue}",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/visual_claim_issues/items/properties/media_slot_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/grouped_unit_claim_issues/items/properties/unit_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/verification_debt/items/properties/{claim_id,blocker_kind,owner_worker}",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "08.ROW_FIELDS (owner_worker now enum)"
+    },
+    {
+      "json_pointer": "parent:/properties/external_review_requests/items/properties/request_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/external_review_requests/items/properties/claim_ids",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "08.EXTERNAL_REVIEW"
+    },
+    {
+      "json_pointer": "parent:/properties/external_review_requests/items/properties/why_human_required",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/external_review_requests/items/properties/blocking",
+      "keyword": "const",
+      "parent_value": true,
+      "compensating_check": "08.SCHEMA (enum [true])"
+    },
+    {
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/properties/snapshot_sha256",
+      "keyword": "pattern",
+      "parent_value": "^[a-f0-9]{64}$",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/properties/retrieved_at",
+      "keyword": "format",
+      "parent_value": "date-time",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/properties/{source_ref,official_url}",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/properties/issuer_current_edition_sha256",
+      "keyword": "pattern",
+      "parent_value": "^[a-f0-9]{64}$",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/allOf/0",
+      "keyword": "allOf(if status PASS then edition non-placeholder, effective_date YYYY-MM-DD, issuer current-edition ref+sha)",
+      "parent_value": "see contract",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE, 08.LIVENESS_COVERAGE"
+    }
+  ],
+  "dropped_constraints_note": "json_pointer values prefixed 'parent:' address the PARENT schema and 'contract:' the local receipt contract; the adapter itself uses no soft keyword (strict-lint ok without exemptions).",
+  "added_invariants": [
+    {
+      "rule": "candidate_sha256 echo + input membership; flagged artifact_hash must be a candidate member",
+      "check": "08.CANDIDATE_ECHO, 08.INPUT_MEMBERSHIP, 08.FLAGGED_BINDING"
+    },
+    {
+      "rule": "tier first; reputable/unverified claims never auto-pass (must carry debt or a flag)",
+      "check": "08.TIER_FIRST"
+    },
+    {
+      "rule": "every cited source has a PASS receipt with dated effective_date + issuer current-edition confirmation, unless an accepted disposition; else HOLD (FAIL if PASS claimed)",
+      "check": "08.LIVENESS_COVERAGE"
+    },
+    {
+      "rule": "receipt age <= max_receipt_age_hours (24) relative to context.now_utc; HOLD without now_utc",
+      "check": "08.LIVENESS_AGE"
+    },
+    {
+      "rule": "auditor actor/session/provider family absent from candidate + prompt-template lineage",
+      "check": "08.INDEPENDENCE"
+    },
+    {
+      "rule": "source-supported blocking finding (own or scoped peer on the same candidate) => no PASS; not outvotable",
+      "check": "08.DISSENT_NOT_OUTVOTED"
+    },
+    {
+      "rule": "verdict cannot be PASS with any required_checks_not_run or a non-PASS executed check",
+      "check": "08.REQUIRED_CHECKS_RUN, 08.VERDICT_CONSISTENCY"
+    }
+  ],
+  "sentinels": [
+    {
+      "field": "/source_refs/image_scout_plan, /source_refs/curriculum_unit_map",
+      "value": "deferred:not_applicable_pilot",
+      "binding": "contracts/media-disposition.json (20A inactive) / no 19A artifact",
+      "check": "08.ENVELOPE",
+      "compensating_check": "08.ENVELOPE"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/08.content_facts/v1-projected.json",
+      "sha256": "3edbd47b3c17bf10296280acd859219f48892f45245cc97cfa4503734ba5a2a7",
+      "context_path": "tools/belt/fixtures/08.content_facts/context-v1.json",
+      "kind": "v1_projected_with_synthetic_candidate",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/08-fact-report.json",
+        "sha256": "6cc1954657a5ab544c5f58efdbfc93a10ac6a25e2e8ede8bd664bc91edab85d6"
+      },
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "generated by tools/belt/project/08-content-facts.mjs --write; decisions + pin resolution in _fixture",
+        "8-hex V1 input pins resolved to declared artifact_hash values only on prefix match",
+        "liveness receipts projected from 15-source-registry as VERIFICATION_DEBT (no effective date/current-edition evidence in V1)",
+        "V1 FAILs under v0.4.0: session_scripts + source_liveness inputs absent, PASS with unrun required checks, undated/unconfirmed receipts, receipts 42h old at synthetic now_utc, anthropic auditor = anthropic authors"
+      ],
+      "context_sha256": "e16eb8856040c56b6ea07f21d77726d3117ed6f1bd4796e053c8f997b0f03353"
+    },
+    {
+      "path": "tools/belt/fixtures/08.content_facts/synthetic-pass.json",
+      "sha256": "d7966b49ccc4b04a2ca24794a26e56b85326c21b246a9e60f0d38b7aeed59a00",
+      "context_path": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "kind": "synthetic",
+      "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "fictional Examplia candidate shared with 07; one dated PASS receipt 4h old; anthropic auditor vs meta authors + openai prompt authors"
+      ],
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1"
+    },
+    {
+      "path": "tools/belt/fixtures/08.content_facts/synthetic-neg-candidate-mismatch.json",
+      "sha256": "7561256997d138a9eb3f933f0c70f2eab32da5fe987c0a7c2c0f58ec49fbaa06",
+      "context_path": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "kind": "synthetic_negative",
+      "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "mismatched candidate hash -> 08.CANDIDATE_ECHO FAIL"
+      ],
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1"
+    },
+    {
+      "path": "tools/belt/fixtures/08.content_facts/synthetic-neg-auditor-not-independent.json",
+      "sha256": "676e32da9fd63916c6878f3a87abcbef28f074a65c9241410c2328fab2f45668",
+      "context_path": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "kind": "synthetic_negative",
+      "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "auditor = prompt-template author (actor/session/openai) -> 08.INDEPENDENCE FAIL"
+      ],
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1"
+    },
+    {
+      "path": "tools/belt/fixtures/08.content_facts/synthetic-neg-dissent-outvoted.json",
+      "sha256": "673652142ac082033c98e99bca1f88730a3f1b16f1807ed0343b3a277dfcaa15",
+      "context_path": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "kind": "synthetic_negative",
+      "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "PASS over a source-supported blocking finding -> 08.DISSENT_NOT_OUTVOTED + 08.VERDICT_CONSISTENCY FAIL"
+      ],
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1"
+    },
+    {
+      "path": "tools/belt/fixtures/08.content_facts/synthetic-hold-undated-effective-date.json",
+      "sha256": "61637154fa5cf5a871592e0ff0e74ace5430d3c4fb9603d0bd0fc7d1618bbde8",
+      "context_path": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "kind": "synthetic_hold",
+      "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
+      "expected_status": "HOLD",
+      "transformation_notes": [
+        "honest HOLD: effective_date null, VERIFICATION_DEBT receipt, ship-blocking debt -> 08.LIVENESS_COVERAGE HOLD"
+      ],
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1"
+    }
+  ],
+  "unexecuted": [
+    {
+      "item": "Step 3/4 truth judgement: every string traced to a cited snapshot page; option defensibility; applicability",
+      "reason": "semantic auditor work; the adapter carries its results and checks binding/consistency only"
+    },
+    {
+      "item": "snapshot_sha256 / issuer_current_edition_sha256 resolution to saved bytes",
+      "reason": "no snapshot store binding in the context contract; only format is validated"
+    },
+    {
+      "item": "Order Q rule 9 exam-weight percentage vs freshly fetched issuer blueprint",
+      "reason": "needs the issuer blueprint receipt for weights; none exist for the pilot (weights unknown)"
+    },
+    {
+      "item": "Order Q rules 3/4 scaffold + doubled-article grep over learner strings",
+      "reason": "learner strings are not in the 08 report; sibling 04/05 checks own those surfaces"
+    },
+    {
+      "item": "prompt 08 severity vocabulary blocking|major|minor vs adapter low|medium|high|blocking",
+      "reason": "not reconcilable inside the lane (prompts/ are Sol-owned); recorded as a deviation"
+    },
+    {
+      "item": "provider strict-mode acceptance of this adapter",
+      "reason": "no endpoint call is authorized"
+    }
+  ],
+  "checks_module_sha256": "e649a6fa5e35d0af5b15c27f40d48405ce39f1b12163206a24808c6163e23410"
+}

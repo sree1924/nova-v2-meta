@@ -1,0 +1,396 @@
+{
+  "_fixture": {
+    "kind": "v1_projected_context",
+    "label": "context for the V1 projection: the V1 SourceRegistry embedded verbatim; no input manifest exists for V1",
+    "source": {
+      "path": "D:/nova/runs/2026-06-11-citizenship/15-source-registry.json",
+      "sha256": "fc1a3e7c63b921c81cf152a1eb313d43e10c1b02e27db831bf29fa3e76027e88"
+    }
+  },
+  "source_registry": {
+    "minted_by": {
+      "model": "sonnet",
+      "lane": "mint",
+      "pass": 1
+    },
+    "probe": "us-citizenship",
+    "schema_version": "1.0.0-contract-derived",
+    "artifact": "SourceRegistry",
+    "registry_version": "1.0",
+    "updated": "2026-06-12T18:16:47.120Z",
+    "artifact_hash": "sha256:1a1459a892107c37af92cf50e22f6c511e3d63996d93c8b9bc7fffe61d329fad",
+    "sources": [
+      {
+        "source_ref": "src:us-citizenship:uscis:001",
+        "blueprint_s_code": "S1",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "128 Civics Questions and Answers (2025 version) — Form M-1778 (09/25)",
+        "locator": {
+          "url": "https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf",
+          "local_snapshot": "sources/2025-Civics-Test-128-Questions-and-Answers.pdf",
+          "local_extracted_text": "sources/128qa-extracted.txt",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:f280608c0fb6dc1eba344b4746a7ba52d02fe411fba30cedd4371819f0abe11c",
+        "extracted_text_hash": "sha256:222cda42ffa1ce38030694b9c2f2c2d264e8488f87ac7e80d26c7d8b03fc4263",
+        "refresh_cadence": "365d",
+        "expires_or_review_by": "2027-06-11",
+        "refresh_policy": "Per official bank revision; USCIS republishes M-1778 when test changes (last: Sep 2025 — 2025 version implementing EO 14161). Re-pull on each major bank version release.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Primary corpus: all 128 Q&A verbatim. PDF metadata: created 2025-09-26, modified 2025-10-14. Public-domain U.S. government work. Fetched HTTP 200 via curl+browser-UA (JAM-03 route). anchors 128 per-fact source_refs (Q1-Q128 in blueprint knowledge[])."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:002",
+        "blueprint_s_code": "S2",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "2025 Civics Test — uscis.gov (Last Reviewed/Updated 09/17/2025)",
+        "locator": {
+          "url": "https://www.uscis.gov/citizenship-resource-center/naturalization-test-and-study-resources/2025-civics-test",
+          "local_snapshot": "sources/2025-civics-test.html",
+          "local_extracted_text": "sources/2025-civics-test.txt",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:4d401632425454d9b476f8f02f7f938bab05f0c3a69bc2a6cd1602500b936949",
+        "extracted_text_hash": "sha256:4ed6b7d87d752180e6d79af4c70d415eadb6ea943775a38ea90d13555059518e",
+        "refresh_cadence": "90d",
+        "expires_or_review_by": "2026-09-11",
+        "refresh_policy": "Re-pull each build (per blueprint updatable U10: static rule, re-confirm each build). Also re-pull after any USCIS policy update or test version change.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Anchors: exam pass/fail rules (12-correct/9-incorrect), test version applicability rule (N-400 filed on/after Oct 20 2025), early-stop rule. Co-anchors U10 with S3."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:003",
+        "blueprint_s_code": "S3",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "Check for Test Updates — uscis.gov/citizenship/testupdates (Last Reviewed/Updated 09/18/2025)",
+        "locator": {
+          "url": "https://www.uscis.gov/citizenship/testupdates",
+          "local_snapshot": "sources/testupdates.html",
+          "local_extracted_text": "sources/testupdates.txt",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:2f4e1e401df9c0312fdcfd83878db662f14711be02a6573b40f6781676227735",
+        "extracted_text_hash": "sha256:8e8012effc72424b1218bd25a12c00ed133265cebf7adf7c8b96fb7c7c94f078",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull EVERY build (Dynamic Facts Monitor 18 owns this cadence per blueprint U11, U1-U4, U9). Officeholder answers (president, VP, speaker, SCOTUS justices, cabinet) churn on elections/appointments. 30-day max staleness.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "The officeholder authority: U1 (president), U2 (VP/cabinet), U3 (speaker), U4 (SCOTUS CJ), U9 (test version rule), U10 (filing-date rule), U11 (re-pull marker). Must be re-fetched before each build that touches updatable facts."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:006",
+        "blueprint_s_code": "S4",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "USCIS Policy Manual Vol. 12, Part E, Chapter 2 — \"English and Civics Testing\"",
+        "locator": {
+          "url": "https://www.uscis.gov/policy-manual/volume-12-part-e-chapter-2",
+          "local_snapshot": "sources/policy-manual-12e2.html",
+          "local_extracted_text": "sources/policy-manual-12e2.txt",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:1383bc14469887ad399c74fec2bf7b9809933eea24614e19af92e67e47792d7b",
+        "extracted_text_hash": "sha256:53e84df8c889efeb084414de4c5c042363cc4e26f469d04315499a581bafc20d",
+        "refresh_cadence": "180d",
+        "expires_or_review_by": "2026-12-11",
+        "refresh_policy": "Policy manual sections update when USCIS policy changes. Re-pull semi-annually or on any USCIS policy announcement affecting the naturalization civics/English testing rules.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Anchors: test format (oral Q&A, random selection), English reading/writing test rules, exemptions (50/20, 55/15, N-648 medical), special consideration 65/20 rule, officer stop rules, retake rules. Cited in exam_meta, not per-fact source_refs. Snapshot present."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:004",
+        "blueprint_s_code": "S5a",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "Reading Vocabulary for the Naturalization Test — Form M-715 (01/10)",
+        "locator": {
+          "url": "https://www.uscis.gov/sites/default/files/document/guides/M-715_reading.pdf",
+          "local_snapshot": "sources/M-715_reading.pdf",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:e399dc8070440a786480469e5748d4f4e0c56746299e6cd05020b2b130e530ae",
+        "refresh_cadence": "365d",
+        "expires_or_review_by": "2027-06-11",
+        "refresh_policy": "Static vocabulary list; re-pull annually or on any USCIS test update announcement. Form dated 01/10 — check for revision when M-1778 is revised.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Anchors fact eng.01 (reading vocabulary list). One of two M-715 forms comprising blueprint S5. Public-domain U.S. government work."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:005",
+        "blueprint_s_code": "S5b",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "Writing Vocabulary for the Naturalization Test — Form M-715 (01/10)",
+        "locator": {
+          "url": "https://www.uscis.gov/sites/default/files/document/guides/M-715_writing.pdf",
+          "local_snapshot": "sources/M-715_writing.pdf",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:b645226dfe37c8cf533b72704675f6cb118e68b8035247cd23e3e63f01248236",
+        "refresh_cadence": "365d",
+        "expires_or_review_by": "2027-06-11",
+        "refresh_policy": "Static vocabulary list; re-pull annually or on any USCIS test update announcement. Form dated 01/10 — check for revision when M-1778 is revised.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Anchors fact eng.02 (writing vocabulary list). One of two M-715 forms comprising blueprint S5. Public-domain U.S. government work."
+      },
+      {
+        "source_ref": "src:us-citizenship:uscis:007",
+        "blueprint_s_code": "S6",
+        "publisher": "USCIS (U.S. Citizenship and Immigration Services)",
+        "title": "Naturalization Test Performance — uscis.gov",
+        "locator": {
+          "url": "https://www.uscis.gov/citizenship-resource-center/naturalization-related-data-and-statistics/naturalization-test-performance",
+          "local_snapshot_primary": "sources/test-performance.html",
+          "local_snapshot_alt1": "sources/natz-stats.html",
+          "local_snapshot_alt2": "sources/natz-statistics.html",
+          "fetch_route": "curl+browser-UA",
+          "snapshot_note": "Three snapshot files present; primary is test-performance.html (URL-matched); natz-stats.html and natz-statistics.html are parallel fetches of the statistics page at a related URL (uscis.gov/...naturalization-related-data-and-statistics)"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:af27a7b8a094c09bf13d6d0dfa82696faf1aac696cb3b216db52ecf467fd8495",
+        "refresh_cadence": "180d",
+        "expires_or_review_by": "2026-12-11",
+        "refresh_policy": "Statistics page; re-pull semi-annually or when USCIS publishes updated naturalization data. Anchors retake policy (S6 ref in exam_meta).",
+        "anchors_high_risk": false,
+        "high_risk_kinds": [],
+        "status": "active",
+        "notes": "Cited in exam_meta (retake policy). Not referenced in per-fact source_refs. Snapshot present (test-performance.html). Two additional related-URL snapshots in sources/."
+      },
+      {
+        "source_ref": "src:us-citizenship:whitehouse:001",
+        "blueprint_s_code": null,
+        "publisher": "The White House (whitehouse.gov)",
+        "title": "White House Administration — whitehouse.gov/administration",
+        "locator": {
+          "url": "https://www.whitehouse.gov/administration/",
+          "local_snapshot": "sources/wh-admin.html",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:e2462cb66aebab69c5733582b2eae3a3cca6ec5c473da70e6478921bfc287c79",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull each build alongside S3/testupdates. Officeholder answers (president, VP, cabinet) churn on elections and appointments. 30-day max staleness; must refresh after any inauguration or cabinet change.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Cross-check source for U1 (president/name) and U2 (VP, cabinet list). Cited in updatable source_ref strings as \"whitehouse.gov/administration (cross-checked 2026-06-11)\"."
+      },
+      {
+        "source_ref": "src:us-citizenship:speaker-gov:001",
+        "blueprint_s_code": null,
+        "publisher": "Office of the Speaker of the House (speaker.gov)",
+        "title": "Speaker.gov — current House Speaker",
+        "locator": {
+          "url": "https://www.speaker.gov/",
+          "local_snapshot": "sources/speaker.html",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:e932ce0d109ee8290366a003da0c6e6cc18dec8cc04acbe98b5e273e3fb97160",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull each build alongside S3/testupdates. Speaker can change on election or House vote. 30-day max staleness.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Cross-check source for U3 (House Speaker name). Cited in updatable source_ref string as \"speaker.gov (cross-checked 2026-06-11)\"."
+      },
+      {
+        "source_ref": "src:us-citizenship:supremecourt:001",
+        "blueprint_s_code": null,
+        "publisher": "Supreme Court of the United States (supremecourt.gov)",
+        "title": "Supreme Court Justices Biographies — supremecourt.gov/about/biographies.aspx",
+        "locator": {
+          "url": "https://www.supremecourt.gov/about/biographies.aspx",
+          "local_snapshot": "sources/scotus-bios.html",
+          "fetch_route": "curl+browser-UA"
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": "sha256:0d7bd5fcf15779a8de6065e50ad175a657e0ca6f983560ec038f1d00f0cfee9f",
+        "refresh_cadence": "90d",
+        "expires_or_review_by": "2026-09-11",
+        "refresh_policy": "Re-pull each build alongside S3/testupdates. Chief Justice changes only on appointment/retirement; 90-day cadence is conservative. Refresh immediately on any SCOTUS vacancy news.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Cross-check source for U4 (Chief Justice name). Cited in updatable source_ref string as \"supremecourt.gov/about/biographies.aspx (cross-checked 2026-06-11)\"."
+      },
+      {
+        "source_ref": "src:us-citizenship:senate-gov:001",
+        "blueprint_s_code": null,
+        "publisher": "United States Senate (senate.gov)",
+        "title": "U.S. Senate — Official Senator Directory",
+        "locator": {
+          "url": "https://www.senate.gov",
+          "local_snapshot": null,
+          "fetch_route": "curl+browser-UA",
+          "snapshot_note": "No local snapshot captured at stage 02. Per-user dynamic fact (U5: user's 2 senators depend on their state); re-fetch at build time per [S3] instruction."
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": null,
+        "snapshot_hash_flag": "NO_LOCAL_SNAPSHOT — per-user dynamic; re-fetch at build time",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull each build + after every Senate election. Per [S3] instruction for U5 (user's state senators). No static snapshot useful; per-user state lookup required.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Source for U5 (your two U.S. senators — per-user, state-dependent). Snapshot null: no single snapshot captures a per-user value. Must be fetched at build/study-session time with user's state."
+      },
+      {
+        "source_ref": "src:us-citizenship:house-gov:001",
+        "blueprint_s_code": null,
+        "publisher": "United States House of Representatives (house.gov)",
+        "title": "U.S. House of Representatives — \"Find Your Representative\"",
+        "locator": {
+          "url": "https://www.house.gov",
+          "local_snapshot": null,
+          "fetch_route": "curl+browser-UA",
+          "snapshot_note": "No local snapshot captured. Per-user dynamic fact (U6: user's representative depends on their congressional district). Re-fetch at build time per [S3] instruction."
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": null,
+        "snapshot_hash_flag": "NO_LOCAL_SNAPSHOT — per-user dynamic; re-fetch at build time",
+        "refresh_cadence": "30d",
+        "expires_or_review_by": "2026-07-11",
+        "refresh_policy": "Re-pull each build + after every House election. Per [S3] instruction for U6 (user's House representative). No static snapshot useful; requires user's ZIP/district.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Source for U6 (your U.S. representative — per-user, district-dependent). Snapshot null for same reason as senate.gov U5."
+      },
+      {
+        "source_ref": "src:us-citizenship:usa-gov:001",
+        "blueprint_s_code": null,
+        "publisher": "USA.gov (General Services Administration)",
+        "title": "States and Territories — usa.gov/states-and-territories",
+        "locator": {
+          "url": "https://www.usa.gov/states-and-territories",
+          "local_snapshot": null,
+          "fetch_route": "curl+browser-UA",
+          "snapshot_note": "No local snapshot captured. Per-user dynamic fact (U7: governor depends on user's state; U8: state capital also state-dependent). Re-fetch at build time per [S3] instruction."
+        },
+        "trust_tier": "official_body",
+        "is_official": true,
+        "retrieved_at": "2026-06-11T00:00:00Z",
+        "snapshot_hash": null,
+        "snapshot_hash_flag": "NO_LOCAL_SNAPSHOT — per-user dynamic; re-fetch at build time",
+        "refresh_cadence": "90d",
+        "expires_or_review_by": "2026-09-11",
+        "refresh_policy": "Re-pull each build + after gubernatorial elections. U7 (governor) changes on elections; U8 (state capital) is static but re-confirmed annually. Per [S3] instruction.",
+        "anchors_high_risk": true,
+        "high_risk_kinds": [
+          "law"
+        ],
+        "status": "active",
+        "notes": "Source for U7 (governor of your state) and U8 (capital of your state). Both are per-user/state-dependent. usa.gov is an official GSA-operated portal; trust_tier = official_body."
+      }
+    ],
+    "high_risk_gate": {
+      "high_risk_facts": 130,
+      "anchored_by_official_or_regulator": 12,
+      "rejected_low_trust": []
+    },
+    "coverage": {
+      "refs_in_blueprint": 141,
+      "refs_resolved": 141,
+      "unresolved": [],
+      "exam_meta_sources_count": 6,
+      "exam_meta_resolved": 6,
+      "exam_meta_resolution": [
+        {
+          "id": "S1",
+          "url": "https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf",
+          "resolved_to": "src:us-citizenship:uscis:001"
+        },
+        {
+          "id": "S2",
+          "url": "https://www.uscis.gov/citizenship-resource-center/naturalization-test-and-study-resources/2025-civics-test",
+          "resolved_to": "src:us-citizenship:uscis:002"
+        },
+        {
+          "id": "S3",
+          "url": "https://www.uscis.gov/citizenship/testupdates",
+          "resolved_to": "src:us-citizenship:uscis:003"
+        },
+        {
+          "id": "S4",
+          "url": "https://www.uscis.gov/policy-manual/volume-12-part-e-chapter-2",
+          "resolved_to": "src:us-citizenship:uscis:006"
+        },
+        {
+          "id": "S5",
+          "url": "https://www.uscis.gov/sites/default/files/document/guides/M-715_reading.pdf + https://www.uscis.gov/sites/default/files/document/guides/M-715_writing.pdf",
+          "resolved_to": "src:us-citizenship:uscis:004"
+        },
+        {
+          "id": "S6",
+          "url": "https://www.uscis.gov/citizenship-resource-center/naturalization-related-data-and-statistics/naturalization-test-performance",
+          "resolved_to": "src:us-citizenship:uscis:007"
+        }
+      ]
+    }
+  }
+}

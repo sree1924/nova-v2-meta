@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nova://schemas-strict/19a-curriculum-unit-map/0.4.0",
+  "title": "CurriculumUnitMap (pilot_adapter for stage 19A.units)",
+  "description": "Tool-assisted deterministic unit map. user_cycle includes module_hub with hub_options; mastery_gate is bound by ref to the accepted LearningLoop as product policy; production_gate is capped at preview_only|blocked|diagnostic_only (production_ready is not representable); integrity counts are computed by script. The parent allOf (production_ready => zero integrity defects), tenant-dir pattern, bounds and reference resolution are compensating checks in tools/belt/checks/19a-units.mjs. Meta strict subset only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact", "schema_version", "adapter", "stage_id", "minted_by", "probe", "lineage", "product_line", "source_refs", "units", "exam_modes", "media", "production_gate", "integrity", "integrity_computed_by"],
+  "properties": {
+    "artifact": { "type": "string", "enum": ["CurriculumUnitMap"] },
+    "schema_version": { "type": "string", "enum": ["1.0.0"] },
+    "adapter": { "type": "string", "enum": ["pilot_adapter@0.4.0"] },
+    "stage_id": { "type": "string", "enum": ["19A.units"] },
+    "minted_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "lane", "pass"],
+      "properties": { "model": { "type": "string" }, "lane": { "type": "string" }, "pass": { "type": "string" } }
+    },
+    "probe": { "type": "string" },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input_manifest_sha256", "candidate_lineage_id"],
+      "properties": {
+        "input_manifest_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "candidate_lineage_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "product_line": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["product_line_id", "tenant_id", "tenant_dir", "tenant_dir_kind", "source_run", "isolation"],
+      "properties": {
+        "product_line_id": { "type": "string" },
+        "tenant_id": { "type": "string" },
+        "tenant_dir": { "type": "string" },
+        "tenant_dir_kind": { "type": "string", "enum": ["canonical_tenant", "pilot_lane_path"] },
+        "source_run": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "isolation": { "type": "string", "enum": ["one_product_one_tenant_dir"] }
+      }
+    },
+    "source_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["knowledge_graph", "carddeck", "session_scripts", "exambank", "learning_loop", "media_disposition", "image_scout_pre_kg", "image_scout_post_kg", "image_asset_manifest"],
+      "properties": {
+        "knowledge_graph": { "type": "string" },
+        "carddeck": { "type": "string" },
+        "session_scripts": { "type": "string" },
+        "exambank": { "type": "string" },
+        "learning_loop": { "type": "string" },
+        "media_disposition": { "type": "string" },
+        "image_scout_pre_kg": { "type": "string", "enum": ["deferred:not_applicable_pilot"] },
+        "image_scout_post_kg": { "type": "string", "enum": ["deferred:not_applicable_pilot"] },
+        "image_asset_manifest": { "type": "string", "enum": ["deferred:not_applicable_pilot"] }
+      }
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["unit_id", "module_id", "order", "title", "domain", "node_ids", "session_ref", "card_ids", "quiz_item_ids", "mock_item_ids", "practice_form_ids", "media_slot_ids", "readiness_domain", "user_cycle", "hub_options", "hub_unlock", "mastery_gate"],
+        "properties": {
+          "unit_id": { "type": "string" },
+          "module_id": { "type": "string" },
+          "order": { "type": "integer" },
+          "title": { "type": "string" },
+          "domain": { "type": "string" },
+          "node_ids": { "type": "array", "items": { "type": "string" } },
+          "session_ref": { "type": "string" },
+          "card_ids": { "type": "array", "items": { "type": "string" } },
+          "quiz_item_ids": { "type": "array", "items": { "type": "string" } },
+          "mock_item_ids": { "type": "array", "items": { "type": "string" } },
+          "practice_form_ids": { "type": "array", "items": { "type": "string" } },
+          "media_slot_ids": { "type": "array", "items": { "type": "string" } },
+          "readiness_domain": { "type": "string" },
+          "user_cycle": { "type": "array", "items": { "type": "string", "enum": ["session", "flashcards", "module_hub", "module_quiz", "missed_review", "spaced_review", "mock_exam"] } },
+          "hub_options": { "type": "array", "items": { "type": "string", "enum": ["module_quiz", "flashcards", "session"] } },
+          "hub_unlock": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["requires", "rule_source"],
+            "properties": {
+              "requires": { "type": "array", "items": { "type": "string", "enum": ["lesson_complete", "all_cards_seen"] } },
+              "rule_source": { "type": "string", "enum": ["learning_loop"] }
+            }
+          },
+          "mastery_gate": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["quiz_threshold_pct", "missed_items_must_be_cleared", "policy_source", "provenance_kind", "learning_loop_ref", "learning_loop_sha256"],
+            "properties": {
+              "quiz_threshold_pct": { "type": "number" },
+              "missed_items_must_be_cleared": { "type": "boolean" },
+              "policy_source": { "type": "string", "enum": ["learning_loop"] },
+              "provenance_kind": { "type": "string", "enum": ["product_policy"] },
+              "learning_loop_ref": { "type": "string" },
+              "learning_loop_sha256": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "exam_modes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["mode_id", "kind", "title", "item_ids", "form_ids", "scoring_policy"],
+        "properties": {
+          "mode_id": { "type": "string" },
+          "kind": { "type": "string", "enum": ["module_quiz", "diagnostic", "mock_exam", "practice_pool"] },
+          "title": { "type": "string" },
+          "item_ids": { "type": "array", "items": { "type": "string" } },
+          "form_ids": { "type": "array", "items": { "type": "string" } },
+          "scoring_policy": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["passing_threshold", "result_language", "blocks_production_if_unknown"],
+            "properties": {
+              "passing_threshold": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["value", "status", "source_page"],
+                "properties": {
+                  "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "status": { "type": "string", "enum": ["unknown", "verified", "authored"] },
+                  "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                }
+              },
+              "result_language": { "type": "string", "enum": ["pass_fail", "diagnostic_only", "practice_only"] },
+              "blocks_production_if_unknown": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_slot_ids", "optional_slot_ids", "exempt_by_disposition"],
+      "properties": {
+        "required_slot_ids": { "type": "array", "items": { "type": "string" } },
+        "optional_slot_ids": { "type": "array", "items": { "type": "string" } },
+        "exempt_by_disposition": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "production_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason", "blockers"],
+      "properties": {
+        "status": { "type": "string", "enum": ["preview_only", "blocked", "diagnostic_only"] },
+        "reason": { "type": "string" },
+        "blockers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["units_missing_sessions", "units_missing_cards", "units_missing_quizzes", "orphan_card_refs", "orphan_quiz_item_refs", "orphan_session_refs", "unresolved_required_media", "cross_product_refs", "duplicate_bindings", "module_unit_mismatches"],
+      "properties": {
+        "units_missing_sessions": { "type": "integer" },
+        "units_missing_cards": { "type": "integer" },
+        "units_missing_quizzes": { "type": "integer" },
+        "orphan_card_refs": { "type": "integer" },
+        "orphan_quiz_item_refs": { "type": "integer" },
+        "orphan_session_refs": { "type": "integer" },
+        "unresolved_required_media": { "type": "integer" },
+        "cross_product_refs": { "type": "integer" },
+        "duplicate_bindings": { "type": "integer" },
+        "module_unit_mismatches": { "type": "integer" }
+      }
+    },
+    "integrity_computed_by": { "type": "string", "enum": ["script"] }
+  }
+}

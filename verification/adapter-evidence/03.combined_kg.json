@@ -1,0 +1,608 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "03.combined_kg",
+  "adapter_schema": {
+    "path": "schemas-strict/03-knowledge-graph.schema.json",
+    "sha256": "789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8"
+  },
+  "mapping": {
+    "path": "schemas-strict/03-knowledge-graph.mapping.json",
+    "sha256": "8d98f32f699e5bf1d9db86156ac2570ac7fd5822e8c7363ac5dade82a8127e6f",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 14,
+    "dropped_constraints": 11,
+    "sentinels": [
+      {
+        "field": "/source_refs/image_scout_pre_kg",
+        "value": "deferred:not_applicable_pilot",
+        "binding": "contracts/media-disposition.json inactive_roles includes 20A and non_applicable_checks includes 'pre/post image scout plans'",
+        "check": "03.SCOUT_SENTINEL",
+        "compensating_check": "03.SCOUT_SENTINEL"
+      },
+      {
+        "field": "/nodes/*/official_weight, /modules/*/official_weight",
+        "kind": "official_number_record",
+        "shape": "{value: null|number, status: unknown|verified|authored, source_page: null|string}",
+        "rule": "unknown => null; verified => value + registered source_page; authored => value present and never compared as official_verified",
+        "compensating_check": "03.WEIGHT_HONESTY"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/knowledge-graph.schema.json",
+    "sha256_pinned": "19081f3514098118383a65b32534fde9730d2f1b001a01a3c2ef6606db9bf2bc",
+    "sha256_actual": "19081f3514098118383a65b32534fde9730d2f1b001a01a3c2ef6606db9bf2bc",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 7
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "03.combined_kg",
+      "fixture": "tools/belt/fixtures/03.combined_kg/v1-projected.json",
+      "sha256": "655e565a21284efb37bac10937e5a14ce7cb2cea34e3983600c59c05247c0927",
+      "context": "tools/belt/fixtures/03.combined_kg/v1-projected.context.json",
+      "context_sha256": "2e22e0308075d6e8a8f6aa43698ecf845c35c4cd5f900e9553a67af02c578fb9",
+      "kind": "v1_projected",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "03.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LINEAGE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "03.ID_INTEGRITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_GAPS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_ROUTE_BACK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONTOLOGY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGE_TYPED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "03.EDGES_MIRROR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ACYCLIC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONE_MODULE_PER_NODE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_TOPOLOGICAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.HIGH_YIELD_SET",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "03.CONFUSABLE_SOURCE_BOUND",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "03.FACT_IDS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.WEIGHT_HONESTY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.VERIFIED_WEIGHTS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.DOMAIN_EMPHASIS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.WEIGHT_CLOSURE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG05_ASSERTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.CURRICULUM_HINTS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "03.SCOUT_SENTINEL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LEARNING_INPUT_BOUND",
+          "status": "FAIL"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "fixture": "tools/belt/fixtures/03.combined_kg/synthetic-positive.json",
+      "sha256": "bab85a1ba30efdb9bb69e0a52baa521f18cb6b6700caf5a25115ac0d18b53ef2",
+      "context": "tools/belt/fixtures/03.combined_kg/synthetic-positive.context.json",
+      "context_sha256": "2f9ad2aaccdce2f315e62e96c5eeb8d3c1ca52445dca721431eb6ca1937ca467",
+      "kind": "synthetic",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "03.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ID_INTEGRITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_GAPS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_ROUTE_BACK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONTOLOGY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGE_TYPED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGES_MIRROR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ACYCLIC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONE_MODULE_PER_NODE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_TOPOLOGICAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.HIGH_YIELD_SET",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.CONFUSABLE_SOURCE_BOUND",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.FACT_IDS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.WEIGHT_HONESTY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.VERIFIED_WEIGHTS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.DOMAIN_EMPHASIS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.WEIGHT_CLOSURE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG05_ASSERTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.CURRICULUM_HINTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.SCOUT_SENTINEL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LEARNING_INPUT_BOUND",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "fixture": "tools/belt/fixtures/03.combined_kg/synthetic-negative-fabricated-weight.json",
+      "sha256": "504366bada49178e87fe1ff660b7a7df1aafe1a76dfdd761cc0bd58f7c13610d",
+      "context": "tools/belt/fixtures/03.combined_kg/synthetic-negative-fabricated-weight.context.json",
+      "context_sha256": "2f9ad2aaccdce2f315e62e96c5eeb8d3c1ca52445dca721431eb6ca1937ca467",
+      "kind": "synthetic",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "03.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ID_INTEGRITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_GAPS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_ROUTE_BACK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONTOLOGY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGE_TYPED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGES_MIRROR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ACYCLIC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONE_MODULE_PER_NODE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_TOPOLOGICAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.HIGH_YIELD_SET",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.CONFUSABLE_SOURCE_BOUND",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.FACT_IDS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.WEIGHT_HONESTY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "03.VERIFIED_WEIGHTS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.DOMAIN_EMPHASIS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "03.WEIGHT_CLOSURE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG05_ASSERTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.CURRICULUM_HINTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.SCOUT_SENTINEL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LEARNING_INPUT_BOUND",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "fixture": "tools/belt/fixtures/03.combined_kg/synthetic-negative-cycle.json",
+      "sha256": "2c66241f5e152e12c43369463a9821dafb33d80ddc24a8af5d11ad1fcd5ab3b4",
+      "context": "tools/belt/fixtures/03.combined_kg/synthetic-negative-cycle.context.json",
+      "context_sha256": "2f9ad2aaccdce2f315e62e96c5eeb8d3c1ca52445dca721431eb6ca1937ca467",
+      "kind": "synthetic",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "03.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ID_INTEGRITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_GAPS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_ROUTE_BACK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONTOLOGY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGE_TYPED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGES_MIRROR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ACYCLIC",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "03.ONE_MODULE_PER_NODE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_TOPOLOGICAL",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "03.HIGH_YIELD_SET",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.CONFUSABLE_SOURCE_BOUND",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.FACT_IDS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.WEIGHT_HONESTY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.VERIFIED_WEIGHTS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.DOMAIN_EMPHASIS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.WEIGHT_CLOSURE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG05_ASSERTIONS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "03.CURRICULUM_HINTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.SCOUT_SENTINEL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LEARNING_INPUT_BOUND",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "fixture": "tools/belt/fixtures/03.combined_kg/synthetic-hold-no-context.json",
+      "sha256": "dd24ec9410977901ba44b23bf58157551f6a8c8ef27d61e1e98f2a40afff61b6",
+      "context": null,
+      "context_sha256": null,
+      "kind": "synthetic",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "03.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.LINEAGE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "03.ID_INTEGRITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_GAPS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG01_ROUTE_BACK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONTOLOGY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGE_TYPED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.EDGES_MIRROR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ACYCLIC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.ONE_MODULE_PER_NODE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.PATH_TOPOLOGICAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.HIGH_YIELD_SET",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "03.CONFUSABLE_SOURCE_BOUND",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.FACT_IDS_REGISTERED",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "03.WEIGHT_HONESTY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.VERIFIED_WEIGHTS_REGISTERED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.DOMAIN_EMPHASIS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.WEIGHT_CLOSURE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.KG05_ASSERTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.CURRICULUM_HINTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "03.SCOUT_SENTINEL",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "03.LEARNING_INPUT_BOUND",
+          "status": "HOLD"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": {
+    "file": "tests/belt/03-combined-kg.test.mjs",
+    "stage_id": "03.combined_kg",
+    "command": "node --test tests/belt/03-combined-kg.test.mjs",
+    "exit_code": 0,
+    "pass": 16,
+    "fail": 0,
+    "skipped": 0,
+    "tap_sha256": "d1cf2e782f01c3d4805825d43b415564fdde41b6c83de80337b69377c37f08e7"
+  },
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

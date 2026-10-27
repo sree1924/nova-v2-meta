@@ -1,0 +1,164 @@
+{
+  "schema_version": "qualification-criteria.04.v0.4.0",
+  "criteria_version": "0.4.0",
+  "role_id": "04",
+  "status": "FROZEN_CRITERIA",
+  "definition_only": true,
+  "execution_authority": false,
+  "scope": {
+    "product": "regular non-commercial passenger-car written/knowledge-test preparation",
+    "chapter_class": "text_first_selected_handbook_chapter",
+    "state_selection": "binding_instance_required",
+    "minimum_card_count": 25,
+    "target_card_count": 25,
+    "road_sign_recognition_qualified": false,
+    "road_sign_image_qualification": "separate_later_task_with_bound_role15_sign_intake"
+  },
+  "canonical_contract": {
+    "path": "factory/workers/04-flashcard-engineer.md",
+    "sha256": "ce0ce21843ee327138cab43252369c780868cacd1ed95dce4859fa5c3b732db3"
+  },
+  "canonical_parent_schema": {
+    "path": "schemas/carddeck.schema.json",
+    "sha256": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93"
+  },
+  "adapter": {
+    "path": "schemas-strict/04-carddeck.schema.json",
+    "hash_owner": "binding_instance",
+    "kind": "explicit_pilot_adapter",
+    "post_validator_ref": "tools/belt/post-validate.mjs",
+    "mapping_manifest_ref": "schemas-strict/README.md"
+  },
+  "required_input_kinds": [
+    "run_config",
+    "source_document",
+    "source_chapter",
+    "page_map",
+    "knowledge_graph",
+    "blueprint",
+    "source_registry",
+    "media_disposition"
+  ],
+  "heldout": {
+    "item_count": 15,
+    "minimum_covered_correct": 15,
+    "maximum_contradicted": 0,
+    "maximum_qualifier_loss": 0,
+    "maximum_not_covered": 0,
+    "outcomes": [
+      "covered_correct",
+      "qualifier_loss",
+      "contradicted",
+      "not_covered"
+    ],
+    "sealed_before_generation": true,
+    "ledger_sequence_must_precede_attempt": true,
+    "independent_auditor_call_receipt_required": true,
+    "hidden_from_generator": true
+  },
+  "independence": {
+    "levels": [
+      "actor_id",
+      "session_id",
+      "provider_family"
+    ],
+    "candidate_authors_disqualified": true,
+    "authoring_prompt_authors_disqualified": true,
+    "minimum_eligible_audit_families": 2,
+    "generating_family_disqualified": true,
+    "incomplete_lineage_blocks": true
+  },
+  "originality": {
+    "max_contiguous_source_words": 12,
+    "normalization": "Unicode NFKC + lowercase; consecutive Unicode letter/number tokens; punctuation and whitespace separate tokens.",
+    "scope": "All learner fields separately against registered full source document; source locators are metadata, not an exclusion for teaching prose."
+  },
+  "memory": {
+    "hook_max_words": 6,
+    "back_and_hook_spoken_form": true,
+    "forbidden_back_hook_pattern": "[|/%&]|\\b(?:mph|ft|oz|lbs|km/h)\\b|\\b[0-9]+(?:\\.[0-9]+)?\\s*(?:mph|ft|in|oz|lbs|km/h)\\b",
+    "hook_origin_required": true,
+    "whole_unit_decompression_owner": "05.sessions",
+    "recall_pause_owner": "05.card_scripts"
+  },
+  "limits": {
+    "max_physical_attempts": 2,
+    "maximum_source_overlap_words": 12
+  },
+  "blocking_checks": [
+    {
+      "check_id": "Q04-BOUND-INPUTS",
+      "requirement": "Confirmed state/source/chapter, accepted graph/blueprint, media disposition, criteria/binding, prompt/header, run config and adapter hashes are committed before the first attempt."
+    },
+    {
+      "check_id": "Q04-ADAPTER-POSTVALIDATION",
+      "requirement": "The exact Claude-owned local adapter and deterministic post-validator pass, with every parent deviation and retained invariant recorded. Do not claim unchanged parent conformance where the adapter deliberately deviates."
+    },
+    {
+      "check_id": "Q04-COUNT-COVERAGE",
+      "requirement": "At least25 genuine cards from accepted nodes, with no duplicate padding; accepted nodes covered or explicitly justified merges; stable IDs and source refs."
+    },
+    {
+      "check_id": "Q04-FACTS-HELDOUT",
+      "requirement": "Exactly15 auditor-presealed source items all covered_correct. Contradicted=0, qualifier_loss=0 and not_covered=0. Missing tested facts cannot pass as zero contradictions."
+    },
+    {
+      "check_id": "Q04-PAGE-CITATIONS",
+      "requirement": "Every card resolves to an accepted selected-state source page and fact/node. Source evidence must state the claim; model memory is not source authority."
+    },
+    {
+      "check_id": "Q04-ORIGINALITY",
+      "requirement": "Longest normalized contiguous overlap in any learner field is at most12 words against the registered full source document."
+    },
+    {
+      "check_id": "Q04-HOOK-FIDELITY",
+      "requirement": "Every card has a source-true hook of at most6 words, declared hook_origin and faithful back conversion. Card backs/hooks are spoken-form text; no new whole-unit teaching claims are assigned to04."
+    },
+    {
+      "check_id": "Q04-MEDIA-DISPOSITION",
+      "requirement": "The first qualification is text-first with image cards disabled; page-sourced verbal cues require facts. Road-sign recognition/image capability needs a separate bound sign intake and qualification."
+    },
+    {
+      "check_id": "Q04-INDEPENDENCE",
+      "requirement": "Independent held-out author and all scoped auditors pass actor/session plus provider-family exclusion against candidate and authoring-prompt lineage; two eligible non-generating families are required."
+    },
+    {
+      "check_id": "Q04-PROVENANCE",
+      "requirement": "Actual standard Meta request/returned identity, rendered-request/header/body hashes, immutable raw-call evidence and candidate/output hashes resolve."
+    },
+    {
+      "check_id": "Q04-USAGE-COST-LATENCY",
+      "requirement": "All physical requests have known reconciled usage, numeric reported/estimated USD with a pricing pin and positive monotonic elapsed milliseconds."
+    },
+    {
+      "check_id": "Q04-ATTEMPT-CHRONOLOGY",
+      "requirement": "One or two physical attempts; held-out seal and binding ledger commits strictly precede first attempt by sequence; timestamps also ordered; committed audited seal is backed by a distinct auditor call receipt."
+    }
+  ],
+  "separate_05_teaching_acceptance": {
+    "schema": {
+      "path": "contracts/teaching-unit.schema.json",
+      "sha256": "0eb8189a6d4aac9ac2ce455c9d65f632e88c977200280748b6173f76de3a4b35",
+      "bytes": 6864
+    },
+    "owner": "05.sessions",
+    "minimum_why_how_spans_per_unit": 1,
+    "minimum_worked_examples_per_unit": 1,
+    "minimum_misconception_corrections_per_unit": 1,
+    "minimum_memory_support_spans_per_unit": 1,
+    "minimum_aligned_self_checks_per_unit": 1,
+    "minimum_fact_id_resolution_ratio": 1,
+    "minimum_slides_per_session": 6,
+    "maximum_slides_per_session": 8,
+    "minimum_average_narration_characters": 400,
+    "title_max_words": 6,
+    "line_max_words": 15,
+    "estimated_narration_seconds_range": [
+      30,
+      60
+    ],
+    "minimum_trap_or_bridge_slides": 1,
+    "uniform_slide_count_policy": "reject_when_two_or_more_units; not_applicable_single_unit"
+  },
+  "frozen_definition_rule": "This criteria file contains no state/source/model/held-out binding values to fill. Changing criteria requires a new version/hash and review. A separate binding instance pins these exact criteria before a call."
+}

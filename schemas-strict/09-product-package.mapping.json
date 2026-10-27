@@ -1,0 +1,707 @@
+{
+  "stage_id": "09.package",
+  "version": "0.4.0",
+  "adapter_schema": {
+    "path": "schemas-strict/09-product-package.schema.json",
+    "sha256": "d5eb391b55633d4de7735a38dd0f3927edcfb511ce5592ea2f820d328b0dceb7"
+  },
+  "parent_schema": {
+    "path": "schemas/product-package.schema.json",
+    "sha256": "ed7005ca43944ebde3c5b9778c89694adeebbc6f39482ea31708dfe23520f721"
+  },
+  "parent_contract": {
+    "path": "factory/workers/09-product-publisher.md",
+    "sha256": "4fc02b5688365253b5ec5751917cfac343bc87ca684bb3ac07d01f0cd3e85e26"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "Payload meaning differs from the parent: legacy status is pinned to 'blocked' with pilot_status carrying the content-package verdict; deploy/listing/audio/scout/market refs are sentinels; audio_teacher_loop inverts the parent's openai_audio_api const; exam numbers are nullable {value,status,source_page,fact_id}; qa_gates/contents/integrity fields are renamed/restructured. No adapter document validates against the parent (e.g. parent requires qa_gates.fact, contents.voice_count, integrity.cards_with_voice).",
+  "checks_module": "tools/belt/checks/09-package.mjs",
+  "projector_module": "tools/belt/project/09-package.mjs",
+  "overlay_authority": [
+    {
+      "path": "contracts/pilot-overrides-v0.4.0.json",
+      "sha256": "35a1237a237b6e03172ca6dae063de2c552103845c2d8ef4dd5a351c6f2d37d1",
+      "pointer": "/role_overrides/09",
+      "uses": [
+        "sop_dispositions steps 1-6",
+        "state_adaptation {legacy_parent_status:blocked, pilot_status:[preview_ready,blocked], status_reason_required:true}",
+        "input_order (UiSpec before 09; B1 after)"
+      ]
+    },
+    {
+      "path": "contracts/media-disposition.json",
+      "sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd",
+      "pointer": "",
+      "uses": [
+        "inactive_roles [20,20A,20B]",
+        "non_applicable_checks (rendered audio manifest, image scout plans)",
+        "live_tts_allowed=false"
+      ]
+    },
+    {
+      "path": "contracts/pilot-finish-criteria.json",
+      "sha256": "5434ac38e675ab6a05435e95c355d9ca825033fa13650bd26413aa11940261c5",
+      "pointer": "/status_scopes",
+      "uses": [
+        "package_preview_ready vs application_preview_ready",
+        "learner_features all false",
+        "statuses.legacy_parent_status"
+      ]
+    },
+    {
+      "path": "CLAUDE-V0.4.0-SCHEMA-HANDOFF.md",
+      "sha256": null,
+      "pointer": "#required-mapping-and-invariant-coverage item 10; 09 acceptance boundary",
+      "uses": [
+        "pilot_status+status_reason",
+        "reject active OpenAI audio while role 20 inactive",
+        "status_scope content_package"
+      ]
+    },
+    {
+      "path": "contracts/ui-spec.schema.json",
+      "sha256": null,
+      "pointer": "/$defs/uiValidationReceipt",
+      "uses": [
+        "receipt shape consumed by 09.UISPEC_RECEIPTS (Sol-owned; not edited)"
+      ]
+    }
+  ],
+  "deviations": [
+    {
+      "field": "/status",
+      "parent_rule": "enum [shipped, blocked]",
+      "adapter_rule": "enum [shipped, blocked] kept for shape; check requires 'blocked'",
+      "reason": "overlay 09 state_adaptation.legacy_parent_status=blocked; prompt 09: never emit parent status:shipped for the preview",
+      "compensating_check": "09.LEGACY_STATUS_HONEST"
+    },
+    {
+      "field": "/pilot_status",
+      "parent_rule": "absent",
+      "adapter_rule": "enum [preview_ready, blocked], required",
+      "reason": "handoff item 10: the pilot verdict must be visible beside the legacy blocked",
+      "compensating_check": "09.QA_GATES_FOR_PREVIEW"
+    },
+    {
+      "field": "/status_scope",
+      "parent_rule": "absent",
+      "adapter_rule": "enum [content_package]",
+      "reason": "09 acceptance boundary: preview_ready means content package only; application readiness is a separate later receipt",
+      "compensating_check": "09.STATUS_SCOPE"
+    },
+    {
+      "field": "/status_reason",
+      "parent_rule": "absent",
+      "adapter_rule": "string, required; non-empty enforced by check",
+      "reason": "status_reason_required=true (overlay + finish criteria)",
+      "compensating_check": "09.LEGACY_STATUS_HONEST"
+    },
+    {
+      "field": "/candidate_manifest_ref, /candidate_sha256",
+      "parent_rule": "absent",
+      "adapter_rule": "string|null each",
+      "reason": "SOP step 1 BOUND: packaging binds exactly one ContentCandidateManifest; null only on a blocked package",
+      "compensating_check": "09.CANDIDATE_IN_MANIFEST"
+    },
+    {
+      "field": "/qa_gates",
+      "parent_rule": "{coverage:string, fact:string} additionalProperties:true",
+      "adapter_rule": "{coverage:{report_ref,sha256,verdict}, facts:{...}, all_assigned_providers_pass:boolean, blocking_findings:integer}",
+      "reason": "C71: exact report bytes + candidate echo + every assigned provider PASS + zero blocking findings; 'fact' renamed 'facts'",
+      "compensating_check": "09.QA_REPORTS_BINDING"
+    },
+    {
+      "field": "/uispec",
+      "parent_rule": "absent (parent lists 09-uispec.json only inside mobile_api_payload_refs)",
+      "adapter_rule": "{ref, sha256, validate_1_receipt:{schema_receipt,independent_receipt}|null, validate_2_receipt:...|null}",
+      "reason": "prompt 09: consume a validated FINAL UiSpec; receipt shape from contracts/ui-spec.schema.json $defs.uiAcceptanceBundle",
+      "compensating_check": "09.UISPEC_RECEIPTS"
+    },
+    {
+      "field": "/early_media_intent_ref, /media_disposition_ref, /media_disposition_sha256",
+      "parent_rule": "absent",
+      "adapter_rule": "{path,sha256}|null; string; string|null",
+      "reason": "handoff item 8 / C71: early media intent + text-only disposition are explicit artifacts; a late UiSpec cannot supply them",
+      "compensating_check": "09.MEDIA_DISPOSITION_BINDING"
+    },
+    {
+      "field": "/finish_criteria_ref, /finish_criteria_sha256",
+      "parent_rule": "absent (parent contract uses a PLAYBOOK finish line)",
+      "adapter_rule": "string; string|null",
+      "reason": "overlay 09 finish_line_adaptation: pilot-finish-criteria.json replaces the Playbook-plan input",
+      "compensating_check": "09.FINISH_CRITERIA_BINDING"
+    },
+    {
+      "field": "/pilot_overlay_ref, /pilot_overlay_sha256",
+      "parent_rule": "absent",
+      "adapter_rule": "string; string|null",
+      "reason": "prompt 09 binds {{pilot_overlay_ref}}@{{pilot_overlay_sha256}}",
+      "compensating_check": "09.OVERLAY_BINDING"
+    },
+    {
+      "field": "/deploy/supabase_dataset_ref, /deploy/mobile_api_payload_refs, /deploy/listing_assets_ref",
+      "parent_rule": "string; string[]; string",
+      "adapter_rule": "enum [deferred:not_applicable_pilot]; items enum [sentinel] (exactly one by check); enum [sentinel]",
+      "reason": "overlay 09 SOP step 4 ADAPTED_DEV_PREVIEW: Supabase/mobile deployment/listings deferred",
+      "compensating_check": "09.SENTINEL_BINDING"
+    },
+    {
+      "field": "/deploy/image_scout_plan_ref, /deploy/audio_manifest_ref",
+      "parent_rule": "string (audio manifest 'Required for shipped packages')",
+      "adapter_rule": "enum [deferred:not_applicable_pilot]",
+      "reason": "media-disposition: 20/20A inactive; non_applicable_checks name the rendered audio manifest and image scout plans",
+      "compensating_check": "09.SENTINEL_BINDING"
+    },
+    {
+      "field": "/deploy/curriculum_unit_map_ref (+ new curriculum_unit_map_sha256), /deploy/preview_payload_refs (new)",
+      "parent_rule": "curriculum_unit_map_ref string",
+      "adapter_rule": "string|null + sha256 string|null; preview_payload_refs [{path,sha256}]",
+      "reason": "SOP step 5 BOUND: exact output paths + hashes; unit map hash must be in the candidate manifest",
+      "compensating_check": "09.CANDIDATE_IN_MANIFEST"
+    },
+    {
+      "field": "/contents",
+      "parent_rule": "required {deck_count, card_count, voice_count, item_count, mock_count, curriculum_unit_count}, integers minimum 0, additionalProperties:true",
+      "adapter_rule": "required {deck_count, card_count, text_script_count, session_count, unit_count, item_count, form_count} integers",
+      "reason": "text-only pilot: voice→text_script, mock→declared practice form, curriculum_unit→unit; counts are script-recomputed, never model-certified",
+      "compensating_check": "09.COUNTS_RECOMPUTED"
+    },
+    {
+      "field": "/integrity",
+      "parent_rule": "required {cards_with_voice, cards_missing_voice, mocks_with_full_items, orphans, curriculum_units_missing_refs, cross_product_refs}, minimum 0",
+      "adapter_rule": "required {computed_by:enum[deterministic_script], orphans, unresolved_refs, cards_missing_text_script, forms_missing_items, units_missing_refs, cross_product_refs}",
+      "reason": "SOP step 2 ADAPTED_TEXT_ONLY: card/text-script parity + deterministic joins; audio/slide-media integrity fields non-applicable",
+      "compensating_check": "09.INTEGRITY_RECOMPUTED"
+    },
+    {
+      "field": "/exam_config",
+      "parent_rule": "{n_questions:integer>=1, domain_weights:(object|number|string)[], passing_threshold:string|number}",
+      "adapter_rule": "{practice_only:boolean, official_mirror_status:enum[unknown,verified], n_questions/passing_threshold:{value:number|null,status:enum[unknown,verified,authored],source_page,fact_id}, domain_weights:[{domain, weight:{same}}]}",
+      "reason": "handoff item 1 + source-fact-policy: unknown official numbers stay null with status; authored product policy is distinct; overlay 06 practice-only",
+      "compensating_check": "09.OFFICIAL_NUMBERS"
+    },
+    {
+      "field": "/audio_teacher_loop",
+      "parent_rule": "required {provider const openai_audio_api, generation_mode const pre_generated_batch, surfaces, silent_surfaces, output_manifest const AudioAssetManifest, runtime_policy const play_pre_generated_files_only, coverage_gate}",
+      "adapter_rule": "{provider enum[none_text_only_pilot, openai_audio_api], generation_mode enum[none, pre_generated_batch], output_manifest enum[none, AudioAssetManifest], live_tts_in_user_flow boolean}",
+      "reason": "handoff item 10 + prompt 09 'Never supply a fake OpenAI-audio const': the parent values stay in the enum only so the check can reject them with evidence while role 20 is inactive",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "field": "/learner_features",
+      "parent_rule": "absent",
+      "adapter_rule": "{auth, checkout, rendered_audio, trace_in_learner_navigation} booleans",
+      "reason": "finish-criteria learner_features all false; no auth/checkout/audio claims",
+      "compensating_check": "09.LEARNER_FEATURES_OFF"
+    },
+    {
+      "field": "/market_signal_ref",
+      "parent_rule": "string (Blueprint.market_signal for role 10)",
+      "adapter_rule": "enum [deferred:not_applicable_pilot]",
+      "reason": "BELT-V2 roster: 10 Launch & Growth inactive_for_pilot; C57 later sales handoff",
+      "compensating_check": "09.SENTINEL_BINDING"
+    },
+    {
+      "field": "/minted_by",
+      "parent_rule": "$ref #/$defs/mintedBy (additionalProperties:true)",
+      "adapter_rule": "inline {model, lane, pass} strings, additionalProperties:false",
+      "reason": "strict subset: no $ref",
+      "compensating_check": "09.PROBE_AND_VERSION"
+    },
+    {
+      "field": "/schema_version",
+      "parent_rule": "const '1.0.0'",
+      "adapter_rule": "enum ['1.0.0'] (+ new adapter_version enum ['0.4.0'])",
+      "reason": "const is a soft keyword; single-value enum is equivalent",
+      "compensating_check": "09.SCHEMA"
+    },
+    {
+      "field": "/artifact_hash",
+      "parent_rule": "optional string",
+      "adapter_rule": "omitted",
+      "reason": "the package hash is computed over the emitted bytes by the caller (hash discipline: no self-digest in the hashed body)",
+      "compensating_check": "09.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: \"\""
+    },
+    {
+      "field": "(every object)",
+      "parent_rule": "additionalProperties:true",
+      "adapter_rule": "additionalProperties:false, every property required",
+      "reason": "Meta strict subset (CONVENTIONS §1)",
+      "compensating_check": "09.SCHEMA"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "/$defs/probeSlug/pattern",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "09.PROBE_AND_VERSION"
+    },
+    {
+      "json_pointer": "/properties/package_version/minLength",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "09.PROBE_AND_VERSION"
+    },
+    {
+      "json_pointer": "/properties/schema_version/const",
+      "keyword": "const",
+      "parent_value": "1.0.0",
+      "compensating_check": "09.SCHEMA"
+    },
+    {
+      "json_pointer": "/properties/contents/properties/deck_count/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/contents/properties/card_count/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/contents/properties/voice_count/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/contents/properties/item_count/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/contents/properties/mock_count/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/contents/properties/curriculum_unit_count/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/contents/properties/session_count/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/integrity/properties/orphans/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/integrity/properties/cards_missing_voice/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/integrity/properties/curriculum_units_missing_refs/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/integrity/properties/cross_product_refs/minimum",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "json_pointer": "/properties/exam_config/properties/n_questions/minimum",
+      "keyword": "minimum",
+      "parent_value": 1,
+      "compensating_check": "09.OFFICIAL_NUMBERS"
+    },
+    {
+      "json_pointer": "/properties/exam_config/properties/domain_weights/items/anyOf",
+      "keyword": "anyOf",
+      "parent_value": "object|number|string",
+      "compensating_check": "09.OFFICIAL_NUMBERS"
+    },
+    {
+      "json_pointer": "/properties/audio_teacher_loop/properties/provider/const",
+      "keyword": "const",
+      "parent_value": "openai_audio_api",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "json_pointer": "/properties/audio_teacher_loop/properties/generation_mode/const",
+      "keyword": "const",
+      "parent_value": "pre_generated_batch",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "json_pointer": "/properties/audio_teacher_loop/properties/output_manifest/const",
+      "keyword": "const",
+      "parent_value": "AudioAssetManifest",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "json_pointer": "/properties/audio_teacher_loop/properties/runtime_policy/const",
+      "keyword": "const",
+      "parent_value": "play_pre_generated_files_only",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "json_pointer": "/properties/audio_teacher_loop/properties/coverage_gate/properties/live_tts_in_user_flow/const",
+      "keyword": "const",
+      "parent_value": false,
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "json_pointer": "/properties/audio_teacher_loop/properties/coverage_gate/properties/cards_missing_voice/const",
+      "keyword": "const",
+      "parent_value": 0,
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "json_pointer": "/properties/audio_teacher_loop/properties/coverage_gate/properties/sessions_missing_audio/const",
+      "keyword": "const",
+      "parent_value": 0,
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "json_pointer": "/allOf/0",
+      "keyword": "if/then",
+      "parent_value": "if status==shipped then qa_gates PASS+PASS, integrity zeros, provenance_preserved true",
+      "compensating_check": "09.LEGACY_STATUS_HONEST"
+    },
+    {
+      "json_pointer": "/allOf/0/then/properties/qa_gates/properties/coverage/const",
+      "keyword": "const",
+      "parent_value": "PASS",
+      "compensating_check": "09.QA_GATES_FOR_PREVIEW"
+    },
+    {
+      "json_pointer": "/allOf/0/then/properties/qa_gates/properties/fact/const",
+      "keyword": "const",
+      "parent_value": "PASS",
+      "compensating_check": "09.QA_GATES_FOR_PREVIEW"
+    },
+    {
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/cards_missing_voice/const",
+      "keyword": "const",
+      "parent_value": 0,
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/orphans/const",
+      "keyword": "const",
+      "parent_value": 0,
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/sessions_missing_audio/const",
+      "keyword": "const",
+      "parent_value": 0,
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/curriculum_units_missing_refs/const",
+      "keyword": "const",
+      "parent_value": 0,
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/cross_product_refs/const",
+      "keyword": "const",
+      "parent_value": 0,
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "json_pointer": "/allOf/0/then/properties/provenance_preserved/const",
+      "keyword": "const",
+      "parent_value": true,
+      "compensating_check": "09.PROVENANCE_RECOMPUTED"
+    }
+  ],
+  "compensating_checks": [
+    "09.LEGACY_STATUS_HONEST",
+    "09.STATUS_SCOPE",
+    "09.PROBE_AND_VERSION",
+    "09.NONNEGATIVE_COUNTS",
+    "09.HASH_FORMAT",
+    "09.QA_GATES_FOR_PREVIEW",
+    "09.QA_REPORTS_BINDING",
+    "09.CANDIDATE_IN_MANIFEST",
+    "09.UISPEC_RECEIPTS",
+    "09.MEDIA_DISPOSITION_BINDING",
+    "09.AUDIO_INACTIVE_ROLE20",
+    "09.SENTINEL_BINDING",
+    "09.FINISH_CRITERIA_BINDING",
+    "09.OVERLAY_BINDING",
+    "09.LEARNER_FEATURES_OFF",
+    "09.NO_DEPLOY_AUTH_CLAIMS",
+    "09.SOURCE_DEBT_LEAK",
+    "09.OFFICIAL_NUMBERS",
+    "09.COUNTS_RECOMPUTED",
+    "09.INTEGRITY_RECOMPUTED",
+    "09.INTEGRITY_ZERO_FOR_PREVIEW",
+    "09.PROVENANCE_RECOMPUTED",
+    "09.SCHEMA"
+  ],
+  "sentinels": [
+    {
+      "value": "deferred:not_applicable_pilot",
+      "fields": [
+        "/deploy/supabase_dataset_ref",
+        "/deploy/mobile_api_payload_refs/0",
+        "/deploy/listing_assets_ref"
+      ],
+      "authority": "contracts/pilot-overrides-v0.4.0.json /role_overrides/09/sop_dispositions step 4 ADAPTED_DEV_PREVIEW, step 6 DEFERRED_PRODUCTION",
+      "compensating_check": "09.SENTINEL_BINDING"
+    },
+    {
+      "value": "deferred:not_applicable_pilot",
+      "fields": [
+        "/deploy/image_scout_plan_ref",
+        "/deploy/audio_manifest_ref"
+      ],
+      "authority": "contracts/media-disposition.json inactive_roles [20,20A,20B] + non_applicable_checks",
+      "compensating_check": "09.SENTINEL_BINDING"
+    },
+    {
+      "value": "deferred:not_applicable_pilot",
+      "fields": [
+        "/market_signal_ref"
+      ],
+      "authority": "BELT-V2-CONTRACT.md roster: 10 Launch & Growth inactive_for_pilot; C57 later sales handoff (recorded, not machine-verified)",
+      "compensating_check": "09.SENTINEL_BINDING"
+    },
+    {
+      "value": "none_text_only_pilot / none / none",
+      "fields": [
+        "/audio_teacher_loop/provider",
+        "/audio_teacher_loop/generation_mode",
+        "/audio_teacher_loop/output_manifest"
+      ],
+      "authority": "contracts/media-disposition.json inactive_roles includes 20; rendered_audio_required=false",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "value": "{value:null,status:\"unknown\",source_page:null,fact_id:null}",
+      "fields": [
+        "/exam_config/n_questions",
+        "/exam_config/passing_threshold",
+        "/exam_config/domain_weights/*/weight"
+      ],
+      "authority": "contracts/source-fact-policy.json + CONVENTIONS sentinel vocabulary",
+      "compensating_check": "09.OFFICIAL_NUMBERS"
+    },
+    {
+      "value": "status:\"blocked\" + pilot_status",
+      "fields": [
+        "/status",
+        "/pilot_status"
+      ],
+      "authority": "overlay /role_overrides/09/state_adaptation",
+      "compensating_check": "09.LEGACY_STATUS_HONEST"
+    }
+  ],
+  "context_contract": {
+    "loader": "tools/belt/lib/fixture-context.mjs ({\"$load\": path} → parsed object + loaded_refs[dotted key] = {path, sha256})",
+    "keys": {
+      "media_disposition": "parsed contracts/media-disposition.json (hash via loaded_refs.media_disposition)",
+      "overlay": "parsed contracts/pilot-overrides-v0.4.0.json",
+      "finish_criteria": "parsed contracts/pilot-finish-criteria.json",
+      "accepted_inputs": "{carddeck|cards, card_scripts|voicescripts, sessions|teaching_units|session_scripts, curriculum_unit_map|units, exam_bank|exambank}: parsed accepted artifacts; arrays read: carddeck.decks[].cards[] (+recaps[]), card_scripts.scripts|audio_scripts|card_scripts[].card_id, sessions.sessions|units|teaching_units[], curriculum_unit_map.units[] {card_ids, quiz_item_ids, mock_item_ids, session_ref}, exam_bank.items[] + practice_forms|forms|mock_exams[].item_ids + module_quizzes[].item_ids",
+      "candidate_manifest": "parsed ContentCandidateManifest {artifacts:[{path,sha256}]}; candidate digest = loaded_refs.candidate_manifest.sha256 (or inline candidate_sha256)",
+      "qa_reports": "{coverage, facts}: parsed 07/08 reports with verdict|status, candidate_sha256, optional blocking_findings",
+      "uispec": "parsed FINAL UiSpec (hash only)",
+      "uispec_receipts": "{validate_1:{schema,independent}, validate_2:{schema,independent}} parsed uiValidationReceipt objects",
+      "exam_facts_view": "{<fact_id>: {value,status,source_page}} — required only when a number is status verified"
+    }
+  },
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/09.package/v1-projected-raw.json",
+      "kind": "v1_projection_raw",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/09-product-package.json",
+        "sha256": "f08116c4d219fcc56280ed8df85243b8360d57c448d833c02a78e0e955114883",
+        "audio_block_from": {
+          "path": "runs/2026-06-11-citizenship/launch-fixes-2026-09-05/generated-corpus-held/public/tenants/us-citizenship/09-product-package.json",
+          "sha256": "60ae1ed35a3162c0d43b44e0590fb985fb1bba8c178bb3ee5a52a57ba345fe17"
+        }
+      },
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "Legitimate FAIL: keeps V1 meaning — status shipped, audio_teacher_loop openai_audio_api (role 20 inactive), V1 counts 130 cards/128 items vs current input bytes 147/138, exam numbers 'verified' with no source_page, rendered_audio=true, no candidate/UiSpec receipts/disposition hashes",
+        "pinned V1 file has NO audio_teacher_loop block; the openai_audio_api block is taken from the later finish-line package copy and recorded in _fixture.audio_source",
+        "V1 had real rendered audio (20-audio-manifest.json, gpt-4o-mini-tts/nova, 617 files under runs/2026-06-11-citizenship/audio/) — recorded, not carried into the pilot",
+        "deploy strings mapped to sentinels structurally; originals preserved in _fixture.transformation_decisions",
+        "context: v1-projected-raw.context.json loads the contracts + V1 04/05/05b/06/07/08/09-uispec at current bytes"
+      ],
+      "sha256": "2e3fda2f038a114a2d966342260786d39d4e8a9adc38c9edd97d7cea10899e84"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/v1-projected-normalized.json",
+      "kind": "v1_projection_normalized",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/09-product-package.json",
+        "sha256": "f08116c4d219fcc56280ed8df85243b8360d57c448d833c02a78e0e955114883"
+      },
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "honest pilot reading: status blocked + pilot_status blocked (no v0.4.0 candidate manifest, candidate-scoped 07/08 or UiSpec receipts exist for these bytes)",
+        "audio → none_text_only_pilot sentinel; V1's real audio recorded in _fixture.audio_evidence (20-audio-manifest.json + finish-line package hashes)",
+        "contents/integrity recomputed from current V1 input bytes: 26 decks, 147 cards, 156 text scripts (130 card + 26 recap), 26 sessions, 0 units (no 19A in V1 root), 138 items, 3 forms; 17 cards (later atomic increments) have no text script — reported, not hidden",
+        "exam numbers → unknown (V1 cites [S]-tags without source_page); V1 weight_pct → status authored under practice_only",
+        "PASS here = a valid honestly-blocked package, NOT a preview_ready claim"
+      ],
+      "sha256": "95f1fe18c943e9da8aca7ce78dd16345b84189d574ff53d231f8d87dd9e63d7c"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-preview-ready.json",
+      "kind": "synthetic_positive",
+      "source": "tools/belt/project/09-package.mjs --write (inputs/)",
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "preview_ready represented honestly: legacy status blocked with reason 'production release deferred; local content preview ready ...'",
+        "all 07/08/candidate/UiSpec receipts/disposition/finish/overlay hashes bound and verified via context"
+      ],
+      "sha256": "6723d7d15d8a076c247dcd567089cd49d89dc4bdbfaa7f8f15be81373f954e8f"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-hold-no-context.json",
+      "kind": "synthetic_hold",
+      "source": "copy of synthetic-preview-ready without a context file",
+      "expected_status": "HOLD",
+      "transformation_notes": [
+        "no context → every binding/recompute check HOLDs; nothing guessed"
+      ],
+      "sha256": "277b089f14fc45cd07ba6ca39f4643e62b827ff0685025536bbd30188f92eecc"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-audio-active-role20-inactive.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready + audio_teacher_loop openai_audio_api",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "inactive audio provider rejected (09.AUDIO_INACTIVE_ROLE20)"
+      ],
+      "sha256": "a2329c0d620256ff7bd43b8863ff6caf5b2e35c82e405c4356ce3e0012705bc5"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-preview-ready-no-uispec-receipts.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready with validate_1/2 receipts null",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "09.UISPEC_RECEIPTS"
+      ],
+      "sha256": "f4e6b4ec29a4d35e2ccd42550df65c950eecae36d8b53edab8db8ccf68b31e14"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-legacy-shipped.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready with status shipped",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "09.LEGACY_STATUS_HONEST + 09.FINISH_CRITERIA_BINDING"
+      ],
+      "sha256": "ca6f82a6048d535de51d2d1723bfb8029f7b6bb4fbe8abd1be0037e003f37eb6"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-empty-status-reason.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready with blank status_reason",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "09.LEGACY_STATUS_HONEST + 09.OVERLAY_BINDING"
+      ],
+      "sha256": "3b958c73b077214105bc7f6ecab0773ad956f224f99993e7043cd9325c3fb8c9"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-candidate-mismatch.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready with candidate_sha256 = f*64",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "mismatched candidate hash rejected (09.CANDIDATE_IN_MANIFEST, 09.QA_REPORTS_BINDING, 09.UISPEC_RECEIPTS)"
+      ],
+      "sha256": "9c45be09dca14df2e1d53f39d19ae0fcbda0af4d3e4a470ee9d62c7828ac1f1c"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-count-fabricated.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready with card_count 5 (4 accepted)",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "09.COUNTS_RECOMPUTED"
+      ],
+      "sha256": "e143edc44eb583d08eddb15e598715453f439b9420e24315fcf0838572dfe49d"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-deploy-auth-claims.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready with Clerk/Stripe/deployed/URL in status_reason",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "09.NO_DEPLOY_AUTH_CLAIMS"
+      ],
+      "sha256": "3e87bd325cbf8a956a21ec8373e807362ed7533bda03992037d142bc17c46654"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-source-debt-numeral.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready with n_questions 30 'verified' unpaged + '(verify)'",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "source-debt numeral leak rejected (09.SOURCE_DEBT_LEAK, 09.OFFICIAL_NUMBERS)"
+      ],
+      "sha256": "954e9dbcc2f123a70c6f40aa006774f18a592575117c1cb17809c981be2ba8a9"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-application-scope.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-preview-ready with status_scope application_preview_ready",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "09.SCHEMA + 09.STATUS_SCOPE"
+      ],
+      "sha256": "b998a562a8984255c088144d82f9939a4c80b37a1f00449431dc2f267b75b30c"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-neg-orphans-preview-ready.json",
+      "kind": "synthetic_negative",
+      "source": "inputs-orphan/ (one text script for a card not in the deck), honestly reported orphans=1, pilot_status preview_ready",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "09.INTEGRITY_ZERO_FOR_PREVIEW"
+      ],
+      "sha256": "3f39ba51f48c4e9088e5426c88814af12f2619f0695636a2f368d75ff9d5d3bc"
+    },
+    {
+      "path": "tools/belt/fixtures/09.package/synthetic-blocked-orphans-honest.json",
+      "kind": "synthetic_positive",
+      "source": "same orphan inputs, pilot_status blocked with routed reason",
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "honest blocked package with non-zero integrity is valid"
+      ],
+      "sha256": "68d4d864f4c0b75897a45aafa8b2364f61a51e17569f08c7f87e61bc16a130f4"
+    }
+  ],
+  "unexecuted": [
+    "Provider (api.meta.ai) strict-mode acceptance of this adapter — local ajv validity + strict-lint only.",
+    "09 does not validate UiSpec content; it binds the UiSpec hash and the validate_1/validate_2 receipts (shape per contracts/ui-spec.schema.json $defs.uiValidationReceipt). Audit independence of the receipt actors is Sol's checker, not 09.",
+    "Synthetic UiSpec is a labelled placeholder (inputs/uispec-placeholder.json), not a schema-valid UiSpec.",
+    "market_signal_ref sentinel authority (role 10 inactive) is recorded, not machine-verified.",
+    "accepted_inputs readers are tolerant to V1 + expected pilot shapes but not yet exercised against sibling 04/05/06/19A pilot fixtures (not present when this was built).",
+    "unit.session_ref resolves only by exact session/unit id; cross_product_refs is a 'tenants/<other>' string scan.",
+    "blocking_findings is recomputed only when a 07/08 report carries blocking_findings (V1 reports do not).",
+    "V1 projections use CURRENT V1 input bytes; the V1 package recorded no input hashes, so the bytes it was minted against are unrecoverable (counts drift 130→147 cards, 128→138 items).",
+    "artifact_hash (parent optional) is not emitted; the caller hashes the emitted bytes."
+  ],
+  "notes_dropped_xs_pointer_space": "json_pointer values point into the PARENT schema; the adapter itself carries no soft keyword (strict-lint soft_compensated is empty)."
+}

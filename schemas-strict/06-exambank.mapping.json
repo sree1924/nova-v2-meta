@@ -1,0 +1,431 @@
+{
+  "stage_id": "06.exam_bank",
+  "adapter_schema": {
+    "path": "schemas-strict/06-exambank.schema.json",
+    "sha256": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22"
+  },
+  "parent_schema": {
+    "path": "schemas/exambank.schema.json",
+    "sha256": "c0c885cc34e1cbea41ea8b91585733c3ebbed6c17e7228436735a33f6bd81b13"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "Payload meaning differs from the parent: mock_exams (official mirror) become practice_forms with nullable official facts and product-policy scoring; options carry per-option rationales. Not a strict subset.",
+  "overlay_authority": {
+    "path": "contracts/pilot-overrides-v0.4.0.json",
+    "pointer": "/role_overrides/06",
+    "sha256": "35a1237a237b6e03172ca6dae063de2c552103845c2d8ef4dd5a351c6f2d37d1",
+    "superseded_requirements": [
+      "Intent +Mission +SOP5: same count, same domain weights, same passing line",
+      "SOP5: Mirror the real exam EXACTLY",
+      "Quality Metrics +Failure Conditions +Definition of Done: passing-threshold exactness and two forms matching official n_questions/weight_pct/passing"
+    ]
+  },
+  "checks_module": "tools/belt/checks/06-exam-bank.mjs",
+  "compensating_checks": [
+    "06.SCHEMA",
+    "06.ENVELOPE",
+    "06.INPUT_MANIFEST",
+    "06.ID_INTEGRITY",
+    "06.ITEM_BINDING",
+    "06.PAGE_OR_DEBT",
+    "06.OPTIONS_SHAPE",
+    "06.DISTRACTOR_SOURCE",
+    "06.ANSWER_RATIONALE_AGREEMENT",
+    "06.BANNED_CLAIMS",
+    "06.PRACTICE_LABEL",
+    "06.FORM_NUMERALS",
+    "06.ITEM_NUMERALS",
+    "06.OFFICIAL_MIRROR",
+    "06.SCORING_POLICY",
+    "06.DECLARED_COUNT",
+    "06.TITLED_PROMISE",
+    "06.FORM_OVERLAP",
+    "06.DUPLICATE_STEM",
+    "06.ITEM_CLONE",
+    "06.NEEDS_REVIEW_ZERO",
+    "06.SELF_FLAGGED_RESOLVED",
+    "06.DERIVED_PLACEMENT",
+    "06.FORM_COUNT",
+    "06.MODULE_QUIZ_COVERAGE"
+  ],
+  "context_keys": {
+    "input_manifest_sha256": "06.INPUT_MANIFEST (HOLD absent)",
+    "fact_registry": "{facts:{<fact_id>:{status,statement|text|value,answers?,source_page}}} — 06.ITEM_BINDING resolution, 06.ITEM_NUMERALS (HOLD absent when numerals present)",
+    "learning_loop": "{ref} — 06.SCORING_POLICY (HOLD absent)",
+    "exam_facts_view": "{by_form?:{<form_id>:{n_questions,passing,time}}, n_questions?, passing?, time?} — 06.OFFICIAL_MIRROR (HOLD when a form claims verified and the view is absent)",
+    "exam_policy_disposition_ref": "06.DERIVED_PLACEMENT (HOLD only when derived items sit in forms under a cited disposition)",
+    "accepted_inputs.module_ids": "06.MODULE_QUIZ_COVERAGE (HOLD absent)"
+  },
+  "deviations": [
+    {
+      "field": "/mock_exams",
+      "parent_rule": "mock_exams[]{form_id,n_questions>=1,domain_distribution[],passing_threshold,item_ids} mirroring exam_meta",
+      "adapter_rule": "practice_forms[]{form_id,title,item_ids,declared_count,overlap_note|null,official_mirror{status NOT_APPLICABLE_PRACTICE_ONLY|verified, n_questions/passing/time {value|null,status unknown|verified,source_page|null}, passing_unit},scoring_policy{kind product_policy,learning_loop_ref}}",
+      "reason": "overlay 06 supersedes the official-mirror assumption; official facts are nullable and page-bound; an authored status can never promote an official number (handoff live note 6), so field status is unknown|verified only",
+      "compensating_check": "06.OFFICIAL_MIRROR, 06.DECLARED_COUNT, 06.FORM_NUMERALS, 06.SCORING_POLICY"
+    },
+    {
+      "field": "/mock_exams/items/domain_distribution",
+      "parent_rule": "required per-domain item_count/pct self-report",
+      "adapter_rule": "absent",
+      "reason": "self-reported distribution is never trusted; 07 recomputes distribution from item_ids x items[].domain",
+      "compensating_check": "07.PRACTICE_FORM_DRIFT (stage 07 recompute); 06.DECLARED_COUNT guards served counts"
+    },
+    {
+      "field": "/mock_exams/items/passing_threshold",
+      "parent_rule": "string|number equal to exam_meta.passing",
+      "adapter_rule": "official_mirror.passing {value,status,source_page} + passing_unit; scoring_policy.kind product_policy by LearningLoop ref",
+      "reason": "a practice threshold is product policy, never an official passing claim (source-fact-policy mastery_threshold)",
+      "compensating_check": "06.OFFICIAL_MIRROR, 06.SCORING_POLICY"
+    },
+    {
+      "field": "/items/correct, /items/distractors, /items/rationale",
+      "parent_rule": "correct string + 3 distractor strings + one combined rationale",
+      "adapter_rule": "options[]{key A-D,text,rationale} + correct_key + correct_rationale",
+      "reason": "overlay retained 'correct and per-option rationale agreement'",
+      "compensating_check": "06.OPTIONS_SHAPE, 06.ANSWER_RATIONALE_AGREEMENT"
+    },
+    {
+      "field": "/items/id",
+      "parent_rule": "id",
+      "adapter_rule": "item_id (+objective_id, fact_ids[], unit_id|null, is_derived, self_flagged)",
+      "reason": "prompt 06: stable item_id/node_id/module_id/unit_id/objective_id + fact_ids per item",
+      "compensating_check": "06.ID_INTEGRITY, 06.ITEM_BINDING"
+    },
+    {
+      "field": "/items/source_ref",
+      "parent_rule": "sourceRef{ref,tier,url?,retrieved_at? date-time} additionalProperties true",
+      "adapter_rule": "{ref,tier,pdf_page int|null,printed_page string|null}; url/retrieved_at not carried",
+      "reason": "06 binds page evidence; source liveness (retrieved_at/effective date) is 08's receipt lane",
+      "compensating_check": "06.PAGE_OR_DEBT, 06.ITEM_BINDING; 08.LIVENESS_COVERAGE downstream"
+    },
+    {
+      "field": "/page_debt",
+      "parent_rule": "absent",
+      "adapter_rule": "page_debt[]{item_id,reason,route_to 02|15}",
+      "reason": "an item without page evidence must carry explicit (verify) debt (handoff item 6)",
+      "compensating_check": "06.PAGE_OR_DEBT (open debt = HOLD)"
+    },
+    {
+      "field": "/self_flagged_distractors/items/distractor",
+      "parent_rule": "distractor text",
+      "adapter_rule": "option_key A-D",
+      "reason": "keyed options make the flagged option unambiguous",
+      "compensating_check": "06.SELF_FLAGGED_RESOLVED"
+    },
+    {
+      "field": "/needs_review_count, /derived_in_forms_disposition_ref",
+      "parent_rule": "absent",
+      "adapter_rule": "honest count; nullable disposition ref",
+      "reason": "Order Q rule 1 zero-count gate; derived items only in module quizzes unless a bound disposition",
+      "compensating_check": "06.NEEDS_REVIEW_ZERO, 06.DERIVED_PLACEMENT"
+    },
+    {
+      "field": "/input_manifest_sha256, /candidate_lineage_id",
+      "parent_rule": "absent",
+      "adapter_rule": "required",
+      "reason": "hash-boundary correction: pre-seal author outputs bind the input manifest, never the final candidate digest",
+      "compensating_check": "06.INPUT_MANIFEST, 06.ENVELOPE"
+    },
+    {
+      "field": "/schema_version",
+      "parent_rule": "const \"1.0.0\"",
+      "adapter_rule": "adapter_version enum [\"0.4.0\"] + artifact_type enum [\"ExamBank\"] + overlay_kind enum",
+      "reason": "const unsupported/unverified in provider strict subset; the adapter version is distinct from the parent schema version",
+      "compensating_check": "06.SCHEMA (enum)"
+    },
+    {
+      "field": "/source_refs/curriculum_unit_hints",
+      "parent_rule": "optional string",
+      "adapter_rule": "required string|null",
+      "reason": "strict mode requires every property; null = no unit boundary supplied",
+      "compensating_check": "06.SCHEMA"
+    },
+    {
+      "field": "/artifact_hash",
+      "parent_rule": "optional string",
+      "adapter_rule": "absent",
+      "reason": "hashes are computed by the dispatcher over exact bytes, never emitted by the model",
+      "compensating_check": "06.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate CLI artifact_sha256"
+    },
+    {
+      "field": "(every object)",
+      "parent_rule": "additionalProperties true",
+      "adapter_rule": "additionalProperties false, all properties required",
+      "reason": "provider strict subset",
+      "compensating_check": "06.SCHEMA"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "parent:/$defs/probeSlug",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "06.ENVELOPE"
+    },
+    {
+      "json_pointer": "parent:/properties/schema_version",
+      "keyword": "const",
+      "parent_value": "1.0.0",
+      "compensating_check": "06.SCHEMA (adapter_version enum)"
+    },
+    {
+      "json_pointer": "parent:/properties/mock_exams",
+      "keyword": "minItems",
+      "parent_value": 2,
+      "compensating_check": "06.FORM_COUNT"
+    },
+    {
+      "json_pointer": "parent:/properties/mock_exams/items/properties/form_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.ID_INTEGRITY"
+    },
+    {
+      "json_pointer": "parent:/properties/mock_exams/items/properties/n_questions",
+      "keyword": "minimum",
+      "parent_value": 1,
+      "compensating_check": "06.DECLARED_COUNT, 06.OFFICIAL_MIRROR"
+    },
+    {
+      "json_pointer": "parent:/properties/mock_exams/items/properties/domain_distribution/items/properties/item_count",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "field removed; downstream stage 07: 07.PRACTICE_FORM_DRIFT recomputes"
+    },
+    {
+      "json_pointer": "parent:/properties/mock_exams/items/properties/domain_distribution/items/properties/pct",
+      "keyword": "minimum/maximum",
+      "parent_value": [
+        0,
+        100
+      ],
+      "compensating_check": "field removed; downstream stage 07: 07.PRACTICE_FORM_DRIFT recomputes"
+    },
+    {
+      "json_pointer": "parent:/properties/mock_exams/items/properties/domain_distribution/items/properties/domain",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "field removed; items[].domain non-empty via 06.ITEM_BINDING"
+    },
+    {
+      "json_pointer": "parent:/properties/module_quizzes/items/properties/module",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.MODULE_QUIZ_COVERAGE"
+    },
+    {
+      "json_pointer": "parent:/properties/module_quizzes/items/properties/domain",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.MODULE_QUIZ_COVERAGE"
+    },
+    {
+      "json_pointer": "parent:/properties/self_flagged_distractors/items/properties/item_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.ID_INTEGRITY (must resolve)"
+    },
+    {
+      "json_pointer": "parent:/properties/self_flagged_distractors/items/properties/distractor",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.SELF_FLAGGED_RESOLVED (option_key enum; must not target the correct key)"
+    },
+    {
+      "json_pointer": "parent:/properties/self_flagged_distractors/items/properties/why_possibly_correct",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.SELF_FLAGGED_RESOLVED"
+    },
+    {
+      "json_pointer": "parent:/$defs/sourceRef/properties/ref",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "json_pointer": "parent:/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "parent_value": "date-time",
+      "compensating_check": "field not carried at 06; downstream stage 08: 08.LIVENESS_RECEIPT_SHAPE validates retrieved_at date-time"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.ID_INTEGRITY"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/stem",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/correct",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.OPTIONS_SHAPE"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/distractors",
+      "keyword": "minItems/maxItems",
+      "parent_value": [
+        3,
+        3
+      ],
+      "compensating_check": "06.OPTIONS_SHAPE (exactly 4 options = 1 correct + 3 distractors)"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/distractors/items",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.OPTIONS_SHAPE"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/distractor_source",
+      "keyword": "minItems/maxItems",
+      "parent_value": [
+        3,
+        3
+      ],
+      "compensating_check": "06.DISTRACTOR_SOURCE"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/rationale",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.OPTIONS_SHAPE (correct_rationale + every option rationale non-empty)"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/domain",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/node_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "json_pointer": "parent:/$defs/examItem/properties/module_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "json_pointer": "parent:/$defs/mintedBy",
+      "keyword": "additionalProperties",
+      "parent_value": true,
+      "compensating_check": "06.ENVELOPE (non-empty model/lane/pass)"
+    }
+  ],
+  "dropped_constraints_note": "json_pointer values are prefixed 'parent:' — they address the PARENT schema; the adapter itself uses no soft keyword (strict-lint ok without exemptions).",
+  "added_invariants": [
+    {
+      "rule": "Order Q §4 rule 1 — needs_review zero and no unresolved self-flagged distractor",
+      "check": "06.NEEDS_REVIEW_ZERO, 06.SELF_FLAGGED_RESOLVED"
+    },
+    {
+      "rule": "Order Q §4 rule 5 — >20% pairwise form overlap requires a learner-visible note on both forms; note claims machine-asserted",
+      "check": "06.FORM_OVERLAP"
+    },
+    {
+      "rule": "Order Q §4 rule 6 — identical correct+distractors+rationale regardless of stem; identical stem+answer duplicates",
+      "check": "06.ITEM_CLONE, 06.DUPLICATE_STEM"
+    },
+    {
+      "rule": "Order Q §4 rule 15 — titled counts and declared_count equal served item ids",
+      "check": "06.DECLARED_COUNT, 06.TITLED_PROMISE"
+    },
+    {
+      "rule": "source-debt numeral leak — no numeral asserting an unverified official fact in a learner string; item numerals anchored in verified bound facts",
+      "check": "06.FORM_NUMERALS, 06.ITEM_NUMERALS"
+    },
+    {
+      "rule": "no actual/real/leaked/official-question claims; practice label mandatory; no prediction; 'full' length only when verified",
+      "check": "06.BANNED_CLAIMS, 06.PRACTICE_LABEL"
+    }
+  ],
+  "sentinels": [
+    {
+      "field": "/practice_forms/*/official_mirror/{n_questions,passing,time}",
+      "kind": "official_number_record",
+      "shape": "{value:null|number, status:unknown|verified, source_page:null|string}",
+      "rule": "status unknown => value null (no numeric hint); verified => value + source_page non-null",
+      "compensating_check": "06.OFFICIAL_MIRROR"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/06.exam_bank/v1-projected.json",
+      "sha256": "9a39c8e09c970456f7f163c7351c42d8e3863e2eced62a52f341d0bd0024fa25",
+      "context_path": "tools/belt/fixtures/06.exam_bank/context-v1.json",
+      "kind": "v1_projected",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/06-exambank.json",
+        "sha256": "a260d721adbbb11a9736e61365fb9e1b76318a6a182df1e4167758e2eaea9c65"
+      },
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "generated by tools/belt/project/06-exam-bank.mjs --write; full decision list in _fixture.decisions",
+        "V1 FAILs honestly under v0.4.0: 17 needs_review items, 8 unresolved self-flagged distractors, 10 unbound item.eng.* (no node/fact), item.eng.* lack per-option rationales, A×65/20 form overlap 60% without a note, 99 surfaces with numerals not anchored in a verified bound fact; 10 open page debts (HOLD)"
+      ],
+      "context_sha256": "71c8188fdb21ddaa175c0f9a4ed59dec058966cd102bd6eb218960067ff4f773"
+    },
+    {
+      "path": "tools/belt/fixtures/06.exam_bank/synthetic-pass.json",
+      "sha256": "19f2874b7cbe092b8b2cdeda9a8331094a92bd3269c92a66bd52ec5a2ce757cd",
+      "context_path": "tools/belt/fixtures/06.exam_bank/context-synthetic.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "hand-authored fictional Examplia bank: practice-only overlay, unknown official facts, disclosed 33% overlap, derived item quiz-only"
+      ],
+      "context_sha256": "626fb89c6936f1af1af6ad13f3653c9258689ce2022c05a917f48202f3c12b9e"
+    },
+    {
+      "path": "tools/belt/fixtures/06.exam_bank/synthetic-neg-source-debt-numeral.json",
+      "sha256": "d52523ecda273ac4f08358454d3a8028887c02dd5d00802c778832a29b2ddf27",
+      "context_path": "tools/belt/fixtures/06.exam_bank/context-synthetic.json",
+      "kind": "synthetic_negative",
+      "source": "synthetic-pass.json with form-a title 'Full 30-Question Practice Test'",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "source-debt numeral leak: count numeral with n_questions.status unknown -> 06.FORM_NUMERALS FAIL; also 06.BANNED_CLAIMS (full length) and 06.TITLED_PROMISE (30 != 3)"
+      ],
+      "context_sha256": "626fb89c6936f1af1af6ad13f3653c9258689ce2022c05a917f48202f3c12b9e"
+    }
+  ],
+  "unexecuted": [
+    {
+      "item": "stem originality vs official/handbook question text (prompt 06 'Do not copy handbook questions')",
+      "reason": "no source-question-text binding exists in the context contract; the canonical contract v1.1 permits verbatim stems for public-domain published banks (V1 M-1778). Not checked."
+    },
+    {
+      "item": "distractor defensibility (could a distractor be correct under any reading)",
+      "reason": "semantic; 08's lane. 06.ANSWER_RATIONALE_AGREEMENT only detects wording that endorses another option."
+    },
+    {
+      "item": "distractor_source provenance against KG confusable_with",
+      "reason": "needs a KG binding in context; only non-empty-ness/count is checked"
+    },
+    {
+      "item": "one item per studied card / high-yield item coverage; Order Q rule 7 bank >= 1.5x verified official length",
+      "reason": "requires CardDeck/KG/official-length bindings; recomputed by 07"
+    },
+    {
+      "item": "spelled-out numbers (e.g. 'twenty-seven') in learner strings",
+      "reason": "06.FORM_NUMERALS/06.ITEM_NUMERALS detect digit runs only"
+    },
+    {
+      "item": "provider strict-mode acceptance of this adapter",
+      "reason": "no endpoint call is authorized; local ajv validity is not provider acceptance"
+    }
+  ],
+  "checks_module_sha256": "7e302a938117f18ea35d607391a03d80307b253d1208dc057ca240880fca2d5a"
+}

@@ -1,0 +1,143 @@
+{
+  "command": "node tools/belt/post-validate.mjs --stage 08.content_facts --artifact tools/belt/fixtures/08.content_facts/synthetic-neg-auditor-not-independent.json --context tools/belt/fixtures/08.content_facts/context-synthetic.json",
+  "cwd": "D:/nova/fb-ai-hackathon",
+  "exit_code": 1,
+  "expected_status": "FAIL",
+  "observed_status": "FAIL",
+  "stdout_sha256": "2a0d2ce6e6e0d8bcae1c10af3526870a09632e47099d7669fc80d95307c5ac6a",
+  "result": {
+    "status": "FAIL",
+    "stage_id": "08.content_facts",
+    "checks": [
+      {
+        "check_id": "08.SCHEMA",
+        "status": "PASS",
+        "evidence": "validates against schemas-strict/08-fact-report.schema.json"
+      },
+      {
+        "check_id": "08.ENVELOPE",
+        "status": "PASS",
+        "evidence": "probe slug, stamp, scope and source_refs valid"
+      },
+      {
+        "check_id": "08.CANDIDATE_ECHO",
+        "status": "PASS",
+        "evidence": "candidate_sha256 fe64eccb0db1f3855b417edc9d40e56da44c2b74d6b0b6df01791d9120aacc49 equals the scoped candidate manifest digest"
+      },
+      {
+        "check_id": "08.INPUT_MEMBERSHIP",
+        "status": "PASS",
+        "evidence": "8/8 bound input hashes are candidate-manifest members (11 members)",
+        "metrics": {
+          "bound": 8,
+          "outside": 0
+        }
+      },
+      {
+        "check_id": "08.ROW_FIELDS",
+        "status": "PASS",
+        "evidence": "all 25 row strings non-empty; every claim binds fact_ids"
+      },
+      {
+        "check_id": "08.VERDICT_INVARIANT",
+        "status": "PASS",
+        "evidence": "parent allOf holds (verdict PASS; visual/grouped issues 0/0)"
+      },
+      {
+        "check_id": "08.VERDICT_CONSISTENCY",
+        "status": "PASS",
+        "evidence": "verdict PASS consistent with findings (0 flagged, 0 debt)"
+      },
+      {
+        "check_id": "08.REQUIRED_CHECKS_RUN",
+        "status": "PASS",
+        "evidence": "0 unrun required check(s) (verdict PASS); 0 sampled-scope check(s)",
+        "metrics": {
+          "sampled_checks": 0
+        }
+      },
+      {
+        "check_id": "08.TIER_FIRST",
+        "status": "PASS",
+        "evidence": "5 claim tier(s) resolved; 0 insufficient-tier claim(s) carried as debt/flag",
+        "metrics": {
+          "claims": 5,
+          "insufficient_tier": 0
+        }
+      },
+      {
+        "check_id": "08.LIVENESS_RECEIPT_SHAPE",
+        "status": "PASS",
+        "evidence": "1 receipt(s) conform to contracts/source-liveness-receipt.schema.json"
+      },
+      {
+        "check_id": "08.LIVENESS_COVERAGE",
+        "status": "PASS",
+        "evidence": "1 cited source(s) each carry a dated PASS receipt with current-edition confirmation",
+        "metrics": {
+          "cited": 1,
+          "missing": 0,
+          "undated": 0
+        }
+      },
+      {
+        "check_id": "08.LIVENESS_AGE",
+        "status": "PASS",
+        "evidence": "1 receipt(s) within 24h of now_utc 2026-10-26T12:00:00Z",
+        "metrics": {
+          "stale": 0,
+          "max_age_hours": 24
+        }
+      },
+      {
+        "check_id": "08.FLAGGED_BINDING",
+        "status": "PASS",
+        "evidence": "0 flagged finding(s) bound to candidate members"
+      },
+      {
+        "check_id": "08.EXTERNAL_REVIEW",
+        "status": "PASS",
+        "evidence": "0 external review request(s), each legally justified with claim ids"
+      },
+      {
+        "check_id": "08.INDEPENDENCE",
+        "status": "FAIL",
+        "evidence": "auditor (Sol-Codex-engineering-author, openai) not independent: provider_family_contributed_to_candidate_or_prompt, actor_contributed_to_candidate_or_prompt, session_contributed_to_candidate_or_prompt; conflicting contributors: Sol-Codex-engineering-author/openai/authoring_prompt",
+        "metrics": {
+          "auditor_family": "openai",
+          "contributors": 11,
+          "conflicts": 3
+        }
+      },
+      {
+        "check_id": "08.DISSENT_NOT_OUTVOTED",
+        "status": "PASS",
+        "evidence": "no source-supported blocking finding overridden (0 own, 0 peer report(s) inspected)"
+      },
+      {
+        "check_id": "08.VERDICT_GATE",
+        "status": "PASS",
+        "evidence": "report verdict PASS (acceptance still requires every other check PASS)"
+      }
+    ],
+    "errors": [],
+    "metrics": {
+      "fixture_kind": "synthetic_negative",
+      "adapter_schema_sha256": "ce8b685c55d3d943a79a7a27abdde0bc3817cb199f46e9b2d735c3f3ed416340",
+      "08.INPUT_MEMBERSHIP.bound": 8,
+      "08.INPUT_MEMBERSHIP.outside": 0,
+      "08.REQUIRED_CHECKS_RUN.sampled_checks": 0,
+      "08.TIER_FIRST.claims": 5,
+      "08.TIER_FIRST.insufficient_tier": 0,
+      "08.LIVENESS_COVERAGE.cited": 1,
+      "08.LIVENESS_COVERAGE.missing": 0,
+      "08.LIVENESS_COVERAGE.undated": 0,
+      "08.LIVENESS_AGE.stale": 0,
+      "08.LIVENESS_AGE.max_age_hours": 24,
+      "08.INDEPENDENCE.auditor_family": "openai",
+      "08.INDEPENDENCE.contributors": 11,
+      "08.INDEPENDENCE.conflicts": 3
+    },
+    "artifact_sha256": "676e32da9fd63916c6878f3a87abcbef28f074a65c9241410c2328fab2f45668"
+  }
+}

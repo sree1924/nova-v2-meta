@@ -1,0 +1,1077 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "05.sessions",
+  "adapter_schema": {
+    "path": "schemas-strict/05b-session-scripts.schema.json",
+    "sha256": "2457854f6f129e80be4465ac7a132295fd34e83425378365a4f491704aa88e41"
+  },
+  "mapping": {
+    "path": "schemas-strict/05b-session-scripts.mapping.json",
+    "sha256": "49d878d7519030c424a9c0f84dc11f35326ca4102834b5fe49c5d457f62cb400",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 9,
+    "dropped_constraints": 32,
+    "sentinels": []
+  },
+  "parent_schema": {
+    "path": "schemas/session-script.schema.json",
+    "sha256_pinned": "82aad2b15dd77c58e9770f6b809d07b1be9f3b5b91de550b6837f11bc5695ff2",
+    "sha256_actual": "82aad2b15dd77c58e9770f6b809d07b1be9f3b5b91de550b6837f11bc5695ff2",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 9
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-hold-no-context.json",
+      "sha256": "07255ee86862aea8edf1140fe23dc09761dbb645778e391f75524cca417a1538",
+      "context": null,
+      "context_sha256": null,
+      "kind": "synthetic_hold",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-neg-arc.json",
+      "sha256": "458d5b6d541309bd8aff56ca79b180678bcd29791b976e7e01f80c0cacccc4a7",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-neg-arc.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-neg-depth-limits.json",
+      "sha256": "de5d4fa232e1aaad076b9c3887ceb1e49ac978c1e30b27287cb33d2f686cf35f",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-neg-depth-limits.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-neg-five-slide.json",
+      "sha256": "a4ef47d495977fbe35d46e0c03ff388185e766b1b31ebe93722718fad37e5019",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-neg-five-slide.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-neg-missing-decompression.json",
+      "sha256": "ef431957e82c660bc2262b08aa0d6e00857072401e6598651cb2071358d3dd85",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-neg-missing-decompression.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-neg-stage-direction.json",
+      "sha256": "c6a3b31c97370867b1054becc9dfc93c16f95e75466c5a6c9f16be58a02aa75d",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-neg-stage-direction.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-neg-uniform-vector.json",
+      "sha256": "3820e2fcf2e2a52be22008e5c2269bb97d97da1e5ec964861f087fc61082775b",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-neg-uniform-vector.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-neg-unresolved-fact.json",
+      "sha256": "23426e510580f982236b25594b56967b181c3c21801f76c4932db2cf7ba37081",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-neg-unresolved-fact.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-neg-verify-leak.json",
+      "sha256": "31665c2e61a81eb5b799473aa9998a9e7829e8932221cf4dc6c8f78e97f51fda",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-neg-verify-leak.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-positive-sol.json",
+      "sha256": "68724acac5b8ff8c6cee3ff7f0c6bcebfc3699219a56ca5711fdce03f82081cf",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-positive-sol.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_positive",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.sessions",
+      "fixture": "tools/belt/fixtures/05.sessions/synthetic-positive-two-units.json",
+      "sha256": "79a1b9e26fe81a28836e3e3e8d7937553bce57a25b4982057e3d6bb542131307",
+      "context": "tools/belt/fixtures/05.sessions/synthetic-positive-two-units.context.json",
+      "context_sha256": "0ba07e12a79529c9e87c6b23fe23eb97f5162bc7d56ede2fc54f41c2216dbf58",
+      "kind": "synthetic_positive",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.ROOT_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIQUE_ITEMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.FACT_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_COUNT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_ARC",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SLIDE_LINES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.WORD_LIMITS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_DEPTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATION_SECONDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.UNIFORM_VECTOR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DECOMPRESSION_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ALIGNED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_CHECK_ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.MISCONCEPTION_LABELLED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_TRACE_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TITLED_PROMISE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": {
+    "file": "tests/belt/05-sessions.test.mjs",
+    "stage_id": "05.sessions",
+    "command": "node --test tests/belt/05-sessions.test.mjs",
+    "exit_code": 0,
+    "pass": 22,
+    "fail": 0,
+    "skipped": 0,
+    "tap_sha256": "8aab8269b83835a4decf6c54e93a09ed09d1be7d1ecf881f1f8ae7671d55670c"
+  },
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

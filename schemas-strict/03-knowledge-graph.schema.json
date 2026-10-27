@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nova://schemas-strict/03-knowledge-graph/0.4.0",
+  "title": "KnowledgeGraph (pilot_adapter for stage 03.combined_kg)",
+  "description": "Combined KG-01..KG-05 pass. Official weights are nullable official-fact objects {value,status,source_page}; authored pedagogic_emphasis is labelled separately. department_pass carries typed intermediate evidence. image_scout_pre_kg is the sentinel deferred:not_applicable_pilot. Acyclicity, single-home, path, high-yield, confusable, weight-honesty and domain-emphasis rules are compensating checks in tools/belt/checks/03-combined-kg.mjs. Meta strict subset only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact", "schema_version", "adapter", "stage_id", "minted_by", "probe", "version", "lineage", "source_refs", "nodes", "edges", "modules", "curriculum_unit_hints", "learning_path", "learning_path_rule", "dynamic_nodes", "department_pass"],
+  "properties": {
+    "artifact": { "type": "string", "enum": ["KnowledgeGraph"] },
+    "schema_version": { "type": "string", "enum": ["1.0.0"] },
+    "adapter": { "type": "string", "enum": ["pilot_adapter@0.4.0"] },
+    "stage_id": { "type": "string", "enum": ["03.combined_kg"] },
+    "minted_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "lane", "pass"],
+      "properties": { "model": { "type": "string" }, "lane": { "type": "string" }, "pass": { "type": "string" } }
+    },
+    "probe": { "type": "string" },
+    "version": { "type": "string" },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input_manifest_sha256", "candidate_lineage_id"],
+      "properties": {
+        "input_manifest_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "candidate_lineage_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "source_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enriched_blueprint", "learning_loop", "media_disposition", "weighted_graph", "edge_set", "ontology", "image_scout_pre_kg"],
+      "properties": {
+        "enriched_blueprint": { "type": "string" },
+        "learning_loop": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "media_disposition": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "weighted_graph": { "type": "string", "enum": ["inline@KG-04"] },
+        "edge_set": { "type": "string", "enum": ["inline@KG-03"] },
+        "ontology": { "type": "string", "enum": ["inline@KG-02"] },
+        "image_scout_pre_kg": { "type": "string", "enum": ["deferred:not_applicable_pilot"] }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "domain", "module_id", "node_type", "official_weight", "pedagogic_emphasis", "difficulty", "high_yield", "fact_ids", "source_ref", "confidence", "needs_review", "confusable_with", "no_confusable_reason"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "domain": { "type": "string" },
+          "module_id": { "type": "string" },
+          "node_type": { "type": "string" },
+          "official_weight": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "status", "source_page"],
+            "properties": {
+              "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+              "status": { "type": "string", "enum": ["unknown", "verified", "authored"] },
+              "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            }
+          },
+          "pedagogic_emphasis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "status", "basis"],
+            "properties": {
+              "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+              "status": { "type": "string", "enum": ["authored"] },
+              "basis": { "type": "string" }
+            }
+          },
+          "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] },
+          "high_yield": { "type": "boolean" },
+          "fact_ids": { "type": "array", "items": { "type": "string" } },
+          "source_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["ref", "tier", "url", "source_page"],
+            "properties": {
+              "ref": { "type": "string" },
+              "tier": { "type": "string", "enum": ["official", "regulator", "exam_owner", "standards_body", "reputable", "unverified"] },
+              "url": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+              "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            }
+          },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+          "needs_review": { "type": "boolean" },
+          "confusable_with": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["other_id", "why", "fact_ids"],
+              "properties": {
+                "other_id": { "type": "string" },
+                "why": { "type": "string" },
+                "fact_ids": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          },
+          "no_confusable_reason": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to", "type", "origin", "confidence"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "type": { "type": "string", "enum": ["prerequisite", "related", "easily_confused", "part_of"] },
+          "origin": { "type": "string", "enum": ["sme_hint", "domain_logic"] },
+          "confidence": { "anyOf": [{ "type": "string", "enum": ["high", "medium", "low"] }, { "type": "null" }] }
+        }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module_id", "title", "domain", "official_weight", "pedagogic_emphasis", "node_ids", "media_slot_ids"],
+        "properties": {
+          "module_id": { "type": "string" },
+          "title": { "type": "string" },
+          "domain": { "type": "string" },
+          "official_weight": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "status", "source_page"],
+            "properties": {
+              "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+              "status": { "type": "string", "enum": ["unknown", "verified", "authored"] },
+              "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            }
+          },
+          "pedagogic_emphasis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "status", "basis"],
+            "properties": {
+              "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+              "status": { "type": "string", "enum": ["authored"] },
+              "basis": { "type": "string" }
+            }
+          },
+          "node_ids": { "type": "array", "items": { "type": "string" } },
+          "media_slot_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "curriculum_unit_hints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module_id", "unit_id", "node_ids", "user_cycle", "hub_options", "session_strategy", "flashcard_strategy", "quiz_strategy", "media_slot_ids"],
+        "properties": {
+          "module_id": { "type": "string" },
+          "unit_id": { "type": "string" },
+          "node_ids": { "type": "array", "items": { "type": "string" } },
+          "user_cycle": { "type": "array", "items": { "type": "string", "enum": ["session", "flashcards", "module_hub", "module_quiz", "missed_review", "spaced_review", "mock_exam"] } },
+          "hub_options": { "type": "array", "items": { "type": "string", "enum": ["module_quiz", "flashcards", "session"] } },
+          "session_strategy": { "type": "string" },
+          "flashcard_strategy": { "type": "string" },
+          "quiz_strategy": { "type": "string" },
+          "media_slot_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "learning_path": { "type": "array", "items": { "type": "string" } },
+    "learning_path_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dynamic_excluded", "rule"],
+      "properties": {
+        "dynamic_excluded": { "type": "boolean" },
+        "rule": { "type": "string" }
+      }
+    },
+    "dynamic_nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "why_dynamic", "fact_ids", "source_ref"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "why_dynamic": { "type": "string" },
+          "fact_ids": { "type": "array", "items": { "type": "string" } },
+          "source_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["ref", "tier", "url", "source_page"],
+            "properties": {
+              "ref": { "type": "string" },
+              "tier": { "type": "string", "enum": ["official", "regulator", "exam_owner", "standards_body", "reputable", "unverified"] },
+              "url": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+              "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            }
+          }
+        }
+      }
+    },
+    "department_pass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kg01", "kg02", "kg03", "kg04", "kg05"],
+      "properties": {
+        "kg01": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["origin", "verdict", "gaps", "nodes_extracted", "merges", "dynamic_concepts"],
+          "properties": {
+            "origin": { "type": "string", "enum": ["inline@KG-01"] },
+            "verdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+            "gaps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["type", "located_at", "detail", "severity"],
+                "properties": {
+                  "type": { "type": "string", "enum": ["missing_domain", "unsourced_fact", "missing_hint", "thin_domain"] },
+                  "located_at": { "type": "string" },
+                  "detail": { "type": "string" },
+                  "severity": { "type": "string", "enum": ["blocking", "advisory"] }
+                }
+              }
+            },
+            "nodes_extracted": { "type": "integer" },
+            "merges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["kept_id", "dropped_ids", "reason"],
+                "properties": {
+                  "kept_id": { "type": "string" },
+                  "dropped_ids": { "type": "array", "items": { "type": "string" } },
+                  "reason": { "type": "string" }
+                }
+              }
+            },
+            "dynamic_concepts": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "kg02": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["origin", "node_types", "edge_types", "acyclic", "weight_closure", "placements"],
+          "properties": {
+            "origin": { "type": "string", "enum": ["inline@KG-02"] },
+            "node_types": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["type", "definition"],
+                "properties": { "type": { "type": "string" }, "definition": { "type": "string" } }
+              }
+            },
+            "edge_types": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["type", "directed", "acyclic", "definition"],
+                "properties": {
+                  "type": { "type": "string", "enum": ["prerequisite", "related", "easily_confused", "part_of"] },
+                  "directed": { "type": "boolean" },
+                  "acyclic": { "type": "boolean" },
+                  "definition": { "type": "string" }
+                }
+              }
+            },
+            "acyclic": { "type": "boolean" },
+            "weight_closure": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["basis", "sum", "within_tolerance"],
+              "properties": {
+                "basis": { "type": "string", "enum": ["official_verified", "authored_basis", "unknown"] },
+                "sum": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                "within_tolerance": { "anyOf": [{ "type": "boolean" }, { "type": "null" }] }
+              }
+            },
+            "placements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["concept_id", "module_id", "ambiguous", "resolution"],
+                "properties": {
+                  "concept_id": { "type": "string" },
+                  "module_id": { "type": "string" },
+                  "ambiguous": { "type": "boolean" },
+                  "resolution": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "kg03": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["origin", "edges", "acyclic", "cycles_resolved", "dropped_hints"],
+          "properties": {
+            "origin": { "type": "string", "enum": ["inline@KG-03"] },
+            "edges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["from", "to", "type", "origin", "confidence"],
+                "properties": {
+                  "from": { "type": "string" },
+                  "to": { "type": "string" },
+                  "type": { "type": "string", "enum": ["prerequisite", "related", "easily_confused", "part_of"] },
+                  "origin": { "type": "string", "enum": ["sme_hint", "domain_logic"] },
+                  "confidence": { "anyOf": [{ "type": "string", "enum": ["high", "medium", "low"] }, { "type": "null" }] }
+                }
+              }
+            },
+            "acyclic": { "type": "boolean" },
+            "cycles_resolved": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["cycle_node_ids", "dropped_from", "dropped_to", "reason"],
+                "properties": {
+                  "cycle_node_ids": { "type": "array", "items": { "type": "string" } },
+                  "dropped_from": { "type": "string" },
+                  "dropped_to": { "type": "string" },
+                  "reason": { "type": "string" }
+                }
+              }
+            },
+            "dropped_hints": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["from", "to", "reason"],
+                "properties": {
+                  "from": { "type": "string" },
+                  "to": { "type": "string" },
+                  "reason": { "type": "string", "enum": ["out_of_set", "wrong_direction", "redundant"] }
+                }
+              }
+            }
+          }
+        },
+        "kg04": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["origin", "domain_emphasis_check"],
+          "properties": {
+            "origin": { "type": "string", "enum": ["inline@KG-04"] },
+            "domain_emphasis_check": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["domain", "blueprint_pct", "weight_status", "computed_pct", "drift_pp", "comparison_basis", "within_tolerance"],
+                "properties": {
+                  "domain": { "type": "string" },
+                  "blueprint_pct": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "weight_status": { "type": "string", "enum": ["unknown", "verified", "authored"] },
+                  "computed_pct": { "type": "number" },
+                  "drift_pp": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "comparison_basis": { "type": "string", "enum": ["official_verified", "authored_basis", "none"] },
+                  "within_tolerance": { "anyOf": [{ "type": "boolean" }, { "type": "null" }] }
+                }
+              }
+            }
+          }
+        },
+        "kg05": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["origin", "sequencing", "validation_assertions"],
+          "properties": {
+            "origin": { "type": "string", "enum": ["inline@KG-05"] },
+            "sequencing": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["rule", "module_order"],
+              "properties": {
+                "rule": { "type": "string" },
+                "module_order": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "validation_assertions": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["prerequisite_violations", "orphan_nodes", "double_homes", "dynamic_quarantined", "path_check"],
+              "properties": {
+                "prerequisite_violations": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+                "orphan_nodes": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+                "double_homes": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+                "dynamic_quarantined": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+                "path_check": { "anyOf": [{ "type": "string", "enum": ["PASS", "FAIL"] }, { "type": "null" }] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,713 @@
+{
+  "_context": {
+    "kind": "synthetic",
+    "note": "Synthetic candidate/lineage/assignment context for the Examplia 07 fixtures."
+  },
+  "strip_fixture_meta": true,
+  "candidate_manifest": {
+    "artifact_type": "ContentCandidateManifest",
+    "synthetic": true,
+    "lineage_id": "synthetic-lineage-07-08",
+    "members": [
+      {
+        "role": "blueprint",
+        "path": "synthetic/blueprint.json",
+        "sha256": "b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1"
+      },
+      {
+        "role": "knowledge_graph",
+        "path": "synthetic/knowledge_graph.json",
+        "sha256": "c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3"
+      },
+      {
+        "role": "carddeck",
+        "path": "synthetic/carddeck.json",
+        "sha256": "c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4c4"
+      },
+      {
+        "role": "session_scripts",
+        "path": "synthetic/session_scripts.json",
+        "sha256": "c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5"
+      },
+      {
+        "role": "voice_scripts",
+        "path": "synthetic/voice_scripts.json",
+        "sha256": "d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5"
+      },
+      {
+        "role": "exambank",
+        "path": "synthetic/exambank.json",
+        "sha256": "19f2874b7cbe092b8b2cdeda9a8331094a92bd3269c92a66bd52ec5a2ce757cd"
+      },
+      {
+        "role": "curriculum_unit_map",
+        "path": "synthetic/curriculum_unit_map.json",
+        "sha256": "a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9"
+      },
+      {
+        "role": "learning_loop",
+        "path": "synthetic/learning_loop.json",
+        "sha256": "1919191919191919191919191919191919191919191919191919191919191919"
+      },
+      {
+        "role": "early_media_intent",
+        "path": "synthetic/early_media_intent.json",
+        "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      {
+        "role": "source_registry",
+        "path": "synthetic/source_registry.json",
+        "sha256": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1"
+      },
+      {
+        "role": "source_liveness",
+        "path": "synthetic/source_liveness.json",
+        "sha256": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1"
+      }
+    ]
+  },
+  "media_disposition": {
+    "path": "contracts/media-disposition.json",
+    "sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd",
+    "document": {
+      "artifact_type": "PilotMediaDisposition",
+      "version": "0.4.0",
+      "status": "REVIEW_POLICY",
+      "owner_roles": [
+        "00",
+        "13"
+      ],
+      "scope": "dev_preview_only",
+      "source_of_media_required": "early UI media intent before07; finalUiSpecmaynotretroactivelyweakenit",
+      "inactive_roles": [
+        "20",
+        "20A",
+        "20B"
+      ],
+      "rendered_audio_required": false,
+      "live_tts_allowed": false,
+      "image_cards_enabled": false,
+      "road_sign_mode": "verbal_page_sourced_cues",
+      "text_cue_must_bind_fact_id_and_source_page": true,
+      "visual_recognition_claims_allowed_without_assets": false,
+      "visual_override_requires": [
+        "role15boundsignlist",
+        "perassetrights/liveness/hash",
+        "selected-state supplement/applicability",
+        "earlyUIrequiredslot",
+        "freshaffectedQA"
+      ],
+      "non_applicable_checks": [
+        {
+          "check": "rendered audio manifest/files/provider",
+          "reason": "Text-only preview, no20render task."
+        },
+        {
+          "check": "pre/post image scout plans",
+          "reason": "20Ainactive; no scout success claimed."
+        },
+        {
+          "check": "audio timing/loudness/renderback",
+          "reason": "No rendered audio; text-script segment/parity checks stay mandatory."
+        }
+      ],
+      "still_required": [
+        "Fact/source parity",
+        "Structured recall ordering",
+        "Back/hook equality",
+        "Real required visual assets if an image task is later enabled",
+        "Independent content and product QA"
+      ],
+      "execution_enabled": false
+    }
+  },
+  "early_media_intent": {
+    "ref": "synthetic/early_media_intent.json",
+    "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+  },
+  "exambank": {
+    "artifact_type": "ExamBank",
+    "adapter_version": "0.4.0",
+    "overlay_kind": "practice_only_pilot_overlay",
+    "probe": "synthetic-examplia",
+    "minted_by": {
+      "model": "synthetic-fixture",
+      "lane": "fixture",
+      "pass": "synthetic"
+    },
+    "input_manifest_sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+    "candidate_lineage_id": "synthetic-lineage-06",
+    "source_refs": {
+      "knowledge_graph": "synthetic/03-knowledge-graph.json",
+      "curriculum_unit_hints": null
+    },
+    "items": [
+      {
+        "item_id": "s01",
+        "objective_id": "obj.permit",
+        "node_id": "n.permit.hours",
+        "module_id": "mod.a",
+        "unit_id": "unit.a",
+        "domain": "Permits",
+        "fact_ids": [
+          "fact.syn.001"
+        ],
+        "source_ref": {
+          "ref": "Synthetic Examplia Handbook p.12",
+          "tier": "official",
+          "pdf_page": 12,
+          "printed_page": "10"
+        },
+        "stem": "In Examplia, how many supervised driving hours must a learner permit holder log?",
+        "options": [
+          {
+            "key": "A",
+            "text": "20 hours",
+            "rationale": "Wrong: 20 hours is half of the handbook figure."
+          },
+          {
+            "key": "B",
+            "text": "40 hours",
+            "rationale": "The handbook sets 40 supervised hours."
+          },
+          {
+            "key": "C",
+            "text": "30 hours",
+            "rationale": "Wrong: 30 hours falls short of the handbook figure."
+          },
+          {
+            "key": "D",
+            "text": "50 hours",
+            "rationale": "Wrong: 50 hours exceeds what the handbook requires."
+          }
+        ],
+        "correct_key": "B",
+        "correct_rationale": "40 hours is right: the handbook sets 40 supervised hours.",
+        "distractor_source": [
+          "kg.confusable:n.permit.hours~half-figure",
+          "kg.confusable:n.permit.hours~short-figure",
+          "synthesized_near_miss:over-estimate"
+        ],
+        "difficulty": "easy",
+        "is_derived": false,
+        "self_flagged": false,
+        "needs_review": false
+      },
+      {
+        "item_id": "s02",
+        "objective_id": "obj.permit",
+        "node_id": "n.permit.passengers",
+        "module_id": "mod.a",
+        "unit_id": "unit.a",
+        "domain": "Permits",
+        "fact_ids": [
+          "fact.syn.002"
+        ],
+        "source_ref": {
+          "ref": "Synthetic Examplia Handbook p.13",
+          "tier": "official",
+          "pdf_page": 13,
+          "printed_page": "11"
+        },
+        "stem": "Who must sit in the front seat when an Examplia permit holder drives?",
+        "options": [
+          {
+            "key": "A",
+            "text": "A licensed adult supervisor",
+            "rationale": "The handbook requires a licensed adult supervisor in the front seat."
+          },
+          {
+            "key": "B",
+            "text": "Any passenger",
+            "rationale": "Wrong: any passenger is not enough; the supervisor must be licensed."
+          },
+          {
+            "key": "C",
+            "text": "A sibling with a permit",
+            "rationale": "Wrong: a permit holder cannot supervise another permit holder."
+          },
+          {
+            "key": "D",
+            "text": "Nobody",
+            "rationale": "Wrong: permit driving is never unsupervised."
+          }
+        ],
+        "correct_key": "A",
+        "correct_rationale": "A licensed adult supervisor is required in the front seat.",
+        "distractor_source": [
+          "kg.confusable:n.permit.passengers~any-passenger",
+          "kg.confusable:n.permit.passengers~peer",
+          "kg.confusable:n.permit.passengers~solo"
+        ],
+        "difficulty": "easy",
+        "is_derived": false,
+        "self_flagged": false,
+        "needs_review": false
+      },
+      {
+        "item_id": "s03",
+        "objective_id": "obj.signals",
+        "node_id": "n.signal.distance",
+        "module_id": "mod.a",
+        "unit_id": "unit.a",
+        "domain": "Permits",
+        "fact_ids": [
+          "fact.syn.003"
+        ],
+        "source_ref": {
+          "ref": "Synthetic Examplia Handbook p.21",
+          "tier": "official",
+          "pdf_page": 21,
+          "printed_page": null
+        },
+        "stem": "How far before a turn does the Examplia handbook say to signal?",
+        "options": [
+          {
+            "key": "A",
+            "text": "At the turn itself",
+            "rationale": "Wrong: signalling at the turn gives no warning."
+          },
+          {
+            "key": "B",
+            "text": "After starting the turn",
+            "rationale": "Wrong: a signal after starting the turn is too late."
+          },
+          {
+            "key": "C",
+            "text": "Only when other cars are present",
+            "rationale": "Wrong: the handbook requires signalling every time."
+          },
+          {
+            "key": "D",
+            "text": "At least 100 feet before the turn",
+            "rationale": "The handbook sets at least 100 feet."
+          }
+        ],
+        "correct_key": "D",
+        "correct_rationale": "At least 100 feet before the turn is the handbook distance.",
+        "distractor_source": [
+          "kg.confusable:n.signal.distance~at-turn",
+          "kg.confusable:n.signal.distance~late",
+          "kg.confusable:n.signal.distance~conditional"
+        ],
+        "difficulty": "medium",
+        "is_derived": false,
+        "self_flagged": false,
+        "needs_review": false
+      },
+      {
+        "item_id": "s04",
+        "objective_id": "obj.parking",
+        "node_id": "n.parking.hydrant",
+        "module_id": "mod.b",
+        "unit_id": "unit.b",
+        "domain": "Parking",
+        "fact_ids": [
+          "fact.syn.004"
+        ],
+        "source_ref": {
+          "ref": "Synthetic Examplia Handbook p.30",
+          "tier": "official",
+          "pdf_page": 30,
+          "printed_page": "28"
+        },
+        "stem": "In Examplia, how close to a fire hydrant may you park?",
+        "options": [
+          {
+            "key": "A",
+            "text": "No closer than 15 feet",
+            "rationale": "The handbook sets 15 feet as the minimum distance."
+          },
+          {
+            "key": "B",
+            "text": "No closer than 5 feet",
+            "rationale": "Wrong: 5 feet is far too close."
+          },
+          {
+            "key": "C",
+            "text": "Anywhere if you stay in the car",
+            "rationale": "Wrong: staying in the car does not lift the rule."
+          },
+          {
+            "key": "D",
+            "text": "No closer than 50 feet",
+            "rationale": "Wrong: 50 feet overstates the rule."
+          }
+        ],
+        "correct_key": "A",
+        "correct_rationale": "No closer than 15 feet is the handbook rule.",
+        "distractor_source": [
+          "kg.confusable:n.parking.hydrant~crosswalk-distance",
+          "kg.confusable:n.parking.hydrant~occupied",
+          "synthesized_near_miss:overstated-distance"
+        ],
+        "difficulty": "medium",
+        "is_derived": false,
+        "self_flagged": false,
+        "needs_review": false
+      },
+      {
+        "item_id": "s05",
+        "objective_id": "obj.parking",
+        "node_id": "n.parking.curb",
+        "module_id": "mod.b",
+        "unit_id": "unit.b",
+        "domain": "Parking",
+        "fact_ids": [
+          "fact.syn.005"
+        ],
+        "source_ref": {
+          "ref": "Synthetic Examplia Handbook p.31",
+          "tier": "official",
+          "pdf_page": 31,
+          "printed_page": "29"
+        },
+        "stem": "Which way should front wheels point when parking uphill next to a curb in Examplia?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Toward the curb",
+            "rationale": "Wrong: toward the curb is the downhill rule."
+          },
+          {
+            "key": "B",
+            "text": "Straight ahead",
+            "rationale": "Wrong: straight wheels let the car roll into traffic."
+          },
+          {
+            "key": "C",
+            "text": "Away from the curb",
+            "rationale": "The handbook says away from the curb when parking uphill with a curb."
+          },
+          {
+            "key": "D",
+            "text": "It does not matter",
+            "rationale": "Wrong: the handbook names a direction."
+          }
+        ],
+        "correct_key": "C",
+        "correct_rationale": "Away from the curb is the uphill-with-curb rule.",
+        "distractor_source": [
+          "kg.confusable:n.parking.curb~downhill",
+          "kg.confusable:n.parking.curb~straight",
+          "kg.confusable:n.parking.curb~no-rule"
+        ],
+        "difficulty": "hard",
+        "is_derived": false,
+        "self_flagged": false,
+        "needs_review": false
+      },
+      {
+        "item_id": "s06",
+        "objective_id": "obj.parking",
+        "node_id": "n.parking.curb",
+        "module_id": "mod.b",
+        "unit_id": "unit.b",
+        "domain": "Parking",
+        "fact_ids": [
+          "fact.syn.005"
+        ],
+        "source_ref": {
+          "ref": "Synthetic Examplia Handbook p.31",
+          "tier": "official",
+          "pdf_page": 31,
+          "printed_page": "29"
+        },
+        "stem": "Parking downhill next to a curb in Examplia, which way do the front wheels point?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Away from the curb",
+            "rationale": "Wrong: away from the curb is the uphill rule."
+          },
+          {
+            "key": "B",
+            "text": "Toward the curb",
+            "rationale": "Toward the curb is the downhill-with-curb rule."
+          },
+          {
+            "key": "C",
+            "text": "Straight ahead",
+            "rationale": "Wrong: straight wheels let the car roll."
+          },
+          {
+            "key": "D",
+            "text": "Either way",
+            "rationale": "Wrong: the handbook names a direction."
+          }
+        ],
+        "correct_key": "B",
+        "correct_rationale": "Toward the curb is the downhill rule (derived recombination of the curb fact).",
+        "distractor_source": [
+          "kg.confusable:n.parking.curb~uphill",
+          "kg.confusable:n.parking.curb~straight",
+          "kg.confusable:n.parking.curb~no-rule"
+        ],
+        "difficulty": "medium",
+        "is_derived": true,
+        "self_flagged": false,
+        "needs_review": false
+      }
+    ],
+    "module_quizzes": [
+      {
+        "quiz_id": "quiz.mod.a",
+        "module_id": "mod.a",
+        "unit_id": "unit.a",
+        "domain": "Permits",
+        "title": "Permits and Signals Quiz",
+        "item_ids": [
+          "s01",
+          "s02",
+          "s03"
+        ]
+      },
+      {
+        "quiz_id": "quiz.mod.b",
+        "module_id": "mod.b",
+        "unit_id": "unit.b",
+        "domain": "Parking",
+        "title": "Parking Quiz",
+        "item_ids": [
+          "s04",
+          "s05",
+          "s06"
+        ]
+      }
+    ],
+    "practice_forms": [
+      {
+        "form_id": "form-a",
+        "title": "Practice Set A",
+        "item_ids": [
+          "s01",
+          "s02",
+          "s04"
+        ],
+        "declared_count": 3,
+        "overlap_note": "This practice set shares 1 reused item with Practice Set B.",
+        "official_mirror": {
+          "status": "NOT_APPLICABLE_PRACTICE_ONLY",
+          "n_questions": {
+            "value": null,
+            "status": "unknown",
+            "source_page": null
+          },
+          "passing": {
+            "value": null,
+            "status": "unknown",
+            "source_page": null
+          },
+          "passing_unit": "unknown",
+          "time": {
+            "value": null,
+            "status": "unknown",
+            "source_page": null
+          }
+        },
+        "scoring_policy": {
+          "kind": "product_policy",
+          "learning_loop_ref": "synthetic/19-learning-loop.json@sha256:1919191919191919191919191919191919191919191919191919191919191919"
+        }
+      },
+      {
+        "form_id": "form-b",
+        "title": "Practice Set B",
+        "item_ids": [
+          "s03",
+          "s05",
+          "s01"
+        ],
+        "declared_count": 3,
+        "overlap_note": "This practice set shares 1 reused item with Practice Set A.",
+        "official_mirror": {
+          "status": "NOT_APPLICABLE_PRACTICE_ONLY",
+          "n_questions": {
+            "value": null,
+            "status": "unknown",
+            "source_page": null
+          },
+          "passing": {
+            "value": null,
+            "status": "unknown",
+            "source_page": null
+          },
+          "passing_unit": "unknown",
+          "time": {
+            "value": null,
+            "status": "unknown",
+            "source_page": null
+          }
+        },
+        "scoring_policy": {
+          "kind": "product_policy",
+          "learning_loop_ref": "synthetic/19-learning-loop.json@sha256:1919191919191919191919191919191919191919191919191919191919191919"
+        }
+      }
+    ],
+    "self_flagged_distractors": [],
+    "page_debt": [],
+    "derived_in_forms_disposition_ref": null,
+    "needs_review_count": 0
+  },
+  "titled_surfaces": [
+    {
+      "surface_id": "deck.parking",
+      "title": "Top 3 Parking Rules",
+      "actual_count": 3
+    },
+    {
+      "surface_id": "quiz.mod.a",
+      "title": "Permits and Signals Quiz",
+      "actual_count": 3
+    },
+    {
+      "surface_id": "quiz.mod.b",
+      "title": "Parking Quiz",
+      "actual_count": 3
+    },
+    {
+      "surface_id": "form-a",
+      "title": "Practice Set A",
+      "actual_count": 3
+    },
+    {
+      "surface_id": "form-b",
+      "title": "Practice Set B",
+      "actual_count": 3
+    }
+  ],
+  "audit_assignment": {
+    "provider_family": "anthropic",
+    "assigned_scope": "content_coverage:full_candidate"
+  },
+  "intervention_lineage": {
+    "lineage_complete": true,
+    "actors": [
+      {
+        "actor_id": "synthetic-meta-author",
+        "provider_family": "meta",
+        "session_id": "synthetic-session-author-1",
+        "artifact_sha256": "19f2874b7cbe092b8b2cdeda9a8331094a92bd3269c92a66bd52ec5a2ce757cd",
+        "contribution_kind": "authored_candidate_artifact"
+      }
+    ]
+  },
+  "prompt_authorship": {
+    "schema_version": "prompt-authorship.v0.4.0",
+    "status": "ACTUAL_ENGINEERING_AUTHORSHIP_PINS",
+    "scope": "These are prompt authorship records, not a production candidate intervention ledger or executed call history.",
+    "entries": [
+      {
+        "path": "prompts/02.md",
+        "sha256": "c3fce250d0ee29e6b4d9e55a1571d20b3a2ce05bdfd858a4cf06845bfc1bf8a5",
+        "template_body_sha256": "7375ade4938576735e3f94a8170a60c4ad4240c7f3a3f4bb159c1d0d1e9cdb57",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/03.md",
+        "sha256": "08dfc74c4acdfa93928fed9ef80504e2c249bcd0fe5701b95781bf0dc639a733",
+        "template_body_sha256": "5e2207071dc4cdd48b002c4183d2a29a79b42e82ba21819282e3d28fd5773fd6",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/04.md",
+        "sha256": "a6f009971a4a6368165c5975b569b2aa4e2f44222fe2cd4d428ef45e42d90605",
+        "template_body_sha256": "60c55b9049c4185b1dcb8df3a7125ea1eb4af0f885694346c1910c09c945c964",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/05-card-scripts.md",
+        "sha256": "a3f055014b88f43c25c4083e58f8982929a2e1bdd8c04ed4512f177913181b30",
+        "template_body_sha256": "ee660b3e96e23e22b05f40b1d289a74365f9d66c4accc5ca68d88280ac51e212",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/05-sessions.md",
+        "sha256": "955b518582503c566f1c1a8db53ce23e8d4bca104ca1e3856a4291046ca642d1",
+        "template_body_sha256": "2f839f32e3a1280cf327f615ee91bc5c3b10d833e675d27245a553201bc0819c",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/06.md",
+        "sha256": "2ab8aa8526339d68843f44e0aec032239714dfdf8668dfdd678796bf11ce8c11",
+        "template_body_sha256": "fdc3370e7c5cdd0a6b0f9cbd854032c508a33156bce92013cef8ce42bb8dc5f4",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/07.md",
+        "sha256": "32bb9da6302ebd5335482fa21c8529e1dac52be0432ffcd9523afbd35b76257a",
+        "template_body_sha256": "98be90d0d598a5492791bb52697e298b7954eee517f5d7091c412296ca183717",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/08.md",
+        "sha256": "2d3caef85c56c9b9f3cd23187ad4053b3930c8b4e7b564ebe1614bf2009b0de6",
+        "template_body_sha256": "5d4145ab11add6353526adb470ee88ddec9865cb5784f9ee0d403af1e14f532c",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/09.md",
+        "sha256": "5df8ef78d8ce951bcfa7ed17e0e340ae004bc013c0ecccdf7af5e5ce0221359d",
+        "template_body_sha256": "e4f7f27efc5506a3b940ab31e6e5cebf397ae236f3cf8d698470be7a184205c6",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      },
+      {
+        "path": "prompts/19A.md",
+        "sha256": "642e27840d3a58bca9d00df133fb0a0efc5d318df0b45eb55e0ce5c3170668e1",
+        "template_body_sha256": "15ace6058e66759443c66c2407ab04d4bca5222471fb0d8b3ffe6ec4ef8e5c34",
+        "actor_id": "Sol-Codex-engineering-author",
+        "provider_family": "openai",
+        "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+        "model": null,
+        "model_availability": "actual coding-model ID not exposed in this interface",
+        "contribution_kind": "authoring_prompt"
+      }
+    ]
+  }
+}

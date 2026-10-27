@@ -1,0 +1,543 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "08.content_facts",
+  "adapter_schema": {
+    "path": "schemas-strict/08-fact-report.schema.json",
+    "sha256": "8a60a2ea4b4ceda131a7966a77883fb04b3ccc2e3d179989cee5ac20d1248502"
+  },
+  "mapping": {
+    "path": "schemas-strict/08-fact-report.mapping.json",
+    "sha256": "0b0a625ccec36dd51504d3a3b3139150f7eed104e76ab92aa9c048865ff3f9ad",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 16,
+    "dropped_constraints": 17,
+    "sentinels": [
+      {
+        "field": "/source_refs/image_scout_plan, /source_refs/curriculum_unit_map",
+        "value": "deferred:not_applicable_pilot",
+        "binding": "contracts/media-disposition.json (20A inactive) / no 19A artifact",
+        "check": "08.ENVELOPE",
+        "compensating_check": "08.ENVELOPE"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/fact-report.schema.json",
+    "sha256_pinned": "42c17d5f518376b7c1ff692b42a1e864a84e1bae82f64b5825ce310b905c394a",
+    "sha256_actual": "42c17d5f518376b7c1ff692b42a1e864a84e1bae82f64b5825ce310b905c394a",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 5
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "08.content_facts",
+      "fixture": "tools/belt/fixtures/08.content_facts/v1-projected.json",
+      "sha256": "3edbd47b3c17bf10296280acd859219f48892f45245cc97cfa4503734ba5a2a7",
+      "context": "tools/belt/fixtures/08.content_facts/context-v1.json",
+      "context_sha256": "e16eb8856040c56b6ea07f21d77726d3117ed6f1bd4796e053c8f997b0f03353",
+      "kind": "v1_projected_with_synthetic_candidate",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "08.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INPUT_MEMBERSHIP",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.REQUIRED_CHECKS_RUN",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.TIER_FIRST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_RECEIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_COVERAGE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.LIVENESS_AGE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.FLAGGED_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INDEPENDENCE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.DISSENT_NOT_OUTVOTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "08.content_facts",
+      "fixture": "tools/belt/fixtures/08.content_facts/synthetic-pass.json",
+      "sha256": "d7966b49ccc4b04a2ca24794a26e56b85326c21b246a9e60f0d38b7aeed59a00",
+      "context": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1",
+      "kind": "synthetic",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "08.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.REQUIRED_CHECKS_RUN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.TIER_FIRST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_RECEIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_AGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.FLAGGED_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INDEPENDENCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.DISSENT_NOT_OUTVOTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "08.content_facts",
+      "fixture": "tools/belt/fixtures/08.content_facts/synthetic-neg-candidate-mismatch.json",
+      "sha256": "7561256997d138a9eb3f933f0c70f2eab32da5fe987c0a7c2c0f58ec49fbaa06",
+      "context": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "08.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.CANDIDATE_ECHO",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.REQUIRED_CHECKS_RUN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.TIER_FIRST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_RECEIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_AGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.FLAGGED_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INDEPENDENCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.DISSENT_NOT_OUTVOTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "08.content_facts",
+      "fixture": "tools/belt/fixtures/08.content_facts/synthetic-neg-auditor-not-independent.json",
+      "sha256": "676e32da9fd63916c6878f3a87abcbef28f074a65c9241410c2328fab2f45668",
+      "context": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "08.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.REQUIRED_CHECKS_RUN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.TIER_FIRST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_RECEIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_AGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.FLAGGED_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INDEPENDENCE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.DISSENT_NOT_OUTVOTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "08.content_facts",
+      "fixture": "tools/belt/fixtures/08.content_facts/synthetic-neg-dissent-outvoted.json",
+      "sha256": "673652142ac082033c98e99bca1f88730a3f1b16f1807ed0343b3a277dfcaa15",
+      "context": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "08.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_CONSISTENCY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.REQUIRED_CHECKS_RUN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.TIER_FIRST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_RECEIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_AGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.FLAGGED_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INDEPENDENCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.DISSENT_NOT_OUTVOTED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "08.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "08.content_facts",
+      "fixture": "tools/belt/fixtures/08.content_facts/synthetic-hold-undated-effective-date.json",
+      "sha256": "61637154fa5cf5a871592e0ff0e74ace5430d3c4fb9603d0bd0fc7d1618bbde8",
+      "context": "tools/belt/fixtures/08.content_facts/context-synthetic.json",
+      "context_sha256": "31a35d318cfcfcc68a3de338edb74a893ad03976fb202cea5ea450406982a3d1",
+      "kind": "synthetic_hold",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "08.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.REQUIRED_CHECKS_RUN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.TIER_FIRST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_RECEIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.LIVENESS_COVERAGE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "08.LIVENESS_AGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.FLAGGED_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.EXTERNAL_REVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.INDEPENDENCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.DISSENT_NOT_OUTVOTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "08.VERDICT_GATE",
+          "status": "HOLD"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": {
+    "file": "tests/belt/08-content-facts.test.mjs",
+    "stage_id": "08.content_facts",
+    "command": "node --test tests/belt/08-content-facts.test.mjs",
+    "exit_code": 0,
+    "pass": 14,
+    "fail": 0,
+    "skipped": 0,
+    "tap_sha256": "b5086982bda2f0496e5a53c7445bf2f5cbcd477357f771e6e769dbc08711b674"
+  },
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

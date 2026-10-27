@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nova:post-validation-invocation:v0.4.0",
+  "title": "Collector metadata captured and committed before an owner API invocation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "phase", "invocation_id", "collector_sequence", "captured_at", "logical_stage_id", "artifact_stage_id", "artifact", "context", "context_strip_fixture_meta", "implementation_closure", "implementation_closure_sha256", "validation_errors"],
+  "properties": {
+    "schema_version": {"const": "post-validation-invocation.v0.4.0"},
+    "status": {"enum": ["READY", "HOLD"]},
+    "phase": {"const": "before_validation"},
+    "invocation_id": {"type": ["string", "null"]},
+    "collector_sequence": {"type": ["integer", "null"], "minimum": 1},
+    "captured_at": {"type": ["string", "null"], "format": "date-time"},
+    "logical_stage_id": {"const": "04.qualification"},
+    "artifact_stage_id": {"const": "04.cards"},
+    "artifact": {"$ref": "#/$defs/maybeRef"},
+    "context": {"$ref": "#/$defs/maybeRef"},
+    "context_strip_fixture_meta": {"enum": [false, null]},
+    "implementation_closure": {"type": "array", "items": {"$ref": "#/$defs/ref"}},
+    "implementation_closure_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "validation_errors": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [{
+    "if": {"properties": {"status": {"const": "READY"}}, "required": ["status"]},
+    "then": {"properties": {
+      "invocation_id": {"type": "string", "minLength": 1},
+      "collector_sequence": {"type": "integer"},
+      "captured_at": {"type": "string"},
+      "artifact": {"$ref": "#/$defs/ref"},
+      "context": {"$ref": "#/$defs/ref"},
+      "context_strip_fixture_meta": {"const": false},
+      "implementation_closure": {"minItems": 1},
+      "implementation_closure_sha256": {"type": "string"},
+      "validation_errors": {"maxItems": 0}
+    }}
+  }],
+  "$defs": {
+    "ref": {"type": "object", "additionalProperties": false, "required": ["path", "sha256", "bytes"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "bytes": {"type": "integer", "minimum": 0}}},
+    "maybeRef": {"anyOf": [{"$ref": "#/$defs/ref"}, {"type": "null"}]}
+  }
+}

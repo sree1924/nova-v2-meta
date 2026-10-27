@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nova:local:teaching-unit:v0.4.0",
+  "title": "Selected-state text-first TeachingUnit collection",
+  "description": "Local 05-sessions artifact. Every learner-facing string is a fact-tagged Span. Structural validation does not certify source entailment.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "teaching-unit.v0.4.0"
+    },
+    "input_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "candidate_lineage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_registry_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "unit_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "module_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "objective_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "title": {
+            "$ref": "#/$defs/span"
+          },
+          "why_how": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/span"
+            },
+            "minItems": 1
+          },
+          "worked_example": {
+            "type": "object",
+            "properties": {
+              "scenario": {
+                "$ref": "#/$defs/span"
+              },
+              "reasoning": {
+                "$ref": "#/$defs/span"
+              },
+              "result": {
+                "$ref": "#/$defs/span"
+              }
+            },
+            "required": [
+              "scenario",
+              "reasoning",
+              "result"
+            ],
+            "additionalProperties": false
+          },
+          "misconception": {
+            "type": "object",
+            "properties": {
+              "claim": {
+                "$ref": "#/$defs/span"
+              },
+              "correction": {
+                "$ref": "#/$defs/span"
+              }
+            },
+            "required": [
+              "claim",
+              "correction"
+            ],
+            "additionalProperties": false
+          },
+          "memory_support": {
+            "$ref": "#/$defs/span"
+          },
+          "self_check": {
+            "type": "object",
+            "properties": {
+              "prompt": {
+                "$ref": "#/$defs/span"
+              },
+              "answer": {
+                "$ref": "#/$defs/span"
+              },
+              "rationale": {
+                "$ref": "#/$defs/span"
+              }
+            },
+            "required": [
+              "prompt",
+              "answer",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "slides": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "slide_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "enum": [
+                    "opening",
+                    "concept",
+                    "bridge",
+                    "trap",
+                    "self_check",
+                    "close"
+                  ]
+                },
+                "title": {
+                  "$ref": "#/$defs/span"
+                },
+                "lines": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/span"
+                  },
+                  "minItems": 1,
+                  "maxItems": 4
+                },
+                "narration": {
+                  "$ref": "#/$defs/span"
+                },
+                "estimated_narration_seconds": {
+                  "type": "number",
+                  "minimum": 30,
+                  "maximum": 60
+                },
+                "media_role": {
+                  "const": "none"
+                },
+                "media_absence_reason": {
+                  "const": "text_first_pilot"
+                }
+              },
+              "required": [
+                "slide_id",
+                "kind",
+                "title",
+                "lines",
+                "narration",
+                "estimated_narration_seconds",
+                "media_role",
+                "media_absence_reason"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 6,
+            "maxItems": 8
+          }
+        },
+        "required": [
+          "unit_id",
+          "module_id",
+          "objective_ids",
+          "title",
+          "why_how",
+          "worked_example",
+          "misconception",
+          "memory_support",
+          "self_check",
+          "slides"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "input_manifest_sha256",
+    "candidate_lineage_id",
+    "source_registry_sha256",
+    "units"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "span": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "text",
+        "fact_ids"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "x-post-validation": [
+    "Resolve every span fact_ids entry against accepted facts; require 100% resolution and independently check entailment.",
+    "Per unit: first slide opening; last close; at least one trap/bridge and one self_check; concept slides have 2-4 lines.",
+    "Per unit: at least six slides, average narration text length at least400 characters; titles at most6 words, each line at most15 words.",
+    "Estimated narration duration30-60 seconds is a text-cadence estimate, not an audio file or measured playback claim.",
+    "Across two or more units reject a uniform slide-count vector; for one unit report comparison not_applicable_single_unit.",
+    "Why/how, worked example, misconception correction, memory support and aligned self-check are present for every unit; counters are computed by scripts.",
+    "A source-bound misconception is explicitly labelled as a misconception; its correction and reasoning need supported fact IDs.",
+    "No unresolved verification debt, source/edition mismatch or learner-visible internal trace metadata is permitted in an accepted unit."
+  ]
+}

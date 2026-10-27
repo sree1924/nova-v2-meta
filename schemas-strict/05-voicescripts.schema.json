@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nova:fb-ai-hackathon:strict-adapter:05-voicescripts:v0.4.0",
+  "title": "VoiceScripts pilot adapter (05.card_scripts, strict mode)",
+  "description": "Provider-facing strict-mode adapter for Worker 05 card scripts under contracts/pilot-overrides-v0.4.0.json role 05. Each card script exposes ordered segments question -> think_ref -> recall_pause_ms -> answer -> teaching (Order Q §1 loop) instead of one fused narration_text; recap scripts carry is_recap true and no back. Text-only preview: audio_render is the sentinel deferred:not_applicable_pilot. The parent if/then (narrated -> tone/pacing/repeat_count/pause_after_ms) and all minLength/minimum/pattern bounds are restored in tools/belt/checks/05-card-scripts.mjs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "adapter_version", "minted_by", "probe", "audience", "input_manifest_sha256", "candidate_lineage_id", "media_disposition_ref", "audio_render", "think_cue", "audio_scripts"],
+  "properties": {
+    "schema_version": { "type": "string", "enum": ["1.0.0"] },
+    "adapter_version": { "type": "string", "enum": ["voicescripts-pilot.v0.4.0"] },
+    "minted_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "lane", "pass"],
+      "properties": {
+        "model": { "type": "string" },
+        "lane": { "type": "string" },
+        "pass": { "type": "string" }
+      }
+    },
+    "probe": { "type": "string" },
+    "audience": { "type": "string", "enum": ["Adult", "Teen", "Young"] },
+    "input_manifest_sha256": { "type": "string" },
+    "candidate_lineage_id": { "type": "string" },
+    "media_disposition_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string" }
+      }
+    },
+    "audio_render": { "type": "string", "enum": ["deferred:not_applicable_pilot"], "description": "Sentinel: no role-20 render task in the text-only preview (05C.AUDIO_RENDER)." },
+    "think_cue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cue_id", "text"],
+      "description": "The ONE shared silent-recall cue every think_ref resolves to; no request to speak.",
+      "properties": {
+        "cue_id": { "type": "string" },
+        "text": { "type": "string" }
+      }
+    },
+    "audio_scripts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["script_id", "card_id", "module_id", "unit_id", "is_recap", "voice", "mode", "segments", "recap", "must_match_card_back", "must_match_memory_hook", "tone", "pacing", "repeat_count", "pause_after_ms", "pronunciation", "visual_sync", "source_ref", "fact_ids", "visual_route", "image_asset_id"],
+        "properties": {
+          "script_id": { "type": "string" },
+          "card_id": { "type": "string" },
+          "module_id": { "type": "string" },
+          "unit_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "is_recap": { "type": "boolean" },
+          "voice": { "type": "string", "enum": ["narrated", "N/A"] },
+          "mode": { "type": "string", "enum": ["read_answer", "memory_hook", "contrast", "rapid_review", "exam_focus"] },
+          "segments": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["question", "think_ref", "recall_pause_ms", "answer", "teaching"],
+                "properties": {
+                  "question": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["lead_in", "text"],
+                    "properties": {
+                      "lead_in": { "type": "string" },
+                      "text": { "type": "string", "description": "Equals the accepted card front." }
+                    }
+                  },
+                  "think_ref": { "type": "string", "description": "Equals think_cue.cue_id." },
+                  "recall_pause_ms": { "type": "integer", "description": "Exactly 3000 (05C.RECALL_PAUSE); data, never spoken." },
+                  "answer": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["lead_in", "text"],
+                    "properties": {
+                      "lead_in": { "type": "string" },
+                      "text": { "type": "string", "description": "Equals the accepted card back byte-for-byte." }
+                    }
+                  },
+                  "teaching": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["text", "fact_ids"],
+                    "properties": {
+                      "text": { "type": "string", "description": "Contains the accepted memory hook verbatim." },
+                      "fact_ids": { "type": "array", "items": { "type": "string" } }
+                    }
+                  }
+                }
+              },
+              { "type": "null" }
+            ]
+          },
+          "recap": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["hooks_spoken", "narration_text"],
+                "properties": {
+                  "hooks_spoken": { "type": "array", "items": { "type": "string" } },
+                  "narration_text": { "type": "string" }
+                }
+              },
+              { "type": "null" }
+            ]
+          },
+          "must_match_card_back": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "must_match_memory_hook": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "tone": { "anyOf": [{ "type": "string", "enum": ["coach", "peer", "gentle"] }, { "type": "null" }] },
+          "pacing": { "anyOf": [{ "type": "string", "enum": ["slow", "standard", "rapid"] }, { "type": "null" }] },
+          "repeat_count": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+          "pause_after_ms": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+          "pronunciation": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["term", "say", "proper_noun"],
+              "properties": {
+                "term": { "type": "string" },
+                "say": { "type": "string" },
+                "proper_noun": { "type": "boolean" }
+              }
+            }
+          },
+          "visual_sync": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["text_span", "timing_hint"],
+              "properties": {
+                "text_span": { "type": "string" },
+                "timing_hint": { "type": "string" }
+              }
+            }
+          },
+          "source_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["ref", "tier", "url", "pdf_page", "printed_page", "page_map_id"],
+            "properties": {
+              "ref": { "type": "string" },
+              "tier": { "type": "string", "enum": ["official", "regulator", "exam_owner", "standards_body", "reputable", "unverified"] },
+              "url": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+              "pdf_page": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+              "printed_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+              "page_map_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            }
+          },
+          "fact_ids": { "type": "array", "items": { "type": "string" } },
+          "visual_route": { "anyOf": [{ "type": "string", "enum": ["tap_ui"] }, { "type": "null" }] },
+          "image_asset_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+        }
+      }
+    }
+  }
+}

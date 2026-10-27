@@ -1,0 +1,215 @@
+{
+  "command": "node tools/belt/post-validate.mjs --stage 06.exam_bank --artifact tools/belt/fixtures/06.exam_bank/v1-projected.json --context tools/belt/fixtures/06.exam_bank/context-v1.json",
+  "cwd": "D:/nova/fb-ai-hackathon",
+  "exit_code": 1,
+  "expected_status": "FAIL",
+  "observed_status": "FAIL",
+  "stdout_sha256": "a3fb1efdd2c0ae9b0703550b8c1e17b3de3d932ac7d39c785bffdd2f2ea3896a",
+  "result": {
+    "status": "FAIL",
+    "stage_id": "06.exam_bank",
+    "checks": [
+      {
+        "check_id": "06.SCHEMA",
+        "status": "PASS",
+        "evidence": "validates against schemas-strict/06-exambank.schema.json"
+      },
+      {
+        "check_id": "06.ENVELOPE",
+        "status": "PASS",
+        "evidence": "probe slug, input_manifest_sha256 format and stamp/ref strings valid"
+      },
+      {
+        "check_id": "06.INPUT_MANIFEST",
+        "status": "PASS",
+        "evidence": "input_manifest_sha256 equals bound manifest 2207526d05f2…"
+      },
+      {
+        "check_id": "06.ID_INTEGRITY",
+        "status": "PASS",
+        "evidence": "138 unique items; all 50 form refs and 138 quiz refs resolve",
+        "metrics": {
+          "items": 138,
+          "unresolved": 0
+        }
+      },
+      {
+        "check_id": "06.ITEM_BINDING",
+        "status": "FAIL",
+        "evidence": "10/138 item(s) missing binding: item.eng.01: objective_id,node_id,fact_ids; item.eng.02: objective_id,node_id,fact_ids; item.eng.03: objective_id,node_id,fact_ids; item.eng.04: objective_id,node_id,fact_ids; item.eng.05: objective_id,node_id,fact_ids; item.eng.06: objective_id,node_id,fact_ids; item.eng.07: objective_id,node_id,fact_ids; item.eng.08: objective_id,node_id,fact_ids; …(+2 more)",
+        "metrics": {
+          "unbound": 10
+        }
+      },
+      {
+        "check_id": "06.PAGE_OR_DEBT",
+        "status": "HOLD",
+        "evidence": "10 item(s) carry open (verify) page debt — acceptance waits on source repair: item.eng.01; item.eng.02; item.eng.03; item.eng.04; item.eng.05; item.eng.06; item.eng.07; item.eng.08; …(+2 more)",
+        "metrics": {
+          "paged": 128,
+          "page_debt": 10
+        }
+      },
+      {
+        "check_id": "06.OPTIONS_SHAPE",
+        "status": "FAIL",
+        "evidence": "10 item(s): item.eng.01: empty: B.rationale,C.rationale,D.rationale; item.eng.02: empty: A.rationale,C.rationale,D.rationale; item.eng.03: empty: A.rationale,B.rationale,D.rationale; item.eng.04: empty: A.rationale,B.rationale,C.rationale; item.eng.05: empty: B.rationale,C.rationale,D.rationale; item.eng.06: empty: A.rationale,C.rationale,D.rationale; item.eng.07: empty: A.rationale,B.rationale,D.rationale; item.eng.08: empty: A.rationale,B.rationale,C.rationale; …(+2 more)",
+        "metrics": {
+          "bad_items": 10
+        }
+      },
+      {
+        "check_id": "06.DISTRACTOR_SOURCE",
+        "status": "PASS",
+        "evidence": "every item records 3 distractor sources (121 labelled synthesized near-miss)",
+        "metrics": {
+          "synthesized": 121
+        }
+      },
+      {
+        "check_id": "06.ANSWER_RATIONALE_AGREEMENT",
+        "status": "FAIL",
+        "evidence": "6 item(s): item.eng.01: correct_rationale does not name the correct option; item.eng.02: correct_rationale does not name the correct option; item.eng.05: correct_rationale does not name the correct option; item.eng.06: correct_rationale does not name the correct option; item.eng.07: correct_rationale does not name the correct option; item.eng.10: correct_rationale does not name the correct option",
+        "metrics": {
+          "disagreements": 6
+        }
+      },
+      {
+        "check_id": "06.BANNED_CLAIMS",
+        "status": "PASS",
+        "evidence": "no actual/real/leaked/official-question, prediction or unverified full-length claims in learner strings",
+        "metrics": {
+          "hits": 0
+        }
+      },
+      {
+        "check_id": "06.PRACTICE_LABEL",
+        "status": "PASS",
+        "evidence": "all 3 form titles carry a practice label"
+      },
+      {
+        "check_id": "06.FORM_NUMERALS",
+        "status": "PASS",
+        "evidence": "no form-level numeral asserts an unverified official fact (3 forms)",
+        "metrics": {
+          "leaks": 0
+        }
+      },
+      {
+        "check_id": "06.ITEM_NUMERALS",
+        "status": "FAIL",
+        "evidence": "99/135 surface(s) with numerals not anchored in a verified bound fact: q001: correct_rationale 1 (unanchored), correct_rationale 3 (unanchored), correct option rationale 1 (unanchored), correct option rationale 3 (unanchored), D rationale 1789 (unanchored); q003: correct_rationale 1 (unanchored), correct_rationale 4 (unanchored), correct option rationale 1 (unanchored), correct option rationale 4 (unanchored), D rationale 1863 (unanchored); q004: correct_rationale 1 (unanchored), correct_rationale 5 (unanchored), correct option rationale 1 (unanchored), correct option rationale 5 (unanchored); q005: correct_rationale 1 (unanchored), correct_rationale 2 (unanchored), correct option rationale 1 (unanchored), correct option rationale 2 (unanchored); q006: correct_rationale 1 (unanchored), correct_rationale 2 (unanchored), correct option rationale 1 (unanchored), correct option rationale 2 (unanchored), C rationale 15 (unanchored), C rationale 19 (unanchored), C rationale 24 (unanchored), C rationale 26 (unanchored); q008: correct_rationale 1 (unanchored), correct_rationale 4 (unanchored), correct option rationale 1 (unanchored), correct option rationale 4 (unanchored), C rationale 1863 (unanchored); q009: D rationale 1787 (unanchored), D rationale 88 (unanchored); q010: correct_rationale 1 (unanchored), correct_rationale 6 (unanchored), correct option rationale 1 (unanchored), correct option rationale 6 (unanchored), A rationale 1800 (unanchored), C rationale 20 (unanchored); q012: correct_rationale 1 (unanchored), correct_rationale 2 (unanchored), correct option rationale 1 (unanchored), correct option rationale 2 (unanchored); q013: correct_rationale 1 (unanchored), correct_rationale 4 (unanchored), correct option rationale 1 (unanchored), correct option rationale 4 (unanchored); …(+89 more)",
+        "metrics": {
+          "surfaces_with_numerals": 135,
+          "failing": 99
+        }
+      },
+      {
+        "check_id": "06.OFFICIAL_MIRROR",
+        "status": "PASS",
+        "evidence": "official mirror records consistent on 3 forms (3 verified, 0 practice-only)"
+      },
+      {
+        "check_id": "06.SCORING_POLICY",
+        "status": "PASS",
+        "evidence": "all forms score by product policy runs/2026-06-11-citizenship/19-learning-loop.json@sha256:f37c0b374af5a265a63cb26d2ca6380105ad000578a38f30dfe2bcf1be5bff3f",
+        "metrics": {
+          "distinct_refs": 1
+        }
+      },
+      {
+        "check_id": "06.DECLARED_COUNT",
+        "status": "PASS",
+        "evidence": "declared_count equals served item ids on all 3 forms"
+      },
+      {
+        "check_id": "06.TITLED_PROMISE",
+        "status": "PASS",
+        "evidence": "every countable title promise equals served content"
+      },
+      {
+        "check_id": "06.FORM_OVERLAP",
+        "status": "FAIL",
+        "evidence": "mock-2025-form-A×mock-2025-form-65-20 share 6 (60%) but mock-2025-form-A.overlap_note is null; mock-2025-form-A×mock-2025-form-65-20 share 6 (60%) but mock-2025-form-65-20.overlap_note is null",
+        "metrics": {
+          "pairs": 3,
+          "max_overlap_pct": 60
+        }
+      },
+      {
+        "check_id": "06.DUPLICATE_STEM",
+        "status": "PASS",
+        "evidence": "no duplicate stem+answer pairs (1 shared instruction stem(s) with distinct answers)",
+        "metrics": {
+          "duplicates": 0,
+          "shared_instruction_stems": 1
+        }
+      },
+      {
+        "check_id": "06.ITEM_CLONE",
+        "status": "PASS",
+        "evidence": "no clones among 138 items",
+        "metrics": {
+          "clone_groups": 0
+        }
+      },
+      {
+        "check_id": "06.NEEDS_REVIEW_ZERO",
+        "status": "FAIL",
+        "evidence": "17 served item(s) needs_review:true: q023; q029; q030; q032; q038; q039; q045; q048; q057; q061; q062; q069; q070; q075; q095; q105; q106",
+        "metrics": {
+          "needs_review": 17
+        }
+      },
+      {
+        "check_id": "06.SELF_FLAGGED_RESOLVED",
+        "status": "FAIL",
+        "evidence": "8 unresolved self-flagged distractor item(s) served: q032; q045; q069; q070; q075; q095; q105; q106",
+        "metrics": {
+          "unresolved": 8
+        }
+      },
+      {
+        "check_id": "06.DERIVED_PLACEMENT",
+        "status": "PASS",
+        "evidence": "no derived items in practice forms (0 derived items total)"
+      },
+      {
+        "check_id": "06.FORM_COUNT",
+        "status": "PASS",
+        "evidence": "3 practice form(s) (need >= 2)"
+      },
+      {
+        "check_id": "06.MODULE_QUIZ_COVERAGE",
+        "status": "PASS",
+        "evidence": "26 quizzes = one per 26 declared modules; all quiz items in-module"
+      }
+    ],
+    "errors": [],
+    "metrics": {
+      "fixture_kind": "v1_projected",
+      "adapter_schema_sha256": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22",
+      "06.ID_INTEGRITY.items": 138,
+      "06.ID_INTEGRITY.unresolved": 0,
+      "06.ITEM_BINDING.unbound": 10,
+      "06.PAGE_OR_DEBT.paged": 128,
+      "06.PAGE_OR_DEBT.page_debt": 10,
+      "06.OPTIONS_SHAPE.bad_items": 10,
+      "06.DISTRACTOR_SOURCE.synthesized": 121,
+      "06.ANSWER_RATIONALE_AGREEMENT.disagreements": 6,
+      "06.BANNED_CLAIMS.hits": 0,
+      "06.FORM_NUMERALS.leaks": 0,
+      "06.ITEM_NUMERALS.surfaces_with_numerals": 135,
+      "06.ITEM_NUMERALS.failing": 99,
+      "06.SCORING_POLICY.distinct_refs": 1,
+      "06.FORM_OVERLAP.pairs": 3,
+      "06.FORM_OVERLAP.max_overlap_pct": 60,
+      "06.DUPLICATE_STEM.duplicates": 0,
+      "06.DUPLICATE_STEM.shared_instruction_stems": 1,
+      "06.ITEM_CLONE.clone_groups": 0,
+      "06.NEEDS_REVIEW_ZERO.needs_review": 17,
+      "06.SELF_FLAGGED_RESOLVED.unresolved": 8
+    },
+    "artifact_sha256": "9a39c8e09c970456f7f163c7351c42d8e3863e2eced62a52f341d0bd0024fa25"
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "_fixture": {
+    "kind": "synthetic",
+    "label": "SYNTHETIC — positive envelope with NO context (manifest/registry absent) -> HOLD, never PASS",
+    "expected_status": "HOLD"
+  },
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "synthetic-probe",
+  "lineage": {
+    "input_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "candidate_lineage_id": "lineage-synthetic-001",
+    "source_registry_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "source_liveness_sha256": null
+  },
+  "envelope_scope": {
+    "kind": "complete_dossier",
+    "assigned_section_ids": [
+      "A",
+      "B",
+      "C",
+      "C2",
+      "D",
+      "E",
+      "E2",
+      "F",
+      "G"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 4000,
+  "sections": [
+    {
+      "section_id": "A",
+      "chunk_id": "A.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "A — Exam authority (SYNTHETIC)",
+      "learner_facing": true,
+      "markdown": "## A — Exam authority (SYNTHETIC)\nIssuer: Example Licensing Board (synthetic) [P1].\nThe written test has 25 items [P1].\nThe passing standard is not published on the handbook pages (verify — SD-1).\n",
+      "char_count": 197,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "P1",
+          "source_page": "SYN-HB#p.1"
+        }
+      ]
+    },
+    {
+      "section_id": "B",
+      "chunk_id": "B.02",
+      "merge_seq": 2,
+      "domain": null,
+      "heading": "B — Audience (SYNTHETIC)",
+      "learner_facing": false,
+      "markdown": "## B — Audience (SYNTHETIC)\nFirst-time applicants reading at a plain-English level.\n",
+      "char_count": 84,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.03",
+      "merge_seq": 3,
+      "domain": "Road rules (synthetic)",
+      "heading": "C — Road rules (SYNTHETIC)",
+      "learner_facing": true,
+      "markdown": "## C — Road rules (SYNTHETIC)\n**F1.** A full stop is required at a red octagonal sign [P2].\n- Applies at every marked stop line.\n**§ high_yield (ranked):** 1) F1 full stop.\n",
+      "char_count": 173,
+      "fact_ids": [
+        "F1"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "P2",
+          "source_page": "SYN-HB#p.2"
+        }
+      ]
+    },
+    {
+      "section_id": "C2",
+      "chunk_id": "C2.04",
+      "merge_seq": 4,
+      "domain": null,
+      "heading": "C2 — KG hints (SYNTHETIC)",
+      "learner_facing": false,
+      "markdown": "## C2 — KG hints (SYNTHETIC)\nF1: group_hint signs; difficulty_hint low; prereq none.\n",
+      "char_count": 85,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "D",
+      "chunk_id": "D.05",
+      "merge_seq": 5,
+      "domain": null,
+      "heading": "D — Accuracy (SYNTHETIC)",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy (SYNTHETIC)\nSD-1: the passing standard is unverified; withheld until the issuer page states it (verify — SD-1).\n",
+      "char_count": 128,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "E",
+      "chunk_id": "E.06",
+      "merge_seq": 6,
+      "domain": null,
+      "heading": "E — Market signal (SYNTHETIC)",
+      "learner_facing": false,
+      "markdown": "## E — Market signal (SYNTHETIC)\nCandidate volume is unknown; recorded as debt SD-2 (verify — SD-2).\n",
+      "char_count": 101,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "E2",
+      "chunk_id": "E2.07",
+      "merge_seq": 7,
+      "domain": null,
+      "heading": "E2 — Teardown (SYNTHETIC)",
+      "learner_facing": false,
+      "markdown": "## E2 — Teardown (SYNTHETIC)\nNo named competitor reviewed in this synthetic fixture.\n",
+      "char_count": 85,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "F",
+      "chunk_id": "F.08",
+      "merge_seq": 8,
+      "domain": null,
+      "heading": "F — Structured research index (SYNTHETIC)",
+      "learner_facing": false,
+      "markdown": "## F — Structured research index (SYNTHETIC)\nOpen debts: SD-1, SD-2.\n",
+      "char_count": 69,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "G",
+      "chunk_id": "G.09",
+      "merge_seq": 9,
+      "domain": null,
+      "heading": "G — Definition of done (SYNTHETIC)",
+      "learner_facing": false,
+      "markdown": "## G — Definition of done (SYNTHETIC)\nEvery box below carries a located disposition.\n",
+      "char_count": 85,
+      "fact_ids": [],
+      "source_anchors": []
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": "1851b597399b385477ce623c2b4254eb0cf4397c40acc6bd37d2046e5ce56abd"
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": "Example written knowledge test (synthetic)",
+      "status": "authored",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": "Example Licensing Board (synthetic)",
+      "status": "verified",
+      "source_page": "SYN-HB#p.1"
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": 25,
+      "status": "verified",
+      "source_page": "SYN-HB#p.1"
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [
+    {
+      "domain": "Road rules (synthetic)",
+      "chunk_id": "C.03",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "F1"
+          ],
+          "label": "F1 full stop"
+        }
+      ]
+    }
+  ],
+  "needs_dedicated_surface": {
+    "status": "declared",
+    "items": [
+      {
+        "skill": "sign recognition (verbal cues)",
+        "domain": "Road rules (synthetic)",
+        "needs_dedicated_surface": true,
+        "why": "scored separately from rules recall in this synthetic issuer",
+        "source_page": "SYN-HB#p.2"
+      }
+    ]
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "synthetic handbook revised at most annually [P1]"
+  },
+  "verification_debt": [
+    {
+      "claim_id": "SD-1",
+      "claim_text": "Passing standard (a hint of 80% appears only in a legacy candidate config)",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": true,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.05"
+      },
+      "withheld_values": [
+        "80%"
+      ]
+    },
+    {
+      "claim_id": "SD-2",
+      "claim_text": "Annual candidate volume",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "E",
+        "chunk_id": "E.06"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "synthetic: no market research performed; typed debt only",
+    "disposition": "typed_debt",
+    "chunk_ids": [
+      "E.06"
+    ],
+    "debt_refs": [
+      "SD-2"
+    ]
+  },
+  "g_matrix": [
+    {
+      "box_id": "G01_domains_covered",
+      "disposition": "completed",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic"
+    },
+    {
+      "box_id": "G02_passing_standard_exact",
+      "disposition": "debt",
+      "located_at": "D.05",
+      "debt_ref": "SD-1",
+      "note": "synthetic"
+    },
+    {
+      "box_id": "G03_high_yield_ranked",
+      "disposition": "completed",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic"
+    },
+    {
+      "box_id": "G04_misconceptions",
+      "disposition": "completed",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic"
+    },
+    {
+      "box_id": "G05_mnemonics",
+      "disposition": "completed",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic"
+    },
+    {
+      "box_id": "G06_glossary",
+      "disposition": "completed",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic"
+    },
+    {
+      "box_id": "G07_dynamic_isolated",
+      "disposition": "completed",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic"
+    },
+    {
+      "box_id": "G08_competitive_teardown",
+      "disposition": "non_applicable",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic fixture: market research scoped out"
+    },
+    {
+      "box_id": "G09_market_pack",
+      "disposition": "non_applicable",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic fixture: market research scoped out"
+    },
+    {
+      "box_id": "G10_accuracy_sourced",
+      "disposition": "completed",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic"
+    },
+    {
+      "box_id": "G11_verify_list_consolidated",
+      "disposition": "completed",
+      "located_at": "G.09",
+      "debt_ref": null,
+      "note": "synthetic"
+    }
+  ]
+}

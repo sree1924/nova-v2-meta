@@ -1,0 +1,165 @@
+{
+  "_fixture": {
+    "kind": "v1_projected_with_synthetic_candidate",
+    "note": "FIXTURE/REFERENCE projected from the V1 citizenship 07 report — never a DMV production result. The candidate manifest is SYNTHETIC (V1 had none): its members are exactly the input hashes V1 07 recorded.",
+    "source": {
+      "path": "runs/2026-06-11-citizenship/07-coverage-report.json",
+      "sha256": "5b716f01a4643522ecd7acb8f564b8cff5237784fc9d8253a85ddda03deffc22",
+      "declared_artifact_hash": "sha256:a30da0ff2ef6891b2987bf6ee292fcfb69ae10db5593ad6a81c340236153ac4f"
+    },
+    "generator": {
+      "path": "tools/belt/project/07-content-coverage.mjs",
+      "sha256": "44d19404b4ecd9b9877189c282dbddecf2e4a168744a079c489ac5cc3b1ee1e8"
+    },
+    "decisions": [
+      "input_hashes: the 5 hashes V1 07 recorded in input_artifact_hashes (sha256: prefix stripped), preserved byte-for-byte; session_scripts/curriculum_unit_map/learning_loop/early_media_intent/source_registry null (V1 07 bound none).",
+      "candidate_sha256 = sha256(canonicalJson(synthetic manifest whose members are those 5 recorded hashes)). Synthetic; recorded in context-v1.json.",
+      "domain_coverage: V1 weight_pct values are shares of the 128-question published bank (bank_q counts / 128), not issuer-published domain weights -> weight_check not_applicable, weight_pct null, weighting_drift null; content_share kept; ok = content_share > 0.",
+      "coverage_basis official_objectives (each M-1778 question is an official objective).",
+      "provider_family anthropic: V1 07 minted_by opus + sonnet computer (minted_by.computed_by).",
+      "required_checks_not_run lists v0.4.0-required checks for which the V1 report carries no evidence (session/unit/rule 5-6/rule 15). Not a claim that V1 was wrong in its own era.",
+      "media: V1 predates the pilot media disposition; projection binds contracts/media-disposition.json@current sha and echoes its non_applicable_checks verbatim. early_media_intent_ref null (no early UI media intent in V1) -> HOLD.",
+      "source_refs for unaudited inputs use explicit \"unbound:\" labels; image_scout_plan uses the deferred:not_applicable_pilot sentinel bound to the disposition.",
+      "V1 adapter_exceptions / executor_rulings_applied are not carried (no adapter field; rulings R1-R3 are V1-era executor decisions).",
+      "verdict PASS copied from V1."
+    ]
+  },
+  "artifact_type": "CoverageReport",
+  "adapter_version": "0.4.0",
+  "probe": "us-citizenship",
+  "minted_by": {
+    "model": "opus",
+    "lane": "judgment",
+    "pass": "reverdict"
+  },
+  "candidate_sha256": "d0b0d5771ea0b32bad3030466eb663e805c971e4ea5a29b71be9f0bdc2f512c1",
+  "input_hashes": {
+    "blueprint": "71f0454a421eafc6e074e380c47b987c8dc128c260e745fbb8457212472aa481",
+    "knowledge_graph": "5c93702cfefd90c088a3616169310ed587c5cdafe7687174a61ce89c04a8c210",
+    "carddeck": "6b8c01762badc671029a4f3675482f987c1331e46efb8092ee3140f1b193c219",
+    "session_scripts": null,
+    "voice_scripts": "bcf3671aef82a6c34f35d685053803defd13a8202ed33d66a006fbd8abb32915",
+    "exambank": "acd95d167fb027d96a9aa49309648e5883cad03ba0cbc8411ba03c0dbca256c1",
+    "curriculum_unit_map": null,
+    "learning_loop": null,
+    "early_media_intent": null,
+    "source_registry": null
+  },
+  "source_refs": {
+    "blueprint": "runs/2026-06-11-citizenship/17-enriched-blueprint.json",
+    "knowledge_graph": "runs/2026-06-11-citizenship/03-knowledge-graph.json",
+    "carddeck": "runs/2026-06-11-citizenship/04-carddeck.json",
+    "session_scripts": "unbound:v1-07-did-not-audit-session-scripts",
+    "exambank": "runs/2026-06-11-citizenship/06-exambank.json",
+    "curriculum_unit_map": "unbound:v1-run-has-no-19A-curriculum-unit-map",
+    "image_scout_plan": "deferred:not_applicable_pilot"
+  },
+  "coverage_matrix_ref": "unbound:v1-07-emitted-no-coverage-matrix",
+  "coverage_basis": "official_objectives",
+  "provider_family": "anthropic",
+  "assigned_scope": "content_coverage:full_candidate",
+  "verdict": "PASS",
+  "required_checks_not_run": [
+    "session/TeachingUnit coverage and claims fact-id resolution (no 05b input in V1 07)",
+    "curriculum unit binding via 19A (no CurriculumUnitMap in the V1 run)",
+    "Order Q rule 5/6 form overlap + item-clone recompute (rules postdate V1 07)",
+    "Order Q rule 15 titled-promise sweep (rule postdates V1 07)"
+  ],
+  "blocking_findings": [],
+  "domain_coverage": [
+    {
+      "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+      "weight_check": "not_applicable",
+      "weight_pct": null,
+      "content_share": 11.72,
+      "weighting_drift": null,
+      "ok": true
+    },
+    {
+      "domain": "AMERICAN GOVERNMENT — B: System of Government",
+      "weight_check": "not_applicable",
+      "weight_pct": null,
+      "content_share": 36.72,
+      "weighting_drift": null,
+      "ok": true
+    },
+    {
+      "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+      "weight_check": "not_applicable",
+      "weight_pct": null,
+      "content_share": 7.81,
+      "weighting_drift": null,
+      "ok": true
+    },
+    {
+      "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+      "weight_check": "not_applicable",
+      "weight_pct": null,
+      "content_share": 13.28,
+      "weighting_drift": null,
+      "ok": true
+    },
+    {
+      "domain": "AMERICAN HISTORY — B: 1800s",
+      "weight_check": "not_applicable",
+      "weight_pct": null,
+      "content_share": 7.81,
+      "weighting_drift": null,
+      "ok": true
+    },
+    {
+      "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+      "weight_check": "not_applicable",
+      "weight_pct": null,
+      "content_share": 14.84,
+      "weighting_drift": null,
+      "ok": true
+    },
+    {
+      "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+      "weight_check": "not_applicable",
+      "weight_pct": null,
+      "content_share": 4.69,
+      "weighting_drift": null,
+      "ok": true
+    },
+    {
+      "domain": "SYMBOLS AND HOLIDAYS — B: Holidays",
+      "weight_check": "not_applicable",
+      "weight_pct": null,
+      "content_share": 3.13,
+      "weighting_drift": null,
+      "ok": true
+    }
+  ],
+  "missing_high_yield": [],
+  "dropped_facts": [],
+  "practice_form_drift": [],
+  "voice_gaps": [],
+  "curriculum_unit_gaps": [],
+  "media": {
+    "media_disposition_ref": "contracts/media-disposition.json",
+    "media_disposition_sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd",
+    "early_media_intent_ref": null,
+    "non_applicable_checks": [
+      {
+        "check": "rendered audio manifest/files/provider",
+        "reason": "Text-only preview, no20render task."
+      },
+      {
+        "check": "pre/post image scout plans",
+        "reason": "20Ainactive; no scout success claimed."
+      },
+      {
+        "check": "audio timing/loudness/renderback",
+        "reason": "No rendered audio; text-script segment/parity checks stay mandatory."
+      }
+    ]
+  },
+  "media_gaps": [],
+  "pending_media": [],
+  "cross_product_refs": [],
+  "sme_dod_unsatisfied": [],
+  "titled_promises": [],
+  "route_back": []
+}

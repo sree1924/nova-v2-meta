@@ -1,0 +1,1379 @@
+{
+  "_fixture": {
+    "kind": "v1_projected_with_synthetic_candidate",
+    "note": "FIXTURE/REFERENCE projected from the V1 citizenship 08 report — never a DMV production result. Candidate manifest and liveness receipts are SYNTHETIC projections (V1 had neither).",
+    "source": {
+      "path": "runs/2026-06-11-citizenship/08-fact-report.json",
+      "sha256": "6cc1954657a5ab544c5f58efdbfc93a10ac6a25e2e8ede8bd664bc91edab85d6",
+      "declared_artifact_hash": "sha256:fe388777cffbb06e0c12baa32ae81bbb496949fe63d6591056c8d9dd23802a47"
+    },
+    "generator": {
+      "path": "tools/belt/project/08-content-facts.mjs",
+      "sha256": "81febd485ac43076bf18a065c50c261e418843cc4bd7345f17b70fa0c8656dd6"
+    },
+    "pin_resolution": [
+      "enriched_blueprint: 8-hex prefix f1c32444 resolved to 17-enriched-blueprint.json declared artifact_hash f1c32444003ccd0864c53e0514bb425183aab47053443ec662ed83f075bcc77f",
+      "carddeck: 8-hex prefix 446e0f20 resolved to 04-carddeck.json declared artifact_hash 446e0f20c85944ceb81f83d69357a49bc809af491c078c36d7a283c5c0081acb",
+      "voicescripts: 8-hex prefix 63d87712 resolved to 05-voicescripts.json declared artifact_hash 63d87712cb8d4c24c7b213fc1f508ac67d130c8ea49917324a0b4e468eaafa0e",
+      "exambank: 8-hex prefix 07d4f8ae resolved to 06-exambank.json declared artifact_hash 07d4f8ae61876b151665a4c19e3b64f2a4a483197dfbb3c01d7086818d14ebe8",
+      "source_registry: V1 pinned only the name \"15-source-registry.json\" — resolved to 15-source-registry.json declared artifact_hash 1a1459a892107c37af92cf50e22f6c511e3d63996d93c8b9bc7fffe61d329fad"
+    ],
+    "decisions": [
+      "input_hashes: V1 input_pins are 8-hex prefixes; each resolved to the self-declared artifact_hash of the named V1 artifact ONLY when the prefix matches (canonical-body hash, not file bytes). source_registry was pinned by name only -> its declared artifact_hash. session_scripts/curriculum_unit_map/source_liveness null (V1 pinned none).",
+      "candidate_sha256 = sha256(canonicalJson(synthetic manifest of those resolved hashes)).",
+      "claim_tiers: one row per 17-enriched-blueprint fact (130); source_ref = 15-source-registry row matched by fact URL, else by [S-code]; tier copied from the fact.",
+      "source_liveness: projected from 15-source-registry rows for the cited sources: retrieved_at/snapshot/url copied; trust_tier official_body -> source_tier issuer; edition/effective_date/issuer current-edition fields null (not recorded) -> status VERIFICATION_DEBT. Not invented as PASS.",
+      "auditor: V1 08 minted_by opus (anthropic); actor id is a label; V1 recorded no session id (\"unrecorded:v1-08\").",
+      "verification_debt VD-1..4 copied; owner_worker 02-sme -> 02, 01b-competitive-intel -> 01b.",
+      "checks_run: one row per V1 evidence key, status PASS as V1 reported, scope sampled where the V1 text says sample.",
+      "required_checks_not_run lists v0.4.0-required steps with no V1 evidence.",
+      "context now_utc 2026-06-12T18:00:00Z is SYNTHETIC (V1 08 freshness note says as of 2026-06-12); receipts dated 2026-06-11T00:00Z are therefore > 24h.",
+      "flagged/unsourced/visual/grouped/external_review empty, publish_blocked false, verdict PASS — copied from V1."
+    ]
+  },
+  "artifact_type": "FactReport",
+  "adapter_version": "0.4.0",
+  "probe": "us-citizenship",
+  "minted_by": {
+    "model": "opus",
+    "lane": "judgment",
+    "pass": "verdict"
+  },
+  "candidate_sha256": "e882f09642200844c88acc9d0e98e0e6f92927fcd1448f5423670d84be8f94af",
+  "input_hashes": {
+    "blueprint": "f1c32444003ccd0864c53e0514bb425183aab47053443ec662ed83f075bcc77f",
+    "carddeck": "446e0f20c85944ceb81f83d69357a49bc809af491c078c36d7a283c5c0081acb",
+    "voice_scripts": "63d87712cb8d4c24c7b213fc1f508ac67d130c8ea49917324a0b4e468eaafa0e",
+    "session_scripts": null,
+    "exambank": "07d4f8ae61876b151665a4c19e3b64f2a4a483197dfbb3c01d7086818d14ebe8",
+    "source_registry": "1a1459a892107c37af92cf50e22f6c511e3d63996d93c8b9bc7fffe61d329fad",
+    "curriculum_unit_map": null,
+    "source_liveness": null
+  },
+  "source_refs": {
+    "blueprint": "runs/2026-06-11-citizenship/17-enriched-blueprint.json",
+    "carddeck": "runs/2026-06-11-citizenship/04-carddeck.json",
+    "voice_scripts": "runs/2026-06-11-citizenship/05-voicescripts.json",
+    "session_scripts": "unbound:v1-08-pinned-no-session-scripts",
+    "exambank": "runs/2026-06-11-citizenship/06-exambank.json",
+    "source_registry": "runs/2026-06-11-citizenship/15-source-registry.json",
+    "image_scout_plan": "deferred:not_applicable_pilot",
+    "curriculum_unit_map": "unbound:v1-run-has-no-19A-curriculum-unit-map"
+  },
+  "assigned_scope": "content_facts:full_candidate",
+  "auditor": {
+    "provider_family": "anthropic",
+    "actor_id": "v1:08-executor:opus",
+    "session_id": "unrecorded:v1-08",
+    "model": "opus"
+  },
+  "verdict": "PASS",
+  "tier_resolution_first": true,
+  "claim_tiers": [
+    {
+      "claim_id": "claim.gov-a.01",
+      "item_ref": "gov-a.01",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.01"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.02",
+      "item_ref": "gov-a.02",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.02"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.03",
+      "item_ref": "gov-a.03",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.03"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.04",
+      "item_ref": "gov-a.04",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.04"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.05",
+      "item_ref": "gov-a.05",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.05"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.06",
+      "item_ref": "gov-a.06",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.06"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.07",
+      "item_ref": "gov-a.07",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.07"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.08",
+      "item_ref": "gov-a.08",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.08"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.09",
+      "item_ref": "gov-a.09",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.09"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.10",
+      "item_ref": "gov-a.10",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.10"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.11",
+      "item_ref": "gov-a.11",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.11"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.12",
+      "item_ref": "gov-a.12",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.12"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.13",
+      "item_ref": "gov-a.13",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.13"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.14",
+      "item_ref": "gov-a.14",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.14"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-a.15",
+      "item_ref": "gov-a.15",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-a.15"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.01",
+      "item_ref": "gov-b.01",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.01"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.02",
+      "item_ref": "gov-b.02",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.02"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.03",
+      "item_ref": "gov-b.03",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.03"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.04",
+      "item_ref": "gov-b.04",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.04"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.05",
+      "item_ref": "gov-b.05",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.05"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.06",
+      "item_ref": "gov-b.06",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.06"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.07",
+      "item_ref": "gov-b.07",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.07"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.08",
+      "item_ref": "gov-b.08",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.08"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.09",
+      "item_ref": "gov-b.09",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.09"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.10",
+      "item_ref": "gov-b.10",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.10"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.11",
+      "item_ref": "gov-b.11",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.11"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.12",
+      "item_ref": "gov-b.12",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.12"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.13",
+      "item_ref": "gov-b.13",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.13"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.14",
+      "item_ref": "gov-b.14",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.14"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.15",
+      "item_ref": "gov-b.15",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.15"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.16",
+      "item_ref": "gov-b.16",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.16"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.17",
+      "item_ref": "gov-b.17",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.17"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.18",
+      "item_ref": "gov-b.18",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.18"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.19",
+      "item_ref": "gov-b.19",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.19"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.20",
+      "item_ref": "gov-b.20",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.20"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.21",
+      "item_ref": "gov-b.21",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.21"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.22",
+      "item_ref": "gov-b.22",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.22"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.23",
+      "item_ref": "gov-b.23",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.23"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.24",
+      "item_ref": "gov-b.24",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.24"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.25",
+      "item_ref": "gov-b.25",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.25"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.26",
+      "item_ref": "gov-b.26",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.26"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.27",
+      "item_ref": "gov-b.27",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.27"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.28",
+      "item_ref": "gov-b.28",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.28"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.29",
+      "item_ref": "gov-b.29",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.29"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.30",
+      "item_ref": "gov-b.30",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.30"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.31",
+      "item_ref": "gov-b.31",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.31"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.32",
+      "item_ref": "gov-b.32",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.32"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.33",
+      "item_ref": "gov-b.33",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.33"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.34",
+      "item_ref": "gov-b.34",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.34"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.35",
+      "item_ref": "gov-b.35",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.35"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.36",
+      "item_ref": "gov-b.36",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.36"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.37",
+      "item_ref": "gov-b.37",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.37"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.38",
+      "item_ref": "gov-b.38",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.38"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.39",
+      "item_ref": "gov-b.39",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.39"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.40",
+      "item_ref": "gov-b.40",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.40"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.41",
+      "item_ref": "gov-b.41",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.41"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.42",
+      "item_ref": "gov-b.42",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.42"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.43",
+      "item_ref": "gov-b.43",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.43"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.44",
+      "item_ref": "gov-b.44",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.44"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.45",
+      "item_ref": "gov-b.45",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.45"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.46",
+      "item_ref": "gov-b.46",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.46"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-b.47",
+      "item_ref": "gov-b.47",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-b.47"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.01",
+      "item_ref": "gov-c.01",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.01"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.02",
+      "item_ref": "gov-c.02",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.02"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.03",
+      "item_ref": "gov-c.03",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.03"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.04",
+      "item_ref": "gov-c.04",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.04"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.05",
+      "item_ref": "gov-c.05",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.05"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.06",
+      "item_ref": "gov-c.06",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.06"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.07",
+      "item_ref": "gov-c.07",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.07"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.08",
+      "item_ref": "gov-c.08",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.08"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.09",
+      "item_ref": "gov-c.09",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.09"
+      ]
+    },
+    {
+      "claim_id": "claim.gov-c.10",
+      "item_ref": "gov-c.10",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "gov-c.10"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.01",
+      "item_ref": "hist-a.01",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.01"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.02",
+      "item_ref": "hist-a.02",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.02"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.03",
+      "item_ref": "hist-a.03",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.03"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.04",
+      "item_ref": "hist-a.04",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.04"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.05",
+      "item_ref": "hist-a.05",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.05"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.06",
+      "item_ref": "hist-a.06",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.06"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.07",
+      "item_ref": "hist-a.07",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.07"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.08",
+      "item_ref": "hist-a.08",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.08"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.09",
+      "item_ref": "hist-a.09",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.09"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.10",
+      "item_ref": "hist-a.10",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.10"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.11",
+      "item_ref": "hist-a.11",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.11"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.12",
+      "item_ref": "hist-a.12",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.12"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.13",
+      "item_ref": "hist-a.13",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.13"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.14",
+      "item_ref": "hist-a.14",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.14"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.15",
+      "item_ref": "hist-a.15",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.15"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.16",
+      "item_ref": "hist-a.16",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.16"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-a.17",
+      "item_ref": "hist-a.17",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-a.17"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.01",
+      "item_ref": "hist-b.01",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.01"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.02",
+      "item_ref": "hist-b.02",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.02"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.03",
+      "item_ref": "hist-b.03",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.03"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.04",
+      "item_ref": "hist-b.04",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.04"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.05",
+      "item_ref": "hist-b.05",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.05"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.06",
+      "item_ref": "hist-b.06",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.06"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.07",
+      "item_ref": "hist-b.07",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.07"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.08",
+      "item_ref": "hist-b.08",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.08"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.09",
+      "item_ref": "hist-b.09",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.09"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-b.10",
+      "item_ref": "hist-b.10",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-b.10"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.01",
+      "item_ref": "hist-c.01",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.01"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.02",
+      "item_ref": "hist-c.02",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.02"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.03",
+      "item_ref": "hist-c.03",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.03"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.04",
+      "item_ref": "hist-c.04",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.04"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.05",
+      "item_ref": "hist-c.05",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.05"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.06",
+      "item_ref": "hist-c.06",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.06"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.07",
+      "item_ref": "hist-c.07",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.07"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.08",
+      "item_ref": "hist-c.08",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.08"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.09",
+      "item_ref": "hist-c.09",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.09"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.10",
+      "item_ref": "hist-c.10",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.10"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.11",
+      "item_ref": "hist-c.11",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.11"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.12",
+      "item_ref": "hist-c.12",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.12"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.13",
+      "item_ref": "hist-c.13",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.13"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.14",
+      "item_ref": "hist-c.14",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.14"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.15",
+      "item_ref": "hist-c.15",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.15"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.16",
+      "item_ref": "hist-c.16",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.16"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.17",
+      "item_ref": "hist-c.17",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.17"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.18",
+      "item_ref": "hist-c.18",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.18"
+      ]
+    },
+    {
+      "claim_id": "claim.hist-c.19",
+      "item_ref": "hist-c.19",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "hist-c.19"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-a.01",
+      "item_ref": "sym-a.01",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-a.01"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-a.02",
+      "item_ref": "sym-a.02",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-a.02"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-a.03",
+      "item_ref": "sym-a.03",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-a.03"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-a.04",
+      "item_ref": "sym-a.04",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-a.04"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-a.05",
+      "item_ref": "sym-a.05",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-a.05"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-a.06",
+      "item_ref": "sym-a.06",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-a.06"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-b.01",
+      "item_ref": "sym-b.01",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-b.01"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-b.02",
+      "item_ref": "sym-b.02",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-b.02"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-b.03",
+      "item_ref": "sym-b.03",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-b.03"
+      ]
+    },
+    {
+      "claim_id": "claim.sym-b.04",
+      "item_ref": "sym-b.04",
+      "source_ref": "src:us-citizenship:uscis:001",
+      "tier": "official",
+      "fact_ids": [
+        "sym-b.04"
+      ]
+    },
+    {
+      "claim_id": "claim.eng.01",
+      "item_ref": "eng.01",
+      "source_ref": "src:us-citizenship:uscis:004",
+      "tier": "official",
+      "fact_ids": [
+        "eng.01"
+      ]
+    },
+    {
+      "claim_id": "claim.eng.02",
+      "item_ref": "eng.02",
+      "source_ref": "src:us-citizenship:uscis:005",
+      "tier": "official",
+      "fact_ids": [
+        "eng.02"
+      ]
+    }
+  ],
+  "source_liveness": [
+    {
+      "source_ref": "src:us-citizenship:uscis:001",
+      "snapshot_sha256": "f280608c0fb6dc1eba344b4746a7ba52d02fe411fba30cedd4371819f0abe11c",
+      "official_url": "https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf",
+      "source_tier": "issuer",
+      "retrieved_at": "2026-06-11T00:00:00Z",
+      "edition": null,
+      "effective_date": null,
+      "issuer_current_edition_ref": null,
+      "issuer_current_edition_sha256": null,
+      "verified_by": {
+        "actor_id": "v1:15-source-registry:sonnet",
+        "provider_family": "anthropic"
+      },
+      "status": "VERIFICATION_DEBT"
+    },
+    {
+      "source_ref": "src:us-citizenship:uscis:004",
+      "snapshot_sha256": "e399dc8070440a786480469e5748d4f4e0c56746299e6cd05020b2b130e530ae",
+      "official_url": "https://www.uscis.gov/sites/default/files/document/guides/M-715_reading.pdf",
+      "source_tier": "issuer",
+      "retrieved_at": "2026-06-11T00:00:00Z",
+      "edition": null,
+      "effective_date": null,
+      "issuer_current_edition_ref": null,
+      "issuer_current_edition_sha256": null,
+      "verified_by": {
+        "actor_id": "v1:15-source-registry:sonnet",
+        "provider_family": "anthropic"
+      },
+      "status": "VERIFICATION_DEBT"
+    },
+    {
+      "source_ref": "src:us-citizenship:uscis:005",
+      "snapshot_sha256": "b645226dfe37c8cf533b72704675f6cb118e68b8035247cd23e3e63f01248236",
+      "official_url": "https://www.uscis.gov/sites/default/files/document/guides/M-715_writing.pdf",
+      "source_tier": "issuer",
+      "retrieved_at": "2026-06-11T00:00:00Z",
+      "edition": null,
+      "effective_date": null,
+      "issuer_current_edition_ref": null,
+      "issuer_current_edition_sha256": null,
+      "verified_by": {
+        "actor_id": "v1:15-source-registry:sonnet",
+        "provider_family": "anthropic"
+      },
+      "status": "VERIFICATION_DEBT"
+    }
+  ],
+  "flagged": [],
+  "source_supported_blocking_findings": [],
+  "unsourced": [],
+  "visual_claim_issues": [],
+  "grouped_unit_claim_issues": [],
+  "verification_debt": [
+    {
+      "claim_id": "VD-1",
+      "blocker_kind": "market_stat_unpublished",
+      "detail": "annual N-400 application volume — market_signal only, not product content",
+      "source_tier_required": "official",
+      "owner_worker": "02",
+      "ship_blocking": false
+    },
+    {
+      "claim_id": "VD-2",
+      "blocker_kind": "stat_not_yet_published",
+      "detail": "2025-test pass rate not yet published by USCIS",
+      "source_tier_required": "official",
+      "owner_worker": "02",
+      "ship_blocking": false
+    },
+    {
+      "claim_id": "VD-3",
+      "blocker_kind": "policy_detail_unverified",
+      "detail": "re-exam window phrasing — app copy, not card content",
+      "source_tier_required": "official",
+      "owner_worker": "02",
+      "ship_blocking": false
+    },
+    {
+      "claim_id": "VD-4",
+      "blocker_kind": "voc_quote_tier",
+      "detail": "2 competitor VOC quotes carried at tier unverified (reddit snippet corroboration only)",
+      "source_tier_required": "reputable",
+      "owner_worker": "01b",
+      "ship_blocking": false
+    }
+  ],
+  "external_review_requests": [],
+  "publish_blocked": false,
+  "checks_run": [
+    {
+      "check_id": "v1.oracle_diff",
+      "status": "PASS",
+      "scope": "full",
+      "evidence": "128/128 statements, 410/410 acceptable-answer strings factually exact vs official M-1778 extract; 28 curly-vs-straight quote encoding artifacts + 1 Q117 oracle-side annotation suffix — typography only, ZERO factual deltas (logs/08-evidence.md §1)"
+    },
+    {
+      "check_id": "v1.chain_membership",
+      "status": "PASS",
+      "scope": "full",
+      "evidence": "cards 130/130 · exam correct answers 128/128 · voice must_match spans 130/130 byte-verified against blueprint acceptable answers"
+    },
+    {
+      "check_id": "v1.distractor_rulings",
+      "status": "PASS",
+      "scope": "full",
+      "evidence": "all 8 self_flagged_distractors CONFIRMED defensibly-wrong by executor: q032 (pre-17th-Amendment), q045 (confirm≠appoint), q069/q070/q075/q106 (cross-stem per official bank taxonomy), q095 (EP did not reach everywhere — 13th Amendment did), q105 (Hoover fails the and-WWII clause). These are real-misconception distractors; rationales carry the why."
+    },
+    {
+      "check_id": "v1.officeholder_freshness",
+      "status": "PASS",
+      "scope": "full",
+      "evidence": "4/4 CURRENT as of 2026-06-12: Trump / Vance / Johnson / Roberts — live whitehouse.gov HTTP 200 + ≤1-day-old official snapshots (uscis/scotus 403 to fetch client; snapshots within cadence)"
+    },
+    {
+      "check_id": "v1.synthesized_spans",
+      "status": "PASS",
+      "scope": "sampled",
+      "evidence": "885 spans script-extracted: 113 oracle-supported, 0 contradicted, 772 unverifiable wordplay/mnemonic devices (not factual claims); 155-item every-5th sample semantically scanned, zero falsehoods"
+    },
+    {
+      "check_id": "v1.tier_audit",
+      "status": "PASS",
+      "scope": "full",
+      "evidence": "130/130 knowledge facts at official tier via 15-source-registry (13 sources, all official_body)"
+    }
+  ],
+  "required_checks_not_run": [
+    "Step 2 source liveness: dated effective_date + issuer current-edition receipt per cited source (V1 08 carried no receipts)",
+    "Step 3 TeachingUnit/session span trace (V1 08 pinned no session scripts)",
+    "Order Q rules 3/4 scaffold + doubled-article grep and rule 15 titled promises (rules postdate V1 08)",
+    "auditor independence against an intervention ledger (V1 had none)"
+  ]
+}

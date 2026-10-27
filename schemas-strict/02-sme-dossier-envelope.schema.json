@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nova://schemas-strict/02-sme-dossier-envelope/0.4.0",
+  "title": "SmeDossierEnvelope (pilot_adapter for stage 02.dossier_sections)",
+  "description": "Section-bounded SME dossier envelope. Each chunk carries one bounded A-G master-SME section (or a deterministic sub-chunk of one) as markdown; role 16 merges chunks by merge_seq into 02-blueprint.md and compiles the Blueprint. Bounds, citation, numeral-leak, merge and debt rules are compensating checks in tools/belt/checks/02-dossier-sections.mjs. Meta strict subset only: no allOf/oneOf/if/$ref; soft keywords omitted.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact", "schema_version", "stage_id", "probe", "lineage", "envelope_scope", "section_char_limit", "sections", "merge", "exam_facts", "high_yield_ranked", "needs_dedicated_surface", "corpus_stability", "verification_debt", "external_review_requests", "market_signal", "g_matrix"],
+  "properties": {
+    "artifact": { "type": "string", "enum": ["SmeDossierEnvelope"] },
+    "schema_version": { "type": "string", "enum": ["0.4.0"] },
+    "stage_id": { "type": "string", "enum": ["02.dossier_sections"] },
+    "probe": { "type": "string" },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input_manifest_sha256", "candidate_lineage_id", "source_registry_sha256", "source_liveness_sha256"],
+      "properties": {
+        "input_manifest_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "candidate_lineage_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "source_registry_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "source_liveness_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "envelope_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "assigned_section_ids", "chunk_index", "chunk_total"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["complete_dossier", "partial_chunk"] },
+        "assigned_section_ids": { "type": "array", "items": { "type": "string", "enum": ["A", "B", "C", "C2", "D", "E", "E2", "F", "G"] } },
+        "chunk_index": { "type": "integer" },
+        "chunk_total": { "type": "integer" }
+      }
+    },
+    "section_char_limit": { "type": "integer", "description": "Declared per-chunk cap in Unicode code points; the check enforces min(declared, contract max 12000) and treats a chunk at or above the cap as truncated." },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["section_id", "chunk_id", "merge_seq", "domain", "heading", "learner_facing", "markdown", "char_count", "fact_ids", "source_anchors"],
+        "properties": {
+          "section_id": { "type": "string", "enum": ["A", "B", "C", "C2", "D", "E", "E2", "F", "G"] },
+          "chunk_id": { "type": "string" },
+          "merge_seq": { "type": "integer" },
+          "domain": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "heading": { "type": "string" },
+          "learner_facing": { "type": "boolean" },
+          "markdown": { "type": "string" },
+          "char_count": { "type": "integer" },
+          "fact_ids": { "type": "array", "items": { "type": "string" } },
+          "source_anchors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["anchor_id", "source_page"],
+              "properties": {
+                "anchor_id": { "type": "string" },
+                "source_page": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "merge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["order_rule", "joiner", "expected_merged_sha256"],
+      "properties": {
+        "order_rule": { "type": "string", "enum": ["merge_seq_ascending"] },
+        "joiner": { "type": "string", "enum": ["concat_no_separator"] },
+        "expected_merged_sha256": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "exam_facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exam_name", "issuing_body", "edition", "effective_date", "question_bank_size", "n_questions", "passing_standard", "format", "time_limit"],
+      "properties": {
+        "exam_name": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } },
+        "issuing_body": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } },
+        "edition": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } },
+        "effective_date": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } },
+        "question_bank_size": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } },
+        "n_questions": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } },
+        "passing_standard": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } },
+        "format": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } },
+        "time_limit": { "type": "object", "additionalProperties": false, "required": ["value", "status", "source_page"], "properties": { "value": { "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "null" }] }, "status": { "type": "string", "enum": ["unknown", "verified", "authored"] }, "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] } } }
+      }
+    },
+    "high_yield_ranked": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["domain", "chunk_id", "ranked"],
+        "properties": {
+          "domain": { "type": "string" },
+          "chunk_id": { "type": "string" },
+          "ranked": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["rank", "item_refs", "label"],
+              "properties": {
+                "rank": { "type": "integer" },
+                "item_refs": { "type": "array", "items": { "type": "string" } },
+                "label": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "needs_dedicated_surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "items"],
+      "properties": {
+        "status": { "type": "string", "enum": ["declared", "none_required", "unknown"] },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["skill", "domain", "needs_dedicated_surface", "why", "source_page"],
+            "properties": {
+              "skill": { "type": "string" },
+              "domain": { "type": "string" },
+              "needs_dedicated_surface": { "type": "boolean" },
+              "why": { "type": "string" },
+              "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            }
+          }
+        }
+      }
+    },
+    "corpus_stability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment", "blocked_probe", "reason"],
+      "properties": {
+        "assessment": { "type": "string", "enum": ["stable_le_1_per_year", "volatile_gt_1_per_year", "unknown"] },
+        "blocked_probe": { "type": "boolean" },
+        "reason": { "type": "string" }
+      }
+    },
+    "verification_debt": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim_id", "claim_text", "blocker_kind", "source_tier_required", "owner_worker", "ship_blocking", "expires_by", "resolution_artifact_ref", "located_at", "withheld_values"],
+        "properties": {
+          "claim_id": { "type": "string" },
+          "claim_text": { "type": "string" },
+          "blocker_kind": { "anyOf": [{ "type": "string", "enum": ["source_missing", "source_stale", "exam_policy_unclear", "legal_review_required", "clinical_review_required"] }, { "type": "null" }] },
+          "source_tier_required": { "anyOf": [{ "type": "string", "enum": ["official", "regulator", "standards_body", "exam_owner", "reputable", "unverified"] }, { "type": "null" }] },
+          "owner_worker": { "anyOf": [{ "type": "string", "enum": ["SMEResearchAgent", "EvidenceLibrarian", "HallucinationAuditor"] }, { "type": "null" }] },
+          "ship_blocking": { "type": "boolean" },
+          "expires_by": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "resolution_artifact_ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "located_at": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["section_id", "chunk_id"],
+            "properties": {
+              "section_id": { "type": "string", "enum": ["A", "B", "C", "C2", "D", "E", "E2", "F", "G"] },
+              "chunk_id": { "type": "string" }
+            }
+          },
+          "withheld_values": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "external_review_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["request_id", "claim_ids", "review_kind", "source_tier_checked", "why_human_required", "blocking"],
+        "properties": {
+          "request_id": { "type": "string" },
+          "claim_ids": { "type": "array", "items": { "type": "string" } },
+          "review_kind": { "type": "string", "enum": ["clinical", "legal", "safety"] },
+          "source_tier_checked": { "type": "string", "enum": ["official", "regulator", "standards_body", "exam_owner", "reputable", "unverified"] },
+          "why_human_required": { "type": "string" },
+          "blocking": { "type": "boolean" }
+        }
+      }
+    },
+    "market_signal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["origin", "origin_note", "disposition", "chunk_ids", "debt_refs"],
+      "properties": {
+        "origin": { "type": "string", "enum": ["sme", "competitive_intel"] },
+        "origin_note": { "type": "string" },
+        "disposition": { "type": "string", "enum": ["present", "typed_debt", "scoped_out"] },
+        "chunk_ids": { "type": "array", "items": { "type": "string" } },
+        "debt_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "g_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["box_id", "disposition", "located_at", "debt_ref", "note"],
+        "properties": {
+          "box_id": { "type": "string", "enum": ["G01_domains_covered", "G02_passing_standard_exact", "G03_high_yield_ranked", "G04_misconceptions", "G05_mnemonics", "G06_glossary", "G07_dynamic_isolated", "G08_competitive_teardown", "G09_market_pack", "G10_accuracy_sourced", "G11_verify_list_consolidated"] },
+          "disposition": { "type": "string", "enum": ["completed", "debt", "non_applicable"] },
+          "located_at": { "type": "string" },
+          "debt_ref": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  }
+}

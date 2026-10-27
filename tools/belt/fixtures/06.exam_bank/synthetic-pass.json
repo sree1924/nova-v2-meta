@@ -1,0 +1,148 @@
+{
+  "_fixture": {
+    "kind": "synthetic",
+    "note": "Clearly SYNTHETIC interface fixture (fictional state 'Examplia'); no real facts, never a DMV result. Exercises a practice-only overlay with unknown official count/passing/time, a disclosed >20% overlap, a derived item kept in a module quiz, and numerals anchored in verified synthetic facts.",
+    "context": "tools/belt/fixtures/06.exam_bank/context-synthetic.json",
+    "expected_status": "PASS"
+  },
+  "artifact_type": "ExamBank",
+  "adapter_version": "0.4.0",
+  "overlay_kind": "practice_only_pilot_overlay",
+  "probe": "synthetic-examplia",
+  "minted_by": { "model": "synthetic-fixture", "lane": "fixture", "pass": "synthetic" },
+  "input_manifest_sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+  "candidate_lineage_id": "synthetic-lineage-06",
+  "source_refs": { "knowledge_graph": "synthetic/03-knowledge-graph.json", "curriculum_unit_hints": null },
+  "items": [
+    {
+      "item_id": "s01", "objective_id": "obj.permit", "node_id": "n.permit.hours", "module_id": "mod.a", "unit_id": "unit.a", "domain": "Permits",
+      "fact_ids": ["fact.syn.001"],
+      "source_ref": { "ref": "Synthetic Examplia Handbook p.12", "tier": "official", "pdf_page": 12, "printed_page": "10" },
+      "stem": "In Examplia, how many supervised driving hours must a learner permit holder log?",
+      "options": [
+        { "key": "A", "text": "20 hours", "rationale": "Wrong: 20 hours is half of the handbook figure." },
+        { "key": "B", "text": "40 hours", "rationale": "The handbook sets 40 supervised hours." },
+        { "key": "C", "text": "30 hours", "rationale": "Wrong: 30 hours falls short of the handbook figure." },
+        { "key": "D", "text": "50 hours", "rationale": "Wrong: 50 hours exceeds what the handbook requires." }
+      ],
+      "correct_key": "B",
+      "correct_rationale": "40 hours is right: the handbook sets 40 supervised hours.",
+      "distractor_source": ["kg.confusable:n.permit.hours~half-figure", "kg.confusable:n.permit.hours~short-figure", "synthesized_near_miss:over-estimate"],
+      "difficulty": "easy", "is_derived": false, "self_flagged": false, "needs_review": false
+    },
+    {
+      "item_id": "s02", "objective_id": "obj.permit", "node_id": "n.permit.passengers", "module_id": "mod.a", "unit_id": "unit.a", "domain": "Permits",
+      "fact_ids": ["fact.syn.002"],
+      "source_ref": { "ref": "Synthetic Examplia Handbook p.13", "tier": "official", "pdf_page": 13, "printed_page": "11" },
+      "stem": "Who must sit in the front seat when an Examplia permit holder drives?",
+      "options": [
+        { "key": "A", "text": "A licensed adult supervisor", "rationale": "The handbook requires a licensed adult supervisor in the front seat." },
+        { "key": "B", "text": "Any passenger", "rationale": "Wrong: any passenger is not enough; the supervisor must be licensed." },
+        { "key": "C", "text": "A sibling with a permit", "rationale": "Wrong: a permit holder cannot supervise another permit holder." },
+        { "key": "D", "text": "Nobody", "rationale": "Wrong: permit driving is never unsupervised." }
+      ],
+      "correct_key": "A",
+      "correct_rationale": "A licensed adult supervisor is required in the front seat.",
+      "distractor_source": ["kg.confusable:n.permit.passengers~any-passenger", "kg.confusable:n.permit.passengers~peer", "kg.confusable:n.permit.passengers~solo"],
+      "difficulty": "easy", "is_derived": false, "self_flagged": false, "needs_review": false
+    },
+    {
+      "item_id": "s03", "objective_id": "obj.signals", "node_id": "n.signal.distance", "module_id": "mod.a", "unit_id": "unit.a", "domain": "Permits",
+      "fact_ids": ["fact.syn.003"],
+      "source_ref": { "ref": "Synthetic Examplia Handbook p.21", "tier": "official", "pdf_page": 21, "printed_page": null },
+      "stem": "How far before a turn does the Examplia handbook say to signal?",
+      "options": [
+        { "key": "A", "text": "At the turn itself", "rationale": "Wrong: signalling at the turn gives no warning." },
+        { "key": "B", "text": "After starting the turn", "rationale": "Wrong: a signal after starting the turn is too late." },
+        { "key": "C", "text": "Only when other cars are present", "rationale": "Wrong: the handbook requires signalling every time." },
+        { "key": "D", "text": "At least 100 feet before the turn", "rationale": "The handbook sets at least 100 feet." }
+      ],
+      "correct_key": "D",
+      "correct_rationale": "At least 100 feet before the turn is the handbook distance.",
+      "distractor_source": ["kg.confusable:n.signal.distance~at-turn", "kg.confusable:n.signal.distance~late", "kg.confusable:n.signal.distance~conditional"],
+      "difficulty": "medium", "is_derived": false, "self_flagged": false, "needs_review": false
+    },
+    {
+      "item_id": "s04", "objective_id": "obj.parking", "node_id": "n.parking.hydrant", "module_id": "mod.b", "unit_id": "unit.b", "domain": "Parking",
+      "fact_ids": ["fact.syn.004"],
+      "source_ref": { "ref": "Synthetic Examplia Handbook p.30", "tier": "official", "pdf_page": 30, "printed_page": "28" },
+      "stem": "In Examplia, how close to a fire hydrant may you park?",
+      "options": [
+        { "key": "A", "text": "No closer than 15 feet", "rationale": "The handbook sets 15 feet as the minimum distance." },
+        { "key": "B", "text": "No closer than 5 feet", "rationale": "Wrong: 5 feet is far too close." },
+        { "key": "C", "text": "Anywhere if you stay in the car", "rationale": "Wrong: staying in the car does not lift the rule." },
+        { "key": "D", "text": "No closer than 50 feet", "rationale": "Wrong: 50 feet overstates the rule." }
+      ],
+      "correct_key": "A",
+      "correct_rationale": "No closer than 15 feet is the handbook rule.",
+      "distractor_source": ["kg.confusable:n.parking.hydrant~crosswalk-distance", "kg.confusable:n.parking.hydrant~occupied", "synthesized_near_miss:overstated-distance"],
+      "difficulty": "medium", "is_derived": false, "self_flagged": false, "needs_review": false
+    },
+    {
+      "item_id": "s05", "objective_id": "obj.parking", "node_id": "n.parking.curb", "module_id": "mod.b", "unit_id": "unit.b", "domain": "Parking",
+      "fact_ids": ["fact.syn.005"],
+      "source_ref": { "ref": "Synthetic Examplia Handbook p.31", "tier": "official", "pdf_page": 31, "printed_page": "29" },
+      "stem": "Which way should front wheels point when parking uphill next to a curb in Examplia?",
+      "options": [
+        { "key": "A", "text": "Toward the curb", "rationale": "Wrong: toward the curb is the downhill rule." },
+        { "key": "B", "text": "Straight ahead", "rationale": "Wrong: straight wheels let the car roll into traffic." },
+        { "key": "C", "text": "Away from the curb", "rationale": "The handbook says away from the curb when parking uphill with a curb." },
+        { "key": "D", "text": "It does not matter", "rationale": "Wrong: the handbook names a direction." }
+      ],
+      "correct_key": "C",
+      "correct_rationale": "Away from the curb is the uphill-with-curb rule.",
+      "distractor_source": ["kg.confusable:n.parking.curb~downhill", "kg.confusable:n.parking.curb~straight", "kg.confusable:n.parking.curb~no-rule"],
+      "difficulty": "hard", "is_derived": false, "self_flagged": false, "needs_review": false
+    },
+    {
+      "item_id": "s06", "objective_id": "obj.parking", "node_id": "n.parking.curb", "module_id": "mod.b", "unit_id": "unit.b", "domain": "Parking",
+      "fact_ids": ["fact.syn.005"],
+      "source_ref": { "ref": "Synthetic Examplia Handbook p.31", "tier": "official", "pdf_page": 31, "printed_page": "29" },
+      "stem": "Parking downhill next to a curb in Examplia, which way do the front wheels point?",
+      "options": [
+        { "key": "A", "text": "Away from the curb", "rationale": "Wrong: away from the curb is the uphill rule." },
+        { "key": "B", "text": "Toward the curb", "rationale": "Toward the curb is the downhill-with-curb rule." },
+        { "key": "C", "text": "Straight ahead", "rationale": "Wrong: straight wheels let the car roll." },
+        { "key": "D", "text": "Either way", "rationale": "Wrong: the handbook names a direction." }
+      ],
+      "correct_key": "B",
+      "correct_rationale": "Toward the curb is the downhill rule (derived recombination of the curb fact).",
+      "distractor_source": ["kg.confusable:n.parking.curb~uphill", "kg.confusable:n.parking.curb~straight", "kg.confusable:n.parking.curb~no-rule"],
+      "difficulty": "medium", "is_derived": true, "self_flagged": false, "needs_review": false
+    }
+  ],
+  "module_quizzes": [
+    { "quiz_id": "quiz.mod.a", "module_id": "mod.a", "unit_id": "unit.a", "domain": "Permits", "title": "Permits and Signals Quiz", "item_ids": ["s01", "s02", "s03"] },
+    { "quiz_id": "quiz.mod.b", "module_id": "mod.b", "unit_id": "unit.b", "domain": "Parking", "title": "Parking Quiz", "item_ids": ["s04", "s05", "s06"] }
+  ],
+  "practice_forms": [
+    {
+      "form_id": "form-a", "title": "Practice Set A", "item_ids": ["s01", "s02", "s04"], "declared_count": 3,
+      "overlap_note": "This practice set shares 1 reused item with Practice Set B.",
+      "official_mirror": {
+        "status": "NOT_APPLICABLE_PRACTICE_ONLY",
+        "n_questions": { "value": null, "status": "unknown", "source_page": null },
+        "passing": { "value": null, "status": "unknown", "source_page": null },
+        "passing_unit": "unknown",
+        "time": { "value": null, "status": "unknown", "source_page": null }
+      },
+      "scoring_policy": { "kind": "product_policy", "learning_loop_ref": "synthetic/19-learning-loop.json@sha256:1919191919191919191919191919191919191919191919191919191919191919" }
+    },
+    {
+      "form_id": "form-b", "title": "Practice Set B", "item_ids": ["s03", "s05", "s01"], "declared_count": 3,
+      "overlap_note": "This practice set shares 1 reused item with Practice Set A.",
+      "official_mirror": {
+        "status": "NOT_APPLICABLE_PRACTICE_ONLY",
+        "n_questions": { "value": null, "status": "unknown", "source_page": null },
+        "passing": { "value": null, "status": "unknown", "source_page": null },
+        "passing_unit": "unknown",
+        "time": { "value": null, "status": "unknown", "source_page": null }
+      },
+      "scoring_policy": { "kind": "product_policy", "learning_loop_ref": "synthetic/19-learning-loop.json@sha256:1919191919191919191919191919191919191919191919191919191919191919" }
+    }
+  ],
+  "self_flagged_distractors": [],
+  "page_debt": [],
+  "derived_in_forms_disposition_ref": null,
+  "needs_review_count": 0
+}

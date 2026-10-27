@@ -1,0 +1,192 @@
+{
+  "_fixture": {
+    "kind": "synthetic",
+    "label": "SYNTHETIC — positive unit map with NO context (accepted inputs / LearningLoop absent) -> HOLD, never PASS",
+    "expected_status": "HOLD"
+  },
+  "artifact": "CurriculumUnitMap",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "19A.units",
+  "minted_by": {
+    "model": "none",
+    "lane": "tool_assisted",
+    "pass": "deterministic"
+  },
+  "probe": "synthetic-probe",
+  "lineage": {
+    "input_manifest_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "candidate_lineage_id": "lineage-synthetic-019a"
+  },
+  "product_line": {
+    "product_line_id": "synthetic-line",
+    "tenant_id": "synthetic-probe",
+    "tenant_dir": "runs/synthetic-pilot/preview",
+    "tenant_dir_kind": "pilot_lane_path",
+    "source_run": "runs/synthetic-pilot",
+    "isolation": "one_product_one_tenant_dir"
+  },
+  "source_refs": {
+    "knowledge_graph": "runs/synthetic-pilot/03-knowledge-graph.json",
+    "carddeck": "runs/synthetic-pilot/04-carddeck.json",
+    "session_scripts": "runs/synthetic-pilot/05b-session-scripts.json",
+    "exambank": "runs/synthetic-pilot/06-exambank.json",
+    "learning_loop": "runs/synthetic-pilot/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot",
+    "image_scout_post_kg": "deferred:not_applicable_pilot",
+    "image_asset_manifest": "deferred:not_applicable_pilot"
+  },
+  "units": [
+    {
+      "unit_id": "u01",
+      "module_id": "m01",
+      "order": 1,
+      "title": "Synthetic module 1",
+      "domain": "Synthetic domain 1",
+      "node_ids": [
+        "n1",
+        "n2"
+      ],
+      "session_ref": "s01",
+      "card_ids": [
+        "c1",
+        "c2"
+      ],
+      "quiz_item_ids": [
+        "q1",
+        "q2"
+      ],
+      "mock_item_ids": [],
+      "practice_form_ids": [],
+      "media_slot_ids": [],
+      "readiness_domain": "Synthetic domain 1",
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "hub_unlock": {
+        "requires": [
+          "lesson_complete",
+          "all_cards_seen"
+        ],
+        "rule_source": "learning_loop"
+      },
+      "mastery_gate": {
+        "quiz_threshold_pct": 80,
+        "missed_items_must_be_cleared": true,
+        "policy_source": "learning_loop",
+        "provenance_kind": "product_policy",
+        "learning_loop_ref": "runs/synthetic-pilot/19-learning-loop.json",
+        "learning_loop_sha256": "7847a512753b43400da74a8d175cc5732dc103b3e18c0500495b9b183427c776"
+      }
+    },
+    {
+      "unit_id": "u02",
+      "module_id": "m02",
+      "order": 2,
+      "title": "Synthetic module 2",
+      "domain": "Synthetic domain 2",
+      "node_ids": [
+        "n3",
+        "n4"
+      ],
+      "session_ref": "s02",
+      "card_ids": [
+        "c3",
+        "c4"
+      ],
+      "quiz_item_ids": [
+        "q3",
+        "q4"
+      ],
+      "mock_item_ids": [],
+      "practice_form_ids": [],
+      "media_slot_ids": [],
+      "readiness_domain": "Synthetic domain 2",
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "hub_unlock": {
+        "requires": [
+          "lesson_complete",
+          "all_cards_seen"
+        ],
+        "rule_source": "learning_loop"
+      },
+      "mastery_gate": {
+        "quiz_threshold_pct": 80,
+        "missed_items_must_be_cleared": true,
+        "policy_source": "learning_loop",
+        "provenance_kind": "product_policy",
+        "learning_loop_ref": "runs/synthetic-pilot/19-learning-loop.json",
+        "learning_loop_sha256": "7847a512753b43400da74a8d175cc5732dc103b3e18c0500495b9b183427c776"
+      }
+    }
+  ],
+  "exam_modes": [
+    {
+      "mode_id": "module-quiz",
+      "kind": "module_quiz",
+      "title": "Module quiz (practice)",
+      "item_ids": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "form_ids": [],
+      "scoring_policy": {
+        "passing_threshold": {
+          "value": null,
+          "status": "unknown",
+          "source_page": null
+        },
+        "result_language": "practice_only",
+        "blocks_production_if_unknown": true
+      }
+    }
+  ],
+  "media": {
+    "required_slot_ids": [],
+    "optional_slot_ids": [],
+    "exempt_by_disposition": [
+      "pre/post image scout plans"
+    ]
+  },
+  "production_gate": {
+    "status": "preview_only",
+    "reason": "pilot ceiling: local preview only; official passing threshold unknown",
+    "blockers": []
+  },
+  "integrity": {
+    "units_missing_sessions": 0,
+    "units_missing_cards": 0,
+    "units_missing_quizzes": 0,
+    "orphan_card_refs": 0,
+    "orphan_quiz_item_refs": 0,
+    "orphan_session_refs": 0,
+    "unresolved_required_media": 0,
+    "cross_product_refs": 0,
+    "duplicate_bindings": 0,
+    "module_unit_mismatches": 0
+  },
+  "integrity_computed_by": "script"
+}

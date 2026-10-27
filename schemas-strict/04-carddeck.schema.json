@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nova:fb-ai-hackathon:strict-adapter:04-carddeck:v0.4.0",
+  "title": "CardDeck pilot adapter (04.cards, strict mode)",
+  "description": "Provider-facing strict-mode adapter for Worker 04 under contracts/pilot-overrides-v0.4.0.json role 04. Converter only: backs/hooks derive from accepted facts; no why/how, example or misconception fields (decompression is 05.sessions); no recall pause (05.card_scripts). Every soft parent bound is restored in tools/belt/checks/04-cards.mjs. Pilot adapter, not a parent subset: image_scout_post_kg is the sentinel deferred:not_applicable_pilot and exam_weight is the official-number shape.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "adapter_version", "minted_by", "probe", "input_manifest_sha256", "candidate_lineage_id", "source_refs", "media_disposition_ref", "back_format", "srs_policy", "decks", "recaps", "merges", "verification_debt"],
+  "properties": {
+    "schema_version": { "type": "string", "enum": ["1.0.0"] },
+    "adapter_version": { "type": "string", "enum": ["carddeck-pilot.v0.4.0"] },
+    "minted_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "lane", "pass"],
+      "properties": {
+        "model": { "type": "string" },
+        "lane": { "type": "string" },
+        "pass": { "type": "string" }
+      }
+    },
+    "probe": { "type": "string", "description": "Probe slug ^[a-z0-9][a-z0-9-]*$ (restored by 04.STRING_BOUNDS)." },
+    "input_manifest_sha256": { "type": "string", "description": "64 lowercase hex of the input manifest (hash-boundary correction: never the final candidate digest)." },
+    "candidate_lineage_id": { "type": "string" },
+    "source_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["knowledge_graph", "image_scout_post_kg", "curriculum_unit_hints"],
+      "properties": {
+        "knowledge_graph": { "type": "string" },
+        "image_scout_post_kg": { "type": "string", "enum": ["deferred:not_applicable_pilot"], "description": "Sentinel: role 20A inactive, no scout plan exists (contracts/media-disposition.json non_applicable_checks). Verified by 04.MEDIA_DISPOSITION." },
+        "curriculum_unit_hints": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "media_disposition_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string" }
+      }
+    },
+    "back_format": { "type": "string", "enum": ["spoken_text"] },
+    "srs_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["base_tier_by_difficulty", "high_yield_rule", "policy_kind", "learning_loop_ref"],
+      "properties": {
+        "base_tier_by_difficulty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["easy", "medium", "hard"],
+          "properties": {
+            "easy": { "type": "string", "enum": ["relaxed"] },
+            "medium": { "type": "string", "enum": ["standard"] },
+            "hard": { "type": "string", "enum": ["tight"] }
+          }
+        },
+        "high_yield_rule": { "type": "string", "enum": ["tighten_one_step"] },
+        "policy_kind": { "type": "string", "enum": ["product_policy"] },
+        "learning_loop_ref": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["path", "sha256"],
+              "properties": {
+                "path": { "type": "string" },
+                "sha256": { "type": "string" }
+              }
+            },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "decks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module", "module_id", "domain", "exam_weight", "pedagogic_emphasis", "cards"],
+        "properties": {
+          "module": { "type": "string" },
+          "module_id": { "type": "string" },
+          "domain": { "type": "string" },
+          "exam_weight": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "OFFICIAL weight only: null unless verified with a source page (source-fact-policy). Authored emphasis never goes here.",
+            "required": ["value", "status", "source_page"],
+            "properties": {
+              "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+              "status": { "type": "string", "enum": ["unknown", "verified"] },
+              "source_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            }
+          },
+          "pedagogic_emphasis": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Authored product-policy emphasis, explicitly labelled; never an official exam weight.",
+            "required": ["value", "kind"],
+            "properties": {
+              "value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+              "kind": { "type": "string", "enum": ["authored_product_policy"] }
+            }
+          },
+          "cards": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["card_id", "node_id", "module_id", "unit_id", "front", "back", "memory_hook", "hook_origin", "difficulty", "high_yield", "is_dynamic", "intro_order", "review_interval_tier", "cluster_id", "cluster_role", "source_ref", "claims_fact_ids"],
+              "properties": {
+                "card_id": { "type": "string" },
+                "node_id": { "type": "string" },
+                "module_id": { "type": "string" },
+                "unit_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+                "front": { "type": "string" },
+                "back": { "type": "string", "description": "Spoken-form accepted fact wording (back_format spoken_text)." },
+                "memory_hook": { "type": "string", "description": "At most six words, spoken form (04.HOOK_LENGTH, 04.BACK_SPOKEN_FORM)." },
+                "hook_origin": { "type": "string", "enum": ["sme-carried", "sme-adapted", "minted"] },
+                "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] },
+                "high_yield": { "type": "boolean" },
+                "is_dynamic": { "type": "boolean" },
+                "intro_order": { "type": "integer" },
+                "review_interval_tier": { "type": "string", "enum": ["tight", "standard", "relaxed"] },
+                "cluster_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+                "cluster_role": { "anyOf": [{ "type": "string", "enum": ["umbrella", "atomic"] }, { "type": "null" }] },
+                "source_ref": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["ref", "tier", "url", "pdf_page", "printed_page", "page_map_id"],
+                  "properties": {
+                    "ref": { "type": "string" },
+                    "tier": { "type": "string", "enum": ["official", "regulator", "exam_owner", "standards_body", "reputable", "unverified"] },
+                    "url": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+                    "pdf_page": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+                    "printed_page": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+                    "page_map_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                  }
+                },
+                "claims_fact_ids": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "recaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module", "module_id", "recap_hooks"],
+        "properties": {
+          "module": { "type": "string" },
+          "module_id": { "type": "string" },
+          "recap_hooks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["text", "fact_ids"],
+              "properties": {
+                "text": { "type": "string" },
+                "fact_ids": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "merges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["merged_node_ids", "card_id", "justification"],
+        "properties": {
+          "merged_node_ids": { "type": "array", "items": { "type": "string" } },
+          "card_id": { "type": "string" },
+          "justification": { "type": "string" }
+        }
+      }
+    },
+    "verification_debt": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["debt_id", "card_id", "kind", "route_to", "note"],
+        "properties": {
+          "debt_id": { "type": "string" },
+          "card_id": { "type": "string" },
+          "kind": { "type": "string", "enum": ["missing_page_citation", "unresolved_fact", "missing_spoken_normalization", "dropped_node"] },
+          "route_to": { "type": "string", "enum": ["02", "03", "08", "13", "15"] },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  }
+}

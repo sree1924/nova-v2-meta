@@ -1,0 +1,81 @@
+{
+  "_fixture": {
+    "kind": "synthetic_context",
+    "label": "SYNTHETIC context for 03 synthetic fixtures; media_disposition embedded from contracts/media-disposition.json"
+  },
+  "input_manifest_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "accepted_inputs": {
+    "high_yield_ids": [
+      "n1",
+      "n3"
+    ],
+    "learning_loop_ref": "synthetic/19-learning-loop.json"
+  },
+  "fact_registry": {
+    "facts": {
+      "f.n1": {},
+      "f.n2": {},
+      "f.n3": {},
+      "f.n4": {},
+      "f.d1": {}
+    }
+  },
+  "source_registry": {
+    "pages": {
+      "SYN-HB": {
+        "tier": "official"
+      }
+    }
+  },
+  "media_disposition": {
+    "artifact_type": "PilotMediaDisposition",
+    "version": "0.4.0",
+    "status": "REVIEW_POLICY",
+    "owner_roles": [
+      "00",
+      "13"
+    ],
+    "scope": "dev_preview_only",
+    "source_of_media_required": "early UI media intent before07; finalUiSpecmaynotretroactivelyweakenit",
+    "inactive_roles": [
+      "20",
+      "20A",
+      "20B"
+    ],
+    "rendered_audio_required": false,
+    "live_tts_allowed": false,
+    "image_cards_enabled": false,
+    "road_sign_mode": "verbal_page_sourced_cues",
+    "text_cue_must_bind_fact_id_and_source_page": true,
+    "visual_recognition_claims_allowed_without_assets": false,
+    "visual_override_requires": [
+      "role15boundsignlist",
+      "perassetrights/liveness/hash",
+      "selected-state supplement/applicability",
+      "earlyUIrequiredslot",
+      "freshaffectedQA"
+    ],
+    "non_applicable_checks": [
+      {
+        "check": "rendered audio manifest/files/provider",
+        "reason": "Text-only preview, no20render task."
+      },
+      {
+        "check": "pre/post image scout plans",
+        "reason": "20Ainactive; no scout success claimed."
+      },
+      {
+        "check": "audio timing/loudness/renderback",
+        "reason": "No rendered audio; text-script segment/parity checks stay mandatory."
+      }
+    ],
+    "still_required": [
+      "Fact/source parity",
+      "Structured recall ordering",
+      "Back/hook equality",
+      "Real required visual assets if an image task is later enabled",
+      "Independent content and product QA"
+    ],
+    "execution_enabled": false
+  }
+}

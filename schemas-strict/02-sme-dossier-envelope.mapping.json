@@ -1,0 +1,350 @@
+{
+  "stage_id": "02.dossier_sections",
+  "adapter_schema": {
+    "path": "schemas-strict/02-sme-dossier-envelope.schema.json",
+    "sha256": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111"
+  },
+  "parent_schema": {
+    "path": "schemas/blueprint.schema.json",
+    "sha256": "3fbd6ddeaa402b2819d6e859d16034b002d78bc55f1727a388a722509c86de54"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "The parent is the COMPILED Blueprint (role 16 output). The 02 envelope carries pre-compile, section-bounded A-G prose plus typed side records; role 16 merges chunks deterministically and compiles. Payload meaning differs from the parent, so this is never claimed as a strict subset.",
+  "overlay_authority": "contracts/pilot-overrides-v0.4.0.json#/role_overrides/02",
+  "checks_module": "tools/belt/checks/02-dossier-sections.mjs",
+  "compensating_checks": [
+    "02.SCHEMA",
+    "02.PROBE_SLUG",
+    "02.LINEAGE",
+    "02.CHUNK_IDENTITY",
+    "02.SCOPE_COMPLETENESS",
+    "02.SECTION_BOUNDS",
+    "02.TRUNCATION_GUARD",
+    "02.MERGE_DETERMINISTIC",
+    "02.ANCHORS_REGISTERED",
+    "02.FACT_LINES_CITED",
+    "02.EXAM_FACT_STATUS",
+    "02.NUMERAL_LEAK",
+    "02.HIGH_YIELD_PER_DOMAIN",
+    "02.DEDICATED_SURFACE",
+    "02.CORPUS_STABILITY",
+    "02.DEBT_TYPED",
+    "02.EXTERNAL_REVIEW",
+    "02.MARKET_SIGNAL",
+    "02.G_MATRIX"
+  ],
+  "context_keys": {
+    "input_manifest_sha256": "02.LINEAGE (HOLD if absent)",
+    "source_registry": "02.ANCHORS_REGISTERED, 02.EXAM_FACT_STATUS verified pages (HOLD if absent). Accepts {pages:{<code>:{}}} or {sources:[{blueprint_s_code|source_ref|id|page_id}]}; a source_page '<code>#<locator>' resolves on its base code.",
+    "sibling_envelopes": "02.MERGE_DETERMINISTIC cross-envelope merge (duplicate chunk/merge_seq, conflicting exam_facts or registry hash, missing sections)",
+    "exam_facts_view": "02.NUMERAL_LEAK adds non-verified values from the normalized view to the withheld set"
+  },
+  "exports": {
+    "mergeSections(sections)": "deterministic merge: sort by merge_seq, concatenate with no separator -> {markdown, sha256, order}",
+    "mergeEnvelopes(envelopes)": "cross-envelope merge with duplicate/conflict/missing-section rejection -> {ok, errors, markdown, sha256, order}",
+    "CONTRACT_MAX_SECTION_CHARS": 12000
+  },
+  "deviations": [
+    {
+      "field": "/",
+      "parent_rule": "Blueprint root {minted_by, probe, schema_version const 1.0.0, artifact const Blueprint, version, source_type, compiled_from, compiled_at date-time, exam_meta, blueprint[], audience, knowledge[], updatable[], market_signal, competitive_teardown, accuracy_flags[], artifact_hash}",
+      "adapter_rule": "SmeDossierEnvelope {artifact, schema_version 0.4.0, stage_id, probe, lineage, envelope_scope, section_char_limit, sections[], merge, exam_facts, high_yield_ranked[], needs_dedicated_surface, corpus_stability, verification_debt[], external_review_requests[], market_signal, g_matrix[]}",
+      "reason": "overlay 02 adaptation 'Section-bounded prose envelopes with deterministic merge before 16 compilation'; a whole-handbook JSON string must never be emitted",
+      "compensating_check": "02.MERGE_DETERMINISTIC, 02.SCOPE_COMPLETENESS; compiled-root fields (minted_by, source_type, compiled_from, compiled_at, artifact_hash) are added and parent-validated by role 16, not by this lane"
+    },
+    {
+      "field": "/sections",
+      "parent_rule": "none (parent holds compiled fields, not prose)",
+      "adapter_rule": "array of chunks {section_id A|B|C|C2|D|E|E2|F|G, chunk_id, merge_seq, domain|null, heading, learner_facing, markdown, char_count, fact_ids[], source_anchors[{anchor_id, source_page}]}",
+      "reason": "bounded A-G chunks prevent a single unbounded string from truncating",
+      "compensating_check": "02.CHUNK_IDENTITY, 02.SECTION_BOUNDS, 02.TRUNCATION_GUARD"
+    },
+    {
+      "field": "/exam_facts",
+      "parent_rule": "/exam_meta: eight required non-empty fields; n_questions integer >= 1; passing string|number",
+      "adapter_rule": "nine official-fact objects {value string|number|null, status unknown|verified|authored, source_page string|null} (adds effective_date, question_bank_size)",
+      "reason": "source-fact-policy official_fact_shape: unknown official facts stay null, never a numeric placeholder; overlay 02 adaptation 2",
+      "compensating_check": "02.EXAM_FACT_STATUS, 02.NUMERAL_LEAK"
+    },
+    {
+      "field": "/blueprint (parent)",
+      "parent_rule": "blueprint[] minItems 1, each {domain, weight_pct 0..100 required, item_count}",
+      "adapter_rule": "not carried as structured data; domain weights live in section-A prose and are compiled by role 16",
+      "reason": "unknown official weights must not be forced into required numbers at 02; overlay 03 handles nullable weights downstream",
+      "compensating_check": "02.FACT_LINES_CITED + 02.NUMERAL_LEAK at 02; 03.WEIGHT_HONESTY downstream"
+    },
+    {
+      "field": "/high_yield_ranked",
+      "parent_rule": "knowledge[].high_yield: string[] (unranked)",
+      "adapter_rule": "per-domain records {domain, chunk_id, ranked[{rank, item_refs[], label}]}",
+      "reason": "overlay 02 retained 'high_yield ranked with evidenced weights or explicitly authored emphasis'",
+      "compensating_check": "02.HIGH_YIELD_PER_DOMAIN"
+    },
+    {
+      "field": "/needs_dedicated_surface",
+      "parent_rule": "none in parent schema (contract 02 step 4b)",
+      "adapter_rule": "{status declared|none_required|unknown, items[{skill, domain, needs_dedicated_surface, why, source_page|null}]}",
+      "reason": "overlay 02 retained 'needs_dedicated_surface'; explicit disposition so silence cannot read as 'none'",
+      "compensating_check": "02.DEDICATED_SURFACE"
+    },
+    {
+      "field": "/corpus_stability",
+      "parent_rule": "none in parent schema (contract 02 stability check -> BlockedProbe)",
+      "adapter_rule": "{assessment stable_le_1_per_year|volatile_gt_1_per_year|unknown, blocked_probe, reason}",
+      "reason": "overlay 02 retained 'source volatility and BlockedProbe'",
+      "compensating_check": "02.CORPUS_STABILITY"
+    },
+    {
+      "field": "/verification_debt",
+      "parent_rule": "not in blueprint.schema.json (contract 02 Artifact Schema + verification-debt.schema.json)",
+      "adapter_rule": "typed per contract 02 {claim_id, claim_text, blocker_kind, source_tier_required, owner_worker, ship_blocking, expires_by date|null, resolution_artifact_ref} + located_at{section_id, chunk_id} + withheld_values[]; the three enum fields are nullable so an out-of-contract value is represented as null, never guessed",
+      "reason": "overlay 02 retained 'market/teardown evidence or typed scoped debt'; withheld_values feed the source-debt numeral-leak guard",
+      "compensating_check": "02.DEBT_TYPED, 02.NUMERAL_LEAK"
+    },
+    {
+      "field": "/external_review_requests",
+      "parent_rule": "not in blueprint.schema.json (contract 02 Artifact Schema)",
+      "adapter_rule": "{request_id, claim_ids[], review_kind clinical|legal|safety, source_tier_checked, why_human_required, blocking}",
+      "reason": "contract 02 step 5: only legally required review emits an ExternalReviewRequest",
+      "compensating_check": "02.EXTERNAL_REVIEW"
+    },
+    {
+      "field": "/market_signal",
+      "parent_rule": "{candidates_yr, pass_rate, competitors[], voc[], gap, success_bar, ad_hooks[], origin sme|competitive_intel} all required",
+      "adapter_rule": "{origin sme|competitive_intel, origin_note, disposition present|typed_debt|scoped_out, chunk_ids[] (E/E2 evidence chunks), debt_refs[]}; the prose fields are compiled by role 16 from the E/E2 chunks",
+      "reason": "overlay 02 retained 'market/teardown evidence or typed scoped debt'; missing demand data is typed debt, never fictional research",
+      "compensating_check": "02.MARKET_SIGNAL"
+    },
+    {
+      "field": "/g_matrix",
+      "parent_rule": "none (master template Section G checklist)",
+      "adapter_rule": "exactly one {box_id G01..G11, disposition completed|debt|non_applicable, located_at chunk_id, debt_ref, note} per Definition-of-Done box",
+      "reason": "prompt 02 F/G: 'one located completed/debt/non-applicable disposition for every G box'",
+      "compensating_check": "02.G_MATRIX"
+    },
+    {
+      "field": "/lineage",
+      "parent_rule": "artifact_hash string minLength 1 (self hash)",
+      "adapter_rule": "{input_manifest_sha256|null, candidate_lineage_id|null, source_registry_sha256|null, source_liveness_sha256|null}; no self hash; merged dossier hash is computed by the check",
+      "reason": "handoff hash-boundary correction: pre-seal author outputs echo input_manifest_sha256 + candidate_lineage_id, never a digest of the final manifest",
+      "compensating_check": "02.LINEAGE, 02.MERGE_DETERMINISTIC"
+    },
+    {
+      "field": "/merge",
+      "parent_rule": "none",
+      "adapter_rule": "{order_rule merge_seq_ascending, joiner concat_no_separator, expected_merged_sha256|null}",
+      "reason": "role 16 merge must be deterministic and reproducible from the chunks alone",
+      "compensating_check": "02.MERGE_DETERMINISTIC"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "/properties/probe",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "02.PROBE_SLUG"
+    },
+    {
+      "json_pointer": "/properties/sections",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "02.CHUNK_IDENTITY",
+      "note": "adapter-introduced bound (parent has no sections)"
+    },
+    {
+      "json_pointer": "/properties/sections/items/properties/markdown",
+      "keyword": "maxLength",
+      "parent_value": 12000,
+      "compensating_check": "02.SECTION_BOUNDS",
+      "note": "adapter-introduced contract cap in code points; a chunk at/above the cap is treated as truncated"
+    },
+    {
+      "json_pointer": "/properties/sections/items/properties/merge_seq",
+      "keyword": "minimum/uniqueItems",
+      "parent_value": "1..n unique",
+      "compensating_check": "02.CHUNK_IDENTITY"
+    },
+    {
+      "json_pointer": "/properties/exam_facts/properties/n_questions/properties/value",
+      "keyword": "type integer + minimum",
+      "parent_value": "integer >= 1 (/properties/exam_meta/properties/n_questions)",
+      "compensating_check": "02.EXAM_FACT_STATUS"
+    },
+    {
+      "json_pointer": "/properties/exam_facts/properties/exam_name/properties/value",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "02.EXAM_FACT_STATUS",
+      "note": "applies to every string exam fact (exam, body, source, edition, format, time)"
+    },
+    {
+      "json_pointer": "/properties/high_yield_ranked/items/properties/ranked",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "02.HIGH_YIELD_PER_DOMAIN"
+    },
+    {
+      "json_pointer": "/properties/verification_debt/items/properties/claim_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "02.DEBT_TYPED"
+    },
+    {
+      "json_pointer": "/properties/verification_debt/items/properties/expires_by",
+      "keyword": "format",
+      "parent_value": "date|null (contract 02)",
+      "compensating_check": "02.DEBT_TYPED"
+    },
+    {
+      "json_pointer": "/properties/g_matrix",
+      "keyword": "minItems/maxItems/uniqueItems",
+      "parent_value": "exactly the 11 master-template G boxes",
+      "compensating_check": "02.G_MATRIX"
+    },
+    {
+      "json_pointer": "parent:/properties/knowledge/items/properties/facts/items/properties/source_ref",
+      "keyword": "required ref minLength 1 + tier enum",
+      "parent_value": "every fact sourced",
+      "compensating_check": "02.FACT_LINES_CITED, 02.ANCHORS_REGISTERED"
+    },
+    {
+      "json_pointer": "parent:/properties/compiled_at",
+      "keyword": "format",
+      "parent_value": "date-time",
+      "compensating_check": "02.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: none at 02 — added and validated by role 16 against the parent"
+    },
+    {
+      "json_pointer": "parent:/properties/artifact_hash",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "none at 02 — role 16 hashes the compiled Blueprint; 02.MERGE_DETERMINISTIC reports the merged dossier sha256"
+    }
+  ],
+  "added_invariants": [
+    {
+      "check": "02.NUMERAL_LEAK: values of non-verified official facts and of open debts' withheld_values never appear in learner-facing (A, C) chunks; A and C chunks must be learner_facing:true"
+    },
+    {
+      "check": "02.FACT_LINES_CITED: every fact-bearing line cites a declared anchor (inline or via the block's lead line for list/table continuations) or carries '(verify' plus an OPEN debt claim_id"
+    },
+    {
+      "check": "02.SCOPE_COMPLETENESS: complete_dossier requires all nine section ids; partial_chunk must carry exactly its assigned sections"
+    },
+    {
+      "check": "02.DEDICATED_SURFACE: status unknown requires an exam_policy_unclear debt located in section C"
+    }
+  ],
+  "documented_requirements_not_checked": [
+    "Parametric-knowledge ban (prompt 02 Gate: 'A claim must be stated on the cited snapshot page; parametric knowledge is not a source') is a DOCUMENTED requirement. No deterministic check can prove a sentence is stated on its page without snapshot text binding; no check here claims to enforce it."
+  ],
+  "sentinels": [
+    {
+      "field": "/exam_facts/*",
+      "kind": "official_number_record",
+      "shape": "{value: null|string|number, status: unknown|verified|authored, source_page: null|string}",
+      "rule": "unknown => value null; verified => value non-null + registered source_page; authored => value non-null and treated as non-verified for the learner-facing numeral guard",
+      "compensating_check": "02.EXAM_FACT_STATUS"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/02.dossier_sections/v1-projected.json",
+      "sha256": "5b830f704344eebe08f4b220fe5d0051fc5513afd25394c847a883f107843388",
+      "context_path": "tools/belt/fixtures/02.dossier_sections/v1-projected.context.json",
+      "kind": "v1_projected",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/02-blueprint.md",
+        "sha256": "ddf788c8f5d0666c250ffcfcbe1da640eb6bb6aacc354b5611b7e3c9d58fb15f"
+      },
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "generated by node tools/belt/project/02-dossier-sections.mjs --write; full split rule, section map and decision list in _fixture",
+        "split: 23 chunks at every '## '/'### ' heading; the Gov-B chunk (>= 12000 code points) re-split at '**Q<n>.' boundaries into 2 parts; merge(sections) reproduces the source bytes (sha256 ddf788c8…fb15f == expected)",
+        "context: V1 15-source-registry.json embedded verbatim (S1..S6 resolve via blueprint_s_code; S5 does NOT — registry splits it into S5a/S5b); no input manifest exists for V1",
+        "V1 FAILs honestly under v0.4.0: no Section C2 chunk; 2 anchors [S5] unregistered; 86/186 fact-bearing lines without an inline/inherited anchor (preamble, VERIFY table, BLUEPRINT table rows, memory-hook/misconception lines, E/E2 figures); English vocab domain has no high-yield list; needs_dedicated_surface never declared (status unknown, no debt); VD-4 source_tier_required 'secondary_allowed' is outside the contract enum (-> null). LINEAGE HOLD (no manifest)."
+      ],
+      "context_sha256": "31a9fdb73368e1e8f940dc9f1ca9bbaa050aa5c9c547dffc01e47565984f32b8"
+    },
+    {
+      "path": "tools/belt/fixtures/02.dossier_sections/synthetic-positive.json",
+      "sha256": "02e7056016f8a458cf010ec57b38d582f5c65f0cb1b12ae541bb28b71ea18d52",
+      "context_path": "tools/belt/fixtures/02.dossier_sections/synthetic-positive.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "fictional issuer; all nine sections, unknown official facts null, one withheld 80% debt value absent from learner-facing chunks, typed market debt, declared dedicated surface"
+      ],
+      "context_sha256": "1db8f9ba6c6902d8b8d78e5befe36ef2afc8e880e6cf48c8ff8473efca573d68"
+    },
+    {
+      "path": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-numeral-leak.json",
+      "sha256": "0a39854dfdd675cffb49b890687eb8d6d75d06451b2a0c2be4349f9f89bb1861",
+      "context_path": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-numeral-leak.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "source-debt numeral leak: the withheld '80%' of open debt SD-1 is written into learner-facing chunk C.03 -> 02.NUMERAL_LEAK FAIL"
+      ],
+      "context_sha256": "1db8f9ba6c6902d8b8d78e5befe36ef2afc8e880e6cf48c8ff8473efca573d68"
+    },
+    {
+      "path": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-truncated.json",
+      "sha256": "732846be62e154412f9e879460d16971bbbd3792c7934a7d421dce49db203646",
+      "context_path": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-truncated.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "truncated chunk C.03: char_count no longer matches, ends mid-token, merged hash differs -> 02.SECTION_BOUNDS, 02.TRUNCATION_GUARD, 02.MERGE_DETERMINISTIC FAIL"
+      ],
+      "context_sha256": "1db8f9ba6c6902d8b8d78e5befe36ef2afc8e880e6cf48c8ff8473efca573d68"
+    },
+    {
+      "path": "tools/belt/fixtures/02.dossier_sections/synthetic-hold-no-context.json",
+      "sha256": "f9fc37f07c217f2b34ac4d711d9947cc6b7faaecb25364157b17a1cfcafcbcc7",
+      "context_path": null,
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "HOLD",
+      "transformation_notes": [
+        "the positive envelope with no context: LINEAGE, ANCHORS_REGISTERED and verified EXAM_FACT_STATUS HOLD — never PASS without bindings"
+      ]
+    }
+  ],
+  "unexecuted": [
+    {
+      "item": "parametric-knowledge ban / 'claim stated on the cited snapshot page'",
+      "reason": "requires snapshot text binding per anchor; documented requirement only (see documented_requirements_not_checked)"
+    },
+    {
+      "item": "non-numeric fact-bearing sentences",
+      "reason": "02.FACT_LINES_CITED uses a deterministic proxy: a line is fact-bearing when it contains a digit after removing anchors, URLs, id tokens (Q12, VD-1, N-400, FY2024), list ordinals and headings; claim units are markdown lines (sentence splitting is non-deterministic around U.S./D.C./p.2). Purely verbal claims are left to the 08 fact audit."
+    },
+    {
+      "item": "E/E2 minimum evidence counts (>=5 verbatim VOC, >=3 ad hooks, >=2 named+priced competitors, adopt[]/beat[])",
+      "reason": "carried as prose in E/E2 chunks; counted when role 16 compiles market_signal/competitive_teardown"
+    },
+    {
+      "item": "copied-handbook-sentence ban",
+      "reason": "no source text binding in the context contract"
+    },
+    {
+      "item": "source liveness / freshness (source-fact-policy max_receipt_age_hours 24)",
+      "reason": "02 binds lineage.source_liveness_sha256 but no liveness receipt is evaluated here (no clock in checks)"
+    },
+    {
+      "item": "confidence<high -> VerificationDebt routing per fact",
+      "reason": "envelope prose carries no per-fact confidence; role 16 compiled facts carry it"
+    },
+    {
+      "item": "V1 projection LINEAGE",
+      "reason": "HOLD: the V1 run has no input manifest / candidate lineage"
+    },
+    {
+      "item": "provider strict-mode acceptance of this adapter",
+      "reason": "no endpoint call is authorized; local ajv + strict-lint only"
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "stage_id": "19A.units",
+  "adapter_schema": {
+    "path": "schemas-strict/19a-curriculum-unit-map.schema.json",
+    "sha256": "343cc578f12ebb8bb9d5bb24a2a59026ab525afca8a15fa36a1f2dd6f116ef0a"
+  },
+  "parent_schema": {
+    "path": "schemas/curriculum-unit-map.schema.json",
+    "sha256": "16f942a9b4c09a85d723c9fd485c629f3b36cdbccb8bd332b340642348eddd26"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "Payload meaning differs: user_cycle admits module_hub (not in the parent enum), production_gate is capped below production_ready, source_refs carry the deferred:not_applicable_pilot sentinel for scout/asset refs, tenant_dir may be a pilot lane path (parent pattern ^app/public/tenants/<slug>$), and passing_threshold is an official-fact object. Never claimed as a subset.",
+  "overlay_authority": "contracts/pilot-overrides-v0.4.0.json#/role_overrides/19A",
+  "checks_module": "tools/belt/checks/19a-units.mjs",
+  "compensating_checks": [
+    "19A.SCHEMA",
+    "19A.PROBE_SLUG",
+    "19A.LINEAGE",
+    "19A.TENANT_DIR",
+    "19A.PRODUCTION_GATE_CEILING",
+    "19A.PARENT_ALLOF_RESTORED",
+    "19A.INTEGRITY_RECOMPUTE",
+    "19A.INCOMPLETE_MAP_BLOCKED",
+    "19A.REFS_RESOLVE",
+    "19A.MODULE_UNIT_CARDINALITY",
+    "19A.UNIT_SHAPE",
+    "19A.USER_CYCLE",
+    "19A.HUB_UNLOCK",
+    "19A.MASTERY_GATE",
+    "19A.EXAM_MODE_TRUTH",
+    "19A.MEDIA_SENTINEL"
+  ],
+  "context_keys": {
+    "input_manifest_sha256": "19A.LINEAGE (HOLD if absent)",
+    "accepted_inputs": "{product_line_id, tenant_id, refs{knowledge_graph,carddeck,session_scripts,exambank,learning_loop,media_disposition}, ids{modules,nodes,cards,quiz_items,sessions,mock_items,practice_forms,media_slots_resolved}, module_nodes{<module_id>:[node ids]}, knowledge_graph?} — 19A.INTEGRITY_RECOMPUTE, 19A.INCOMPLETE_MAP_BLOCKED, 19A.REFS_RESOLVE, 19A.MODULE_UNIT_CARDINALITY (HOLD if absent)",
+    "learning_loop": "accepted LearningLoop object — 19A.MASTERY_GATE threshold/missed-items equality (HOLD if absent)",
+    "learning_loop_sha256 | loaded_refs.learning_loop.sha256": "19A.MASTERY_GATE pin (HOLD if absent)",
+    "media_disposition": "19A.MEDIA_SENTINEL (HOLD if absent)"
+  },
+  "exports": {
+    "computeIntegrity(artifact, context)": "deterministic integrity counts {counts, detail, complete}; complete=false when accepted inputs are absent"
+  },
+  "deviations": [
+    {
+      "field": "/units/*/user_cycle",
+      "parent_rule": "enum [session, flashcards, module_quiz, missed_review, spaced_review, mock_exam], minItems 3",
+      "adapter_rule": "enum adds module_hub; adds hub_options[module_quiz|flashcards|session] and hub_unlock{requires[lesson_complete|all_cards_seen], rule_source learning_loop}",
+      "reason": "19A contract v1.1 (founder 2026-06-19, MODULE HUB): session -> flashcards -> module_hub; quiz chosen at the hub; hub opens once lesson + all cards are seen; overlay 19A retained 'module_hub and hub_options'",
+      "compensating_check": "19A.USER_CYCLE, 19A.HUB_UNLOCK"
+    },
+    {
+      "field": "/units/*/mastery_gate",
+      "parent_rule": "{quiz_threshold_pct number 0..100, missed_items_must_be_cleared boolean}",
+      "adapter_rule": "adds policy_source enum[learning_loop], provenance_kind enum[product_policy], learning_loop_ref, learning_loop_sha256",
+      "reason": "overlay 19A retained 'LearningLoop-bound mastery policy labelled product policy'; source-fact-policy mastery_threshold is product_policy, never an official exam fact",
+      "compensating_check": "19A.MASTERY_GATE"
+    },
+    {
+      "field": "/production_gate/status",
+      "parent_rule": "enum [production_ready, preview_only, diagnostic_only, blocked]",
+      "adapter_rule": "enum [preview_only, blocked, diagnostic_only] (production_ready not representable)",
+      "reason": "overlay 19A adaptation 'Pilot gate ceiling preview_only, never production_ready'",
+      "compensating_check": "19A.PRODUCTION_GATE_CEILING (rejects production_ready even if the schema step is bypassed), 19A.INCOMPLETE_MAP_BLOCKED"
+    },
+    {
+      "field": "/integrity",
+      "parent_rule": "eight required integer >= 0 counts",
+      "adapter_rule": "the eight parent counts + duplicate_bindings + module_unit_mismatches, all integer; plus integrity_computed_by enum[script]",
+      "reason": "overlay 19A adaptation 'Integrity counts computed by script, not model-written'; prompt 19A lists duplicate bindings and module-unit cardinality",
+      "compensating_check": "19A.INTEGRITY_RECOMPUTE"
+    },
+    {
+      "field": "/product_line/tenant_dir",
+      "parent_rule": "pattern ^app/public/tenants/[a-z0-9][a-z0-9-]*$",
+      "adapter_rule": "plain string + tenant_dir_kind enum[canonical_tenant, pilot_lane_path]; canonical => exactly app/public/tenants/<tenant_id>; pilot => ^runs/<seg>(/<seg>)*$, no '..', no 'tenants/'",
+      "reason": "prompt 19A: 'Local preview paths use their explicit pilot disposition instead of falsely claiming a canonical deployed tenant'",
+      "compensating_check": "19A.TENANT_DIR"
+    },
+    {
+      "field": "/source_refs/{image_scout_pre_kg,image_scout_post_kg,image_asset_manifest}",
+      "parent_rule": "image_scout_post_kg required string; pre/asset optional strings",
+      "adapter_rule": "all three required, enum [deferred:not_applicable_pilot]",
+      "reason": "media-disposition.json: 20A inactive, image cards disabled; 'Do not insert fake post-KG scout refs to satisfy parent-required fields'",
+      "compensating_check": "19A.MEDIA_SENTINEL"
+    },
+    {
+      "field": "/source_refs/media_disposition",
+      "parent_rule": "none",
+      "adapter_rule": "required string",
+      "reason": "only the pinned media disposition can exempt inactive scout/audio stages",
+      "compensating_check": "19A.REFS_RESOLVE, 19A.MEDIA_SENTINEL"
+    },
+    {
+      "field": "/media",
+      "parent_rule": "none (unit media_slot_ids only)",
+      "adapter_rule": "{required_slot_ids[], optional_slot_ids[], exempt_by_disposition[]}",
+      "reason": "required visuals need Role15 asset binding; optional media debt stays visible",
+      "compensating_check": "19A.INTEGRITY_RECOMPUTE (unresolved_required_media), 19A.MEDIA_SENTINEL"
+    },
+    {
+      "field": "/exam_modes/*/scoring_policy/passing_threshold",
+      "parent_rule": "string|number|null",
+      "adapter_rule": "official-fact object {value number|null, status unknown|verified|authored, source_page|null}",
+      "reason": "never a bare number for an unverified threshold; pass_fail language requires a sourced threshold (19A contract step 5)",
+      "compensating_check": "19A.EXAM_MODE_TRUTH"
+    },
+    {
+      "field": "/units/*",
+      "parent_rule": "mock_item_ids, media_slot_ids optional; additionalProperties true",
+      "adapter_rule": "closed object; mock_item_ids, practice_form_ids, media_slot_ids required arrays",
+      "reason": "strict subset requires closed objects with every key required; prompt 19A 'declared practice-form eligibility'",
+      "compensating_check": "19A.REFS_RESOLVE"
+    },
+    {
+      "field": "/lineage",
+      "parent_rule": "artifact_hash (optional)",
+      "adapter_rule": "{input_manifest_sha256|null, candidate_lineage_id|null}",
+      "reason": "handoff hash-boundary correction",
+      "compensating_check": "19A.LINEAGE"
+    },
+    {
+      "field": "/schema_version, /adapter, /stage_id",
+      "parent_rule": "schema_version const 1.0.0",
+      "adapter_rule": "one-value enums",
+      "reason": "const is outside the relied-on strict subset",
+      "compensating_check": "19A.SCHEMA (enum)"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "parent:/allOf/0",
+      "keyword": "allOf if/then",
+      "parent_value": "if production_gate.status == production_ready then all eight integrity counts const 0",
+      "compensating_check": "19A.PARENT_ALLOF_RESTORED (recomputed counts AND claimed counts must all be 0 under production_ready; in the pilot production_ready additionally FAILs 19A.PRODUCTION_GATE_CEILING)"
+    },
+    {
+      "json_pointer": "/properties/probe",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "19A.PROBE_SLUG"
+    },
+    {
+      "json_pointer": "/properties/product_line/properties/tenant_id",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "19A.PROBE_SLUG"
+    },
+    {
+      "json_pointer": "/properties/product_line/properties/tenant_dir",
+      "keyword": "pattern",
+      "parent_value": "^app/public/tenants/[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "19A.TENANT_DIR"
+    },
+    {
+      "json_pointer": "/properties/product_line/properties/product_line_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "19A.TENANT_DIR"
+    },
+    {
+      "json_pointer": "/properties/units",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "19A.UNIT_SHAPE"
+    },
+    {
+      "json_pointer": "/properties/units/items/properties/order",
+      "keyword": "minimum",
+      "parent_value": 1,
+      "compensating_check": "19A.UNIT_SHAPE (order must be 1..n unique)"
+    },
+    {
+      "json_pointer": "/properties/units/items/properties/unit_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "19A.UNIT_SHAPE (also module_id, title, domain, readiness_domain)"
+    },
+    {
+      "json_pointer": "/properties/units/items/properties/session_ref",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "19A.INTEGRITY_RECOMPUTE (units_missing_sessions)"
+    },
+    {
+      "json_pointer": "/properties/units/items/properties/card_ids",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "19A.INTEGRITY_RECOMPUTE (units_missing_cards) + 19A.INCOMPLETE_MAP_BLOCKED"
+    },
+    {
+      "json_pointer": "/properties/units/items/properties/user_cycle",
+      "keyword": "minItems",
+      "parent_value": 3,
+      "compensating_check": "19A.USER_CYCLE"
+    },
+    {
+      "json_pointer": "/properties/units/items/properties/mastery_gate/properties/quiz_threshold_pct",
+      "keyword": "minimum/maximum",
+      "parent_value": "0..100",
+      "compensating_check": "19A.MASTERY_GATE"
+    },
+    {
+      "json_pointer": "/properties/exam_modes",
+      "keyword": "minItems",
+      "parent_value": 1,
+      "compensating_check": "19A.UNIT_SHAPE"
+    },
+    {
+      "json_pointer": "/properties/integrity/properties/units_missing_sessions",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "19A.INTEGRITY_RECOMPUTE (applies to all ten counts)"
+    }
+  ],
+  "added_invariants": [
+    {
+      "check": "19A.INCOMPLETE_MAP_BLOCKED: any recomputed defect requires production_gate.status blocked — preview_only never means defects were checked away"
+    },
+    {
+      "check": "19A.REFS_RESOLVE: source_refs equal the accepted refs; every node/card/quiz/session/mock/form id resolves to accepted inputs; every accepted card/item/session is bound (orphans in both directions)"
+    },
+    {
+      "check": "19A.MODULE_UNIT_CARDINALITY: every KG module has exactly one unit, with node_ids equal to the module's"
+    },
+    {
+      "check": "19A.MASTERY_GATE: quiz_threshold_pct == accepted LearningLoop.mastery_gate.quiz_threshold_pct (HOLD if the LearningLoop is absent); learning_loop_sha256 pinned"
+    },
+    {
+      "check": "19A.EXAM_MODE_TRUTH: pass_fail result language only with a verified, page-sourced threshold"
+    }
+  ],
+  "sentinels": [
+    {
+      "field": "/source_refs/image_scout_pre_kg, /source_refs/image_scout_post_kg, /source_refs/image_asset_manifest",
+      "value": "deferred:not_applicable_pilot",
+      "binding": "contracts/media-disposition.json inactive_roles includes 20A; exemptions in /media/exempt_by_disposition must be named verbatim in non_applicable_checks[].check",
+      "check": "19A.MEDIA_SENTINEL",
+      "compensating_check": "19A.MEDIA_SENTINEL"
+    },
+    {
+      "field": "/exam_modes/*/scoring_policy/passing_threshold",
+      "kind": "official_number_record",
+      "shape": "{value: null|number, status: unknown|verified|authored, source_page: null|string}",
+      "rule": "unknown => null; pass_fail only with verified + source_page",
+      "compensating_check": "19A.EXAM_MODE_TRUTH"
+    }
+  ],
+  "v1_projection": {
+    "status": "HOLD",
+    "reason": "no 19A CurriculumUnitMap artifact exists in D:/nova/runs/2026-06-11-citizenship (stage-map v1_reference.kind = absent). No V1 fixture is produced; provenance is not manufactured. Interface coverage uses clearly synthetic fixtures only."
+  },
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/19A.units/synthetic-positive.json",
+      "sha256": "2eda57417eec01fe4240bb21c959eef2c9e12b2f5d3a8d476bb78862f6b6900c",
+      "context_path": "tools/belt/fixtures/19A.units/synthetic-positive.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "fictional product line synthetic-probe; preview_only; pilot lane tenant_dir; integrity counts equal the script recomputation; threshold 80 bound to a SYNTHETIC LearningLoop (sha256 = canonical-JSON digest of the embedded loop)"
+      ],
+      "context_sha256": "f3926ec8a2244d1ac9c742ebc482491f9a5c7cb47c425db13bd7dcbed4bcc63b"
+    },
+    {
+      "path": "tools/belt/fixtures/19A.units/synthetic-negative-production-ready-orphans.json",
+      "sha256": "79df4acd4e5b7f856eaa6137f793dfcfe4006654c61fc3990b04921fccc5ae8f",
+      "context_path": "tools/belt/fixtures/19A.units/synthetic-negative-production-ready-orphans.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "required negative: production_gate production_ready + orphan card c9 (unresolved) and c2 (unbound) with model-written zero counts -> 19A.SCHEMA, 19A.PRODUCTION_GATE_CEILING, 19A.PARENT_ALLOF_RESTORED, 19A.INTEGRITY_RECOMPUTE, 19A.INCOMPLETE_MAP_BLOCKED, 19A.REFS_RESOLVE FAIL"
+      ],
+      "context_sha256": "f3926ec8a2244d1ac9c742ebc482491f9a5c7cb47c425db13bd7dcbed4bcc63b"
+    },
+    {
+      "path": "tools/belt/fixtures/19A.units/synthetic-negative-threshold-mismatch.json",
+      "sha256": "721f5786c42dda77c4c7879a5ffe12f8f256bbe4b6b025427a3c66565f43a3b0",
+      "context_path": "tools/belt/fixtures/19A.units/synthetic-negative-threshold-mismatch.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "quiz_threshold_pct 70 (a candidate-config style hint) != accepted LearningLoop 80 -> 19A.MASTERY_GATE FAIL"
+      ],
+      "context_sha256": "f3926ec8a2244d1ac9c742ebc482491f9a5c7cb47c425db13bd7dcbed4bcc63b"
+    },
+    {
+      "path": "tools/belt/fixtures/19A.units/synthetic-hold-no-context.json",
+      "sha256": "e5d08cbb11dd19636b683c802910646edc7a00d4a46feb974704f7d2d74e32e2",
+      "context_path": null,
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "HOLD",
+      "transformation_notes": [
+        "positive map with no context: LINEAGE, INTEGRITY_RECOMPUTE (orphan counts), INCOMPLETE_MAP_BLOCKED, REFS_RESOLVE, MODULE_UNIT_CARDINALITY, MASTERY_GATE, MEDIA_SENTINEL HOLD"
+      ]
+    }
+  ],
+  "unexecuted": [
+    {
+      "item": "V1 projection",
+      "reason": "HOLD — no 19A artifact on disk for the citizenship run"
+    },
+    {
+      "item": "practice-form item resolution ('every practice form resolves its actual items')",
+      "reason": "form ids are resolved against accepted_inputs.ids.practice_forms; the form->item membership map is not part of the context contract yet"
+    },
+    {
+      "item": "hub unlock runtime behaviour",
+      "reason": "the declared hub_unlock rule is checked structurally; the accepted V1 LearningLoop carries no machine-readable hub-unlock rule to compare against"
+    },
+    {
+      "item": "artifact/body hash ('Preserve declared source hashes and exact body/output hash')",
+      "reason": "the adapter carries no self hash (hash-boundary rule); source hashes are compared only via accepted_inputs.refs string equality"
+    },
+    {
+      "item": "real accepted-input extraction from CardDeck/ExamBank/SessionScripts artifacts",
+      "reason": "checks consume normalized id sets (accepted_inputs.ids); only KG modules/nodes are auto-extracted. Exercised with synthetic context only."
+    },
+    {
+      "item": "provider strict-mode acceptance of this adapter",
+      "reason": "no endpoint call is authorized; local ajv + strict-lint only"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "command": "node tools/belt/post-validate.mjs --stage 07.content_coverage --artifact tools/belt/fixtures/07.content_coverage/v1-projected.json --context tools/belt/fixtures/07.content_coverage/context-v1.json",
+  "cwd": "D:/nova/fb-ai-hackathon",
+  "exit_code": 1,
+  "expected_status": "FAIL",
+  "observed_status": "FAIL",
+  "stdout_sha256": "0d485a1cb872319de043f4dcccb32e31646aa6ddf3f803ebdfb22e262fd86741",
+  "result": {
+    "status": "FAIL",
+    "stage_id": "07.content_coverage",
+    "checks": [
+      {
+        "check_id": "07.SCHEMA",
+        "status": "PASS",
+        "evidence": "validates against schemas-strict/07-coverage-report.schema.json"
+      },
+      {
+        "check_id": "07.ENVELOPE",
+        "status": "PASS",
+        "evidence": "probe slug, stamp, coverage_matrix_ref, provider/scope and source_refs valid"
+      },
+      {
+        "check_id": "07.CANDIDATE_ECHO",
+        "status": "PASS",
+        "evidence": "candidate_sha256 d0b0d5771ea0b32bad3030466eb663e805c971e4ea5a29b71be9f0bdc2f512c1 equals the scoped candidate manifest digest"
+      },
+      {
+        "check_id": "07.INPUT_MEMBERSHIP",
+        "status": "FAIL",
+        "evidence": "required input hash(es) null: session_scripts",
+        "metrics": {
+          "malformed": 0,
+          "missing_required": 1
+        }
+      },
+      {
+        "check_id": "07.ROW_FIELDS",
+        "status": "PASS",
+        "evidence": "all row strings non-empty, tenant dirs and numeric bounds valid (18 strings)"
+      },
+      {
+        "check_id": "07.VERDICT_INVARIANT",
+        "status": "PASS",
+        "evidence": "parent allOf holds (verdict PASS; unit/media/cross-product gaps 0/0/0)"
+      },
+      {
+        "check_id": "07.VERDICT_CONSISTENCY",
+        "status": "PASS",
+        "evidence": "verdict PASS consistent with 0 non-empty gap list(s)"
+      },
+      {
+        "check_id": "07.REQUIRED_CHECKS_RUN",
+        "status": "FAIL",
+        "evidence": "verdict PASS but required_checks_not_run: session/TeachingUnit coverage and claims fact-id resolution (no 05b input in V1 07); curriculum unit binding via 19A (no CurriculumUnitMap in the V1 run); Order Q rule 5/6 form overlap + item-clone recompute (rules postdate V1 07); Order Q rule 15 titled-promise sweep (rule postdates V1 07)"
+      },
+      {
+        "check_id": "07.ROUTE_COVERAGE",
+        "status": "PASS",
+        "evidence": "route_back targets none cover every finding (adapter route enum includes 02/13/15/08/00)"
+      },
+      {
+        "check_id": "07.DOMAIN_WEIGHTS",
+        "status": "PASS",
+        "evidence": "8 domain row(s): 0 checked vs verified weights, 8 not_applicable with null weights"
+      },
+      {
+        "check_id": "07.PRACTICE_FORM_DRIFT",
+        "status": "FAIL",
+        "evidence": "recompute found drift the report omits: mock-2025-form-A:overlap_disclosure; mock-2025-form-65-20:overlap_disclosure | verdict PASS over 2 recomputed drift(s)",
+        "metrics": {
+          "recomputed_drift": 2
+        }
+      },
+      {
+        "check_id": "07.TITLED_PROMISE",
+        "status": "PASS",
+        "evidence": "55 titled surface(s) recomputed; 0 broken promise(s), all reported",
+        "metrics": {
+          "surfaces": 55,
+          "broken": 0
+        }
+      },
+      {
+        "check_id": "07.MEDIA_DISPOSITION",
+        "status": "PASS",
+        "evidence": "media disposition contracts/media-disposition.json@d030d1d09762… echoed with 3 non-applicable checks"
+      },
+      {
+        "check_id": "07.EARLY_MEDIA_INTENT",
+        "status": "HOLD",
+        "evidence": "early_media_intent_ref null — required-media policy unbound"
+      },
+      {
+        "check_id": "07.PROVIDER_SCOPE",
+        "status": "PASS",
+        "evidence": "report anthropic/content_coverage:full_candidate matches assignment"
+      },
+      {
+        "check_id": "07.INDEPENDENCE",
+        "status": "FAIL",
+        "evidence": "auditor (-, anthropic) not independent: provider_family_contributed_to_candidate_or_prompt; conflicting contributors: v1:17-enriched-blueprint.json:opus/anthropic/authored_candidate_artifact; v1:03-knowledge-graph.json:opus/anthropic/authored_candidate_artifact; v1:04-carddeck.json:opus/anthropic/authored_candidate_artifact; v1:05-voicescripts.json:opus/anthropic/authored_candidate_artifact; v1:06-exambank.json:opus/anthropic/authored_candidate_artifact",
+        "metrics": {
+          "auditor_family": "anthropic",
+          "contributors": 5,
+          "conflicts": 1
+        }
+      },
+      {
+        "check_id": "07.VERDICT_GATE",
+        "status": "PASS",
+        "evidence": "report verdict PASS (acceptance still requires every other check PASS)"
+      }
+    ],
+    "errors": [],
+    "metrics": {
+      "fixture_kind": "v1_projected_with_synthetic_candidate",
+      "adapter_schema_sha256": "f69408be24eede065742a0af9f4a1a1fde67a7a952fdf118f12fd3fd63ac67d2",
+      "07.INPUT_MEMBERSHIP.malformed": 0,
+      "07.INPUT_MEMBERSHIP.missing_required": 1,
+      "07.PRACTICE_FORM_DRIFT.recomputed_drift": 2,
+      "07.TITLED_PROMISE.surfaces": 55,
+      "07.TITLED_PROMISE.broken": 0,
+      "07.INDEPENDENCE.auditor_family": "anthropic",
+      "07.INDEPENDENCE.contributors": 5,
+      "07.INDEPENDENCE.conflicts": 1
+    },
+    "artifact_sha256": "f6e3b6630e3cfb6ac8de108efef0e7e76886395bef53fd9d859cb7b0315eea6b"
+  }
+}

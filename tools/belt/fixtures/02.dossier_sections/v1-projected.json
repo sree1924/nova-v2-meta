@@ -1,0 +1,1766 @@
+{
+  "_fixture": {
+    "kind": "v1_projected",
+    "label": "FIXTURE/REFERENCE ONLY — projected from the V1 citizenship run; never a DMV production result",
+    "source": {
+      "path": "D:/nova/runs/2026-06-11-citizenship/02-blueprint.md",
+      "sha256": "ddf788c8f5d0666c250ffcfcbe1da640eb6bb6aacc354b5611b7e3c9d58fb15f"
+    },
+    "generator": "tools/belt/project/02-dossier-sections.mjs#projectV1",
+    "split_rule": [
+      "1. Lines are kept with their trailing \"\\n\"; concatenating every chunk in merge_seq order reproduces the source bytes exactly.",
+      "2. A new chunk starts at every line beginning \"## \" or \"### \"; lines before the first such heading form a preamble chunk (section F).",
+      "3. A chunk whose length is >= 12000 code points is re-split at lines beginning \"**Q<n>.\" (question boundaries), greedily, so every part is < 12000.",
+      "4. Section id comes from the enclosing \"## \" heading via V1_SECTION_MAP; preamble -> F.",
+      "5. chunk_id = <section_id>.<merge_seq zero-padded to 2>."
+    ],
+    "section_map": [
+      "## 🔎 VERIFY CONSOLIDATED -> F",
+      "## EXAM_META -> A",
+      "## BLUEPRINT -> A",
+      "## AUDIENCE -> B",
+      "## SLOTS -> B",
+      "## KNOWLEDGE DOSSIER -> C",
+      "## UPDATABLE -> A",
+      "## ACCURACY -> D",
+      "## COMPETITIVE TEARDOWN -> E2",
+      "## MARKET-SIGNAL -> E",
+      "## ✅ DEFINITION OF DONE -> G",
+      "(preamble before first \"## \") -> F",
+      "\"### \" -> enclosing \"## \" section"
+    ],
+    "decisions": [
+      "split: 23 chunks; re-split parts: C.09, C.10",
+      "domain: every \"### \" knowledge chunk is domain-bearing except \"### GLOSSARY\" (V1 labels it plain-ESL support, never the exam answer); the \"## KNOWLEDGE DOSSIER\" legend chunk has domain null. The English vocab chunk IS domain-bearing (scored component), so its missing high-yield list surfaces as a finding.",
+      "learner_facing: A and C chunks true (exam info + knowledge feed learner surfaces), all others false.",
+      "fact_ids: C chunks use the md-native \"Q<n>\" ids from \"**Q<n>.\" lines (role 16 later assigned gov-a.NN ids, not present in the md); the UPDATABLE chunk uses its U<n> row ids.",
+      "source_anchors: every distinct inline citation token [S<n>], [S<n> p.<k>], [Q<n> · p.<k>]; source_page \"S1#p.<k>\" for [Q<n> · p.<k>] per the V1 source legend.",
+      "exam_facts: verified only where the V1 EXAM_META line carries an inline anchor (edition [S3], effective_date [S2], passing_standard + n_questions=20 on the [S2]-cited passing line; question_bank_size=128 -> S1, the M-1778 bank \"128 Civics Questions and Answers\" defined as [S1] in EXAM_META); exam_name, issuing_body, format lines carry no anchor -> status authored (V1 labels, not page-cited); time_limit: V1 says \"no separate published time limit\" without an anchor -> value null, status unknown.",
+      "high_yield_ranked: parsed from each \"**§ high_yield (…, ranked):**\" line; items split on \" · \", rank from \"N)\", item_refs = Q tokens with \"/n\" expansions (ranges like Q86–89 are NOT expanded).",
+      "verification_debt: projected from the ACCURACY VD table. enum fields take the leading token when it is a contract enum value, else null (never mapped to a guessed tier); expires_by keeps ISO dates only, V1 phrases like \"next run\" -> null; withheld_values = numerals in claim_text excluding id tokens and 4-digit years.",
+      "VD-1: blocker_kind \"source_missing\"->source_missing; source_tier \"official\"->official; owner \"EvidenceLibrarian\"->EvidenceLibrarian; expires_by \"next run\"->null; withheld [\"993k\"]",
+      "VD-2: blocker_kind \"source_missing (data not yet published by USCIS)\"->source_missing; source_tier \"official\"->official; owner \"EvidenceLibrarian\"->EvidenceLibrarian; expires_by \"when USCIS publishes 2025-test performance\"->null; withheld []",
+      "VD-3: blocker_kind \"source_missing\"->source_missing; source_tier \"official\"->official; owner \"EvidenceLibrarian\"->EvidenceLibrarian; expires_by \"next run\"->null; withheld [\"60–90\"]",
+      "VD-4: blocker_kind \"source_stale (carried tier `unverified` in 01b)\"->source_stale; source_tier \"secondary_allowed\"->null; owner \"SMEResearchAgent (01b delta)\"->SMEResearchAgent; expires_by \"next CI delta\"->null; withheld []",
+      "market_signal.origin: parent enum is sme|competitive_intel; V1 heading says \"origin: competitive_intel @ 01b + official stats verified this session\" and the compiled 16-blueprint.json records competitive_intel -> competitive_intel, verbatim heading kept in origin_note.",
+      "g_matrix: V1 DoD lines map 1:1 in order onto the 11 master-template G boxes; dispositions are V1 self-claims ([x] -> completed), not independently re-verified.",
+      "lineage: V1 predates input manifests/candidate lineage -> all four hashes null (02.LINEAGE HOLDs without context, FAILs if a manifest is supplied).",
+      "needs_dedicated_surface: V1 (2026-06-11) predates the 2026-06-17 Sellable-Depth amendment and records the English component as \"meta only — no delivery loop designed here\"; it never declares the field -> status unknown, items [] (not inferred).",
+      "envelope_scope: V1 is a whole dossier -> complete_dossier assigned all 9 ids; V1 has no Section C2 (hints were added by role 17), so SCOPE_COMPLETENESS reports C2 missing.",
+      "external_review_requests: V1 ACCURACY states none -> []."
+    ]
+  },
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "us-citizenship",
+  "lineage": {
+    "input_manifest_sha256": null,
+    "candidate_lineage_id": null,
+    "source_registry_sha256": null,
+    "source_liveness_sha256": null
+  },
+  "envelope_scope": {
+    "kind": "complete_dossier",
+    "assigned_section_ids": [
+      "A",
+      "B",
+      "C",
+      "C2",
+      "D",
+      "E",
+      "E2",
+      "F",
+      "G"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "F",
+      "chunk_id": "F.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "02 — BLUEPRINT — US Citizenship Civics Test (2025 version · 128-question bank)",
+      "learner_facing": false,
+      "markdown": "# 02 — BLUEPRINT — US Citizenship Civics Test (2025 version · 128-question bank)\n\n> **minted_by:** { model: \"opus\", lane: \"default\", pass: \"draft\" }\n> **probe:** 01-us-citizenship · **run:** 2026-06-11-citizenship · **date:** 2026-06-11\n> **version-scope:** 2025 Naturalization Civics Test (128Q bank) ONLY. The 2008/100Q version is a\n> **logged scope cut** (run-config.md, belt run #1) — referenced in exam_meta/version fields, content NOT minted.\n> **upstream:** sme-library/01-us-citizenship.md (dossier-prompt) · runs/2026-06-11-citizenship/01b-competitive-intel.json\n> (fresh CI — supersedes the dossier's stale teardown) · factory/workers/02-sme-research-agent.md (role contract)\n> **source bundle (fetched this session, on disk):** runs/2026-06-11-citizenship/sources/\n> (2025-Civics-Test-128-Questions-and-Answers.pdf, testupdates.html, 2025-civics-test.html,\n> policy-manual-12e2.html, M-715_reading.pdf, M-715_writing.pdf, study-for-test.html, test-performance.html)\n> **typography note:** verbatim content reproduced with curly quotes/apostrophes normalized to ASCII; words,\n> parentheticals, and bracketed officer-guidance text are exact. US-government work = public domain, rights-clean.\n\n---\n\n",
+      "char_count": 1207,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "F",
+      "chunk_id": "F.02",
+      "merge_seq": 2,
+      "domain": null,
+      "heading": "🔎 VERIFY CONSOLIDATED (every open item in one place — none ship-blocking for knowledge[])",
+      "learner_facing": false,
+      "markdown": "## 🔎 VERIFY CONSOLIDATED (every open item in one place — none ship-blocking for knowledge[])\n\n| # | Item | Status |\n|---|------|--------|\n| V1 | **128-question bank verbatim** | ✅ RESOLVED — official PDF M-1778 (09/25) downloaded direct from uscis.gov, HTTP 200, 2026-06-11. Tier: **official**. |\n| V2 | **2025 test mechanics** (20 asked / 12 to pass / fail at 9 wrong / early stop) | ✅ RESOLVED — verified on uscis.gov 2025 Civics Test page + Policy Manual Vol.12 Pt.E Ch.2, both fetched live 2026-06-11. |\n| V3 | **Filing-date version gate** (N-400 before Oct 20 2025 → 2008 test; on/after → 2025 test) | ✅ RESOLVED — uscis.gov Check for Test Updates page, fetched live 2026-06-11 (implements EO 14161; Federal Register notice). |\n| V4 | **65/20 special consideration** (20 ★ questions, 10 asked, 6/10 = 60% to pass, language of choice) | ✅ RESOLVED — stated inside M-1778 p.1 + Policy Manual. ★ subset counted from the PDF = exactly 20. |\n| V5 | **Current officeholders** (President/VP/Speaker/Chief Justice) | ✅ RESOLVED — USCIS testupdates page (the authoritative *acceptable-answer* source) fetched live 2026-06-11, cross-checked same day against whitehouse.gov, speaker.gov, supremecourt.gov. All match. → values in `updatable[]`. |\n| V6 | Bank-revision watch — \"answers may change … due to statutory changes or updates\" | ⚠ STANDING CADENCE — re-pull uscis.gov/citizenship/testupdates **every build** (owner: Dynamic Facts Monitor 18). Not a defect; an official instruction. |\n| V7 | Annual N-400 **application** volume (dossier cited ~993k/yr) | ⚠ OPEN `(verify)` — could not confirm applications-received figure. Verified instead: **818,570 naturalizations FY2024** (OHSS/DHS annual flow report, official). → VerificationDebt VD-1 (market-signal only). |\n| V8 | **Pass rate for the 2025 test** | ⚠ OPEN `(verify)` — no 2025-test performance data published yet. Official FY2022 data (2008-era test): 95.7% overall pass incl. re-exam; >88% pass at initial interview. → VerificationDebt VD-2 (market-signal only). |\n| V9 | Re-exam timing (second opportunity on failed portion) | ⚠ OPEN `(verify)` — re-exam *existence* verified (USCIS test-performance page); the 60–90-day scheduling window NOT verified this session. → VerificationDebt VD-3. |\n| V10 | M-715 reading/writing vocab lists (rev 01/10) still current | ✅ RESOLVED (low-risk watch) — listed as current materials on Study for the Test page fetched 2026-06-11; English test unchanged by the 2025 civics implementation. Watch for an English-materials refresh. |\n| V11 | CI verbatim quotes carried at tier `unverified` in 01b (\"audio does not match the text…\", \"hidden sneaky paywall\") | ⚠ OPEN — re-verify on next CI delta run (owner: 01b). Marked origin competitive_intel below. |\n| V12 | Official USCIS mobile app still 100Q-only (01b finding) | ⚠ OPEN `(verify before marketing use)` — owner: 01b delta run. |\n\n---\n\n",
+      "char_count": 2884,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "A",
+      "chunk_id": "A.03",
+      "merge_seq": 3,
+      "domain": null,
+      "heading": "EXAM_META",
+      "learner_facing": true,
+      "markdown": "## EXAM_META\n\n- **exam:** Naturalization Test — Civics component, **2025 Naturalization Civics Test** (+ English component recorded as meta)\n- **body:** U.S. Citizenship and Immigration Services (USCIS), Dept. of Homeland Security\n- **source (canonical):**\n  - **[S1]** *128 Civics Questions and Answers (2025 version)*, form **M-1778 (09/25)**, PDF title \"Civic Questions and Answers for the Naturalization Test - 2025 Version\" (PDF metadata: created 2025-09-26, modified 2025-10-14), https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf — **downloaded direct, HTTP 200, retrieved_at 2026-06-11** · tier **official**\n  - **[S2]** *2025 Civics Test* page, https://www.uscis.gov/citizenship-resource-center/naturalization-test-and-study-resources/2025-civics-test — fetched live 2026-06-11 (Last Reviewed/Updated 09/17/2025) · tier **official**\n  - **[S3]** *Check for Test Updates*, https://www.uscis.gov/citizenship/testupdates — fetched live 2026-06-11 (Last Reviewed/Updated 09/18/2025; serves current acceptable officeholder answers) · tier **official**\n  - **[S4]** *USCIS Policy Manual* Vol. 12, Part E, Ch. 2 \"English and Civics Testing\", https://www.uscis.gov/policy-manual/volume-12-part-e-chapter-2 — fetched live 2026-06-11 · tier **official**\n  - **[S5]** *Reading/Writing Vocabulary for the Naturalization Test*, **M-715 (01/10)**, https://www.uscis.gov/sites/default/files/document/guides/M-715_reading.pdf + …/M-715_writing.pdf — downloaded direct 2026-06-11 · tier **official**\n  - **[S6]** *Naturalization Test Performance* page, https://www.uscis.gov/citizenship-resource-center/naturalization-related-data-and-statistics/naturalization-test-performance — fetched live 2026-06-11 · tier **official**\n- **edition:** 2025 version — implements **Executive Order 14161**; \"based on the 2020 naturalization civics test, with some modifications to the administration of the test\" [S3]. Applies to **Form N-400 filed on/after Oct. 20, 2025** [S2][S3].\n- **version gate (per-user, dynamic):** N-400 filed **before** Oct 20 2025 → 2008 test (100Q; 10 asked; 6 to pass; stops at 6 correct or 5 incorrect [S4]). Filed **on/after** Oct 20 2025 → 2025 test. Interview date does NOT control; filing date does. [S3] → per-user flag in `updatable[]`. *(2008 content = scope cut this run.)*\n- **passing (2025, VERIFIED):** oral test; officer asks **up to 20** of the 128; must answer **at least 12 correctly** to pass; **fail upon 9 incorrect**; \"Officers will stop asking questions when an alien answers 12 questions correctly, or 9 questions incorrectly\" [S2]. Early stop \"is a departure from the 2020 Naturalization Civics Test\" [S4]. Questions are randomly selected by a USCIS system and administered orally by an officer [S4].\n- **scoring math:** max 20 asked; terminal states 12-correct (pass) or 9-incorrect (fail); one of the two necessarily triggers by Q20 (11 correct + 8 wrong = 19 asked is the longest non-terminal prefix).\n- **65/20 special consideration (VERIFIED):** age 65+ AND LPR ≥20 years at time of filing → studies only the **20 ★-marked questions**; officer asks **10**; must answer **at least 6 of 10 (60%)**; may take the test **in the language of their choice** [S1 p.1][S4]. ★ set (verified by count from S1): **Q2, 7, 12, 20, 30, 36, 38, 39, 44, 52, 61, 66, 74, 78, 86, 94, 113, 115, 121, 126**.\n- **English exemptions (civics still required, in language of choice w/ interpreter):** age 50+ with 20 yrs LPR (\"50/20\") or age 55+ with 15 yrs LPR (\"55/15\") [S4]. Medical disability exception via Form N-648 may exempt English, civics, or both [S4].\n- **English component (meta only — no delivery loop designed here):** speaking assessed by the officer during the N-400 interview; **reading** = read **1 of 3** sentences correctly (stops when one read correctly; must convey meaning; may omit short words) [S4]; **writing** = write **1 of 3 dictated** sentences so the officer understands (no abbreviations; spelling/capitalization/punctuation errors don't fail unless meaning is lost) [S4]. Official vocab lists in GLOSSARY below [S5].\n- **format:** oral Q&A during the naturalization interview; no separate published time limit (component of the interview).\n- **retake:** applicants failing one or both components get a second opportunity (\"re-exam\") [S6]; scheduling window `(verify — V9)`.\n- **officeholder rule (official):** \"You must answer the question with the name of the official serving at the time of your naturalization interview.\" [S1 p.1][S3]\n- **answer-set rule (official):** \"Although USCIS is aware that there may be additional correct answers to the civics questions, applicants are encouraged to respond to the questions using the answers provided below.\" [S1 p.1]\n- **stability check:** corpus changes ≤1×/yr (major version Oct 2025; officeholder answers churn separately via [S3]) → no HALT; dynamic facts isolated to `updatable[]`; standing re-pull of [S3] each build (V6).\n\n",
+      "char_count": 4990,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "S1",
+          "source_page": "S1"
+        },
+        {
+          "anchor_id": "S2",
+          "source_page": "S2"
+        },
+        {
+          "anchor_id": "S3",
+          "source_page": "S3"
+        },
+        {
+          "anchor_id": "S4",
+          "source_page": "S4"
+        },
+        {
+          "anchor_id": "S5",
+          "source_page": "S5"
+        },
+        {
+          "anchor_id": "S6",
+          "source_page": "S6"
+        },
+        {
+          "anchor_id": "S1 p.1",
+          "source_page": "S1#p.1"
+        }
+      ]
+    },
+    {
+      "section_id": "A",
+      "chunk_id": "A.04",
+      "merge_seq": 4,
+      "domain": null,
+      "heading": "BLUEPRINT (per-section weights = official bank distribution; the per-section mix of the 20 *asked* is not published — do not assume proportional selection)",
+      "learner_facing": true,
+      "markdown": "## BLUEPRINT (per-section weights = official bank distribution; the per-section mix of the 20 *asked* is not published — do not assume proportional selection)\n\n| domain | bank Q range | item_count | weight_pct |\n|---|---|---|---|\n| AMERICAN GOVERNMENT | Q1–Q72 | 72 | 56.3% |\n| — A: Principles of American Government | Q1–Q15 | 15 | 11.7% |\n| — B: System of Government | Q16–Q62 | 47 | 36.7% |\n| — C: Rights and Responsibilities | Q63–Q72 | 10 | 7.8% |\n| AMERICAN HISTORY | Q73–Q118 | 46 | 35.9% |\n| — A: Colonial Period and Independence | Q73–Q89 | 17 | 13.3% |\n| — B: 1800s | Q90–Q99 | 10 | 7.8% |\n| — C: Recent American History and Other Important Historical Information | Q100–Q118 | 19 | 14.8% |\n| SYMBOLS AND HOLIDAYS | Q119–Q128 | 10 | 7.8% |\n| — A: Symbols | Q119–Q124 | 6 | 4.7% |\n| — B: Holidays | Q125–Q128 | 4 | 3.1% |\n\nSection names are the official M-1778 headings (note: the 2025/2020-format third bucket is **\"SYMBOLS AND HOLIDAYS\"**, not the 2008 test's \"Integrated Civics\").\n\n",
+      "char_count": 994,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "B",
+      "chunk_id": "B.05",
+      "merge_seq": 5,
+      "domain": null,
+      "heading": "AUDIENCE",
+      "learner_facing": false,
+      "markdown": "## AUDIENCE\n\n- **who:** green-card holders (LPRs) preparing for the N-400 naturalization interview; **ESL-first** — answers must be exact in English, explanations plain/simple; many study on phones, often with family help; anxious about the *spoken* interview.\n- **level:** simple English, short authoritative statements; every answer drilled **as a spoken phrase** (the test is oral).\n- **prereqs:** none academic; per-user N-400 filing date determines test version (this Blueprint = 2025/128Q track; 65/20 ★ track is a subset).\n\n",
+      "char_count": 531,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "B",
+      "chunk_id": "B.06",
+      "merge_seq": 6,
+      "domain": null,
+      "heading": "SLOTS",
+      "learner_facing": false,
+      "markdown": "## SLOTS\n\n- DOMAIN: US civics, history, government (naturalization) · ISSUING_BODY: USCIS · EXAM: Naturalization Test (Civics + English)\n- OFFICIAL_SOURCE: uscis.gov/citizenship — 📕 published bank, public domain [S1]\n- EDITION: 2025 version (current/default for filings on/after 2025-10-20) [S2][S3]\n- AUDIENCE: ESL-first adult LPRs (above)\n\n---\n\n",
+      "char_count": 347,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "S1",
+          "source_page": "S1"
+        },
+        {
+          "anchor_id": "S2",
+          "source_page": "S2"
+        },
+        {
+          "anchor_id": "S3",
+          "source_page": "S3"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.07",
+      "merge_seq": 7,
+      "domain": null,
+      "heading": "KNOWLEDGE DOSSIER — THE OFFICIAL 128-QUESTION BANK (VERBATIM)",
+      "learner_facing": true,
+      "markdown": "## KNOWLEDGE DOSSIER — THE OFFICIAL 128-QUESTION BANK (VERBATIM)\n\n**Source legend (applies to every question below):** `[Qn · p.N]` = *128 Civics Questions and Answers (2025 version)*, USCIS form M-1778 (09/25), question *n*, PDF page *N* — source [S1], tier **official**, retrieved_at 2026-06-11, confidence **high**, needs_review **false** (except dynamic-pointer questions, routed to `updatable[]`).\n**★** = 65/20 special-consideration question (one of the official 20).\n**⟳** = dynamic answer — official bank text reproduced verbatim here; the *current value* lives ONLY in `updatable[]`, never in card text.\n**ESL note** lines are plain-English support, origin **sme_synthesis** — NEVER to be presented as the acceptable answer (see ACCURACY).\n**Audio orientation (global):** every answer below is the exact string narration must be generated from — TTS from the same single-source-of-truth text so audio-text mismatch is impossible by construction (01b beat-pointer). Drill answers aloud; the officer hears, not reads.\n\n",
+      "char_count": 1026,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "S1",
+          "source_page": "S1"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.08",
+      "merge_seq": 8,
+      "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+      "heading": "AMERICAN GOVERNMENT — A: Principles of American Government (Q1–Q15, 15 items)",
+      "learner_facing": true,
+      "markdown": "### AMERICAN GOVERNMENT — A: Principles of American Government (Q1–Q15, 15 items)\n\n**Q1. What is the form of government of the United States?** [Q1 · p.2]\n- Republic\n- Constitution-based federal republic\n- Representative democracy\n- ESL note: Americans choose leaders to speak and decide for them. That is a republic.\n\n**Q2. What is the supreme law of the land? ★** [Q2 · p.2]\n- (U.S.) Constitution\n- ESL note: \"Supreme law\" means the highest law. No law can go above the Constitution.\n\n**Q3. Name one thing the U.S. Constitution does.** [Q3 · p.2]\n- Forms the government\n- Defines powers of government\n- Defines the parts of government\n- Protects the rights of the people\n- ESL note: The Constitution builds the government and protects your rights.\n\n**Q4. The U.S. Constitution starts with the words \"We the People.\" What does \"We the People\" mean?** [Q4 · p.2]\n- Self-government\n- Popular sovereignty\n- Consent of the governed\n- People should govern themselves\n- (Example of) social contract\n- ESL note: The power of government comes from the people.\n\n**Q5. How are changes made to the U.S. Constitution?** [Q5 · p.2]\n- Amendments\n- The amendment process\n- ESL note: An amendment is a change or addition to the Constitution.\n\n**Q6. What does the Bill of Rights protect?** [Q6 · p.2]\n- (The basic) rights of Americans\n- (The basic) rights of people living in the United States\n- ESL note: The Bill of Rights = the first 10 amendments. It protects basic rights of people living here — not only citizens.\n\n**Q7. How many amendments does the U.S. Constitution have? ★** [Q7 · p.2]\n- Twenty-seven (27)\n- ESL note: 27 changes in total. (The first 10 are the Bill of Rights — but the answer here is 27, not 10.)\n\n**Q8. Why is the Declaration of Independence important?** [Q8 · p.2]\n- It says America is free from British control.\n- It says all people are created equal.\n- It identifies inherent rights.\n- It identifies individual freedoms.\n- ESL note: The Declaration (1776) announced America's freedom from Britain.\n\n**Q9. What founding document said the American colonies were free from Britain?** [Q9 · p.3]\n- Declaration of Independence\n- ESL note: Declaration = \"we are free.\" Constitution = \"here is our government.\" Don't swap them.\n\n**Q10. Name two important ideas from the Declaration of Independence and the U.S. Constitution.** [Q10 · p.3]\n- Equality\n- Liberty\n- Social contract\n- Natural rights\n- Limited government\n- Self-government\n- ESL note: Pick any two: equality, liberty, social contract, natural rights, limited government, self-government.\n\n**Q11. The words \"Life, Liberty, and the pursuit of Happiness\" are in what founding document?** [Q11 · p.3]\n- Declaration of Independence\n- ESL note: These famous words are in the Declaration — not the Constitution.\n\n**Q12. What is the economic system of the United States? ★** [Q12 · p.3]\n- Capitalism\n- Free market economy\n- ESL note: People and companies — not the government — own most businesses.\n\n**Q13. What is the rule of law?** [Q13 · p.3]\n- Everyone must follow the law.\n- Leaders must obey the law.\n- Government must obey the law.\n- No one is above the law.\n- ESL note: Even leaders and the government must follow the law.\n\n**Q14. Many documents influenced the U.S. Constitution. Name one.** [Q14 · p.3]\n- Declaration of Independence\n- Articles of Confederation\n- Federalist Papers\n- Anti-Federalist Papers\n- Virginia Declaration of Rights\n- Fundamental Orders of Connecticut\n- Mayflower Compact\n- Iroquois Great Law of Peace\n- ESL note: Easiest to remember: the Declaration of Independence.\n\n**Q15. There are three branches of government. Why?** [Q15 · p.3]\n- So one part does not become too powerful\n- Checks and balances\n- Separation of powers\n- ESL note: Power is split three ways so no one part gets too strong.\n\n**§ high_yield (Gov-A, ranked):** 1) Q2 supreme law ★ · 2) Q7 27 amendments ★ · 3) Q15 three branches/why · 4) Q12 economic system ★ · 5) Q9/Q11 Declaration vs Constitution pairs · 6) Q13 rule of law · 7) Q6 Bill of Rights.\n**§ memory hooks (sme_synthesis):** \"**27** amendments — 2 + 7 = the lucky changes\"; supreme = **C**onstitution (both start strong); Declaration **D**eclares freedom, Constitution **C**onstructs government; audio drill: say \"twenty-seven\" aloud — the test is oral, numbers must come out as words.\n**§ misconceptions (distractor fuel):** Bill of Rights protects people *living in the US*, not citizens only (Q6 vs Q64/65); 27 amendments ≠ 10 (10 = Bill of Rights only); \"Life, Liberty…\" is in the Declaration, NOT the Constitution; supreme law is the Constitution, NOT the Declaration.\n\n",
+      "char_count": 4596,
+      "fact_ids": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8",
+        "Q9",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q15"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q1 · p.2",
+          "source_page": "S1#p.2"
+        },
+        {
+          "anchor_id": "Q2 · p.2",
+          "source_page": "S1#p.2"
+        },
+        {
+          "anchor_id": "Q3 · p.2",
+          "source_page": "S1#p.2"
+        },
+        {
+          "anchor_id": "Q4 · p.2",
+          "source_page": "S1#p.2"
+        },
+        {
+          "anchor_id": "Q5 · p.2",
+          "source_page": "S1#p.2"
+        },
+        {
+          "anchor_id": "Q6 · p.2",
+          "source_page": "S1#p.2"
+        },
+        {
+          "anchor_id": "Q7 · p.2",
+          "source_page": "S1#p.2"
+        },
+        {
+          "anchor_id": "Q8 · p.2",
+          "source_page": "S1#p.2"
+        },
+        {
+          "anchor_id": "Q9 · p.3",
+          "source_page": "S1#p.3"
+        },
+        {
+          "anchor_id": "Q10 · p.3",
+          "source_page": "S1#p.3"
+        },
+        {
+          "anchor_id": "Q11 · p.3",
+          "source_page": "S1#p.3"
+        },
+        {
+          "anchor_id": "Q12 · p.3",
+          "source_page": "S1#p.3"
+        },
+        {
+          "anchor_id": "Q13 · p.3",
+          "source_page": "S1#p.3"
+        },
+        {
+          "anchor_id": "Q14 · p.3",
+          "source_page": "S1#p.3"
+        },
+        {
+          "anchor_id": "Q15 · p.3",
+          "source_page": "S1#p.3"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.09",
+      "merge_seq": 9,
+      "domain": "AMERICAN GOVERNMENT — B: System of Government",
+      "heading": "AMERICAN GOVERNMENT — B: System of Government (Q16–Q62, 47 items) [part 1]",
+      "learner_facing": true,
+      "markdown": "### AMERICAN GOVERNMENT — B: System of Government (Q16–Q62, 47 items)\n\n**Q16. Name the three branches of government.** [Q16 · p.4]\n- Legislative, executive, and judicial\n- Congress, president, and the courts\n- ESL note: Congress makes laws, the president enforces laws, the courts explain laws.\n\n**Q17. The President of the United States is in charge of which branch of government?** [Q17 · p.4]\n- Executive branch\n- ESL note: Executive = the president's branch.\n\n**Q18. What part of the federal government writes laws?** [Q18 · p.4]\n- (U.S.) Congress\n- (U.S. or national) legislature\n- Legislative branch\n- ESL note: Congress writes the laws.\n\n**Q19. What are the two parts of the U.S. Congress?** [Q19 · p.4]\n- Senate and House (of Representatives)\n- ESL note: Two chambers: the Senate (100) and the House (435).\n\n**Q20. Name one power of the U.S. Congress. ★** [Q20 · p.4]\n- Writes laws\n- Declares war\n- Makes the federal budget\n- ESL note: Congress — not the president — declares war.\n\n**Q21. How many U.S. senators are there?** [Q21 · p.4]\n- One hundred (100)\n- ESL note: 2 senators × 50 states = 100.\n\n**Q22. How long is a term for a U.S. senator?** [Q22 · p.4]\n- Six (6) years\n- ESL note: Senators serve SIX years (senators = six).\n\n**Q23. Who is one of your state's U.S. senators now? ⟳** [Q23 · p.4]\n- Answers will vary. [District of Columbia residents and residents of U.S. territories should answer that D.C. (or the territory where the applicant lives) has no U.S. senators.]\n- ESL note: Your answer depends on your state — learn YOUR two senators. → current value: `updatable[U5]`.\n\n**Q24. How many voting members are in the House of Representatives?** [Q24 · p.4]\n- Four hundred thirty-five (435)\n- ESL note: 435 voting members in the House.\n\n**Q25. How long is a term for a member of the House of Representatives?** [Q25 · p.4]\n- Two (2) years\n- ESL note: House members serve 2 years; senators 6.\n\n**Q26. Why do U.S. representatives serve shorter terms than U.S. senators?** [Q26 · p.4]\n- To more closely follow public opinion\n- ESL note: Short terms keep them close to what people want now.\n\n**Q27. How many senators does each state have?** [Q27 · p.4]\n- Two (2)\n- ESL note: Every state gets exactly 2 — big or small.\n\n**Q28. Why does each state have two senators?** [Q28 · p.5]\n- Equal representation (for small states)\n- The Great Compromise (Connecticut Compromise)\n- ESL note: Small states get the same Senate voice as big states.\n\n**Q29. Name your U.S. representative. ⟳** [Q29 · p.5]\n- Answers will vary. [Residents of territories with nonvoting Delegates or Resident Commissioners may provide the name of that Delegate or Commissioner. Also acceptable is any statement that the territory has no (voting) representatives in Congress.]\n- ESL note: Depends on your address/district. → current value: `updatable[U6]`.\n\n**Q30. What is the name of the Speaker of the House of Representatives now? ★ ⟳** [Q30 · p.5]\n- Visit uscis.gov/citizenship/testupdates for the name of the Speaker of the House of Representatives.\n- ESL note: The official bank itself points to the updates page — a changing answer. → current value: `updatable[U3]`.\n\n**Q31. Who does a U.S. senator represent?** [Q31 · p.5]\n- Citizens of their state\n- People of their state\n- ESL note: Senators speak for their whole STATE.\n\n**Q32. Who elects U.S. senators?** [Q32 · p.5]\n- Citizens from their state\n- ESL note: The people of the state vote for their senators.\n\n**Q33. Who does a member of the House of Representatives represent?** [Q33 · p.5]\n- Citizens in their (congressional) district\n- Citizens in their district\n- People from their (congressional) district\n- People in their district\n- ESL note: House members speak for their DISTRICT (a part of the state).\n\n**Q34. Who elects members of the House of Representatives?** [Q34 · p.5]\n- Citizens from their (congressional) district\n- ESL note: The people of the district vote for their representative.\n\n**Q35. Some states have more representatives than other states. Why?** [Q35 · p.5]\n- (Because of) the state's population\n- (Because) they have more people\n- (Because) some states have more people\n- ESL note: More people in the state = more representatives.\n\n**Q36. The President of the United States is elected for how many years? ★** [Q36 · p.5]\n- Four (4) years\n- ESL note: One presidential term = 4 years.\n\n**Q37. The President of the United States can serve only two terms. Why?** [Q37 · p.5]\n- (Because of) the 22nd Amendment\n- To keep the president from becoming too powerful\n- ESL note: The 22nd Amendment limits a president to two terms.\n\n**Q38. What is the name of the President of the United States now? ★ ⟳** [Q38 · p.5]\n- Visit uscis.gov/citizenship/testupdates for the name of the President of the United States.\n- ESL note: Changing answer — answer with the official serving on your interview day. → current value: `updatable[U1]`.\n\n**Q39. What is the name of the Vice President of the United States now? ★ ⟳** [Q39 · p.6]\n- Visit uscis.gov/citizenship/testupdates for the name of the Vice President of the United States.\n- ESL note: Changing answer. → current value: `updatable[U2]`.\n\n**Q40. If the president can no longer serve, who becomes president?** [Q40 · p.6]\n- The Vice President (of the United States)\n- ESL note: The Vice President is next in line. (The 2025 bank asks only this first step — Speaker succession is NOT in this bank.)\n\n**Q41. Name one power of the president.** [Q41 · p.6]\n- Signs bills into law\n- Vetoes bills\n- Enforces laws\n- Commander in Chief (of the military)\n- Chief diplomat\n- Appoints federal judges\n- ESL note: Easy pick: signs bills into law (or: vetoes bills).\n\n**Q42. Who is Commander in Chief of the U.S. military?** [Q42 · p.6]\n- The President (of the United States)\n- ESL note: The president leads the military.\n\n**Q43. Who signs bills to become laws?** [Q43 · p.6]\n- The President (of the United States)\n- ESL note: Congress writes bills; the president signs them into law.\n\n**Q44. Who vetoes bills? ★** [Q44 · p.6]\n- The President (of the United States)\n- ESL note: Veto = the president says NO to a bill.\n\n**Q45. Who appoints federal judges?** [Q45 · p.6]\n- The President (of the United States)\n- ESL note: The president appoints them (the Senate confirms — but the answer is the president).\n\n**Q46. The executive branch has many parts. Name one.** [Q46 · p.6]\n- President (of the United States)\n- Cabinet\n- Federal departments and agencies\n- ESL note: Simplest answer: the President.\n\n**Q47. What does the President's Cabinet do?** [Q47 · p.6]\n- Advises the President (of the United States)\n- ESL note: The Cabinet gives advice to the president — one verb: ADVISES.\n\n**Q48. What are two Cabinet-level positions?** [Q48 · p.7]\n- Attorney General\n- Secretary of Agriculture\n- Secretary of Commerce\n- Secretary of Education\n- Secretary of Energy\n- Secretary of Health and Human Services\n- Secretary of Homeland Security\n- Secretary of Housing and Urban Development\n- Secretary of the Interior\n- Secretary of Labor\n- Secretary of State\n- Secretary of Transportation\n- Secretary of the Treasury\n- Secretary of Veterans Affairs\n- Secretary of War (Defense)\n- Vice-President\n- Administrator of the Environmental Protection Agency\n- Administrator of the Small Business Administration\n- Director of the Central Intelligence Agency\n- Director of the Office of Management and Budget\n- Director of National Intelligence\n- United States Trade Representative\n- ESL note: Name any TWO. Easy pair: Secretary of State + Attorney General. NOTE the 2025-edition wording \"Secretary of War (Defense)\" — say either; the bank's wording is verbatim above. List composition can change by statute → watch `updatable[U9]`.\n\n**Q49. Why is the Electoral College important?** [Q49 · p.7]\n- It decides who is elected president.\n- It provides a compromise between the popular election of the president and congressional selection.\n- ESL note: The Electoral College — not the direct national vote — formally elects the president.\n\n**Q50. What is one part of the judicial branch?** [Q50 · p.7]\n- Supreme Court\n- Federal Courts\n- ESL note: The courts make up the judicial branch.\n\n**Q51. What does the judicial branch do?** [Q51 · p.7]\n- Reviews laws\n- Explains laws\n- Resolves disputes (disagreements) about the law\n- Decides if a law goes against the (U.S.) Constitution\n- ESL note: Courts review, explain, and settle arguments about laws.\n\n**Q52. What is the highest court in the United States? ★** [Q52 · p.7]\n- Supreme Court\n- ESL note: Supreme = highest. The Supreme Court is the top court.\n\n**Q53. How many seats are on the Supreme Court?** [Q53 · p.8]\n- Nine (9)\n- ESL note: 9 seats (justices) on the Supreme Court.\n\n**Q54. How many Supreme Court justices are usually needed to decide a case?** [Q54 · p.8]\n- Five (5)\n- ESL note: A majority of 9 = 5. (Seats: 9. To decide: 5. Don't swap.)\n\n**Q55. How long do Supreme Court justices serve?** [Q55 · p.8]\n- (For) life\n- Lifetime appointment\n- (Until) retirement\n- ESL note: Justices serve for life (or until they retire).\n\n**Q56. Supreme Court justices serve for life. Why?** [Q56 · p.8]\n- To be independent (of politics)\n- To limit outside (political) influence\n- ESL note: No re-election worries = independent judges.\n\n**Q57. Who is the Chief Justice of the United States now? ⟳** [Q57 · p.8]\n- Visit uscis.gov/citizenship/testupdates for the name of the Chief Justice of the United States.\n- ESL note: Changing answer. → current value: `updatable[U4]`.\n\n**Q58. Name one power that is only for the federal government.** [Q58 · p.8]\n- Print paper money\n- Mint coins\n- Declare war\n- Create an army\n- Make treaties\n- Set foreign policy\n- ESL note: Only Washington can print money or declare war.\n\n**Q59. Name one power that is only for the states.** [Q59 · p.8]\n- Provide schooling and education\n- Provide protection (police)\n- Provide safety (fire departments)\n- Give a driver's license\n- Approve zoning and land use\n- ESL note: Your STATE gives driver's licenses and runs schools.\n\n**Q60. What is the purpose of the 10th Amendment?** [Q60 · p.8]\n- (It states that the) powers not given to the federal government belong to the states or to the people.\n- ESL note: Leftover powers go to the states or the people.\n\n**Q61. Who is the governor of your state now? ★ ⟳** [Q61 · p.8]\n- Answers will vary. [District of Columbia residents should answer that D.C. does not have a governor.]\n- ESL note: Learn YOUR governor's name. → current value: `updatable[U7]`.\n\n",
+      "char_count": 10480,
+      "fact_ids": [
+        "Q16",
+        "Q17",
+        "Q18",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q22",
+        "Q23",
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q27",
+        "Q28",
+        "Q29",
+        "Q30",
+        "Q31",
+        "Q32",
+        "Q33",
+        "Q34",
+        "Q35",
+        "Q36",
+        "Q37",
+        "Q38",
+        "Q39",
+        "Q40",
+        "Q41",
+        "Q42",
+        "Q43",
+        "Q44",
+        "Q45",
+        "Q46",
+        "Q47",
+        "Q48",
+        "Q49",
+        "Q50",
+        "Q51",
+        "Q52",
+        "Q53",
+        "Q54",
+        "Q55",
+        "Q56",
+        "Q57",
+        "Q58",
+        "Q59",
+        "Q60",
+        "Q61"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q16 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q17 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q18 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q19 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q20 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q21 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q22 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q23 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q24 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q25 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q26 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q27 · p.4",
+          "source_page": "S1#p.4"
+        },
+        {
+          "anchor_id": "Q28 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q29 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q30 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q31 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q32 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q33 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q34 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q35 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q36 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q37 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q38 · p.5",
+          "source_page": "S1#p.5"
+        },
+        {
+          "anchor_id": "Q39 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q40 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q41 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q42 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q43 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q44 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q45 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q46 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q47 · p.6",
+          "source_page": "S1#p.6"
+        },
+        {
+          "anchor_id": "Q48 · p.7",
+          "source_page": "S1#p.7"
+        },
+        {
+          "anchor_id": "Q49 · p.7",
+          "source_page": "S1#p.7"
+        },
+        {
+          "anchor_id": "Q50 · p.7",
+          "source_page": "S1#p.7"
+        },
+        {
+          "anchor_id": "Q51 · p.7",
+          "source_page": "S1#p.7"
+        },
+        {
+          "anchor_id": "Q52 · p.7",
+          "source_page": "S1#p.7"
+        },
+        {
+          "anchor_id": "Q53 · p.8",
+          "source_page": "S1#p.8"
+        },
+        {
+          "anchor_id": "Q54 · p.8",
+          "source_page": "S1#p.8"
+        },
+        {
+          "anchor_id": "Q55 · p.8",
+          "source_page": "S1#p.8"
+        },
+        {
+          "anchor_id": "Q56 · p.8",
+          "source_page": "S1#p.8"
+        },
+        {
+          "anchor_id": "Q57 · p.8",
+          "source_page": "S1#p.8"
+        },
+        {
+          "anchor_id": "Q58 · p.8",
+          "source_page": "S1#p.8"
+        },
+        {
+          "anchor_id": "Q59 · p.8",
+          "source_page": "S1#p.8"
+        },
+        {
+          "anchor_id": "Q60 · p.8",
+          "source_page": "S1#p.8"
+        },
+        {
+          "anchor_id": "Q61 · p.8",
+          "source_page": "S1#p.8"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.10",
+      "merge_seq": 10,
+      "domain": "AMERICAN GOVERNMENT — B: System of Government",
+      "heading": "AMERICAN GOVERNMENT — B: System of Government (Q16–Q62, 47 items) [part 2]",
+      "learner_facing": true,
+      "markdown": "**Q62. What is the capital of your state? ⟳** [Q62 · p.8]\n- Answers will vary. [District of Columbia residents should answer that D.C. is not a state and does not have a capital. Residents of U.S. territories should name the capital of the territory.]\n- ESL note: Learn YOUR state capital — it may not be the biggest city. → per-user value: `updatable[U8]`.\n\n**§ high_yield (Gov-B, ranked):** 1) the ⟳ dynamic set Q23/29/30/38/39/57/61/62 — highest staleness/fumble risk, drill from live values · 2) the counts: Q21 (100), Q24 (435), Q27 (2), Q53 (9), Q54 (5) · 3) terms: Q22 (6 yr), Q25 (2 yr), Q36 (4 yr ★) · 4) Q44 ★ veto / Q47 Cabinet advises / Q42 Commander in Chief · 5) Q19 two parts of Congress · 6) Q58/59 federal-vs-state powers · 7) Q49 Electoral College.\n**§ memory hooks (sme_synthesis):** \"**S**enators **S**ix years, **S**tate-wide, **100** total; **R**epresentatives **R**un often (2 yrs), **435**, district\"; \"Senate = **2** per state → 2×50=**100**\"; \"Court: **9** sit, **5** decide\"; president maths: \"**4**-year term, **2**-term max, **22**nd Amendment — 4·2·22\"; the five \"The President\" answers (Q42–45 + Q17 executive) drill as one audio chain: \"Commander in Chief? The President. Signs bills? The President. Vetoes? The President. Appoints judges? The President.\"\n**§ misconceptions (distractor fuel):** Senators-vs-Representatives swaps (count/term/constituency) — the #1 confusable pair; 9 seats vs 5 to decide a case; Congress (not the president) declares war; the president (not Congress/courts) appoints federal judges; VP succeeds the president — the 2025 bank does NOT ask the second-in-line/Speaker chain; driver's license = STATE power; \"Secretary of War (Defense)\" is the 2025 bank wording for the defense secretary; never present a stale officeholder as correct (01b: top verified competitor complaint).\n\n",
+      "char_count": 1840,
+      "fact_ids": [
+        "Q62"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q62 · p.8",
+          "source_page": "S1#p.8"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.11",
+      "merge_seq": 11,
+      "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+      "heading": "AMERICAN GOVERNMENT — C: Rights and Responsibilities (Q63–Q72, 10 items)",
+      "learner_facing": true,
+      "markdown": "### AMERICAN GOVERNMENT — C: Rights and Responsibilities (Q63–Q72, 10 items)\n\n**Q63. There are four amendments to the U.S. Constitution about who can vote. Describe one of them.** [Q63 · p.9]\n- Citizens eighteen (18) and older (can vote).\n- You don't have to pay (a poll tax) to vote.\n- Any citizen can vote. (Women and men can vote.)\n- A male citizen of any race (can vote).\n- ESL note: Easiest: citizens 18 and older can vote.\n\n**Q64. Who can vote in federal elections, run for federal office, and serve on a jury in the United States?** [Q64 · p.9]\n- Citizens\n- Citizens of the United States\n- U.S. citizens\n- ESL note: These three things are for CITIZENS ONLY.\n\n**Q65. What are three rights of everyone living in the United States?** [Q65 · p.9]\n- Freedom of expression\n- Freedom of speech\n- Freedom of assembly\n- Freedom to petition the government\n- Freedom of religion\n- The right to bear arms\n- ESL note: Name any THREE — these belong to everyone living here, citizen or not.\n\n**Q66. What do we show loyalty to when we say the Pledge of Allegiance? ★** [Q66 · p.9]\n- The United States\n- The flag\n- ESL note: The Pledge shows loyalty to the United States and the flag.\n\n**Q67. Name two promises that new citizens make in the Oath of Allegiance.** [Q67 · p.9]\n- Give up loyalty to other countries\n- Defend the (U.S.) Constitution\n- Obey the laws of the United States\n- Serve in the military (if needed)\n- Serve (help, do important work for) the nation (if needed)\n- Be loyal to the United States\n- ESL note: Pick any two — e.g., obey the laws + be loyal to the United States. (You will say this Oath at your ceremony.)\n\n**Q68. How can people become United States citizens?** [Q68 · p.9]\n- Be born in the United States, under the conditions set by the 14th Amendment\n- Naturalize\n- Derive citizenship (under conditions set by Congress)\n- ESL note: Born here, naturalize (your path), or derive it (e.g., through parents).\n\n**Q69. What are two examples of civic participation in the United States?** [Q69 · p.10]\n- Vote\n- Run for office\n- Join a political party\n- Help with a campaign\n- Join a civic group\n- Join a community group\n- Give an elected official your opinion (on an issue)\n- Contact elected officials\n- Support or oppose an issue or policy\n- Write to a newspaper\n- ESL note: Pick any two — vote + contact elected officials.\n\n**Q70. What is one way Americans can serve their country?** [Q70 · p.10]\n- Vote\n- Pay taxes\n- Obey the law\n- Serve in the military\n- Run for office\n- Work for local, state, or federal government\n- ESL note: Simplest: vote (or: pay taxes).\n\n**Q71. Why is it important to pay federal taxes?** [Q71 · p.10]\n- Required by law\n- All people pay to fund the federal government\n- Required by the (U.S.) Constitution (16th Amendment)\n- Civic duty\n- ESL note: It is the law — taxes pay for the government.\n\n**Q72. It is important for all men age 18 through 25 to register for the Selective Service. Name one reason why.** [Q72 · p.10]\n- Required by law\n- Civic duty\n- Makes the draft fair, if needed\n- ESL note: Selective Service = the military draft list. Men 18–25 must register; it is the law.\n\n**§ high_yield (Gov-C, ranked):** 1) Q64 citizens-only trio vs Q65 everyone's rights — classic trap pair · 2) Q67 Oath promises (it's the candidate's own ceremony) · 3) Q63 voting amendments · 4) Q72 Selective Service (unfamiliar to many immigrants) · 5) Q70/71.\n**§ memory hooks (sme_synthesis):** \"**V**ote, **J**ury, **R**un for office — **VJR**, citizens only\"; rights of EVERYONE start with \"Freedom of…\" (+ bear arms); Oath = \"GIVE UP old loyalty, DEFEND the Constitution, OBEY the laws, SERVE if needed, BE LOYAL.\"\n**§ misconceptions (distractor fuel):** rights of everyone living in the US (Q65) vs citizen-only acts (Q64) — most-missed distinction; poll tax = a payment you do NOT need to vote; Selective Service is registration, not automatic military service; 18 to vote (not 21).\n\n",
+      "char_count": 3920,
+      "fact_ids": [
+        "Q63",
+        "Q64",
+        "Q65",
+        "Q66",
+        "Q67",
+        "Q68",
+        "Q69",
+        "Q70",
+        "Q71",
+        "Q72"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q63 · p.9",
+          "source_page": "S1#p.9"
+        },
+        {
+          "anchor_id": "Q64 · p.9",
+          "source_page": "S1#p.9"
+        },
+        {
+          "anchor_id": "Q65 · p.9",
+          "source_page": "S1#p.9"
+        },
+        {
+          "anchor_id": "Q66 · p.9",
+          "source_page": "S1#p.9"
+        },
+        {
+          "anchor_id": "Q67 · p.9",
+          "source_page": "S1#p.9"
+        },
+        {
+          "anchor_id": "Q68 · p.9",
+          "source_page": "S1#p.9"
+        },
+        {
+          "anchor_id": "Q69 · p.10",
+          "source_page": "S1#p.10"
+        },
+        {
+          "anchor_id": "Q70 · p.10",
+          "source_page": "S1#p.10"
+        },
+        {
+          "anchor_id": "Q71 · p.10",
+          "source_page": "S1#p.10"
+        },
+        {
+          "anchor_id": "Q72 · p.10",
+          "source_page": "S1#p.10"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.12",
+      "merge_seq": 12,
+      "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+      "heading": "AMERICAN HISTORY — A: Colonial Period and Independence (Q73–Q89, 17 items)",
+      "learner_facing": true,
+      "markdown": "### AMERICAN HISTORY — A: Colonial Period and Independence (Q73–Q89, 17 items)\n\n**Q73. The colonists came to America for many reasons. Name one.** [Q73 · p.11]\n- Freedom\n- Political liberty\n- Religious freedom\n- Economic opportunity\n- Escape persecution\n- ESL note: One word is enough: freedom.\n\n**Q74. Who lived in America before the Europeans arrived? ★** [Q74 · p.11]\n- American Indians\n- Native Americans\n- ESL note: American Indians / Native Americans were here first.\n\n**Q75. What group of people was taken and sold as slaves?** [Q75 · p.11]\n- Africans\n- People from Africa\n- ESL note: Africans were taken and sold as slaves.\n\n**Q76. What war did the Americans fight to win independence from Britain?** [Q76 · p.11]\n- American Revolution\n- The (American) Revolutionary War\n- War for (American) Independence\n- ESL note: The American Revolution (Revolutionary War).\n\n**Q77. Name one reason why the Americans declared independence from Britain.** [Q77 · p.11]\n- High taxes\n- Taxation without representation\n- British soldiers stayed in Americans' houses (boarding, quartering)\n- They did not have self-government\n- Boston Massacre\n- Boston Tea Party (Tea Act)\n- Stamp Act\n- Sugar Act\n- Townshend Acts\n- Intolerable (Coercive) Acts\n- ESL note: Famous phrase: \"taxation without representation\" (taxes with no voice in government).\n\n**Q78. Who wrote the Declaration of Independence? ★** [Q78 · p.11]\n- (Thomas) Jefferson\n- ESL note: Thomas Jefferson wrote it.\n\n**Q79. When was the Declaration of Independence adopted?** [Q79 · p.11]\n- July 4, 1776\n- ESL note: July 4, 1776 — that is why July 4 is Independence Day.\n\n**Q80. The American Revolution had many important events. Name one.** [Q80 · p.12]\n- (Battle of) Bunker Hill\n- Declaration of Independence\n- Washington Crossing the Delaware (Battle of Trenton)\n- (Battle of) Saratoga\n- Valley Forge (Encampment)\n- (Battle of) Yorktown (British surrender at Yorktown)\n- ESL note: Easiest: the Declaration of Independence.\n\n**Q81. There were 13 original states. Name five.** [Q81 · p.12]\n- New Hampshire\n- Massachusetts\n- Rhode Island\n- Connecticut\n- New York\n- New Jersey\n- Pennsylvania\n- Delaware\n- Maryland\n- Virginia\n- North Carolina\n- South Carolina\n- Georgia\n- ESL note: A quick five: New York, New Jersey, Virginia, Georgia, Maryland.\n\n**Q82. What founding document was written in 1787?** [Q82 · p.12]\n- (U.S.) Constitution\n- ESL note: 1776 = Declaration; 1787 = Constitution.\n\n**Q83. The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.** [Q83 · p.12]\n- (James) Madison\n- (Alexander) Hamilton\n- (John) Jay\n- Publius\n- ESL note: Madison, Hamilton, Jay — or their shared pen name, Publius.\n\n**Q84. Why were the Federalist Papers important?** [Q84 · p.12]\n- They helped people understand the (U.S.) Constitution.\n- They supported passing the (U.S.) Constitution.\n- ESL note: Essays that persuaded Americans to accept the Constitution.\n\n**Q85. Benjamin Franklin is famous for many things. Name one.** [Q85 · p.12]\n- Founded the first free public libraries\n- First Postmaster General of the United States\n- Helped write the Declaration of Independence\n- Inventor\n- U.S. diplomat\n- ESL note: One word works: inventor.\n\n**Q86. George Washington is famous for many things. Name one. ★** [Q86 · p.13]\n- \"Father of Our Country\"\n- First president of the United States\n- General of the Continental Army\n- President of the Constitutional Convention\n- ESL note: First president; called the Father of Our Country.\n\n**Q87. Thomas Jefferson is famous for many things. Name one.** [Q87 · p.13]\n- Writer of the Declaration of Independence\n- Third president of the United States\n- Doubled the size of the United States (Louisiana Purchase)\n- First Secretary of State\n- Founded the University of Virginia\n- Writer of the Virginia Statute on Religious Freedom\n- ESL note: Wrote the Declaration of Independence.\n\n**Q88. James Madison is famous for many things. Name one.** [Q88 · p.13]\n- \"Father of the Constitution\"\n- Fourth president of the United States\n- President during the War of 1812\n- One of the writers of the Federalist Papers\n- ESL note: Father of the CONSTITUTION (Washington = Father of our COUNTRY).\n\n**Q89. Alexander Hamilton is famous for many things. Name one.** [Q89 · p.13]\n- First Secretary of the Treasury\n- One of the writers of the Federalist Papers\n- Helped establish the First Bank of the United States\n- Aide to General George Washington\n- Member of the Continental Congress\n- ESL note: First Secretary of the Treasury — the money man (he is on the $10 bill).\n\n**§ high_yield (Hist-A, ranked):** 1) Q78 Jefferson ★ + Q79 July 4 1776 · 2) Q86 Washington ★ · 3) Q74 first peoples ★ · 4) Q76/77 Revolution + why · 5) Q82 1787 Constitution · 6) the four Founders quartet Q86–89 · 7) Q81 name-five colonies.\n**§ memory hooks (sme_synthesis):** \"**17**76 De**c**lare, **17**87 **C**onstruct\"; Founders: \"Washington = Country's father; Madison = Constitution's father; Jefferson = the Writer; Hamilton = the Treasurer\"; 13 colonies coastal chant (audio-friendly): \"NH–Mass–RI–Conn (north), NY–NJ–Penn–Del (middle), Mary–Virginia–NC–SC–Georgia (south).\"\n**§ misconceptions (distractor fuel):** Jefferson wrote the Declaration (not Washington/Madison); 1787 = Constitution (not 1776); Madison \"Father of the Constitution\" vs Washington \"Father of Our Country\"; Publius was a pen name, not a person's real name; Franklin was never president.\n\n",
+      "char_count": 5434,
+      "fact_ids": [
+        "Q73",
+        "Q74",
+        "Q75",
+        "Q76",
+        "Q77",
+        "Q78",
+        "Q79",
+        "Q80",
+        "Q81",
+        "Q82",
+        "Q83",
+        "Q84",
+        "Q85",
+        "Q86",
+        "Q87",
+        "Q88",
+        "Q89"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q73 · p.11",
+          "source_page": "S1#p.11"
+        },
+        {
+          "anchor_id": "Q74 · p.11",
+          "source_page": "S1#p.11"
+        },
+        {
+          "anchor_id": "Q75 · p.11",
+          "source_page": "S1#p.11"
+        },
+        {
+          "anchor_id": "Q76 · p.11",
+          "source_page": "S1#p.11"
+        },
+        {
+          "anchor_id": "Q77 · p.11",
+          "source_page": "S1#p.11"
+        },
+        {
+          "anchor_id": "Q78 · p.11",
+          "source_page": "S1#p.11"
+        },
+        {
+          "anchor_id": "Q79 · p.11",
+          "source_page": "S1#p.11"
+        },
+        {
+          "anchor_id": "Q80 · p.12",
+          "source_page": "S1#p.12"
+        },
+        {
+          "anchor_id": "Q81 · p.12",
+          "source_page": "S1#p.12"
+        },
+        {
+          "anchor_id": "Q82 · p.12",
+          "source_page": "S1#p.12"
+        },
+        {
+          "anchor_id": "Q83 · p.12",
+          "source_page": "S1#p.12"
+        },
+        {
+          "anchor_id": "Q84 · p.12",
+          "source_page": "S1#p.12"
+        },
+        {
+          "anchor_id": "Q85 · p.12",
+          "source_page": "S1#p.12"
+        },
+        {
+          "anchor_id": "Q86 · p.13",
+          "source_page": "S1#p.13"
+        },
+        {
+          "anchor_id": "Q87 · p.13",
+          "source_page": "S1#p.13"
+        },
+        {
+          "anchor_id": "Q88 · p.13",
+          "source_page": "S1#p.13"
+        },
+        {
+          "anchor_id": "Q89 · p.13",
+          "source_page": "S1#p.13"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.13",
+      "merge_seq": 13,
+      "domain": "AMERICAN HISTORY — B: 1800s",
+      "heading": "AMERICAN HISTORY — B: 1800s (Q90–Q99, 10 items)",
+      "learner_facing": true,
+      "markdown": "### AMERICAN HISTORY — B: 1800s (Q90–Q99, 10 items)\n\n**Q90. What territory did the United States buy from France in 1803?** [Q90 · p.13]\n- Louisiana Territory\n- Louisiana\n- ESL note: The Louisiana Purchase from France, 1803 — it doubled the country.\n\n**Q91. Name one war fought by the United States in the 1800s.** [Q91 · p.13]\n- War of 1812\n- Mexican-American War\n- Civil War\n- Spanish-American War\n- ESL note: Easiest: the Civil War.\n\n**Q92. Name the U.S. war between the North and the South.** [Q92 · p.13]\n- The Civil War\n- ESL note: North vs South = the Civil War.\n\n**Q93. The Civil War had many important events. Name one.** [Q93 · p.14]\n- (Battle of) Fort Sumter\n- Emancipation Proclamation\n- (Battle of) Vicksburg\n- (Battle of) Gettysburg\n- Sherman's March\n- (Surrender at) Appomattox\n- (Battle of) Antietam/Sharpsburg\n- Lincoln was assassinated.\n- ESL note: Easiest: the Emancipation Proclamation (or Gettysburg).\n\n**Q94. Abraham Lincoln is famous for many things. Name one. ★** [Q94 · p.14]\n- Freed the slaves (Emancipation Proclamation)\n- Saved (or preserved) the Union\n- Led the United States during the Civil War\n- 16th president of the United States\n- Delivered the Gettysburg Address\n- ESL note: Freed the slaves; led the country through the Civil War.\n\n**Q95. What did the Emancipation Proclamation do?** [Q95 · p.14]\n- Freed the slaves\n- Freed slaves in the Confederacy\n- Freed slaves in the Confederate states\n- Freed slaves in most Southern states\n- ESL note: Lincoln's order that freed the slaves (in the Southern/Confederate states).\n\n**Q96. What U.S. war ended slavery?** [Q96 · p.14]\n- The Civil War\n- ESL note: The Civil War ended slavery — not the Revolution.\n\n**Q97. What amendment says all persons born or naturalized in the United States, and subject to the jurisdiction thereof, are U.S. citizens?** [Q97 · p.14]\n- 14th Amendment\n- ESL note: The 14th Amendment — the same one in Q68 about being a citizen by birth.\n\n**Q98. When did all men get the right to vote?** [Q98 · p.14]\n- After the Civil War\n- During Reconstruction\n- (With the) 15th Amendment\n- 1870\n- ESL note: After the Civil War — the 15th Amendment (1870).\n\n**Q99. Name one leader of the women's rights movement in the 1800s.** [Q99 · p.14]\n- Susan B. Anthony\n- Elizabeth Cady Stanton\n- Sojourner Truth\n- Harriet Tubman\n- Lucretia Mott\n- Lucy Stone\n- ESL note: Most famous: Susan B. Anthony (she is on a $1 coin).\n\n**§ high_yield (Hist-B, ranked):** 1) Q94 Lincoln ★ · 2) Q92/96 Civil War pair · 3) Q95 Emancipation · 4) Q90 Louisiana 1803 · 5) Q97 14th / Q98 15th amendment number-traps · 6) Q99 women's movement.\n**§ memory hooks (sme_synthesis):** \"Civil War answers cluster — North-vs-South? Civil War. Ended slavery? Civil War. 1800s war? Civil War — when in doubt in this section, think Civil War\"; amendment ladder: \"**13** free, **14** citizen, **15** vote (men), **19** vote (women), **22** two terms, **27** total\"; Lincoln = 16th president, Civil War president.\n**§ misconceptions (distractor fuel):** Civil War (not the Revolution) ended slavery; Emancipation freed slaves in the CONFEDERACY (not instantly everywhere); 14th = citizenship vs 15th = vote — number swap trap; Louisiana bought from FRANCE (not Spain/Mexico); Harriet Tubman is an acceptable 1800s women's-movement answer in THIS bank (verbatim above).\n\n",
+      "char_count": 3321,
+      "fact_ids": [
+        "Q90",
+        "Q91",
+        "Q92",
+        "Q93",
+        "Q94",
+        "Q95",
+        "Q96",
+        "Q97",
+        "Q98",
+        "Q99"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q90 · p.13",
+          "source_page": "S1#p.13"
+        },
+        {
+          "anchor_id": "Q91 · p.13",
+          "source_page": "S1#p.13"
+        },
+        {
+          "anchor_id": "Q92 · p.13",
+          "source_page": "S1#p.13"
+        },
+        {
+          "anchor_id": "Q93 · p.14",
+          "source_page": "S1#p.14"
+        },
+        {
+          "anchor_id": "Q94 · p.14",
+          "source_page": "S1#p.14"
+        },
+        {
+          "anchor_id": "Q95 · p.14",
+          "source_page": "S1#p.14"
+        },
+        {
+          "anchor_id": "Q96 · p.14",
+          "source_page": "S1#p.14"
+        },
+        {
+          "anchor_id": "Q97 · p.14",
+          "source_page": "S1#p.14"
+        },
+        {
+          "anchor_id": "Q98 · p.14",
+          "source_page": "S1#p.14"
+        },
+        {
+          "anchor_id": "Q99 · p.14",
+          "source_page": "S1#p.14"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.14",
+      "merge_seq": 14,
+      "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+      "heading": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information (Q100–Q118, 19 items)",
+      "learner_facing": true,
+      "markdown": "### AMERICAN HISTORY — C: Recent American History and Other Important Historical Information (Q100–Q118, 19 items)\n\n**Q100. Name one war fought by the United States in the 1900s.** [Q100 · p.15]\n- World War I\n- World War II\n- Korean War\n- Vietnam War\n- (Persian) Gulf War\n- ESL note: Easiest: World War II.\n\n**Q101. Why did the United States enter World War I?** [Q101 · p.15]\n- Because Germany attacked U.S. (civilian) ships\n- To support the Allied Powers (England, France, Italy, and Russia)\n- To oppose the Central Powers (Germany, Austria-Hungary, the Ottoman Empire, and Bulgaria)\n- ESL note: Germany attacked American ships.\n\n**Q102. When did all women get the right to vote?** [Q102 · p.15]\n- 1920\n- After World War I\n- (With the) 19th Amendment\n- ESL note: 1920, with the 19th Amendment.\n\n**Q103. What was the Great Depression?** [Q103 · p.15]\n- Longest economic recession in modern history\n- ESL note: The longest, hardest economic crisis in modern history.\n\n**Q104. When did the Great Depression start?** [Q104 · p.15]\n- The Great Crash (1929)\n- Stock market crash of 1929\n- ESL note: It started with the stock market crash of 1929.\n\n**Q105. Who was president during the Great Depression and World War II?** [Q105 · p.15]\n- (Franklin) Roosevelt\n- ESL note: Franklin Roosevelt (FDR) — Depression and WWII president.\n\n**Q106. Why did the United States enter World War II?** [Q106 · p.15]\n- (Bombing of) Pearl Harbor\n- Japanese attacked Pearl Harbor\n- To support the Allied Powers (England, France, and Russia)\n- To oppose the Axis Powers (Germany, Italy, and Japan)\n- ESL note: Japan bombed Pearl Harbor.\n\n**Q107. Dwight Eisenhower is famous for many things. Name one.** [Q107 · p.15]\n- General during World War II\n- President at the end of (during) the Korean War\n- 34th president of the United States\n- Signed the Federal-Aid Highway Act of 1956 (Created the Interstate System)\n- ESL note: WWII general who became president.\n\n**Q108. Who was the United States' main rival during the Cold War?** [Q108 · p.16]\n- Soviet Union\n- USSR\n- Russia\n- ESL note: The Soviet Union (USSR).\n\n**Q109. During the Cold War, what was one main concern of the United States?** [Q109 · p.16]\n- Communism\n- Nuclear war\n- ESL note: Communism (or nuclear war).\n\n**Q110. Why did the United States enter the Korean War?** [Q110 · p.16]\n- To stop the spread of communism\n- ESL note: To stop communism from spreading.\n\n**Q111. Why did the United States enter the Vietnam War?** [Q111 · p.16]\n- To stop the spread of communism\n- ESL note: Same answer as Korea: to stop the spread of communism.\n\n**Q112. What did the civil rights movement do?** [Q112 · p.16]\n- Fought to end racial discrimination\n- ESL note: It fought to end unfair treatment because of race.\n\n**Q113. Martin Luther King, Jr. is famous for many things. Name one. ★** [Q113 · p.16]\n- Fought for civil rights\n- Worked for equality for all Americans\n- Worked to ensure that people would \"not be judged by the color of their skin, but by the content of their character\"\n- ESL note: Civil rights leader; worked for equality for all Americans.\n\n**Q114. Why did the United States enter the Persian Gulf War?** [Q114 · p.16]\n- To force the Iraqi military from Kuwait\n- ESL note: To push Iraq's army out of Kuwait.\n\n**Q115. What major event happened on September 11, 2001 in the United States? ★** [Q115 · p.16]\n- Terrorists attacked the United States\n- Terrorists took over two planes and crashed them into the World Trade Center in New York City\n- Terrorists took over a plane and crashed into the Pentagon in Arlington, Virginia\n- Terrorists took over a plane originally aimed at Washington, D.C., and crashed in a field in Pennsylvania\n- ESL note: Terrorists attacked the United States — the simplest acceptable answer.\n\n**Q116. Name one U.S. military conflict after the September 11, 2001 attacks.** [Q116 · p.16]\n- (Global) War on Terror\n- War in Afghanistan\n- War in Iraq\n- ESL note: War in Afghanistan (or Iraq).\n\n**Q117. Name one American Indian tribe in the United States.** [Q117 · p.17]\n- Apache\n- Blackfeet\n- Cayuga\n- Cherokee\n- Cheyenne\n- Chippewa\n- Choctaw\n- Creek\n- Crow\n- Hopi\n- Huron\n- Inupiat\n- Lakota\n- Mohawk\n- Mohegan\n- Navajo\n- Oneida\n- Onondaga\n- Pueblo\n- Seminole\n- Seneca\n- Shawnee\n- Sioux\n- Teton\n- Tuscarora\n- *(official note in bank:)* For a complete list of tribes, please visit bia.gov.\n- ESL note: One name is enough — Cherokee and Navajo are widely known.\n\n**Q118. Name one example of an American innovation.** [Q118 · p.17]\n- Light bulb\n- Automobile (cars, internal combustion engine)\n- Skyscrapers\n- Airplane\n- Assembly line\n- Landing on the moon\n- Integrated circuit (IC)\n- ESL note: Easy pick: the light bulb (or the airplane).\n\n**§ high_yield (Hist-C, ranked):** 1) Q113 MLK ★ + Q115 September 11 ★ · 2) Q105 FDR · 3) Q106 Pearl Harbor · 4) Q102 women's vote 1920/19th · 5) Q108–111 Cold War/communism cluster (one repeated answer) · 6) Q103/104 Depression pair · 7) Q117/118 one-name answers.\n**§ memory hooks (sme_synthesis):** \"Korea? communism. Vietnam? communism. Cold War worry? communism — one spoken answer covers three questions\"; \"19th Amendment, 19**20**, women vote\"; \"1929 crash → Depression → FDR → Pearl Harbor → WWII: one storyline, five answers.\"\n**§ misconceptions (distractor fuel):** WWI = German attacks on ships vs WWII = Pearl Harbor (cause swap trap); FDR (Franklin) ≠ Theodore Roosevelt; 19th Amendment (women) vs 15th (all men); Eisenhower was a WWII general (not WWI); the Gulf War answer is about Kuwait, not 9/11 — and post-9/11 conflicts are Q116.\n\n",
+      "char_count": 5555,
+      "fact_ids": [
+        "Q100",
+        "Q101",
+        "Q102",
+        "Q103",
+        "Q104",
+        "Q105",
+        "Q106",
+        "Q107",
+        "Q108",
+        "Q109",
+        "Q110",
+        "Q111",
+        "Q112",
+        "Q113",
+        "Q114",
+        "Q115",
+        "Q116",
+        "Q117",
+        "Q118"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q100 · p.15",
+          "source_page": "S1#p.15"
+        },
+        {
+          "anchor_id": "Q101 · p.15",
+          "source_page": "S1#p.15"
+        },
+        {
+          "anchor_id": "Q102 · p.15",
+          "source_page": "S1#p.15"
+        },
+        {
+          "anchor_id": "Q103 · p.15",
+          "source_page": "S1#p.15"
+        },
+        {
+          "anchor_id": "Q104 · p.15",
+          "source_page": "S1#p.15"
+        },
+        {
+          "anchor_id": "Q105 · p.15",
+          "source_page": "S1#p.15"
+        },
+        {
+          "anchor_id": "Q106 · p.15",
+          "source_page": "S1#p.15"
+        },
+        {
+          "anchor_id": "Q107 · p.15",
+          "source_page": "S1#p.15"
+        },
+        {
+          "anchor_id": "Q108 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q109 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q110 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q111 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q112 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q113 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q114 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q115 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q116 · p.16",
+          "source_page": "S1#p.16"
+        },
+        {
+          "anchor_id": "Q117 · p.17",
+          "source_page": "S1#p.17"
+        },
+        {
+          "anchor_id": "Q118 · p.17",
+          "source_page": "S1#p.17"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.15",
+      "merge_seq": 15,
+      "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+      "heading": "SYMBOLS AND HOLIDAYS — A: Symbols (Q119–Q124, 6 items)",
+      "learner_facing": true,
+      "markdown": "### SYMBOLS AND HOLIDAYS — A: Symbols (Q119–Q124, 6 items)\n\n**Q119. What is the capital of the United States?** [Q119 · p.18]\n- Washington, D.C.\n- ESL note: Washington, D.C. — say \"D.C.\" (not Washington State).\n\n**Q120. Where is the Statue of Liberty?** [Q120 · p.18]\n- New York (Harbor)\n- Liberty Island [Also acceptable are New Jersey, near New York City, and on the Hudson (River).]\n- ESL note: New York Harbor / Liberty Island.\n\n**Q121. Why does the flag have 13 stripes? ★** [Q121 · p.18]\n- (Because there were) 13 original colonies\n- (Because the stripes) represent the original colonies\n- ESL note: 13 stripes = 13 original colonies.\n\n**Q122. Why does the flag have 50 stars?** [Q122 · p.18]\n- (Because there is) one star for each state\n- (Because) each star represents a state\n- (Because there are) 50 states\n- ESL note: 50 stars = 50 states.\n\n**Q123. What is the name of the national anthem?** [Q123 · p.18]\n- The Star-Spangled Banner\n- ESL note: \"The Star-Spangled Banner\" — practice saying it slowly: Star–Spangled–Banner.\n\n**Q124. The Nation's first motto was \"E Pluribus Unum.\" What does that mean?** [Q124 · p.18]\n- Out of many, one\n- We all become one\n- ESL note: Latin for \"out of many, one\" — many people, one nation.\n\n**§ high_yield (Sym-A, ranked):** 1) Q121 stripes ★ · 2) Q122 stars · 3) Q119 capital · 4) Q123 anthem · 5) Q124 motto (new-to-2025-format wording; unfamiliar phrase for ESL — drill pronunciation) · 6) Q120 Statue of Liberty.\n**§ memory hooks (sme_synthesis):** \"stripes = **past** (13 colonies), stars = **present** (50 states)\"; \"E Pluribus Unum → many → one.\"\n**§ misconceptions (distractor fuel):** 13 stripes/colonies vs 50 stars/states swap; capital is Washington **D.C.**, not New York; anthem is the Star-Spangled Banner, not \"America the Beautiful.\"\n\n",
+      "char_count": 1796,
+      "fact_ids": [
+        "Q119",
+        "Q120",
+        "Q121",
+        "Q122",
+        "Q123",
+        "Q124"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q119 · p.18",
+          "source_page": "S1#p.18"
+        },
+        {
+          "anchor_id": "Q120 · p.18",
+          "source_page": "S1#p.18"
+        },
+        {
+          "anchor_id": "Q121 · p.18",
+          "source_page": "S1#p.18"
+        },
+        {
+          "anchor_id": "Q122 · p.18",
+          "source_page": "S1#p.18"
+        },
+        {
+          "anchor_id": "Q123 · p.18",
+          "source_page": "S1#p.18"
+        },
+        {
+          "anchor_id": "Q124 · p.18",
+          "source_page": "S1#p.18"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.16",
+      "merge_seq": 16,
+      "domain": "SYMBOLS AND HOLIDAYS — B: Holidays",
+      "heading": "SYMBOLS AND HOLIDAYS — B: Holidays (Q125–Q128, 4 items)",
+      "learner_facing": true,
+      "markdown": "### SYMBOLS AND HOLIDAYS — B: Holidays (Q125–Q128, 4 items)\n\n**Q125. What is Independence Day?** [Q125 · p.19]\n- A holiday to celebrate U.S. independence (from Britain)\n- The country's birthday\n- ESL note: July 4 — the country's birthday.\n\n**Q126. Name three national U.S. holidays. ★** [Q126 · p.19]\n- New Year's Day\n- Martin Luther King, Jr. Day\n- Presidents Day (Washington's Birthday)\n- Memorial Day\n- Juneteenth\n- Independence Day\n- Labor Day\n- Columbus Day\n- Veterans Day\n- Thanksgiving Day\n- Christmas Day\n- ESL note: Pick an easy three: New Year's Day, Independence Day, Thanksgiving Day. (Juneteenth IS on the official list.)\n\n**Q127. What is Memorial Day?** [Q127 · p.19]\n- A holiday to honor soldiers who died in military service\n- ESL note: Memorial Day = honor soldiers who DIED.\n\n**Q128. What is Veterans Day?** [Q128 · p.19]\n- A holiday to honor people in the (U.S.) military\n- A holiday to honor people who have served (in the U.S. military)\n- ESL note: Veterans Day = honor all who SERVE or SERVED (living included).\n\n**§ high_yield (Sym-B, ranked):** 1) Q126 three holidays ★ · 2) Q127 vs Q128 Memorial/Veterans trap pair · 3) Q125.\n**§ memory hooks (sme_synthesis):** \"**M**emorial = **M**ourn (died); **V**eterans = **V**alue the living too\"; holiday-trio audio drill: \"New Year's — Independence — Thanksgiving.\"\n**§ misconceptions (distractor fuel):** Memorial Day (died in service) vs Veterans Day (all who served) — the classic swap; Juneteenth is an acceptable answer in the 2025 bank.\n\n",
+      "char_count": 1511,
+      "fact_ids": [
+        "Q125",
+        "Q126",
+        "Q127",
+        "Q128"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "Q125 · p.19",
+          "source_page": "S1#p.19"
+        },
+        {
+          "anchor_id": "Q126 · p.19",
+          "source_page": "S1#p.19"
+        },
+        {
+          "anchor_id": "Q127 · p.19",
+          "source_page": "S1#p.19"
+        },
+        {
+          "anchor_id": "Q128 · p.19",
+          "source_page": "S1#p.19"
+        }
+      ]
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.17",
+      "merge_seq": 17,
+      "domain": null,
+      "heading": "GLOSSARY (plain-ESL support — origin sme_synthesis; never the exam answer itself)",
+      "learner_facing": true,
+      "markdown": "### GLOSSARY (plain-ESL support — origin sme_synthesis; never the exam answer itself)\n\namendment = a change or addition to the Constitution · Bill of Rights = the first 10 amendments · Cabinet = the group that advises the president · rule of law = everyone, even leaders, must obey the law · separation of powers / checks and balances = power split into three branches so no one part gets too strong · popular sovereignty / self-government = the people hold the power · social contract = people agree to be governed and keep their rights · natural (inherent) rights = rights you are born with · federalism = power shared between the national government and the states (Q58–60 territory) · ratify = formally approve · Electoral College = the body that formally elects the president (Q49) · veto = the president's NO to a bill · Commander in Chief = the president as head of the military · naturalize = become a citizen by application · derive citizenship = get citizenship automatically through a parent · Selective Service = the draft-registration system for men 18–25 · Emancipation Proclamation = Lincoln's order freeing slaves in the Confederacy · Reconstruction = the rebuilding period after the Civil War · communism = the political system the US opposed in the Cold War · poll tax = a payment to vote (now illegal) · draft = required military service if called · Oath of Allegiance = the promises sworn at the naturalization ceremony · N-400 = the naturalization application form · LPR / green-card holder = lawful permanent resident.\n\n",
+      "char_count": 1542,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "C",
+      "chunk_id": "C.18",
+      "merge_seq": 18,
+      "domain": "OFFICIAL ENGLISH VOCAB LISTS",
+      "heading": "OFFICIAL ENGLISH VOCAB LISTS (English component — verbatim from M-715 (01/10) [S5], tier official, retrieved 2026-06-11)",
+      "learner_facing": true,
+      "markdown": "### OFFICIAL ENGLISH VOCAB LISTS (English component — verbatim from M-715 (01/10) [S5], tier official, retrieved 2026-06-11)\n\n**READING vocabulary (all words that can appear in the read-aloud sentences):**\n- PEOPLE: Abraham Lincoln · George Washington\n- CIVICS: American flag · Bill of Rights · capital · citizen · city · Congress · country · Father of Our Country · government · President · right · Senators · state/states · White House\n- PLACES: America · United States · U.S.\n- HOLIDAYS: Presidents' Day · Memorial Day · Flag Day · Independence Day · Labor Day · Columbus Day · Thanksgiving\n- QUESTION WORDS: How · What · When · Where · Who · Why\n- VERBS: can · come · do/does · elects · have/has · is/are/was/be · lives/lived · meet · name · pay · vote · want\n- OTHER (FUNCTION): a · for · here · in · of · on · the · to · we\n- OTHER (CONTENT): colors · dollar bill · first · largest · many · most · north · one · people · second · south\n\n**WRITING vocabulary (all words that can appear in the dictated sentences):**\n- PEOPLE: Adams · Lincoln · Washington\n- CIVICS: American Indians · capital · citizens · Civil War · Congress · Father of Our Country · flag · free · freedom of speech · President · right · Senators · state/states · White House\n- PLACES: Alaska · California · Canada · Delaware · Mexico · New York City · United States · Washington · Washington, D.C.\n- MONTHS: February · May · June · July · September · October · November\n- HOLIDAYS: Presidents' Day · Memorial Day · Flag Day · Independence Day · Labor Day · Columbus Day · Thanksgiving\n- VERBS: can · come · elect · have/has · is/was/be · lives/lived · meets · pay · vote · want\n- OTHER (FUNCTION): and · during · for · here · in · of · on · the · to · we\n- OTHER (CONTENT): blue · dollar bill · fifty/50 · first · largest · most · north · one · one hundred/100 · people · red · second · south · taxes · white\n\n---\n\n",
+      "char_count": 1889,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "S5",
+          "source_page": "S5"
+        }
+      ]
+    },
+    {
+      "section_id": "A",
+      "chunk_id": "A.19",
+      "merge_seq": 19,
+      "domain": null,
+      "heading": "UPDATABLE[] — DYNAMIC FACTS (the ONLY place current officeholder values live; never baked into card text)",
+      "learner_facing": true,
+      "markdown": "## UPDATABLE[] — DYNAMIC FACTS (the ONLY place current officeholder values live; never baked into card text)\n\n> **Authoritative answer source for U1–U4 is USCIS itself** — [S3] uscis.gov/citizenship/testupdates serves the official\n> *acceptable-answer strings*, fetched live **2026-06-11**; each cross-checked same day at the office's own .gov site.\n> Official rule: answer with the official **serving at the time of your naturalization interview** [S1 p.1].\n\n| id | bank Q | statement (current value, retrieved_at 2026-06-11) | acceptable answer strings (official, [S3]) | why_dynamic | refresh source + cadence |\n|----|--------|------------------------------------------------------|---------------------------------------------|-------------|--------------------------|\n| U1 | Q38 ★ | President of the United States now = **Donald J. Trump** | \"Donald J. Trump\", \"Donald Trump\", \"Trump\" | changes with elections | [S3] + whitehouse.gov/administration (cross-checked 2026-06-11) · each build + every inauguration |\n| U2 | Q39 ★ | Vice President of the United States now = **JD Vance** | \"JD Vance\", \"Vance\" | changes with elections/appointments | [S3] + whitehouse.gov/administration (cross-checked 2026-06-11) · each build |\n| U3 | Q30 ★ | Speaker of the House now = **Mike Johnson** | \"Mike Johnson\", \"Johnson\", \"James Michael Johnson (birth name)\" | changes with House leadership votes (can change mid-term) | [S3] + speaker.gov (cross-checked 2026-06-11) · each build |\n| U4 | Q57 | Chief Justice of the United States now = **John Roberts** | \"John Roberts\", \"John G. Roberts, Jr.\", \"Roberts\" | changes with judicial appointments | [S3] + supremecourt.gov/about/biographies.aspx (cross-checked 2026-06-11) · each build |\n| U5 | Q23 | Your state's U.S. senators — **per-user by state**; D.C./territory residents answer that D.C./the territory has no U.S. senators | resolve at runtime | per-state, changes with elections/appointments | senate.gov (official directory, per [S3] instruction) · each build + after elections |\n| U6 | Q29 | Your U.S. representative — **per-user by address/district**; territory residents may name the Delegate/Resident Commissioner or state the territory has no (voting) representative | resolve at runtime (ZIP→district) | per-district, changes with elections | house.gov \"Find Your Representative\" (official, per [S3] instruction) · each build + after elections |\n| U7 | Q61 ★ | Governor of your state — **per-user by state**; D.C. residents answer that D.C. does not have a governor | resolve at runtime | per-state, changes with elections | usa.gov/states-and-territories (official, per [S3] instruction) · each build + after gubernatorial elections |\n| U8 | Q62 | Capital of your state — **per-user by state**; D.C. residents answer D.C. is not a state and has no capital; territory residents name the territory's capital | resolve at runtime | location-dependent (stable per state, varies per user) | usa.gov/states-and-territories · verify once per state, re-check annually |\n| U9 | Q48 | Cabinet-level position LIST composition (e.g., 2025 bank says \"Secretary of War (Defense)\") | bank list verbatim in Q48 above | can change \"due to statutory changes or updates\" [S3] | [S3] testupdates · each build |\n| U10 | — | **Per-user version flag:** N-400 filed before 2025-10-20 → 2008 test (100Q/10/6 — OUT OF SCOPE this run); filed on/after → 2025 test (128Q/20/12) | n/a (routing fact, not an exam answer) | depends on each user's filing date | [S2][S3] · static rule, re-confirm each build |\n| U11 | — | **Bank-revision watch:** any changed answers to the 2025 bank are posted to the testupdates page | n/a | USCIS updates answers after elections, appointments, statutory changes | [S3] · re-pull EVERY build (owner: Dynamic Facts Monitor 18) |\n\n---\n\n",
+      "char_count": 3791,
+      "fact_ids": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "U9",
+        "U10",
+        "U11"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "S3",
+          "source_page": "S3"
+        },
+        {
+          "anchor_id": "S1 p.1",
+          "source_page": "S1#p.1"
+        },
+        {
+          "anchor_id": "S2",
+          "source_page": "S2"
+        }
+      ]
+    },
+    {
+      "section_id": "D",
+      "chunk_id": "D.20",
+      "merge_seq": 20,
+      "domain": null,
+      "heading": "ACCURACY",
+      "learner_facing": false,
+      "markdown": "## ACCURACY\n\n**Precision rule (domain):** an answer is correct ONLY if it matches a USCIS-acceptable answer string for the **2025 version**. Never cross-contaminate 2008 answer sets (out of scope this run, but the rule stands). Never present a stale officeholder as correct — the single most repeated verified competitor complaint (01b). ESL notes and glossary entries are support text and must never be rendered as the acceptable answer.\n\n**accuracy_flags:**\n| ref | issue | needs_review |\n|-----|-------|--------------|\n| AF-1 | Q30/38/39/57: the bank's official answer text is a *pointer* to the testupdates page; current names live in `updatable[]` U1–U4 only. Compiler/cards must render from the data layer, never hardcode. | no (by design) |\n| AF-2 | All \"ESL note\", memory-hook, glossary, and high-yield-ranking content = origin **sme_synthesis** (plain-ESL support / pedagogy), not official text. Hallucination Auditor: audit answers against [S1]/[S3] only; synthesis lines are not answer text. | no |\n| AF-3 | High-yield rank #1 for dynamic questions is justified by **staleness/fumble risk** (verified competitor failure mode, 01b), NOT by ask-frequency: under the 2025 test a USCIS system randomly selects the 20 asked [S4], and no official per-question or per-section ask-rate is published. The folk claim \"local questions are asked nearly every interview\" is UNVERIFIED for the 2025 format and was deliberately not minted. | no |\n| AF-4 | Market-signal pass-rate figures are FY2022 (2008-era test, [S6]); no 2025-test performance data exists yet. Do not market a pass-rate claim for the 2025 test. | yes → VD-2 |\n| AF-5 | Annual *applications* volume unverified (dossier's ~993k/yr); verified figure is FY2024 **naturalizations** = 818,570 (OHSS/DHS). | yes → VD-1 |\n| AF-6 | M-715 vocab lists are rev 01/10 — confirmed still the current official materials (Study for the Test page, fetched 2026-06-11); English test unchanged by 2025 civics rollout. Low-risk watch. | no |\n| AF-7 | testupdates page shows \"Last Reviewed/Updated 09/18/2025\" yet was served live 2026-06-11 with values cross-checked same day at whitehouse.gov / speaker.gov / supremecourt.gov — all four match. Resolved; re-check each build (U11). | no |\n| AF-8 | Competitive quotes carried from 01b retain their 01b tiers; two Citizen Now quotes are tier `unverified` pending re-verification (01b delta). | yes → VD-4 |\n| AF-9 | Re-exam scheduling window (60–90 days) not verified this session; only re-exam *existence* verified [S6]. The unverified window was NOT minted. | yes → VD-3 |\n\n**verification_debt[] (typed — none blocks the knowledge[] hand-off):**\n| claim_id | claim_text | blocker_kind | source_tier_required | owner_worker | ship_blocking | expires_by | resolution_artifact_ref |\n|----------|-----------|--------------|----------------------|--------------|---------------|-----------|--------------------------|\n| VD-1 | Annual N-400 application volume ≈ 993k/yr (dossier figure) | source_missing | official | EvidenceLibrarian | false (market-signal only) | next run | null |\n| VD-2 | Pass rate for the 2025-version civics test | source_missing (data not yet published by USCIS) | official | EvidenceLibrarian | false (market-signal only) | when USCIS publishes 2025-test performance | null |\n| VD-3 | Re-exam is scheduled 60–90 days after initial interview | source_missing | official | EvidenceLibrarian | false (fact not minted; exam-meta nice-to-have) | next run | null |\n| VD-4 | Citizen Now verbatim quotes \"audio does not match the text…\", \"hidden sneaky paywall\" | source_stale (carried tier `unverified` in 01b) | secondary_allowed | SMEResearchAgent (01b delta) | false | next CI delta | 01b-competitive-intel.json |\n\n**external_review_requests[]:** none — no clinical/legal/safety fact requiring human review; all exam content is official-tier public-domain USCIS text.\n\n**EXPERT_REVIEW note (dossier ask):** immigration-prep reviewer spot-check = diff knowledge[] against [S1] PDF + [S3] page each build; both are on disk in sources/ for byte-level re-verification.\n\n---\n\n",
+      "char_count": 4080,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "S1",
+          "source_page": "S1"
+        },
+        {
+          "anchor_id": "S3",
+          "source_page": "S3"
+        },
+        {
+          "anchor_id": "S4",
+          "source_page": "S4"
+        },
+        {
+          "anchor_id": "S6",
+          "source_page": "S6"
+        }
+      ]
+    },
+    {
+      "section_id": "E2",
+      "chunk_id": "E2.21",
+      "merge_seq": 21,
+      "domain": null,
+      "heading": "COMPETITIVE TEARDOWN (origin: competitive_intel @ 01b-competitive-intel.json, 2026-06-11 — supersedes the dossier's stale in-line teardown; price band correction carried: real band **$3.99–$39.99**, NOT \"free–$5\")",
+      "learner_facing": false,
+      "markdown": "## COMPETITIVE TEARDOWN (origin: competitive_intel @ 01b-competitive-intel.json, 2026-06-11 — supersedes the dossier's stale in-line teardown; price band correction carried: real band **$3.99–$39.99**, NOT \"free–$5\")\n\n- **USCIS official tools (free, the gravity well):** full 128Q PDF + study guide (\"One Nation, One People\") + flashcards EN/ES + vocab lists + free app. STRUCTURE: flat Q&A by bucket. PEDAGOGY: authoritative, bare — no spaced repetition, no localization, no rehearsal. **Verified crack (01b):** the official mobile app still carries only the 2008/100Q bank (last update 2025-01-20) `(verify before marketing use — V12)`; official materials never localize dynamic answers.\n- **Citizen Now (Liontude)** — free + $3.99/mo, $19.99 premium; 4.9★/64K. Audio-first both banks, AI civics simulator, ZIP rep-finder. PRAISE: \"studied while driving and passed on my first try.\" COMPLAINTS (verified, dated): \"all of the content in the app is for 2024 and has the wrong members of government listed\" (2025-04); audio-text mismatch + paywall complaints (tier unverified → VD-4).\n- **US Citizenship Test 2026 Plus (Creator Factory)** — free + $4.99; 4.8★/104K (largest base). Flashcards + audio + state info; NO mock interview (requested by reviewers).\n- **Citizenry (Brisbane)** — free + Pro $9.99–$39.99; 4.9★/12K. Unlimited mock VIDEO interviews + speech recognition; COMPLAINT: \"the mock interviews aren't working anymore\" (post-update breakage).\n- **Quizzard \"USCIS Civics Test 2026\"** — free + $4.99; 4.8★/200. Fresh stale-officeholder complaint dated ~2026-06-07: \"Current President, Vice President, Speaker of the House, and political party are all from the last administration.\"\n- **adopt[]:** free-first funnel (content access can't be the paywall) · audio narration on every card + hands-free continuous mode · version-tagged banks + 65/20 ★ track · ZIP officeholder lookup · spoken mock-interview rehearsal · visible dev responsiveness · multilingual surface (15–20 languages now standard).\n- **beat[]:** stale dynamic answers (render officeholders from live data layer — never bake into cards; U1–U8) · audio-text mismatch (generate TTS from the exact answer string — structurally impossible to diverge) · the official app's missing 128Q bank (position: \"the current test, actually\") · filing-date version confusion (own the \"which test is mine?\" first-run moment; U10) · paywall traps/ad clutter · mock-interview breakage (robust + offline) · Spanish-first UX + Spanish SEO vacuum (no app on Spanish page-1).\n- **wedge (01b, gap_confidence med):** TRUSTWORTHY audio — version-correct, always-current, generated from the single source of truth — plus version gate + fresh officeholders. Audio itself is table stakes (every major app ships it); correctness/freshness is the differentiator.\n\n",
+      "char_count": 2807,
+      "fact_ids": [],
+      "source_anchors": []
+    },
+    {
+      "section_id": "E",
+      "chunk_id": "E.22",
+      "merge_seq": 22,
+      "domain": null,
+      "heading": "MARKET-SIGNAL (origin: competitive_intel @ 01b + official stats verified this session)",
+      "learner_facing": false,
+      "markdown": "## MARKET-SIGNAL (origin: competitive_intel @ 01b + official stats verified this session)\n\n- **size:** FY2024 naturalizations = **818,570** (OHSS/DHS annual flow report, official, retrieved 2026-06-11); FY2023 = 879,790; 2010–2019 pre-COVID annual average ≈ 730,100. Application volume `(verify — VD-1)`; eligible-LPR pool ~9–10M+ (dossier carry, secondary).\n- **pass_rate:** official FY2022 (2008-era test): **95.7% overall** incl. re-exam; **>88%** at initial interview; 65/20-exception group 91.2% initial civics pass [S6]. **No 2025-test data yet** `(VD-2)` — do NOT market a 2025 pass-rate.\n- **competitors+pricing:** USCIS free · 2026 Plus $4.99 · Citizen Now $3.99/mo–$19.99 · Citizenry Pro $9.99–$39.99 (real band **$19.99–$39.99 at the premium tier** — 01b correction over dossier's \"free–$5\").\n- **rooms:** r/USCIS, r/citizenship, diaspora/immigrant FB groups, YouTube USCIS-prep comments, TikTok #citizenshiptest #uscis, community ESOL classes (dossier carry).\n- **voc (verbatim, 01b/dossier):** \"scared of the English interview\" · \"how do I remember all 128 questions\" · \"what if I freeze\" · \"is it the new test or the old one for me\" · \"I don't know who my representative is\" · \"my English is not good enough\".\n- **persona:** ESL adult LPR 25–55, phone-first, family-assisted, interview-anxious; gated outcome = citizenship.\n- **differentiation_gap:** exact, version-aware, ESL-friendly aid that localizes dynamic answers (state/ZIP) and rehearses the spoken interview — the precise thing the verified complaints say incumbents botch.\n- **seasonality:** year-round; bumps around elections + fee/policy changes (dossier carry).\n- **price_reco:** free tier mandatory; premium $19.99 one-time anchor (under Citizen Now premium, far under Citizenry Pro ceiling) — willingness-to-pay verified higher than dossier assumed (01b).\n- **success_bar:** cold signups from immigrant FB groups + ≥30% day-7 return (dossier carry).\n- **ad_hooks:** \"Filed before Oct 20, 2025? You take the OLD test. Filed after? The NEW 128. We give you the right one.\" · \"What you hear is exactly what the officer accepts — audio that never goes stale.\" · \"Know all 128 answers cold — in plain English, with YOUR state's answers.\" · \"Nervous about the interview? Rehearse it until you're calm.\"\n\n---\n\n",
+      "char_count": 2283,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "S6",
+          "source_page": "S6"
+        }
+      ]
+    },
+    {
+      "section_id": "G",
+      "chunk_id": "G.23",
+      "merge_seq": 23,
+      "domain": null,
+      "heading": "✅ DEFINITION OF DONE (instance checklist)",
+      "learner_facing": false,
+      "markdown": "## ✅ DEFINITION OF DONE (instance checklist)\n\n- [x] Bank captured verbatim + version-tagged — **2025/128Q complete (128/128)**; 2008/100Q = logged scope cut (run-config), referenced in meta only; 3 official buckets, none thin; 65/20 ★ subset marked (20/20 verified by count).\n- [x] Passing standard EXACT: 2025 = **12 of 20**, fail at 9 wrong, early-stop verified [S2][S4]; 65/20 = 6 of 10 from the ★ 20; 2008 = 6/10 recorded as meta only; English component recorded (read 1/3, write 1/3, speaking at interview).\n- [x] High-yield ranked per section (dynamic-staleness first, then counts/gov core, then history anchors, then symbols/holidays) — ask-frequency folklore explicitly NOT minted (AF-3).\n- [x] Common misconceptions captured per section (Senators-vs-Reps, 27, 435, 9-vs-5, citizens-only vs everyone, Memorial-vs-Veterans, 14th-vs-15th, …) → distractor fuel.\n- [x] Mnemonics/memory hooks for count-heavy facts (27/100/435/2/9/5/13/50) + audio-first orientation notes.\n- [x] Glossary (plain-ESL) + official M-715 reading AND writing vocab lists verbatim.\n- [x] EVERY dynamic fact isolated → `updatable[]` U1–U11 (officeholders w/ live-verified values + retrieved_at, your-state items, Cabinet-list watch, version flag, bank-revision watch). Zero officeholder names in knowledge[].\n- [x] Teardown: 5 named players w/ structure+pedagogy+practice, adopt[] + beat[], from fresh 01b (correction carried, origin marked).\n- [x] Market pack: size (verified FY2024) + pass rate (official, era-flagged) + rooms + 6 VOC + persona + gap + seasonality + price + success bar + 4 hooks.\n- [x] Every fact source-cited (source legend + [Qn · p.N] per question + [S1]–[S6]) with tier + confidence; every confidence<high item = typed VerificationDebt (VD-1…VD-4), none ship-blocking for knowledge[].\n- [x] VERIFY consolidated list at top reflects every open `(verify)` (V6–V9, V11–V12 open; all exam-content items resolved).\n",
+      "char_count": 1913,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "S2",
+          "source_page": "S2"
+        },
+        {
+          "anchor_id": "S4",
+          "source_page": "S4"
+        },
+        {
+          "anchor_id": "S1",
+          "source_page": "S1"
+        },
+        {
+          "anchor_id": "S6",
+          "source_page": "S6"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": "ddf788c8f5d0666c250ffcfcbe1da640eb6bb6aacc354b5611b7e3c9d58fb15f"
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": "Naturalization Test — Civics component, 2025 Naturalization Civics Test",
+      "status": "authored",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": "U.S. Citizenship and Immigration Services (USCIS), Dept. of Homeland Security",
+      "status": "authored",
+      "source_page": null
+    },
+    "edition": {
+      "value": "2025 version",
+      "status": "verified",
+      "source_page": "S3"
+    },
+    "effective_date": {
+      "value": "Form N-400 filed on/after Oct. 20, 2025",
+      "status": "verified",
+      "source_page": "S2"
+    },
+    "question_bank_size": {
+      "value": 128,
+      "status": "verified",
+      "source_page": "S1"
+    },
+    "n_questions": {
+      "value": 20,
+      "status": "verified",
+      "source_page": "S2"
+    },
+    "passing_standard": {
+      "value": "must answer at least 12 correctly to pass",
+      "status": "verified",
+      "source_page": "S2"
+    },
+    "format": {
+      "value": "oral Q&A during the naturalization interview",
+      "status": "authored",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [
+    {
+      "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+      "chunk_id": "C.08",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "Q2"
+          ],
+          "label": "Q2 supreme law ★"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "Q7"
+          ],
+          "label": "Q7 27 amendments ★"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "Q15"
+          ],
+          "label": "Q15 three branches/why"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "Q12"
+          ],
+          "label": "Q12 economic system ★"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "Q9",
+            "Q11"
+          ],
+          "label": "Q9/Q11 Declaration vs Constitution pairs"
+        },
+        {
+          "rank": 6,
+          "item_refs": [
+            "Q13"
+          ],
+          "label": "Q13 rule of law"
+        },
+        {
+          "rank": 7,
+          "item_refs": [
+            "Q6"
+          ],
+          "label": "Q6 Bill of Rights"
+        }
+      ]
+    },
+    {
+      "domain": "AMERICAN GOVERNMENT — B: System of Government",
+      "chunk_id": "C.10",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "Q23",
+            "Q29",
+            "Q30",
+            "Q38",
+            "Q39",
+            "Q57",
+            "Q61",
+            "Q62"
+          ],
+          "label": "the ⟳ dynamic set Q23/29/30/38/39/57/61/62 — highest staleness/fumble risk, drill from live values"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "Q21",
+            "Q24",
+            "Q27",
+            "Q53",
+            "Q54"
+          ],
+          "label": "the counts: Q21 (100), Q24 (435), Q27 (2), Q53 (9), Q54 (5)"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "Q22",
+            "Q25",
+            "Q36"
+          ],
+          "label": "terms: Q22 (6 yr), Q25 (2 yr), Q36 (4 yr ★)"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "Q44",
+            "Q47",
+            "Q42"
+          ],
+          "label": "Q44 ★ veto / Q47 Cabinet advises / Q42 Commander in Chief"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "Q19"
+          ],
+          "label": "Q19 two parts of Congress"
+        },
+        {
+          "rank": 6,
+          "item_refs": [
+            "Q58",
+            "Q59"
+          ],
+          "label": "Q58/59 federal-vs-state powers"
+        },
+        {
+          "rank": 7,
+          "item_refs": [
+            "Q49"
+          ],
+          "label": "Q49 Electoral College"
+        }
+      ]
+    },
+    {
+      "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+      "chunk_id": "C.11",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "Q64",
+            "Q65"
+          ],
+          "label": "Q64 citizens-only trio vs Q65 everyone's rights — classic trap pair"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "Q67"
+          ],
+          "label": "Q67 Oath promises (it's the candidate's own ceremony)"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "Q63"
+          ],
+          "label": "Q63 voting amendments"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "Q72"
+          ],
+          "label": "Q72 Selective Service (unfamiliar to many immigrants)"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "Q70",
+            "Q71"
+          ],
+          "label": "Q70/71"
+        }
+      ]
+    },
+    {
+      "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+      "chunk_id": "C.12",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "Q78",
+            "Q79"
+          ],
+          "label": "Q78 Jefferson ★ + Q79 July 4 1776"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "Q86"
+          ],
+          "label": "Q86 Washington ★"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "Q74"
+          ],
+          "label": "Q74 first peoples ★"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "Q76",
+            "Q77"
+          ],
+          "label": "Q76/77 Revolution + why"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "Q82"
+          ],
+          "label": "Q82 1787 Constitution"
+        },
+        {
+          "rank": 6,
+          "item_refs": [
+            "Q86"
+          ],
+          "label": "the four Founders quartet Q86–89"
+        },
+        {
+          "rank": 7,
+          "item_refs": [
+            "Q81"
+          ],
+          "label": "Q81 name-five colonies"
+        }
+      ]
+    },
+    {
+      "domain": "AMERICAN HISTORY — B: 1800s",
+      "chunk_id": "C.13",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "Q94"
+          ],
+          "label": "Q94 Lincoln ★"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "Q92",
+            "Q96"
+          ],
+          "label": "Q92/96 Civil War pair"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "Q95"
+          ],
+          "label": "Q95 Emancipation"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "Q90"
+          ],
+          "label": "Q90 Louisiana 1803"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "Q97",
+            "Q98"
+          ],
+          "label": "Q97 14th / Q98 15th amendment number-traps"
+        },
+        {
+          "rank": 6,
+          "item_refs": [
+            "Q99"
+          ],
+          "label": "Q99 women's movement"
+        }
+      ]
+    },
+    {
+      "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+      "chunk_id": "C.14",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "Q113",
+            "Q115"
+          ],
+          "label": "Q113 MLK ★ + Q115 September 11 ★"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "Q105"
+          ],
+          "label": "Q105 FDR"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "Q106"
+          ],
+          "label": "Q106 Pearl Harbor"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "Q102"
+          ],
+          "label": "Q102 women's vote 1920/19th"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "Q108"
+          ],
+          "label": "Q108–111 Cold War/communism cluster (one repeated answer)"
+        },
+        {
+          "rank": 6,
+          "item_refs": [
+            "Q103",
+            "Q104"
+          ],
+          "label": "Q103/104 Depression pair"
+        },
+        {
+          "rank": 7,
+          "item_refs": [
+            "Q117",
+            "Q118"
+          ],
+          "label": "Q117/118 one-name answers"
+        }
+      ]
+    },
+    {
+      "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+      "chunk_id": "C.15",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "Q121"
+          ],
+          "label": "Q121 stripes ★"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "Q122"
+          ],
+          "label": "Q122 stars"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "Q119"
+          ],
+          "label": "Q119 capital"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "Q123"
+          ],
+          "label": "Q123 anthem"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "Q124"
+          ],
+          "label": "Q124 motto (new-to-2025-format wording; unfamiliar phrase for ESL — drill pronunciation)"
+        },
+        {
+          "rank": 6,
+          "item_refs": [
+            "Q120"
+          ],
+          "label": "Q120 Statue of Liberty"
+        }
+      ]
+    },
+    {
+      "domain": "SYMBOLS AND HOLIDAYS — B: Holidays",
+      "chunk_id": "C.16",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "Q126"
+          ],
+          "label": "Q126 three holidays ★"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "Q127",
+            "Q128"
+          ],
+          "label": "Q127 vs Q128 Memorial/Veterans trap pair"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "Q125"
+          ],
+          "label": "Q125"
+        }
+      ]
+    }
+  ],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "corpus changes ≤1×/yr (major version Oct 2025; officeholder answers churn separately via [S3]) → no HALT; dynamic facts isolated to `updatable[]`; standing re-pull of [S3] each build (V6)."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "VD-1",
+      "claim_text": "Annual N-400 application volume ≈ 993k/yr (dossier figure)",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.20"
+      },
+      "withheld_values": [
+        "993k"
+      ]
+    },
+    {
+      "claim_id": "VD-2",
+      "claim_text": "Pass rate for the 2025-version civics test",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.20"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "VD-3",
+      "claim_text": "Re-exam is scheduled 60–90 days after initial interview",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.20"
+      },
+      "withheld_values": [
+        "60–90"
+      ]
+    },
+    {
+      "claim_id": "VD-4",
+      "claim_text": "Citizen Now verbatim quotes \"audio does not match the text…\", \"hidden sneaky paywall\"",
+      "blocker_kind": "source_stale",
+      "source_tier_required": null,
+      "owner_worker": "SMEResearchAgent",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": "01b-competitive-intel.json",
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.20"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "competitive_intel",
+    "origin_note": "origin: competitive_intel @ 01b + official stats verified this session",
+    "disposition": "present",
+    "chunk_ids": [
+      "E.22",
+      "E2.21"
+    ],
+    "debt_refs": [
+      "VD-1",
+      "VD-2",
+      "VD-4"
+    ]
+  },
+  "g_matrix": [
+    {
+      "box_id": "G01_domains_covered",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: Bank captured verbatim + version-tagged — 2025/128Q complete (128/128); 2008/100Q = logged scope cut (run-conf"
+    },
+    {
+      "box_id": "G02_passing_standard_exact",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: Passing standard EXACT: 2025 = 12 of 20, fail at 9 wrong, early-stop verified [S2][S4]; 65/20 = 6 of 10 from t"
+    },
+    {
+      "box_id": "G03_high_yield_ranked",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: High-yield ranked per section (dynamic-staleness first, then counts/gov core, then history anchors, then symbo"
+    },
+    {
+      "box_id": "G04_misconceptions",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: Common misconceptions captured per section (Senators-vs-Reps, 27, 435, 9-vs-5, citizens-only vs everyone, Memo"
+    },
+    {
+      "box_id": "G05_mnemonics",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: Mnemonics/memory hooks for count-heavy facts (27/100/435/2/9/5/13/50) + audio-first orientation notes."
+    },
+    {
+      "box_id": "G06_glossary",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: Glossary (plain-ESL) + official M-715 reading AND writing vocab lists verbatim."
+    },
+    {
+      "box_id": "G07_dynamic_isolated",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: EVERY dynamic fact isolated → `updatable[]` U1–U11 (officeholders w/ live-verified values + retrieved_at, your"
+    },
+    {
+      "box_id": "G08_competitive_teardown",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: Teardown: 5 named players w/ structure+pedagogy+practice, adopt[] + beat[], from fresh 01b (correction carried"
+    },
+    {
+      "box_id": "G09_market_pack",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: Market pack: size (verified FY2024) + pass rate (official, era-flagged) + rooms + 6 VOC + persona + gap + seas"
+    },
+    {
+      "box_id": "G10_accuracy_sourced",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: Every fact source-cited (source legend + [Qn · p.N] per question + [S1]–[S6]) with tier + confidence; every co"
+    },
+    {
+      "box_id": "G11_verify_list_consolidated",
+      "disposition": "completed",
+      "located_at": "G.23",
+      "debt_ref": null,
+      "note": "V1 self-claim: VERIFY consolidated list at top reflects every open `(verify)` (V6–V9, V11–V12 open; all exam-content items re"
+    }
+  ]
+}

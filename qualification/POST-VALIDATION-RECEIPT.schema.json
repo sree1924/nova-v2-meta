@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nova:post-validation-receipt:v0.4.0",
+  "title": "Collector wrapper for an unchanged Claude validator result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "logical_stage_id", "artifact_stage_id", "artifact_binding_kind", "output_sha256", "schema_sha256", "validator_sha256", "mapping_sha256", "raw_result", "artifact", "context", "adapter", "validator", "mapping", "stage_map", "collector_wrapper", "invocation_snapshot", "implementation_closure", "implementation_closure_sha256", "metadata_collector_node_version", "validation_errors", "hold_reasons"],
+  "properties": {
+    "schema_version": {"const": "post-validation-receipt.v0.4.0"},
+    "status": {"enum": ["PASS", "FAIL", "HOLD"]},
+    "logical_stage_id": {"const": "04.qualification"},
+    "artifact_stage_id": {"const": "04.cards"},
+    "artifact_binding_kind": {"enum": ["owner_cli_artifact_hash", "owner_api_invocation_snapshot", "api_snapshot_pending"]},
+    "output_sha256": {"$ref": "#/$defs/maybeHash"},
+    "schema_sha256": {"$ref": "#/$defs/maybeHash"},
+    "validator_sha256": {"$ref": "#/$defs/maybeHash"},
+    "mapping_sha256": {"$ref": "#/$defs/maybeHash"},
+    "raw_result": {"$ref": "#/$defs/maybeRef"},
+    "artifact": {"$ref": "#/$defs/maybeRef"},
+    "context": {"$ref": "#/$defs/maybeRef"},
+    "adapter": {"$ref": "#/$defs/maybeRef"},
+    "validator": {"$ref": "#/$defs/maybeRef"},
+    "mapping": {"$ref": "#/$defs/maybeRef"},
+    "stage_map": {"$ref": "#/$defs/maybeRef"},
+    "collector_wrapper": {"$ref": "#/$defs/maybeRef"},
+    "invocation_snapshot": {"$ref": "#/$defs/maybeRef"},
+    "implementation_closure": {"type": "array", "items": {"$ref": "#/$defs/ref"}},
+    "implementation_closure_sha256": {"$ref": "#/$defs/maybeHash"},
+    "metadata_collector_node_version": {"type": "string", "minLength": 1},
+    "validation_errors": {"type": "array", "items": {"type": "string"}},
+    "hold_reasons": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [{
+    "if": {"properties": {"status": {"const": "PASS"}}, "required": ["status"]},
+    "then": {
+      "properties": {
+        "artifact_binding_kind": {"enum": ["owner_cli_artifact_hash", "owner_api_invocation_snapshot"]},
+        "output_sha256": {"$ref": "#/$defs/hash"},
+        "schema_sha256": {"$ref": "#/$defs/hash"},
+        "validator_sha256": {"$ref": "#/$defs/hash"},
+        "mapping_sha256": {"$ref": "#/$defs/hash"},
+        "raw_result": {"$ref": "#/$defs/ref"},
+        "artifact": {"$ref": "#/$defs/ref"},
+        "context": {"$ref": "#/$defs/ref"},
+        "adapter": {"$ref": "#/$defs/ref"},
+        "validator": {"$ref": "#/$defs/ref"},
+        "mapping": {"$ref": "#/$defs/ref"},
+        "stage_map": {"$ref": "#/$defs/ref"},
+        "collector_wrapper": {"$ref": "#/$defs/ref"},
+        "implementation_closure": {"minItems": 1},
+        "implementation_closure_sha256": {"$ref": "#/$defs/hash"},
+        "validation_errors": {"maxItems": 0},
+        "hold_reasons": {"maxItems": 0}
+      }
+    }
+  }, {
+    "if": {"properties": {"status": {"const": "PASS"}, "artifact_binding_kind": {"const": "owner_api_invocation_snapshot"}}, "required": ["status", "artifact_binding_kind"]},
+    "then": {"properties": {"invocation_snapshot": {"$ref": "#/$defs/ref"}}}
+  }],
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "maybeHash": {"anyOf": [{"$ref": "#/$defs/hash"}, {"type": "null"}]},
+    "ref": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "bytes"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/hash"}, "bytes": {"type": "integer", "minimum": 0}}
+    },
+    "maybeRef": {"anyOf": [{"$ref": "#/$defs/ref"}, {"type": "null"}]}
+  }
+}

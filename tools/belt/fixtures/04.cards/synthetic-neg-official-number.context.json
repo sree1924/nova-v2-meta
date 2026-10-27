@@ -1,0 +1,133 @@
+{
+  "_context_note": "SYNTHETIC validator context only — not a fact registry, KG or source of any real run.",
+  "input_manifest_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "fact_registry": {
+    "facts": {
+      "syn-fact-01": {
+        "statement": "The synthetic rule requires a full stop at the fixture line.",
+        "status": "verified",
+        "source_page": "3"
+      },
+      "syn-fact-02": {
+        "statement": "Alpha, beta, and gamma",
+        "components": [
+          "Alpha",
+          "beta",
+          "gamma"
+        ],
+        "status": "verified",
+        "source_page": "3"
+      },
+      "syn-fact-03": {
+        "statement": "Fixture vehicles keep 20 fixture units apart.",
+        "spoken_statement": "Fixture vehicles keep twenty fixture units apart.",
+        "status": "verified",
+        "source_page": "9"
+      }
+    }
+  },
+  "accepted_inputs": {
+    "blueprint_mnemonics": {
+      "syn-node-01": "Fixture line means full stop",
+      "syn-node-03": "Keep twenty fixture units apart"
+    },
+    "knowledge_graph": {
+      "modules": [
+        {
+          "module_id": "syn-m01"
+        },
+        {
+          "module_id": "syn-m02"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "syn-node-01",
+          "module_id": "syn-m01"
+        },
+        {
+          "id": "syn-node-02",
+          "module_id": "syn-m01"
+        },
+        {
+          "id": "syn-node-03",
+          "module_id": "syn-m02"
+        }
+      ],
+      "dynamic_nodes": [
+        "syn-node-03"
+      ]
+    }
+  },
+  "page_map": {
+    "pages": [
+      {
+        "page_map_id": "syn-pm-3",
+        "pdf_page": 3,
+        "printed_page": "1"
+      },
+      {
+        "page_map_id": "syn-pm-9",
+        "pdf_page": 9,
+        "printed_page": "7"
+      }
+    ]
+  },
+  "source_document": {
+    "text": "SYNTHETIC SOURCE DOCUMENT, not a handbook. Page three: at the fixture line the synthetic rule asks for a full stop. The three synthetic colors are alpha, beta and gamma. Page nine: every fixture vehicle in this synthetic document keeps a steady distance from the next fixture vehicle on the synthetic road at all times, twenty fixture units."
+  },
+  "media_disposition": {
+    "artifact_type": "PilotMediaDisposition",
+    "version": "0.4.0",
+    "status": "REVIEW_POLICY",
+    "owner_roles": [
+      "00",
+      "13"
+    ],
+    "scope": "dev_preview_only",
+    "source_of_media_required": "early UI media intent before07; finalUiSpecmaynotretroactivelyweakenit",
+    "inactive_roles": [
+      "20",
+      "20A",
+      "20B"
+    ],
+    "rendered_audio_required": false,
+    "live_tts_allowed": false,
+    "image_cards_enabled": false,
+    "road_sign_mode": "verbal_page_sourced_cues",
+    "text_cue_must_bind_fact_id_and_source_page": true,
+    "visual_recognition_claims_allowed_without_assets": false,
+    "visual_override_requires": [
+      "role15boundsignlist",
+      "perassetrights/liveness/hash",
+      "selected-state supplement/applicability",
+      "earlyUIrequiredslot",
+      "freshaffectedQA"
+    ],
+    "non_applicable_checks": [
+      {
+        "check": "rendered audio manifest/files/provider",
+        "reason": "Text-only preview, no20render task."
+      },
+      {
+        "check": "pre/post image scout plans",
+        "reason": "20Ainactive; no scout success claimed."
+      },
+      {
+        "check": "audio timing/loudness/renderback",
+        "reason": "No rendered audio; text-script segment/parity checks stay mandatory."
+      }
+    ],
+    "still_required": [
+      "Fact/source parity",
+      "Structured recall ordering",
+      "Back/hook equality",
+      "Real required visual assets if an image task is later enabled",
+      "Independent content and product QA"
+    ],
+    "execution_enabled": false
+  },
+  "ref_sha256": {
+    "media_disposition": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd"
+  }
+}

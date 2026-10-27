@@ -1,0 +1,231 @@
+{
+  "_fixture": {
+    "kind": "v1_projection_raw",
+    "fixture_not_production": true,
+    "source": {
+      "path": "runs/2026-06-11-citizenship/09-product-package.json",
+      "sha256": "f08116c4d219fcc56280ed8df85243b8360d57c448d833c02a78e0e955114883"
+    },
+    "audio_source": {
+      "path": "runs/2026-06-11-citizenship/launch-fixes-2026-09-05/generated-corpus-held/public/tenants/us-citizenship/09-product-package.json",
+      "sha256": "60ae1ed35a3162c0d43b44e0590fb985fb1bba8c178bb3ee5a52a57ba345fe17"
+    },
+    "expected_status": "FAIL",
+    "transformation_decisions": [
+      "status \"shipped\" kept verbatim; pilot_status set to \"preview_ready\" because V1 \"shipped\" asserted every gate passed",
+      "status_reason \"\" — V1 records none",
+      "audio_teacher_loop taken from the finish-line package copy (openai_audio_api / pre_generated_batch / AudioAssetManifest) because the pinned V1 file lacks the block; learner_features.rendered_audio=true because V1 shipped rendered audio",
+      "V1 had REAL rendered audio: 20-audio-manifest.json (gpt-4o-mini-tts, voice nova) + 617 files under runs/2026-06-11-citizenship/audio/; the later finish-line copy of the package declares audio_teacher_loop.provider=openai_audio_api. The pinned V1 09-product-package.json itself carries NO audio_teacher_loop block (it predates the parent field) and says \"audio mp3 render is Worker 20, next phase\".",
+      "qa_gates verdicts PASS kept; report refs kept as V1 relative names with sha256=null (the V1 package hashes neither report)",
+      "candidate_sha256=null (V1 predates ContentCandidateManifest); uispec ref kept, validate receipts null (V1 has none)",
+      "contents = V1 package claims (deck 26, card 130, voice 156→text_script_count, session 26, item 128, mock 3→form_count, unit 0 because V1 carries no curriculum_unit_count)",
+      "integrity: cards_missing_voice→cards_missing_text_script, orphans kept; fields V1 lacks set 0 as V1 implied",
+      "exam_config numbers marked \"verified\" with source_page=null exactly as V1 asserted them (V1 cites [S2]/[S4] tags, no page); passing_threshold value null because V1 states it as prose",
+      "deploy refs mapped to pilot sentinels (structural only); V1 deploy strings preserved here: {\"supabase_dataset_ref\":\"runs/2026-06-11-citizenship/ (local dataset — phase-1 FREE+LOCAL; hosted swap is Implementation B)\",\"mobile_api_payload_refs\":[\"04-carddeck.json\",\"05-voicescripts.json\",\"06-exambank.json\",\"03-knowledge-graph.json\",\"09-uispec.json\"],\"exam_config_ref\":\"16-blueprint.json#/exam_meta\",\"listing_assets_ref\":\"09-uispec.json#/mobile_bundle/store_listing\",\"phase_note\":\"Implementatio"
+    ]
+  },
+  "minted_by": {
+    "model": "projection:tools/belt/project/09-package.mjs",
+    "lane": "tool_assisted",
+    "pass": "v1_projection_raw"
+  },
+  "probe": "us-citizenship",
+  "schema_version": "1.0.0",
+  "adapter_version": "0.4.0",
+  "package_version": "1.0.0+run1",
+  "status": "shipped",
+  "pilot_status": "preview_ready",
+  "status_scope": "content_package",
+  "status_reason": "",
+  "candidate_manifest_ref": null,
+  "candidate_sha256": null,
+  "qa_gates": {
+    "coverage": {
+      "report_ref": "07-coverage-report.json",
+      "sha256": null,
+      "verdict": "PASS"
+    },
+    "facts": {
+      "report_ref": "08-fact-report.json",
+      "sha256": null,
+      "verdict": "PASS"
+    },
+    "all_assigned_providers_pass": true,
+    "blocking_findings": 0
+  },
+  "uispec": {
+    "ref": "09-uispec.json",
+    "sha256": null,
+    "validate_1_receipt": null,
+    "validate_2_receipt": null
+  },
+  "early_media_intent_ref": null,
+  "media_disposition_ref": "contracts/media-disposition.json",
+  "media_disposition_sha256": null,
+  "finish_criteria_ref": "contracts/pilot-finish-criteria.json",
+  "finish_criteria_sha256": null,
+  "pilot_overlay_ref": "contracts/pilot-overrides-v0.4.0.json",
+  "pilot_overlay_sha256": null,
+  "deploy": {
+    "supabase_dataset_ref": "deferred:not_applicable_pilot",
+    "mobile_api_payload_refs": [
+      "deferred:not_applicable_pilot"
+    ],
+    "listing_assets_ref": "deferred:not_applicable_pilot",
+    "image_scout_plan_ref": "deferred:not_applicable_pilot",
+    "audio_manifest_ref": "deferred:not_applicable_pilot",
+    "exam_config_ref": "16-blueprint.json#/exam_meta",
+    "curriculum_unit_map_ref": null,
+    "curriculum_unit_map_sha256": null,
+    "preview_payload_refs": []
+  },
+  "contents": {
+    "deck_count": 26,
+    "card_count": 130,
+    "text_script_count": 156,
+    "session_count": 26,
+    "unit_count": 0,
+    "item_count": 128,
+    "form_count": 3
+  },
+  "integrity": {
+    "computed_by": "deterministic_script",
+    "orphans": 0,
+    "unresolved_refs": 0,
+    "cards_missing_text_script": 0,
+    "forms_missing_items": 0,
+    "units_missing_refs": 0,
+    "cross_product_refs": 0
+  },
+  "exam_config": {
+    "practice_only": false,
+    "official_mirror_status": "verified",
+    "n_questions": {
+      "value": 128,
+      "status": "verified",
+      "source_page": null,
+      "fact_id": null
+    },
+    "passing_threshold": {
+      "value": null,
+      "status": "verified",
+      "source_page": null,
+      "fact_id": null
+    },
+    "domain_weights": [
+      {
+        "domain": "AMERICAN GOVERNMENT",
+        "weight": {
+          "value": 56.3,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "AMERICAN GOVERNMENT — A: Principles of American Government",
+        "weight": {
+          "value": 11.7,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "AMERICAN GOVERNMENT — B: System of Government",
+        "weight": {
+          "value": 36.7,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "AMERICAN GOVERNMENT — C: Rights and Responsibilities",
+        "weight": {
+          "value": 7.8,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "AMERICAN HISTORY",
+        "weight": {
+          "value": 35.9,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "AMERICAN HISTORY — A: Colonial Period and Independence",
+        "weight": {
+          "value": 13.3,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "AMERICAN HISTORY — B: 1800s",
+        "weight": {
+          "value": 7.8,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "AMERICAN HISTORY — C: Recent American History and Other Important Historical Information",
+        "weight": {
+          "value": 14.8,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "SYMBOLS AND HOLIDAYS",
+        "weight": {
+          "value": 7.8,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "SYMBOLS AND HOLIDAYS — A: Symbols",
+        "weight": {
+          "value": 4.7,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      },
+      {
+        "domain": "SYMBOLS AND HOLIDAYS — B: Holidays",
+        "weight": {
+          "value": 3.1,
+          "status": "verified",
+          "source_page": null,
+          "fact_id": null
+        }
+      }
+    ]
+  },
+  "audio_teacher_loop": {
+    "provider": "openai_audio_api",
+    "generation_mode": "pre_generated_batch",
+    "output_manifest": "AudioAssetManifest",
+    "live_tts_in_user_flow": false
+  },
+  "learner_features": {
+    "auth": false,
+    "checkout": false,
+    "rendered_audio": true,
+    "trace_in_learner_navigation": false
+  },
+  "provenance_preserved": true,
+  "market_signal_ref": "deferred:not_applicable_pilot"
+}

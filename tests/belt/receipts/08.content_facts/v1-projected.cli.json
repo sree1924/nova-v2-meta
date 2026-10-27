@@ -1,0 +1,143 @@
+{
+  "command": "node tools/belt/post-validate.mjs --stage 08.content_facts --artifact tools/belt/fixtures/08.content_facts/v1-projected.json --context tools/belt/fixtures/08.content_facts/context-v1.json",
+  "cwd": "D:/nova/fb-ai-hackathon",
+  "exit_code": 1,
+  "expected_status": "FAIL",
+  "observed_status": "FAIL",
+  "stdout_sha256": "d8abc234c20bbeae5d9edcfc1403b8b5484e8cfc7362448063224a389c8904ab",
+  "result": {
+    "status": "FAIL",
+    "stage_id": "08.content_facts",
+    "checks": [
+      {
+        "check_id": "08.SCHEMA",
+        "status": "PASS",
+        "evidence": "validates against schemas-strict/08-fact-report.schema.json"
+      },
+      {
+        "check_id": "08.ENVELOPE",
+        "status": "PASS",
+        "evidence": "probe slug, stamp, scope and source_refs valid"
+      },
+      {
+        "check_id": "08.CANDIDATE_ECHO",
+        "status": "PASS",
+        "evidence": "candidate_sha256 e882f09642200844c88acc9d0e98e0e6f92927fcd1448f5423670d84be8f94af equals the scoped candidate manifest digest"
+      },
+      {
+        "check_id": "08.INPUT_MEMBERSHIP",
+        "status": "FAIL",
+        "evidence": "required input hash(es) null: session_scripts, source_liveness",
+        "metrics": {
+          "malformed": 0,
+          "missing_required": 2
+        }
+      },
+      {
+        "check_id": "08.ROW_FIELDS",
+        "status": "PASS",
+        "evidence": "all 414 row strings non-empty; every claim binds fact_ids"
+      },
+      {
+        "check_id": "08.VERDICT_INVARIANT",
+        "status": "PASS",
+        "evidence": "parent allOf holds (verdict PASS; visual/grouped issues 0/0)"
+      },
+      {
+        "check_id": "08.VERDICT_CONSISTENCY",
+        "status": "PASS",
+        "evidence": "verdict PASS consistent with findings (0 flagged, 4 debt)"
+      },
+      {
+        "check_id": "08.REQUIRED_CHECKS_RUN",
+        "status": "FAIL",
+        "evidence": "verdict PASS but required_checks_not_run: Step 2 source liveness: dated effective_date + issuer current-edition receipt per cited source (V1 08 carried no receipts); Step 3 TeachingUnit/session span trace (V1 08 pinned no session scripts); Order Q rules 3/4 scaffold + doubled-article grep and rule 15 titled promises (rules postdate V1 08); auditor independence against an intervention ledger (V1 had none)",
+        "metrics": {
+          "sampled_checks": 1
+        }
+      },
+      {
+        "check_id": "08.TIER_FIRST",
+        "status": "PASS",
+        "evidence": "130 claim tier(s) resolved; 0 insufficient-tier claim(s) carried as debt/flag",
+        "metrics": {
+          "claims": 130,
+          "insufficient_tier": 0
+        }
+      },
+      {
+        "check_id": "08.LIVENESS_RECEIPT_SHAPE",
+        "status": "PASS",
+        "evidence": "3 receipt(s) conform to contracts/source-liveness-receipt.schema.json"
+      },
+      {
+        "check_id": "08.LIVENESS_COVERAGE",
+        "status": "FAIL",
+        "evidence": "3 with effective_date null/(verify)/undated: src:us-citizenship:uscis:001; src:us-citizenship:uscis:004; src:us-citizenship:uscis:005 | 3 without issuer current-edition confirmation: src:us-citizenship:uscis:001; src:us-citizenship:uscis:004; src:us-citizenship:uscis:005 | 3 receipt(s) in VERIFICATION_DEBT: src:us-citizenship:uscis:001; src:us-citizenship:uscis:004; src:us-citizenship:uscis:005 — verdict PASS not allowed",
+        "metrics": {
+          "cited": 3,
+          "missing": 0,
+          "undated": 3
+        }
+      },
+      {
+        "check_id": "08.LIVENESS_AGE",
+        "status": "FAIL",
+        "evidence": "3 receipt(s) older than 24h: src:us-citizenship:uscis:001 (42.0h); src:us-citizenship:uscis:004 (42.0h); src:us-citizenship:uscis:005 (42.0h)",
+        "metrics": {
+          "stale": 3,
+          "max_age_hours": 24
+        }
+      },
+      {
+        "check_id": "08.FLAGGED_BINDING",
+        "status": "PASS",
+        "evidence": "0 flagged finding(s) bound to candidate members"
+      },
+      {
+        "check_id": "08.EXTERNAL_REVIEW",
+        "status": "PASS",
+        "evidence": "0 external review request(s), each legally justified with claim ids"
+      },
+      {
+        "check_id": "08.INDEPENDENCE",
+        "status": "FAIL",
+        "evidence": "auditor (v1:08-executor:opus, anthropic) not independent: provider_family_contributed_to_candidate_or_prompt; conflicting contributors: v1:17-enriched-blueprint.json:opus/anthropic/authored_candidate_artifact; v1:04-carddeck.json:opus/anthropic/authored_candidate_artifact; v1:05-voicescripts.json:opus/anthropic/authored_candidate_artifact; v1:06-exambank.json:opus/anthropic/authored_candidate_artifact; v1:15-source-registry.json:sonnet/anthropic/authored_candidate_artifact",
+        "metrics": {
+          "auditor_family": "anthropic",
+          "contributors": 5,
+          "conflicts": 1
+        }
+      },
+      {
+        "check_id": "08.DISSENT_NOT_OUTVOTED",
+        "status": "PASS",
+        "evidence": "no source-supported blocking finding overridden (0 own, 0 peer report(s) inspected)"
+      },
+      {
+        "check_id": "08.VERDICT_GATE",
+        "status": "PASS",
+        "evidence": "report verdict PASS (acceptance still requires every other check PASS)"
+      }
+    ],
+    "errors": [],
+    "metrics": {
+      "fixture_kind": "v1_projected_with_synthetic_candidate",
+      "adapter_schema_sha256": "ce8b685c55d3d943a79a7a27abdde0bc3817cb199f46e9b2d735c3f3ed416340",
+      "08.INPUT_MEMBERSHIP.malformed": 0,
+      "08.INPUT_MEMBERSHIP.missing_required": 2,
+      "08.REQUIRED_CHECKS_RUN.sampled_checks": 1,
+      "08.TIER_FIRST.claims": 130,
+      "08.TIER_FIRST.insufficient_tier": 0,
+      "08.LIVENESS_COVERAGE.cited": 3,
+      "08.LIVENESS_COVERAGE.missing": 0,
+      "08.LIVENESS_COVERAGE.undated": 3,
+      "08.LIVENESS_AGE.stale": 3,
+      "08.LIVENESS_AGE.max_age_hours": 24,
+      "08.INDEPENDENCE.auditor_family": "anthropic",
+      "08.INDEPENDENCE.contributors": 5,
+      "08.INDEPENDENCE.conflicts": 1
+    },
+    "artifact_sha256": "3edbd47b3c17bf10296280acd859219f48892f45245cc97cfa4503734ba5a2a7"
+  }
+}

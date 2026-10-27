@@ -1,0 +1,352 @@
+{
+  "stage_id": "03.combined_kg",
+  "adapter_schema": {
+    "path": "schemas-strict/03-knowledge-graph.schema.json",
+    "sha256": "789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8"
+  },
+  "parent_schema": {
+    "path": "schemas/knowledge-graph.schema.json",
+    "sha256": "19081f3514098118383a65b32534fde9730d2f1b001a01a3c2ef6606db9bf2bc"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "Payload meaning differs from the parent: node/module exam_weight (required number >= 0) becomes a nullable official-fact object plus separately labelled authored pedagogic_emphasis, and source_refs.image_scout_pre_kg carries the sentinel deferred:not_applicable_pilot. A document the adapter accepts may therefore be rejected by the parent; never claimed as a subset.",
+  "overlay_authority": "contracts/pilot-overrides-v0.4.0.json#/role_overrides/03",
+  "checks_module": "tools/belt/checks/03-combined-kg.mjs",
+  "compensating_checks": [
+    "03.SCHEMA",
+    "03.PROBE_SLUG",
+    "03.LINEAGE",
+    "03.ID_INTEGRITY",
+    "03.KG01_GAPS",
+    "03.KG01_ROUTE_BACK",
+    "03.ONTOLOGY",
+    "03.EDGE_TYPED",
+    "03.EDGES_MIRROR",
+    "03.ACYCLIC",
+    "03.ONE_MODULE_PER_NODE",
+    "03.PATH_COVERAGE",
+    "03.PATH_TOPOLOGICAL",
+    "03.HIGH_YIELD_SET",
+    "03.CONFUSABLE_SOURCE_BOUND",
+    "03.FACT_IDS_REGISTERED",
+    "03.WEIGHT_HONESTY",
+    "03.VERIFIED_WEIGHTS_REGISTERED",
+    "03.DOMAIN_EMPHASIS",
+    "03.WEIGHT_CLOSURE",
+    "03.KG05_ASSERTIONS",
+    "03.CURRICULUM_HINTS",
+    "03.SCOUT_SENTINEL",
+    "03.LEARNING_INPUT_BOUND"
+  ],
+  "context_keys": {
+    "input_manifest_sha256": "03.LINEAGE (HOLD if absent)",
+    "accepted_inputs.high_yield_ids": "03.HIGH_YIELD_SET — the accepted source high-yield node/fact id set (HOLD if absent)",
+    "accepted_inputs.learning_loop_ref": "03.LEARNING_INPUT_BOUND (HOLD if absent while the artifact binds a ref)",
+    "fact_registry": "03.FACT_IDS_REGISTERED ({facts:{<fact_id>:{}}}; HOLD if absent)",
+    "source_registry": "03.VERIFIED_WEIGHTS_REGISTERED (HOLD only when a verified weight exists)",
+    "media_disposition": "03.SCOUT_SENTINEL (HOLD if absent)"
+  },
+  "deviations": [
+    {
+      "field": "/nodes/*/exam_weight",
+      "parent_rule": "exam_weight: number, minimum 0, required",
+      "adapter_rule": "official_weight {value number|null, status unknown|verified|authored, source_page string|null} + pedagogic_emphasis {value number|null, status authored, basis}",
+      "reason": "overlay 03 adaptation 'Official weights nullable; authored pedagogic_emphasis labelled separately'; source-fact-policy numerical_weights; null official weights cannot force fabricated numbers",
+      "compensating_check": "03.WEIGHT_HONESTY, 03.VERIFIED_WEIGHTS_REGISTERED, 03.DOMAIN_EMPHASIS"
+    },
+    {
+      "field": "/modules/*/weight",
+      "parent_rule": "weight: number, minimum 0, required",
+      "adapter_rule": "official_weight (nullable official-fact object) + pedagogic_emphasis (authored)",
+      "reason": "same as nodes; module mass is checked against the declared basis, never an invented official blueprint",
+      "compensating_check": "03.WEIGHT_HONESTY, 03.WEIGHT_CLOSURE"
+    },
+    {
+      "field": "/source_refs/image_scout_pre_kg",
+      "parent_rule": "required string (pre-KG ImageScoutPlan ref)",
+      "adapter_rule": "enum [\"deferred:not_applicable_pilot\"]",
+      "reason": "media-disposition.json: 20A inactive, 'pre/post image scout plans' non-applicable; no scout success claimed",
+      "compensating_check": "03.SCOUT_SENTINEL"
+    },
+    {
+      "field": "/source_refs/{weighted_graph,edge_set,ontology}",
+      "parent_rule": "free strings",
+      "adapter_rule": "enum inline@KG-04 / inline@KG-03 / inline@KG-02",
+      "reason": "overlay 03: one combined pass with embedded evidence, not five services",
+      "compensating_check": "03.SCHEMA (enum)"
+    },
+    {
+      "field": "/source_refs/{enriched_blueprint,learning_loop,media_disposition}",
+      "parent_rule": "not required by parent",
+      "adapter_rule": "required keys; learning_loop/media_disposition nullable",
+      "reason": "overlay 03 retained 'Accepted role19 learning inputs before graph'; prompt 03 binds media intent/disposition",
+      "compensating_check": "03.LEARNING_INPUT_BOUND, 03.SCOUT_SENTINEL"
+    },
+    {
+      "field": "/department_pass",
+      "parent_rule": "not in parent schema (_DEPT.md Implementation-A embeds kg01..kg05)",
+      "adapter_rule": "typed kg01{verdict,gaps[{type,located_at,detail,severity}],nodes_extracted,merges,dynamic_concepts}, kg02{node_types,edge_types,acyclic,weight_closure,placements}, kg03{edges[{from,to,type,origin,confidence}],acyclic,cycles_resolved,dropped_hints}, kg04{domain_emphasis_check[{domain,blueprint_pct|null,weight_status,computed_pct,drift_pp|null,comparison_basis,within_tolerance|null}]}, kg05{sequencing,validation_assertions}",
+      "reason": "overlay 03 adaptation 'Combined department_pass has explicit schema/evidence instead of five fictional services'; model claims are advisory and recomputed",
+      "compensating_check": "03.KG01_GAPS, 03.KG01_ROUTE_BACK, 03.EDGES_MIRROR, 03.ACYCLIC, 03.DOMAIN_EMPHASIS, 03.WEIGHT_CLOSURE, 03.KG05_ASSERTIONS"
+    },
+    {
+      "field": "/edges/*",
+      "parent_rule": "{from, to, type} required; origin/confidence optional",
+      "adapter_rule": "{from, to, type, origin sme_hint|domain_logic, confidence high|medium|low|null} all required",
+      "reason": "overlay 03 retained 'KG-03 edge origin'; null confidence is representable but rejected by the check",
+      "compensating_check": "03.EDGE_TYPED, 03.EDGES_MIRROR"
+    },
+    {
+      "field": "/nodes/*/confusable_with",
+      "parent_rule": "optional [{ref?, label?, why minLength 1}]",
+      "adapter_rule": "required [{other_id, why, fact_ids[]}] + no_confusable_reason string|null",
+      "reason": "overlay 03 retained 'Both fact_ids support each confusable explanation'; prompt 03: high-yield nodes carry confusables or an explicit no_confusable_reason",
+      "compensating_check": "03.CONFUSABLE_SOURCE_BOUND, 03.FACT_IDS_REGISTERED"
+    },
+    {
+      "field": "/nodes/*",
+      "parent_rule": "{id,label,domain,exam_weight,difficulty,high_yield,source_ref{ref,tier,url?,retrieved_at?}} + additionalProperties",
+      "adapter_rule": "closed object adding module_id, node_type, fact_ids[], confidence, needs_review, source_ref.source_page",
+      "reason": "strict subset requires closed objects; single-home and fact binding need module_id and fact_ids",
+      "compensating_check": "03.ONE_MODULE_PER_NODE, 03.ID_INTEGRITY, 03.ONTOLOGY"
+    },
+    {
+      "field": "/curriculum_unit_hints/*/user_cycle",
+      "parent_rule": "enum [session, flashcards, module_quiz, missed_review, spaced_review, mock_exam]",
+      "adapter_rule": "enum adds module_hub; adds hub_options[module_quiz|flashcards|session]",
+      "reason": "19A v1.1 module-hub amendment (founder 2026-06-19): session -> flashcards -> module_hub, quiz chosen at the hub",
+      "compensating_check": "03.CURRICULUM_HINTS"
+    },
+    {
+      "field": "/learning_path_rule",
+      "parent_rule": "none",
+      "adapter_rule": "{dynamic_excluded boolean, rule string}",
+      "reason": "dynamic nodes are excluded from learning_path with a recorded rule",
+      "compensating_check": "03.PATH_COVERAGE"
+    },
+    {
+      "field": "/dynamic_nodes/*",
+      "parent_rule": "{id, label, why_dynamic, source_ref}",
+      "adapter_rule": "closed object adding fact_ids[] and source_ref.source_page",
+      "reason": "fact binding end-to-end for refreshable facts",
+      "compensating_check": "03.ID_INTEGRITY, 03.FACT_IDS_REGISTERED"
+    },
+    {
+      "field": "/lineage",
+      "parent_rule": "artifact_hash (optional string)",
+      "adapter_rule": "{input_manifest_sha256|null, candidate_lineage_id|null}; no self hash",
+      "reason": "handoff hash-boundary correction",
+      "compensating_check": "03.LINEAGE"
+    },
+    {
+      "field": "/schema_version, /adapter, /stage_id",
+      "parent_rule": "schema_version const 1.0.0",
+      "adapter_rule": "schema_version enum [1.0.0] + adapter enum [pilot_adapter@0.4.0] + stage_id enum [03.combined_kg]",
+      "reason": "const is outside the relied-on strict subset; a one-value enum carries the same constraint",
+      "compensating_check": "03.SCHEMA (enum)"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "/properties/probe",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "03.PROBE_SLUG"
+    },
+    {
+      "json_pointer": "/properties/nodes/items/properties/official_weight/properties/value",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "03.WEIGHT_HONESTY"
+    },
+    {
+      "json_pointer": "/properties/modules/items/properties/official_weight/properties/value",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "03.WEIGHT_HONESTY"
+    },
+    {
+      "json_pointer": "/properties/nodes/items/properties/id",
+      "keyword": "minLength + uniqueness",
+      "parent_value": 1,
+      "compensating_check": "03.ID_INTEGRITY"
+    },
+    {
+      "json_pointer": "/properties/nodes/items/properties/confusable_with/items/properties/why",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "03.CONFUSABLE_SOURCE_BOUND"
+    },
+    {
+      "json_pointer": "/properties/edges/items/properties/from",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "03.EDGE_TYPED (endpoints must resolve to stable nodes)"
+    },
+    {
+      "json_pointer": "/properties/modules/items/properties/module_id",
+      "keyword": "minLength + uniqueness",
+      "parent_value": 1,
+      "compensating_check": "03.ID_INTEGRITY"
+    },
+    {
+      "json_pointer": "/properties/curriculum_unit_hints/items/properties/session_strategy",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "03.CURRICULUM_HINTS (also flashcard_strategy, quiz_strategy)"
+    },
+    {
+      "json_pointer": "/properties/dynamic_nodes/items/properties/why_dynamic",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "03.ID_INTEGRITY"
+    },
+    {
+      "json_pointer": "parent:/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "parent_value": "date-time",
+      "compensating_check": "03.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: none — retrieved_at not carried in the adapter source_ref; freshness belongs to the source registry / liveness receipt"
+    },
+    {
+      "json_pointer": "parent:/$defs/sourceRef/properties/ref",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "03.FACT_IDS_REGISTERED (fact binding) — empty ref strings are not separately rejected"
+    }
+  ],
+  "added_invariants": [
+    {
+      "check": "03.ACYCLIC: prerequisite subgraph acyclic by Kahn recomputation; kg02/kg03 acyclic claims must agree"
+    },
+    {
+      "check": "03.PATH_TOPOLOGICAL + 03.PATH_COVERAGE: zero prerequisite violations; every stable node on the path exactly once; dynamic nodes never on it"
+    },
+    {
+      "check": "03.ONE_MODULE_PER_NODE: every stable node in exactly one module, agreeing with node.module_id and kg02.placements"
+    },
+    {
+      "check": "03.HIGH_YIELD_SET: high_yield node set == accepted source high-yield set"
+    },
+    {
+      "check": "03.CONFUSABLE_SOURCE_BOUND: each confusable cites >=1 fact of EACH endpoint"
+    },
+    {
+      "check": "03.WEIGHT_HONESTY: status unknown => value null (a bare number with unknown status FAILs; unknown weights with no number PASS)"
+    },
+    {
+      "check": "03.DOMAIN_EMPHASIS: computed_pct recomputed as 100*sum(domain pedagogic_emphasis)/sum(all) within 0.1pp; verified-basis drift <= 2pp"
+    },
+    {
+      "check": "03.KG01_GAPS: a blocking gap forces verdict FAIL, zero extraction and a route_back to 02 (03.KG01_ROUTE_BACK)"
+    }
+  ],
+  "sentinels": [
+    {
+      "field": "/source_refs/image_scout_pre_kg",
+      "value": "deferred:not_applicable_pilot",
+      "binding": "contracts/media-disposition.json inactive_roles includes 20A and non_applicable_checks includes 'pre/post image scout plans'",
+      "check": "03.SCOUT_SENTINEL",
+      "compensating_check": "03.SCOUT_SENTINEL"
+    },
+    {
+      "field": "/nodes/*/official_weight, /modules/*/official_weight",
+      "kind": "official_number_record",
+      "shape": "{value: null|number, status: unknown|verified|authored, source_page: null|string}",
+      "rule": "unknown => null; verified => value + registered source_page; authored => value present and never compared as official_verified",
+      "compensating_check": "03.WEIGHT_HONESTY"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/03.combined_kg/v1-projected.json",
+      "sha256": "655e565a21284efb37bac10937e5a14ce7cb2cea34e3983600c59c05247c0927",
+      "context_path": "tools/belt/fixtures/03.combined_kg/v1-projected.context.json",
+      "kind": "v1_projected",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/03-knowledge-graph.json",
+        "sha256": "437d32ee3dbce6a036972d4ebdb6fdfbfdb9bb615d346314fce46564d25b4f08"
+      },
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "generated by node tools/belt/project/03-combined-kg.mjs --write; full decision list in _fixture.decisions",
+        "WEIGHT DECISION: V1 exam_weight (0.781 = 100/128 per bank item) -> official_weight status 'authored' (NOT 'verified'), value kept, source_page = cited M-1778 page (e.g. S1#p.4). The bank item counts are USCIS-verified, but no USCIS page states a per-question/per-section ASK weight; the V1 dossier itself says the per-section mix of the 20 asked is not published (BLUEPRINT heading, AF-3). kg04 rows and module weights follow (authored / authored_basis).",
+        "context: V1 15-source-registry.json verbatim, fact_registry = fact_ids of V1 16-blueprint.json (knowledge[].facts[] + updatable[]), lane media-disposition.json; no input manifest; no machine-readable source high-yield set exists for V1 (prose rankings only) -> HIGH_YIELD_SET HOLD",
+        "V1 FAILs honestly under v0.4.0: 80/80 edges lack confidence; 20 high-yield nodes have no per-pair confusable reason (V1 has 34 easily_confused edges without reasons; none synthesized); curriculum_unit_hints absent; no learning_loop bound. Recomputed: acyclic, 0 path violations, 130/130 single-home, 11 dynamic quarantined, module weight sum 99.92, domain emphasis within 0.1pp."
+      ],
+      "context_sha256": "2e22e0308075d6e8a8f6aa43698ecf845c35c4cd5f900e9553a67af02c578fb9"
+    },
+    {
+      "path": "tools/belt/fixtures/03.combined_kg/synthetic-positive.json",
+      "sha256": "bab85a1ba30efdb9bb69e0a52baa521f18cb6b6700caf5a25115ac0d18b53ef2",
+      "context_path": "tools/belt/fixtures/03.combined_kg/synthetic-positive.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "required negative-test pair, positive side: every official weight is {value:null,status:unknown} with NO fabricated number, authored pedagogic emphasis labelled, kg04 rows null/none basis -> PASS"
+      ],
+      "context_sha256": "2f9ad2aaccdce2f315e62e96c5eeb8d3c1ca52445dca721431eb6ca1937ca467"
+    },
+    {
+      "path": "tools/belt/fixtures/03.combined_kg/synthetic-negative-fabricated-weight.json",
+      "sha256": "504366bada49178e87fe1ff660b7a7df1aafe1a76dfdd761cc0bd58f7c13610d",
+      "context_path": "tools/belt/fixtures/03.combined_kg/synthetic-negative-fabricated-weight.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "required negative: node n1 official_weight {value:12.5, status:unknown} and a kg04 blueprint_pct 60 under unknown status -> 03.WEIGHT_HONESTY FAIL (03.DOMAIN_EMPHASIS also FAILs on the unrecomputable drift)"
+      ],
+      "context_sha256": "2f9ad2aaccdce2f315e62e96c5eeb8d3c1ca52445dca721431eb6ca1937ca467"
+    },
+    {
+      "path": "tools/belt/fixtures/03.combined_kg/synthetic-negative-cycle.json",
+      "sha256": "2c66241f5e152e12c43369463a9821dafb33d80ddc24a8af5d11ad1fcd5ab3b4",
+      "context_path": "tools/belt/fixtures/03.combined_kg/synthetic-negative-cycle.context.json",
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "prerequisite cycle n1->n3->n1 with stale acyclic/PASS claims -> 03.ACYCLIC, 03.PATH_TOPOLOGICAL, 03.KG05_ASSERTIONS FAIL"
+      ],
+      "context_sha256": "2f9ad2aaccdce2f315e62e96c5eeb8d3c1ca52445dca721431eb6ca1937ca467"
+    },
+    {
+      "path": "tools/belt/fixtures/03.combined_kg/synthetic-hold-no-context.json",
+      "sha256": "dd24ec9410977901ba44b23bf58157551f6a8c8ef27d61e1e98f2a40afff61b6",
+      "context_path": null,
+      "kind": "synthetic",
+      "source": null,
+      "expected_status": "HOLD",
+      "transformation_notes": [
+        "positive KG with no context: LINEAGE, HIGH_YIELD_SET, FACT_IDS_REGISTERED, SCOUT_SENTINEL, LEARNING_INPUT_BOUND HOLD"
+      ]
+    }
+  ],
+  "unexecuted": [
+    {
+      "item": "'no invented concept' / one node per accepted fact",
+      "reason": "03.FACT_IDS_REGISTERED proves fact ids exist; it cannot prove a node's label is supported by its fact text"
+    },
+    {
+      "item": "confusable 'why' content support",
+      "reason": "the why text is not compared to the two facts' page text (no snapshot binding); only the both-endpoint fact_ids binding is checked"
+    },
+    {
+      "item": "KG-03 transitive reduction and direction-vs-difficulty sanity",
+      "reason": "not recomputed; only acyclicity and path order are"
+    },
+    {
+      "item": "KG-05 cognitive-load pacing (no hard-node pile-ups)",
+      "reason": "advisory heuristic; not a deterministic acceptance rule here"
+    },
+    {
+      "item": "V1 projection LINEAGE and HIGH_YIELD_SET",
+      "reason": "HOLD: V1 has no input manifest and no machine-readable source high-yield id set"
+    },
+    {
+      "item": "provider strict-mode acceptance of this adapter",
+      "reason": "no endpoint call is authorized; local ajv + strict-lint only"
+    }
+  ]
+}
