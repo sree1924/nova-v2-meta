@@ -235,3 +235,15 @@
 - 2026-10-27T19:28:20.476Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:45 for 02.dossier_sections (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
 
 - 2026-10-27T19:29:09.967Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:46 for 02.dossier_sections (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:29:37.759Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:47 for 02.dossier_sections (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:30:06.017Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:48 for 02.dossier_sections (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:31:17.739Z retry nonce 04.cards:@sec02-licensing-requirements → 1 after HOLD (sec02-licensing-requirements); non-PASS: 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:31:33.762Z retry nonce 04.cards:@sec02-licensing-requirements → 2 after HOLD (sec02-licensing-requirements); non-PASS: 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:31:33.889Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:49 for 04.cards (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:31:52.839Z retry nonce 04.cards:@sec02-licensing-requirements → 3 after HOLD (sec02-licensing-requirements); non-PASS: 04.HOOK_LENGTH=FAIL, 04.ORIGINALITY=FAIL

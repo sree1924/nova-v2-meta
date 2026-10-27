@@ -411,7 +411,11 @@ export function run(artifact, context = {}) {
     } else {
       const st = originalityTokens(src);
       const fields = [];
-      for (const { c } of cards) for (const k of ['front', 'back', 'memory_hook']) fields.push([`${c.card_id}.${k}`, c[k]]);
+      // A back that IS the accepted fact wording (04.BACK_FIDELITY) carries the dossier's originality, not the card's: fidelity
+      // wins here and the overlap is the 02/16 stage's debt (2026-10-27: sec02-F08 back = 20 contiguous handbook words).
+      const reg = factRegistry(context);
+      const isAcceptedBack = (c) => !!reg && arr(c.claims_fact_ids).some(id => acceptedWording(reg[id]) === c.back);
+      for (const { c } of cards) for (const k of ['front', 'back', 'memory_hook']) { if (k === 'back' && isAcceptedBack(c)) continue; fields.push([`${c.card_id}.${k}`, c[k]]); }
       arr(a.recaps).forEach(r => arr(r?.recap_hooks).forEach((h, hi) => fields.push([`recap ${r.module_id}[${hi}]`, h?.text])));
       let max = 0; let maxAt = null; const over = [];
       for (const [label, text] of fields) {
