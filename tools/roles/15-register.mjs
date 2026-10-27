@@ -94,7 +94,7 @@ export async function extractLocalPdf(pdfPath, {pythonPath = DEFAULT_PYTHON} = {
  */
 export async function buildRegistration({
   projectRoot = DEFAULT_PROJECT_ROOT, runConfigPath = DEFAULT_RUN_CONFIG,
-  pdfPath, pythonPath = DEFAULT_PYTHON, observationPath, issuerConfirmationPath,
+  pdfPath, pythonPath = DEFAULT_PYTHON, observationPath, issuerConfirmationPath, configEvidenceRef,
 } = {}) {
   projectRoot = fs.realpathSync(projectRoot);
   const configPath = contained(projectRoot, path.resolve(projectRoot, runConfigPath), 'Run config');
@@ -119,7 +119,19 @@ export async function buildRegistration({
   if (!sourceBytes.subarray(0, 5).equals(Buffer.from('%PDF-'))) throw new Error('Configured source is not a PDF');
   const sourceHash = sha256(sourceBytes);
   const snapshotPath = slash(path.relative(projectRoot, sourcePath));
-  const configRef = {path: slash(path.relative(projectRoot, configPath)), sha256: sha256(configBytes)};
+  let configEvidencePath = configPath;
+  if (configEvidenceRef !== undefined) {
+    if (!configEvidenceRef || !/^[a-f0-9]{64}$/.test(configEvidenceRef.sha256 ?? '') || typeof configEvidenceRef.path !== 'string') {
+      throw new Error('Config evidence requires an exact path and SHA256');
+    }
+    configEvidencePath = contained(runRoot, path.resolve(projectRoot, configEvidenceRef.path), 'Config evidence');
+    if (configEvidencePath === configPath) throw new Error('Config evidence must be a separate immutable snapshot, not the mutable run config');
+    const evidenceBytes = fs.readFileSync(configEvidencePath);
+    if (sha256(evidenceBytes) !== configEvidenceRef.sha256 || !evidenceBytes.equals(configBytes)) {
+      throw new Error('Config evidence bytes/hash differ from the actual run config read for registration');
+    }
+  }
+  const configRef = {path: slash(path.relative(projectRoot, configEvidencePath)), sha256: sha256(configBytes)};
   const debt = [];
   const addDebt = (code, field, reason, evidence_refs = []) => debt.push({code, field, reason, evidence_refs});
   if (sourceHash !== config.scope.handbook_sha256) addDebt('snapshot_hash_mismatch', 'snapshot_sha256', 'Actual PDF bytes do not match the configured source hash.', [configRef]);
@@ -127,7 +139,8 @@ export async function buildRegistration({
     addDebt('snapshot_size_mismatch', 'snapshot_bytes', 'Actual PDF size differs from the configured download size.', [configRef]);
   }
   const extraction = await extractLocalPdf(sourcePath, {pythonPath});
-  if (sha256(fs.readFileSync(sourcePath)) !== sourceHash || sha256(fs.readFileSync(configPath)) !== configRef.sha256) {
+  if (sha256(fs.readFileSync(sourcePath)) !== sourceHash || sha256(fs.readFileSync(configPath)) !== configRef.sha256 ||
+      sha256(fs.readFileSync(configEvidencePath)) !== configRef.sha256) {
     throw new Error('Source PDF or run config changed during extraction; retry from stable input bytes');
   }
   const sourceRef = 'src:rdmv-ut-class-d:utah-dld:handbook';
@@ -302,7 +315,9 @@ export async function buildRegistration({
       issuer_current_edition_observation: issuerConfirmation,
       expires_or_review_by: null, refresh_status: 'verification_required_before_fact_use',
       anchors_high_risk: false, high_risk_kinds: ['law', 'safety'],
-      status: 'pending_verification', fact_authority_eligible: false,
+      status: 'pending_verification',
+      fact_authority_eligible: liveness?.status === 'CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT',
+      independent_fact_audit_status: 'pending07/08',
       rights_posture: 'fact-authority candidate only; PDF/text/images not redistributed; no rights clearance claimed',
       page_count: extraction.page_count, page_map_sha256: pageMapHash,
       frontmatter: {edition_statement_candidates: editionCandidates, contextual_date_statements: dateStatements, issuer_evidence: issuerEvidence,
@@ -326,6 +341,8 @@ export async function buildRegistration({
     recorded_retrieved_at: retrievedAt, retrieval_basis: 'run_config_assertion_only',
     edition, visual_observation_ref: visualObservationRef,
     issuer_confirmation: issuerConfirmation,
+    fact_authority_eligible: liveness?.status === 'CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT',
+    independent_fact_audit_status: 'pending07/08',
     no_network: true, no_models: true, original_pdf_copied: false,
   };
   const writePlan = [

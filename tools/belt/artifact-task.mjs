@@ -4,7 +4,7 @@ import {sha256, canonicalJson, writeImmutable, verifyRef, inside} from './atomic
 
 // A local transaction boundary used by the controller and synthetic fault tests.
 // produce() is supplied by an authorized executor; this module never calls a provider.
-export async function runArtifactTask({ledger, fence, lockHandle, runDir, task, produce, validate, accept, requiredChecks, afterOutputSaved}) {
+export async function runArtifactTask({ledger, fence, lockHandle, runDir, task, produce, validate, accept, requiredChecks, afterOutputSaved,validationRevision=null}) {
   if (!Array.isArray(requiredChecks) || !requiredChecks.length || new Set(requiredChecks).size !== requiredChecks.length) throw new Error('Explicit complete required check IDs are mandatory.');
   const taskId = task.taskId ?? task.task_id;
   const current = ledger.getTask(taskId);
@@ -35,7 +35,9 @@ export async function runArtifactTask({ledger, fence, lockHandle, runDir, task, 
   const complete = !missing.length && !invalidChecks && ids.length === new Set(ids).size;
   const valid = validation?.status === 'PASS' && complete && requiredChecks.every(id => validation.checks.find(c => c.check_id === id)?.status === 'PASS')
     && !validation.checks.some(c => c.status !== 'PASS') && !(validation.errors?.length);
-  const validationRef = writeImmutable(runDir, dir + '/validation.json', {...validation, status: valid ? 'PASS' : 'HOLD', output_sha256: artifact.sha256, mapped_check_coverage: {complete, missing}}, {lockHandle});
+  if(validationRevision!==null&&!/^[A-Za-z0-9_-]+$/.test(validationRevision))throw new Error('Invalid validation revision.');
+  const suffix=validationRevision?'-'+validationRevision:'';
+  const validationRef = writeImmutable(runDir, dir + '/validation'+suffix+'.json', {...validation, status: valid ? 'PASS' : 'HOLD', output_sha256: artifact.sha256, mapped_check_coverage: {complete, missing}}, {lockHandle});
   if (!valid) {
     ledger.recordArtifact(fence, {taskId, attemptId, artifact, status: 'blocked'});
     ledger.appendEvent(fence, {eventId: attemptId + ':validation-held', type: 'validation.held', taskId, attemptId, payload: {artifact, validation: validationRef}});
@@ -44,7 +46,7 @@ export async function runArtifactTask({ledger, fence, lockHandle, runDir, task, 
   // Acceptance is a separate supplied result; model completion cannot create it.
   if (typeof accept !== 'function') throw new Error('Independent acceptance result is required.');
   const acceptance = await accept(value, {artifact, validation, task, attemptId});
-  const acceptanceRef = writeImmutable(runDir, dir + '/acceptance.json', {...acceptance, output_sha256: artifact.sha256}, {lockHandle});
+  const acceptanceRef = writeImmutable(runDir, dir + '/acceptance'+suffix+'.json', {...acceptance, output_sha256: artifact.sha256}, {lockHandle});
   if (acceptance?.status !== 'PASS') {
     ledger.recordArtifact(fence, {taskId, attemptId, artifact, status: 'blocked'});
     ledger.appendEvent(fence, {eventId: attemptId + ':acceptance-held', type: 'acceptance.held', taskId, attemptId, payload: {artifact, acceptance: acceptanceRef}});

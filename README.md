@@ -1,63 +1,55 @@
-# NOVA V2 — a Meta-operated production belt for exam-prep (Meta Global AI Developer Hackathon, Oct 26 – Nov 4, 2026)
+# NOVA V2 — Meta-operated exam-prep production belt
 
-**What this is.** One lane of NOVA — a one-person AI agent factory that shipped 65 exam-prep stores / 130 learning
-"probes" between June and October 2026 — rebuilt so that **Meta's `muse-spark-1.3` executes the factory's role
-contracts** and every step is visible: what the model was asked, what it returned, what it cost, and what accepted or
-rejected it. The pilot product is **probe #66: a regular passenger-car written-test prep store, one state at a time,
-starting with Utah.**
+This isolated hackathon project applies Nova's role contracts to regular passenger-car written-test preparation. **Utah is confirmed as state one.** The intended separate DMV store/probe #66 still needs canonical catalog reactivation through the amendment process; no live store is claimed.
 
-**What this is not.** Not a chatbot, not RAG over a handbook. The handbook is *fact authority only* — nothing from it
-is reproduced; every learner-facing sentence is original, cites a page, and is checked by code and by non-Meta auditors.
+The handbook supplies fact authority and stays private. Learner material must be originally authored, page cited and independently audited. Meta's standard `muse-spark-1.3` is the assigned measured generator. Engineering assistants, deterministic scripts and actual model calls retain separate identities.
 
-## How it is made (the belt)
+## Current status
 
+The sequential controller, SQLite ledger, Meta client, source registrar, deterministic compiler, context assembler and static trace renderer are built. The ledger uses WAL/FULL, integer micro-USD, durable attempts and append-only provenance. Implementation and synthetic tests do not qualify a model or establish a completed belt.
+
+Utah metadata registration has deterministic acceptance with `factual_acceptance:false`. The private 2026–2027 handbook has 115 physical pages and 104 observed printed page IDs. The issuer receipt pins a dated rendered-DOM observation and exact handbook link. Source liveness remains **held with date/rights debt**: `CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT`, null effective date and a recorded disposition. See the run's `15-registration-receipt.json`, `15-source-registry.json`, `15-page-map.json` and `15-source-liveness.json`.
+
+**The Utah run has zero model calls and no founder GO artifact.** Current authority permits local preparation only. Sol builds/seals the handoff; Claude runs later after explicit lock handover and genuine per-stage authority.
+
+Roles **09, 19, 19A and 21 remain planned executors**. A validator is not their assembler. Role 17 records `n/a_pilot` without pretending to enrich content. Independent OpenAI/Anthropic audits remain pending; each scope still needs two qualified, lineage-eligible provider families. GPT-authored candidate prompts disqualify OpenAI for that scope, and Google remains inactive until an explicit qualified assignment. No eligible pair is presumed.
+
+**Keep:** The animated floor will remain in the contract as deferred work. This is still package preparation only.
+
+## Verification and closed mapping blocker
+
+The current snapshot is documented in `coordination/S1-S8-VERIFY-v0.4.0.md` and its JSON companion. Claude's final 04 mapping/collector compatibility repair is verified: the receipt suite passes 41/41, qualification predicates pass 24/24, owner tests pass 215/215 and all 81 fixture outcomes match expectations. The owner receipt is `coordination/CLAUDE-SCHEMA-RECEIPT-v0.4.0.json`, SHA-256 `788950f6ebde2cbca7daebfbb6729fec340b20509fb93d31be1ca842e42eeb05`; its 46-file implementation closure matches exact bytes. The restored mapping requires the collector artifact-hash check and dated source-liveness context, and removing mandatory source-ref guards produces HOLD. The original correction request is retained as history in `coordination/CLAUDE-04-MAPPING-COMPATIBILITY-v0.4.0.md`. These passing local checks do not establish model qualification, independent candidate acceptance or execution readiness.
+
+Local evidence is under `verification/`, including `SOL-CONTROLLER-LOCAL-TESTS-v0.4.0.json`, `BELT-NODE-TESTS-v0.4.0.json` and `BELT-FIXTURE-RUNS-v0.4.0.json`. Synthetic duplicate-command, post-write crash recovery and source-supported defect tests establish only their recorded mechanics. Exact source hashes and final bundle scope govern their applicability; they are not factual audits or live provider results.
+
+## Belt and ownership
+
+```text
+15 source registration → accepted 02 dossier → 16 merge/fact index → 17 n/a_pilot
+→ accepted 19 learning inputs → combined 03/KG → cards / teaching units / practice
+→ 19A units → card scripts → content seal → independent 07/08 audits
+→ validated UI → 09 package → 21 runtime → free preview → independent application QA
 ```
-intake → 15 source registry (handbook hash, page map, liveness) → 02 SME dossier → 16 merge → 03 knowledge graph
-→ 04 flashcards → 05 teaching units (why/how · worked example · misconception · memory hook · self-check) → 06 practice
-exam → 19A curriculum units → 05 card scripts (ask → silent recall → answer → hook) → 07 coverage audit → 08 fact audit
-→ 09 package → dev preview
-```
 
-- **Roles** are bounded contracts (inputs, outputs, definition of done, failure conditions). The active roster and each
-  contract's pinned SHA-256 + excerpts: `contracts/bot-contract-bindings.json`. The canonical contract files live in the
-  private NOVA repository and are referenced here by hash.
-- **Meta Model API is the measured generator** (`muse-spark-1.3`, standard tier, strict JSON output). Prompts:
-  `prompts/*.md` (bodies hashed; controller header rendered separately).
-- **Strict adapters** (`schemas-strict/`) are the provider-facing JSON schemas, each a *pilot adapter* of a parent NOVA
-  schema; every parent rule the strict subset cannot carry is restored as a named deterministic check
-  (`tools/belt/post-validate.mjs`, 190+ checks across 10 stages). `schemas-strict/README.md` lists all 192 restored
-  invariants.
-- **Controller** (`tools/belt/controller.mjs`): sequential, `node:sqlite` ledger (WAL/FULL, append-only events,
-  integer micro-USD), attempt persisted *before* every call, artifact → validate → independent accept in one transaction.
-- **Audit** is by two non-Meta provider families; a generating model never approves its own output; a session that
-  touched the candidate is disqualified from auditing it (`tools/check-audit-independence.mjs`).
-- **Evidence**: `evidence/` (live smoke + strict-mode acceptance probe), `verification/` (fixture runs, tests, receipts),
-  `coordination/` (hand-offs between the three agents: Sol/GPT builds, Claude validates, Muse Code operates + builds the
-  preview), `reviews/` (independent contract review).
+This is the declared dependency order, not a claim that every executor exists. `BELT-V2-CONTRACT.md`, the local pilot overrides and `contracts/bot-contract-bindings.json` distinguish planned, implemented, qualified and executed responsibilities. Role 16 preserves exact accepted fact spans and pending audit status through the local CompiledDossierPilot adaptation; it does not claim canonical Blueprint certification.
 
-## Honest status
+`prompts/` contains ten hashed role bodies and a separate controller header. Body, header and complete-request hashes are distinct; default rendering is review-only/execution-disabled. Claude owns `schemas-strict/`, mapped deterministic checks and their receipts. Sol owns the bounded controller implementation. `reviews/` preserves independent contract review; `REVIEW-BUNDLE.json` pins the review targets.
 
-See `coordination/` for the current state. Execution is gated: no paid call runs without a per-stage founder approval
-artifact; the checker (`node tools/check-bot-contracts.mjs --run-config runs/<run>/run-config.json`) prints every
-blocker. "PASS" from local tools means *local deterministic validation*, never provider acceptance or a belt result.
+## Local checks without provider calls
 
-## Reproduce the local checks (no API key needed)
+From this directory in PowerShell, using the installed dependencies:
 
-```
-npm install
-node tools/belt/strict-lint.mjs                 # adapters obey Meta's strict-mode subset
-node tools/belt/run-fixtures.mjs                # 81 fixtures incl. V1-citizenship projections and 9 negatives
-node --test tests/belt/<stage>.test.mjs         # per-stage suites (211 tests)
+```powershell
+node tools/belt/controller.mjs plan --run-config runs/2026-10-26-rdmv-ut-class-d/run-config.json
 node tools/check-bot-contracts.mjs --run-config runs/2026-10-26-rdmv-ut-class-d/run-config.json
+$controllerTests = Get-ChildItem tests/controller -File -Filter '*.test.mjs' | Select-Object -ExpandProperty FullName
+node --test @controllerTests
+$adapterTests = Get-ChildItem tests/belt -File -Filter '*.test.mjs' | Select-Object -ExpandProperty FullName
+node --test @adapterTests
 ```
 
-With `MODEL_API_KEY` in `.env`: `npm run smoke` (one call) and `node tools/belt/probe-strict.mjs` (one tiny call per
-adapter; ~$0.05 total).
+The default plan makes no provider call. Ledger initialization and registration are explicit local operations under the executor lock. Smoke, provider probes and content dispatch are separate operations; this dry handoff authorizes none of them. A command-line `--go` cannot manufacture the founder's approval artifact, accepted dependencies or budget authority.
 
-## What is deliberately not here
+Credentials, the handbook PDF/extracted text, private run data and Nova's protected factory surface stay outside public distribution. No Clerk, Stripe, payment flow, rendered audio or live TTS is implied by the free preview scope.
 
-`.env`, the Utah handbook PDF (`sources/private/`, fact authority only — fetch it from dld.utah.gov), raw model
-responses, and NOVA's other lines, manifest and master prompt.
-
-Contributors: Sridhar Varadarajulu (founder, architecture, gates) with Claude Code (Anthropic), Sol (GPT) and
-Muse Code (Meta) as named agents; each agent's work is logged under its own identity.
+Founder: Sridhar Varadarajulu. Participants retain actual engineering identities: Sol/Codex builds, Claude owns adapters/review and the later runner handoff, and Muse Code operates/builds the preview within its assigned scope.

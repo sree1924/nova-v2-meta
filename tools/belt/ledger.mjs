@@ -81,8 +81,8 @@ export const stableTaskKey=assignment=>stableTaskIdentity(assignment).logicalKey
 
 export function openLedger(options){return new Ledger(options);}
 export class Ledger{
-  #db;#lock;#clock;#closed=false;
-  constructor({dbPath,lockHandle,busyTimeoutMs=5000,clock=()=>new Date().toISOString()}={}){
+  #db;#lock;#clock;#closed=false;#recoveryPending=false;
+  constructor({dbPath,lockHandle,busyTimeoutMs=5000,clock=()=>new Date().toISOString(),allowRunRecovery=false}={}){
     if(!lockHandle||typeof lockHandle.assertHeld!=='function')throw new Error('An exclusive executor lock must be held before any ledger write');
     lockHandle.assertHeld();
     if(typeof dbPath!=='string'||!dbPath||dbPath===':memory:')throw new Error('Ledger requires a local durable file path');
@@ -96,12 +96,15 @@ export class Ledger{
     this.#lock=lockHandle;this.#clock=clock;this.dbPath=absolute;
     this.#db=new DatabaseSync(absolute);
     const existingSchema=this.#db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='runs'").get();
-    if(existingSchema){const prior=this.#db.prepare("SELECT * FROM runs WHERE ownership_state='owned'").all();if(prior.some(run=>run.run_id!==lockHandle.runId||run.lock_id!==lockHandle.lockId||run.executor_id!==lockHandle.executorId)){this.#db.close();throw new Error('RUN_OWNERSHIP_HELD: database belongs to an unreleased executor');}}
-    this.#db.exec('PRAGMA busy_timeout='+busyTimeoutMs+'; PRAGMA journal_mode=WAL; PRAGMA synchronous=FULL; PRAGMA foreign_keys=ON;');
-    this.migrate();
+    if(existingSchema){const prior=this.#db.prepare("SELECT * FROM runs WHERE ownership_state='owned'").all();if(prior.some(run=>run.run_id!==lockHandle.runId||run.lock_id!==lockHandle.lockId||run.executor_id!==lockHandle.executorId)){
+      if(!allowRunRecovery||prior.length!==1||prior[0].run_id!==lockHandle.runId||this.#db.prepare('PRAGMA user_version').get().user_version!==LEDGER_SCHEMA_VERSION||this.#db.prepare('PRAGMA journal_mode').get().journal_mode!=='wal'){this.#db.close();throw new Error('RUN_OWNERSHIP_HELD: database belongs to an unreleased executor');}
+      this.#recoveryPending=true;
+    }}
+    this.#db.exec('PRAGMA busy_timeout='+busyTimeoutMs+'; '+(this.#recoveryPending?'':'PRAGMA journal_mode=WAL; ')+'PRAGMA synchronous=FULL; PRAGMA foreign_keys=ON;');
+    if(!this.#recoveryPending)this.migrate();
   }
   #now(){const now=this.#clock();if(typeof now!=='string'||!Number.isFinite(Date.parse(now)))throw new Error('Clock must return an ISO timestamp');return now;}
-  #transaction(action){this.#lock.assertHeld();this.#db.exec('BEGIN IMMEDIATE');try{const value=action();this.#db.exec('COMMIT');return value;}catch(error){this.#db.exec('ROLLBACK');throw error;}}
+  #transaction(action,{ownershipRecovery=false}={}){this.#lock.assertHeld();if(this.#recoveryPending&&!ownershipRecovery)throw new Error('RUN_RECOVERY_PENDING: only verified ownership reconciliation may write');this.#db.exec('BEGIN IMMEDIATE');try{const value=action();this.#db.exec('COMMIT');return value;}catch(error){this.#db.exec('ROLLBACK');throw error;}}
   migrate(){return this.#transaction(()=>{const version=this.#db.prepare('PRAGMA user_version').get().user_version;if(version>LEDGER_SCHEMA_VERSION)throw new Error('Ledger schema is newer than this controller');this.#db.exec(migration);for(let current=1;current<=LEDGER_SCHEMA_VERSION;current++)this.#db.prepare('INSERT OR IGNORE INTO schema_migrations(version,applied_at) VALUES (?,?)').run(current,this.#now());this.#db.exec('PRAGMA user_version='+LEDGER_SCHEMA_VERSION);return{schemaVersion:LEDGER_SCHEMA_VERSION};});}
   #fence(fence){
     this.#lock.assertHeld();
@@ -130,6 +133,30 @@ export class Ledger{
       else this.#db.prepare("INSERT INTO runs(run_id,binding_sha256,mode,budget_json,ownership_state,executor_id,lock_id,generation,created_at,updated_at) VALUES (?,?,?,?,'owned',?,?,?,?,?)").run(runId,bindingSha256,mode,canonical(budget),this.#lock.executorId,this.#lock.lockId,generation,now,now);
       const fence={runId,executorId:this.#lock.executorId,lockId:this.#lock.lockId,generation};this.#event(fence,{eventId:'run:'+runId+':generation:'+generation,type:'run.claimed',payload:{binding_sha256:bindingSha256,mode}});return fence;
     });
+  }
+  /** Explicit stopped-executor reconciliation only; no liveness/age heuristic or spend grant. */
+  recoverRunOwnership({runId,bindingSha256,mode,budget,reconciliationReceipt}={}){
+    const fail=message=>{throw new Error('RUN_RECOVERY_HOLD: '+message);};
+    if(runId!==this.#lock.runId||!isHash(bindingSha256)||!['dry_run','execute'].includes(mode)||!budget||typeof budget!=='object')fail('locked run/binding/mode/budget must be explicit');
+    const saved=this.#verified(reconciliationReceipt,'Run recovery reconciliation'),proof=JSON.parse(saved.bytes);
+    if(proof.schema_version!=='nova-run-recovery.v0.4.0'||proof.status!=='PASS'||proof.action!=='recover_run'||proof.content_calls_authorized!==false||!['operator','founder'].includes(proof.source)||proof.run_id!==runId||proof.new_executor_id!==this.#lock.executorId||proof.binding_sha256!==bindingSha256||proof.mode!==mode||proof.budget_sha256!==digest(canonical(budget))||typeof proof.recorded_by!=='string'||!proof.recorded_by||typeof proof.recorded_at!=='string'||!Number.isFinite(Date.parse(proof.recorded_at))||Date.parse(proof.recorded_at)>Date.parse(this.#now()))fail('reconciliation identity, unchanged binding, recorder/time or no-spend authority is invalid');
+    const archived=this.#verified(proof.old_lock_ref,'Archived previous executor lock'),text=archived.bytes.toString('utf8'),block=text.match(/```json\r?\n([\s\S]*?)\r?\n```/);let oldLock;
+    try{oldLock=JSON.parse(block?block[1]:text);}catch{fail('archived native executor lock is invalid');}
+    if(oldLock.schema_version!=='executor-lock.v0.4.0'||oldLock.run_id!==runId||oldLock.lock_id!==proof.old_lock_id||oldLock.executor_id!==proof.old_executor_id||!Number.isSafeInteger(oldLock.pid)||oldLock.pid<1||typeof oldLock.hostname!=='string'||!oldLock.hostname||oldLock.lock_id===this.#lock.lockId||path.resolve(this.#lock.runDir,archived.ref.path)===this.#lock.lockPath)fail('archived lock must exactly name the different previous native owner/PID');
+    const stopped=this.#verified(proof.stopped_evidence_ref,'Explicit executor-stopped evidence'),stop=JSON.parse(stopped.bytes);
+    if(stop.schema_version!=='nova-executor-stopped.v0.4.0'||stop.status!=='PASS'||!['operator','founder'].includes(stop.source)||stop.content_calls_authorized!==false||stop.process_stopped!==true||stop.run_id!==runId||stop.executor_id!==oldLock.executor_id||stop.lock_id!==oldLock.lock_id||stop.pid!==oldLock.pid||stop.hostname!==oldLock.hostname||!['operator_confirmed_process_stopped','observed_process_exit'].includes(stop.basis)||typeof stop.recorded_by!=='string'||!stop.recorded_by||typeof stop.recorded_at!=='string'||!Number.isFinite(Date.parse(stop.recorded_at))||Date.parse(stop.recorded_at)>Date.parse(proof.recorded_at)||Date.parse(stop.recorded_at)<Date.parse(oldLock.acquired_at))fail('no exact, attributable stopped-executor evidence; age/PID assumptions cannot grant ownership');
+    const fence=this.#transaction(()=>{
+      const previous=this.#db.prepare('SELECT * FROM runs WHERE run_id=?').get(runId);
+      if(!previous||previous.binding_sha256!==bindingSha256||previous.mode!==mode||previous.budget_json!==canonical(budget))fail('recovery cannot change binding, mode, budget or run history');
+      const eventId='run:'+runId+':ownership-recovery:'+(proof.old_generation+1),prior=this.#db.prepare('SELECT * FROM events WHERE event_id=?').get(eventId);
+      if(prior&&previous.ownership_state==='owned'&&previous.lock_id===this.#lock.lockId&&previous.executor_id===this.#lock.executorId&&previous.generation===proof.old_generation+1){const payload=JSON.parse(prior.payload_json);if(prior.type!=='run.ownership_recovered'||payload.reconciliation_receipt?.sha256!==saved.ref.sha256)fail('different reconciliation already owns this generation');return{runId,executorId:previous.executor_id,lockId:previous.lock_id,generation:previous.generation,reused:true};}
+      if(previous.ownership_state!=='owned'||previous.generation!==proof.old_generation||previous.lock_id!==proof.old_lock_id||previous.executor_id!==proof.old_executor_id)fail('recorded previous ownership is not the exact unreleased owner');
+      const next={runId,executorId:this.#lock.executorId,lockId:this.#lock.lockId,generation:previous.generation+1};
+      const changed=this.#db.prepare("UPDATE runs SET executor_id=?,lock_id=?,generation=?,updated_at=? WHERE run_id=? AND ownership_state='owned' AND generation=? AND lock_id=? AND executor_id=?").run(next.executorId,next.lockId,next.generation,this.#now(),runId,previous.generation,previous.lock_id,previous.executor_id);
+      if(changed.changes!==1)fail('conditional old-owner fencing check failed');
+      this.#event(next,{eventId,type:'run.ownership_recovered',payload:{old_generation:previous.generation,new_generation:next.generation,old_executor_id:previous.executor_id,new_executor_id:next.executorId,old_lock_id:previous.lock_id,new_lock_id:next.lockId,old_lock_ref:archived.ref,stopped_evidence_ref:stopped.ref,reconciliation_receipt:saved.ref,binding_sha256:bindingSha256,mode,budget_unchanged:true,counters_and_history_retained:true,content_calls_authorized:false}});return next;
+    },{ownershipRecovery:true});
+    this.#recoveryPending=false;return fence;
   }
   releaseRun(fence){return this.#transaction(()=>{this.#fence(fence);this.#event(fence,{eventId:'run:'+fence.runId+':release:'+fence.generation,type:'run.released'});this.#db.prepare("UPDATE runs SET ownership_state='released',updated_at=? WHERE run_id=? AND generation=?").run(this.#now(),fence.runId,fence.generation);return{status:'released'};});}
   rebindRun(fence,{bindingSha256,mode,budget,authorizationReceipt}={}){
@@ -194,6 +221,47 @@ export class Ledger{
   #task(fence,taskId){const task=this.#db.prepare('SELECT * FROM tasks WHERE task_id=? AND run_id=?').get(taskId,fence.runId);if(!task)throw new Error('Task does not belong to owned run');return task;}
   #attempt(fence,attemptId){const attempt=this.#db.prepare('SELECT * FROM attempts WHERE attempt_id=? AND run_id=?').get(attemptId,fence.runId);if(!attempt)throw new Error('Attempt does not belong to owned run');return attempt;}
   #activeAttempt(fence,attemptId){const attempt=this.#attempt(fence,attemptId);const task=this.#task(fence,attempt.task_id);if(attempt.generation!==fence.generation||attempt.executor_id!==fence.executorId||task.active_attempt_id!==attemptId)throw new Error('STALE_ATTEMPT: result cannot advance current task');return{attempt,task};}
+  /** Reassign only a fully evidenced saved attempt. This never dispatches or creates an attempt. */
+  recoverAttempt(fence,{attemptId,recoveryReceipt}={}){
+    const saved=this.#verified(recoveryReceipt,'Attempt recovery receipt'),proof=JSON.parse(saved.bytes);
+    const fail=message=>{throw new Error('ATTEMPT_RECOVERY_HOLD: '+message);};
+    if(proof.schema_version!=='nova-attempt-recovery.v0.4.0'||!['content','local'].includes(proof.kind)||proof.run_id!==fence.runId||proof.attempt_id!==attemptId||proof.to_generation!==fence.generation||proof.recovered_by!==fence.executorId||typeof proof.recorded_at!=='string'||!Number.isFinite(Date.parse(proof.recorded_at))||Date.parse(proof.recorded_at)>Date.parse(this.#now()))fail('receipt identity/current-owner/time is invalid');
+    const artifact=this.#verified(proof.saved_artifact,'Recovery saved artifact');const artifactData=JSON.parse(artifact.bytes);
+    if(!artifactData||typeof artifactData!=='object'||Object.hasOwn(artifactData,'_fixture'))fail('saved output is not a non-fixture JSON artifact');
+    return this.#transaction(()=>{this.#fence(fence);const attempt=this.#attempt(fence,attemptId),task=this.#task(fence,attempt.task_id);
+      if(proof.task_id!==task.task_id||proof.logical_key_sha256!==task.logical_key_sha256||task.active_attempt_id!==attemptId)fail('task/attempt/logical-key binding differs');
+      if(!['running','output_saved','validating'].includes(task.status)||!['running','output_saved','validating'].includes(attempt.status))fail('only running/output_saved/validating work can be recovered; uncertain or terminal work cannot');
+      const eventId=attemptId+':recovered:'+fence.generation;const prior=this.#db.prepare('SELECT * FROM events WHERE event_id=?').get(eventId);
+      if(prior){const payload=JSON.parse(prior.payload_json);if(prior.type!=='attempt.recovered'||prior.task_id!==task.task_id||prior.attempt_id!==attemptId||payload.recovery_receipt?.sha256!==saved.ref.sha256||payload.old_generation!==proof.from_generation||payload.new_generation!==fence.generation||attempt.generation!==fence.generation||attempt.executor_id!==fence.executorId)fail('different receipt already controls this recovery generation');}
+      else if(proof.from_generation!==attempt.generation||attempt.generation>fence.generation)fail('receipt does not name the exact prior attempt generation');
+      const competing=this.#db.prepare("SELECT task_id FROM tasks WHERE run_id=? AND task_id<>? AND status IN ('claimed','running','output_saved','validating','awaiting_audit','unknown_provider_result') LIMIT 1").get(fence.runId,task.task_id);if(competing)fail('another sequential task is active');
+      const calls=this.#db.prepare('SELECT * FROM model_calls WHERE run_id=? AND attempt_id=?').all(fence.runId,attemptId),reservations=this.#db.prepare('SELECT * FROM reservations WHERE run_id=? AND attempt_id=?').all(fence.runId,attemptId),identity=JSON.parse(task.identity_json);
+      if(proof.kind==='local'){
+        if(proof.model_call!==null||identity.model!==null||calls.length||reservations.length)fail('local recovery cannot disguise model calls or reservations');
+      }else{
+        if(identity.model===null||calls.length!==1||reservations.length!==1||!proof.model_call)fail('content recovery requires one prior completed call and reported reservation');
+        const call=calls[0],reservation=reservations[0],binding=proof.model_call;
+        if(call.status!=='completed'||reservation.state!=='reported'||reservation.actual_microusd===null||call.reservation_id!==reservation.reservation_id||call.task_id&&call.task_id!==task.task_id||binding.call_id!==call.call_id||binding.reservation_id!==reservation.reservation_id||reservation.task_id!==task.task_id)fail('provider/cost result is uncertain or different');
+        const usage=JSON.parse(call.usage_json);const input=usage?.prompt_tokens??usage?.input_tokens,output=usage?.completion_tokens??usage?.output_tokens,total=usage?.total_tokens??(input+output);
+        if(![input,output,total].every(value=>Number.isSafeInteger(value)&&value>=0)||total!==input+output||canonical(binding.usage)!==canonical(usage)||money(binding.actual_usd)!==reservation.actual_microusd)fail('usage or reconciled cost is missing/different');
+        const recordedReceipt=this.#verified(JSON.parse(call.receipt_ref_json),'Recorded completed model-call receipt'),requestedReceipt=this.#verified(binding.receipt_ref,'Recovery model-call receipt');
+        if(!sameRef(recordedReceipt.ref,requestedReceipt.ref))fail('completed call receipt reference differs from ledger');
+        const callData=JSON.parse(recordedReceipt.bytes),metadata=JSON.parse(call.metadata_json),raw=this.#verified(binding.raw_response_ref,'Recovery raw provider response'),recordedRaw=this.#verified(callData.raw_response,'Call receipt raw response'),rawData=JSON.parse(raw.bytes);
+        if(!sameRef(raw.ref,recordedRaw.ref)||metadata.raw_response_sha256!==raw.ref.sha256||metadata.http_status!==200||metadata.finish_reason!=='stop'||callData.http_status!==200||callData.finish_reason!=='stop'||rawData.choices?.[0]?.finish_reason!=='stop')fail('raw response/HTTP/finish provenance does not prove completed generation');
+        const requestedModel=typeof identity.model==='string'?identity.model:identity.model?.model;
+        if(!requestedModel||metadata.model_requested!==requestedModel||callData.model_requested!==requestedModel||typeof rawData.model!=='string'||!rawData.model||metadata.returned_model!==rawData.model||callData.model_returned!==rawData.model||!isHash(metadata.request_sha256)||callData.request_sha256!==metadata.request_sha256)fail('request or returned-model identity differs from completed call');
+        const sameUsage=value=>value&&(value.prompt_tokens??value.input_tokens)===input&&(value.completion_tokens??value.output_tokens)===output&&(value.total_tokens??total)===total;
+        if(!sameUsage(callData.usage)||!sameUsage(rawData.usage)||money(callData.estimated_usd)!==reservation.actual_microusd)fail('raw/receipt usage or recorded cost does not reconcile');
+        let produced;try{produced=JSON.parse(rawData.choices?.[0]?.message?.content);}catch{fail('raw completed content is not valid artifact JSON');}
+        if(canonical(produced)!==canonical(artifactData)||(callData.output_sha256!==undefined&&callData.output_sha256!==artifact.ref.sha256))fail('saved output is not the exact JSON value produced by the completed call');
+      }
+      if(prior)return{...parseRow(attempt),recovery_ref:saved.ref,reused:true};
+      const oldGeneration=attempt.generation,oldExecutor=attempt.executor_id;
+      this.#db.prepare('UPDATE attempts SET executor_id=?,generation=?,updated_at=? WHERE attempt_id=? AND generation=?').run(fence.executorId,fence.generation,this.#now(),attemptId,oldGeneration);
+      this.#event(fence,{eventId,type:'attempt.recovered',taskId:task.task_id,attemptId,payload:{kind:proof.kind,old_generation:oldGeneration,new_generation:fence.generation,old_executor_id:oldExecutor,new_executor_id:fence.executorId,recovery_receipt:saved.ref,saved_artifact:artifact.ref,model_call:proof.model_call,counters_unchanged:true,provider_request_authorized:false}});
+      return{...parseRow(this.#db.prepare('SELECT * FROM attempts WHERE attempt_id=?').get(attemptId)),recovery_ref:saved.ref,reused:false};
+    });
+  }
   startAttempt(fence,{taskId,commandId}={}){
     validId(commandId,'attempt commandId');
     return this.#transaction(()=>{this.#fence(fence);const task=this.#task(fence,taskId);
@@ -337,6 +405,30 @@ export class Ledger{
       this.#db.prepare('UPDATE tasks SET status=?,updated_at=? WHERE task_id=?').run(taskStatus,now,task.task_id);
       if(status==='unknown_provider_result')this.#db.prepare("UPDATE reservations SET state='unknown_provider_result',updated_at=? WHERE attempt_id=? AND state='reserved'").run(now,attemptId);
       this.#event(fence,{eventId:eventId??attemptId+':'+status,type:'attempt.'+status,taskId:task.task_id,attemptId,payload:{error_ref:errorRef,task_status:taskStatus,reserve_retained:status==='unknown_provider_result'}});return parseRow(this.#db.prepare('SELECT * FROM attempts WHERE attempt_id=?').get(attemptId));
+    });
+  }
+  /** Operator reconciliation of an attempt parked in unknown_provider_result when verified proof shows NO request was sent
+   *  (pre-send throw). One transaction: reservation → released, model_call → failed, attempt → failed, event appended.
+   *  Added 2026-10-27 by the runner (Claude, JAM-UT-01) with the founder's order; never grants spend; proof is hash-verified. */
+  reconcileAttemptNoRequest(fence,{attemptId,proofRef}={}){
+    const saved=this.#verified(proofRef,'Attempt reconciliation proof'),proof=JSON.parse(saved.bytes);
+    if(proof.schema_version!=='nova-attempt-reconciliation.v0.4.0'||proof.attempt_id!==attemptId||proof.no_request_sent!==true||!proof.evidence||!(proof.recorded_by?.actor_id||typeof proof.recorded_by==='string'))throw new Error('Reconciliation proof is incomplete or not bound to this attempt');
+    return this.#transaction(()=>{this.#fence(fence);const attempt=this.#attempt(fence,attemptId),task=this.#task(fence,attempt.task_id);
+      // Not a live advancement: the attempt may belong to an earlier controller generation. Same executor, same task's
+      // active attempt, parked status — the generation hop is recorded in the event, never silently crossed.
+      if(task.active_attempt_id!==attemptId||attempt.executor_id!==fence.executorId)throw new Error('RECONCILE_SCOPE: attempt is not this executor\'s active attempt for its task');
+      if(attempt.status!=='unknown_provider_result')throw new Error('Only an unknown_provider_result attempt can be reconciled');
+      const now=this.#now(),generation_hop={from:attempt.generation,to:fence.generation};
+      const reservation=this.#db.prepare('SELECT * FROM reservations WHERE attempt_id=? AND run_id=?').get(attemptId,fence.runId);
+      if(reservation&&['reserved','unknown_provider_result'].includes(reservation.state))this.#db.prepare('UPDATE reservations SET state=?,actual_microusd=NULL,updated_at=? WHERE reservation_id=?').run('released',now,reservation.reservation_id);
+      const call=this.#db.prepare('SELECT * FROM model_calls WHERE attempt_id=? AND run_id=?').get(attemptId,fence.runId);
+      if(call&&call.status==='unknown_provider_result'){const meta={...JSON.parse(call.metadata_json||'{}'),error_code:'FAILED_PRE_SEND_NO_REQUEST',reconciliation_ref:proofRef};this.#db.prepare('UPDATE model_calls SET status=?,metadata_json=?,updated_at=? WHERE call_id=?').run('failed',JSON.stringify(meta),now,call.call_id);}
+      const attempts=this.#db.prepare('SELECT count(*) AS count FROM attempts a JOIN tasks t ON t.task_id=a.task_id WHERE t.run_id=? AND t.lineage_id=? AND t.stage_id=? AND t.role_id=?').get(fence.runId,task.lineage_id,task.stage_id,task.role_id).count;
+      const taskStatus=attempts<task.max_attempts?'retry_wait':'failed';
+      this.#db.prepare('UPDATE attempts SET status=?,error_ref_json=?,updated_at=? WHERE attempt_id=?').run('failed',canonical(proofRef),now,attemptId);
+      this.#db.prepare('UPDATE tasks SET status=?,updated_at=? WHERE task_id=?').run(taskStatus,now,task.task_id);
+      this.#event(fence,{eventId:attemptId+':reconciled_no_request',type:'attempt.reconciled_no_request',taskId:task.task_id,attemptId,payload:{proof_ref:proofRef,reservation_released:!!reservation,task_status:taskStatus,money_spent_usd:0,generation_hop}});
+      return{status:'RECONCILED',attempt_id:attemptId,task_id:task.task_id,task_status:taskStatus,reservation_released:!!reservation,attempts_used:attempts,max_attempts:task.max_attempts};
     });
   }
   appendEvent(fence,event){return this.#transaction(()=>{this.#fence(fence);if(event.taskId)this.#task(fence,event.taskId);if(event.attemptId){const attempt=this.#attempt(fence,event.attemptId);if(event.taskId&&attempt.task_id!==event.taskId)throw new Error('Event attempt/task identity mismatch');}return this.#event(fence,event);});}

@@ -1,0 +1,255 @@
+{
+  "schema_version": "rdmv.run-config.draft.0.2.0",
+  "derived_from": "runs/2026-10-27-rdmv-tx-class-c/run-config.json (Texas candidate, now superseded) + RDMV-RUN-CONFIG.template.json v0.4.0",
+  "status": "STATE_SELECTED_BY_FOUNDER_INTAKE_VERIFY_PENDING",
+  "execution_enabled": false,
+  "execution_note": "Founder selected Utah on 2026-10-26 evening ('run 1 state utah tonight'). Execution flips true only when: MODEL_API_KEY smoke + strict-probe are green, Sol's controller exists, Role 15 has resolved every (verify) below from the PDF, and the founder gives --go for the first paid stage.",
+  "run_id": "2026-10-26-rdmv-ut-class-d",
+  "working_product_id": "rdmv",
+  "orchestration_owner": "Builder01a1764d-cf44-7fc1-a31f-bf0be7852006; runnerClaude2bdcad95-d4cc-467e-a88d-be4a6260cf03; Muse preview. No content calls without stage-bound founder go.",
+  "catalog": {
+    "historical_slug": "dmv-permit",
+    "observed_status": "pruned",
+    "observed_reason": "reason_weak_engine_fit",
+    "canonical_probe_id": "(pending) #66 dmv-permit reactivation via AMENDMENT-ORDER",
+    "intake_disposition": "probe_66_pending_amendment_order",
+    "manifest_changed_by_template": false
+  },
+  "scope": {
+    "jurisdiction": "US-UT",
+    "jurisdiction_selected_by": "founder, 2026-10-26 (chat)",
+    "issuing_authority": "Utah Department of Public Safety — Driver License Division (DLD), dld.utah.gov",
+    "license_or_permit_class": "Class D (regular passenger-car) — learner permit / first-time written knowledge test (verify class label in handbook)",
+    "audience_age_band": "first-time applicants, 15+ (learner permit minimum age 15 per dld.utah.gov/learner-permit); driver education required ages 15–18, optional 19+ (verify from handbook)",
+    "application_path": "first_time_never_licensed",
+    "language": "en",
+    "coverage_kind": "full_knowledge_test",
+    "coverage_manifest_ref": null,
+    "excluded_requirements": [
+      "vision test",
+      "driving (road) skills test",
+      "driver education course content",
+      "documents/lawful-presence eligibility",
+      "CDL/motorcycle",
+      "previously-licensed open-book 25-question path (separate product path, out of pilot)"
+    ],
+    "handbook_edition": "Utah Driver Handbook 2026-2027",
+    "handbook_url": "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-2026.pdf",
+    "handbook_local_snapshot": "runs/2026-10-26-rdmv-ut-class-d/sources/private/Driver-Handbook-2026.pdf",
+    "handbook_sha256": "3764482adaa0aa2fbc549ca9607fa87aef2abb77ad5c1297ac1e2642f94dcb21",
+    "source_pages_checked_2026_10_26": [
+      "https://dld.utah.gov/written-knowledge-test/",
+      "https://dld.utah.gov/learner-permit/"
+    ],
+    "exam_facts": {
+      "question_count": {
+        "value": 50,
+        "status": "verified_web_page",
+        "source_page": "https://dld.utah.gov/written-knowledge-test/ — 'Never licensed is a closed-book 50-question test.'",
+        "note": "(verify) confirm in handbook PDF and record page"
+      },
+      "format": {
+        "value": "closed-book multiple choice (verify in handbook §6)",
+        "status": "partially_verified",
+        "source_page": "https://dld.utah.gov/written-knowledge-test/"
+      },
+      "passing_percent": {
+        "value": 80,
+        "status": "verified",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0033",
+        "source_ref": "src:rdmv-ut-class-d:utah-dld:handbook",
+        "source_snapshot_sha256": "3764482adaa0aa2fbc549ca9607fa87aef2abb77ad5c1297ac1e2642f94dcb21",
+        "liveness_receipt_ref": "runs/2026-10-26-rdmv-ut-class-d/15-source-liveness.json",
+        "source_observation_ref": {
+          "path": "runs/2026-10-26-rdmv-ut-class-d/receipts/15-passing-score-observation.json",
+          "sha256": "6fe4a6b5e8397801b9b2d84c804d3850820d1e8e18421483f3a4956f582c7edd"
+        },
+        "previous": {
+          "value": 80,
+          "status": "verified_handbook_pdf",
+          "source_page": "Utah Driver Handbook 2026, PDF p33 (printed p23), Section 6.A Written Knowledge Test: \"you must pass with a score of 80% or better\"",
+          "verified_by": "Role 15 (Sol executor 01a17a94), role15-findings.json 2026-10-26T23:49:24Z; handbook sha 3764482a…",
+          "previous": "unknown — not published on dld.utah.gov pages"
+        }
+      },
+      "time_limit": {
+        "value": "(verify) not stated on issuer pages; check handbook §6",
+        "status": "unknown",
+        "source_page": "(verify) handbook §6 — not stated on issuer web pages checked 2026-10-26"
+      },
+      "retake_rules": {
+        "value": "may test twice in one day; after three failures a second fee is required; retest by appointment",
+        "status": "verified_web_page",
+        "source_page": "https://dld.utah.gov/written-knowledge-test/"
+      },
+      "score_validity": {
+        "value": "test scores and permits valid 18 months",
+        "status": "verified_web_page",
+        "source_page": "https://dld.utah.gov/learner-permit/"
+      },
+      "languages_offered": {
+        "value": "audio+text: Arabic, French, Korean, Mandarin, Portuguese, Spanish; text-only: Dari, Somali, Swahili, Tagalog, Tongan, Ukrainian, Vietnamese",
+        "status": "verified_web_page",
+        "source_page": "https://dld.utah.gov/written-knowledge-test/"
+      },
+      "previously_licensed_path": {
+        "value": "open-book 25-question test",
+        "status": "verified_web_page",
+        "source_page": "https://dld.utah.gov/written-knowledge-test/",
+        "note": "excluded from pilot scope"
+      }
+    },
+    "rights_posture": {
+      "handbook": "fact authority only; no handbook text/tables/images reproduced; every fact cites a PDF page; the PDF is kept under sources/private (gitignored) and never redistributed. dld.utah.gov pages carry no copyright notice (checked 2026-10-26); the PDF front matter may credit separately-owned material — Role 15 records any notice verbatim.",
+      "sign_graphics": "MUTCD designs = US federal public domain (17 USC 105); Utah MUTCD supplement signs per Utah MUTCD terms (verify). Text-first pilot: road signs taught by verbal page-sourced cues (contracts/media-disposition.json).",
+      "sample_questions": "none reproduced; all items authored and labelled practice"
+    },
+    "handbook_snapshot_bytes": 9153599,
+    "handbook_retrieved_at_utc": "2026-10-26T23:27:22.083Z",
+    "section_page_ranges": {
+      "sec09-rules-of-the-road": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "sec09J-yielding-right-of-way": [
+        60
+      ],
+      "sec08-basic-driving": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "sec06-examinations": [
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    "section_page_ranges_note": "PDF (physical) pages from Role 15 page map; headings: SECTION 9 at pdf 49 (printed 39), J. YIELDING RIGHT-OF-WAY at pdf 60 (printed 50), SECTION 10 at pdf 61. First 02 chapter proposed: sec09-rules-of-the-road (text-first)."
+  },
+  "baseline": {
+    "kind": "none_new_product",
+    "existing_dmv_v1_verified": false,
+    "methodology_control_ref": "../../baseline/citizenship/BASELINE.json"
+  },
+  "producer": {
+    "provider": "meta",
+    "endpoint_profile_ref": "https://api.meta.ai/v1/chat/completions; response_format json_schema strict:true with schemas-strict/* adapters",
+    "model": "muse-spark-1.3",
+    "model_is_candidate_until_qualified": true,
+    "key_env_name": "MODEL_API_KEY",
+    "contributor_mode_allowed": false,
+    "qualification_task": "Role 04 cards for ONE text-first handbook chapter (Sol/founder pick; road signs deferred per media disposition)",
+    "role_bindings_ref": "../../contracts/bot-contract-bindings.json#/roles",
+    "adapters_ref": "../../schemas-strict/stage-map.json",
+    "post_validator_ref": "../../tools/belt/post-validate.mjs",
+    "pricing_ref": {
+      "path": "contracts/meta-pricing-snapshot.v0.4.0.json",
+      "sha256": "2c61a45f146f396ec1ded19d0f6235ef04fc1138693fe618f0603fb2c147eb47"
+    },
+    "billing_mode": "credits",
+    "billing_mode_detail": {
+      "mode": "meta_free_credits",
+      "decided_by": "founder chat 2026-10-27 (\"credits\")",
+      "dashboard_clause": "While using free credits your content may be used for product improvement (dev.meta.ai billing, 2026-10-26)",
+      "hard_rule": "No NOVA V1 artifact (citizenship or any other line) is ever sent to the Meta API under credits; only Utah-lane inputs (handbook facts, lane artifacts) go to the model.",
+      "credit_balance_observed_usd": 149.98,
+      "observed_at": "2026-10-26"
+    }
+  },
+  "audit_pool": {
+    "required_providers": [
+      "openai",
+      "anthropic"
+    ],
+    "note": "two-family independence per tools/check-audit-independence.mjs; Claude Code sessions that touched candidate bytes are disqualified for that candidate"
+  },
+  "limits": {
+    "max_active_probe_runs": 1,
+    "max_parallel_curriculum_jobs": 1,
+    "max_parallel_audit_jobs": 2,
+    "max_automatic_attempts_per_logical_task": 2,
+    "max_candidate_remediation_cycles": 1,
+    "max_total_usd": 100,
+    "max_call_usd": 1,
+    "per_provider_usd_caps": {
+      "meta": 60,
+      "openai": 15,
+      "anthropic": 15,
+      "google": 0,
+      "media": 10
+    },
+    "pricing_snapshot_ref": "../../ENV-SETUP.md#meta-model-api (2026-10-26)",
+    "run_deadline_utc": "2026-11-05T02:00:00Z",
+    "spend_mode": "dry_run",
+    "per_role_usd_caps": {
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "02": 12,
+      "03": 10,
+      "04": 8,
+      "05": 10,
+      "06": 8,
+      "07": 5,
+      "08": 5,
+      "09": 2,
+      "19A": 2
+    },
+    "max_completion_tokens": 8000,
+    "per_role_usd_caps_note": "per-role ceilings for the Utah pilot; 15/16/17 are scripts (0 model spend)"
+  },
+  "execution": {
+    "executor_id": null,
+    "lock_ref": "EXECUTOR.lock.md",
+    "lock_note": "Native executor-lock.mjs; one holder during each local/dispatch operation; explicit builder handover recorded.",
+    "run_write_root": "D:/nova/fb-ai-hackathon/runs/2026-10-26-rdmv-ut-class-d",
+    "ledger": {
+      "kind": "sqlite",
+      "driver": "node:sqlite",
+      "path": "ledger/run.sqlite",
+      "journal_mode": "WAL",
+      "synchronous": "FULL"
+    },
+    "adapter_validation_receipts_ref": {
+      "path": "coordination/CLAUDE-SCHEMA-RECEIPT-v0.4.0.json",
+      "sha256": "08b6ba765bda838589c75b7390d8d4343f80462dadc296cbb9ece735cc0f9073",
+      "pinned_by": "lock-free repin by Claude runner 2026-10-27 (receipt refresh)"
+    }
+  },
+  "open_before_first_paid_call": [
+    "MODEL_API_KEY in .env; `npm run smoke` green",
+    "`node tools/belt/probe-strict.mjs` — all ten adapters ACCEPTED by api.meta.ai strict mode (or REJECTED rows fixed)",
+    "Sol: controller + ledger + meta-client exist; EXECUTOR.lock.md claimed by Sol's actual executor id",
+    "Role 15: handbook sha256, page count, front-matter edition/effective date, any notice verbatim; passing_percent resolved from the PDF or kept unknown",
+    "founder --go for stage 02 (first paid call)"
+  ],
+  "founder_decision_2026_10_26_evening": "DMV = Nova probe #66, a SEPARATE store, all 50 states on the jurisdiction axis (THE-BELT V1-09); Utah is state 1 and the hackathon test. Supersedes the earlier hackathon-only framing. Manifest entry for #66 requires a founder-approved AMENDMENT-ORDER (not tonight; after Utah passes). The Meta sales funnel (Stage 12) is a parallel focus of the founder 10-day window, not deferred.",
+  "candidate_lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:1",
+  "state_selection": {
+    "status": "confirmed",
+    "confirmed_by": "founder",
+    "jurisdiction": "US-UT",
+    "confirmed_at_utc": "2026-10-26T23:05:00Z",
+    "evidence": "founder chat 2026-10-26 evening: \"lets do a dry test then run 1 state utah tonight\"; reaffirmed as probe #66 state 1 (\"we test with 1 tonight aka utah\")",
+    "recorded_by": "Claude Code 2bdcad95 (belt runner)",
+    "scope_note": "Utah Class D regular passenger-car written knowledge test, first-time never-licensed path, English"
+  }
+}

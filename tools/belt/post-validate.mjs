@@ -106,6 +106,9 @@ export async function validateArtifact({ stage_id, artifact, context = {} }) {
       else if (missing.length) checks.push({ check_id: `${stage.prefix}.REQUIRED_CHECKS_MISSING`, status: 'FAIL', evidence: `${missing.length} mapped check(s) not emitted: ${missing.join(', ')}` });
       metrics.required_checks = (mapped.check_ids ?? []).length;
       metrics.required_checks_missing = missing.length;
+    } else {
+      // Fail closed: without the mapping, mandatory-check coverage cannot be established.
+      checks.push({ check_id: `${stage.prefix}.REQUIRED_CHECKS_MAPPING`, status: 'HOLD', evidence: `mapping file absent: ${stage.mapping}` });
     }
   } catch (e) {
     checks.push({ check_id: `${stage.prefix}.REQUIRED_CHECKS_MAPPING`, status: 'HOLD', evidence: `required-check enforcement unavailable: ${e.message.slice(0, 200)}` });

@@ -1,0 +1,339 @@
+{
+  "schema_version": "rdmv.run-config.draft.0.4.0",
+  "status": "REVIEW_REVISION_STATE_AND_OWNER_RECEIPTS_PENDING",
+  "execution_enabled": false,
+  "run_id": null,
+  "working_product_id": "rdmv",
+  "catalog": {
+    "historical_slug": "dmv-permit",
+    "observed_status": "pruned",
+    "observed_reason": "reason_weak_engine_fit",
+    "canonical_probe_id": null,
+    "intake_disposition": "hackathon_only_mint_outside_catalog",
+    "authority_ref": null,
+    "manifest_changed_by_template": false
+  },
+  "scope": {
+    "jurisdiction": null,
+    "issuing_authority": null,
+    "license_or_permit_class": "Regular non-commercial passenger-car written/knowledge-test preparation; local class label pending state selection",
+    "audience_age_band": null,
+    "application_path": null,
+    "language": null,
+    "coverage_kind": null,
+    "coverage_manifest_ref": null,
+    "excluded_requirements": [
+      "commercial (CDL)",
+      "motorcycle",
+      "driving/road skills test",
+      "licensing eligibility or completion of required driver education"
+    ],
+    "handbook_edition": null,
+    "source_effective_date": null,
+    "exam_facts_ref": null,
+    "source_registry_ref": null,
+    "rights_report_ref": null,
+    "exam_facts": {
+      "question_count": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "passing_percent": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "time_limit_seconds": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "domain_weights": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      }
+    }
+  },
+  "baseline": {
+    "kind": null,
+    "existing_dmv_v1_verified": false,
+    "artifact_manifest_ref": null,
+    "comparison_question": null,
+    "matched_control_required_for_model_superiority": true
+  },
+  "policy": {
+    "scope_reconciliation_ref": null,
+    "event_rules_snapshot_ref": null,
+    "reuse_disposition_ref": null,
+    "contribution_ledger_ref": null,
+    "public_repository_url": null,
+    "repository_visibility_evidence_ref": null,
+    "contract_review_disposition_ref": null,
+    "pilot_overlay_ref": "contracts/pilot-overrides-v0.4.0.json",
+    "source_fact_policy_ref": "contracts/source-fact-policy.json",
+    "safe_model_input_tool": "tools/sanitize-model-input.mjs",
+    "raw_candidate_configuration_rendering_allowed": false
+  },
+  "producer": {
+    "provider": "meta",
+    "endpoint_profile_ref": null,
+    "model": "muse-spark-1.3",
+    "model_is_candidate_until_qualified": true,
+    "key_env_name": "MODEL_API_KEY",
+    "contributor_mode_allowed": false,
+    "qualification_report_ref": null,
+    "role_bindings_ref": "contracts/bot-contract-bindings.json#/roles",
+    "generation_parameters_ref": null,
+    "resolved_stage_assignments_ref": null,
+    "request_body_refs": "prompts/*.md",
+    "controller_header_template_ref": "prompts/controller-header.template.json",
+    "request_renderer_ref": "tools/render-request.mjs"
+  },
+  "audit_pool": {
+    "required_providers": [],
+    "model_and_scope_assignments_ref": null,
+    "qualification_reports_ref": null,
+    "rubric_ref": null,
+    "blocking_criteria_ref": null,
+    "content_manifest_ref": null,
+    "release_manifest_ref": null,
+    "contract_bindings_ref": "contracts/bot-contract-bindings.json#/review_bots",
+    "inactive_providers": [
+      "google"
+    ],
+    "superseded_proposed_pair": [
+      "openai",
+      "anthropic"
+    ],
+    "required_distinct_provider_families": 2,
+    "candidate_providers": [
+      "openai",
+      "anthropic",
+      "google"
+    ],
+    "selection_policy": "two qualified lineage-eligible distinct families; no assumed pair",
+    "intervention_ledger_ref": null,
+    "intervention_ledger_sha256": null,
+    "prompt_authorship_ref": "contracts/prompt-authorship.json",
+    "independence_check_ref": "tools/check-audit-independence.mjs",
+    "missing_eligible_pair_action": "HOLD",
+    "actual_provider_activation_requires_scoped_assignment": true
+  },
+  "limits": {
+    "max_active_probe_runs": 1,
+    "max_parallel_curriculum_jobs": 1,
+    "max_parallel_audit_jobs": 1,
+    "max_transport_redeliveries": null,
+    "max_automatic_attempts_per_logical_task": 2,
+    "max_escalations_per_stage_input_lineage": 1,
+    "max_escalated_attempts_per_stage_input_lineage": 1,
+    "max_candidate_remediation_cycles": 1,
+    "candidate_remediation_counter_scope": "root_candidate_lineage",
+    "max_total_usd": null,
+    "max_call_usd": null,
+    "per_role_limits_ref": null,
+    "per_provider_usd_caps": {
+      "meta": null,
+      "openai": null,
+      "anthropic": null,
+      "google": null,
+      "media": null
+    },
+    "max_call_tokens_ref": null,
+    "pricing_snapshot_ref": null,
+    "task_timeouts_ref": null,
+    "run_deadline_utc": null,
+    "max_human_intervention_budget_ref": null,
+    "spend_mode": "dry_run",
+    "uncertain_provider_result_policy_ref": null,
+    "max_active_tasks": 1
+  },
+  "execution": {
+    "executor_id": null,
+    "lock_ref": null,
+    "fencing_generation": null,
+    "task_graph_ref": null,
+    "candidate_repair_lineage_ref": null,
+    "artifact_schema_registry_ref": null,
+    "tool_allowlist_ref": null,
+    "network_policy_ref": null,
+    "run_write_root": null,
+    "binding_registry_snapshot_hash": null,
+    "stage_assignments_ref": null,
+    "adapter_validation_receipts_ref": {
+      "path": "coordination/CLAUDE-SCHEMA-RECEIPT-v0.4.0.json",
+      "sha256": "08b6ba765bda838589c75b7390d8d4343f80462dadc296cbb9ece735cc0f9073"
+    },
+    "post_validator_ref": {
+      "path": "tools/belt/post-validate.mjs",
+      "sha256": "68c6cfeca5105a4aab499ca91d92d4e867dd9c9e36c37c2c854f8706344b34b9"
+    },
+    "schema_lane_owner": "Claude Code per F10/FB-01/FB-02",
+    "schema_lane_handoff_ref": "CLAUDE-V0.4.0-SCHEMA-HANDOFF.md",
+    "role_input_sanitization_required": true
+  },
+  "transport": {
+    "kind": "in_process_sequential",
+    "status": "planned",
+    "process_count": 1,
+    "tasks_at_a_time": 1,
+    "queue_source": "sqlite_tasks_ledger",
+    "rabbitmq": "DEFERRED_TO_V3",
+    "outbox": "DEFERRED_TO_V3"
+  },
+  "ledger": {
+    "kind": "sqlite",
+    "status": "planned",
+    "path": null,
+    "journal_mode": "WAL",
+    "synchronous": "FULL",
+    "serialized_writer": true,
+    "transactional_outbox": false,
+    "events_append_only": true,
+    "artifact_files_immutable": true,
+    "jsonl_is_derived_export": true,
+    "recovery_test_report_ref": null,
+    "driver": "node:sqlite",
+    "node_version_profile": "22.13.1",
+    "experimental_api_acknowledged": true
+  },
+  "factory_floor": {
+    "mode": "ledger_trace_static",
+    "events_from_committed_ledger_only": true,
+    "replay_label_required": true,
+    "disconnected_state_required": true,
+    "unknown_usage_is_null": true,
+    "role_map_ref": "contracts/bot-contract-bindings.json#/roles",
+    "animated_floor": "DEFERRED_TO_V3",
+    "trace_audience": "reviewer",
+    "trace_in_learner_navigation": false,
+    "trace_redaction_policy": "C50/C52"
+  },
+  "release": {
+    "intent": "dev_preview_only",
+    "product_playbook_ref": null,
+    "independent_product_qa_ref": null,
+    "external_review_ref_when_required": null,
+    "deploy_approval_ref": null,
+    "launch_approval_ref": null,
+    "deployment_receipt_ref": null,
+    "live_verification_ref": null,
+    "auth": "none",
+    "money": "none"
+  },
+  "review": {
+    "requested_reviewers": [
+      "Fable",
+      "Argon"
+    ],
+    "fable_report_ref": null,
+    "argon_report_ref": null,
+    "consolidated_disposition_ref": null,
+    "bundle_ref": "REVIEW-BUNDLE.json",
+    "bundle_version": "0.4.0",
+    "scope": "contracts_and_configuration_only",
+    "fable_v03_report_ref": "reviews/FABLE-CONTRACT-REVIEW.md",
+    "findings_disposition_ref": "FB-DISPOSITION-v0.4.0.md"
+  },
+  "template_note": "Review only. Regular passenger-car written-test preparation is locked; the state/chapter/source remains open. Fable findings drive this revision. Claude owns provider adapters and post-validation. Missing receipts, source binding, qualification, eligible auditor pair and genuine execution authority remain explicit prerequisites. The animated floor stays deferred.",
+  "contract_binding_registry": {
+    "path": "contracts/bot-contract-bindings.json",
+    "required": true,
+    "validation_command": "node tools/check-bot-contracts.mjs",
+    "require_contract_hash_match": true,
+    "require_qualified_stage_assignments": true,
+    "integrity_pass_is_execution_ready": false,
+    "known_prerequisites": [
+      {
+        "kind": "state_selection",
+        "status": "pending",
+        "disposition_ref": null
+      },
+      {
+        "kind": "qualification",
+        "status": "pending",
+        "rubric_ref": "qualification/RUBRIC-04-road-signs.json"
+      },
+      {
+        "kind": "schema_dispositions",
+        "status": "absent_not_applicable_pilot",
+        "role_id": "13",
+        "paths": [
+          "schemas/teaching-presentation.schema.json",
+          "schemas/teaching.schema.json"
+        ],
+        "scope": "No pilot TeachingPresentation artifact; actual script shapes still need applicable validation/projection."
+      }
+    ]
+  },
+  "pilot_profile": "0.4.0",
+  "locked_product_scope": {
+    "vehicle": "regular_non_commercial_passenger_car",
+    "preparation": "written_knowledge_test",
+    "state_selected": false,
+    "authority": "founder instruction: regular driver license written test prep; state later; review only"
+  },
+  "state_selection": {
+    "status": "pending",
+    "confirmed_by": null,
+    "jurisdiction": null,
+    "candidate_jurisdiction": "US-TX",
+    "candidate_config_ref": "runs/2026-10-27-rdmv-tx-class-c/run-config.json"
+  },
+  "qualification": {
+    "definition_index_ref": "qualification/RUBRIC-04-road-signs.json",
+    "criteria_ref": "qualification/CRITERIA-04-text-first.json",
+    "binding_template_ref": "qualification/BINDING-04-text-first.template.json",
+    "report_schema_ref": "qualification/QUALIFICATION-REPORT-04.schema.json",
+    "report_ref": "qualification/QUALIFICATION-REPORT-04.json",
+    "chapter_policy": "text_first_selected_state_handbook_chapter",
+    "selected_chapter": null,
+    "status": "definition_only_not_executed",
+    "road_sign_recognition_claims": false
+  },
+  "road_sign_media_disposition": {
+    "mode": "verbal_page_sourced_cues",
+    "image_cards_enabled": false,
+    "media_disposition_ref": "contracts/media-disposition.json",
+    "sign_list_schema_ref": "contracts/sign-asset-intake.schema.json",
+    "sign_list_template_ref": "contracts/sign-intake.template.json",
+    "mutcd_sign_list_ref": null,
+    "selected_state_supplement_ref": null,
+    "producer_role": "15",
+    "before_image_task": "Require an actual bound list, bytes/hashes, rights/liveness and selected-state applicability."
+  },
+  "ui": {
+    "contract_ref": "contracts/ui-rdmv-tx.md",
+    "schema_ref": "contracts/ui-spec.schema.json",
+    "early_media_intent_ref": "contracts/media-disposition.json",
+    "final_input_kind": "ContentCandidateManifest",
+    "validation_receipts": [
+      "draft/role14",
+      "draft/independent",
+      "improved/role14",
+      "improved/independent"
+    ],
+    "trace_in_learner_navigation": false
+  },
+  "packaging": {
+    "role": "09",
+    "execution_kind": "tool_assisted",
+    "finish_criteria_ref": "contracts/pilot-finish-criteria.json",
+    "pilot_status_scope": "content_package",
+    "application_finish_receipt_is_separate": true
+  }
+}

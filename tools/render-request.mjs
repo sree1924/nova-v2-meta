@@ -39,6 +39,7 @@ export function renderRequest({promptText, headerTemplateText, bindings = {}, in
   rejectSecretFields(header);
   if (!['review', 'qualification', 'production'].includes(header.mode)) throw new Error('Unknown request mode.');
   if (header.mode === 'review') header.execution_authorized = false;
+  header.render_only = header.execution_authorized !== true;
   const renderOnly = header.render_only === true && header.execution_authorized === false;
   if (header.mode !== 'review' && !renderOnly && (header.execution_authorized !== true
       || typeof header.execution_authority_ref !== 'string'

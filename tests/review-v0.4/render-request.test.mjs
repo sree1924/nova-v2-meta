@@ -31,8 +31,15 @@ test('review bindings cannot grant execution permission', () => {
   const r = renderRequest({promptText, headerTemplateText, bindings: {execution_authorized: true}});
   assert.equal(r.header.execution_authorized, false);
 });
-test('non-review rendering without explicit authority refs is rejected', () => {
-  assert.throws(() => renderRequest({promptText, headerTemplateText, bindings: {mode: 'qualification'}}), /authority/);
+test('authorized non-review rendering without explicit authority refs is rejected', () => {
+  assert.throws(() => renderRequest({promptText, headerTemplateText, bindings: {mode: 'qualification', execution_authorized: true}}), /authority/);
+});
+test('production envelope can be rendered without authorizing or attempting dispatch', () => {
+  const result = renderRequest({promptText, headerTemplateText, bindings: {mode: 'production', execution_authorized: false}});
+  assert.equal(result.header.mode, 'production');
+  assert.equal(result.header.render_only, true);
+  assert.equal(result.header.execution_authorized, false);
+  assert.equal(result.dispatch_attempted, false);
 });
 test('credential fields cannot enter the header', () => {
   assert.throws(() => renderRequest({promptText, headerTemplateText, bindings: {api_key: 'synthetic-placeholder'}}), /Credential/);

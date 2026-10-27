@@ -1,3 +1,11 @@
+# v0.4.0 final review snapshot — 2026-10-27
+
+**Review only. No belt/content calls.** Sol S1–S8 implementation and offline source registration are complete for handoff. The final owner04 mapping/collector compatibility defect is closed: the receipt suite passes 41/41, qualification predicates 24/24, owner tests 215/215 and fixture outcomes 81/81. The refreshed owner receipt is `coordination/CLAUDE-SCHEMA-RECEIPT-v0.4.0.json`, SHA-256 `788950f6ebde2cbca7daebfbb6729fec340b20509fb93d31be1ca842e42eeb05`, with 46 matching implementation-closure files. The original correction request remains history at `coordination/CLAUDE-04-MAPPING-COMPATIBILITY-v0.4.0.md`. Do not interpret these local results, a hash seal, metadata acceptance or binding-integrity PASS as qualification or execution readiness.
+
+Start with `coordination/S1-S8-VERIFY-v0.4.0.md`, `FB-DISPOSITION-v0.4.0.md`, `verification/LOCAL-TESTS-v0.4.0.json` and `verification/BUNDLE-VERIFY-v0.4.0.json`. Utah is confirmed, billing is credits, global authority remains DRY_RUN_ONLY, model_calls0, reservations0, lock released. Production chapter selection and stageGO remain absent. Review the positive collector metadata and the negative missing-source-guard result, alongside the retained pre-repair failure evidence. Roles 09/19/19A/21 remain planned executors; actual qualification and lineage-eligible independent audits remain pending.
+
+The following earlier review brief remains context; this dated status supersedes older pending-owner, state-open, and no-controller/no-ledger statements.
+
 # Fable and Argon Review Instructions
 
 Version 0.4.0. Prepared October 26, 2026, America/Denver. **REVIEW ONLY; EXECUTION DISABLED.** Fable's actual v0.3.0 report is preserved unchanged with verdict REVISE. No v0.4.0 reviewer verdict is implied.

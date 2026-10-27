@@ -247,8 +247,8 @@
       "field": "/artifact_hash",
       "parent_rule": "optional string (SHA-256 over canonical body)",
       "adapter_rule": "omitted",
-      "reason": "an artifact cannot carry its own digest; bytes are hashed by the dispatcher/manifest",
-      "compensating_check": "04.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate.mjs CLI artifact_sha256"
+      "reason": "an artifact cannot carry its own digest; bytes are hashed by the dispatcher/manifest — the collector verifies the artifact hash unconditionally (COLLECTOR.ARTIFACT_HASH); no in-artifact digest",
+      "compensating_check": "post-validate.mjs CLI artifact_sha256"
     },
     {
       "field": "/source_refs/image_scout_post_kg",
@@ -404,7 +404,8 @@
       "json_pointer": "/$defs/sourceRef/properties/retrieved_at",
       "keyword": "format",
       "parent_value": "date-time",
-      "compensating_check": "04.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: n/a — field not carried by the adapter (see deviations /source_ref)"
+      "compensating_check": "n/a — field not carried by the adapter (see deviations /source_ref)",
+      "reason": "freshness lives in the source registry / dated liveness receipts; activates the collector source-liveness guard"
     },
     {
       "json_pointer": "/$defs/card/properties/id",

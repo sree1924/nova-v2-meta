@@ -129,3 +129,34 @@ test('V1 projection (synthetic candidate/liveness) FAILs for its recorded reason
   for (const id of ['08.INPUT_MEMBERSHIP', '08.REQUIRED_CHECKS_RUN', '08.LIVENESS_COVERAGE', '08.LIVENESS_AGE', '08.INDEPENDENCE']) assert.equal(st(res, id), 'FAIL', id);
   assert.equal(res.status, 'FAIL');
 });
+
+// ---- S4 (2026-10-27): CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT is accepted only with exact proof ----
+const s4 = () => {
+  const a = base();
+  const r = a.source_liveness[0];
+  r.status = 'CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT';
+  r.effective_date = null;
+  r.effective_date_disposition_ref = { path: r.issuer_current_edition_ref, sha256: r.issuer_current_edition_sha256 };
+  return a;
+};
+const s4ctx = { ...ctxSyn, accepted_dispositions: [{ source_ref: 'src:examplia:handbook:001', kind: 'effective_date_not_applicable', ref: 'synthetic/disposition.json' }] };
+
+test('S4 positive: confirmed edition + null effective date + bound disposition passes LIVENESS_COVERAGE', async () => {
+  const r = await run(s4(), s4ctx);
+  assert.equal(st(r, '08.LIVENESS_COVERAGE'), 'PASS');
+  assert.equal(st(r, '08.LIVENESS_RECEIPT_SHAPE'), 'PASS');
+});
+test('S4 negative: same receipt without an accepted disposition cannot PASS', async () => {
+  const r = await run(s4(), ctxSyn);
+  assert.notEqual(st(r, '08.LIVENESS_COVERAGE'), 'PASS');
+});
+test('S4 negative: tampered issuer pin (disposition ref no longer bound) cannot PASS', async () => {
+  const a = s4(); a.source_liveness[0].effective_date_disposition_ref.sha256 = 'ef'.repeat(32);
+  const r = await run(a, s4ctx);
+  assert.notEqual(st(r, '08.LIVENESS_COVERAGE'), 'PASS');
+});
+test('S4 negative: generic VERIFICATION_DEBT with an accepted disposition still cannot PASS', async () => {
+  const a = s4(); a.source_liveness[0].status = 'VERIFICATION_DEBT';
+  const r = await run(a, s4ctx);
+  assert.notEqual(st(r, '08.LIVENESS_COVERAGE'), 'PASS');
+});

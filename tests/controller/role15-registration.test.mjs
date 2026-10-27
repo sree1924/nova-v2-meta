@@ -218,6 +218,7 @@ test('dated summarized issuer observation is pinned without being called hashed/
   assert.equal(r.source.issuer_confirmation.evidence_strength, 'DATED_SUMMARIZED_OBSERVATION_NO_PAGE_SNAPSHOT');
   assert.equal(r.liveness.status, 'VERIFICATION_DEBT');
   assert.equal(r.liveness.issuer_current_edition_sha256, hash(fs.readFileSync(pin.file)));
+  assert.equal(r.registry.sources[0].fact_authority_eligible, false);
   assert.ok(r.verification_debt.some(d => d.code === 'issuer_observation_unhashed'));
 });
 
@@ -227,6 +228,8 @@ test('exact hashed rendered issuer snapshot enables confirmed-edition DEBT, neve
   const pin = issuerConfirmation(f, true);
   const r = await buildRegistration({...f, observationPath});
   assert.equal(r.liveness.status, 'CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT');
+  assert.equal(r.registry.sources[0].fact_authority_eligible, true);
+  assert.equal(r.registry.sources[0].independent_fact_audit_status, 'pending07/08');
   assert.equal(r.status, 'HOLD');
   assert.equal(r.liveness.effective_date, null);
   assert.equal(r.liveness.effective_date_disposition_ref.sha256, hash(fs.readFileSync(pin.file)));
@@ -238,4 +241,30 @@ test('exact hashed rendered issuer snapshot enables confirmed-edition DEBT, neve
   assert.equal(validate(invalid), false);
   fs.appendFileSync(pin.snapshotFile, 'tamper');
   await assert.rejects(buildRegistration({...f, observationPath}), /snapshot hash\/size mismatch/);
+});
+
+test('immutable config evidence binds the mint-time bytes without changing the actual run root', async t => {
+  const f = fixture(t);
+  const bytes = fs.readFileSync(path.join(f.projectRoot, f.runConfigPath));
+  const sha256 = hash(bytes);
+  const snapshotPath = `runs/2026-10-26-rdmv-ut-class-d/sources/private/input-snapshots/${sha256}.json`;
+  fs.mkdirSync(path.dirname(path.join(f.projectRoot, snapshotPath)), {recursive: true});
+  fs.writeFileSync(path.join(f.projectRoot, snapshotPath), bytes);
+  const configEvidenceRef = {path: snapshotPath, sha256};
+  const r = await buildRegistration({...f, configEvidenceRef});
+  assert.deepEqual(r.source.config_ref, configEvidenceRef);
+  assert.deepEqual(r.registry.input_config, configEvidenceRef);
+  assert.deepEqual(r.registry.sources[0].retrieval_evidence.config_ref, configEvidenceRef);
+  assert.equal(r.registry.run_id, '2026-10-26-rdmv-ut-class-d');
+  assert.ok(r.source.path.startsWith('runs/2026-10-26-rdmv-ut-class-d/sources/private/'));
+  const retrievalDebt = r.verification_debt.find(d => d.code === 'retrieval_assertion_not_independently_verified');
+  assert.deepEqual(retrievalDebt.evidence_refs, [configEvidenceRef]);
+});
+
+test('different config snapshot bytes cannot claim mint-time provenance', async t => {
+  const f = fixture(t);
+  const bytes = Buffer.from(fs.readFileSync(path.join(f.projectRoot, f.runConfigPath), 'utf8') + '\n');
+  const snapshotPath = 'runs/2026-10-26-rdmv-ut-class-d/sources/private/different-config.json';
+  fs.writeFileSync(path.join(f.projectRoot, snapshotPath), bytes);
+  await assert.rejects(buildRegistration({...f, configEvidenceRef: {path: snapshotPath, sha256: hash(bytes)}}), /Config evidence bytes\/hash differ/);
 });

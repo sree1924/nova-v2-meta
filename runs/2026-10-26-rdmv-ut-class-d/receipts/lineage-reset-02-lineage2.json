@@ -1,0 +1,26 @@
+{
+  "schema_version": "nova-lineage-reset.v0.4.0",
+  "run_id": "2026-10-26-rdmv-ut-class-d",
+  "stage_id": "02.dossier_sections",
+  "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:1",
+  "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:2",
+  "founder_words": "reset lineage for 02 and go",
+  "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~10:30 MDT)",
+  "cause": "two attempts on lineage 1 failed on operator configuration, not on the model",
+  "evidence": [
+    {
+      "attempt": "attempt_6401f7d690aa89b0c2e38642fdd6724f0494e19753d5ba928194b22e2b5b52df",
+      "outcome": "reconciled failed_no_request — MODEL_API_KEY absent from the controller process env; no HTTP request; $0",
+      "proof": "receipts/attempt-reconciliation-6401f7d6.json"
+    },
+    {
+      "attempt": "attempt_aafbd5e97024e1f6ec9d7c2314aa754ef453ea09ed71b3a7c44427f2b4c73f11",
+      "outcome": "HTTP 200, finish_reason=length — max_completion_tokens 8000 with 6453 reasoning tokens; content truncated mid sections[0]; $0.104",
+      "receipt": "artifacts/task_e7d48837293aade354624211267c203dce85084792d8d1dafab582fe750a850c/attempt_aafbd5e97024e1f6ec9d7c2314aa754ef453ea09ed71b3a7c44427f2b4c73f11/call-receipt.json"
+    }
+  ],
+  "config_change": "limits.max_completion_tokens 8000 -> 30000 (JAM-UT-02); no other cap or gate changed; run caps unchanged (total $100, meta $60, role 02 $12, per call $1)",
+  "lineage_1_record": "attempts and reservations on lineage 1 remain in the ledger as history",
+  "recorded_by": { "actor_id": "claude-code-runner", "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03", "model": "claude-fable-5-1" },
+  "recorded_at": "2026-10-27T16:32:00Z"
+}

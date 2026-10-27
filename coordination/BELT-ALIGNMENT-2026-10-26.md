@@ -1,3 +1,7 @@
+# Current builder closure — 2026-10-27
+
+S1–S8 implementation, observed outputs and handover are recorded in `S1-S8-VERIFY-v0.4.0.md` and its JSON companion. Local builder lock is released; Claude has not yet acquired it. Utah is confirmed; billing is credits. Zero model calls/reservations. **Review snapshot ready:** final04mapping/collector compatibility regression is closed; current owner receipt `788950f6ebde2cbca7daebfbb6729fec340b20509fb93d31be1ca842e42eeb05` and independent evidence are pinned in `verification/OWNER-INTEGRATION-v0.4.0.json`. Qualification, independent reviews and stageGO remain pending. NoGOauthority granted. Historical current/target rows below are retained as the original work order, not present state.
+
 # Belt alignment — Sol builds, Claude runs (founder order, 2026-10-26 ~00:10 MDT 10-27)
 
 Read by Sol (builder) and Claude (runner). Founder: "u run the belt... sol makes belt... fix the belt with better

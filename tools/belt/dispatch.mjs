@@ -41,7 +41,7 @@ export function acceptedRuntimeRefs(snapshot,projectRoot,runDir){
     const outputFile=verifyRef(main,runDir),validationFile=verifyRef(main.validation_ref_json,runDir),acceptanceFile=verifyRef(main.acceptance_ref_json,runDir);
     const validation=read(validationFile),acceptance=read(acceptanceFile);
     if(validation.status!=='PASS'||acceptance.status!=='PASS'||validation.output_sha256!==main.sha256||acceptance.output_sha256!==main.sha256)throw new Error('Stale accepted artifact receipts.');
-    if(task.stage_id==='15.sources'){
+    if(Array.isArray(validation.companions)){
       for(const companion of validation.companions||[]){const file=verifyRef(companion,runDir);out.push({...ref(companion),path:file,kind:companion.kind,stage_id:task.stage_id,accepted:true});}
     }else out.push({...ref(main),path:outputFile,kind:task.stage_id,stage_id:task.stage_id,accepted:true});
   }
@@ -91,12 +91,13 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   const policy=inspectExecutionPolicy({projectRoot,config,go,mode:go?'live':'dry_run',stageId,sectionIds,approvalRef,nowUtc,maxUsd:config.limits.max_call_usd,runDir});
   const ownerRef=config.execution?.adapter_validation_receipts_ref;
   const blockers=[...assembled.missing,...selected.missing];
-  let ownerClosure=null;
-  try{const ownerFile=verifyRef(ownerRef,projectRoot),receipt=read(ownerFile);ownerClosure=inspectImplementationClosure({projectRoot,receiptFiles:receipt.implementation_closure?.files});if(ownerClosure.receipt_status!=='LISTED_HASHES_MATCH_ONLY')blockers.push('owner_implementation_closure_unsealed');}catch{blockers.push('owner_receipt_missing_or_stale');}
+  let ownerClosure=null,ownerFiles=[];
+  try{const ownerFile=verifyRef(ownerRef,projectRoot),receipt=read(ownerFile);ownerFiles=receipt.implementation_closure?.files||[];ownerClosure=inspectImplementationClosure({projectRoot,receiptFiles:ownerFiles});if(ownerClosure.receipt_status!=='LISTED_HASHES_MATCH_ONLY')blockers.push('owner_implementation_closure_unsealed');}catch{blockers.push('owner_receipt_missing_or_stale');}
   const pricingRef=config.producer?.pricing_ref;
   let pricing=null;
   try{const p=verifyRef(pricingRef,projectRoot);pricing=read(p).models[config.producer.model];if(!pricing)throw Error('price');}catch{blockers.push('pricing_snapshot_unbound');}
   if(!['card','credits'].includes(config.producer?.billing_mode))blockers.push('billing_mode_pending');
+  if(go&&!process.env[config.producer?.key_env_name||'MODEL_API_KEY'])blockers.push('model_api_key_env_absent');
   const runtimeBindings=Object.fromEntries(assembled.inputRefs.map(p=>[p.kind+'_ref',p.path]));
   for(const p of assembled.inputRefs)runtimeBindings[p.kind+'_sha256']=p.sha256;
   runtimeBindings.run_config_ref=configRef.path;runtimeBindings.run_config_sha256=configRef.sha256;
@@ -116,11 +117,14 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   const request={model:config.producer.model,messages:rendered.messages,response_format:{type:'json_schema',json_schema:{name:stageId.replace(/[^A-Za-z0-9_]/g,'_'),strict:true,schema:read(schema.path)}},max_completion_tokens:config.limits.max_completion_tokens,reasoning_effort:'low'};
   const requestBytes=Buffer.byteLength(canonicalJson(request));
   if(requestBytes>(config.limits.max_request_bytes||262144))blockers.push('request_byte_limit');
+  const conservativeEstimate=pricing?Math.ceil(((requestBytes+1024)*pricing.input_usd_per_million+request.max_completion_tokens*pricing.output_usd_per_million))/1e6:null;
+  if(conservativeEstimate!==null&&conservativeEstimate>config.limits.max_call_usd)blockers.push('call_cap_below_conservative_request_estimate');
   return{projectRoot,runDir,config,configRef,stageId,roleId,sectionIds,executorId,nowUtc,go,policy,context:assembled.context,inputRefs:assembled.inputRefs,
     contract,schema,mapping,registryRef,requiredChecks:mapped.check_ids,pricing,pricingRef,rendered,request,
+    validatorRef:pin(path.join(projectRoot,'tools/belt/post-validate.mjs')),ownerFiles,ownerReceiptRef:ownerRef,
     renderingInputs:{promptText,headerTemplateText:fs.readFileSync(path.join(projectRoot,'prompts/controller-header.template.json'),'utf8'),inputData},
     preflight:{status:blockers.length?'HOLD':'PASS',blockers:[...new Set(blockers)]},ownerClosure,
-    proposed_reservation:{usd:config.limits.max_call_usd,microusd:Math.round(config.limits.max_call_usd*1e6),reserved:false},request_sha256:sha256(canonicalJson(request))};
+    proposed_reservation:{usd:config.limits.max_call_usd,microusd:Math.round(config.limits.max_call_usd*1e6),reserved:false,conservative_estimate_usd:conservativeEstimate,estimate_policy:'UTF8 request bytes plus1024 token overhead allowance; full output cap; estimate not provider billing cap'},request_sha256:sha256(canonicalJson(request))};
 }
 
 export function acceptDossier(validation,requiredChecks){
@@ -131,11 +135,30 @@ export function acceptDossier(validation,requiredChecks){
 
 export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandle,client,validator=validateArtifact}){
   if(p.preflight.status!=='PASS')throw new Error('Dispatch inputs remain HOLD: '+p.preflight.blockers.join(', '));
+  for(const bound of [...(p.inputRefs||[]),p.contract,p.schema,p.mapping,p.registryRef,p.pricingRef,p.validatorRef,p.ownerReceiptRef,...(p.ownerFiles||[])].filter(r=>r?.path)){
+    const bytes=fs.readFileSync(path.resolve(p.projectRoot,bound.path));
+    if(sha256(bytes)!==bound.sha256)throw new Error('Bound input/tool changed before dispatch: '+bound.path);
+  }
   const task=ledger.ensureTask(fence,{lineageId:p.config.candidate_lineage_id,stageId:p.stageId,roleId:p.roleId,inputs:p.inputRefs,
-    versions:{contract:p.contract.sha256,schema:p.schema.sha256,mapping:p.mapping.sha256,prompt:p.rendered.hashes.template_body_sha256,header:p.rendered.hashes.header_template_sha256,registry:p.registryRef.sha256},model:p.config.producer.model,config:{section_ids:p.sectionIds,generation:{max_completion_tokens:p.request.max_completion_tokens,reasoning_effort:p.request.reasoning_effort}},maxAttempts:p.config.limits.max_automatic_attempts_per_logical_task});
+    versions:{contract:p.contract.sha256,schema:p.schema.sha256,mapping:p.mapping.sha256,prompt:p.rendered.hashes.template_body_sha256,header:p.rendered.hashes.header_template_sha256,registry:p.registryRef.sha256,validator:p.validatorRef?.sha256??null,validator_closure:sha256(canonicalJson(p.ownerFiles||[]))},model:p.config.producer.model,config:{section_ids:p.sectionIds,generation:{max_completion_tokens:p.request.max_completion_tokens,reasoning_effort:p.request.reasoning_effort}},maxAttempts:p.config.limits.max_automatic_attempts_per_logical_task});
   const taskId=task.taskId??task.task_id;
   if(task.status==='accepted')return runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,requiredChecks:p.requiredChecks});
   const old=ledger.listAttempts(fence.runId).filter(a=>a.task_id===taskId);
+  const interrupted=old.find(a=>['running','unknown_provider_result'].includes(a.status));
+  if(interrupted){
+    if(interrupted.status==='unknown_provider_result')return{status:'HOLD',reason:'unknown_provider_result_requires_reconciliation',new_model_calls:0};
+    const priorDir='artifacts/'+taskId+'/'+interrupted.attempt_id;
+    const savedPath=inside(p.runDir,priorDir+'/artifact.json'),receiptPath=inside(p.runDir,priorDir+'/call-receipt.json'),rawPath=inside(p.runDir,priorDir+'/raw-response.json');
+    if(![savedPath,receiptPath,rawPath].every(f=>fs.existsSync(f)))return{status:'HOLD',reason:'interrupted_attempt_evidence_incomplete',new_model_calls:0};
+    const call=ledger.listModelCalls(fence.runId).find(c=>c.attempt_id===interrupted.attempt_id),reservation=ledger.listReservations(fence.runId).find(r=>r.attempt_id===interrupted.attempt_id);
+    if(call?.status!=='completed'||reservation?.state!=='reported')return{status:'HOLD',reason:'interrupted_attempt_accounting_unresolved',new_model_calls:0};
+    const receipt=read(receiptPath);
+    const proof={schema_version:'nova-attempt-recovery.v0.4.0',kind:'content',run_id:fence.runId,task_id:taskId,attempt_id:interrupted.attempt_id,logical_key_sha256:task.logical_key_sha256,from_generation:interrupted.generation,to_generation:fence.generation,recovered_by:fence.executorId,recorded_at:p.nowUtc,saved_artifact:pin(savedPath),model_call:{call_id:call.call_id,receipt_ref:pin(receiptPath),raw_response_ref:pin(rawPath),usage:call.usage_json,reservation_id:reservation.reservation_id,actual_usd:receipt.estimated_usd}};
+    const proofRef=writeImmutable(p.runDir,priorDir+'/recovery-'+sha256(canonicalJson(proof))+'.json',proof,{lockHandle});
+    ledger.recoverAttempt(fence,{attemptId:interrupted.attempt_id,recoveryReceipt:proofRef});
+    const result=await runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,produce:()=>{throw Error('Recovery cannot remint content.');},validate:artifact=>validator({stage_id:p.stageId,artifact,context:p.context}),requiredChecks:p.requiredChecks,accept:(_,{validation})=>p.stageId==='02.dossier_sections'?acceptDossier(validation,p.requiredChecks):{status:'HOLD'},validationRevision:'recovery-'+sha256(canonicalJson({generation:fence.generation,now:p.nowUtc})).slice(0,16)});
+    return{...result,new_model_calls:0,recovery_ref:proofRef};
+  }
   const attempt=ledger.startAttempt(fence,{taskId,commandId:'dispatch:'+taskId+':'+(old.length+1)}),attemptId=attempt.attemptId??attempt.attempt_id;
   const folder='artifacts/'+taskId+'/'+attemptId;
   const reservation=ledger.reserveBudget(fence,{attemptId,provider:'meta',roleId:p.roleId,maxUsd:p.config.limits.max_call_usd,pricingRef:p.pricingRef,approvalRef:p.policy.approval_ref,approvalUsdCeiling:p.policy.caps.approval_usd});
@@ -150,6 +173,14 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
   let result;
   try{result=await client.complete(request);}
   catch(error){
+    // Only a thrown transport() (meta-client sets code UNKNOWN_PROVIDER_RESULT) may have reached the provider. Any other
+    // exception happened before the send (config/key/policy): fail the attempt, release the reserve, never park it as unknown.
+    if(error.code!=='UNKNOWN_PROVIDER_RESULT'){
+      const failure=writeImmutable(p.runDir,folder+'/failed-pre-send.json',{status:'failed_pre_send',error_message:String(error.message).slice(0,400),request_sha256:requestHash,money_spent_usd:0},{lockHandle});
+      ledger.completeModelCall(fence,{callId,status:'failed',usage:null,receiptRef:failure,responseMetadata:{error_code:'FAILED_PRE_SEND'}});
+      ledger.settleReservation(fence,{reservationId,status:'released',evidenceRef:failure});ledger.failAttempt(fence,{attemptId,status:'failed',errorRef:failure});
+      return{status:'HOLD',reason:'failed_pre_send',detail:String(error.message).slice(0,200),raw_ref:failure};
+    }
     const failure=writeImmutable(p.runDir,folder+'/provider-unknown.json',{status:'unknown_provider_result',error_code:error.code||'UNKNOWN_PROVIDER_RESULT',request_sha256:requestHash},{lockHandle});
     ledger.completeModelCall(fence,{callId,status:'unknown_provider_result',usage:null,receiptRef:failure,responseMetadata:{error_code:error.code||'UNKNOWN_PROVIDER_RESULT'}});
     ledger.settleReservation(fence,{reservationId,status:'unknown_provider_result',evidenceRef:failure});ledger.failAttempt(fence,{attemptId,status:'unknown_provider_result',errorRef:failure});

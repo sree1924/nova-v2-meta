@@ -135,7 +135,14 @@ export function run(r, context = {}) {
     const missing = cited.filter(s => !bySrc.has(s));
     const undated = cited.filter(s => bySrc.has(s) && !accepted.has(s) && !DATE.test(bySrc.get(s).effective_date ?? ''));
     const unconfirmed = cited.filter(s => bySrc.has(s) && (!bySrc.get(s).issuer_current_edition_ref || !isHex64(bySrc.get(s).issuer_current_edition_sha256)));
-    const debt = cited.filter(s => bySrc.has(s) && bySrc.get(s).status !== 'PASS');
+    // S4 (2026-10-27): CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT is accepted ONLY with exact proof — null effective_date,
+    // a hex64 issuer current-edition pin, a disposition ref bound to that same pin, and an accepted
+    // effective_date_not_applicable disposition for the same source. Generic VERIFICATION_DEBT never passes.
+    const narrowlyAccepted = (r) => r.status === 'CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT' && r.effective_date === null
+      && accepted.has(r.source_ref) && typeof r.issuer_current_edition_ref === 'string' && r.issuer_current_edition_ref.length > 0
+      && isHex64(r.issuer_current_edition_sha256) && r.effective_date_disposition_ref
+      && r.effective_date_disposition_ref.path === r.issuer_current_edition_ref && r.effective_date_disposition_ref.sha256 === r.issuer_current_edition_sha256;
+    const debt = cited.filter(s => bySrc.has(s) && bySrc.get(s).status !== 'PASS' && !narrowlyAccepted(bySrc.get(s)));
     const issues = [];
     if (missing.length) issues.push(`${missing.length} cited source(s) without receipt: ${head(missing, 5)}`);
     if (undated.length) issues.push(`${undated.length} with effective_date null/(verify)/undated: ${head(undated, 5)}`);

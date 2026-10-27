@@ -1,28 +1,166 @@
 {
   "version": "0.4.0",
-  "status": "LOCAL_IMPLEMENTATION_READY_OWNERSHIP_RECONCILIATION_PENDING",
-  "content_calls_authorized": false,
-  "execution_enabled": false,
-  "lanes": {
-    "controller": "Sol root",
-    "ledger": "Sol ledger worker",
-    "role15": "Sol evidence worker",
-    "schemas_postvalidator": "External Claude Code session 2bdcad95",
-    "app_preview": "Muse Code"
-  },
-  "claude_pending": [
-    "default fixture stripping must be off",
-    "required mapped checks must fail closed",
-    "refresh implementation closure and receipt"
+  "generated_at_utc": "2026-10-27T15:45:38.458Z",
+  "builder_session": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+  "runner_session": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+  "scope": "package_preparation_offline_controller_and_metadata_registration_only",
+  "items": [
+    {
+      "id": "S1",
+      "status": "IMPLEMENTED_LOCAL_TESTS_PASS",
+      "references": [
+        {
+          "path": "tools/belt/controller.mjs",
+          "line": 261
+        },
+        {
+          "path": "tools/belt/dispatch.mjs",
+          "line": 69
+        }
+      ],
+      "change": "Dispatch prepares accepted/hash-bound inputs, production envelope, capped reservation, dispatching call, raw response and reported usage; only HTTP200/stop content reaches validation. Saved-output replay and unknown-result holds tested.",
+      "verify_output": "148 controller tests pass; final02 dry preflight PASS, render_only true, proposed USD1 reserved:false; model_calls0."
+    },
+    {
+      "id": "S2",
+      "status": "IMPLEMENTED_LOCAL_TESTS_PASS",
+      "references": [
+        {
+          "path": "tools/belt/execution-policy.mjs",
+          "line": 28
+        },
+        {
+          "path": "tools/belt/ledger.mjs",
+          "line": 162
+        }
+      ],
+      "change": "Per-run/stage GO file verifies exact hash, founder words, section IDs and USD ceiling; cumulative stage caps atomically reserved. Global authority remains DRY_RUN_ONLY.",
+      "verify_output": "Controller policy/ledger fixtures pass. Actual approval absent; approval_policy BLOCKED with explicit_go_absent; zero reservations."
+    },
+    {
+      "id": "S3",
+      "status": "REGISTERED_METADATA_ONLY",
+      "references": [
+        {
+          "path": "tools/belt/controller.mjs",
+          "line": 95
+        },
+        {
+          "path": "tools/roles/15-register.mjs",
+          "line": 95
+        }
+      ],
+      "change": "Canonical Role15 source registry/page map/liveness generated through controller registration and ledger-recorded. Exact legacy SQLite, original lock, ad-hoc findings and old trace quarantined privately with hashes.",
+      "verify_output": "Actual ledger:15.sources accepted(metadata only),10queued tasks,1native attempt,1legacy import,0calls/0reserves. Overall registration HOLD."
+    },
+    {
+      "id": "S4",
+      "status": "IMPLEMENTED_WITH_EXPLICIT_DEBT",
+      "references": [
+        {
+          "path": "tools/roles/15-register.mjs",
+          "line": 257
+        },
+        {
+          "path": "tools/belt/checks/08-content-facts.mjs",
+          "line": 1
+        }
+      ],
+      "change": "Dated exact rendered issuer DOM evidence consumed; current edition ref set; effective date null with accepted disposition; CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT. Overall registration remains HOLD; no rights/factual audit fabricated.",
+      "verify_output": "Registrar tests pass; owner215 tests pass inclS4compatibility. Source/liveness canonical hashes recorded."
+    },
+    {
+      "id": "S5",
+      "status": "IMPLEMENTED_SYNTHETICALLY_VERIFIED",
+      "references": [
+        {
+          "path": "tools/belt/compile.mjs",
+          "line": 72
+        },
+        {
+          "path": "tools/belt/controller.mjs",
+          "line": 158
+        }
+      ],
+      "change": "Deterministic16 uses owner mergeEnvelopes/mergeSections, resolves exact fact spans into fact registry and CompiledDossierPilot for03.17 is n/a_pilot in pinned overlay.",
+      "verify_output": "5compile tests pass within148. No real02accepted artifact exists, so no actual16content compiled."
+    },
+    {
+      "id": "S6",
+      "status": "IMPLEMENTED_SYNTHETICALLY_VERIFIED",
+      "references": [
+        {
+          "path": "tools/belt/context.mjs",
+          "line": 93
+        },
+        {
+          "path": "tools/belt/context.mjs",
+          "line": 236
+        }
+      ],
+      "change": "Assembles accepted inputs, fact/source registries, canonical input manifest, media/overlay/policy/finish criteria, safe exam facts and intervention lineage; controller passes now_utc.",
+      "verify_output": "6context tests pass within148; actual02 dry context complete (preflight PASS)."
+    },
+    {
+      "id": "S7",
+      "status": "RELEASED_HANDOVER_READY",
+      "references": [
+        {
+          "path": "tools/belt/executor-lock.mjs",
+          "line": 16
+        },
+        {
+          "path": "tools/belt/reconcile-legacy.mjs",
+          "line": 1
+        }
+      ],
+      "change": "This builder chosen:01a1764d-cf44-7fc1-a31f-bf0be7852006. OtherSol01a17a94 must write nothing further. Exact old lock archived using founder explicit handover. Builder released; Claude2bdcad95-d4cc-467e-a88d-be4a6260cf03 acquires through standard native lock on authorized operation.",
+      "verify_output": "Actual ledger ownership released; EXECUTOR.lock.md absent. Claude has NOT been claimed to have acquired it. No age heuristic."
+    },
+    {
+      "id": "S8",
+      "status": "IMPLEMENTED_LOCAL_TESTS_PASS",
+      "references": [
+        {
+          "path": "tools/belt/dispatch.mjs",
+          "line": 129
+        },
+        {
+          "path": "tools/belt/artifact-task.mjs",
+          "line": 1
+        }
+      ],
+      "change": "02accept requires validation PASS plus every unique mapped check PASS and no errors; kind deterministic_validation_only, auditors pending07/08. No audit acceptance implied.",
+      "verify_output": "Acceptance, missing/duplicate check, malformed/truncated provider response, idempotence and recovery fixtures pass; no real02content accepted."
+    }
   ],
-  "writes_restricted_to": "D:/nova/fb-ai-hackathon/",
-  "schema_lane_duplicated": false,
-  "source_executor": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
-  "observed_run_lock_holder": "01a17a94-0bf3-7003-8f7d-b3af6a96e219",
-  "implementation_snapshot": "review-history/v0.4.0/sol-dry-build-2026-10-26T235708Z/SNAPSHOT.json",
-  "actual_run_touched_by_this_chat": false,
-  "blockers": [
-    "Existing executor lock and different ledger/controller implementation require one confirmed owner",
-    "Claude dispatcher corrections and exact-byte receipt refresh pending"
-  ]
+  "model_calls": 0,
+  "reservations": 0,
+  "owner_receipt_sha256": "788950f6ebde2cbca7daebfbb6729fec340b20509fb93d31be1ca842e42eeb05",
+  "all_requested_fixes_closed": true,
+  "blocking_issue": null,
+  "test_summary": {
+    "controller_pass": 148,
+    "review_unit_pass": 30,
+    "qualification_predicate_pass": 24,
+    "owner_validator_pass": 215,
+    "fixture_outcomes_matched": 81,
+    "post_validation_receipt_exit": 0,
+    "post_validation_receipt_pass": 41,
+    "total_tests_passed": 458
+  },
+  "execution_authorized": false,
+  "remaining": [
+    "Independent review",
+    "Founder selects chapter/range and records stageGO",
+    "Actual04qualification and independent API auditors",
+    "Planned09/19/19A/21runtime implementations and UI preview"
+  ],
+  "closure_scope": "Requested review-package implementation/configuration corrections only; independent acceptance, qualification, full belt execution and product readiness remain pending",
+  "open_integration_blockers": [],
+  "final_integration_receipt": "verification/OWNER-INTEGRATION-v0.4.0.json",
+  "status": "BUILD_HANDOVER_READY_FOR_INDEPENDENT_REVIEW",
+  "claude_pending": [],
+  "actual_run_touched_by_this_chat": true,
+  "lock_released": true
 }

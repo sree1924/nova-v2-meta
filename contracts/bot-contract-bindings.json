@@ -15,16 +15,16 @@
   ],
   "v2_overlay": {
     "path": "fb-ai-hackathon/BELT-V2-CONTRACT.md",
-    "sha256": "f9cd8a521448ec8f24a9bd65f19e4f613e6bb54c7793ec8b8f58b05bf14e558d",
-    "bytes": 78384,
+    "sha256": "3d1c8424db79c4c2edad084a7682b0eda3a8170663c9038858260ab2197be5d8",
+    "bytes": 81908,
     "status": "DRAFT_NOT_APPROVED",
     "version": "0.4.0",
     "effect": "Proposed hackathon adapter overlay; does not amend frozen parent contracts."
   },
   "pilot_override_contract": {
     "path": "contracts/pilot-overrides-v0.4.0.json",
-    "sha256": "35a1237a237b6e03172ca6dae063de2c552103845c2d8ef4dd5a351c6f2d37d1",
-    "bytes": 9113,
+    "sha256": "c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3",
+    "bytes": 9726,
     "status": "pinned_local",
     "version": "0.4.0",
     "adoption_status": "review_only_not_execution_authority"
@@ -189,9 +189,12 @@
         "qualification_status": "not_qualified",
         "observed_execution": false,
         "script_ref": {
-          "path": "tools/roles/12-role.mjs",
-          "status": "planned",
-          "file_exists": false
+          "path": "tools/belt/ledger.mjs",
+          "status": "implemented_not_qualified",
+          "file_exists": true,
+          "implementation_scope": "Isolated run SQLite ledger and append-only provenance; does not amend the canonical factory manifest.",
+          "sha256": "6d35e925879fac6983ab9a4227469301ed5ec4eea842761360c0d5a6e47d55b8",
+          "bytes": 61463
         }
       },
       "qualification_source": {
@@ -257,9 +260,12 @@
         "qualification_status": "not_qualified",
         "observed_execution": false,
         "script_ref": {
-          "path": "tools/roles/13-role.mjs",
-          "status": "planned",
-          "file_exists": false
+          "path": "tools/belt/strict-lint.mjs",
+          "status": "implemented_not_qualified",
+          "file_exists": true,
+          "implementation_scope": "Provider strict-schema shape guard only; does not mint or repair all schema-steward artifacts.",
+          "sha256": "efdbde8620dff23683700d29ef998ace9fee617c3c3fef5521bd673ced5b43ac",
+          "bytes": 3973
         }
       },
       "qualification_source": {
@@ -386,9 +392,12 @@
         "qualification_status": "not_qualified",
         "observed_execution": false,
         "script_ref": {
-          "path": "tools/roles/14-role.mjs",
-          "status": "planned",
-          "file_exists": false
+          "path": "tools/belt/post-validate.mjs",
+          "status": "implemented_not_qualified",
+          "file_exists": true,
+          "implementation_scope": "Mapped artifact schemas and deterministic post-checks; does not assemble content or grant independent acceptance.",
+          "sha256": "68c6cfeca5105a4aab499ca91d92d4e867dd9c9e36c37c2c854f8706344b34b9",
+          "bytes": 7245
         }
       },
       "qualification_source": {
@@ -454,9 +463,12 @@
         "qualification_status": "not_qualified",
         "observed_execution": false,
         "script_ref": {
-          "path": "tools/roles/15-role.mjs",
-          "status": "planned",
-          "file_exists": false
+          "path": "tools/roles/15-register.mjs",
+          "status": "implemented_not_qualified",
+          "file_exists": true,
+          "implementation_scope": "Offline private-PDF registration and source evidence/debt; independent fact audits remain pending.",
+          "sha256": "9475f8969790e5c169621e819529b123715e7e47c6267c94654f49e1b36b21b8",
+          "bytes": 27755
         }
       },
       "qualification_source": {
@@ -523,9 +535,12 @@
         "qualification_status": "not_qualified",
         "observed_execution": false,
         "script_ref": {
-          "path": "tools/roles/16-role.mjs",
-          "status": "planned",
-          "file_exists": false
+          "path": "tools/belt/compile.mjs",
+          "status": "implemented_not_qualified",
+          "file_exists": true,
+          "implementation_scope": "Deterministic accepted02 merge and fact index through the local CompiledDossierPilot adaptation; no canonical Blueprint certification.",
+          "sha256": "ea0aeec8f5cf405968d66bdff8c3e8954ea7eba6697663d3951ded5c52fa838e",
+          "bytes": 10002
         }
       },
       "qualification_source": {
@@ -555,7 +570,7 @@
         ],
         "links_are": "illustrative_responsibility_links_not_execution_dependencies"
       },
-      "pilot_override_ref": null,
+      "pilot_override_ref": "contracts/pilot-overrides-v0.4.0.json#/role_overrides/16",
       "local_schema_refs": [],
       "excerpts": {
         "inputs": "**Upstream → Inputs:** the SME Blueprint `runs/<run>/02-blueprint.md` (Worker 02's run artifact — v1.1 amendment, run-1 JAM-04: `sme-library/<probe>.md` is the dossier-PROMPT fed *to* Worker 02, never the compiler's input) **+** `CompetitiveIntel` (from Worker 01b — for the market/teardown cross-fill: competitors, VOC, gap, `adopt_pointers[]`/`beat_pointers[]`).",
@@ -591,9 +606,14 @@
         "qualification_status": "not_qualified",
         "observed_execution": false,
         "script_ref": {
-          "path": "tools/roles/17-role.mjs",
-          "status": "planned",
-          "file_exists": false
+          "path": "tools/belt/compile.mjs",
+          "status": "implemented_not_qualified",
+          "file_exists": true,
+          "implementation_scope": "Records the explicit pinned n/a_pilot disposition; no hint-enrichment task or model call executes.",
+          "sha256": "ea0aeec8f5cf405968d66bdff8c3e8954ea7eba6697663d3951ded5c52fa838e",
+          "bytes": 10002,
+          "disposition": "n/a_pilot",
+          "executes_stage": false
         }
       },
       "qualification_source": {
@@ -624,7 +644,7 @@
         ],
         "links_are": "illustrative_responsibility_links_not_execution_dependencies"
       },
-      "pilot_override_ref": null,
+      "pilot_override_ref": "contracts/pilot-overrides-v0.4.0.json#/role_overrides/17",
       "local_schema_refs": [],
       "excerpts": {
         "inputs": "**Upstream → Inputs:** the strict `Blueprint` (from **Blueprint Compiler / Role 16** — `knowledge[].facts[{fact_id,statement,explanation,source_ref,hints{...}}]`, `blueprint[]` for domain/weight, `high_yield[]`, `common_misconceptions[]`, `updatable[]`).",
@@ -1194,9 +1214,12 @@
         "qualification_status": "not_qualified",
         "observed_execution": false,
         "script_ref": {
-          "path": "tools/roles/00-role.mjs",
-          "status": "planned",
-          "file_exists": false
+          "path": "tools/belt/controller.mjs",
+          "status": "implemented_not_qualified",
+          "file_exists": true,
+          "implementation_scope": "Bounded sequential controller; current dispatch/dependency scope only, not a demonstrated full belt.",
+          "sha256": "c6a6d974951c915abfac921676d146e8c64045fe833b169cc15bf7aa99ad155c",
+          "bytes": 24085
         }
       },
       "qualification_source": {
@@ -1511,7 +1534,7 @@
         ],
         "links_are": "illustrative_responsibility_links_not_execution_dependencies"
       },
-      "pilot_override_ref": null,
+      "pilot_override_ref": "contracts/pilot-overrides-v0.4.0.json#/role_overrides/03",
       "local_schema_refs": [],
       "excerpts": {
         "inputs": "**Upstream → Inputs:** `Blueprint` (SME dossier: knowledge[], blueprint weightings, high_yield, updatable).",

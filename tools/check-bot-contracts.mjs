@@ -129,6 +129,28 @@ const stages = {
 const lane = id => /^B\d$/.test(id) ? 'build_engineering' : ['07','08'].includes(id) ? 'independent_review' : ['00','12','13','14','15','16','17','18','19','20','21','25'].includes(id) ? 'tool_assisted' : 'meta_authoring';
 const activeIds=new Set(['02','03','KG-01','KG-02','KG-03','KG-04','KG-05','04','05','06','09','19A','01b','00','12','13','14','15','16','17','19','21','07','08','B1','B5','UI']);
 const scriptedIds=new Set(['00','09','12','13','14','15','16','17','19','19A','21']);
+const pilotOverrideIds=['02','03','16','17','19A','06','07','09'];
+// A real implementation path is scoped evidence of code, not role qualification.
+// Assemblers 09/19/19A/21 remain planned; a validator does not implement them.
+const implementedScripts={
+  '00':{path:'tools/belt/controller.mjs',scope:'Bounded sequential controller; current dispatch/dependency scope only, not a demonstrated full belt.'},
+  '12':{path:'tools/belt/ledger.mjs',scope:'Isolated run SQLite ledger and append-only provenance; does not amend the canonical factory manifest.'},
+  '13':{path:'tools/belt/strict-lint.mjs',scope:'Provider strict-schema shape guard only; does not mint or repair all schema-steward artifacts.'},
+  '14':{path:'tools/belt/post-validate.mjs',scope:'Mapped artifact schemas and deterministic post-checks; does not assemble content or grant independent acceptance.'},
+  '15':{path:'tools/roles/15-register.mjs',scope:'Offline private-PDF registration and source evidence/debt; independent fact audits remain pending.'},
+  '16':{path:'tools/belt/compile.mjs',scope:'Deterministic accepted02 merge and fact index through the local CompiledDossierPilot adaptation; no canonical Blueprint certification.'},
+  '17':{path:'tools/belt/compile.mjs',scope:'Records the explicit pinned n/a_pilot disposition; no hint-enrichment task or model call executes.',disposition:'n/a_pilot',executes_stage:false},
+};
+const scriptRef=id=>{
+  const implementation=implementedScripts[id];
+  const scriptPath=implementation?.path??'tools/roles/'+id+'-role.mjs';
+  const target=path.join(here,scriptPath);
+  const exists=fs.existsSync(target);
+  return{path:scriptPath,status:implementation?(exists?'implemented_not_qualified':'declared_implementation_missing'):'planned',file_exists:exists,
+    ...(implementation?{implementation_scope:implementation.scope,...(exists?{sha256:hash(fs.readFileSync(target)),bytes:fs.statSync(target).size}:{}),
+      ...(implementation.disposition?{disposition:implementation.disposition,executes_stage:implementation.executes_stage}:{})}:{}),
+  };
+};
 const localUIPath=path.join(here,'contracts','ui-rdmv-tx.md');
 const localRef=target=>{const data=fs.readFileSync(target);return{path:normalize(path.relative(here,target)),sha256:hash(data),bytes:data.length,status:'pinned_local'};};
 const nonApplicableSchemas=new Set(['schemas/teaching-presentation.schema.json','schemas/teaching.schema.json']);
@@ -137,7 +159,7 @@ const profileExecution=id=>{
   const active=activeIds.has(id);
   const common={lane:lane(id),provider_proposal:null,model:null,adapter_status:'not_configured',qualification_status:'not_qualified',observed_execution:false};
   if(!active)return common;
-  if(scriptedIds.has(id))return{...common,lane:'tool_assisted',provider_proposal:'script',adapter_status:'script',script_ref:{path:'tools/roles/'+id+'-role.mjs',status:'planned',file_exists:fs.existsSync(path.join(here,'tools','roles',id+'-role.mjs'))}};
+  if(scriptedIds.has(id))return{...common,lane:'tool_assisted',provider_proposal:'script',adapter_status:'script',script_ref:scriptRef(id)};
   if(['07','08'].includes(id))return{...common,lane:'independent_audit',provider_proposal:'active review_bots',adapter_status:'configured_pending_smoke'};
   if(['B1','B5'].includes(id))return{...common,lane:'build_engineering',provider_proposal:id==='B1'?'claude-code':'muse-code',adapter_status:'assistant',assistant_identity_is_runtime_model:false};
   return{...common,lane:'meta_authoring',provider_proposal:'meta',model:'muse-spark-1.3',model_status:'candidate_not_verified',adapter_status:'configured_pending_smoke',...(id.startsWith('KG-')?{combined_call_owner_role_id:'03',separate_model_call:false}:{}),...(id==='01b'?{recon_only:true,fact_authority:false}:{})};
@@ -162,7 +184,7 @@ function makeRegistry() {
       contract:unresolved ? {path:'factory/'+r.file,status:'unresolved_template',sha256:null,bytes:null} : localUI?localRef(contractPath):{...oldPin},
       inherited_contract_refs:roleId==='UI'?[bytesRef(path.join(repo,'factory','ui-architects','_MASTER-UI-TEMPLATE.md'))]:[],
       presentation:{name:r.name,group:r.group,input:roleId==='UI'?'Accepted ContentCandidateManifest + early media intent + finish criteria':roleId==='09'?'Accepted content + validated UiSpec + pilot-finish-criteria':r.input,output:r.output,description:r.desc,linked_role_ids:[...r.next],links_are:'illustrative_responsibility_links_not_execution_dependencies'},
-      pilot_override_ref:['02','19A','06','07','09'].includes(roleId)?'contracts/pilot-overrides-v0.4.0.json#/role_overrides/'+roleId:null,
+      pilot_override_ref:pilotOverrideIds.includes(roleId)?'contracts/pilot-overrides-v0.4.0.json#/role_overrides/'+roleId:null,
       local_schema_refs:roleId==='UI'?[{...localRef(path.join(here,'contracts','ui-spec.schema.json')),status:'pinned_local_schema'}]:['05','13'].includes(roleId)?[{...localRef(path.join(here,'contracts','teaching-unit.schema.json')),status:'pinned_local_schema'}]:[],
       excerpts:unresolved ? {inputs:null,outputs:null,quality_metrics:null,definition_of_done:null,failure_conditions:null,machine_interface:null,autonomy:null} : extract(contractText),
       schema_refs:schemaPaths.map(p => fs.existsSync(path.join(repo,p)) ? {...bytesRef(path.join(repo,p)),status:'present'} : {path:p,status:roleId==='13'&&nonApplicableSchemas.has(p)?'absent_not_applicable_pilot':'missing',sha256:null,bytes:null,...(roleId==='13'&&nonApplicableSchemas.has(p)?{reason:naReason,applicability:'conditional_on_declared_pilot_artifact_consumption',substitute_schema_refs:['schemas/session-script.schema.json','schemas/voicescripts.schema.json']}:{} )}),
@@ -242,7 +264,7 @@ else assert(false,'Missing pinned local pilot override contract');
 const overridePath=path.join(here,'contracts','pilot-overrides-v0.4.0.json');
 if(fs.existsSync(overridePath)){
   const overrides=JSON.parse(fs.readFileSync(overridePath,'utf8'));
-  for(const roleId of ['02','19A','06','07','09'])assert(overrides.role_overrides?.[roleId]!=null,'Missing explicit pilot role disposition: '+roleId);
+  for(const roleId of pilotOverrideIds)assert(overrides.role_overrides?.[roleId]!=null,'Missing explicit pilot role disposition: '+roleId);
 }
 for (const r of registry.roles) {
   assert(r.execution_enabled===false,'Role enabled: '+r.role_id);
@@ -254,7 +276,7 @@ for (const r of registry.roles) {
   verifyRef(r.contract,r.role_id==='UI');
   for(const ref of r.inherited_contract_refs||[])verifyRef(ref);
   for(const ref of r.local_schema_refs||[])verifyRef(ref);
-  if(['02','19A','06','07','09'].includes(r.role_id))assert(r.pilot_override_ref==='contracts/pilot-overrides-v0.4.0.json#/role_overrides/'+r.role_id,'Missing pilot override mapping: '+r.role_id);
+  if(pilotOverrideIds.includes(r.role_id))assert(r.pilot_override_ref==='contracts/pilot-overrides-v0.4.0.json#/role_overrides/'+r.role_id,'Missing pilot override mapping: '+r.role_id);
   if(r.role_id==='UI')for(const key of ['inputs','outputs','quality_metrics','definition_of_done','failure_conditions','machine_interface','autonomy'])assert(typeof r.excerpts[key]==='string'&&r.excerpts[key].length>0,'Missing UI contract excerpt: '+key);
   for(const s of r.schema_refs)verifyRef(s);
   for(const linked of r.presentation.linked_role_ids)assert(sourceIds.includes(linked),'Unknown linked role: '+linked);
@@ -311,7 +333,8 @@ scanIntake(config.scope);
 const unresolvedBudgets=Object.entries(config.limits?.per_provider_usd_caps||{}).filter(([,value])=>value===null).map(([key])=>'limits.per_provider_usd_caps.'+key);
 const stateConfirmed=config.state_selection?.status==='confirmed'&&config.state_selection?.confirmed_by==='founder'&&config.state_selection?.jurisdiction===config.scope?.jurisdiction;
 const notes=schemaRefs.filter(s=>s.status==='absent_not_applicable_pilot').map(s=>({kind:'conditional_schema_non_applicability',path:s.path,reason:s.reason}));
-const plannedScripts=activeRoles.filter(r=>r.execution.script_ref?.file_exists===false).map(r=>r.execution.script_ref.path);
+const plannedScripts=activeRoles.filter(r=>r.execution.script_ref&&r.execution.script_ref.status!=='implemented_not_qualified').map(r=>r.execution.script_ref.path);
+const scriptImplementationInventory=[...scriptedIds].filter(id=>activeIds.has(id)).map(role_id=>({role_id,...scriptRef(role_id),qualification_status:'not_qualified',observed_execution:false}));
 const promptNames=['02','03','04','05-sessions','05-card-scripts','06','07','08','09','19A'];
 const promptChecks=promptNames.map(name=>{
   const promptPath=path.join(here,'prompts',name+'.md'),bytes=fs.readFileSync(promptPath),text=bytes.toString('utf8');
@@ -322,7 +345,7 @@ const promptChecks=promptNames.map(name=>{
   const pinnedSchemaHash=text.match(/^schema_sha256:\s*(\S+)\s*$/m)?.[1];
   const schemaPath=schemaRef?path.resolve(here,schemaRef):null;
   const schemaExists=schemaPath&&fs.existsSync(schemaPath);
-  const bodyBoundaryValid=!/REVIEW ONLY|This template authorizes no execution|execution_authorized|^mode:\s*(review|qualification|production)/mi.test(text);
+  const bodyBoundaryValid=!/REVIEW ONLY|This template authorizes no execution|execution_authorized|render_only|^mode:\s*(review|qualification|production)/mi.test(text);
   const footerValid=!!footer&&footer[1]===bodyHash&&!bytes.includes(13)&&bytes[0]!==0xef;
   assert(footerValid,'Prompt body/footer hash invalid: '+name);
   assert(bodyBoundaryValid,'Controller mode/authority text leaked into prompt body: '+name);
@@ -333,8 +356,8 @@ const headerPath=path.join(here,'prompts','controller-header.template.json');
 let controllerHeader={status:'missing',sha256:null};
 if(fs.existsSync(headerPath)){
   const bytes=fs.readFileSync(headerPath),header=JSON.parse(bytes);
-  controllerHeader={status:'template_only',sha256:hash(bytes),mode:header.mode,execution_authorized:header.execution_authorized};
-  assert(header.mode==='review'&&header.execution_authorized===false,'Controller header must stay review-only in this package');
+  controllerHeader={status:'template_only',sha256:hash(bytes),mode:header.mode,render_only:header.render_only,execution_authorized:header.execution_authorized};
+  assert(header.mode==='review'&&header.render_only===true&&header.execution_authorized===false,'Controller header must stay review/render-only in this package');
   for(const field of ['intervention_ledger_ref','candidate_lineage_ref','candidate_manifest_ref'])assert(field in (header.bindings||header),'Controller header missing lineage binding field: '+field);
 }
 const authorshipPath=path.join(here,'contracts','prompt-authorship.json');
@@ -448,5 +471,5 @@ const blockers=[
   ...(qualificationResult.report_status==='invalid'?[{kind:'invalid_qualification_report',role_id:'04',reasons:qualificationResult.validation_errors}]:[]),
   {kind:'execution_disabled',detail:'This reviewed-configuration draft has not enabled or demonstrated a live belt run.'}
 ];
-console.log(JSON.stringify({status:errors.length?'FAIL':'PASS',binding_integrity:errors.length?'FAIL':'PASS',execution_readiness:'NOT_READY_FOR_EXECUTION',execution_blockers:blockers,verification_debt_fields:verificationDebtFields,notes,prompt_checks:promptChecks,controller_header:controllerHeader,adapter_validation_receipt:adapterReceiptCheck,observed_closure:observedClosure,audit_independence:independenceResult,ui_validation:uiValidation,optional_preview_parity:previewRoles?'checked':'not_requested',run_config:normalize(configPath),registry_spec_inherited_from_template:!config.contract_binding_registry,roles:registry.roles.length,roles_active:activeRoles.length,inactive_for_pilot:registry.roles.filter(r=>r.assignment_status==='inactive_for_pilot').map(r=>r.role_id),pinned_contracts:registry.roles.filter(r=>['pinned','pinned_local'].includes(r.contract.status)).length,unbound_roles:unboundRoles,review_bots:registry.review_bots.length,review_bots_active:activeReviewers.length,qualification_result_04:qualificationResult,qualification_sources:activeRoles.map(r=>({role_id:r.role_id,...r.qualification_source,effective_qualification_status:r.role_id==='04'?qualificationResult.qualification_status:r.execution.qualification_status})),schema_references:schemaRefs.length,unique_schema_paths:new Set(schemaRefs.map(s=>s.path)).size,missing_schema_paths:missingSchemas,registry:normalize(registryPath),errors},null,2));
+console.log(JSON.stringify({status:errors.length?'FAIL':'PASS',binding_integrity:errors.length?'FAIL':'PASS',execution_readiness:'NOT_READY_FOR_EXECUTION',execution_blockers:blockers,verification_debt_fields:verificationDebtFields,notes,prompt_checks:promptChecks,controller_header:controllerHeader,script_implementation_inventory:scriptImplementationInventory,adapter_validation_receipt:adapterReceiptCheck,observed_closure:observedClosure,audit_independence:independenceResult,ui_validation:uiValidation,optional_preview_parity:previewRoles?'checked':'not_requested',run_config:normalize(configPath),registry_spec_inherited_from_template:!config.contract_binding_registry,roles:registry.roles.length,roles_active:activeRoles.length,inactive_for_pilot:registry.roles.filter(r=>r.assignment_status==='inactive_for_pilot').map(r=>r.role_id),pinned_contracts:registry.roles.filter(r=>['pinned','pinned_local'].includes(r.contract.status)).length,unbound_roles:unboundRoles,review_bots:registry.review_bots.length,review_bots_active:activeReviewers.length,qualification_result_04:qualificationResult,qualification_sources:activeRoles.map(r=>({role_id:r.role_id,...r.qualification_source,effective_qualification_status:r.role_id==='04'?qualificationResult.qualification_status:r.execution.qualification_status})),schema_references:schemaRefs.length,unique_schema_paths:new Set(schemaRefs.map(s=>s.path)).size,missing_schema_paths:missingSchemas,registry:normalize(registryPath),errors},null,2));
 if(errors.length)process.exitCode=1;

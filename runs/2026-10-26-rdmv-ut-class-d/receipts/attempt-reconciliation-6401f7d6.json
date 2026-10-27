@@ -1,0 +1,20 @@
+{
+  "schema_version": "nova-attempt-reconciliation.v0.4.0",
+  "run_id": "2026-10-26-rdmv-ut-class-d",
+  "task_id": "task_94cd1bdd87bb871282b077e3d99fad788f86d2be26595cbf140a22449f0d69c7",
+  "attempt_id": "attempt_6401f7d690aa89b0c2e38642fdd6724f0494e19753d5ba928194b22e2b5b52df",
+  "no_request_sent": true,
+  "evidence": {
+    "client_throw_site": "tools/belt/meta-client.mjs:17 — `if (!key) throw new Error('MODEL_API_KEY is absent.')` executes before the fetch at line 27; the dispatcher catch classified the throw as unknown_provider_result",
+    "process_env_state": "runner shell at dispatch time had no MODEL_API_KEY (verified: `echo ${MODEL_API_KEY:+yes}` → no); the key lives in .env, which the controller does not load",
+    "saved_failure_record": "artifacts/task_94cd1bdd…/attempt_6401f7d6…/provider-unknown.json error_code UNKNOWN_PROVIDER_RESULT, no http_status, no usage",
+    "ledger_state_before": "model_calls status unknown_provider_result usage null; reservation reservation_attempt_6401f7d6… state unknown_provider_result reserved_microusd 1000000 actual null",
+    "money_spent_usd": 0,
+    "provider_side_effect": "none — no TCP request was made for this attempt"
+  },
+  "disposition": "attempt → failed (pre-send), reservation → released, model_call → failed/FAILED_PRE_SEND_NO_REQUEST; the attempt still counts toward max_automatic_attempts (conservative; builder may relax later)",
+  "jam_ref": "runs/2026-10-26-rdmv-ut-class-d/jams.md#JAM-UT-01",
+  "recorded_by": { "actor_id": "claude-code-runner", "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03", "model": "claude-fable-5-1" },
+  "authority": "founder chat 2026-10-27: '2.. you do it wrap it up'",
+  "recorded_at": "2026-10-27T16:05:00Z"
+}
