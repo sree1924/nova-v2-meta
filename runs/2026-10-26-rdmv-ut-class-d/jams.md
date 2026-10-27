@@ -339,3 +339,17 @@
 - 2026-10-27T20:17:50.251Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:74 for 03.combined_kg (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
 
 - 2026-10-27T20:18:25.279Z retry nonce 03.combined_kg:@sec01-definitions → 3 after HOLD (sec01-definitions); non-PASS: 03.FACT_IDS_REGISTERED=FAIL
+
+- 2026-10-27T20:18:53.330Z retry nonce 03.combined_kg:@sec01-definitions → 4 after HOLD (sec01-definitions); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:18:53.437Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:75 for 03.combined_kg (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:19:25.901Z retry nonce 03.combined_kg:@sec01-definitions → 5 after HOLD (sec01-definitions); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:19:48.180Z retry nonce 03.combined_kg:@sec01-definitions → 6 after HOLD (sec01-definitions); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:21:06.800Z retry nonce 05.sessions:@sec02-licensing-requirements → 1 after HOLD (sec02-licensing-requirements); non-PASS: 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T20:21:33.072Z retry nonce 05.sessions:@sec02-licensing-requirements → 2 after HOLD (sec02-licensing-requirements); non-PASS: 05.SLIDE_ARC=FAIL
+
+- 2026-10-27T20:21:33.323Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:76 for 05.sessions (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.SLIDE_ARC=FAIL
