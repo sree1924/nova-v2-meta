@@ -205,3 +205,7 @@
 - 2026-10-27T18:47:01.539Z retry nonce 05.card_scripts: → 6 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SEGMENT_ORDER=FAIL
 
 - 2026-10-27T18:53:53.265Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:37 for 05.card_scripts (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:23:49.870Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:38 for 02.dossier_sections (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:24:21.964Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:39 for 02.dossier_sections (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 

@@ -1,55 +1,70 @@
-# NOVA V2 — Meta-operated exam-prep production belt
+# Nova × Muse — a Meta-operated factory that turns a state driver handbook into a study app
 
-This isolated hackathon project applies Nova's role contracts to regular passenger-car written-test preparation. **Utah is confirmed as state one.** The intended separate DMV store/probe #66 still needs canonical catalog reactivation through the amendment process; no live store is claimed.
+**Meta Global AI Developer Hackathon, Oct 26 – Nov 4, 2026.** This repo is the complete, auditable lane that built a
+Utah DMV written-test prep app (the 66th product line of the Nova certification factory) with **Muse Code as the operator
+and builder**, **muse-spark-1.3 as the only authoring model**, and a strict validation belt deciding what counts as real.
 
-The handbook supplies fact authority and stays private. Learner material must be originally authored, page cited and independently audited. Meta's standard `muse-spark-1.3` is the assigned measured generator. Engineering assistants, deterministic scripts and actual model calls retain separate identities.
+> Every learner-facing sentence in the app traces back through a ledger to one paid model call, its request, its raw
+> response, the validator receipt that accepted it, and the handbook page it cites. Nothing was hand-edited.
 
-## Current status
+## What Muse did
 
-The sequential controller, SQLite ledger, Meta client, source registrar, deterministic compiler, context assembler and static trace renderer are built. The ledger uses WAL/FULL, integer micro-USD, durable attempts and append-only provenance. Implementation and synthetic tests do not qualify a model or establish a completed belt.
+| role | how |
+|---|---|
+| **Operator of the belt** | `muse exec` runs `tools/belt/run-utah.mjs`: dispatches each stage to the Meta Model API, watches the deterministic validator, retries HOLDs under a bounded lineage policy, moves section by section through the handbook, and writes an operator report after every launch (`coordination/MUSE-BELT-OPERATOR-REPORT.md`, `coordination/MUSE-FULL-HANDBOOK-REPORT.md`). |
+| **Builder of the app** | Muse wrote `app-preview/` (no framework, no network): home → module hub → lesson slides with "teacher says" narration → flashcards with a recall beat → module quiz → practice forms, all rendered from the ledger-accepted artifacts, with provenance links per card/item/slide (`coordination/MUSE-LEARNER-SCREENS-REPORT.md`). |
+| **Its own reviewer** | Muse's DOM harness (`tools/preview/verify-learner.cjs`) asserts counts and byte-exact wording against the exports before it reports done. |
+| **Spoken recall (next)** | Muse Voice Transcribe behind a local proxy so a learner can *say* the answer on a flashcard (`coordination/MUSE-VOICE-RECALL-BRIEF.md`). |
 
-Utah metadata registration has deterministic acceptance with `factual_acceptance:false`. The private 2026–2027 handbook has 115 physical pages and 104 observed printed page IDs. The issuer receipt pins a dated rendered-DOM observation and exact handbook link. Source liveness remains **held with date/rights debt**: `CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT`, null effective date and a recorded disposition. See the run's `15-registration-receipt.json`, `15-source-registry.json`, `15-page-map.json` and `15-source-liveness.json`.
+The human (founder) set the scope, the state, the budget, and three standing decisions; everything else was artifacts.
 
-**The Utah run has zero model calls and no founder GO artifact.** Current authority permits local preparation only. Sol builds/seals the handoff; Claude runs later after explicit lock handover and genuine per-stage authority.
-
-Roles **09, 19, 19A and 21 remain planned executors**. A validator is not their assembler. Role 17 records `n/a_pilot` without pretending to enrich content. Independent OpenAI/Anthropic audits remain pending; each scope still needs two qualified, lineage-eligible provider families. GPT-authored candidate prompts disqualify OpenAI for that scope, and Google remains inactive until an explicit qualified assignment. No eligible pair is presumed.
-
-**Keep:** The animated floor will remain in the contract as deferred work. This is still package preparation only.
-
-## Verification and closed mapping blocker
-
-The current snapshot is documented in `coordination/S1-S8-VERIFY-v0.4.0.md` and its JSON companion. Claude's final 04 mapping/collector compatibility repair is verified: the receipt suite passes 41/41, qualification predicates pass 24/24, owner tests pass 215/215 and all 81 fixture outcomes match expectations. The owner receipt is `coordination/CLAUDE-SCHEMA-RECEIPT-v0.4.0.json`, SHA-256 `788950f6ebde2cbca7daebfbb6729fec340b20509fb93d31be1ca842e42eeb05`; its 46-file implementation closure matches exact bytes. The restored mapping requires the collector artifact-hash check and dated source-liveness context, and removing mandatory source-ref guards produces HOLD. The original correction request is retained as history in `coordination/CLAUDE-04-MAPPING-COMPATIBILITY-v0.4.0.md`. These passing local checks do not establish model qualification, independent candidate acceptance or execution readiness.
-
-Local evidence is under `verification/`, including `SOL-CONTROLLER-LOCAL-TESTS-v0.4.0.json`, `BELT-NODE-TESTS-v0.4.0.json` and `BELT-FIXTURE-RUNS-v0.4.0.json`. Synthetic duplicate-command, post-write crash recovery and source-supported defect tests establish only their recorded mechanics. Exact source hashes and final bundle scope govern their applicability; they are not factual audits or live provider results.
-
-## Belt and ownership
+## What the belt is
 
 ```text
-15 source registration → accepted 02 dossier → 16 merge/fact index → 17 n/a_pilot
-→ accepted 19 learning inputs → combined 03/KG → cards / teaching units / practice
-→ 19A units → card scripts → content seal → independent 07/08 audits
-→ validated UI → 09 package → 21 runtime → free preview → independent application QA
+15 register the handbook (pages, hashes, liveness)
+02 dossier — 9 parts per handbook section (facts with page anchors, confusables, exam facts, debts, DoD matrix)
+16 deterministic compile → fact index (every FACT_ID → accepted wording + page)
+03 knowledge graph (modules, prerequisites, high-yield set, confusables)
+04 flashcards (back == accepted wording, byte-exact; spoken form; SRS tiers)
+06 exam bank (4-option items, rationales, 2 practice forms, module quizzes; no numeral without a verified fact)
+05 teaching sessions (6–8 slides, worked example, misconception, self-check) + card narration scripts
 ```
 
-This is the declared dependency order, not a claim that every executor exists. `BELT-V2-CONTRACT.md`, the local pilot overrides and `contracts/bot-contract-bindings.json` distinguish planned, implemented, qualified and executed responsibilities. Role 16 preserves exact accepted fact spans and pending audit status through the local CompiledDossierPilot adaptation; it does not claim canonical Blueprint certification.
+Each stage is a strict-mode JSON schema (`schemas-strict/`) plus compensating checks (`tools/belt/checks/`) the model cannot
+talk its way past. A HOLD costs one call and teaches the conventions (`schemas-strict/output-conventions.json`); an accepted
+artifact is immutable and ledgered (`runs/<run>/ledger/run.sqlite`, append-only events, micro-USD reservations per call).
 
-`prompts/` contains ten hashed role bodies and a separate controller header. Body, header and complete-request hashes are distinct; default rendering is review-only/execution-disabled. Claude owns `schemas-strict/`, mapped deterministic checks and their receipts. Sol owns the bounded controller implementation. `reviews/` preserves independent contract review; `REVIEW-BUNDLE.json` pins the review targets.
+## Proof, not claims
 
-## Local checks without provider calls
+- `app-preview/trace.html` — the live trace: every attempt, its cost, its checks, accepted vs held, per section.
+- `runs/2026-10-26-rdmv-ut-class-d/` — approvals, receipts, lineage resets, reconciliations, `jams.md` (what went wrong and when).
+- `runs/2026-10-26-rdmv-ut-class-d/COST-ACCOUNTING.md` — product cost (belt calls, from the ledger) kept apart from operator cost (Muse Code subscription).
 
-From this directory in PowerShell, using the installed dependencies:
+Section 9 (Rules of the Road) end-to-end: 9 dossier parts, 39 facts, 3 modules, 39 cards, 39 items, 21 slides, 42 scripts —
+**$11.54 of model calls including every held attempt while the conventions were being learned**; a stable section costs ≈ $2.
+The remaining 15 sections run as one Muse launch (`coordination/MUSE-FULL-HANDBOOK-BRIEF.md`).
 
-```powershell
-node tools/belt/controller.mjs plan --run-config runs/2026-10-26-rdmv-ut-class-d/run-config.json
-node tools/check-bot-contracts.mjs --run-config runs/2026-10-26-rdmv-ut-class-d/run-config.json
-$controllerTests = Get-ChildItem tests/controller -File -Filter '*.test.mjs' | Select-Object -ExpandProperty FullName
-node --test @controllerTests
-$adapterTests = Get-ChildItem tests/belt -File -Filter '*.test.mjs' | Select-Object -ExpandProperty FullName
-node --test @adapterTests
+## Honest limits
+
+- Content is **belt-validated, audit pending**: the independent fact/coverage auditors (roles 07/08) are not part of the pilot; the app says so on every screen.
+- Text-first: narration is written, not spoken (Meta has no TTS; recall-by-voice uses Muse Voice Transcribe).
+- The handbook PDF stays private (`runs/**/sources/private/`, gitignored); only page anchors and authored text are published.
+- The free-credit dashboard counts Muse Code's own agent tokens until a subscription is active; see the cost doc for the split.
+
+## Run it
+
+```bash
+npm install
+node tools/preview/static-serve.mjs 4310      # http://localhost:4310  (the app, no build step)
+node tools/belt/run-fixtures.mjs              # 81 validator fixtures, no model calls
+node tools/belt/compile-check.mjs             # pure compile of the accepted dossier parts
 ```
 
-The default plan makes no provider call. Ledger initialization and registration are explicit local operations under the executor lock. Smoke, provider probes and content dispatch are separate operations; this dry handoff authorizes none of them. A command-line `--go` cannot manufacture the founder's approval artifact, accepted dependencies or budget authority.
+A belt run needs `MODEL_API_KEY` in `.env` (see `ENV-SETUP.md`), a run-config with a standing authority artifact, and an
+operator — ours is Muse: `muse exec --prompt-file coordination/MUSE-FULL-HANDBOOK-BRIEF.md …`.
 
-Credentials, the handbook PDF/extracted text, private run data and Nova's protected factory surface stay outside public distribution. No Clerk, Stripe, payment flow, rendered audio or live TTS is implied by the free preview scope.
+## Credits and lineage
 
-Founder: Sridhar Varadarajulu. Participants retain actual engineering identities: Sol/Codex builds, Claude owns adapters/review and the later runner handoff, and Muse Code operates/builds the preview within its assigned scope.
+Belt contracts and controller: Sol (GPT) for Nova; validators, runner and conventions: Claude (Fable 5.1) as runner;
+operation and app: Muse Code (muse-spark-1.3). Founder: Sridhar Varadarajulu. Nova's own factory, 65 live stores and the V1
+corpus are **not** in this repo and were never sent to the Meta API.
