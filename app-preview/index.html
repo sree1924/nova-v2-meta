@@ -6,9 +6,10 @@
 <title>Nova Dev Preview — Fictional Sample Chapter</title>
 <link rel="stylesheet" href="styles.css">
 <script src="data-embedded.js" defer></script>
+<script src="data-real-embedded.js" defer></script>
 </head>
 <body>
-<div class="sample-banner" role="note">SYNTHETIC SAMPLE — not Utah content</div>
+<div class="sample-banner" id="banner" role="note">SYNTHETIC SAMPLE — not Utah content</div>
 <header class="site">
   <div class="wrap">
     <span class="brand">Nova Dev Preview</span>
@@ -24,6 +25,30 @@
 <footer class="site">dev preview — no production claims</footer>
 <script type="module">
 const SYNTHETIC_NOTE = "SYNTHETIC SAMPLE — not Utah content.";
+const REAL_NOTE = "REAL — Utah Section 9, validated, audit pending";
+const REVIEWER_EMPTY_NOTE = "REVIEWER VIEW — no accepted Utah content yet";
+
+function setBanner(kind, text) {
+  const b = document.getElementById("banner");
+  b.className = kind === "real" ? "real-banner" : kind === "review" ? "review-banner" : "sample-banner";
+  b.textContent = text;
+}
+
+let R = null;
+async function loadReal() {
+  try {
+    const manifest = await (await fetch("data/real/manifest.json", {cache: "no-store"})).json();
+    const files = {};
+    for (const e of manifest.files || []) {
+      files[e.file.replace(/^data\/real\//, "")] = await (await fetch(e.file, {cache: "no-store"})).json();
+    }
+    return { manifest, files, from: "fetch" };
+  } catch (e) {
+    const emb = window.__REAL_EMBEDDED;
+    if (emb) return { manifest: emb.manifest, files: emb.files, from: "embedded-fallback" };
+    return { manifest: null, files: {}, from: "none" };
+  }
+}
 const view = document.getElementById("view");
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
@@ -176,12 +201,56 @@ function vSettings() {
   <div class="card"><h2>About this preview</h2>
   <p>A standalone developer preview of the learner experience. Everything is free, with no account and no audio. Content on screen is a clearly-labelled synthetic sample shaped like the belt's strict adapters — not Utah content, not real driving rules.</p>
   <p class="muted">Data source: ${D.from === "fetch" ? "app-preview/data/*.json over HTTP" : "embedded fallback copy (identical content, used because local files could not be fetched)"}.</p></div>
+  <div class="card"><h2>Reviewer</h2>
+  <p><a class="btn" href="#/dossier">Source dossier (reviewer view)</a></p>
+  <p class="muted">Accepted belt artifacts only. Shows an empty state until stage 02 has an accepted task. Never linked from the learner screens above.</p></div>
   <div class="card"><h2>Progress on this device</h2>
   <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the sample syllabus. Changing the syllabus invalidates them.</p>
   <p><button id="reset-progress" class="secondary">Erase my preview progress</button></p></div>`;
 }
 
 function vMissing() { return `<h1>Nothing here</h1><p>That chapter or unit is not part of this preview.</p><p><a class="btn" href="#/chapters">Chapter hub</a></p>`; }
+
+function realEntries() {
+  const list = (R && R.manifest && R.manifest.files) || [];
+  return {
+    dossier: list.filter((e) => e.stage_id === "02.dossier_sections"),
+    other: list.filter((e) => e.stage_id !== "02.dossier_sections")
+  };
+}
+
+function factBlocks(md) {
+  return String(md || "").split(/(?=^FACT_ID: )/m).map((b) => b.trim()).filter(Boolean);
+}
+
+function vDossier() {
+  const { dossier, other } = realEntries();
+  if (!dossier.length && !other.length) {
+    return `<h1>Source dossier — reviewer view</h1>
+    <div class="card"><h2>No accepted dossier parts yet</h2>
+    <p>Stage 02 (dossier) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here. The learner screens remain fully synthetic.</p>
+    <p class="muted">Operator step after the belt accepts a part: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
+  }
+  return `<h1>Source dossier — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Reviewer view, not a learner lesson: fact blocks as extracted, with provenance. Full audit is still pending.</p>
+  ${dossier.map((e) => {
+    const art = (R.files || {})[e.file.replace(/^data\/real\//, "")];
+    if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
+    const scope = art.envelope_scope || {};
+    const secs = Array.isArray(art.sections) ? art.sections : [];
+    return `<div class="card"><h2>Dossier part: ${(scope.assigned_section_ids || []).map(esc).join(", ") || esc(e.task_id)}</h2>
+    <dl class="kv"><dt>Chunk</dt><dd><code>${esc(scope.chunk_id || "")}</code> (${esc(scope.kind || "")})</dd>
+    <dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    + secs.map((s) => `<div class="card"><h2>${esc(s.heading || s.chunk_id || "")}</h2>
+      <p class="muted">${(s.fact_ids || []).length} fact blocks · learner_facing: ${esc(s.learner_facing)}</p>
+      ${factBlocks(s.markdown).map((b) => {
+        const id = (b.match(/^FACT_ID:\s*(\S+)/) || [])[1] || "block";
+        return `<h2>${esc(id)}</h2><pre class="fact">${esc(b)}</pre>`;
+      }).join("")}</div>`).join("");
+  }).join("")}
+  ${other.length ? `<div class="card"><h2>Other accepted stages (learner wiring pending)</h2>
+  <ul>${other.map((e) => `<li><code>${esc(e.stage_id)}</code> — task <code>${esc(e.task_id)}</code> · sha256 <code>${esc(e.sha256)}</code></li>`).join("")}</ul></div>` : ""}`;
+}
 
 function gradeQuiz(form, formId, title) {
   const answers = [];
@@ -257,7 +326,12 @@ function route() {
   else if (parts[0] === "practice") { html = vPractice(); nav = "practice"; }
   else if (parts[0] === "results") html = vResults(decodeURIComponent(parts[1] || ""));
   else if (parts[0] === "settings") { html = vSettings(); nav = "settings"; }
+  else if (parts[0] === "dossier") html = vDossier();
   else html = vMissing();
+  if (parts[0] === "dossier") {
+    const n = realEntries().dossier.length + realEntries().other.length;
+    setBanner(n ? "real" : "review", n ? REAL_NOTE : REVIEWER_EMPTY_NOTE);
+  } else setBanner("synthetic", SYNTHETIC_NOTE);
   view.innerHTML = html;
   document.querySelectorAll("nav.main a").forEach((a) => {
     if (a.dataset.nav === nav) a.setAttribute("aria-current", "page");
@@ -269,7 +343,7 @@ function route() {
 }
 
 window.addEventListener("hashchange", route);
-loadData().then((d) => { D = d; route(); }).catch(() => {});
+loadReal().then((r) => { R = r; return loadData(); }).then((d) => { D = d; route(); }).catch(() => {});
 </script>
 </body>
 </html>
