@@ -317,8 +317,11 @@ function buildExpected() {
   }
 
   // ---- global Nowhere sweep on learner routes ----
+  // Case-sensitive, like every per-route check above: the synthetic marker
+  // is the proper noun "Nowhere" (the fictional island). Lowercase "nowhere"
+  // is ordinary English inside accepted sec08/sec14 exam options and must render.
   const leaked = [];
-  for (const rt of learnerRoutes) { const x = go(rt); if (/Nowhere/i.test(x.html) || /SYNTHETIC SAMPLE/.test(x.html)) leaked.push(rt); }
+  for (const rt of learnerRoutes) { const x = go(rt); if (/Nowhere/.test(x.html) || /SYNTHETIC SAMPLE/.test(x.html)) leaked.push(rt); }
   ok('no Nowhere/SYNTHETIC on any learner route (' + learnerRoutes.length + ' routes)', leaked.length === 0, leaked.join(','));
 
   console.log(fails.length ? ('\nRESULT: ' + fails.length + ' FAILURES: ' + fails.join(' | ')) : '\nRESULT: ALL CHECKS PASSED');
