@@ -229,3 +229,9 @@
 - 2026-10-27T19:26:45.644Z retry nonce 02.dossier_sections:G@sec01-definitions → 3 after HOLD (sec01-definitions); non-PASS: 02.G_MATRIX=FAIL
 
 - 2026-10-27T19:27:09.969Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:44 for 02.dossier_sections (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:28:20.391Z retry nonce 02.dossier_sections:C2@sec02-licensing-requirements → 1 after HOLD (sec02-licensing-requirements); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:28:20.476Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:45 for 02.dossier_sections (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:29:09.967Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:46 for 02.dossier_sections (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 

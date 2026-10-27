@@ -40,11 +40,16 @@ function indexFact(id, section, pageMap) {
   const candidates = lines.map((line, i) => ({match: line.match(marker), i})).filter(v => v.match);
   if (candidates.length !== 1) return {error: `${id}: expected exactly one explicit fact marker in ${section.chunk_id}; found ${candidates.length}`};
   const {match, i} = candidates[0];
-  let end = i + 1;
+  // The block body may start after blank line(s) following a FACT_ID lead (sec01 layout, 2026-10-27); it ends at the next blank
+  // line after the body began, or at a heading / bold lead / next FACT_ID.
+  let start = i + 1;
+  if (match[1] !== undefined) while (start < lines.length && !lines[start].trim()) start++;
+  let end = start;
   while (end < lines.length && lines[end].trim() && !/^\s*(?:#{1,6}\s|\*\*|§|FACT_ID:)/.test(lines[end])) end++;
   const lead = match[1] ?? match[2] ?? '';
-  // A "Source: [Axx -> page]" trailer is citation bookkeeping, not fact wording; it stays in the verbatim span only.
-  const body = lines.slice(i + 1, end).filter(l => !/^\s*Source:\s*\[[A-Za-z0-9_-]+\s*->\s*\S+\]\s*$/.test(l));
+  // "Source: [Axx -> page]" trailers and "Why it matters:"-style commentary lines are bookkeeping, not fact wording; they stay
+  // in the verbatim span only.
+  const body = lines.slice(start, end).filter(l => !/^\s*Source:\s*\[[A-Za-z0-9_-]+\s*->\s*\S+\]\s*$/.test(l) && !/^\s*(?:Why it matters|Why|Example|Tip|Note|Context|Remember|Exam angle|Trap)\s*:/i.test(l));
   const raw = [lead, ...body].join('\n');
   const anchors = (section.source_anchors ?? []).filter(a => raw.includes(`[${a.anchor_id}]`));
   if (!anchors.length) return {error: `${id}: exact marked fact span has no explicit source anchor`};
