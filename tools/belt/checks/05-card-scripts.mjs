@@ -110,7 +110,11 @@ export function run(artifact, context = {}) {
 
   // ---- 05.SEGMENT_ORDER ----
   {
-    const bad = cardScripts.filter(s => s.segments && typeof s.segments === 'object').filter(s => JSON.stringify(Object.keys(s.segments)) !== JSON.stringify(SEGMENT_ORDER)).map(s => `${s.script_id}: [${Object.keys(s.segments).join(',')}]`);
+    // Provider strict-mode JSON serializes object keys alphabetically (2026-10-27: every script came back
+    // [answer,question,recall_pause_ms,teaching,think_ref]), so key ORDER is not evidence the model controls. The
+    // playback order is fixed by the contract (SEGMENT_ORDER); the check requires exactly that key SET, nothing else.
+    const want = JSON.stringify([...SEGMENT_ORDER].sort());
+    const bad = cardScripts.filter(s => s.segments && typeof s.segments === 'object').filter(s => JSON.stringify(Object.keys(s.segments).sort()) !== want).map(s => `${s.script_id}: [${Object.keys(s.segments).join(',')}]`);
     out.push(bad.length ? check(`${P}.SEGMENT_ORDER`, 'FAIL', `${bad.length} script(s) out of order (required ${SEGMENT_ORDER.join(' -> ')}): ${head(bad)}`)
       : check(`${P}.SEGMENT_ORDER`, 'PASS', `segments ordered ${SEGMENT_ORDER.join(' -> ')} on every segmented script`));
   }

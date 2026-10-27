@@ -183,3 +183,21 @@
 - 2026-10-27T18:34:47.888Z retry nonce 05.sessions: → 5 after HOLD (sec09-rules-of-the-road); non-PASS: 05.STAGE_DIRECTIONS=FAIL
 
 - 2026-10-27T18:35:19.204Z retry nonce 05.sessions: → 6 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SELF_CHECK_ALIGNED=FAIL, 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T18:40:17.274Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:34 for 05.sessions (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T18:40:49.347Z retry nonce 05.sessions: → 7 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SLIDE_ARC=FAIL, 05.NARRATION_DEPTH=FAIL
+
+- 2026-10-27T18:42:16.128Z retry nonce 05.card_scripts: → 1 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SEGMENT_ORDER=FAIL
+
+- 2026-10-27T18:43:10.925Z retry nonce 05.card_scripts: → 2 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SEGMENT_ORDER=FAIL
+
+- 2026-10-27T18:43:11.038Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:35 for 05.card_scripts (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.SEGMENT_ORDER=FAIL
+
+- 2026-10-27T18:44:08.569Z retry nonce 05.card_scripts: → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SEGMENT_ORDER=FAIL
+
+- 2026-10-27T18:45:03.322Z retry nonce 05.card_scripts: → 4 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SEGMENT_ORDER=FAIL
+
+- 2026-10-27T18:45:03.462Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:36 for 05.card_scripts (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.SEGMENT_ORDER=FAIL
+
+- 2026-10-27T18:46:01.873Z retry nonce 05.card_scripts: → 5 after HOLD (sec09-rules-of-the-road); non-PASS: 05.SEGMENT_ORDER=FAIL

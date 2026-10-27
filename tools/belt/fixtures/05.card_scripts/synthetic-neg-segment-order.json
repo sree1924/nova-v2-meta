@@ -4,9 +4,9 @@
     "label": "SYNTHETIC validator interface fixture — not a qualification, source or run",
     "generator": {
       "path": "tools/belt/project/05-card-scripts.mjs",
-      "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+      "sha256": "99b91d7f5f5afcbbb801a22f49ec7a69ae5c174e86b3c4bbacb99d53ba48d1bf"
     },
-    "note": "answer emitted before think_ref/recall_pause_ms (recall beat lost)",
+    "note": "recall beat lost: segments lack recall_pause_ms and carry a stray key (key SET, not order — provider sorts keys)",
     "expect": {
       "status": "FAIL",
       "fail": [
@@ -48,18 +48,18 @@
           "lead_in": "Question:",
           "text": "Fixture prompt one: what does the synthetic rule require?"
         },
+        "think_ref": "think.shared",
         "answer": {
           "lead_in": "Here is the answer:",
           "text": "The synthetic rule requires a full stop at the fixture line."
         },
-        "think_ref": "think.shared",
-        "recall_pause_ms": 3000,
         "teaching": {
           "text": "Key point: The synthetic rule requires a full stop at the fixture line. Remember: Fixture line means full stop. Once more: The synthetic rule requires a full stop at the fixture line.",
           "fact_ids": [
             "syn-fact-01"
           ]
-        }
+        },
+        "recall_pause": 3000
       },
       "recap": null,
       "must_match_card_back": "The synthetic rule requires a full stop at the fixture line.",
