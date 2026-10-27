@@ -251,3 +251,7 @@
 - 2026-10-27T19:32:12.857Z retry nonce 04.cards:@sec02-licensing-requirements → 4 after HOLD (sec02-licensing-requirements); non-PASS: 04.ORIGINALITY=FAIL
 
 - 2026-10-27T19:32:12.963Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:50 for 04.cards (sec02-licensing-requirements) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:32:29.546Z retry nonce 04.cards:@sec02-licensing-requirements → 5 after HOLD (sec02-licensing-requirements); non-PASS: 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:32:48.302Z retry nonce 04.cards:@sec02-licensing-requirements → 6 after HOLD (sec02-licensing-requirements); non-PASS: 04.ORIGINALITY=FAIL
