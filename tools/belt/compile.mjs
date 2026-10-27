@@ -67,7 +67,9 @@ function indexFact(id, section, pageMap) {
     // A block lead "FACT_ID: x | anchor: Axx" declares the page of record; further inline anchors are supporting pages
     // (recorded, not chosen by the compiler). Without a lead anchor the span still needs an explicit split.
     const leadId = lines[i].match(/\|\s*anchor:\s*([A-Za-z0-9_-]+)/)?.[1];
-    const lead = leadId && pages.find(p => p.anchor.anchor_id === leadId);
+    // Legacy one-line facts have no lead anchor: the FIRST anchor cited in the span is the page of record (deterministic).
+    const firstCited = [...raw.matchAll(/\[([A-Za-z0-9_-]+)\]/g)].map(m => m[1]).find(a => pages.some(p => p.anchor.anchor_id === a));
+    const lead = (leadId && pages.find(p => p.anchor.anchor_id === leadId)) || (firstCited && pages.find(p => p.anchor.anchor_id === firstCited));
     if (!lead) return {error: `${id}: multi-page span needs an explicit fact split; compiler will not choose a page`};
     supportingPages = pages.filter(p => p !== lead).map(p => ({anchor_id: p.anchor.anchor_id, source_page: p.anchor.source_page, pdf_page: p.page.pdf_page}));
     pages = [lead];
@@ -78,8 +80,15 @@ function indexFact(id, section, pageMap) {
   // anchor removal leaves " ." / " ," which is closed up. Both fixes are learner-facing: 04 backs must equal this statement.
   statement = statement.split('\n').filter(l => !/^\s*(?:[A-Za-z][A-Za-z _-]{0,20}:\s*[^|\n]*\|\s*){1,}[A-Za-z][A-Za-z _-]{0,20}:\s*[^|\n]*$/.test(l)).join('\n');
   // KG-hint clauses ("group …; prereq …; difficulty N; confusable …") are C2 bookkeeping, never learner wording.
-  statement = statement.replace(/;\s*(?:group|prereq|prerequisite|difficulty|confusable|confusables|tags?)\s*:?\s*[^;.\n]*/gi, '').replace(/^\s*(?:group|prereq|prerequisite|difficulty|confusable|confusables)\s*:?\s*[^;.\n]*;\s*/i, '');
+  const HINT_CLAUSE = /(?:group|prereq|prerequisite|difficulty|diff|confusable|confusables|tags?)\s*:?\s*[^;.\n]*/gi;
+  const hintOnly = /^\s*(?:group|prereq|prerequisite|difficulty|diff|confusable|confusables)\b/i.test(statement) && statement.split(';').every(seg => /^\s*(?:group|prereq|prerequisite|difficulty|diff|confusable|confusables|tags?)\b/i.test(seg) || !seg.trim() || /^\s*\.?\s*$/.test(seg));
+  statement = statement.replace(/;\s*(?:group|prereq|prerequisite|difficulty|diff|confusable|confusables|tags?)\s*:?\s*[^;.\n]*/gi, '').replace(/^\s*(?:group|prereq|prerequisite|difficulty|diff|confusable|confusables)\s*:?\s*[^;.\n]*;\s*/i, '');
   statement = statement.replace(/\s+([.,;:!?])/g, '$1').replace(/[ \t]+(?=\n|$)/g, '').trim();
+  // A C2 entry that is ONLY KG-hint metadata (no rule sentence) is a kg_hint, not a learner fact: it is returned for the
+  // hints map and kept out of the fact registry (04/05/06 never card or narrate it; 03 may still use it for confusables).
+  if (hintOnly || (statement && statement.split(/\s+/).length < 4 && HINT_CLAUSE.test(lines[i + (match[1] !== undefined ? 1 : 0)] ?? ''))) {
+    return {hint: {fact_id: id, chunk_id: section.chunk_id, section: section.section_id, hint_text: lines.slice(i, end).join('\n'), source_page: pages[0].anchor.source_page, pdf_page: pages[0].page.pdf_page}};
+  }
   if (!statement || /\(\s*verify\b/i.test(statement)) return {error: `${id}: empty or unresolved fact span cannot enter accepted wording`};
   const page = pages[0].page;
   // Deterministic spoken rendering of symbol shorthand (the 04 back must be spoken-form AND equal the accepted wording):
@@ -153,12 +162,14 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: accepte
   errors.push(...merged.errors);
   const sections = merged.sections; // the merge's own order (one envelope: merge_seq; several: section order, then merge_seq)
   const factEntries = [];
+  const hintEntries = []; // C2 KG-hint-only entries (no learner sentence): kept beside the registry, never as facts
   const seen = new Set();
   for (const section of sections) for (const id of section.fact_ids ?? []) {
     if (seen.has(id)) { errors.push(`Duplicate declared fact ID ${id}`); continue; }
     seen.add(id);
     const indexed = indexFact(id, section, map.value);
     if (indexed.error) errors.push(indexed.error);
+    else if (indexed.hint) hintEntries.push([id, indexed.hint]);
     else factEntries.push([id, indexed.fact]);
   }
   if (!factEntries.length) errors.push('No unambiguously located accepted fact spans were indexed');
@@ -172,7 +183,8 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: accepte
     role_id: '16', input_manifest_sha256: inputManifestHash,
     source_registry_sha256: sourceRegistry.ref.sha256, page_map_sha256: map.ref.sha256,
     acceptance_kind: 'deterministic_index_only_not_factual_audit',
-    facts: Object.fromEntries(factEntries.sort(([a], [b]) => a.localeCompare(b)))};
+    facts: Object.fromEntries(factEntries.sort(([a], [b]) => a.localeCompare(b))),
+    ...(hintEntries.length ? {kg_hints: Object.fromEntries(hintEntries.sort(([a], [b]) => a.localeCompare(b))), kg_hints_note: 'C2 entries that carried only KG-hint metadata; not learner facts, not carded or narrated'} : {})};
   const blueprint = {artifact_type: 'CompiledDossierPilot', schema_version: '0.4.0', role_id: '16', status,
     canonical_blueprint_validation_claimed: false, probe: envelopes[0].probe,
     candidate_lineage_id: candidateLineageId ?? envelopes[0].lineage?.candidate_lineage_id ?? null,

@@ -604,7 +604,8 @@ function vDossier() {
     const secs = Array.isArray(art.sections) ? art.sections : [];
     const chunkLabel = scope.chunk_id || secs.map((s) => s.chunk_id).filter(Boolean).join(", ") || ("chunk " + (scope.chunk_index ?? "?") + "/" + (scope.chunk_total ?? "?"));
     return `<div class="card"><h2>Dossier part: ${(scope.assigned_section_ids || []).map(esc).join(", ") || esc(e.task_id)}</h2>
-    <dl class="kv"><dt>Chunk</dt><dd><code>${esc(chunkLabel)}</code> (${esc(scope.kind || "")})</dd>
+    <dl class="kv"><dt>Section</dt><dd>${esc(shortSection(e.section_id))}</dd>
+    <dt>Chunk</dt><dd><code>${esc(chunkLabel)}</code> (${esc(scope.kind || "")})</dd>
     <dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
     + secs.map((s) => `<div class="card"><h2>${esc(s.heading || s.chunk_id || "")}</h2>
       <p class="muted">${(s.fact_ids || []).length} fact blocks · learner_facing: ${esc(s.learner_facing)}</p>
@@ -648,7 +649,8 @@ function vModules() {
     const hints = Array.isArray(art.curriculum_unit_hints) ? art.curriculum_unit_hints : [];
     const lp = Array.isArray(art.learning_path) ? art.learning_path : [];
     return `<div class="card"><h2>Combined KG: ${mods.length} modules · ${nodes.length} nodes · ${edges.length} edges</h2>
-    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd>
+    <dl class="kv"><dt>Section</dt><dd>${esc(shortSection(e.section_id))}</dd>
+    <dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd>
     <dt>Learning path</dt><dd>${lp.map((x) => esc(x)).join(" → ") || "(none declared)"}</dd></dl></div>`
     + mods.map((m) => `<div class="card"><h2>${esc(m.module_id)} — ${esc(m.title)}</h2>
       <p class="muted">${esc(m.domain)} · ${(m.node_ids || []).length} nodes</p>
@@ -678,7 +680,8 @@ function vRealCards() {
     const decks = Array.isArray(art.decks) ? art.decks : [];
     const all = decks.flatMap((d) => d.cards || []);
     return `<div class="card"><h2>Stage 04 cards: ${all.length} cards · ${decks.length} deck(s)</h2>
-    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    <dl class="kv"><dt>Section</dt><dd>${esc(shortSection(e.section_id))}</dd>
+    <dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
     + decks.map((d, di) => `<div class="card"><h2>Deck ${di + 1} of ${decks.length} — ${(d.cards || []).length} cards</h2></div>`
       + (d.cards || []).map((c, i) => `<div class="card"><h2>Card ${i + 1} of ${(d.cards || []).length} — ${esc(c.card_id)}</h2>
       <p>${esc(c.front)}</p>
@@ -720,7 +723,8 @@ function vRealQuiz() {
       <p><button type="submit">Check answers</button></p>
       <div data-summary></div></form>`;
     return `<div class="card"><h2>Stage 06 exam bank: ${items.length} items · ${quizzes.length} module quiz(zes) · ${forms.length} practice form(s)</h2>
-    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    <dl class="kv"><dt>Section</dt><dd>${esc(shortSection(e.section_id))}</dd>
+    <dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
     + forms.map((f) => `<div class="card"><h2>${esc(f.title)} (practice form)</h2></div>` + block(f.item_ids || [], "real:form:" + f.form_id, f.title)).join("")
     + quizzes.map((q) => `<div class="card"><h2>${esc(q.title)} (module quiz)</h2></div>` + block(q.item_ids || [], "real:quiz:" + q.quiz_id, q.title)).join("");
   }).join("")}`;
@@ -741,7 +745,8 @@ function vRealLesson() {
     if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
     const units = Array.isArray(art.units) ? art.units : [];
     return `<div class="card"><h2>Stage 05 sessions: ${units.length} teaching unit(s)</h2>
-    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    <dl class="kv"><dt>Section</dt><dd>${esc(shortSection(e.section_id))}</dd>
+    <dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
     + units.map((u) => {
       const wx = u.worked_example || {}, mc = u.misconception || {}, sc = u.self_check || {};
       const mcClaim = mc.claim || {}, mcFix = mc.correction || {};
