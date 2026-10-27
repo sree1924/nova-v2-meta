@@ -87,6 +87,8 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   const acceptedArtifacts=acceptedRuntimeRefs(snapshot,projectRoot,runDir);
   const bindings=Object.fromEntries(Object.entries({overlay:'pilot-overrides-v0.4.0.json',policy:'source-fact-policy.json',media_disposition:'media-disposition.json',finish_criteria:'pilot-finish-criteria.json',prompt_authorship:'prompt-authorship.json'}).map(([k,name])=>[k,pin(path.join(projectRoot,'contracts',name))]));
   const assembled=assembleContext({projectRoot,runRoot:runDir,stageId,acceptedArtifacts,bindings,config,configRef,nowUtc});
+  // Depth floor (run-config scope.depth_floor) rides in the validation context so 02.DEPTH_FLOOR can reject hollow envelopes.
+  assembled.context.depth_floor=config.scope?.depth_floor??null;
   const selected=sourceSelection(assembled.context,sectionIds,config);
   const policy=inspectExecutionPolicy({projectRoot,config,go,mode:go?'live':'dry_run',stageId,sectionIds,approvalRef,nowUtc,maxUsd:config.limits.max_call_usd,runDir});
   const ownerRef=config.execution?.adapter_validation_receipts_ref;

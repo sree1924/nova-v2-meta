@@ -31,7 +31,8 @@
     "02.DEBT_TYPED",
     "02.EXTERNAL_REVIEW",
     "02.MARKET_SIGNAL",
-    "02.G_MATRIX"
+    "02.G_MATRIX",
+    "02.DEPTH_FLOOR"
   ],
   "context_keys": {
     "input_manifest_sha256": "02.LINEAGE (HOLD if absent)",
@@ -232,6 +233,9 @@
     },
     {
       "check": "02.DEDICATED_SURFACE: status unknown requires an exam_policy_unclear debt located in section C"
+    },
+    {
+      "check": "02.DEPTH_FLOOR: each content section meets the run-bound depth floor (context.depth_floor from run-config scope.depth_floor: min FACT_ID blocks and min code points per section); a structurally valid but hollow envelope FAILs. Compensates the 02 contract Depth-proportional-to-weight / DoD rule that no schema can express."
     }
   ],
   "documented_requirements_not_checked": [

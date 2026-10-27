@@ -408,6 +408,26 @@ export function run(artifact, context = {}) {
     out.push(errs.length ? chk('MARKET_SIGNAL', F, head(errs)) : chk('MARKET_SIGNAL', P, `origin ${m.origin}, disposition ${m.disposition}, ${arr(m.chunk_ids).length} chunk(s), ${arr(m.debt_refs).length} debt ref(s)`));
   }
 
+  // DEPTH_FLOOR — compensating check for the contract's "Depth ∝ exam weight" / DoD: a structurally valid but hollow
+  // envelope must not pass (2026-10-27: a 9×145-code-point "overview" passed every structural check). Floors are bound
+  // from run-config scope.depth_floor via context.depth_floor; with no floor bound (fixtures) the check records metrics only.
+  {
+    const floor = context.depth_floor;
+    const counts = sections.map(s => ({ id: s.section_id, chunk: s.chunk_id, cp: cp(s.markdown), facts: (String(s.markdown ?? '').match(/^\s*FACT_ID:/gm) || []).length }));
+    const metrics = Object.fromEntries(counts.map(c => [`${c.id}_cp`, c.cp]).concat(counts.map(c => [`${c.id}_fact_blocks`, c.facts])));
+    const summary = counts.map(c => `${c.id}:${c.facts}f/${c.cp}cp`).join(' ');
+    if (!floor || typeof floor !== 'object') out.push(chk('DEPTH_FLOOR', P, `no depth floor bound in context (fixture/synthetic); ${summary}`, metrics));
+    else {
+      const errs = [];
+      for (const c of counts) {
+        const f = floor[c.id] ?? floor.default; if (!f) continue;
+        if (c.facts < (f.min_fact_blocks ?? 0)) errs.push(`${c.chunk} (${c.id}) ${c.facts} fact blocks < floor ${f.min_fact_blocks}`);
+        if (c.cp < (f.min_code_points ?? 0)) errs.push(`${c.chunk} (${c.id}) ${c.cp} code points < floor ${f.min_code_points}`);
+      }
+      out.push(errs.length ? chk('DEPTH_FLOOR', F, `hollow envelope: ${head(errs)}`, metrics) : chk('DEPTH_FLOOR', P, `bound depth floor met; ${summary}`, metrics));
+    }
+  }
+
   // G_MATRIX — one located disposition per Definition-of-Done box; nothing silently counts as done.
   {
     const g = arr(a.g_matrix);
