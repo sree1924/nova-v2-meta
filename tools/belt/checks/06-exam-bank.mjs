@@ -174,7 +174,8 @@ export function run(a, context = {}) {
       const others = opts.filter(o => o.key !== it.correct_key);
       const p = [];
       const cr = String(it.correct_rationale ?? '');
-      const mentions = cr.includes(correct.text) || norm(cr).includes(norm(correct.text)) || new RegExp(`\\b(option|choice|answer)\\s+${correct.key}\\b`).test(cr);
+      // Case-insensitive: "Option B is correct: …" is the convention lead (2026-10-27: the lowercase-only regex rejected it).
+      const mentions = cr.includes(correct.text) || norm(cr).includes(norm(correct.text)) || new RegExp(`\\b(option|choice|answer)\\s+${correct.key}\\b`, 'i').test(cr);
       if (!mentions) p.push('correct_rationale does not name the correct option');
       const e1 = endorsesOther(cr, others); if (e1.length) p.push(`correct_rationale endorses ${e1.join(',')}`);
       const e2 = endorsesOther(correct.rationale, others); if (e2.length) p.push(`correct option rationale endorses ${e2.join(',')}`);

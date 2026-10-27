@@ -155,3 +155,11 @@
 - 2026-10-27T18:20:06.386Z retry nonce 06.exam_bank: → 6 after HOLD (sec09-rules-of-the-road); non-PASS: 06.OPTIONS_SHAPE=FAIL, 06.ANSWER_RATIONALE_AGREEMENT=FAIL, 06.OFFICIAL_MIRROR=FAIL
 
 - 2026-10-27T18:22:26.059Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:29 for 06.exam_bank (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T18:23:29.966Z retry nonce 06.exam_bank: → 7 after HOLD (sec09-rules-of-the-road); non-PASS: 06.ANSWER_RATIONALE_AGREEMENT=FAIL
+
+- 2026-10-27T18:24:13.061Z retry nonce 06.exam_bank: → 8 after HOLD (sec09-rules-of-the-road); non-PASS: 06.ID_INTEGRITY=FAIL, 06.OPTIONS_SHAPE=FAIL, 06.ANSWER_RATIONALE_AGREEMENT=FAIL
+
+- 2026-10-27T18:24:13.172Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:30 for 06.exam_bank (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 06.ID_INTEGRITY=FAIL,06.OPTIONS_SHAPE=FAIL,06.ANSWER_RATIONALE_AGREEMENT=FAIL
+
+- 2026-10-27T18:25:21.147Z retry nonce 06.exam_bank: → 9 after HOLD (sec09-rules-of-the-road); non-PASS: 06.ANSWER_RATIONALE_AGREEMENT=FAIL
