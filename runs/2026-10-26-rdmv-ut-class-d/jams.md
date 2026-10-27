@@ -461,3 +461,31 @@
 - 2026-10-27T21:27:16.983Z retry nonce 02.dossier_sections:C@sec11-distractions-challenges → 1 after HOLD (sec11-distractions-challenges); non-PASS: 02.MARKET_SIGNAL=FAIL
 
 - 2026-10-27T21:27:54.560Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:102 for 02.dossier_sections (sec11-distractions-challenges) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:28:28.377Z retry nonce 02.dossier_sections:C2@sec11-distractions-challenges → 1 after HOLD (sec11-distractions-challenges); non-PASS: 02.MARKET_SIGNAL=FAIL
+
+- 2026-10-27T21:28:42.398Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:103 for 02.dossier_sections (sec11-distractions-challenges) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:29:06.541Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:104 for 02.dossier_sections (sec11-distractions-challenges) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:29:35.265Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:105 for 02.dossier_sections (sec11-distractions-challenges) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:29:42.811Z retry nonce 02.dossier_sections:E2@sec11-distractions-challenges → 1 after HOLD (sec11-distractions-challenges); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:29:59.238Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:106 for 02.dossier_sections (sec11-distractions-challenges) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:30:49.859Z retry nonce 03.combined_kg:@sec11-distractions-challenges → 1 after HOLD (sec11-distractions-challenges); non-PASS: 03.NODE_COVERAGE=FAIL, 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T21:33:30.598Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:107 for 02.dossier_sections (sec12-crashes-insurance) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:34:23.128Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:108 for 02.dossier_sections (sec12-crashes-insurance) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:34:53.059Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:109 for 02.dossier_sections (sec12-crashes-insurance) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:35:26.926Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:110 for 02.dossier_sections (sec12-crashes-insurance) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:35:39.189Z retry nonce 02.dossier_sections:E2@sec12-crashes-insurance → 1 after HOLD (sec12-crashes-insurance); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:35:53.333Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:111 for 02.dossier_sections (sec12-crashes-insurance) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:37:17.806Z retry nonce 04.cards:@sec12-crashes-insurance → 1 after HOLD (sec12-crashes-insurance); non-PASS: 04.ATOMIC_CLUSTER=FAIL
