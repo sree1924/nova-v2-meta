@@ -434,6 +434,12 @@ export function run(artifact, context = {}) {
     const g = arr(a.g_matrix);
     const errs = [];
     const ids = g.map(x => x.box_id);
+    // Per-part dispatch (JAM-UT-03): the DoD matrix belongs to part G. A partial_chunk that does not include G is not
+    // graded on the matrix (it arrives with part G and is validated on the merged dossier); a non-empty matrix here is still checked.
+    const assigned = arr(a.envelope_scope?.assigned_section_ids);
+    const gDeferred = a.envelope_scope?.kind === 'partial_chunk' && !assigned.includes('G') && g.length === 0;
+    if (gDeferred) { out.push(chk('G_MATRIX', P, `partial_chunk without part G: DoD matrix deferred to the G part / merged dossier (assigned ${assigned.join(',')})`, { deferred: true })); }
+    else {
     const missing = G_BOXES.filter(b => !ids.includes(b));
     const dup = ids.filter((v, i) => ids.indexOf(v) !== i);
     if (missing.length) errs.push(`missing box(es) ${missing.join(',')}`);
@@ -445,6 +451,7 @@ export function run(artifact, context = {}) {
     }
     const tally = g.reduce((m, x) => { m[x.disposition] = (m[x.disposition] ?? 0) + 1; return m; }, {});
     out.push(errs.length ? chk('G_MATRIX', F, head(errs), tally) : chk('G_MATRIX', P, `11/11 G boxes located: ${JSON.stringify(tally)}`, tally));
+    }
   }
 
   return out;

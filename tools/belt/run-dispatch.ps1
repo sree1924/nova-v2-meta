@@ -8,6 +8,7 @@ param(
   [Parameter(Mandatory=$true)][string]$ApprovalSha,
   [string]$RunConfig = 'runs\2026-10-26-rdmv-ut-class-d\run-config.json',
   [string]$ExecutorId = '2bdcad95-d4cc-467e-a88d-be4a6260cf03',
+  [string[]]$Part = @(),
   [switch]$Go
 )
 $ErrorActionPreference = 'Stop'
@@ -17,5 +18,6 @@ if (-not $line) { Write-Error 'MODEL_API_KEY not found in .env'; exit 1 }
 $env:MODEL_API_KEY = $line.Substring('MODEL_API_KEY='.Length).Trim()
 Write-Host ("key loaded: " + ($env:MODEL_API_KEY.StartsWith('LLM_')) + "  mode: " + $(if ($Go) { 'LIVE (--go)' } else { 'dry envelope' }))
 $args = @('tools\belt\controller.mjs','dispatch','--run-config',$RunConfig,'--executor-id',$ExecutorId,'--stage',$Stage,'--section',$Section,'--approval',$Approval,'--approval-sha256',$ApprovalSha)
+foreach ($pt in $Part) { $args += @('--part', $pt) }
 if ($Go) { $args += '--go' }
 & node --no-warnings @args

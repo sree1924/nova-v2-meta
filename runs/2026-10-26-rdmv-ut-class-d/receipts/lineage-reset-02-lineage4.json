@@ -1,0 +1,19 @@
+{
+  "schema_version": "nova-lineage-reset.v0.4.0",
+  "run_id": "2026-10-26-rdmv-ut-class-d",
+  "stage_id": "02.dossier_sections",
+  "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:3",
+  "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:4",
+  "founder_words": "reset lineage 4, part C, go",
+  "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:05 MDT)",
+  "cause": "design change after JAM-UT-03: whole-dossier single calls oscillate (C substantive, other parts stubbed or truncated); dispatch now requests ONE dossier part per call (--part C) with conventions rule assigned_dossier_parts; role 16 merges parts deterministically",
+  "evidence": [
+    { "attempt": "attempt_33c0cd30fd0f76f7b0da2fc7d7e5c63658b8ff42dcf52e6eadd43972f0e923b6", "outcome": "L3#1 HTTP 200 $0.104, C 16 facts/4538cp, 17/20 (scope kind mismatch, A anchor, G line refs)" },
+    { "attempt": "attempt_8cdf5afb4fae4027f7013ebc95a3f79e77b55737308c23d44b8eae4b6bc64538", "outcome": "L3#2 HTTP 200 $0.140, complete_dossier with stub parts, 17/20 (truncation, depth floor, G line refs)" }
+  ],
+  "changes_since": "dispatch --part plumbing (dispatch.mjs/controller.mjs), inputData.assigned_dossier_parts + chunk_plan, conventions assigned_dossier_parts/envelope_scope/section_A_citations/g_matrix_located_at, FACT_LINES_CITED exempts F/G",
+  "scope_of_this_lineage": "part C only for sec09-rules-of-the-road; other parts in later calls",
+  "stop_rule": "if part-C dispatch fails validation twice, stop stage 02 today; hand the per-part plan to the builder with the evidence",
+  "recorded_by": { "actor_id": "claude-code-runner", "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03", "model": "claude-fable-5-1" },
+  "recorded_at": "2026-10-27T18:06:00Z"
+}
