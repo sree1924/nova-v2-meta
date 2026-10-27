@@ -67,3 +67,33 @@
 - 2026-10-27T17:28:59.985Z retry nonce 02.dossier_sections:B → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.DEDICATED_SURFACE=FAIL
 
 - 2026-10-27T17:29:18.167Z retry nonce 02.dossier_sections:B → 4 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.DEDICATED_SURFACE=FAIL
+
+- 2026-10-27T17:31:51.048Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:14 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T17:32:06.737Z retry nonce 02.dossier_sections:B → 5 after HOLD (sec09-rules-of-the-road); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T17:32:24.176Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:15 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T17:32:59.350Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:16 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T17:33:22.146Z retry nonce 02.dossier_sections:E2 → 1 after HOLD (sec09-rules-of-the-road); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T17:33:41.026Z retry nonce 02.dossier_sections:E2 → 2 after HOLD (sec09-rules-of-the-road); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T17:33:41.114Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:17 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T17:33:57.836Z retry nonce 02.dossier_sections:E2 → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T17:34:10.962Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:18 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T17:34:51.081Z retry nonce 02.dossier_sections:G → 1 after HOLD (sec09-rules-of-the-road); non-PASS: 02.G_MATRIX=FAIL
+
+- 2026-10-27T17:34:51.180Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:19 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.G_MATRIX=FAIL
+
+- 2026-10-27T17:35:18.970Z retry nonce 02.dossier_sections:G → 2 after HOLD (sec09-rules-of-the-road); non-PASS: 02.G_MATRIX=FAIL
+
+- 2026-10-27T17:35:47.415Z retry nonce 02.dossier_sections:G → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 02.G_MATRIX=FAIL
+
+- 2026-10-27T17:35:47.504Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:20 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.G_MATRIX=FAIL
+
+- 2026-10-27T17:36:15.563Z retry nonce 02.dossier_sections:G → 4 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MARKET_SIGNAL=FAIL, 02.G_MATRIX=FAIL

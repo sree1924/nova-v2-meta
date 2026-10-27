@@ -464,9 +464,15 @@ export function run(artifact, context = {}) {
     const dup = ids.filter((v, i) => ids.indexOf(v) !== i);
     if (missing.length) errs.push(`missing box(es) ${missing.join(',')}`);
     if (dup.length) errs.push(`duplicate box(es) ${[...new Set(dup)].join(',')}`);
+    // located_at = a chunk_id, optionally suffixed ":L<n>" (line hint). With per-part dispatch the G part may locate a box in a
+    // sibling part's chunk (the matrix describes the merged dossier), so accepted sibling chunk ids resolve too.
+    const siblingChunkIds = new Set(arr(context.sibling_envelopes).flatMap(e => arr(e?.sections).map(s => s.chunk_id)));
+    const locatedChunk = (loc) => String(loc ?? '').replace(/:L\d+$/, '');
+    const siblingDebtIds = new Set(arr(context.sibling_envelopes).flatMap(e => arr(e?.verification_debt).map(d => d.claim_id)));
     for (const x of g) {
-      if (!chunkById.has(x.located_at)) errs.push(`${x.box_id} located_at ${x.located_at} unresolved`);
-      if (x.disposition === 'debt' && !debtIds.has(x.debt_ref)) errs.push(`${x.box_id} disposition debt with unresolved debt_ref ${x.debt_ref}`);
+      const cid = locatedChunk(x.located_at);
+      if (!chunkById.has(cid) && !siblingChunkIds.has(cid)) errs.push(`${x.box_id} located_at ${x.located_at} unresolved (not a chunk_id of this part or an accepted sibling part)`);
+      if (x.disposition === 'debt' && !debtIds.has(x.debt_ref) && !siblingDebtIds.has(x.debt_ref)) errs.push(`${x.box_id} disposition debt with unresolved debt_ref ${x.debt_ref} (not in this part or an accepted sibling part)`);
       if (x.disposition === 'non_applicable' && !x.note) errs.push(`${x.box_id} non_applicable without note`);
     }
     const tally = g.reduce((m, x) => { m[x.disposition] = (m[x.disposition] ?? 0) + 1; return m; }, {});
