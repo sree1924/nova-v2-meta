@@ -369,3 +369,17 @@
 - 2026-10-27T20:40:51.623Z retry nonce 05.card_scripts:@sec01-definitions → 3 after HOLD (sec01-definitions); non-PASS: 05.THINK_REF=FAIL
 
 - 2026-10-27T20:41:42.339Z retry nonce 03.combined_kg:@sec06-examinations → 1 after HOLD (sec06-examinations); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:42:07.140Z retry nonce 03.combined_kg:@sec06-examinations → 2 after HOLD (sec06-examinations); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:42:07.266Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:80 for 03.combined_kg (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:42:32.499Z retry nonce 03.combined_kg:@sec06-examinations → 3 after HOLD (sec06-examinations); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:42:59.327Z retry nonce 03.combined_kg:@sec06-examinations → 4 after HOLD (sec06-examinations); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:42:59.446Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:81 for 03.combined_kg (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:43:19.625Z retry nonce 03.combined_kg:@sec06-examinations → 5 after HOLD (sec06-examinations); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:43:43.546Z retry nonce 03.combined_kg:@sec06-examinations → 6 after HOLD (sec06-examinations); non-PASS: 03.HIGH_YIELD_SET=FAIL

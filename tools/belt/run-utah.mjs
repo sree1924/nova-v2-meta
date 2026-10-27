@@ -76,11 +76,34 @@ function bumpRetryNonce(stageId, partIds, np) {
 // Parts already accepted under ANY task identity/lineage (the validator closure may have been resealed since) are not re-bought.
 function acceptedParts(stageId) {
   const db = new DatabaseSync(path.join(ROOT, RUN, 'ledger/run.sqlite'), { readOnly: true });
-  try { return db.prepare("select identity_json from tasks where stage_id=? and status='accepted'").all(stageId).map(r => JSON.parse(r.identity_json)?.config).filter(c => JSON.stringify(c?.section_ids ?? []) === JSON.stringify([section])).map(c => JSON.stringify(c?.dossier_parts ?? [])); }
+  try {
+    const rows = db.prepare("select identity_json from tasks where stage_id=? and status='accepted'").all(stageId).map(r => JSON.parse(r.identity_json)).filter(i => JSON.stringify(i?.config?.section_ids ?? []) === JSON.stringify([section]));
+    if (stageId === '02.dossier_sections') return rows.map(i => JSON.stringify(i?.config?.dossier_parts ?? []));
+    // Downstream stages are "done" only if accepted over the section's CURRENT compile (its fact registry sha is among the task's
+    // pinned inputs); a recompile (compiler fix) makes them due again, and the latest accepted wins downstream.
+    const reg = sectionRegistries();
+    if (!reg) return rows.map(i => JSON.stringify(i?.config?.dossier_parts ?? []));
+    return rows.filter(i => (i.inputs ?? []).some(ref => reg.equivalent.has(ref.sha256))).map(i => JSON.stringify(i?.config?.dossier_parts ?? []));
+  }
   finally { db.close(); }
 }
-// A request that was sent but whose response was lost (client timeout/abort) parks the task as unknown_provider_result and
-// blocks every other dispatch (SEQUENTIAL_TASK_BUSY). Reconcile it honestly: charge assumed = the full reserve (worst case).
+// All accepted compiles of this section; "equivalent" = registries whose FACT-ID SET equals the latest one (a wording-only
+// recompile keeps downstream valid; a recompile that reclassifies facts (e.g. R-entries → kg_hints) makes downstream due again).
+function sectionRegistries() {
+  try {
+    const db = new DatabaseSync(path.join(ROOT, RUN, 'ledger/run.sqlite'), { readOnly: true });
+    try {
+      const comps = db.prepare("select t.task_id, t.identity_json, t.updated_at from tasks t where t.stage_id='16.compile' and t.status='accepted'").all()
+        .filter(r => { const ids = JSON.parse(r.identity_json)?.config?.section_ids; return (Array.isArray(ids) && ids.length ? ids : ['sec09-rules-of-the-road'])[0] === section; })
+        .sort((a, b) => String(b.updated_at).localeCompare(String(a.updated_at)));
+      if (!comps.length) return null;
+      const regs = comps.map(cmp => { const art = db.prepare("select path, sha256 from artifacts where task_id=? and path like '%16-fact-registry.json'").get(cmp.task_id); if (!art) return null; try { const f = JSON.parse(fs.readFileSync(path.isAbsolute(art.path) ? art.path : path.join(ROOT, RUN, art.path), 'utf8')); return { sha: art.sha256, ids: Object.keys(f.facts ?? {}).sort().join(',') }; } catch { return null; } }).filter(Boolean);
+      if (!regs.length) return null;
+      const current = regs[0];
+      return { current: current.sha, equivalent: new Set(regs.filter(r => r.ids === current.ids).map(r => r.sha)) };
+    } finally { db.close(); }
+  } catch { return null; }
+}
 function reconcileLostResponse(stageId) {
   const db = new DatabaseSync(path.join(ROOT, RUN, 'ledger/run.sqlite'), { readOnly: true });
   let row, events, unknownFile;

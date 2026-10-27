@@ -48,7 +48,7 @@ function indexFact(id, section, pageMap) {
   // blank lines, e.g. sec06 C2: "sec06-R02: … [A01]." right under R01).
   const otherMarker = new RegExp(`^\\s*(?:[-*+]\\s+)?(?:\\*\\*)?(?:${(section.fact_ids ?? []).filter(f => f !== id).map(escape).join('|') || '(?!x)x'})(?:\\*\\*)?[.:]`);
   let end = start;
-  while (end < lines.length && lines[end].trim() && !/^\s*(?:#{1,6}\s|\*\*|§|FACT_ID:)/.test(lines[end]) && !(end > start && otherMarker.test(lines[end]))) end++;
+  while (end < lines.length && lines[end].trim() && !/^\s*(?:#{1,6}\s|\*\*|§|FACT_ID:)/.test(lines[end]) && !otherMarker.test(lines[end])) end++;
   const lead = match[1] ?? match[2] ?? '';
   // "Source: [Axx -> page]" trailers and "Why it matters:"-style commentary lines are bookkeeping, not fact wording; they stay
   // in the verbatim span only.
@@ -86,7 +86,8 @@ function indexFact(id, section, pageMap) {
   statement = statement.replace(/\s+([.,;:!?])/g, '$1').replace(/[ \t]+(?=\n|$)/g, '').trim();
   // A C2 entry that is ONLY KG-hint metadata (no rule sentence) is a kg_hint, not a learner fact: it is returned for the
   // hints map and kept out of the fact registry (04/05/06 never card or narrate it; 03 may still use it for confusables).
-  if (hintOnly || (statement && statement.split(/\s+/).length < 4 && HINT_CLAUSE.test(lines[i + (match[1] !== undefined ? 1 : 0)] ?? ''))) {
+  const hintClauseInSpan = /(?:group|prereq|prerequisite|difficulty|diff|confusable|confusables|tags?)\s*:?\s*[^;.\n]*/i.test(lines.slice(i, end).join(' ')); // non-global copy: HINT_CLAUSE carries /g state
+  if (hintOnly || (statement && statement.split(/\s+/).length < 4 && hintClauseInSpan)) {
     return {hint: {fact_id: id, chunk_id: section.chunk_id, section: section.section_id, hint_text: lines.slice(i, end).join('\n'), source_page: pages[0].anchor.source_page, pdf_page: pages[0].page.pdf_page}};
   }
   if (!statement || /\(\s*verify\b/i.test(statement)) return {error: `${id}: empty or unresolved fact span cannot enter accepted wording`};
