@@ -365,3 +365,5 @@
 - 2026-10-27T20:40:29.097Z retry nonce 05.card_scripts:@sec01-definitions → 2 after HOLD (sec01-definitions); non-PASS: 05.THINK_REF=FAIL
 
 - 2026-10-27T20:40:29.258Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:79 for 05.card_scripts (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.THINK_REF=FAIL
+
+- 2026-10-27T20:40:51.623Z retry nonce 05.card_scripts:@sec01-definitions → 3 after HOLD (sec01-definitions); non-PASS: 05.THINK_REF=FAIL
