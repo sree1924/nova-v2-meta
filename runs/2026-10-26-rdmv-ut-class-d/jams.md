@@ -383,3 +383,15 @@
 - 2026-10-27T20:43:19.625Z retry nonce 03.combined_kg:@sec06-examinations → 5 after HOLD (sec06-examinations); non-PASS: 03.HIGH_YIELD_SET=FAIL
 
 - 2026-10-27T20:43:43.546Z retry nonce 03.combined_kg:@sec06-examinations → 6 after HOLD (sec06-examinations); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:44:32.311Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:82 for 02.dossier_sections (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T20:44:57.518Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:83 for 02.dossier_sections (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T20:45:17.142Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:84 for 02.dossier_sections (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T20:46:09.724Z retry nonce 03.combined_kg:@sec07-preparing-vehicle → 1 after HOLD (sec07-preparing-vehicle); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:46:34.633Z retry nonce 03.combined_kg:@sec07-preparing-vehicle → 2 after HOLD (sec07-preparing-vehicle); non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:46:34.740Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:85 for 03.combined_kg (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
