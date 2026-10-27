@@ -66,8 +66,14 @@ function indexFact(id, section, pageMap) {
   statement = statement.replace(/\s+([.,;:!?])/g, '$1').replace(/[ \t]+(?=\n|$)/g, '').trim();
   if (!statement || /\(\s*verify\b/i.test(statement)) return {error: `${id}: empty or unresolved fact span cannot enter accepted wording`};
   const page = pages[0].page;
+  // Deterministic spoken rendering of symbol shorthand (the 04 back must be spoken-form AND equal the accepted wording):
+  // "A/B/C" → "A, B or C", "%" → " percent", "&" → " and ". Emitted as spoken_statement only when it differs from statement.
+  const spoken = statement
+    .replace(/\b([A-Za-z0-9]{1,3})((?:\/[A-Za-z0-9]{1,3}\b)+)/g, (_, first, rest) => { const parts = [first, ...rest.split('/').filter(Boolean)]; return parts.length > 2 ? parts.slice(0, -1).join(', ') + ' or ' + parts.at(-1) : parts.join(' or '); })
+    .replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ').replace(/[ \t]{2,}/g, ' ');
+  const spokenExtra = spoken !== statement ? {spoken_statement: spoken} : {};
   return {fact: {
-    fact_id: id, text: statement, statement,
+    fact_id: id, text: statement, statement, ...spokenExtra,
     status: 'authored', acceptance_kind: 'deterministic_validation_only', independent_audit_status: 'pending',
     section: section.section_id, chunk_id: section.chunk_id, domain: section.domain,
     source_page: pages[0].anchor.source_page, pdf_page: page.pdf_page, printed_page: page.printed_page,

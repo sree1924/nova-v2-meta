@@ -273,3 +273,35 @@
 - 2026-10-27T19:36:13.194Z retry nonce 02.dossier_sections:G@sec03-driver-education-permits → 1 after HOLD (sec03-driver-education-permits); non-PASS: 02.MARKET_SIGNAL=FAIL
 
 - 2026-10-27T19:36:35.556Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:56 for 02.dossier_sections (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:37:20.144Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:57 for 02.dossier_sections (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:37:48.903Z retry nonce 02.dossier_sections:B@sec04-license-types-id-documents → 1 after HOLD (sec04-license-types-id-documents); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:37:49.003Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:58 for 02.dossier_sections (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:38:00.065Z retry nonce 02.dossier_sections:B@sec04-license-types-id-documents → 2 after HOLD (sec04-license-types-id-documents); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:38:12.348Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:59 for 02.dossier_sections (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:38:45.331Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:60 for 02.dossier_sections (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:38:57.963Z retry nonce 02.dossier_sections:E2@sec04-license-types-id-documents → 1 after HOLD (sec04-license-types-id-documents); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:39:13.280Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:61 for 02.dossier_sections (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:39:25.708Z retry nonce 02.dossier_sections:F@sec04-license-types-id-documents → 1 after HOLD (sec04-license-types-id-documents); non-PASS: 02.CORPUS_STABILITY=FAIL
+
+- 2026-10-27T19:39:38.487Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:62 for 02.dossier_sections (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:41:01.301Z retry nonce 04.cards:@sec04-license-types-id-documents → 1 after HOLD (sec04-license-types-id-documents); non-PASS: 04.BACK_SPOKEN_FORM=FAIL, 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:41:26.381Z retry nonce 04.cards:@sec04-license-types-id-documents → 2 after HOLD (sec04-license-types-id-documents); non-PASS: 04.BACK_SPOKEN_FORM=FAIL, 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:41:26.526Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:63 for 04.cards (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 04.BACK_SPOKEN_FORM=FAIL,04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:41:49.029Z retry nonce 04.cards:@sec04-license-types-id-documents → 3 after HOLD (sec04-license-types-id-documents); non-PASS: 04.BACK_SPOKEN_FORM=FAIL, 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:42:12.211Z retry nonce 04.cards:@sec04-license-types-id-documents → 4 after HOLD (sec04-license-types-id-documents); non-PASS: 04.BACK_SPOKEN_FORM=FAIL, 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:42:12.321Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:64 for 04.cards (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 04.BACK_SPOKEN_FORM=FAIL,04.ORIGINALITY=FAIL
