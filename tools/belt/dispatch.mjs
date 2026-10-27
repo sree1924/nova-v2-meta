@@ -142,6 +142,9 @@ export function acceptDossier(validation,requiredChecks){
   return{status:validation?.status==='PASS'&&complete&&!checks.some(c=>c.status!=='PASS')&&!validation.errors?.length?'PASS':'HOLD',kind:'deterministic_validation_only',auditors:'pending 07/08'};
 }
 
+export function retryNonceKey(stageId,partIds=[]){return stageId+':'+(partIds||[]).join('+');}
+function retryNonce(p){const n=p.config.execution?.retry_nonces?.[retryNonceKey(p.stageId,p.partIds)];return Number.isInteger(n)&&n>0?{retry_nonce:n}:{};}
+
 export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandle,client,validator=validateArtifact}){
   if(p.preflight.status!=='PASS')throw new Error('Dispatch inputs remain HOLD: '+p.preflight.blockers.join(', '));
   for(const bound of [...(p.inputRefs||[]),p.contract,p.schema,p.mapping,p.registryRef,p.pricingRef,p.validatorRef,p.ownerReceiptRef,...(p.ownerFiles||[])].filter(r=>r?.path)){
@@ -149,7 +152,10 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
     if(sha256(bytes)!==bound.sha256)throw new Error('Bound input/tool changed before dispatch: '+bound.path);
   }
   const task=ledger.ensureTask(fence,{lineageId:p.config.candidate_lineage_id,stageId:p.stageId,roleId:p.roleId,inputs:p.inputRefs,
-    versions:{contract:p.contract.sha256,schema:p.schema.sha256,mapping:p.mapping.sha256,prompt:p.rendered.hashes.template_body_sha256,header:p.rendered.hashes.header_template_sha256,registry:p.registryRef.sha256,validator:p.validatorRef?.sha256??null,validator_closure:sha256(canonicalJson(p.ownerFiles||[]))},model:p.config.producer.model,config:{section_ids:p.sectionIds,dossier_parts:p.partIds??[],generation:{max_completion_tokens:p.request.max_completion_tokens,reasoning_effort:p.request.reasoning_effort}},maxAttempts:p.config.limits.max_automatic_attempts_per_logical_task});
+    versions:{contract:p.contract.sha256,schema:p.schema.sha256,mapping:p.mapping.sha256,prompt:p.rendered.hashes.template_body_sha256,header:p.rendered.hashes.header_template_sha256,registry:p.registryRef.sha256,validator:p.validatorRef?.sha256??null,validator_closure:sha256(canonicalJson(p.ownerFiles||[]))},model:p.config.producer.model,config:{section_ids:p.sectionIds,dossier_parts:p.partIds??[],generation:{max_completion_tokens:p.request.max_completion_tokens,reasoning_effort:p.request.reasoning_effort},
+    // Runner retry nonce (2026-10-27, standing authority): a HOLD leaves the logical task `blocked` for good; the runner retries by
+    // minting a NEW logical task keyed per stage+part (run-config execution.retry_nonces). Absent/0 → identity unchanged.
+    ...retryNonce(p)},maxAttempts:p.config.limits.max_automatic_attempts_per_logical_task});
   const taskId=task.taskId??task.task_id;
   if(task.status==='accepted')return runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,requiredChecks:p.requiredChecks});
   const old=ledger.listAttempts(fence.runId).filter(a=>a.task_id===taskId);

@@ -4,6 +4,7 @@ HARD RULES
 - Run the belt ONLY through `node tools/belt/run-utah.mjs ...` and `node tools/belt/controller.mjs ...`. Never call api.meta.ai yourself, never write under runs/ except through those commands, never edit tools/belt/*, schemas-strict/*, prompts/*, contracts/*, qualification/*. You own app-preview/ and tools/preview/.
 - Never print the contents of .env or any key. The belt loads MODEL_API_KEY itself.
 - If a command exits non-zero or prints STOP/CAP/ERROR, do not retry blindly: record the exact output in coordination/MUSE-BELT-OPERATOR-REPORT.md and move to the next step that does not depend on it.
+- 2026-10-27 second launch: the runner now retries HOLDs itself (a retry nonce mints a new logical task; lineage resets stay bounded by --max-resets). Your previous report (steps 2/3 tooling: export-trace, embed-trace, export-content, #/dossier route) stands — reuse those tools, do not rebuild them. Overwrite the report with this launch's results. Expect step 1 to take up to ~9 parts × 1–6 calls × ~25 s.
 
 STEPS
 1. `node tools/belt/run-utah.mjs --section sec09-rules-of-the-road --stages 02`

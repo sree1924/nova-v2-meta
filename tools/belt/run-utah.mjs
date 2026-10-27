@@ -6,6 +6,8 @@
 // this dispatch's section id, usd_ceiling = min(1, remaining cap)), calls dispatchStage({go:true}), and on HOLD logs the
 // non-PASS checks. When a lineage's attempts are spent, writes a lineage-reset receipt (cause = failing check ids) and
 // bumps candidate_lineage_id — under the standing authority, logged in jams.md. Stops at the cap or at --max-resets.
+// A HOLD leaves its logical task `blocked` (never re-attempted); the runner retries by bumping execution.retry_nonces[stage:part]
+// in run-config, which mints a NEW logical task (dispatch.mjs retryNonce) — still counted against the lineage attempt cap.
 import 'dotenv/config';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -29,7 +31,7 @@ const sha = (buf) => createHash('sha256').update(buf).digest('hex');
 const readJ = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const writeJ = (p, v) => fs.writeFileSync(path.join(ROOT, p), JSON.stringify(v, null, 2) + '\n');
 const standing = readJ(`${RUN}/approvals/STANDING-AUTHORITY-utah-full-run.json`);
-const { dispatchStage } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/dispatch.mjs')).href);
+const { dispatchStage, retryNonceKey } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/dispatch.mjs')).href);
 const { compileAcceptedDossier } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/controller.mjs')).href);
 const { DatabaseSync } = await import('node:sqlite');
 
@@ -57,6 +59,15 @@ function resetLineage(stageId, cause) {
   fs.appendFileSync(path.join(ROOT, RUN, 'jams.md'), `\n- ${new Date().toISOString()} lineage reset → ${to} for ${stageId} (${section}) under standing authority; cause: ${cause}\n`);
   return to;
 }
+function bumpRetryNonce(stageId, partIds, np) {
+  const cfgPath = `${RUN}/run-config.json`; const cfg = readJ(cfgPath);
+  const key = retryNonceKey(stageId, partIds); cfg.execution.retry_nonces ??= {};
+  cfg.execution.retry_nonces[key] = (cfg.execution.retry_nonces[key] ?? 0) + 1;
+  cfg.execution.retry_nonces_note = 'per stage+part retry counter: each bump after a HOLD mints a NEW logical task (the held task stays blocked); the lineage attempt cap (C28) still bounds spend and triggers lineage resets';
+  writeJ(cfgPath, cfg);
+  fs.appendFileSync(path.join(ROOT, RUN, 'jams.md'), `\n- ${new Date().toISOString()} retry nonce ${key} → ${cfg.execution.retry_nonces[key]} after HOLD (${section}); non-PASS: ${np.join(', ')}\n`);
+  console.log(`  retry → ${key} nonce ${cfg.execution.retry_nonces[key]}`);
+}
 function nonPass(result) {
   try { if (result.validation?.path) { const v = JSON.parse(fs.readFileSync(result.validation.path, 'utf8')); return v.checks.filter(c => c.status !== 'PASS').map(c => `${c.check_id}=${c.status}`); } } catch {}
   return [result.reason ?? result.status];
@@ -73,13 +84,16 @@ async function runStage(stageId, partIds) {
     try { r = await dispatchStage({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, approvalRef, go: true }); }
     catch (e) {
       if (/LINEAGE_ATTEMPT_LIMIT/.test(e.message) && resets < maxResets) { resets++; const to = resetLineage(stageId, `attempt limit after HOLDs; last non-PASS: ${(global.__last ?? []).join(',')}`); console.log(`  lineage → ${to} (reset ${resets}/${maxResets})`); continue; }
+      if (/not eligible for a new attempt/.test(e.message)) { bumpRetryNonce(stageId, partIds, global.__last ?? ['blocked_task']); continue; }
       console.log(`  ERROR ${label}: ${e.message.slice(0, 200)}`); return { status: 'ERROR', error: e.message };
     }
     const np = nonPass(r); global.__last = np;
     console.log(`  ${label}: ${r.status}${r.estimated_usd != null ? ` $${r.estimated_usd.toFixed(3)}` : ''}${r.status !== 'accepted' ? ' — ' + np.join(', ') : ''}  [spent $${spentUsd().toFixed(3)}]`);
     if (r.status === 'accepted' || r.reused) return r;
     if (r.reason === 'unknown_provider_result_requires_reconciliation') return { status: 'NEEDS_RECONCILE' };
-    // HOLD: try again (next attempt on this lineage); dispatchStage will throw LINEAGE_ATTEMPT_LIMIT when spent → reset path above
+    // HOLD: the ledger marks the logical task `blocked`, and a blocked task never gets a second attempt. A retry is a NEW
+    // logical task (bounded by the lineage attempt cap, which dispatchStage still enforces → LINEAGE_ATTEMPT_LIMIT → reset path).
+    bumpRetryNonce(stageId, partIds, np);
   }
 }
 
