@@ -305,3 +305,27 @@
 - 2026-10-27T19:42:12.211Z retry nonce 04.cards:@sec04-license-types-id-documents → 4 after HOLD (sec04-license-types-id-documents); non-PASS: 04.BACK_SPOKEN_FORM=FAIL, 04.ORIGINALITY=FAIL
 
 - 2026-10-27T19:42:12.321Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:64 for 04.cards (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 04.BACK_SPOKEN_FORM=FAIL,04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:42:33.525Z retry nonce 04.cards:@sec04-license-types-id-documents → 5 after HOLD (sec04-license-types-id-documents); non-PASS: 04.BACK_SPOKEN_FORM=FAIL, 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:42:57.785Z retry nonce 04.cards:@sec04-license-types-id-documents → 6 after HOLD (sec04-license-types-id-documents); non-PASS: 04.BACK_SPOKEN_FORM=FAIL, 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:43:55.968Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:65 for 02.dossier_sections (sec05-vision-health) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:44:23.763Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:66 for 02.dossier_sections (sec05-vision-health) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:44:48.060Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:67 for 02.dossier_sections (sec05-vision-health) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:45:13.515Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:68 for 02.dossier_sections (sec05-vision-health) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:47:21.461Z retry nonce 05.sessions:@sec05-vision-health → 1 after HOLD (sec05-vision-health); non-PASS: 05.STAGE_DIRECTIONS=FAIL
+
+- 2026-10-27T19:48:41.907Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:69 for 02.dossier_sections (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:49:17.318Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:70 for 02.dossier_sections (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:49:46.763Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:71 for 02.dossier_sections (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:50:12.279Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:72 for 02.dossier_sections (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:50:50.806Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:73 for 02.dossier_sections (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 

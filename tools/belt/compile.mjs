@@ -53,11 +53,20 @@ function indexFact(id, section, pageMap) {
   const raw = [lead, ...body].join('\n');
   const anchors = (section.source_anchors ?? []).filter(a => raw.includes(`[${a.anchor_id}]`));
   if (!anchors.length) return {error: `${id}: exact marked fact span has no explicit source anchor`};
-  const pages = anchors.map(a => ({anchor: a, page: findPage(a.source_page, pageMap)}));
+  let pages = anchors.map(a => ({anchor: a, page: findPage(a.source_page, pageMap)}));
   const unresolved = pages.filter(p => !p.page);
   if (unresolved.length) return {error: `${id}: physical page unresolved for ${unresolved.map(p => p.anchor.source_page).join(', ')}`};
   const identities = new Set(pages.map(p => p.page.page_map_id));
-  if (identities.size !== 1) return {error: `${id}: multi-page span needs an explicit fact split; compiler will not choose a page`};
+  let supportingPages = [];
+  if (identities.size !== 1) {
+    // A block lead "FACT_ID: x | anchor: Axx" declares the page of record; further inline anchors are supporting pages
+    // (recorded, not chosen by the compiler). Without a lead anchor the span still needs an explicit split.
+    const leadId = lines[i].match(/\|\s*anchor:\s*([A-Za-z0-9_-]+)/)?.[1];
+    const lead = leadId && pages.find(p => p.anchor.anchor_id === leadId);
+    if (!lead) return {error: `${id}: multi-page span needs an explicit fact split; compiler will not choose a page`};
+    supportingPages = pages.filter(p => p !== lead).map(p => ({anchor_id: p.anchor.anchor_id, source_page: p.anchor.source_page, pdf_page: p.page.pdf_page}));
+    pages = [lead];
+  }
   let statement = raw;
   for (const anchor of anchors) statement = statement.split(`[${anchor.anchor_id}]`).join('');
   // Scaffold lines ("Group: x | Prereq: y | Difficulty: 2 | Confusable: z") are dossier bookkeeping, never fact wording;
@@ -73,7 +82,7 @@ function indexFact(id, section, pageMap) {
     .replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ').replace(/[ \t]{2,}/g, ' ');
   const spokenExtra = spoken !== statement ? {spoken_statement: spoken} : {};
   return {fact: {
-    fact_id: id, text: statement, statement, ...spokenExtra,
+    fact_id: id, text: statement, statement, ...spokenExtra, ...(supportingPages.length ? {supporting_pages: supportingPages} : {}),
     status: 'authored', acceptance_kind: 'deterministic_validation_only', independent_audit_status: 'pending',
     section: section.section_id, chunk_id: section.chunk_id, domain: section.domain,
     source_page: pages[0].anchor.source_page, pdf_page: page.pdf_page, printed_page: page.printed_page,
