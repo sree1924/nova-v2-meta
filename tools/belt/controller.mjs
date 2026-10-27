@@ -164,6 +164,11 @@ export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfig
   const overlay=pin(path.join(projectRoot,'contracts/pilot-overrides-v0.4.0.json'));
   const result=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id});
   if(result.status!=='PASS')return{status:'HOLD',errors:result.errors,model_calls:0};
+  // Reuse across lineage resets: a compile already accepted in this run over the SAME accepted inputs (input_manifest_sha256) is the
+  // compile. Without this, a reset mints a new 16 task whose output differs only by candidate_lineage_id and collides with the
+  // immutable 16-compiled-dossier.json (attempt b473c3dd, 2026-10-27 17:52Z, left `running`).
+  const priorCompiled=accepted.find(a=>a.kind==='compiled_dossier'||a.kind==='16-compiled-dossier.json');
+  if(priorCompiled){try{const prev=JSON.parse(fs.readFileSync(path.resolve(projectRoot,priorCompiled.path),'utf8'));if(prev.input_manifest_sha256===result.blueprint.input_manifest_sha256)return{status:'PASS',reused:true,reused_from:priorCompiled.path,model_calls:0};}catch{}}
   const lockHandle=acquireExecutorLock({runDir:loaded.runDir,runId:loaded.config.run_id,executorId});let ledger,fence;
   try{
     ledger=openLedger({dbPath:inside(loaded.runDir,loaded.config.execution.ledger.path),lockHandle});
@@ -288,7 +293,7 @@ export async function reconcileAttempt({projectRoot=PROJECT_ROOT,runConfigPath,e
     fence=ledger.claimRun({runId:loaded.config.run_id,bindingSha256:previous?.binding_sha256??loaded.configRef.sha256,mode:previous?.mode??'dry_run',budget:previous?.budget_json??planBudget(loaded.config)});
     // Proof kind selects the reconciliation: no_request_sent (pre-send throw, $0) or request_sent+response lost (charge assumed).
     const proof=JSON.parse(fs.readFileSync(path.resolve(loaded.runDir,proofRef.path),'utf8')); // proof paths are run-dir relative (ledger #verified)
-    const result=proof.no_request_sent===true?ledger.reconcileAttemptNoRequest(fence,{attemptId,proofRef}):ledger.reconcileAttemptLostResponse(fence,{attemptId,proofRef});
+    const result=proof.kind==='crashed_no_provider'?ledger.reconcileAttemptCrashed(fence,{attemptId,proofRef}):proof.no_request_sent===true?ledger.reconcileAttemptNoRequest(fence,{attemptId,proofRef}):ledger.reconcileAttemptLostResponse(fence,{attemptId,proofRef});
     return{...result,model_calls_new:0,content_dispatched:false};
   }finally{if(fence&&ledger)ledger.releaseRun(fence);ledger?.close();lockHandle.release();}
 }

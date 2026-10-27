@@ -146,8 +146,10 @@ async function runStage(stageId, partIds) {
 console.log(`UTAH RUN — section ${section}; stages ${stages.join(' → ')}; spent so far $${spentUsd().toFixed(3)} / cap $${standing.usd_cap_total}`);
 for (const st of stages) {
   if (st === '16') {
-    const c = await compileAcceptedDossier({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR });
-    console.log(`  16.compile: ${c.status}${c.reason ? ' — ' + c.reason : ''}${c.errors ? ' — ' + JSON.stringify(c.errors).slice(0, 300) : ''}`);
+    let c;
+    try { c = await compileAcceptedDossier({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR }); }
+    catch (e) { console.log(`  16.compile: ERROR — ${e.message.slice(0, 300)}`); console.log('STOP: compile threw (an attempt may be left running — reconcile it)'); process.exit(1); }
+    console.log(`  16.compile: ${c.status}${c.reused ? ' (reused ' + (c.reused_from ?? 'accepted compile') + ')' : ''}${c.reason ? ' — ' + c.reason : ''}${c.errors ? ' — ' + JSON.stringify(c.errors).slice(0, 300) : ''}`);
     if (c.status !== 'PASS') { console.log('STOP: compile not PASS'); process.exit(1); }
     continue;
   }

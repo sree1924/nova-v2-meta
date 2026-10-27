@@ -113,3 +113,5 @@
 - 2026-10-27T17:49:22.144Z retry nonce 03.combined_kg: → 5 after HOLD (sec09-rules-of-the-road); non-PASS: 03.KG01_GAPS=FAIL
 
 - 2026-10-27T17:50:17.686Z retry nonce 03.combined_kg: → 6 after HOLD (sec09-rules-of-the-road); non-PASS: HOLD
+
+- 2026-10-27T17:59:00Z crashed-attempt reconciliation attempt_b473c3dd (16.compile, lineage 22): second compile identity after lineage reset collided with the immutable compiled dossier; $0; proof receipts/attempt-reconciliation-b473c3dd-crashed.json; fix = cross-lineage compile reuse by input_manifest_sha256 + try/catch in run-utah

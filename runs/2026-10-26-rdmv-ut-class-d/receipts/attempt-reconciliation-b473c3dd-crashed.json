@@ -1,0 +1,22 @@
+{
+  "schema_version": "nova-attempt-reconciliation.v0.4.0",
+  "run_id": "2026-10-26-rdmv-ut-class-d",
+  "task_id": "task_1e501a4e40ff2b960eaafd93ea2da700bbbd3f892b275176252c1ec43cec45f2",
+  "attempt_id": "attempt_b473c3dd69cab9235980ad9397f26805e72a5b22ea66e67ad605c3c69b7c50a6",
+  "kind": "crashed_no_provider",
+  "no_request_sent": true,
+  "request_sent": false,
+  "response_received": false,
+  "evidence": {
+    "stage": "16.compile (local deterministic stage, no provider call, no reservation)",
+    "attempt_started_at": "2026-10-27T17:52:15.487Z",
+    "cause": "lineage reset 20 -> 22 minted a second 16.compile task identity; compileDossier succeeded but writeImmutable('16-compiled-dossier.json') threw 'Immutable artifact already exists with different bytes' because the blueprint now embeds candidate_lineage_id (lineage:22 vs the accepted lineage:20 compile). The controller threw out of compileAcceptedDossier with the attempt left `running`; the runner had no try/catch and exited 1.",
+    "ledger_state_before": "task running, attempt running, no model_calls row, no reservations row, no artifacts for this task; the accepted compile (task_5e4b451f, attempt_7f480ffa, 17:44:17Z) is intact",
+    "money_spent_usd": 0,
+    "fix_shipped": "controller.compileAcceptedDossier reuses the accepted compile when input_manifest_sha256 matches (cross-lineage); run-utah wraps the compile step in try/catch"
+  },
+  "disposition": "attempt -> failed (crashed, pre-provider), task -> retry_wait|failed; the accepted compile from lineage 20 remains THE compile for these inputs",
+  "authority": "standing authority (founder, $30 cap, no per-call ceremony) — approvals/STANDING-AUTHORITY-utah-full-run.json",
+  "recorded_by": { "actor_id": "claude-code-runner", "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03", "model": "claude-fable-5-1" },
+  "recorded_at": "2026-10-27T17:58:00Z"
+}

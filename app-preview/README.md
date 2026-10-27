@@ -24,14 +24,17 @@ to the generated `*-embedded.js` copies (identical content) when opened via `fil
   `{call-receipt, validation, reservation, request-envelope}.json` files.
   Raw prompts/responses are never embedded (sha256 + bytes only); secrets never printed;
   every unknown is null with a reason. Exported 2026-10-27 by
-  `node tools/preview/export-trace.mjs` (16 attempts, 12 model calls completed,
-  758,681 prompt tokens, 101,976 completion tokens, estimated $1.381749,
-  ledger actual 1,381,749 micro-USD).
-- **Real learner content:** section C of the stage-02 dossier —
+  `node tools/preview/export-trace.mjs` (50 attempts,
+  2,670,584 prompt tokens, 309,641 completion tokens, estimated $4.654209,
+  ledger actual 5,654,209 micro-USD; exported 2026-10-27T17:52:40Z).
+- **Real learner content:** all 9 accepted parts of the stage-02 dossier —
   `data/real/manifest.json` (written by
   `node tools/preview/export-content.mjs`, accepted ledger tasks only) lists
-  1 file (`02_dossier_sections`, task accepted, sha256-verified, 24 FACT_ID
-  blocks). The `#/dossier` reviewer route renders its FACT_ID blocks with the
+  9 files (`02_dossier_sections`, tasks accepted, sha256-verified: section C
+  24 FACT_ID blocks, section C2 15 FACT_ID blocks, sections A/B/D/E/E2/F/G
+  structural prose with no FACT_ID blocks). The `#/dossier` reviewer route
+  renders every part's FACT_ID blocks (full prose for sections without
+  FACT_ID blocks) with the
   "REAL — Utah Section 9, validated, audit pending" banner (not a lesson);
   every learner screen keeps the SYNTHETIC banner. All other parts/panels
   remain synthetic until the belt accepts them.
@@ -46,22 +49,23 @@ Progress lives in `localStorage` under `nova-preview:v1:sample`.
 
 Reviewer route (not in the top nav; linked from settings/about):
 `#/dossier` source-dossier view — accepted stage-02 artifacts only, FACT_ID
-blocks with task/attempt/sha256 provenance. Currently shows section C (1
-accepted part); empty state for any part with no accepted task.
+blocks with task/attempt/sha256 provenance. Currently shows all 9 accepted
+sec09 parts (A, B, C, C2, D, E, E2, F, G); empty state for any part with no
+accepted task.
 
 ## Files (sha256, 2026-10-27 build)
 
 | file | sha256 | bytes |
 |---|---|---|
-| index.html | 9abb97d3c0fd0cd648ce542efcde2a3567cc395385665ddcc6f5229a2f505254 | 19247 |
+| index.html | 1e942f1c86513de855f095ce4b5e068532d00b687c6ffc104ef1b710f3d7cded | 19411 |
 | trace.html | 6d4501a1dfad55d54ed0f30d0eb77cf4ca0a5fe7a22c5e9eb04880098631e325 | 6662 |
 | styles.css | c864b32d7dd77369c0c5045be514b969ac4fc64235f3f78c0ab8279cfe1fceee | 4509 |
 | data-embedded.js (generated) | c84fa9dbcf7eea8de9cc04509752ab2b33924a0df106507190e6e78ad75e6eaf | 15625 |
-| trace-embedded.js (generated) | 16e765d3e698e3eaae1a4f5f60510d10e45c91b9e4d7ea2c7519a08584df622d | 106908 |
-| data-real-embedded.js (generated) | d18e07109699a2336a94126266b30371ab1ca75dfe0601ac161e388a8df7ddf4 | 12022 |
-| data/manifest.json | c0b86c105fbf9b71514d41bf2aa3a3881e863c32bf2f8cf94747aef470afd21 | 578 |
-| data/trace.json (generated) | 38da468cab67c5a46fb806849052c171412f65337cdf3274a28e0391e0ac1026 | 143228 |
-| data/real/manifest.json (generated) | 33d21d93de38547fc9e5641f57fb536f1ba7b09c2ec96937f1d2d3fb36fc7ceb | 1273 |
+| trace-embedded.js (generated) | fbb46fcb5c5fbb2bc474a521a7a7a77f8eca35dca255c9c0018f77dbb47e0f56 | 336101 |
+| data-real-embedded.js (generated) | 362f5e70cc2512e9be4710f97550696c9ef696d5ce9b3e35e92cdc2f05495348 | 50918 |
+| data/manifest.json | c0b86c105fbf9b71514d41bf2aa3a3881e863c32bfb2f8cf94747aef470afd21 | 578 |
+| data/trace.json (generated) | 203a79757413b4849412d82fe3a710012da858dea502811a08f86fae39762837 | 455567 |
+| data/real/manifest.json (generated) | ea5ff84a285f6eb2ae99587f367e9feeb93639432d46ec5ead398873510caa72 | 7129 |
 | data/synthetic/04-carddeck.synthetic.json | 0b180dcf649357a0af65ad81d0fa9e0e0cc8950366c35213a765efd127adc08b | 4718 |
 | data/synthetic/05b-session-scripts.synthetic.json | faa656715d57040de79dc457be06922224eb43ab8317319eabdf2041d4d73d35 | 3676 |
 | data/synthetic/06-exambank.synthetic.json | b6ae8486eb7ecca2265f27b30d514210cd71653e2fbd405605606e75c93f57ce686 | 6382 |
