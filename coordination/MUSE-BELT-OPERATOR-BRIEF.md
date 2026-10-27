@@ -1,0 +1,14 @@
+You are Muse Code, the belt OPERATOR for the Utah run (founder rule, 2026-10-27: "muse has to build it through our belt"). Read AGENTS.md and .agents/memory/MEMORY.md first. Workspace: D:\nova\fb-ai-hackathon. The founder has authorized a full Utah run under a $30 credit cap (runs/2026-10-26-rdmv-ut-class-d/approvals/STANDING-AUTHORITY-utah-full-run.json). You do not need to ask anyone before running the commands below.
+
+HARD RULES
+- Run the belt ONLY through `node tools/belt/run-utah.mjs ...` and `node tools/belt/controller.mjs ...`. Never call api.meta.ai yourself, never write under runs/ except through those commands, never edit tools/belt/*, schemas-strict/*, prompts/*, contracts/*, qualification/*. You own app-preview/ and tools/preview/.
+- Never print the contents of .env or any key. The belt loads MODEL_API_KEY itself.
+- If a command exits non-zero or prints STOP/CAP/ERROR, do not retry blindly: record the exact output in coordination/MUSE-BELT-OPERATOR-REPORT.md and move to the next step that does not depend on it.
+
+STEPS
+1. `node tools/belt/run-utah.mjs --section sec09-rules-of-the-road --stages 02`
+   This dispatches Section 9 of the Utah handbook through stage 02 (dossier) part by part (C, C2, A, B, D, E, E2, F, G), validates each part with the owner post-validator, and records everything in the ledger. Expect ~25 s and ~$0.10 per call; some parts will HOLD and retry automatically (lineage resets are logged). Capture the full console output.
+2. `node tools/preview/export-trace.mjs` then confirm app-preview/trace.html reflects the new attempts (counts, USD, checks).
+3. Wire REAL accepted artifacts into the learner app: extend app-preview to load, when present, the accepted stage outputs from runs/2026-10-26-rdmv-ut-class-d/artifacts/<task>/<attempt>/artifact.json whose ledger task status is `accepted` (read the ledger READ-ONLY with node:sqlite {readOnly:true} exactly as export-trace.mjs does; write a tools/preview/export-content.mjs that copies ONLY accepted artifacts into app-preview/data/real/<stage>/ with a manifest of sha256s). For stage 02 dossier parts, render section C's FACT_ID blocks as a "Source dossier" reviewer view (not a learner lesson). Keep the SYNTHETIC banner on anything synthetic and a "REAL — Utah Section 9, validated, audit pending" banner on real data.
+4. If, when you run step 1, later stages are already enabled by the runner (03/04/06/05), run `node tools/belt/run-utah.mjs --section sec09-rules-of-the-road --stages 16,03,04,06,05.sessions,05.card_scripts` and wire 04 cards / 05 sessions / 06 items into the real learner screens (flashcards, lesson, quiz).
+5. Write coordination/MUSE-BELT-OPERATOR-REPORT.md: every command, exit code, per-part status and USD, what is real vs synthetic in the app, the trace totals, and anything you could not do. Then stop.

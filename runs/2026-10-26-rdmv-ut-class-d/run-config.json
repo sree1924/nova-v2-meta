@@ -2,7 +2,7 @@
   "schema_version": "rdmv.run-config.draft.0.2.0",
   "derived_from": "runs/2026-10-27-rdmv-tx-class-c/run-config.json (Texas candidate, now superseded) + RDMV-RUN-CONFIG.template.json v0.4.0",
   "status": "STATE_SELECTED_BY_FOUNDER_INTAKE_VERIFY_PENDING",
-  "execution_enabled": false,
+  "execution_enabled": true,
   "execution_note": "Founder selected Utah on 2026-10-26 evening ('run 1 state utah tonight'). Execution flips true only when: MODEL_API_KEY smoke + strict-probe are green, Sol's controller exists, Role 15 has resolved every (verify) below from the PDF, and the founder gives --go for the first paid stage.",
   "run_id": "2026-10-26-rdmv-ut-class-d",
   "working_product_id": "rdmv",
@@ -112,6 +112,60 @@
     "handbook_snapshot_bytes": 9153599,
     "handbook_retrieved_at_utc": "2026-10-26T23:27:22.083Z",
     "section_page_ranges": {
+      "sec01-definitions": [
+        11,
+        12,
+        13
+      ],
+      "sec02-licensing-requirements": [
+        14,
+        15
+      ],
+      "sec03-driver-education-permits": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "sec04-license-types-id-documents": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "sec05-vision-health": [
+        30,
+        31,
+        32
+      ],
+      "sec06-examinations": [
+        33,
+        34,
+        35,
+        36
+      ],
+      "sec07-preparing-vehicle": [
+        37,
+        38,
+        39
+      ],
+      "sec08-basic-driving": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
       "sec09-rules-of-the-road": [
         49,
         50,
@@ -126,28 +180,74 @@
         59,
         60
       ],
-      "sec09J-yielding-right-of-way": [
-        60
+      "sec10-alcohol-drugs": [
+        61,
+        62,
+        63,
+        64,
+        65
       ],
-      "sec08-basic-driving": [
-        40,
-        41,
-        42,
-        43,
-        44,
-        45,
-        46,
-        47,
-        48
+      "sec11-distractions-challenges": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
       ],
-      "sec06-examinations": [
-        33,
-        34,
-        35,
-        36
+      "sec12-crashes-insurance": [
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "sec13-suspensions-record": [
+        80,
+        81,
+        82,
+        83
+      ],
+      "sec14-sharing-the-road": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99
+      ],
+      "sec15-vehicle-equipment": [
+        100,
+        101,
+        102
+      ],
+      "sec16-towing": [
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
       ]
     },
-    "section_page_ranges_note": "PDF (physical) pages from Role 15 page map; headings: SECTION 9 at pdf 49 (printed 39), J. YIELDING RIGHT-OF-WAY at pdf 60 (printed 50), SECTION 10 at pdf 61. First 02 chapter proposed: sec09-rules-of-the-road (text-first).",
+    "section_page_ranges_note": "PDF pages from Role 15 page map headings (SECTION n at pdf 11,14,16,20,30,33,37,40,49,61,66,75,80,84,100,103; end 112). sec14 is 16 pages (cap 30 ok).",
     "depth_floor": {
       "C": {
         "min_fact_blocks": 10,
@@ -207,31 +307,28 @@
     "max_parallel_audit_jobs": 2,
     "max_automatic_attempts_per_logical_task": 2,
     "max_candidate_remediation_cycles": 1,
-    "max_total_usd": 100,
+    "max_total_usd": 30,
     "max_call_usd": 1,
     "per_provider_usd_caps": {
-      "meta": 60,
-      "openai": 15,
-      "anthropic": 15,
+      "meta": 30,
+      "openai": 0,
+      "anthropic": 0,
       "google": 0,
-      "media": 10
+      "media": 0
     },
     "pricing_snapshot_ref": "../../ENV-SETUP.md#meta-model-api (2026-10-26)",
     "run_deadline_utc": "2026-11-05T02:00:00Z",
-    "spend_mode": "dry_run",
+    "spend_mode": "live",
     "per_role_usd_caps": {
       "15": 0,
       "16": 0,
       "17": 0,
       "02": 12,
-      "03": 10,
-      "04": 8,
-      "05": 10,
-      "06": 8,
-      "07": 5,
-      "08": 5,
-      "09": 2,
-      "19A": 2
+      "03": 5,
+      "04": 5,
+      "05": 5,
+      "06": 3,
+      "19A": 0
     },
     "max_completion_tokens": 30000,
     "per_role_usd_caps_note": "per-role ceilings for the Utah pilot; 15/16/17 are scripts (0 model spend)",
@@ -255,17 +352,12 @@
       "pinned_by": "Sol verified integration of Claude owner receipt; dry-only metadata repin 2026-10-27"
     },
     "live_window": {
-      "armed_by": "Claude runner 2bdcad95",
-      "armed_at": "2026-10-27T15:50:14.875Z",
-      "approval_ref": {
-        "path": "runs/2026-10-26-rdmv-ut-class-d/approvals/GO-02.dossier_sections-2026-10-27T15-50-14-875Z.json",
-        "sha256": "3c8c19950895badcc37d156d153bec1d8df0dea5c544e60c950b5285dd34433f"
-      },
-      "note": "execution_enabled/spend_mode flipped for this approved dispatch only; reverted after.",
-      "disarmed_at": "2026-10-27T16:33:22.390Z",
-      "outcome": "L4#1 part C 19/20 (G_MATRIX applicability — check corrected; artifact re-validates 20/20), L4#2 part C 19/20 (DEDICATED_SURFACE debt missing — convention added). Lineage 4 exhausted. Disarmed.",
-      "rearmed_at": "2026-10-27T16:29:32.534Z",
-      "attempt": "lineage4#2 part C (reproduce L4#1 under corrected G_MATRIX applicability)"
+      "armed_by": "founder standing authority 2026-10-27 ($30 cap, full Utah run)",
+      "armed_at": "2026-10-27T16:39:57.107Z"
+    },
+    "standing_authority_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/approvals/STANDING-AUTHORITY-utah-full-run.json",
+      "sha256": "0b65f3b2eb0ec96a8f31b2187a9ba93af26c6d83d587428edaa3bb9424adc5ed"
     }
   },
   "open_before_first_paid_call": [

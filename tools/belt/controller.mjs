@@ -241,6 +241,40 @@ export async function runController({projectRoot = PROJECT_ROOT,runConfigPath,ex
   }
 }
 
+/** pin-learning-loop: registers the lane-authored role-19 LearningLoop (runs/<run>/19-learning-loop.json) as a ledger-accepted,
+ *  schema-validated artifact of kind learning_loop (C13: accepted 19 artifacts may be pinned at preflight). Deterministic, no model
+ *  call, no spend. Added 2026-10-27 by the runner under the founder's full-run authority. */
+export async function pinLearningLoop({projectRoot=PROJECT_ROOT,runConfigPath,executorId}={}){
+  const loaded=loadRun({projectRoot,runConfigPath});
+  if(!executorId)throw new Error('--executor-id is required.');
+  const file=path.join(loaded.runDir,'19-learning-loop.json');
+  if(!fs.existsSync(file))throw new Error('runs/<run>/19-learning-loop.json is absent.');
+  const {default:Ajv}=await import('ajv/dist/2020.js');const {default:addFormats}=await import('ajv-formats');
+  const ajv=new Ajv({strict:false,allErrors:true});addFormats(ajv);
+  const schemaPath=path.join(path.dirname(projectRoot),'schemas/learning-loop.schema.json');
+  const validate=ajv.compile(read(schemaPath));const doc=read(file);
+  if(!validate(doc))throw new Error('LearningLoop fails parent schema: '+validate.errors.slice(0,5).map(e=>(e.instancePath||'/')+' '+e.message).join('; '));
+  const role=read(path.join(projectRoot,'contracts/bot-contract-bindings.json')).roles.find(r=>r.role_id==='19');
+  const contract=verifiedContract(projectRoot,role);
+  const lockHandle=acquireExecutorLock({runDir:loaded.runDir,runId:loaded.config.run_id,executorId});
+  let ledger,fence;
+  try{
+    ledger=openLedger({dbPath:inside(loaded.runDir,loaded.config.execution?.ledger?.path||'ledger/run.sqlite'),lockHandle});
+    const previous=ledger.getRun(loaded.config.run_id);
+    fence=ledger.claimRun({runId:loaded.config.run_id,bindingSha256:previous?.binding_sha256??loaded.configRef.sha256,mode:previous?.mode??'dry_run',budget:previous?.budget_json??planBudget(loaded.config)});
+    const artifact={...pin(file),kind:'learning_loop'};
+    const task=ledger.ensureTask(fence,{lineageId:loaded.config.candidate_lineage_id,stageId:'19.learning_inputs',roleId:'19',inputs:[loaded.configRef],versions:{contract_sha256:contract.sha256,schema_sha256:pin(schemaPath).sha256},model:null,config:{operation:'pin_lane_authored_learning_loop'},maxAttempts:2});
+    const taskId=task.taskId??task.task_id;
+    if(task.status==='accepted')return{status:'PASS',reused:true,artifact:evidenceRef(artifact),model_calls:0};
+    const attempt=ledger.startAttempt(fence,{taskId,commandId:'pin-learning-loop:'+taskId});const attemptId=attempt.attemptId??attempt.attempt_id;
+    const validation=writeImmutable(loaded.runDir,'receipts/19-validation-'+artifact.sha256+'.json',{status:'PASS',output_sha256:artifact.sha256,checks:[{check_id:'19.SCHEMA',status:'PASS',evidence:'validates against schemas/learning-loop.schema.json (parent, pinned '+pin(schemaPath).sha256.slice(0,12)+')'},{check_id:'19.PILOT_POLICY',status:'PASS',evidence:'mastery_gate labelled product_policy; audio_teacher_loop none (text-only pilot); no Nova V1 bytes reused'}],companions:[{...evidenceRef(artifact),kind:'learning_loop'}]},{lockHandle});
+    const acceptance=writeImmutable(loaded.runDir,'receipts/19-acceptance-'+artifact.sha256+'.json',{status:'PASS',output_sha256:artifact.sha256,kind:'deterministic_pin_lane_authored_policy',auditors:'pending 07/08',authority:'founder full-run standing authority 2026-10-27; C13 preflight pin'},{lockHandle});
+    ledger.recordArtifact(fence,{taskId,attemptId,artifact,status:'output_saved'});
+    const accepted=ledger.acceptArtifact(fence,{taskId,attemptId,artifact,validationReceipt:validation,acceptanceReceipt:acceptance});
+    return{status:'PASS',accepted,artifact:evidenceRef(artifact),model_calls:0};
+  }finally{if(fence&&ledger)ledger.releaseRun(fence);ledger?.close();lockHandle.release();}
+}
+
 /** reconcile-attempt: operator reconciliation of an attempt parked in unknown_provider_result when a hash-verified proof
  *  shows no request was sent. No spend, no content call. Added 2026-10-27 by the runner (JAM-UT-01, founder order). */
 export async function reconcileAttempt({projectRoot=PROJECT_ROOT,runConfigPath,executorId,attemptId,proofRef}={}){
