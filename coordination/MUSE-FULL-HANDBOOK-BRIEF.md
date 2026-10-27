@@ -1,0 +1,15 @@
+You are Muse Code, the belt OPERATOR and preview builder for the Utah run. Read AGENTS.md, coordination/MUSE-BELT-OPERATOR-REPORT.md and coordination/MUSE-LEARNER-SCREENS-REPORT.md first. Workspace: D:\nova\fb-ai-hackathon. The founder has authorized the full Utah handbook under the standing authority (runs/2026-10-26-rdmv-ut-class-d/approvals/STANDING-AUTHORITY-utah-full-run.json). You do not need to ask anyone before running the commands below.
+
+HARD RULES
+- Run the belt ONLY through `node tools/belt/run-utah.mjs ...`. Never call api.meta.ai yourself, never write under runs/ except through that command, never edit tools/belt/*, schemas-strict/*, prompts/*, contracts/*, qualification/*. You own app-preview/ and tools/preview/.
+- Never print the contents of .env or any key.
+- QUOTE the --stages value exactly as shown (PowerShell strips leading zeros unquoted).
+- The runner retries HOLDs itself and moves to the next section when one section STOPs; do not retry a STOPped section by hand. If the whole command exits non-zero, record the SUMMARY block verbatim and continue with the wiring steps for whatever got accepted.
+
+STEPS
+1. `node tools/belt/run-utah.mjs --sections all --stages "02,16,03,04,06,05.sessions,05.card_scripts"`
+   This runs every handbook section in order (sec01 … sec16; Section 9 is already complete and will be skipped) through dossier → compile → knowledge graph → cards → exam bank → lesson sessions → card scripts. Expect roughly 14 accepted calls and 8–12 minutes per section when nothing holds, ~$2 per section; 2–4 hours total. Let it run to the end. Capture the full console output to coordination/step1-full-handbook-console.log (tee or redirect) and the SUMMARY block into your report.
+2. `node tools/preview/export-trace.mjs` and your embed tool; confirm trace.html reflects all sections.
+3. `node tools/preview/export-content.mjs` — the accepted artifacts of EVERY section land under app-preview/data/real/ (per-task files; the manifest lists section ids from each task identity — group by section). Extend the learner app from the Section 9 build: the course becomes the whole Utah Driver Handbook, one chapter per handbook section in handbook order (sec01 … sec16), each chapter = that section's KG modules with the same lesson / flashcards / quiz / practice flow you built for Section 9. Ids are namespaced per section (sec10-m01, sec10-card-…); Section 9 keeps its unprefixed ids — namespace it by its export directory. A section that has no accepted artifacts yet shows as "not yet built" in the chapter list (no synthetic filler, no "Nowhere" content anywhere).
+4. Home shows: chapters built / total, cards, items, lessons — counted from the exports, with the REAL banner and the trace link. Keep file:// fallback working (re-run embed).
+5. Verify with your DOM harness: chapter count = sections with accepted KG; per chapter the lesson/cards/quiz counts equal the exports; no "Nowhere" string on learner routes. Write coordination/MUSE-FULL-HANDBOOK-REPORT.md: per-section outcome and USD (from the SUMMARY and the ledger), what is real in the app, what you could not verify. Then stop.
