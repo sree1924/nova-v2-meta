@@ -67,19 +67,19 @@
     },
     "total_usd": 30
   },
-  "exported_at": "2026-10-27T17:57:22.564Z",
+  "exported_at": "2026-10-27T18:05:28.615Z",
   "exporter": "tools/preview/export-trace.mjs (read-only ledger export, no model calls)",
   "ledger_path": "runs/2026-10-26-rdmv-ut-class-d/ledger/run.sqlite",
   "totals": {
-    "attempts": 51,
-    "model_calls_completed": 44,
-    "prompt_tokens": 2737677,
-    "completion_tokens": 325512,
-    "reasoning_tokens_observed": 149890,
-    "estimated_usd": 4.805527,
-    "actual_microusd_exact": 5805527,
-    "reserved_microusd_total": 47000000,
-    "actual_usd_exact": 5.805527
+    "attempts": 57,
+    "model_calls_completed": 50,
+    "prompt_tokens": 3193174,
+    "completion_tokens": 392177,
+    "reasoning_tokens_observed": 159239,
+    "estimated_usd": 5.658225,
+    "actual_microusd_exact": 6658225,
+    "reserved_microusd_total": 53000000,
+    "actual_usd_exact": 6.658225
   },
   "lineages": [
     {
@@ -245,7 +245,23 @@
     {
       "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:23",
       "attempts": [
-        "attempt_47174e1f10addb39889e3eb7c954a5a925787ba2ad7034836be19d94e57349ce"
+        "attempt_47174e1f10addb39889e3eb7c954a5a925787ba2ad7034836be19d94e57349ce",
+        "attempt_57f3786c03ba9c1d7458c624aefed456b9e2f6e4aa1b4beafd4529c081a07d37",
+        "attempt_55a9f40b307d076e4c7ffaefd455e7537deac0798541c97606cc71d76313bb9b"
+      ]
+    },
+    {
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:24",
+      "attempts": [
+        "attempt_a0f426a4a47d2cf106cf3c1191d4f87ebe0cac60783629c9c6aeeffb49cddae7",
+        "attempt_417a0580eac8357cffaab415848408d48f26e9b025d5aece21213a24ff0880f3"
+      ]
+    },
+    {
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:25",
+      "attempts": [
+        "attempt_14b7a2169d8a27253cba62ab8ffdad4e554246ab5f5d00349c603a7ef2aacd63",
+        "attempt_beb0e16dde9b85d5541c18adce0babb58495dbbbdf20c5ab85b790e546d4e659"
       ]
     }
   ],
@@ -10597,6 +10613,1560 @@
       },
       "error_ref": null,
       "unknown_reasons": []
+    },
+    {
+      "attempt_id": "attempt_57f3786c03ba9c1d7458c624aefed456b9e2f6e4aa1b4beafd4529c081a07d37",
+      "attempt_no": 1,
+      "task_id": "task_44cd91a0e315ea4e63b07af70efd46415bd1507edacadac3d9a0b93856175a3f",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:23",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 144,
+      "created_at": "2026-10-27T18:01:04.952Z",
+      "updated_at": "2026-10-27T18:01:46.572Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 75932,
+      "completion_tokens": 11192,
+      "reasoning_tokens": 1653,
+      "cached_tokens": 0,
+      "estimated_usd": 0.142481,
+      "estimated_usd_microusd": 142481,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 142481,
+      "reservation_state": "reported",
+      "elapsed_ms": 41081,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/04-carddeck.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "probe slug, hashes, non-empty strings, intro_order>=0, exam_weight>=0, recap_hooks>=1 hold over 39 cards / 3 recaps",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS",
+          "evidence": "39 unique card_ids; intro_order unique within each of 3 decks",
+          "metrics": {
+            "duplicate_card_ids": 0,
+            "duplicate_intro_orders": 0
+          }
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS",
+          "evidence": "0 recorded merge(s) well-formed",
+          "metrics": {
+            "merges": 0
+          }
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS",
+          "evidence": "official exam_weight honest on 3 decks (verified 0, unknown 3); 3 authored emphasis value(s) labelled product policy, never promoted to official",
+          "metrics": {
+            "verified": 0,
+            "unknown": 3,
+            "emphasis_values": 3
+          }
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS",
+          "evidence": "39/39 cards tier == f(difficulty, high_yield); 28 high-yield cards tightened | learning_loop_ref null: tiers follow the adapter-bound product policy only",
+          "metrics": {
+            "mismatches": 0,
+            "high_yield_tightened": 28
+          }
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS",
+          "evidence": "81 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+          "metrics": {
+            "violating_fields": 0,
+            "fields_checked": 81
+          }
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS",
+          "evidence": "39 hooks within 1..6 words (max 5)",
+          "metrics": {
+            "over_limit": 0,
+            "max_words": 5
+          }
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS",
+          "evidence": "hook_origin consistent with Blueprint mnemonics on 39 cards",
+          "metrics": {
+            "sme-carried": 0,
+            "sme-adapted": 0,
+            "minted": 39
+          }
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS",
+          "evidence": "every card/recap hook carries >=1 unique fact id; all resolve in context.fact_registry",
+          "metrics": {
+            "defects": 0,
+            "unresolved_in_registry": 0
+          }
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL",
+          "evidence": "39/39 back(s) not equal to accepted fact wording: card-F01: back \"Flex lanes may reverse direction by time of day and you must\" != accepted wording of F01; card-F02: back \"Keep at least two seconds of following distance on the freew\" != accepted wording of F02; card-F03: back \"Uturns on the freeway are prohibited and driving or stopping\" != accepted wording of F03; card-F04: back \"A left lane driver approached from behind must move safely r\" != accepted wording of F04; card-F05: back \"Express lanes on Interstate fifteen are free for vehicles wi\" != accepted wording of F05; card-F06: back \"Crossing a double white line to enter or leave the express l\" != accepted wording of F06; card-F07: back \"Ramp meters show alternating red and green and generally rel\" != accepted wording of F07; card-F08: back \"Runaway vehicle ramps are for emergency stops only and stopp\" != accepted wording of F08; …(+31 more)",
+          "metrics": {
+            "exact": 0,
+            "drift": 39
+          }
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS",
+          "evidence": "0 cluster(s) valid (one umbrella, atomics share node+source_ref, atomic backs verbatim)",
+          "metrics": {
+            "clusters": 0,
+            "defects": 0,
+            "unverified_atomics": 0
+          }
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS",
+          "evidence": "39 backs distinct after NFKC/lowercase/punctuation normalization",
+          "metrics": {
+            "duplicate_groups": 0,
+            "cards_in_duplicates": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS",
+          "evidence": "39/39 cards cite a pdf_page or printed_page",
+          "metrics": {
+            "cited": 39,
+            "open_debt": 0,
+            "uncited": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS",
+          "evidence": "39 cited page(s) resolve in context.page_map",
+          "metrics": {
+            "resolved": 39,
+            "unresolved": 0
+          }
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, flag-as, MOD- code, bare module id, Q:/A: label or doubled article in front/back/hook/recap fields",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS",
+          "evidence": "sentinel deferred:not_applicable_pilot bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (image_cards_enabled false, image-scout non-applicability listed); no deictic visual references",
+          "metrics": {
+            "deictic_cards": 0
+          }
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS",
+          "evidence": "3 decks, one recap each",
+          "metrics": {
+            "decks": 3,
+            "recaps": 3
+          }
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS",
+          "evidence": "3 decks mirror KG modules in order; 39 nodes carded or merged; dynamic flags match KG",
+          "metrics": {
+            "kg_nodes": 39,
+            "dropped": 0
+          }
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS",
+          "evidence": "120 learner fields; longest contiguous source overlap 6 words (<= 12) at card-F05.front",
+          "metrics": {
+            "longest_overlap_words": 6,
+            "longest_at": "card-F05.front",
+            "source_tokens": 42548
+          }
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 3b72e60d02edd53ab39c91fce024fce1729a9acd8e60ee0bd956dc41e0a6bb56",
+          "metrics": null
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS",
+          "evidence": "no open verification debt",
+          "metrics": {
+            "open_debt": 0
+          }
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_d34021ee7776115e32de2ec6476efcc6179748bd6351be9c1c332f14b7e1eb3c",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_44cd91a0e315ea4e63b07af70efd46415bd1507edacadac3d9a0b93856175a3f/attempt_57f3786c03ba9c1d7458c624aefed456b9e2f6e4aa1b4beafd4529c081a07d37/artifact.json",
+          "sha256": "bf501c5df51894972919a70145b1de1ea05bc75374a2b2d99506314a8d0d92f7",
+          "bytes": 43797
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_5f8dfe6e38ddda16905001776e93e1ba9dedf997babcfe9e83c566bcd1c3102c",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_44cd91a0e315ea4e63b07af70efd46415bd1507edacadac3d9a0b93856175a3f/attempt_57f3786c03ba9c1d7458c624aefed456b9e2f6e4aa1b4beafd4529c081a07d37/raw-response.json",
+          "sha256": "7aab0a0db35508d08d5e370a00a06efa86f2a50facf7db744ba018a0e5ec9de2",
+          "bytes": 34936
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_44cd91a0e315ea4e63b07af70efd46415bd1507edacadac3d9a0b93856175a3f\\attempt_57f3786c03ba9c1d7458c624aefed456b9e2f6e4aa1b4beafd4529c081a07d37\\request-envelope.json",
+        "sha256": "a664d866b02765c3a16b5b91c08741f12c2fcdd23daff344360a0398b98f6d6a",
+        "bytes": 13404,
+        "request_sha256": "3e7175cdf1dd56262f118db0603eb52735e36d954e2e570cd195523a1106f2de"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_55a9f40b307d076e4c7ffaefd455e7537deac0798541c97606cc71d76313bb9b",
+      "attempt_no": 1,
+      "task_id": "task_9bed27f0900336d3ef0301543e32a3787d483426246a3274416df95c1ad01e8b",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:23",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 146,
+      "created_at": "2026-10-27T18:01:46.702Z",
+      "updated_at": "2026-10-27T18:02:30.667Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 75909,
+      "completion_tokens": 11024,
+      "reasoning_tokens": 1523,
+      "cached_tokens": 0,
+      "estimated_usd": 0.141738,
+      "estimated_usd_microusd": 141738,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 141738,
+      "reservation_state": "reported",
+      "elapsed_ms": 43563,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/04-carddeck.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "probe slug, hashes, non-empty strings, intro_order>=0, exam_weight>=0, recap_hooks>=1 hold over 39 cards / 3 recaps",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS",
+          "evidence": "39 unique card_ids; intro_order unique within each of 3 decks",
+          "metrics": {
+            "duplicate_card_ids": 0,
+            "duplicate_intro_orders": 0
+          }
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS",
+          "evidence": "0 recorded merge(s) well-formed",
+          "metrics": {
+            "merges": 0
+          }
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS",
+          "evidence": "official exam_weight honest on 3 decks (verified 0, unknown 3); 3 authored emphasis value(s) labelled product policy, never promoted to official",
+          "metrics": {
+            "verified": 0,
+            "unknown": 3,
+            "emphasis_values": 3
+          }
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS",
+          "evidence": "39/39 cards tier == f(difficulty, high_yield); 28 high-yield cards tightened | learning_loop_ref null: tiers follow the adapter-bound product policy only",
+          "metrics": {
+            "mismatches": 0,
+            "high_yield_tightened": 28
+          }
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS",
+          "evidence": "81 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+          "metrics": {
+            "violating_fields": 0,
+            "fields_checked": 81
+          }
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS",
+          "evidence": "39 hooks within 1..6 words (max 5)",
+          "metrics": {
+            "over_limit": 0,
+            "max_words": 5
+          }
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS",
+          "evidence": "hook_origin consistent with Blueprint mnemonics on 39 cards",
+          "metrics": {
+            "sme-carried": 0,
+            "sme-adapted": 0,
+            "minted": 39
+          }
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS",
+          "evidence": "every card/recap hook carries >=1 unique fact id; all resolve in context.fact_registry",
+          "metrics": {
+            "defects": 0,
+            "unresolved_in_registry": 0
+          }
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL",
+          "evidence": "39/39 back(s) not equal to accepted fact wording: card-F01: back \"Flex lanes may reverse direction by time of day and you must\" != accepted wording of F01; card-F02: back \"Keep at least two seconds of following distance on the freew\" != accepted wording of F02; card-F03: back \"U-turns on the freeway are prohibited and driving or stoppin\" != accepted wording of F03; card-F04: back \"A left-lane driver approached from behind must move safely r\" != accepted wording of F04; card-F05: back \"Express lanes on I fifteen are free for vehicles with two or\" != accepted wording of F05; card-F06: back \"Crossing a double white line to enter or leave the express l\" != accepted wording of F06; card-F07: back \"Ramp meters show alternating red and green and generally rel\" != accepted wording of F07; card-F08: back \"Runaway-vehicle ramps are for emergency stops only and stopp\" != accepted wording of F08; …(+31 more)",
+          "metrics": {
+            "exact": 0,
+            "drift": 39
+          }
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS",
+          "evidence": "0 cluster(s) valid (one umbrella, atomics share node+source_ref, atomic backs verbatim)",
+          "metrics": {
+            "clusters": 0,
+            "defects": 0,
+            "unverified_atomics": 0
+          }
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS",
+          "evidence": "39 backs distinct after NFKC/lowercase/punctuation normalization",
+          "metrics": {
+            "duplicate_groups": 0,
+            "cards_in_duplicates": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS",
+          "evidence": "39/39 cards cite a pdf_page or printed_page",
+          "metrics": {
+            "cited": 39,
+            "open_debt": 0,
+            "uncited": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS",
+          "evidence": "39 cited page(s) resolve in context.page_map",
+          "metrics": {
+            "resolved": 39,
+            "unresolved": 0
+          }
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, flag-as, MOD- code, bare module id, Q:/A: label or doubled article in front/back/hook/recap fields",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS",
+          "evidence": "sentinel deferred:not_applicable_pilot bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (image_cards_enabled false, image-scout non-applicability listed); no deictic visual references",
+          "metrics": {
+            "deictic_cards": 0
+          }
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS",
+          "evidence": "3 decks, one recap each",
+          "metrics": {
+            "decks": 3,
+            "recaps": 3
+          }
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS",
+          "evidence": "3 decks mirror KG modules in order; 39 nodes carded or merged; dynamic flags match KG",
+          "metrics": {
+            "kg_nodes": 39,
+            "dropped": 0
+          }
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS",
+          "evidence": "120 learner fields; longest contiguous source overlap 7 words (<= 12) at card-F09.back",
+          "metrics": {
+            "longest_overlap_words": 7,
+            "longest_at": "card-F09.back",
+            "source_tokens": 42548
+          }
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 3e10ec7aeb64dc3fe72b2fedb7e14f1643c386d1093ed83447b9717a2eead756",
+          "metrics": null
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS",
+          "evidence": "no open verification debt",
+          "metrics": {
+            "open_debt": 0
+          }
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_5e2ee114ca02e353b954e1a3e70fa9e1106474b2b8402e7604d17fcdda2dcc1b",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_9bed27f0900336d3ef0301543e32a3787d483426246a3274416df95c1ad01e8b/attempt_55a9f40b307d076e4c7ffaefd455e7537deac0798541c97606cc71d76313bb9b/artifact.json",
+          "sha256": "18435c7c4980eb34713fb3d9a18ec9d952ad5545daa501d20639ee18bab7cff7",
+          "bytes": 43906
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_0dbc0e87a9667d523953d74acf0aeb9943f00dfaf674ca3a44629363bafb671b",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_9bed27f0900336d3ef0301543e32a3787d483426246a3274416df95c1ad01e8b/attempt_55a9f40b307d076e4c7ffaefd455e7537deac0798541c97606cc71d76313bb9b/raw-response.json",
+          "sha256": "48ad422bd84caa78eff689117134963229e9f0818b7ce6b17de329449625be6b",
+          "bytes": 35057
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_9bed27f0900336d3ef0301543e32a3787d483426246a3274416df95c1ad01e8b\\attempt_55a9f40b307d076e4c7ffaefd455e7537deac0798541c97606cc71d76313bb9b\\request-envelope.json",
+        "sha256": "e3c10c8c4b49e3c71b4f31f32b32267a1530aaf5e9f2baad96490fe5f520c61b",
+        "bytes": 13404,
+        "request_sha256": "1a2ebd2a44b55fbfda5ef67538a968a43c6ddc8fd02c193ea463eaaaf815e222"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_a0f426a4a47d2cf106cf3c1191d4f87ebe0cac60783629c9c6aeeffb49cddae7",
+      "attempt_no": 1,
+      "task_id": "task_0569c8fb509d97d8a8c9c844f2bf656ac21f544085de6d8783e93f98ff5475a6",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:24",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 150,
+      "created_at": "2026-10-27T18:02:30.866Z",
+      "updated_at": "2026-10-27T18:03:17.599Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 75927,
+      "completion_tokens": 11417,
+      "reasoning_tokens": 1878,
+      "cached_tokens": 0,
+      "estimated_usd": 0.143431,
+      "estimated_usd_microusd": 143431,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 143431,
+      "reservation_state": "reported",
+      "elapsed_ms": 46416,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/04-carddeck.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "probe slug, hashes, non-empty strings, intro_order>=0, exam_weight>=0, recap_hooks>=1 hold over 39 cards / 3 recaps",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS",
+          "evidence": "39 unique card_ids; intro_order unique within each of 3 decks",
+          "metrics": {
+            "duplicate_card_ids": 0,
+            "duplicate_intro_orders": 0
+          }
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS",
+          "evidence": "0 recorded merge(s) well-formed",
+          "metrics": {
+            "merges": 0
+          }
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS",
+          "evidence": "official exam_weight honest on 3 decks (verified 0, unknown 3); 3 authored emphasis value(s) labelled product policy, never promoted to official",
+          "metrics": {
+            "verified": 0,
+            "unknown": 3,
+            "emphasis_values": 3
+          }
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS",
+          "evidence": "39/39 cards tier == f(difficulty, high_yield); 28 high-yield cards tightened | learning_loop_ref null: tiers follow the adapter-bound product policy only",
+          "metrics": {
+            "mismatches": 0,
+            "high_yield_tightened": 28
+          }
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS",
+          "evidence": "81 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+          "metrics": {
+            "violating_fields": 0,
+            "fields_checked": 81
+          }
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS",
+          "evidence": "39 hooks within 1..6 words (max 6)",
+          "metrics": {
+            "over_limit": 0,
+            "max_words": 6
+          }
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS",
+          "evidence": "hook_origin consistent with Blueprint mnemonics on 39 cards",
+          "metrics": {
+            "sme-carried": 0,
+            "sme-adapted": 0,
+            "minted": 39
+          }
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS",
+          "evidence": "every card/recap hook carries >=1 unique fact id; all resolve in context.fact_registry",
+          "metrics": {
+            "defects": 0,
+            "unresolved_in_registry": 0
+          }
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL",
+          "evidence": "39/39 back(s) not equal to accepted fact wording: card-F01: back \"Flex lanes may reverse direction by time of day; check the o\" != accepted wording of F01; card-F02: back \"Keep at least two seconds of following distance on the freew\" != accepted wording of F02; card-F03: back \"U-turns on the freeway are prohibited, as is driving or stop\" != accepted wording of F03; card-F04: back \"A left-lane driver approached from behind must move safely r\" != accepted wording of F04; card-F05: back \"Express lanes on I-15 are free for vehicles with two or more\" != accepted wording of F05; card-F06: back \"Crossing a double white line to enter or leave the express l\" != accepted wording of F06; card-F07: back \"Ramp meters show alternating red and green and generally rel\" != accepted wording of F07; card-F08: back \"Runaway-vehicle ramps are for emergency stops only; stopping\" != accepted wording of F08; …(+31 more)",
+          "metrics": {
+            "exact": 0,
+            "drift": 39
+          }
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS",
+          "evidence": "0 cluster(s) valid (one umbrella, atomics share node+source_ref, atomic backs verbatim)",
+          "metrics": {
+            "clusters": 0,
+            "defects": 0,
+            "unverified_atomics": 0
+          }
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS",
+          "evidence": "39 backs distinct after NFKC/lowercase/punctuation normalization",
+          "metrics": {
+            "duplicate_groups": 0,
+            "cards_in_duplicates": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS",
+          "evidence": "39/39 cards cite a pdf_page or printed_page",
+          "metrics": {
+            "cited": 39,
+            "open_debt": 0,
+            "uncited": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS",
+          "evidence": "39 cited page(s) resolve in context.page_map",
+          "metrics": {
+            "resolved": 39,
+            "unresolved": 0
+          }
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, flag-as, MOD- code, bare module id, Q:/A: label or doubled article in front/back/hook/recap fields",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS",
+          "evidence": "sentinel deferred:not_applicable_pilot bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (image_cards_enabled false, image-scout non-applicability listed); no deictic visual references",
+          "metrics": {
+            "deictic_cards": 0
+          }
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS",
+          "evidence": "3 decks, one recap each",
+          "metrics": {
+            "decks": 3,
+            "recaps": 3
+          }
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS",
+          "evidence": "3 decks mirror KG modules in order; 39 nodes carded or merged; dynamic flags match KG",
+          "metrics": {
+            "kg_nodes": 39,
+            "dropped": 0
+          }
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS",
+          "evidence": "120 learner fields; longest contiguous source overlap 7 words (<= 12) at card-F09.back",
+          "metrics": {
+            "longest_overlap_words": 7,
+            "longest_at": "card-F09.back",
+            "source_tokens": 42548
+          }
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest f9f1bdbf52dcc473f874a2a2487a341df9eee14843d4850f51edbed111dae82c",
+          "metrics": null
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS",
+          "evidence": "no open verification debt",
+          "metrics": {
+            "open_debt": 0
+          }
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_0ac5e25570608f97260459ca0784d60d3f578a0221d0af94dd20dc7762621b6b",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_0569c8fb509d97d8a8c9c844f2bf656ac21f544085de6d8783e93f98ff5475a6/attempt_a0f426a4a47d2cf106cf3c1191d4f87ebe0cac60783629c9c6aeeffb49cddae7/artifact.json",
+          "sha256": "ebbd616f7b6b350443461ec8f8591d875a81e830897fae3204810fbf5bb0d55c",
+          "bytes": 43277
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_c67b03fc211c7bab9c59eb4055f6470bc8e058b3ea9bc4444b9daa8ede59966e",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_0569c8fb509d97d8a8c9c844f2bf656ac21f544085de6d8783e93f98ff5475a6/attempt_a0f426a4a47d2cf106cf3c1191d4f87ebe0cac60783629c9c6aeeffb49cddae7/raw-response.json",
+          "sha256": "1a579dfa46cf4c5c4114a245df44214b5ade5429fca771283d569319f08da872",
+          "bytes": 34416
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_0569c8fb509d97d8a8c9c844f2bf656ac21f544085de6d8783e93f98ff5475a6\\attempt_a0f426a4a47d2cf106cf3c1191d4f87ebe0cac60783629c9c6aeeffb49cddae7\\request-envelope.json",
+        "sha256": "b16360972d18a7cd2f1e3dc64c1589e874030888a2bf9f41915ed5763bfabf73",
+        "bytes": 13404,
+        "request_sha256": "c27bf2ed5e0375511d912fc8bcda44746e50cfdb6ab59a3b355dc3959910fdd0"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_417a0580eac8357cffaab415848408d48f26e9b025d5aece21213a24ff0880f3",
+      "attempt_no": 1,
+      "task_id": "task_3c1430c9d0d9cd7cc14d53bb5004e9c55b8b52dad418f664975cce50e142ed2a",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:24",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 152,
+      "created_at": "2026-10-27T18:03:17.710Z",
+      "updated_at": "2026-10-27T18:04:00.634Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 75923,
+      "completion_tokens": 10892,
+      "reasoning_tokens": 1357,
+      "cached_tokens": 0,
+      "estimated_usd": 0.141195,
+      "estimated_usd_microusd": 141195,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 141195,
+      "reservation_state": "reported",
+      "elapsed_ms": 42538,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/04-carddeck.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "probe slug, hashes, non-empty strings, intro_order>=0, exam_weight>=0, recap_hooks>=1 hold over 39 cards / 3 recaps",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS",
+          "evidence": "39 unique card_ids; intro_order unique within each of 3 decks",
+          "metrics": {
+            "duplicate_card_ids": 0,
+            "duplicate_intro_orders": 0
+          }
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS",
+          "evidence": "0 recorded merge(s) well-formed",
+          "metrics": {
+            "merges": 0
+          }
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS",
+          "evidence": "official exam_weight honest on 3 decks (verified 0, unknown 3); 3 authored emphasis value(s) labelled product policy, never promoted to official",
+          "metrics": {
+            "verified": 0,
+            "unknown": 3,
+            "emphasis_values": 3
+          }
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS",
+          "evidence": "39/39 cards tier == f(difficulty, high_yield); 28 high-yield cards tightened | learning_loop_ref null: tiers follow the adapter-bound product policy only",
+          "metrics": {
+            "mismatches": 0,
+            "high_yield_tightened": 28
+          }
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS",
+          "evidence": "81 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+          "metrics": {
+            "violating_fields": 0,
+            "fields_checked": 81
+          }
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS",
+          "evidence": "39 hooks within 1..6 words (max 5)",
+          "metrics": {
+            "over_limit": 0,
+            "max_words": 5
+          }
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS",
+          "evidence": "hook_origin consistent with Blueprint mnemonics on 39 cards",
+          "metrics": {
+            "sme-carried": 0,
+            "sme-adapted": 0,
+            "minted": 39
+          }
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS",
+          "evidence": "every card/recap hook carries >=1 unique fact id; all resolve in context.fact_registry",
+          "metrics": {
+            "defects": 0,
+            "unresolved_in_registry": 0
+          }
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL",
+          "evidence": "39/39 back(s) not equal to accepted fact wording: card-F01: back \"Flex lanes may reverse direction by time of day and you must\" != accepted wording of F01; card-F02: back \"Keep at least two seconds of following distance on the freew\" != accepted wording of F02; card-F03: back \"U turns on the freeway are prohibited and driving or stoppin\" != accepted wording of F03; card-F04: back \"A left lane driver approached from behind must move safely r\" != accepted wording of F04; card-F05: back \"Express lanes on Interstate fifteen are free for vehicles wi\" != accepted wording of F05; card-F06: back \"Crossing a double white line to enter or leave the express l\" != accepted wording of F06; card-F07: back \"Ramp meters show alternating red and green and generally rel\" != accepted wording of F07; card-F08: back \"Runaway vehicle ramps are for emergency stops only and stopp\" != accepted wording of F08; …(+31 more)",
+          "metrics": {
+            "exact": 0,
+            "drift": 39
+          }
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS",
+          "evidence": "0 cluster(s) valid (one umbrella, atomics share node+source_ref, atomic backs verbatim)",
+          "metrics": {
+            "clusters": 0,
+            "defects": 0,
+            "unverified_atomics": 0
+          }
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS",
+          "evidence": "39 backs distinct after NFKC/lowercase/punctuation normalization",
+          "metrics": {
+            "duplicate_groups": 0,
+            "cards_in_duplicates": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS",
+          "evidence": "39/39 cards cite a pdf_page or printed_page",
+          "metrics": {
+            "cited": 39,
+            "open_debt": 0,
+            "uncited": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS",
+          "evidence": "39 cited page(s) resolve in context.page_map",
+          "metrics": {
+            "resolved": 39,
+            "unresolved": 0
+          }
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, flag-as, MOD- code, bare module id, Q:/A: label or doubled article in front/back/hook/recap fields",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS",
+          "evidence": "sentinel deferred:not_applicable_pilot bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (image_cards_enabled false, image-scout non-applicability listed); no deictic visual references",
+          "metrics": {
+            "deictic_cards": 0
+          }
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS",
+          "evidence": "3 decks, one recap each",
+          "metrics": {
+            "decks": 3,
+            "recaps": 3
+          }
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS",
+          "evidence": "3 decks mirror KG modules in order; 39 nodes carded or merged; dynamic flags match KG",
+          "metrics": {
+            "kg_nodes": 39,
+            "dropped": 0
+          }
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS",
+          "evidence": "120 learner fields; longest contiguous source overlap 7 words (<= 12) at card-F09.back",
+          "metrics": {
+            "longest_overlap_words": 7,
+            "longest_at": "card-F09.back",
+            "source_tokens": 42548
+          }
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 7379f581f7a7aad70d1b72a44e7180c27150f24fd5cc167469bca700ea639658",
+          "metrics": null
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS",
+          "evidence": "no open verification debt",
+          "metrics": {
+            "open_debt": 0
+          }
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_447521dd335a8b2b11d48861cdd46bc632727c94c6c1aa3868f0a232e644920c",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_3c1430c9d0d9cd7cc14d53bb5004e9c55b8b52dad418f664975cce50e142ed2a/attempt_417a0580eac8357cffaab415848408d48f26e9b025d5aece21213a24ff0880f3/artifact.json",
+          "sha256": "b5d6669c7da3ddca62e1a9338775320a0bbc6c871d8dc8eeebc374e91a98dd09",
+          "bytes": 43801
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_d5fee8f0f3cb3a963a84739555a933ddcb3b23ae9c472c81ff881ef5b01dfa5f",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_3c1430c9d0d9cd7cc14d53bb5004e9c55b8b52dad418f664975cce50e142ed2a/attempt_417a0580eac8357cffaab415848408d48f26e9b025d5aece21213a24ff0880f3/raw-response.json",
+          "sha256": "a86c781b213b6d5a1847ed6522d76be3f7d3c82efd071c4c15eb878f731b13c9",
+          "bytes": 34940
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_3c1430c9d0d9cd7cc14d53bb5004e9c55b8b52dad418f664975cce50e142ed2a\\attempt_417a0580eac8357cffaab415848408d48f26e9b025d5aece21213a24ff0880f3\\request-envelope.json",
+        "sha256": "9c82d2c7db94c1b604c714076a44c34ba6fed06b242d4cb6257b9f33fa78a6a8",
+        "bytes": 13404,
+        "request_sha256": "386d8fc8abe47f53bd3593404b2d3f0bf4957b99ecac08f21054a13df24eef36"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_14b7a2169d8a27253cba62ab8ffdad4e554246ab5f5d00349c603a7ef2aacd63",
+      "attempt_no": 1,
+      "task_id": "task_4474ddab7215b8d77ef03b0d78b8885acb9ae2a77eb6b0db7cd1641829f46b59",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:25",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 156,
+      "created_at": "2026-10-27T18:04:00.866Z",
+      "updated_at": "2026-10-27T18:04:43.403Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 75940,
+      "completion_tokens": 11282,
+      "reasoning_tokens": 1670,
+      "cached_tokens": 0,
+      "estimated_usd": 0.142874,
+      "estimated_usd_microusd": 142874,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 142874,
+      "reservation_state": "reported",
+      "elapsed_ms": 42166,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/04-carddeck.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "probe slug, hashes, non-empty strings, intro_order>=0, exam_weight>=0, recap_hooks>=1 hold over 39 cards / 3 recaps",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS",
+          "evidence": "39 unique card_ids; intro_order unique within each of 3 decks",
+          "metrics": {
+            "duplicate_card_ids": 0,
+            "duplicate_intro_orders": 0
+          }
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS",
+          "evidence": "0 recorded merge(s) well-formed",
+          "metrics": {
+            "merges": 0
+          }
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS",
+          "evidence": "official exam_weight honest on 3 decks (verified 0, unknown 3); 3 authored emphasis value(s) labelled product policy, never promoted to official",
+          "metrics": {
+            "verified": 0,
+            "unknown": 3,
+            "emphasis_values": 3
+          }
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS",
+          "evidence": "39/39 cards tier == f(difficulty, high_yield); 28 high-yield cards tightened | learning_loop_ref null: tiers follow the adapter-bound product policy only",
+          "metrics": {
+            "mismatches": 0,
+            "high_yield_tightened": 28
+          }
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS",
+          "evidence": "81 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+          "metrics": {
+            "violating_fields": 0,
+            "fields_checked": 81
+          }
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS",
+          "evidence": "39 hooks within 1..6 words (max 5)",
+          "metrics": {
+            "over_limit": 0,
+            "max_words": 5
+          }
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS",
+          "evidence": "hook_origin consistent with Blueprint mnemonics on 39 cards",
+          "metrics": {
+            "sme-carried": 0,
+            "sme-adapted": 0,
+            "minted": 39
+          }
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS",
+          "evidence": "every card/recap hook carries >=1 unique fact id; all resolve in context.fact_registry",
+          "metrics": {
+            "defects": 0,
+            "unresolved_in_registry": 0
+          }
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL",
+          "evidence": "39/39 back(s) not equal to accepted fact wording: card-F01: back \"Flex lanes may reverse direction by time of day and you must\" != accepted wording of F01; card-F02: back \"Keep at least two seconds of following distance on the freew\" != accepted wording of F02; card-F03: back \"U-turns on the freeway are prohibited and driving or stoppin\" != accepted wording of F03; card-F04: back \"A left-lane driver approached from behind must move safely r\" != accepted wording of F04; card-F05: back \"Express lanes on Interstate fifteen are free for vehicles wi\" != accepted wording of F05; card-F06: back \"Crossing a double white line to enter or leave the express l\" != accepted wording of F06; card-F07: back \"Ramp meters show alternating red and green and generally rel\" != accepted wording of F07; card-F08: back \"Runaway-vehicle ramps are for emergency stops only and stopp\" != accepted wording of F08; …(+31 more)",
+          "metrics": {
+            "exact": 0,
+            "drift": 39
+          }
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS",
+          "evidence": "0 cluster(s) valid (one umbrella, atomics share node+source_ref, atomic backs verbatim)",
+          "metrics": {
+            "clusters": 0,
+            "defects": 0,
+            "unverified_atomics": 0
+          }
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS",
+          "evidence": "39 backs distinct after NFKC/lowercase/punctuation normalization",
+          "metrics": {
+            "duplicate_groups": 0,
+            "cards_in_duplicates": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS",
+          "evidence": "39/39 cards cite a pdf_page or printed_page",
+          "metrics": {
+            "cited": 39,
+            "open_debt": 0,
+            "uncited": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS",
+          "evidence": "39 cited page(s) resolve in context.page_map",
+          "metrics": {
+            "resolved": 39,
+            "unresolved": 0
+          }
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, flag-as, MOD- code, bare module id, Q:/A: label or doubled article in front/back/hook/recap fields",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS",
+          "evidence": "sentinel deferred:not_applicable_pilot bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (image_cards_enabled false, image-scout non-applicability listed); no deictic visual references",
+          "metrics": {
+            "deictic_cards": 0
+          }
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS",
+          "evidence": "3 decks, one recap each",
+          "metrics": {
+            "decks": 3,
+            "recaps": 3
+          }
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS",
+          "evidence": "3 decks mirror KG modules in order; 39 nodes carded or merged; dynamic flags match KG",
+          "metrics": {
+            "kg_nodes": 39,
+            "dropped": 0
+          }
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS",
+          "evidence": "120 learner fields; longest contiguous source overlap 7 words (<= 12) at card-F09.back",
+          "metrics": {
+            "longest_overlap_words": 7,
+            "longest_at": "card-F09.back",
+            "source_tokens": 42548
+          }
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 6e78b07e49dce58ae8fd2a2386b56cb5439919a8a1f8325475360ec933dfffc6",
+          "metrics": null
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS",
+          "evidence": "no open verification debt",
+          "metrics": {
+            "open_debt": 0
+          }
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_4285008e3b99e6a42a660228b2de57780f992075f73c2a378ef8e6d550e75a6c",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_4474ddab7215b8d77ef03b0d78b8885acb9ae2a77eb6b0db7cd1641829f46b59/attempt_14b7a2169d8a27253cba62ab8ffdad4e554246ab5f5d00349c603a7ef2aacd63/artifact.json",
+          "sha256": "29e9ccf7f9739c9b7891b0e343cc2dca6aecbf35edfc6430695dafcd52428eb8",
+          "bytes": 44097
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_8abc8997f54ba6719c840bbef1710318a5d62923c9dd8b5506e3e38630f5471d",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_4474ddab7215b8d77ef03b0d78b8885acb9ae2a77eb6b0db7cd1641829f46b59/attempt_14b7a2169d8a27253cba62ab8ffdad4e554246ab5f5d00349c603a7ef2aacd63/raw-response.json",
+          "sha256": "1399304fdaec7ff76e1f216528210268f958acaa9b52aed292bcaacb3acd9672",
+          "bytes": 35317
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_4474ddab7215b8d77ef03b0d78b8885acb9ae2a77eb6b0db7cd1641829f46b59\\attempt_14b7a2169d8a27253cba62ab8ffdad4e554246ab5f5d00349c603a7ef2aacd63\\request-envelope.json",
+        "sha256": "1e477659941baabd06ce60dcccbd2976f8227265ad8ad8299b454222566e7424",
+        "bytes": 13404,
+        "request_sha256": "da8ce1df2dd9be708b25ab32fe86377aacef4059f6e7e5123336694b52b5e698"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
+    },
+    {
+      "attempt_id": "attempt_beb0e16dde9b85d5541c18adce0babb58495dbbbdf20c5ab85b790e546d4e659",
+      "attempt_no": 1,
+      "task_id": "task_e2710363c2aec19e6bda22ee3bb076157ff97b2e86521f235acde5882d7b6355",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:25",
+      "attempt_status": "blocked",
+      "task_status": "blocked",
+      "executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
+      "generation": 158,
+      "created_at": "2026-10-27T18:04:43.512Z",
+      "updated_at": "2026-10-27T18:05:25.395Z",
+      "model_requested": "muse-spark-1.3",
+      "model_returned": "muse-spark-1.3",
+      "prompt_tokens": 75866,
+      "completion_tokens": 10858,
+      "reasoning_tokens": 1268,
+      "cached_tokens": 0,
+      "estimated_usd": 0.140979,
+      "estimated_usd_microusd": 140979,
+      "reserved_microusd": 1000000,
+      "actual_microusd": 140979,
+      "reservation_state": "reported",
+      "elapsed_ms": 41393,
+      "finish_reason": "stop",
+      "http_status": 200,
+      "model_call_status": "completed",
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS",
+          "evidence": "validates against schemas-strict/04-carddeck.schema.json",
+          "metrics": null
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS",
+          "evidence": "probe slug, hashes, non-empty strings, intro_order>=0, exam_weight>=0, recap_hooks>=1 hold over 39 cards / 3 recaps",
+          "metrics": {
+            "violations": 0
+          }
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS",
+          "evidence": "39 unique card_ids; intro_order unique within each of 3 decks",
+          "metrics": {
+            "duplicate_card_ids": 0,
+            "duplicate_intro_orders": 0
+          }
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS",
+          "evidence": "0 recorded merge(s) well-formed",
+          "metrics": {
+            "merges": 0
+          }
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS",
+          "evidence": "official exam_weight honest on 3 decks (verified 0, unknown 3); 3 authored emphasis value(s) labelled product policy, never promoted to official",
+          "metrics": {
+            "verified": 0,
+            "unknown": 3,
+            "emphasis_values": 3
+          }
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS",
+          "evidence": "39/39 cards tier == f(difficulty, high_yield); 28 high-yield cards tightened | learning_loop_ref null: tiers follow the adapter-bound product policy only",
+          "metrics": {
+            "mismatches": 0,
+            "high_yield_tightened": 28
+          }
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS",
+          "evidence": "81 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+          "metrics": {
+            "violating_fields": 0,
+            "fields_checked": 81
+          }
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS",
+          "evidence": "39 hooks within 1..6 words (max 5)",
+          "metrics": {
+            "over_limit": 0,
+            "max_words": 5
+          }
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS",
+          "evidence": "hook_origin consistent with Blueprint mnemonics on 39 cards",
+          "metrics": {
+            "sme-carried": 0,
+            "sme-adapted": 0,
+            "minted": 39
+          }
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS",
+          "evidence": "every card/recap hook carries >=1 unique fact id; all resolve in context.fact_registry",
+          "metrics": {
+            "defects": 0,
+            "unresolved_in_registry": 0
+          }
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL",
+          "evidence": "39/39 back(s) not equal to accepted fact wording: card-F01: back \"Flex lanes may reverse direction by time of day and check th\" != accepted wording of F01; card-F02: back \"Keep at least two seconds of following distance on the freew\" != accepted wording of F02; card-F03: back \"U-turns on the freeway are prohibited as is driving or stopp\" != accepted wording of F03; card-F04: back \"A left-lane driver approached from behind must move safely r\" != accepted wording of F04; card-F05: back \"Express lanes on I fifteen are free for vehicles with two or\" != accepted wording of F05; card-F06: back \"Crossing a double white line to enter or leave the express l\" != accepted wording of F06; card-F07: back \"Ramp meters show alternating red and green and generally rel\" != accepted wording of F07; card-F08: back \"Runaway-vehicle ramps are for emergency stops only and stopp\" != accepted wording of F08; …(+31 more)",
+          "metrics": {
+            "exact": 0,
+            "drift": 39
+          }
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS",
+          "evidence": "0 cluster(s) valid (one umbrella, atomics share node+source_ref, atomic backs verbatim)",
+          "metrics": {
+            "clusters": 0,
+            "defects": 0,
+            "unverified_atomics": 0
+          }
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS",
+          "evidence": "39 backs distinct after NFKC/lowercase/punctuation normalization",
+          "metrics": {
+            "duplicate_groups": 0,
+            "cards_in_duplicates": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS",
+          "evidence": "39/39 cards cite a pdf_page or printed_page",
+          "metrics": {
+            "cited": 39,
+            "open_debt": 0,
+            "uncited": 0
+          }
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS",
+          "evidence": "39 cited page(s) resolve in context.page_map",
+          "metrics": {
+            "resolved": 39,
+            "unresolved": 0
+          }
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS",
+          "evidence": "no \"(verify\", needs_review, flag-as, MOD- code, bare module id, Q:/A: label or doubled article in front/back/hook/recap fields",
+          "metrics": {
+            "hits": 0
+          }
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS",
+          "evidence": "sentinel deferred:not_applicable_pilot bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (image_cards_enabled false, image-scout non-applicability listed); no deictic visual references",
+          "metrics": {
+            "deictic_cards": 0
+          }
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS",
+          "evidence": "3 decks, one recap each",
+          "metrics": {
+            "decks": 3,
+            "recaps": 3
+          }
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS",
+          "evidence": "3 decks mirror KG modules in order; 39 nodes carded or merged; dynamic flags match KG",
+          "metrics": {
+            "kg_nodes": 39,
+            "dropped": 0
+          }
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS",
+          "evidence": "120 learner fields; longest contiguous source overlap 7 words (<= 12) at card-F09.back",
+          "metrics": {
+            "longest_overlap_words": 7,
+            "longest_at": "card-F09.back",
+            "source_tokens": 42548
+          }
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS",
+          "evidence": "input_manifest_sha256 equals scoped manifest 35f14b5d81a732216fc6914b544ae1cf2ca9506d85211290e65a3ab169ed4f9a",
+          "metrics": null
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS",
+          "evidence": "no open verification debt",
+          "metrics": {
+            "open_debt": 0
+          }
+        }
+      ],
+      "validation_overall": "HOLD",
+      "stage_outputs": [
+        {
+          "artifact_id": "artifact_9b5c107a16c8752b0333f50fa2fe68b8107bcad61d93d0beb31c5e4569feba82",
+          "kind": "stage_output",
+          "status": "blocked",
+          "path": "artifacts/task_e2710363c2aec19e6bda22ee3bb076157ff97b2e86521f235acde5882d7b6355/attempt_beb0e16dde9b85d5541c18adce0babb58495dbbbdf20c5ab85b790e546d4e659/artifact.json",
+          "sha256": "49f61bb6551a320967c39e6c9ab70eb564a8dbe227a5b6bc4438e88d710aae9c",
+          "bytes": 43989
+        }
+      ],
+      "raw_responses": [
+        {
+          "artifact_id": "artifact_ec1ff0a2e0ac2a7230d026b425d414be5a6e2efdb7d21524066eea52d645a651",
+          "kind": "raw_provider_response",
+          "status": "output_saved",
+          "path": "artifacts/task_e2710363c2aec19e6bda22ee3bb076157ff97b2e86521f235acde5882d7b6355/attempt_beb0e16dde9b85d5541c18adce0babb58495dbbbdf20c5ab85b790e546d4e659/raw-response.json",
+          "sha256": "abcf69c0d79a0ce42b2285476125cc7e5c77a161c995da007033d93ee86b6b47",
+          "bytes": 35118
+        }
+      ],
+      "other_artifacts": [],
+      "request_envelope_ref": {
+        "path": "artifacts\\task_e2710363c2aec19e6bda22ee3bb076157ff97b2e86521f235acde5882d7b6355\\attempt_beb0e16dde9b85d5541c18adce0babb58495dbbbdf20c5ab85b790e546d4e659\\request-envelope.json",
+        "sha256": "3deb66566fa6bfb5c7fdc1a1d7bc54a30365a4ddf296bce9684bad0fb15423e6",
+        "bytes": 13404,
+        "request_sha256": "d48140235835d59bf39b2198d9869a7cd6b675f06c845492fdfecf9aca075f2e"
+      },
+      "acceptance": null,
+      "error_ref": null,
+      "unknown_reasons": [
+        {
+          "field": "acceptance",
+          "reason": "no acceptance file present for this attempt"
+        }
+      ]
     }
   ],
   "tasks_without_attempts": [
@@ -10822,6 +12392,27 @@
       "stage_id": "03.combined_kg",
       "role_id": "03",
       "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:22",
+      "status": "queued"
+    },
+    {
+      "task_id": "task_624b5583014d9943d332b40185826f01bbe655172081db43bba31439967ad29c",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:23",
+      "status": "queued"
+    },
+    {
+      "task_id": "task_37f8a7df2f8171e6c54bfeadb39b7219a1043cf0a3e60591500e61db7da6f3ae",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:24",
+      "status": "queued"
+    },
+    {
+      "task_id": "task_1c9c100ea46aff153b51a1c798d3e8d6eaca4e56cfe8db5477e234d35fd169b0",
+      "stage_id": "04.cards",
+      "role_id": "04",
+      "lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:25",
       "status": "queued"
     }
   ],
@@ -11476,6 +13067,87 @@
         "usd_ceiling": 1
       },
       {
+        "file": "approvals/GO-04.cards-2026-10-27T18-01-04-829Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:01:04.830Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T18-01-46-584Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:01:46.584Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T18-02-30-678Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:02:30.679Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T18-02-30-781Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:02:30.782Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T18-03-17-610Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:03:17.611Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T18-04-00-655Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:04:00.655Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T18-04-00-778Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:04:00.778Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T18-04-43-413Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:04:43.413Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
+        "file": "approvals/GO-04.cards-2026-10-27T18-05-25-420Z.json",
+        "stage_id": "04.cards",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~12:45 MDT)",
+        "recorded_at": "2026-10-27T18:05:25.421Z",
+        "expires_at": "2026-11-05T02:00:00Z",
+        "usd_ceiling": 1
+      },
+      {
         "file": "approvals/GO-2-2026-10-27T17-38-34-321Z.json",
         "stage_id": "2",
         "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
@@ -11867,6 +13539,38 @@
           "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
         },
         "recorded_at": "2026-10-27T17:56:23.429Z"
+      },
+      {
+        "file": "receipts/lineage-reset-04cards-lineage24.json",
+        "schema_version": "nova-lineage-reset.v0.4.0",
+        "run_id": "2026-10-26-rdmv-ut-class-d",
+        "stage_id": "04.cards",
+        "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:23",
+        "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:24",
+        "authority": "standing authority (founder, $30 cap, no per-call ceremony)",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "cause": "attempt limit after HOLDs; last non-PASS: 04.BACK_FIDELITY=FAIL",
+        "recorded_by": {
+          "actor_id": "claude-code-runner",
+          "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+        },
+        "recorded_at": "2026-10-27T18:02:30.779Z"
+      },
+      {
+        "file": "receipts/lineage-reset-04cards-lineage25.json",
+        "schema_version": "nova-lineage-reset.v0.4.0",
+        "run_id": "2026-10-26-rdmv-ut-class-d",
+        "stage_id": "04.cards",
+        "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:24",
+        "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:25",
+        "authority": "standing authority (founder, $30 cap, no per-call ceremony)",
+        "founder_words": "no ceremony crap.. we are go on utah show me built app with muse .. i want to see the final product one full run on utah approved $30 cap on credit",
+        "cause": "attempt limit after HOLDs; last non-PASS: 04.BACK_FIDELITY=FAIL",
+        "recorded_by": {
+          "actor_id": "claude-code-runner",
+          "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+        },
+        "recorded_at": "2026-10-27T18:04:00.775Z"
       },
       {
         "file": "receipts/lineage-reset-02-lineage4.json",

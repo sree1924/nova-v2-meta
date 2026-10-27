@@ -131,3 +131,7 @@
 - 2026-10-27T18:04:00.776Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:25 for 04.cards (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 04.BACK_FIDELITY=FAIL
 
 - 2026-10-27T18:04:43.412Z retry nonce 04.cards: → 5 after HOLD (sec09-rules-of-the-road); non-PASS: 04.BACK_FIDELITY=FAIL
+
+- 2026-10-27T18:05:25.417Z retry nonce 04.cards: → 6 after HOLD (sec09-rules-of-the-road); non-PASS: 04.BACK_FIDELITY=FAIL
+
+- 2026-10-27T18:07:00Z 16 recompiled under 16/cb74264f/ (compiler fix: scaffold lines + " ." in 15 C2 statements; all 39 statements now spoken-form clean); supersedes the 17:44Z compile for downstream context; 04 failed 6x BACK_FIDELITY against the old wording ($0.85)
