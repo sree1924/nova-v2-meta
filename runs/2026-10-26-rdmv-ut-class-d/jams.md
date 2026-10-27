@@ -397,3 +397,11 @@
 - 2026-10-27T20:46:34.740Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:85 for 03.combined_kg (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
 
 - 2026-10-27T20:49:59.373Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:86 for 16.compile (sec04-license-types-id-documents) under standing authority; cause: compile attempt cap on shared lineage (sec04-license-types-id-documents)
+
+- 2026-10-27T21:06:22.542Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:87 for 16.compile (sec03-driver-education-permits) under standing authority; cause: compile attempt cap on shared lineage (sec03-driver-education-permits)
+
+- 2026-10-27T21:06:55.144Z retry nonce 03.combined_kg:@sec06-examinations → 7 after HOLD (sec06-examinations); non-PASS: 03.FACT_IDS_REGISTERED=FAIL
+
+- 2026-10-27T21:07:23.102Z retry nonce 03.combined_kg:@sec06-examinations → 8 after HOLD (sec06-examinations); non-PASS: 03.ONE_MODULE_PER_NODE=FAIL, 03.FACT_IDS_REGISTERED=FAIL, 03.CURRICULUM_HINTS=FAIL
+
+- 2026-10-27T21:07:23.322Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:88 for 03.combined_kg (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.ONE_MODULE_PER_NODE=FAIL,03.FACT_IDS_REGISTERED=FAIL,03.CURRICULUM_HINTS=FAIL
