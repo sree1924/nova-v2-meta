@@ -5,7 +5,13 @@ Standalone static web app. Plain HTML + inline ES modules + CSS. No bundler, no 
 ## How to open
 
 - Double-click `app-preview/index.html`, or
-- serve the folder with any static file server and open the printed URL, e.g. `node tools/preview/static-serve.mjs` or `python -m http.server --directory app-preview`.
+- serve the folder and open the printed URL. Spoken recall needs the dev
+  server: `node tools/preview/serve.mjs` (static app-preview/ on
+  127.0.0.1:4310 plus `POST /api/transcribe`, a dev proxy to Meta Voice
+  Transcribe; needs `MODEL_API_KEY` in the lane-root `.env`). Plain static
+  alternatives (`node tools/preview/static-serve.mjs`,
+  `python -m http.server --directory app-preview`) work for everything except
+  the "Say it" button, which reports the endpoint as unavailable.
 
 Both paths work: pages fetch `data/real/*.json` over HTTP when served, and fall back
 to the generated `data-real-embedded.js` copy (identical content) when opened via `file://`.
@@ -69,14 +75,40 @@ it is NOT in the learner top nav.
 `#/` home (whole-handbook counts + built chapters + trace link) · `#/chapters`
 all 16 chapters in handbook order · `#/chapter/:section` chapter hub ·
 `#/module/:module` module hub (Lesson → Flashcards → Quiz, with "not yet built"
-states where the belt has not accepted that artifact) · `#/lesson/:unit` lesson ·
-`#/cards/:unit` flashcards (3-second recall beat, text-first, no audio) ·
+states where the belt has not accepted that artifact) · `#/lesson/:unit` lesson (each "Teacher says" block has a device-voice Listen button) ·
+`#/cards/:unit` flashcards (3-second recall beat; "Say it" spoken recall via
+the dev server; device-voice Listen button on each teaching script) ·
 `#/quiz/:unit` module quiz · `#/practice` practice-form chooser (forms grouped by
 chapter) · `#/practice/:form` practice form · `#/results/:attempt` results
 (device-local) · `#/settings` settings/about · `#/synthetic-sample` fictional
 comparison sample.
 Free-only, no auth, no audio player. Scores describe observed practice only.
 Progress lives in `localStorage` under `nova-preview:v1:ut-handbook`.
+
+## Voice (dev server only, 2026-10-27)
+
+- **"Say it" spoken recall** (flashcards, recall beat): records up to 10 s in
+  the browser, re-encodes to 16 kHz mono WAV locally, and posts it to the dev
+  proxy `POST /api/transcribe` (raw `audio/wav` body, 2 MB cap). The proxy
+  forwards to Meta Voice Transcribe (`muse-voice-transcribe-1.0`,
+  `PUSH_TO_TALK`) and returns `{transcript, elapsed_ms, model}`. The
+  transcript is scored against the card back with a lenient normalized match
+  (lowercase, punctuation stripped, numbers as digits and words both accepted;
+  score = fraction of answer tokens heard, ≥ 0.6 = recalled), the card is
+  marked recalled/missed in device-local progress, the answer reveals, and the
+  transcript shows under it with the match score. The manual Recall button and
+  keyboard path are unchanged; if the mic or endpoint is unavailable the
+  button says why and never blocks the learner.
+- **"Listen (device voice)"** (every lesson "Teacher says" block, every
+  flashcard teaching script): reads that text with the browser's built-in
+  `speechSynthesis` (prefers en-US, rate 0.95, $0). Clicking again or
+  navigating cancels. Labeled in place "device voice — not minted narration";
+  hidden entirely when `speechSynthesis` is absent.
+- Honesty: the flashcard screen states "voice is transcribed by Meta Voice
+  Transcribe via a local dev proxy; nothing is stored beyond this browser and
+  the local log". Each proxy call appends one line (timestamp, bytes,
+  elapsed_ms, status — never audio, never the key) to
+  `data/voice-log.jsonl`. The server never serves `.env`.
 
 Reviewer routes (not in the top nav; linked from settings/about):
 `#/dossier` source-dossier view — accepted stage-02 artifacts only, FACT_ID
@@ -94,9 +126,9 @@ accepted stage-05 teaching units (all 16 sections) with provenance.
 
 | file | sha256 | bytes |
 |---|---|---|
-| index.html | 223be6071f74077a87eb99bb6e0a2c971fe4007c57b99cd1d9fb18e1fe505838 | 57974 |
+| index.html | 72f17309aaf938312f4aa954bed99eda7c0524bf049fe41ece02a0dfc9bc7cb0 | 67634 |
 | trace.html | 6d4501a1dfad55d54ed0f30d0eb77cf4ca0a5fe7a22c5e9eb04880098631e325 | 6662 |
-| styles.css | c864b32d7dd77369c0c5045be514b969ac4fc64235f3f78c0ab8279cfe1fceee | 4509 |
+| styles.css | dd30973edc111b5086240fe98e1c904307c41af25d0db4615b1d1bfa42cf47dc | 4780 |
 | data-embedded.js (generated) | c84fa9dbcf7eea8de9cc04509752ab2b33924a0df106507190e6e78ad75e6eaf | 15625 |
 | trace-embedded.js (generated) | fd17877b9c6abdd62dc248ec2c7aead9beee9d385ed191defbae61b697bc20c7 | 2705884 |
 | data-real-embedded.js (generated) | 727c2717a4f09710fe2e4dc77e6b80ee38090bddaed942842447fd8f9485172f | 3290153 |

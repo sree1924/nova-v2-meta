@@ -72,7 +72,8 @@ const html = fs.readFileSync(path.join(ROOT, 'app-preview', 'index.html'), 'utf8
 const m = html.match(/<script type="module">([\s\S]*)<\/script>/);
 if (!m) { console.error('NO-MODULE-SCRIPT'); process.exit(2); }
 const driver = m[1] + '\n;globalThis.__go = (hash) => { location.hash = hash; route(); return { html: view.innerHTML, bannerClass: document.getElementById("banner").className, bannerText: document.getElementById("banner").textContent }; };'
-  + '\nglobalThis.__save = saveResult; globalThis.__R = () => R; globalThis.__D = () => D;';
+  + '\nglobalThis.__save = saveResult; globalThis.__R = () => R; globalThis.__D = () => D;'
+  + '\nglobalThis.__voiceMatch = voiceMatch; globalThis.__listenAvailable = listenAvailable;';
 vm.runInContext(driver, sandbox);
 
 const tick = () => new Promise((r) => setImmediate(r));
@@ -315,6 +316,60 @@ function buildExpected() {
     r = go(rt);
     ok('reviewer ' + rt + ': REAL banner + content', r.bannerClass === 'real-banner' && r.html.length > 2000, 'len=' + r.html.length);
   }
+
+  // ---- spoken recall ("Say it") + device-voice "Listen" ----
+  // The endpoint is mocked out of existence here: harness fetch throws, so
+  // these checks cover rendering, the honesty strings, the match function
+  // with canned transcripts, and both speechSynthesis branches.
+  const vMod = X.sections[secIds[0]].modules[0];
+  const vDeck = X.findDeck(vMod.unit_id, vMod.module_id);
+  const vLesson = X.findUnit(vMod.unit_id);
+  const teachCount = (unitId) => vDeck.filter((c) => {
+    const s = X.scriptsByCard[c.card_id];
+    return s && s.segments && s.segments.teaching && s.segments.teaching.text;
+  }).length;
+  if (vDeck.length) {
+    r = go('#/cards/' + vMod.unit_id);
+    ok('voice: say-it button per card', (r.html.match(/<button data-sayit[ >]/g) || []).length === vDeck.length,
+      'found=' + ((r.html.match(/<button data-sayit[ >]/g) || []).length));
+    ok('voice: card back embedded for matching', vDeck.every((c) => r.html.includes('data-back="' + escS(c.back) + '"')));
+    ok('voice: voice-result slot per card', (r.html.match(/data-voice-result/g) || []).length === vDeck.length);
+    ok('voice: honesty note verbatim', r.html.includes('voice is transcribed by Meta Voice Transcribe via a local dev proxy; nothing is stored beyond this browser and the local log'));
+    ok('voice: posts to dev proxy', html.includes('fetch("/api/transcribe"'));
+    ok('voice: manual recall path kept', (r.html.match(/data-recall/g) || []).length === vDeck.length);
+    ok('voice: listen button per teaching script', (r.html.match(/data-listen/g) || []).length === teachCount(vMod.unit_id),
+      'found=' + ((r.html.match(/data-listen/g) || []).length) + ' want=' + teachCount(vMod.unit_id));
+    ok('voice: device-voice label on cards', /device voice — not minted narration/.test(r.html));
+  } else {
+    ok('voice: cards route has deck to test', false, vMod.unit_id);
+  }
+  if (vLesson) {
+    r = go('#/lesson/' + vMod.unit_id);
+    ok('voice: listen button per teacher-says slide', (r.html.match(/data-listen/g) || []).length === vLesson.slides.length,
+      'found=' + ((r.html.match(/data-listen/g) || []).length) + ' want=' + vLesson.slides.length);
+    ok('voice: device-voice label on lesson', /device voice — not minted narration/.test(r.html));
+    ok('voice: teacher-says count unchanged', (r.html.match(/Teacher says/g) || []).length === vLesson.slides.length);
+  } else {
+    ok('voice: lesson route has unit to test', false, vMod.unit_id);
+  }
+  const vm = sandbox.__voiceMatch;
+  let m = vm('stop completely at the limit line', 'Stop completely at the limit line.');
+  ok('voice-match: exact+case+punct', m.score === 1 && m.recalled === true, JSON.stringify(m));
+  m = vm('twenty five miles per hour', 'Speed limit 25 miles per hour');
+  ok('voice-match: number words vs digits recalled', m.recalled === true && m.score >= 0.6, JSON.stringify(m));
+  m = vm('25 miles per hour', 'Speed limit twenty-five miles per hour');
+  ok('voice-match: digits vs number words recalled', m.recalled === true, JSON.stringify(m));
+  m = vm('something entirely different here', 'Stop completely at the limit line');
+  ok('voice-match: unrelated missed', m.recalled === false, JSON.stringify(m));
+  m = vm('', 'Stop completely at the limit line');
+  ok('voice-match: empty transcript missed', m.score === 0 && m.recalled === false, JSON.stringify(m));
+  ok('voice: speechSynthesis undefined in harness', !('speechSynthesis' in sandbox.window));
+  ok('voice: listen unavailable without speechSynthesis', sandbox.__listenAvailable() === false);
+  r = go('#/lesson/' + vMod.unit_id);
+  ok('voice: lesson renders with speechSynthesis undefined', r.html.length > 2000 && (r.html.match(/data-listen/g) || []).length === (vLesson ? vLesson.slides.length : 0));
+  sandbox.window.speechSynthesis = {};
+  ok('voice: listen available with speechSynthesis', sandbox.__listenAvailable() === true);
+  delete sandbox.window.speechSynthesis;
 
   // ---- global Nowhere sweep on learner routes ----
   // Case-sensitive, like every per-route check above: the synthetic marker
