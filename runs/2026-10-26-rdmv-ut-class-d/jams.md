@@ -137,3 +137,11 @@
 - 2026-10-27T18:07:00Z 16 recompiled under 16/cb74264f/ (compiler fix: scaffold lines + " ." in 15 C2 statements; all 39 statements now spoken-form clean); supersedes the 17:44Z compile for downstream context; 04 failed 6x BACK_FIDELITY against the old wording ($0.85)
 
 - 2026-10-27T18:07:55.906Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:26 for 04.cards (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T18:14:34.188Z retry nonce 06.exam_bank: → 1 after HOLD (sec09-rules-of-the-road); non-PASS: 06.ANSWER_RATIONALE_AGREEMENT=FAIL, 06.OFFICIAL_MIRROR=FAIL
+
+- 2026-10-27T18:15:44.540Z retry nonce 06.exam_bank: → 2 after HOLD (sec09-rules-of-the-road); non-PASS: 06.OPTIONS_SHAPE=FAIL, 06.ANSWER_RATIONALE_AGREEMENT=FAIL, 06.OFFICIAL_MIRROR=FAIL
+
+- 2026-10-27T18:15:44.648Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:27 for 06.exam_bank (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 06.OPTIONS_SHAPE=FAIL,06.ANSWER_RATIONALE_AGREEMENT=FAIL,06.OFFICIAL_MIRROR=FAIL
+
+- 2026-10-27T18:16:56.363Z retry nonce 06.exam_bank: → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 06.ANSWER_RATIONALE_AGREEMENT=FAIL, 06.OFFICIAL_MIRROR=FAIL

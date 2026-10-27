@@ -280,7 +280,11 @@ export function run(a, context = {}) {
         if (r.status === 'unknown' && r.value != null) bad.push(`${f.form_id}.${k}: status unknown but value ${r.value} emitted (numeric hint is not a fact)`);
         if (r.status === 'verified') {
           needsView = true;
-          const ref = view?.by_form?.[f.form_id]?.[k] ?? view?.[k];
+          // exam_facts_view (safe run-config view) keys its facts n_questions / passing_standard / time_limit; the mirror uses
+          // n_questions / passing / time. Resolve both spellings (2026-10-27: form-a.passing verified 80 was "absent" by name only).
+          const viewKeys = { n_questions: ['n_questions', 'question_count'], passing: ['passing', 'passing_standard', 'passing_percent'], time: ['time', 'time_limit'] }[k] ?? [k];
+          const pick = (o) => { for (const vk of viewKeys) if (o && o[vk] !== undefined) return o[vk]; return undefined; };
+          const ref = pick(view?.by_form?.[f.form_id]) ?? pick(view);
           if (view && (!ref || ref.status !== 'verified' || ref.value !== r.value)) bad.push(`${f.form_id}.${k}: verified ${r.value} not confirmed by exam_facts_view (${ref ? `${ref.status}/${ref.value}` : 'absent'})`);
         }
       }
