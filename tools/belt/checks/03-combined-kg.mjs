@@ -198,8 +198,8 @@ export function run(artifact, context = {}) {
   {
     const srcRaw = context.accepted_inputs?.high_yield_ids;
     // High-yield ids that are not facts in the registry (C2 KG-hint ids) cannot be nodes and are not expected (2026-10-27, sec01).
-    const regFacts = context.fact_registry?.facts && typeof context.fact_registry.facts === 'object' ? context.fact_registry.facts : null;
-    const src = Array.isArray(srcRaw) ? srcRaw.filter(id => !regFacts || id in regFacts) : srcRaw;
+    const hintIds = context.fact_registry?.kg_hints && typeof context.fact_registry.kg_hints === 'object' ? new Set(Object.keys(context.fact_registry.kg_hints)) : new Set();
+    const src = Array.isArray(srcRaw) ? srcRaw.filter(id => !hintIds.has(id)) : srcRaw;
     const mine = nodes.filter(n => n.high_yield).map(n => n.id);
     if (!Array.isArray(src)) out.push(chk('HIGH_YIELD_SET', H, `context.accepted_inputs.high_yield_ids absent; artifact flags ${mine.length} high-yield node(s)`, { high_yield_nodes: mine.length }));
     else {

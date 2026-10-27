@@ -74,11 +74,11 @@
       "mapping_sha256": "8d98f32f699e5bf1d9db86156ac2570ac7fd5822e8c7363ac5dade82a8127e6f",
       "adapter_kind": "pilot_adapter",
       "validation": {
-        "status": "FAIL",
+        "status": "PASS",
         "executed": true,
         "evidence_ref": {
           "path": "verification/adapter-evidence/03.combined_kg.json",
-          "sha256": "0619d9ea15e3c2080c2df0c051c209ce39e836ebf6ae802c906892fc732a3eaf"
+          "sha256": "4f864ab7347844a3d29fd035c3d29c6c9dc14f503cbb381aac95fd8d94643433"
         }
       }
     },
@@ -236,7 +236,7 @@
         "stage_id": "03.combined_kg",
         "exported_function": "validateArtifact",
         "checks_module": "tools/belt/checks/03-combined-kg.mjs",
-        "checks_module_sha256": "6511ad6720e804da799e9130c7308e8e42ab061c5bdc051c7329f11bff4bab6c"
+        "checks_module_sha256": "045c59ae5c0eccd8d61158c58566e9300e9b287ec6d93450a03f68aeb832fcfb"
       },
       {
         "prompt_path": "prompts/04.md",
@@ -310,7 +310,7 @@
   },
   "fixture_runs": {
     "path": "verification/BELT-FIXTURE-RUNS-v0.4.0.json",
-    "sha256": "5728d99c0df7a07238388adfc309c585d748345e3d091f75aed66011b2e69b7d",
+    "sha256": "60220288c058267fd0b9fc8bac7d440980db023fa25b6e277cac4a442b93fd99",
     "summary": {
       "stages_run": [
         "02.dossier_sections",
@@ -325,11 +325,11 @@
         "19A.units"
       ],
       "fixtures": 81,
-      "matched": 80,
-      "mismatched": 1,
+      "matched": 81,
+      "mismatched": 0,
       "observed": {
-        "PASS": 12,
-        "FAIL": 60,
+        "PASS": 13,
+        "FAIL": 59,
         "HOLD": 9,
         "ERROR": 0
       },
@@ -501,8 +501,8 @@
       },
       {
         "path": "tools/belt/checks/03-combined-kg.mjs",
-        "sha256": "6511ad6720e804da799e9130c7308e8e42ab061c5bdc051c7329f11bff4bab6c",
-        "bytes": 27495
+        "sha256": "045c59ae5c0eccd8d61158c58566e9300e9b287ec6d93450a03f68aeb832fcfb",
+        "bytes": 27519
       },
       {
         "path": "tools/belt/checks/04-cards.mjs",
@@ -584,17 +584,7 @@
     "inspector": "tools/inspect-implementation-closure.mjs",
     "inspector_sha256": "a2156fdc51e221278504e0557d7b08172484ef98a3469f9b4fa47c510d6c4ee2"
   },
-  "remaining_gaps": [
-    {
-      "stage_id": "03.combined_kg",
-      "reason": {
-        "lint_ok": true,
-        "fixtures_ok": false,
-        "parent_pin_ok": true,
-        "tests_ok": true
-      }
-    }
-  ],
+  "remaining_gaps": [],
   "unexecuted": [
     "Provider strict-mode acceptance of each adapter (api.meta.ai) — requires the first authorized qualification call; local ajv validity is not provider acceptance.",
     "Checks that return HOLD without context (fact registry, candidate manifest, learning loop, intervention lineage, now_utc) have been exercised only with synthetic context fixtures.",

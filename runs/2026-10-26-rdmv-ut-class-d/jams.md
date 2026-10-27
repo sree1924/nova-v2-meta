@@ -337,3 +337,5 @@
 - 2026-10-27T20:17:50.133Z retry nonce 03.combined_kg:@sec01-definitions → 2 after HOLD (sec01-definitions); non-PASS: 03.HIGH_YIELD_SET=FAIL
 
 - 2026-10-27T20:17:50.251Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:74 for 03.combined_kg (sec01-definitions) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:18:25.279Z retry nonce 03.combined_kg:@sec01-definitions → 3 after HOLD (sec01-definitions); non-PASS: 03.FACT_IDS_REGISTERED=FAIL

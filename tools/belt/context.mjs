@@ -182,8 +182,8 @@ export function assembleContext({projectRoot, runRoot, stageId, acceptedArtifact
     context.accepted_inputs.blueprint = compiled;
     context.loaded_refs['accepted_inputs.blueprint'] = runtime.get('compiled_dossier').pin;
     // Only ids that are real facts in the registry count as high-yield nodes; C2 KG-hint ids (fact_registry.kg_hints) are not nodes.
-    const registryFacts = context.fact_registry?.facts && typeof context.fact_registry.facts === 'object' ? context.fact_registry.facts : null;
-    context.accepted_inputs.high_yield_fact_ids = [...new Set(arr(compiled.high_yield_ranked).flatMap(d => arr(d.ranked).flatMap(r => arr(r.item_refs))))].filter(id => !registryFacts || id in registryFacts);
+    const hintIds = new Set(Object.keys(context.fact_registry?.kg_hints ?? {}));
+    context.accepted_inputs.high_yield_fact_ids = [...new Set(arr(compiled.high_yield_ranked).flatMap(d => arr(d.ranked).flatMap(r => arr(r.item_refs))))].filter(id => !hintIds.has(id));
     if (Array.isArray(compiled.high_yield_node_ids)) context.accepted_inputs.high_yield_ids = copy(compiled.high_yield_node_ids);
     else if (context.overlay?.role_overrides?.['03']?.high_yield_node_id_source === 'accepted_fact_ids') {
       context.accepted_inputs.high_yield_ids = copy(context.accepted_inputs.high_yield_fact_ids);
