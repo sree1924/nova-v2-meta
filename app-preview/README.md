@@ -49,7 +49,7 @@ it is NOT in the learner top nav.
   every unknown is null with a reason. Exported 2026-10-27 by
   `node tools/preview/export-trace.mjs` (177 attempts,
   11,089,593 prompt tokens, 1,267,540 completion tokens, estimated $19.249055,
-  ledger actual 20,249,055 micro-USD; exported 2026-10-27T19:51:29.378Z).
+  ledger actual 20,249,055 micro-USD; exported 2026-10-27T20:11:10.237Z).
 
 ## Learner routes (hash-based, in index.html)
 
@@ -85,14 +85,14 @@ accepted stage-05 teaching units (sec05, sec09) with provenance.
 | trace.html | 6d4501a1dfad55d54ed0f30d0eb77cf4ca0a5fe7a22c5e9eb04880098631e325 | 6662 |
 | styles.css | c864b32d7dd77369c0c5045be514b969ac4fc64235f3f78c0ab8279cfe1fceee | 4509 |
 | data-embedded.js (generated) | c84fa9dbcf7eea8de9cc04509752ab2b33924a0df106507190e6e78ad75e6eaf | 15625 |
-| trace-embedded.js (generated) | 31259d5f6aebd883f3e62c2f582e329ec90e758fc9bf5b9637e0d839653b7445 | 1225786 |
-| data-real-embedded.js (generated) | a02f05ef9c662d71253f93d8bb0add54d36edd0c624d39d7aa6f6f85cef0c673 | 743231 |
+| trace-embedded.js (generated) | c4016688272ab3502875232a224ff87b8f5a5db4b2894b047ed50966ba0a5649 | 1225947 |
+| data-real-embedded.js (generated) | 25fe712cfbbf982e6f89ee461c31dc73f1b1eb3668447d906b6d88e2c5c65c53 | 743231 |
 | data/manifest.json | c0b86c105fbf9b71514d41bf2aa3a3881e863c32bfb2f8cf94747aef470afd21 | 578 |
-| data/trace.json (generated) | 65d6659373ccfb189d3100dd9133946f79d4b448e431b13575332ebbe4d24fc3 | 1677751 |
-| data/real/manifest.json (generated) | c92c60161ee93d015b55f4765739c8d8185bd5b857a7797b2a3d6bb8a3663fc4 | 59655 |
+| data/trace.json (generated) | b392268d9ded5dc84684472b63188733fb96b3e0889a56029741051897610b7e | 1677959 |
+| data/real/manifest.json (generated) | 1ea1b674fa4c28ebadd5f8b5a6e844b1cd7c4d58d79f2f1aec66ce76b4d1b477 | 59655 |
 | data/synthetic/04-carddeck.synthetic.json | 0b180dcf649357a0af65ad81d0fa9e0e0cc8950366c35213a765efd127adc08b | 4718 |
 | data/synthetic/05b-session-scripts.synthetic.json | faa656715d57040de79dc457be06922224eb43ab8317319eabdf2041d4d73d35 | 3676 |
-| data/synthetic/06-exambank.synthetic.json | b6ae8486eb7ecca2265f27b30d514210cd71653e2fbd405605606e75c93f57ce686 | 6382 |
+| data/synthetic/06-exambank.synthetic.json | b6ae8486eb7ecca2265f27b30d514210cd71653e2fbd405606e75c93f57ce686 | 6382 |
 
 Regenerate after data changes: `node tools/preview/export-trace.mjs`, then
 `node tools/preview/embed-trace.mjs`, and `node tools/preview/export-content.mjs`

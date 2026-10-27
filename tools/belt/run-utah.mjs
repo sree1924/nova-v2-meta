@@ -159,7 +159,9 @@ sectionLoop: for (section of sections) {
   for (const st of stages) {
     if (st === '16') {
       let c;
-      try { c = await compileAcceptedDossier({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, sectionIds: [section] }); }
+      // The compile may need to re-bind the ledger to a changed run-config (cap amendments); it does so under a GO minted from
+      // the standing authority, exactly like a dispatch.
+      try { c = await compileAcceptedDossier({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, sectionIds: [section], approvalRef: dry ? null : mintApproval('16.compile', Math.min(1, standing.usd_cap_total - spentUsd())) }); }
       catch (e) { console.log(`  16.compile: ERROR — ${e.message.slice(0, 300)}`); console.log(`STOP ${section}: compile threw (an attempt may be left running — reconcile it)`); outcomes[section] = 'ERROR 16.compile'; break sectionLoop; }
       console.log(`  16.compile: ${c.status}${c.reused ? ' (reused ' + (c.reused_from ?? 'accepted compile') + ')' : ''}${c.reason ? ' — ' + c.reason : ''}${c.errors ? ' — ' + JSON.stringify(c.errors).slice(0, 300) : ''}`);
       if (c.status !== 'PASS') { console.log(`STOP ${section}: compile not PASS`); outcomes[section] = 'HOLD 16.compile'; continue sectionLoop; }

@@ -8,7 +8,7 @@ import {acquireExecutorLock} from './executor-lock.mjs';
 import {renderRequest} from '../render-request.mjs';
 import {sanitizeModelInput} from '../sanitize-model-input.mjs';
 import {renderTrace} from './trace.mjs';
-import {dispatchStage,acceptedRuntimeRefs,readNativeSnapshot} from './dispatch.mjs';
+import {dispatchStage,acceptedRuntimeRefs,readNativeSnapshot,budgetFromConfig} from './dispatch.mjs';
 import {compileDossier} from './compile.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -156,7 +156,7 @@ async function registerSource({projectRoot,loaded,ledger,fence,lockHandle}) {
   return {...receipt,receipt_ref:receiptRef,reused:false};
 }
 
-export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfigPath,executorId,sectionIds=[]}={}){
+export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfigPath,executorId,sectionIds=[],approvalRef=null}={}){
   const loaded=loadRun({projectRoot,runConfigPath});
   // Per-section compile (2026-10-27): only this section's accepted 02 parts; outputs under 16/<section>/ (Section 9's history
   // stays at the root / 16/<sha8>/ — those legacy compiles are mapped to sec09 by acceptedRuntimeRefs).
@@ -183,8 +183,15 @@ export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfig
   try{
     ledger=openLedger({dbPath:inside(loaded.runDir,loaded.config.execution.ledger.path),lockHandle});
     const previous=ledger.getRun(loaded.config.run_id);
-    if(previous?.binding_sha256!==loaded.configRef.sha256)throw new Error('Explicit configuration reconciliation is required before compile.');
-    fence=ledger.claimRun({runId:loaded.config.run_id,bindingSha256:previous.binding_sha256,mode:previous.mode,budget:previous.budget_json});
+    fence=ledger.claimRun({runId:loaded.config.run_id,bindingSha256:previous?.binding_sha256??loaded.configRef.sha256,mode:previous?.mode??'execute',budget:previous?.budget_json??budgetFromConfig(loaded.config)});
+    if(previous&&previous.binding_sha256!==loaded.configRef.sha256){
+      // Same re-bind rule as a dispatch (a changed run-config, e.g. a cap amendment, needs a hash-bound authorization derived
+      // from a stage approval). Without an approval the compile refuses, as before (2026-10-27: launch 22 died here).
+      if(!approvalRef)throw new Error('Explicit configuration reconciliation is required before compile (pass approvalRef to re-bind).');
+      const authorization={status:'PASS',action:'rebind_run',source:'founder',run_id:loaded.config.run_id,previous_binding_sha256:previous.binding_sha256,binding_sha256:loaded.configRef.sha256,mode:'execute',budget_sha256:sha256(canonicalJson(budgetFromConfig(loaded.config))),execution_authorized:true,content_calls_authorized:true,derived_from_stage_approval:approvalRef};
+      const authRef=writeImmutable(loaded.runDir,'receipts/binding-'+sha256(canonicalJson(authorization))+'.json',authorization,{lockHandle});
+      fence=ledger.rebindRun(fence,{bindingSha256:loaded.configRef.sha256,mode:'execute',budget:budgetFromConfig(loaded.config),authorizationReceipt:authRef});
+    }
     const task=ledger.ensureTask(fence,{lineageId:loaded.config.candidate_lineage_id,stageId:'16.compile',roleId:'16',inputs:result.inputRefs,versions:{script:pin(path.join(projectRoot,'tools/belt/compile.mjs')).sha256,overlay:overlay.sha256},model:null,config:{stage17:'n/a_pilot',...(sectionIds.length?{section_ids:[...sectionIds].sort()}:{})},maxAttempts:2});
     if(task.status==='accepted')return{status:'PASS',reused:true,model_calls:0};
     const attempt=ledger.startAttempt(fence,{taskId:task.taskId,commandId:'compile:'+task.taskId});
