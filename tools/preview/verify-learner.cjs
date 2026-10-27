@@ -5,7 +5,9 @@
 // asserts: chapter count = sections with an accepted KG; per chapter the
 // lesson/cards/quiz counts equal the exports; home aggregate counts equal
 // the exports; the fictional sample string appears ONLY on
-// #/synthetic-sample.
+// #/synthetic-sample; and the minted-audio coverage gate (cards_missing_voice
+// and sessions_missing_audio are 0, every rendered card/slide references its
+// manifest file_ref, no speechSynthesis string remains in app-preview/).
 //
 // Usage: node tools/preview/verify-learner.cjs
 // Exit 0 = all checks pass. No network, no model calls, read-only.
@@ -29,6 +31,22 @@ const REAL = win.__REAL_EMBEDDED;
 const SYN = win.__PREVIEW_EMBEDDED;
 ok('embedded real manifest present', !!(REAL && REAL.manifest && REAL.manifest.files));
 ok('embedded synthetic present', !!(SYN && SYN.manifest));
+vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'app-preview', 'audio-manifest-embedded.js'), 'utf8'), { window: win });
+const AUD = win.__AUDIO_MANIFEST_EMBEDDED;
+ok('embedded audio manifest present', !!(AUD && Array.isArray(AUD.entries)));
+
+// ---- minted-audio coverage gate: manifest totals ----
+const AM = JSON.parse(fs.readFileSync(path.join(ROOT, 'app-preview', 'audio', 'audio-manifest.json'), 'utf8'));
+ok('audio manifest loads', !!(AM && Array.isArray(AM.entries) && AM.totals));
+ok('audio: cards_missing_voice === 0', AM.totals && AM.totals.cards_missing_voice === 0, JSON.stringify(AM.totals));
+ok('audio: sessions_missing_audio === 0', AM.totals && AM.totals.sessions_missing_audio === 0, JSON.stringify(AM.totals));
+ok('audio: runtime policy is files-only', AM.runtime_policy === 'play_pre_generated_files_only', String(AM.runtime_policy));
+ok('audio: minted voice is honestly not Meta', !!(AM.minted_by && AM.minted_by.not_a_meta_model === true), JSON.stringify(AM.minted_by));
+const AM_BY_KEY = new Map(AM.entries.map((e) => [`${e.kind}|${e.id}`, e]));
+const AM_SLIDE = new Map(AM.entries.filter((e) => e.kind === 'slide').map((e) => [`${e.unit_id}|${e.slide_id}`, e]));
+const AM_FILES = new Set(AM.entries.map((e) => e.file_ref));
+const AUDIO_TAG = 'pre-generated (OpenAI TTS, not a Meta model)';
+const countTag = (h) => h.split(AUDIO_TAG).length - 1;
 
 // ---- sandbox ----
 let lastHtml = '';
@@ -46,7 +64,7 @@ const viewEl = {
 const memStore = {};
 const sandbox = {
   window: {
-    __REAL_EMBEDDED: REAL, __PREVIEW_EMBEDDED: SYN,
+    __REAL_EMBEDDED: REAL, __PREVIEW_EMBEDDED: SYN, __AUDIO_MANIFEST_EMBEDDED: AUD,
     matchMedia: () => ({ matches: false }),
     scrollTo: () => {}, addEventListener: () => {},
   },
@@ -73,7 +91,7 @@ const m = html.match(/<script type="module">([\s\S]*)<\/script>/);
 if (!m) { console.error('NO-MODULE-SCRIPT'); process.exit(2); }
 const driver = m[1] + '\n;globalThis.__go = (hash) => { location.hash = hash; route(); return { html: view.innerHTML, bannerClass: document.getElementById("banner").className, bannerText: document.getElementById("banner").textContent }; };'
   + '\nglobalThis.__save = saveResult; globalThis.__R = () => R; globalThis.__D = () => D;'
-  + '\nglobalThis.__voiceMatch = voiceMatch; globalThis.__listenAvailable = listenAvailable;';
+  + '\nglobalThis.__voiceMatch = voiceMatch; globalThis.__audio = () => ({ has: !!AUDIO_MANIFEST, files: AUDIO_FILES.size, pause_ms: AUDIO_PAUSE_MS, from: AUDIO_FROM });';
 vm.runInContext(driver, sandbox);
 
 const tick = () => new Promise((r) => setImmediate(r));
@@ -153,6 +171,8 @@ function buildExpected() {
   const go = sandbox.__go;
   if (!go) { console.error('BOOTSTRAP-NEVER-RAN'); process.exit(2); }
   ok('bootstrap loaded real + synthetic', !!(sandbox.__R() && sandbox.__D()));
+  ok('bootstrap loaded audio manifest', !!(sandbox.__audio() && sandbox.__audio().has && sandbox.__audio().files > 0), JSON.stringify(sandbox.__audio()));
+  ok('audio: pause_ms matches manifest', sandbox.__audio().pause_ms === AM.pause_ms, 'app=' + sandbox.__audio().pause_ms + ' manifest=' + AM.pause_ms);
   const X = buildExpected();
   const secIds = Object.keys(X.sections);
   console.log('built chapters (accepted KG): ' + secIds.join(', '));
@@ -220,6 +240,13 @@ function buildExpected() {
           }
         }
         ok('lesson ' + mod.unit_id + ': slide count ' + unit.slides.length, (r.html.match(/Teacher says/g) || []).length === unit.slides.length);
+        const slideRefs = unit.slides.map((sl) => AM_SLIDE.get(mod.unit_id + '|' + sl.slide_id) || null);
+        const absentSlides = unit.slides.filter((sl, i) => !slideRefs[i]).map((sl) => sl.slide_id);
+        const missingSlides = slideRefs.filter(Boolean).map((e) => e.file_ref).filter((ref) => !r.html.includes(ref));
+        ok('lesson ' + mod.unit_id + ': every slide references manifest file_ref', absentSlides.length === 0 && missingSlides.length === 0, 'absent=' + absentSlides.join(',') + ' missing=' + missingSlides.join(','));
+        ok('lesson ' + mod.unit_id + ': play button per slide', (r.html.match(/data-slide-audio/g) || []).length === unit.slides.length);
+        ok('lesson ' + mod.unit_id + ': narration label once', countTag(r.html) === 1, 'found=' + countTag(r.html));
+        ok('lesson ' + mod.unit_id + ': no audio pending', !/audio pending/.test(r.html));
         for (const w of unit.why_how) ok('lesson ' + mod.unit_id + ': why/how', r.html.includes(escS(w.text)));
         ok('lesson ' + mod.unit_id + ': worked example', r.html.includes(escS(unit.worked_example.scenario.text)) && r.html.includes(escS(unit.worked_example.result.text)));
         ok('lesson ' + mod.unit_id + ': misconception', r.html.includes(escS(unit.misconception.claim.text)) && r.html.includes(escS(unit.misconception.correction.text)));
@@ -245,6 +272,27 @@ function buildExpected() {
         }
         console.log('PASS cards ' + mod.unit_id + ': ' + deck.length + '/' + deck.length + ' byte-exact fronts+backs+hooks+teaching');
         if (X.recaps[mod.module_id]) ok('cards ' + mod.unit_id + ': recap hook', /Deck recap/.test(r.html));
+        const thinkRef = AM.think[mod.section_id] ? 'audio/' + AM.think[mod.section_id] : null;
+        const cardGaps = [];
+        if (!thinkRef || !AM_FILES.has(thinkRef)) cardGaps.push('think:' + mod.section_id + '(absent-manifest)');
+        else if (!r.html.includes(thinkRef)) cardGaps.push(thinkRef);
+        for (const c of deck) {
+          for (const k of ['card_q', 'card_a', 'card_teach']) {
+            const e = AM_BY_KEY.get(k + '|' + c.card_id);
+            if (!e) cardGaps.push(k + ':' + c.card_id + '(absent-manifest)');
+            else if (!r.html.includes(e.file_ref)) cardGaps.push(e.file_ref);
+          }
+        }
+        const rec = X.recaps[mod.module_id];
+        if (rec) {
+          const e = AM_BY_KEY.get('recap|' + rec.card_id);
+          if (!e) cardGaps.push('recap:' + rec.card_id + '(absent-manifest)');
+          else if (!r.html.includes(e.file_ref)) cardGaps.push(e.file_ref);
+        }
+        ok('cards ' + mod.unit_id + ': every card+recap references manifest file_ref', cardGaps.length === 0, cardGaps.slice(0, 8).join(','));
+        ok('cards ' + mod.unit_id + ': play button per card', (r.html.match(/data-card-audio/g) || []).length === deck.length);
+        if (rec) ok('cards ' + mod.unit_id + ': recap play button', (r.html.match(/data-recap-audio/g) || []).length === 1);
+        ok('cards ' + mod.unit_id + ': no audio pending', !/audio pending/.test(r.html));
       } else {
         ok('cards ' + mod.unit_id + ': pending, not filler', /not yet built/i.test(r.html) && r.bannerClass === 'real-banner');
       }
@@ -317,17 +365,13 @@ function buildExpected() {
     ok('reviewer ' + rt + ': REAL banner + content', r.bannerClass === 'real-banner' && r.html.length > 2000, 'len=' + r.html.length);
   }
 
-  // ---- spoken recall ("Say it") + device-voice "Listen" ----
-  // The endpoint is mocked out of existence here: harness fetch throws, so
-  // these checks cover rendering, the honesty strings, the match function
-  // with canned transcripts, and both speechSynthesis branches.
+  // ---- spoken recall ("Say it") + minted narration ----
+  // The transcribe endpoint is mocked out of existence here: harness fetch
+  // throws, so these checks cover rendering, the honesty strings, the match
+  // function with canned transcripts, and the narration buttons/labels.
   const vMod = X.sections[secIds[0]].modules[0];
   const vDeck = X.findDeck(vMod.unit_id, vMod.module_id);
   const vLesson = X.findUnit(vMod.unit_id);
-  const teachCount = (unitId) => vDeck.filter((c) => {
-    const s = X.scriptsByCard[c.card_id];
-    return s && s.segments && s.segments.teaching && s.segments.teaching.text;
-  }).length;
   if (vDeck.length) {
     r = go('#/cards/' + vMod.unit_id);
     ok('voice: say-it button per card', (r.html.match(/<button data-sayit[ >]/g) || []).length === vDeck.length,
@@ -337,20 +381,20 @@ function buildExpected() {
     ok('voice: honesty note verbatim', r.html.includes('voice is transcribed by Meta Voice Transcribe via a local dev proxy; nothing is stored beyond this browser and the local log'));
     ok('voice: posts to dev proxy', html.includes('fetch("/api/transcribe"'));
     ok('voice: manual recall path kept', (r.html.match(/data-recall/g) || []).length === vDeck.length);
-    ok('voice: listen button per teaching script', (r.html.match(/data-listen/g) || []).length === teachCount(vMod.unit_id),
-      'found=' + ((r.html.match(/data-listen/g) || []).length) + ' want=' + teachCount(vMod.unit_id));
-    ok('voice: device-voice label on cards', /device voice — not minted narration/.test(r.html));
+    ok('audio: narration label on cards', countTag(r.html) === 1, 'found=' + countTag(r.html));
+    ok('audio: no device-voice remnants on cards', !/data-listen/.test(r.html) && !/device voice/.test(r.html) && !/speechSynthesis/.test(r.html));
   } else {
     ok('voice: cards route has deck to test', false, vMod.unit_id);
   }
   if (vLesson) {
     r = go('#/lesson/' + vMod.unit_id);
-    ok('voice: listen button per teacher-says slide', (r.html.match(/data-listen/g) || []).length === vLesson.slides.length,
-      'found=' + ((r.html.match(/data-listen/g) || []).length) + ' want=' + vLesson.slides.length);
-    ok('voice: device-voice label on lesson', /device voice — not minted narration/.test(r.html));
-    ok('voice: teacher-says count unchanged', (r.html.match(/Teacher says/g) || []).length === vLesson.slides.length);
+    ok('audio: play button per teacher-says slide', (r.html.match(/data-slide-audio/g) || []).length === vLesson.slides.length,
+      'found=' + ((r.html.match(/data-slide-audio/g) || []).length) + ' want=' + vLesson.slides.length);
+    ok('audio: narration label once on lesson', countTag(r.html) === 1, 'found=' + countTag(r.html));
+    ok('audio: teacher-says count unchanged', (r.html.match(/Teacher says/g) || []).length === vLesson.slides.length);
+    ok('audio: no device-voice remnants on lesson', !/data-listen/.test(r.html) && !/device voice/.test(r.html) && !/speechSynthesis/.test(r.html));
   } else {
-    ok('voice: lesson route has unit to test', false, vMod.unit_id);
+    ok('audio: lesson route has unit to test', false, vMod.unit_id);
   }
   const vm = sandbox.__voiceMatch;
   let m = vm('stop completely at the limit line', 'Stop completely at the limit line.');
@@ -363,13 +407,27 @@ function buildExpected() {
   ok('voice-match: unrelated missed', m.recalled === false, JSON.stringify(m));
   m = vm('', 'Stop completely at the limit line');
   ok('voice-match: empty transcript missed', m.score === 0 && m.recalled === false, JSON.stringify(m));
-  ok('voice: speechSynthesis undefined in harness', !('speechSynthesis' in sandbox.window));
-  ok('voice: listen unavailable without speechSynthesis', sandbox.__listenAvailable() === false);
-  r = go('#/lesson/' + vMod.unit_id);
-  ok('voice: lesson renders with speechSynthesis undefined', r.html.length > 2000 && (r.html.match(/data-listen/g) || []).length === (vLesson ? vLesson.slides.length : 0));
-  sandbox.window.speechSynthesis = {};
-  ok('voice: listen available with speechSynthesis', sandbox.__listenAvailable() === true);
-  delete sandbox.window.speechSynthesis;
+
+  // ---- no device-voice string left in app-preview/ ----
+  const walkFiles = (dir) => {
+    const out = [];
+    for (const name of fs.readdirSync(dir)) {
+      const p = path.join(dir, name);
+      if (fs.statSync(p).isDirectory()) out.push(...walkFiles(p));
+      else out.push(p);
+    }
+    return out;
+  };
+  const TEXT_EXTS = new Set(['.html', '.js', '.css', '.json', '.md', '.jsonl', '.log', '.svg', '.txt']);
+  const synthHits = [], listenHits = [];
+  for (const f of walkFiles(path.join(ROOT, 'app-preview'))) {
+    if (!TEXT_EXTS.has(path.extname(f).toLowerCase())) continue;
+    const s = fs.readFileSync(f, 'utf8');
+    if (s.includes('speechSynthesis')) synthHits.push(path.relative(ROOT, f));
+    if (s.includes('data-listen')) listenHits.push(path.relative(ROOT, f));
+  }
+  ok('audio: no speechSynthesis string in app-preview/', synthHits.length === 0, synthHits.join(','));
+  ok('audio: no data-listen hook in app-preview/', listenHits.length === 0, listenHits.join(','));
 
   // ---- global Nowhere sweep on learner routes ----
   // Case-sensitive, like every per-route check above: the synthetic marker

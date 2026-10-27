@@ -75,17 +75,17 @@ it is NOT in the learner top nav.
 `#/` home (whole-handbook counts + built chapters + trace link) · `#/chapters`
 all 16 chapters in handbook order · `#/chapter/:section` chapter hub ·
 `#/module/:module` module hub (Lesson → Flashcards → Quiz, with "not yet built"
-states where the belt has not accepted that artifact) · `#/lesson/:unit` lesson (each "Teacher says" block has a device-voice Listen button) ·
+states where the belt has not accepted that artifact) · `#/lesson/:unit` lesson (Play/Pause per "Teacher says" slide) ·
 `#/cards/:unit` flashcards (3-second recall beat; "Say it" spoken recall via
-the dev server; device-voice Listen button on each teaching script) ·
+the dev server; Play runs question → think cue → answer → teaching) ·
 `#/quiz/:unit` module quiz · `#/practice` practice-form chooser (forms grouped by
 chapter) · `#/practice/:form` practice form · `#/results/:attempt` results
 (device-local) · `#/settings` settings/about · `#/synthetic-sample` fictional
 comparison sample.
-Free-only, no auth, no audio player. Scores describe observed practice only.
+Free-only, no auth, one shared audio element for narration. Scores describe observed practice only.
 Progress lives in `localStorage` under `nova-preview:v1:ut-handbook`.
 
-## Voice (dev server only, 2026-10-27)
+## Voice and narration (2026-10-27)
 
 - **"Say it" spoken recall** (flashcards, recall beat): records up to 10 s in
   the browser, re-encodes to 16 kHz mono WAV locally, and posts it to the dev
@@ -99,11 +99,21 @@ Progress lives in `localStorage` under `nova-preview:v1:ut-handbook`.
   transcript shows under it with the match score. The manual Recall button and
   keyboard path are unchanged; if the mic or endpoint is unavailable the
   button says why and never blocks the learner.
-- **"Listen (device voice)"** (every lesson "Teacher says" block, every
-  flashcard teaching script): reads that text with the browser's built-in
-  `speechSynthesis` (prefers en-US, rate 0.95, $0). Clicking again or
-  navigating cancels. Labeled in place "device voice — not minted narration";
-  hidden entirely when `speechSynthesis` is absent.
+- **Minted narration** (every lesson slide, every flashcard, every deck
+  recap): pre-generated MP3 clips minted by the Nova fleet recipe — OpenAI
+  `gpt-4o-mini-tts`, voice `nova`, deliberately unhurried pace (atempo 0.85);
+  **not a Meta model**. 1,509 clips on disk: 374 cards × (question + answer +
+  teaching), 48 deck recaps, 335 lesson slides, 4 shared think cues
+  (`cards_missing_voice: 0`, `sessions_missing_audio: 0`). Lesson slides get a
+  Play/Pause button each (no auto-advance); flashcards get one Play button
+  running question → shared think cue → 3,000 ms pause → answer → teaching,
+  revealing the answer when the answer clip starts; recaps play one clip. One
+  shared `HTMLAudioElement`; navigating stops playback; no autoplay; the app
+  only plays a `file_ref` listed in `audio/audio-manifest.json`
+  (`runtime_policy: play_pre_generated_files_only`). Labeled in place
+  "narration · pre-generated (OpenAI TTS, not a Meta model)". Works over any
+  static server or `file://` (fallback copy `audio-manifest-embedded.js`,
+  regenerate with `node tools/preview/embed-audio-manifest.mjs`).
 - Honesty: the flashcard screen states "voice is transcribed by Meta Voice
   Transcribe via a local dev proxy; nothing is stored beyond this browser and
   the local log". Each proxy call appends one line (timestamp, bytes,
@@ -126,12 +136,14 @@ accepted stage-05 teaching units (all 16 sections) with provenance.
 
 | file | sha256 | bytes |
 |---|---|---|
-| index.html | 72f17309aaf938312f4aa954bed99eda7c0524bf049fe41ece02a0dfc9bc7cb0 | 67634 |
+| index.html | ae745d0b3aaead27f930445d444394930b43287e3dd264641c8e7b6817cdd47c | 73993 |
 | trace.html | 6d4501a1dfad55d54ed0f30d0eb77cf4ca0a5fe7a22c5e9eb04880098631e325 | 6662 |
-| styles.css | dd30973edc111b5086240fe98e1c904307c41af25d0db4615b1d1bfa42cf47dc | 4780 |
+| styles.css | 34562e9c41e8acbe30d8080d4399b3da967b9968f7faf96475e0d8304238b47a | 4847 |
 | data-embedded.js (generated) | c84fa9dbcf7eea8de9cc04509752ab2b33924a0df106507190e6e78ad75e6eaf | 15625 |
 | trace-embedded.js (generated) | fd17877b9c6abdd62dc248ec2c7aead9beee9d385ed191defbae61b697bc20c7 | 2705884 |
 | data-real-embedded.js (generated) | 727c2717a4f09710fe2e4dc77e6b80ee38090bddaed942842447fd8f9485172f | 3290153 |
+| audio-manifest-embedded.js (generated) | cfa2a45398f3bbf37dd78f561d062a7978a070e1c04a93f3e6c19a6ca6e5bdc2 | 481359 |
+| audio/audio-manifest.json (fleet input, read-only) | 32fc5ee00e9b0e449b0dbf5f4e4247cc7cb1b8c9da81228f3bdd0657b0730ae1 | 622626 |
 | data/manifest.json | c0b86c105fbf9b71514d41bf2aa3a3881e863c32bfb2f8cf94747aef470afd21 | 578 |
 | data/trace.json (generated) | f586bd31b4afae4cb632cde14f65f239aeafde19f05725d74c8aaf0de1bb49d6 | 3718921 |
 | data/real/manifest.json (generated) | 62250f0e3f5d0ee199e8f9a35528a8ee9e919cd34e7796512ab3f80536f956c3 | 174007 |
@@ -141,7 +153,9 @@ accepted stage-05 teaching units (all 16 sections) with provenance.
 
 Regenerate after data changes: `node tools/preview/export-trace.mjs`, then
 `node tools/preview/embed-trace.mjs`, and `node tools/preview/export-content.mjs`
-(which also refreshes `data-real-embedded.js`). Sandboxing note: the ledger's
+(which also refreshes `data-real-embedded.js`). After the fleet re-mints
+audio: `node tools/preview/embed-audio-manifest.mjs` (refreshes
+`audio-manifest-embedded.js`). Sandboxing note: the ledger's
 large SQL ORDER BY sorts spill to temp files, which fail in a sandboxed
 session (`SQLITE_CANTOPEN` errcode 14, and `SQLITE_TMPDIR` is ignored on
 Windows) — so `export-trace.mjs` runs the selects unordered and sorts the

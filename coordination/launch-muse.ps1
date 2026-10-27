@@ -11,10 +11,15 @@ $log = "D:\nova\fb-ai-hackathon\coordination\muse-launch-$Tag.jsonl"
   Add-Content -Path $log -Value $line -Encoding utf8
   try {
     $e = $line | ConvertFrom-Json
-    $t = $e.type; if (-not $t) { $t = $e.event }
-    $s = ($line.Length)
-    if ($e.tool) { Write-Host ("[{0}] {1} {2}" -f (Get-Date -Format HH:mm:ss), $t, $e.tool) }
-    elseif ($e.text) { Write-Host ("[{0}] {1}: {2}" -f (Get-Date -Format HH:mm:ss), $t, ($e.text.ToString().Substring(0, [Math]::Min(160, $e.text.ToString().Length)))) }
-    else { Write-Host ("[{0}] {1} ({2} bytes)" -f (Get-Date -Format HH:mm:ss), $t, $s) }
+    $t = $e.payload_type
+    $p = $e.payload
+    $detail = ''
+    if ($p) {
+      foreach ($k in 'tool_name','name','command','path','file_path','text','message','content','status','reason','error') {
+        if ($p.PSObject.Properties[$k] -and $p.$k) { $v = $p.$k.ToString(); $detail = "$k=" + $v.Substring(0, [Math]::Min(140, $v.Length)).Replace("`n", ' '); break }
+      }
+      if (-not $detail -and $p.input) { $v = ($p.input | ConvertTo-Json -Compress -Depth 3).ToString(); $detail = 'input=' + $v.Substring(0, [Math]::Min(140, $v.Length)) }
+    }
+    if ($t -notmatch 'heartbeat|token|delta|chunk') { Write-Host ("[{0}] {1} {2}" -f (Get-Date -Format HH:mm:ss), $t, $detail) }
   } catch { Write-Host $line }
 }

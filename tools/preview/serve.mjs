@@ -21,7 +21,7 @@ const MAX_BYTES = 2 * 1024 * 1024; // 2 MB
 const UPSTREAM_TIMEOUT_MS = 20 * 1000; // 20 s
 const LOG_PATH = path.join(root, 'data', 'voice-log.jsonl');
 
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.md': 'text/plain; charset=utf-8', '.jsonl': 'application/x-ndjson; charset=utf-8' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.md': 'text/plain; charset=utf-8', '.jsonl': 'application/x-ndjson; charset=utf-8', '.mp3': 'audio/mpeg' };
 
 // Append one log line. Fields only: ts, bytes, elapsed_ms, status, chars.
 // Never the audio, never the key.

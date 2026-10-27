@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="styles.css">
 <script src="data-embedded.js" defer></script>
 <script src="data-real-embedded.js" defer></script>
+<script src="audio-manifest-embedded.js" defer></script>
 </head>
 <body>
 <div class="real-banner" id="banner" role="note">REAL — Utah Driver Handbook, belt-validated, audit pending</div>
@@ -22,7 +23,7 @@
   </div>
 </header>
 <main class="wrap" id="view" tabindex="-1"></main>
-<footer class="site">dev preview — no production claims · text-first pilot, no audio</footer>
+<footer class="site">dev preview — no production claims · narration: pre-generated files only (OpenAI TTS, not a Meta model)</footer>
 <script type="module">
 const SYNTHETIC_NOTE = "SYNTHETIC SAMPLE — not Utah content.";
 const REAL_NOTE = "REAL — Utah Driver Handbook, belt-validated, audit pending";
@@ -105,7 +106,7 @@ const getResult = (id) => (store.read().results || {})[id] || null;
 const markDone = (unitId, what) => { const s = store.read(); s.progress = s.progress || {}; s.progress[unitId] = s.progress[unitId] || {}; s.progress[unitId][what] = true; store.write(s); };
 const markVoice = (unitId, cardId, rec) => { const s = store.read(); s.progress = s.progress || {}; s.progress[unitId] = s.progress[unitId] || {}; const v = s.progress[unitId].voice = s.progress[unitId].voice || {}; v[cardId] = rec; store.write(s); };
 
-// ---- Spoken recall ("Say it") + device-voice "Listen" ----
+// ---- Spoken recall ("Say it") ----
 const VOICE_NOTE = "voice is transcribed by Meta Voice Transcribe via a local dev proxy; nothing is stored beyond this browser and the local log";
 
 // number words -> digits so "25" and "twenty five" match each other
@@ -136,38 +137,189 @@ function voiceMatch(spoken, answer) {
   return { score, recalled: score >= 0.6 };
 }
 
-function listenAvailable() {
-  return typeof window !== "undefined" && "speechSynthesis" in window && !!window.speechSynthesis;
+// ---- Pre-generated narration (minted clips, files only) ----
+// Clips were minted by the Nova fleet recipe (OpenAI gpt-4o-mini-tts, voice
+// "nova" — NOT a Meta model) and listed in audio/audio-manifest.json. The app
+// only ever plays a file_ref from that manifest; nothing is synthesized here.
+const AUDIO_LABEL = "narration · pre-generated (OpenAI TTS, not a Meta model)";
+let AUDIO_MANIFEST = null;
+let AUDIO_FROM = "none";
+async function loadAudio() {
+  try {
+    const m = await (await fetch("audio/audio-manifest.json", {cache: "no-store"})).json();
+    return { manifest: m, from: "fetch" };
+  } catch (e) {
+    const emb = window.__AUDIO_MANIFEST_EMBEDDED;
+    if (emb) return { manifest: emb, from: "embedded-fallback" };
+    return { manifest: null, from: "none" };
+  }
 }
-let speakingBtn = null;
-function stopSpeaking() {
-  speakingBtn = null;
-  try { if (listenAvailable()) window.speechSynthesis.cancel(); } catch { /* no-op */ }
+let AUDIO_FILES = new Set();
+let AUDIO_THINK = {};
+let AUDIO_PAUSE_MS = 3000;
+function buildAudioIndex() {
+  AUDIO_FILES = new Set();
+  AUDIO_THINK = {};
+  AUDIO_PAUSE_MS = 3000;
+  const m = AUDIO_MANIFEST;
+  if (!m) return;
+  for (const e of (m.entries || [])) {
+    if (e.file_ref) AUDIO_FILES.add(e.file_ref);
+  }
+  AUDIO_THINK = m.think || {};
+  if (Number.isFinite(m.pause_ms)) AUDIO_PAUSE_MS = m.pause_ms;
 }
-// Device-voice playback (browser speechSynthesis, $0, Meta-neutral). Clicking
-// the same button again stops. Returns false when unavailable.
-function speakText(text, btn) {
-  if (!listenAvailable()) return false;
-  const synth = window.speechSynthesis;
-  if (speakingBtn === btn && synth.speaking) {
-    synth.cancel(); speakingBtn = null;
-    btn.textContent = "🔊 Listen (device voice)";
+const audioAllowed = (src) => !!src && AUDIO_FILES.has(src);
+function slideAudioSrc(unitId, slideId) {
+  const src = `audio/sessions/${unitId}.${slideId}.mp3`;
+  return audioAllowed(src) ? src : null;
+}
+// Four-movement arc, or null when any movement is missing (then the card
+// renders "audio pending" and the text path is untouched).
+function cardAudioSrcs(cardId, sectionId) {
+  const thinkFile = sectionId ? AUDIO_THINK[sectionId] : null;
+  const srcs = {
+    q: `audio/${cardId}.q.mp3`,
+    think: thinkFile ? `audio/${thinkFile}` : "",
+    a: `audio/${cardId}.a.mp3`,
+    teach: `audio/${cardId}.teach.mp3`
+  };
+  if (!srcs.q || !srcs.think || !srcs.a || !srcs.teach) return null;
+  if (!audioAllowed(srcs.q) || !audioAllowed(srcs.think) || !audioAllowed(srcs.a) || !audioAllowed(srcs.teach)) return null;
+  return srcs;
+}
+function recapAudioSrc(recapCardId) {
+  const src = `audio/${recapCardId}.recap.mp3`;
+  return audioAllowed(src) ? src : null;
+}
+function slideAudioHtml(unitId, sl) {
+  const src = slideAudioSrc(unitId, sl.slide_id);
+  return src
+    ? `<p><button data-slide-audio data-src="${esc(src)}">▶ Play narration</button></p>`
+    : `<p class="muted">audio pending</p>`;
+}
+function cardPlayHtml(cardId, sectionId) {
+  const arc = cardAudioSrcs(cardId, sectionId);
+  return arc
+    ? `<button data-card-audio data-q="${esc(arc.q)}" data-think="${esc(arc.think)}" data-a="${esc(arc.a)}" data-teach="${esc(arc.teach)}" data-pause-ms="${esc(String(AUDIO_PAUSE_MS))}">▶ Play narration</button>`
+    : `<span class="muted">audio pending</span>`;
+}
+function recapPlayHtml(recap) {
+  const src = recap && recap.card_id ? recapAudioSrc(recap.card_id) : null;
+  return src
+    ? `<p><button data-recap-audio data-src="${esc(src)}">▶ Play recap</button></p>`
+    : `<p class="muted">audio pending</p>`;
+}
+
+// One shared HTMLAudioElement; a generation token cancels stale chains.
+// No autoplay: playback starts only from a tap. route() calls stopAudio().
+let audioEl = null;
+let audioBtn = null;
+let audioGen = 0;
+let audioTimer = 0;
+function ensureAudioEl() {
+  if (!audioEl) {
+    if (typeof window === "undefined" || !window.Audio) return null;
+    try { audioEl = new window.Audio(); } catch { return null; }
+  }
+  return audioEl;
+}
+function stopAudio() {
+  audioGen += 1;
+  if (audioTimer) { try { clearTimeout(audioTimer); } catch { /* no-op */ } audioTimer = 0; }
+  if (audioEl) {
+    try { audioEl.pause(); } catch { /* no-op */ }
+    try { audioEl.removeAttribute("src"); audioEl.load(); } catch { /* no-op */ }
+    audioEl.onended = audioEl.onerror = null;
+    audioEl._src = null;
+  }
+  if (audioBtn) {
+    audioBtn.textContent = audioBtn.hasAttribute("data-recap-audio") ? "▶ Play recap" : "▶ Play narration";
+    audioBtn = null;
+  }
+}
+// Single clip with Play/Pause toggle (lesson slides, deck recaps).
+function playOne(src, btn) {
+  if (!audioAllowed(src)) return false;
+  const el = ensureAudioEl();
+  if (!el) return false;
+  if (audioBtn === btn && el._src === src) {
+    if (el.paused) {
+      try { const p = el.play(); if (p && p.catch) p.catch(() => { stopAudio(); }); } catch { stopAudio(); return false; }
+      btn.textContent = btn.hasAttribute("data-recap-audio") ? "⏸ Pause recap" : "⏸ Pause";
+    } else {
+      try { el.pause(); } catch { /* no-op */ }
+      btn.textContent = btn.hasAttribute("data-recap-audio") ? "▶ Play recap" : "▶ Play narration";
+    }
     return true;
   }
-  synth.cancel();
-  const U = window.SpeechSynthesisUtterance;
-  if (!U) return false;
-  const u = new U(text);
-  u.rate = 0.95;
+  stopAudio();
+  const gen = audioGen;
+  const el2 = ensureAudioEl();
+  if (!el2) return false;
+  audioBtn = btn;
+  el2._src = src;
+  try { el2.src = src; } catch { stopAudio(); return false; }
+  btn.textContent = btn.hasAttribute("data-recap-audio") ? "⏸ Pause recap" : "⏸ Pause";
+  el2.onended = () => { if (audioGen === gen) stopAudio(); };
+  el2.onerror = () => { if (audioGen === gen) stopAudio(); };
   try {
-    const vs = synth.getVoices ? synth.getVoices() : [];
-    const en = (vs || []).find((v) => /^en[-_]US/i.test(v.lang || "")) || (vs || []).find((v) => /^en/i.test(v.lang || ""));
-    if (en) u.voice = en;
-  } catch { /* default voice is fine */ }
-  u.onend = u.onerror = () => { if (speakingBtn === btn) { speakingBtn = null; btn.textContent = "🔊 Listen (device voice)"; } };
-  speakingBtn = btn;
-  btn.textContent = "⏹ Stop (device voice)";
-  synth.speak(u);
+    const p = el2.play();
+    if (p && p.catch) p.catch(() => { if (audioGen === gen) stopAudio(); });
+  } catch { if (audioGen === gen) stopAudio(); return false; }
+  return true;
+}
+// Flashcard arc: question → think cue → pause_ms wait → answer (reveals the
+// answer as it starts) → teaching. Tapping again stops. Manual Recall/"Say
+// it" reveal paths are independent and always work.
+function playCardArc(srcs, pauseMs, btn, card) {
+  const el = ensureAudioEl();
+  if (!el) return false;
+  if (audioBtn === btn) { stopAudio(); return true; }
+  stopAudio();
+  const gen = audioGen;
+  const el2 = ensureAudioEl();
+  if (!el2) return false;
+  audioBtn = btn;
+  btn.textContent = "⏹ Stop narration";
+  const ans = card ? card.querySelector("[data-answer]") : null;
+  const beat = card ? card.querySelector("[data-beat]") : null;
+  const recallBtn = card ? card.querySelector("[data-recall]") : null;
+  const revealNow = () => {
+    if (ans && ans.hidden) {
+      ans.hidden = false;
+      if (beat) beat.hidden = true;
+      if (recallBtn) { recallBtn.disabled = true; recallBtn.textContent = "Answer shown"; }
+    }
+  };
+  const seq = [
+    { src: srcs.q },
+    { src: srcs.think },
+    { wait: pauseMs },
+    { src: srcs.a, onStart: revealNow },
+    { src: srcs.teach }
+  ];
+  let i = 0;
+  const step = () => {
+    if (audioGen !== gen) return;
+    if (i >= seq.length) { stopAudio(); return; }
+    const s = seq[i++];
+    if (s.wait) {
+      audioTimer = setTimeout(() => { audioTimer = 0; step(); }, s.wait);
+      return;
+    }
+    if (!audioAllowed(s.src)) { stopAudio(); return; }
+    if (s.onStart) s.onStart();
+    try {
+      el2._src = s.src;
+      el2.src = s.src;
+      el2.onended = () => step();
+      el2.onerror = () => { if (audioGen === gen) stopAudio(); };
+      const p = el2.play();
+      if (p && p.catch) p.catch(() => { if (audioGen === gen) stopAudio(); });
+    } catch { if (audioGen === gen) stopAudio(); }
+  };
+  step();
   return true;
 }
 
@@ -578,12 +730,12 @@ function vLesson(unitId) {
   const mcClaim = mc.claim || {}, mcFix = mc.correction || {};
   return `<h1>Lesson: ${esc(unit.title && unit.title.text)}</h1>
   <p class="muted">${esc(REAL_NOTE)}.</p>
+  <p class="muted">${esc(AUDIO_LABEL)}</p>
   ${(unit.slides || []).map((sl, i) => `<div class="card"><h2>Slide ${i + 1} of ${unit.slides.length} — ${esc(sl.title && sl.title.text)}</h2>
     ${((sl.lines) || []).map((l) => `<p>${esc(l.text)}</p>`).join("")}
     <div class="card"><h2>Teacher says (about ${esc(String(sl.estimated_narration_seconds))}s)</h2>
     <p>${esc(sl.narration && sl.narration.text)}</p>
-    <p><button data-listen data-say="${esc(sl.narration && sl.narration.text)}">🔊 Listen (device voice)</button></p>
-    <p class="muted">device voice — not minted narration</p></div>
+    ${slideAudioHtml(unitId, sl)}</div>
     ${sourceLine([...new Set([...((sl.title && sl.title.fact_ids) || []), ...((sl.lines || []).flatMap((l) => l.fact_ids || [])), ...((sl.narration && sl.narration.fact_ids) || [])])])}</div>`).join("")}
   ${((unit.why_how) || []).map((w) => `<div class="card"><h2>Why and how</h2><p>${esc(w.text)}</p>${sourceLine(w.fact_ids)}</div>`).join("")}
   <div class="card"><h2>Worked example</h2>
@@ -608,6 +760,7 @@ function vCards(unitId) {
   const moduleId = moduleForUnit(unitId);
   const byCard = scriptsByCard();
   const recap = moduleId ? recapForModule(moduleId) : null;
+  const sec = sectionOfUnit(unitId);
   return `<h1>Flashcards — recall, then reveal</h1>
   <p class="muted">${esc(REAL_NOTE)}. ${list.length} accepted cards, worded exactly as accepted.</p>
   <p class="muted">Spoken recall: say your answer aloud with “Say it” (needs the dev server: <code>node tools/preview/serve.mjs</code>) — ${esc(VOICE_NOTE)}.</p>
@@ -615,17 +768,17 @@ function vCards(unitId) {
     const teach = byCard[c.card_id] && byCard[c.card_id].segments && byCard[c.card_id].segments.teaching && byCard[c.card_id].segments.teaching.text;
     return `<div class="card"><h2>Card ${i + 1} of ${list.length}</h2>
     <p>${esc(c.front)}</p>
-    <p><button data-recall>Recall, then reveal</button> <button data-sayit data-unit="${esc(unitId)}" data-card="${esc(c.card_id)}" data-back="${esc(c.back)}">🎤 Say it</button></p>
+    <p><button data-recall>Recall, then reveal</button> <button data-sayit data-unit="${esc(unitId)}" data-card="${esc(c.card_id)}" data-back="${esc(c.back)}">🎤 Say it</button> ${cardPlayHtml(c.card_id, sec)}</p>
     <p class="muted" data-beat hidden>Take about 3 seconds to recall…</p>
     <p class="muted" data-sayit-status hidden></p>
     <div hidden data-answer><p><b>Answer.</b> ${esc(c.back)}</p>
     <p><b>Memory hook.</b> ${esc(c.memory_hook)}</p>
-    ${byCard[c.card_id] ? `<p><b>Teaching.</b> ${esc(teach)}${teach ? ` <button data-listen data-say="${esc(teach)}">🔊 Listen (device voice)</button> <span class="muted">device voice — not minted narration</span>` : ""}</p>` : ""}
+    ${byCard[c.card_id] ? `<p><b>Teaching.</b> ${esc(teach)}</p>` : ""}
     <div data-voice-result></div>
     ${sourceLine(c.claims_fact_ids)}</div></div>`;
   }).join("")}
-  ${recap ? `<div class="card"><h2>Deck recap</h2><p>${esc(recap.recap && recap.recap.narration_text)}</p><p class="muted">Hooks: ${esc((recap.recap && recap.recap.hooks_spoken || []).join("; "))}</p></div>` : ""}
-  <p class="muted">Text-first pilot: the 3-second recall pause is a visual beat only — no audio is generated.</p>
+  ${recap ? `<div class="card"><h2>Deck recap</h2><p>${esc(recap.recap && recap.recap.narration_text)}</p><p class="muted">Hooks: ${esc((recap.recap && recap.recap.hooks_spoken || []).join("; "))}</p>${recapPlayHtml(recap)}</div>` : ""}
+  <p class="muted">${esc(AUDIO_LABEL)}. Play runs question → think cue → answer → teaching; the answer reveals when the answer clip starts. The 3-second Recall beat is unchanged.</p>
   <p><a class="btn" href="#/quiz/${esc(unitId)}">Continue to the quiz</a>${moduleId ? ` <a class="btn" href="#/module/${esc(moduleId)}">Back to module hub</a>` : ""}</p>`;
 }
 
@@ -738,7 +891,7 @@ function vResults(attemptId) {
 function vSettings() {
   return `<h1>Settings and about</h1>
   <div class="card"><h2>About this course</h2>
-  <p>Utah Driver Handbook — written-test preparation for regular non-commercial passenger-car rules. Everything is free, with no account and no audio. Lesson slides, cards and questions are the belt's accepted artifacts, shown word-for-word. Chapters without accepted artifacts show as "not yet built" — nothing synthetic stands in for them.</p>
+  <p>Utah Driver Handbook — written-test preparation for regular non-commercial passenger-car rules. Everything is free, with no account. Narration is pre-generated audio files (OpenAI TTS, not a Meta model). Lesson slides, cards and questions are the belt's accepted artifacts, shown word-for-word. Chapters without accepted artifacts show as "not yet built" — nothing synthetic stands in for them.</p>
   <p><a href="trace.html">How it was made — belt trace</a></p>
   <p class="muted">Data source: ${(R && R.from === "fetch") ? "app-preview/data/real/*.json over HTTP" : "embedded fallback copy (identical content, used because local files could not be fetched)"}.</p></div>
   <div class="card"><h2>Reviewer</h2>
@@ -1046,9 +1199,19 @@ function wire() {
       }, 1000);
     });
   });
-  view.querySelectorAll("[data-listen]").forEach((btn) => {
-    if (!listenAvailable()) { btn.hidden = true; return; }
-    btn.addEventListener("click", () => speakText(btn.dataset.say || "", btn));
+  view.querySelectorAll("[data-slide-audio]").forEach((btn) => {
+    btn.addEventListener("click", () => playOne(btn.dataset.src || "", btn));
+  });
+  view.querySelectorAll("[data-recap-audio]").forEach((btn) => {
+    btn.addEventListener("click", () => playOne(btn.dataset.src || "", btn));
+  });
+  view.querySelectorAll("[data-card-audio]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".card");
+      const srcs = { q: btn.dataset.q || "", think: btn.dataset.think || "", a: btn.dataset.a || "", teach: btn.dataset.teach || "" };
+      const pauseMs = Number(btn.dataset.pauseMs || AUDIO_PAUSE_MS) || AUDIO_PAUSE_MS;
+      playCardArc(srcs, pauseMs, btn, card);
+    });
   });
   view.querySelectorAll("[data-sayit]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -1101,7 +1264,7 @@ function wire() {
 }
 
 function route() {
-  stopSpeaking();
+  stopAudio();
   const h = location.hash || "#/";
   const parts = h.replace(/^#\//, "").split("/");
   let html = "", nav = "home", banner = "real", bannerText = REAL_NOTE;
@@ -1140,7 +1303,7 @@ function route() {
 }
 
 window.addEventListener("hashchange", route);
-loadReal().then((r) => { R = r; _factPages = null; return loadData(); }).then((d) => { D = d; route(); }).catch(() => {});
+loadReal().then((r) => { R = r; _factPages = null; return loadData(); }).then((d) => { D = d; return loadAudio(); }).then((a) => { AUDIO_MANIFEST = a.manifest; AUDIO_FROM = a.from; buildAudioIndex(); route(); }).catch(() => {});
 </script>
 </body>
 </html>
