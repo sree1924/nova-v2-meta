@@ -255,3 +255,21 @@
 - 2026-10-27T19:32:29.546Z retry nonce 04.cards:@sec02-licensing-requirements → 5 after HOLD (sec02-licensing-requirements); non-PASS: 04.ORIGINALITY=FAIL
 
 - 2026-10-27T19:32:48.302Z retry nonce 04.cards:@sec02-licensing-requirements → 6 after HOLD (sec02-licensing-requirements); non-PASS: 04.ORIGINALITY=FAIL
+
+- 2026-10-27T19:33:52.001Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:51 for 02.dossier_sections (sec03-driver-education-permits) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:34:22.149Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:52 for 02.dossier_sections (sec03-driver-education-permits) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:34:33.810Z retry nonce 02.dossier_sections:D@sec03-driver-education-permits → 1 after HOLD (sec03-driver-education-permits); non-PASS: 02.CORPUS_STABILITY=FAIL
+
+- 2026-10-27T19:34:49.074Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:53 for 02.dossier_sections (sec03-driver-education-permits) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:35:12.501Z retry nonce 02.dossier_sections:E2@sec03-driver-education-permits → 1 after HOLD (sec03-driver-education-permits); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:35:12.611Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:54 for 02.dossier_sections (sec03-driver-education-permits) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T19:35:39.132Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:55 for 02.dossier_sections (sec03-driver-education-permits) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T19:36:13.194Z retry nonce 02.dossier_sections:G@sec03-driver-education-permits → 1 after HOLD (sec03-driver-education-permits); non-PASS: 02.MARKET_SIGNAL=FAIL
+
+- 2026-10-27T19:36:35.556Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:56 for 02.dossier_sections (sec04-license-types-id-documents) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 

@@ -121,7 +121,11 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: accepte
     const envReg = envelope.lineage?.source_registry_sha256;
     if (envReg && envReg !== sourceRegistry.ref.sha256) errors.push('Envelope source registry hash differs from accepted registry');
     const ownMerge = mergeSections(envelope.sections);
-    if (envelope.merge?.expected_merged_sha256 && envelope.merge.expected_merged_sha256 !== ownMerge.sha256) errors.push('Envelope declared merge hash differs from actual ordered bytes');
+    // A declared expected_merged_sha256 names the FULL dossier (output-conventions): it is only comparable on a complete_dossier
+    // envelope. Null / all-zeros means "not computed" (sec03 part declared a non-null placeholder, 2026-10-27).
+    const declared = envelope.merge?.expected_merged_sha256;
+    const realHash = typeof declared === 'string' && /^[a-f0-9]{64}$/.test(declared) && !/^0{64}$/.test(declared);
+    if (realHash && envelope.envelope_scope?.kind !== 'partial_chunk' && declared !== ownMerge.sha256) errors.push('Envelope declared merge hash differs from actual ordered bytes');
   }
   const merged = mergeEnvelopes(envelopes);
   errors.push(...merged.errors);
