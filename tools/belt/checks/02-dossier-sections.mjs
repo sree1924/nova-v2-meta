@@ -277,7 +277,8 @@ export function run(artifact, context = {}) {
   {
     let fact = 0; const bad = [];
     // F (VERIFY list) and G (DoD matrix) are bookkeeping sections: their numerals are counts/box ids, not learner facts.
-    for (const s of sections) { if (['F', 'G'].includes(s.section_id)) continue; const r = uncitedFactLines(s, openDebtIds); fact += r.factLines; bad.push(...r.uncited); }
+    // E/E2 (market signal, competitive teardown) are typed-debt market prose, not handbook facts — exempt like F/G (2026-10-27, sec15 E2).
+    for (const s of sections) { if (['E', 'E2', 'F', 'G'].includes(s.section_id)) continue; const r = uncitedFactLines(s, openDebtIds); fact += r.factLines; bad.push(...r.uncited); }
     out.push(bad.length ? chk('FACT_LINES_CITED', F, `${bad.length}/${fact} fact-bearing lines uncited: ${head(bad)}`, { fact_lines: fact, uncited: bad.length })
       : chk('FACT_LINES_CITED', P, `${fact}/${fact} fact-bearing lines cite a declared anchor or (verify)+open debt`, { fact_lines: fact, uncited: 0 }));
   }

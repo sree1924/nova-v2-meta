@@ -115,7 +115,9 @@ export const STAGE_DIRECTION_PATTERNS = [
   // Only the INSTRUCTION use of "pause" is a stage direction (sentence-initial imperative, "pause here/now/for…", "let's pause");
   // the verb in content ("a citation can pause driving", "the officer paused traffic") is narration (2026-10-27, sec02 u03).
   { id: 'pause_word', re: /(?:^|[.!?]\s+|[:;—-]\s*)paus(?:e|ing)\b(?!\s+(?:driving|traffic|the\b|your\b|their\b|his\b|her\b|its\b|a\b|an\b|that\b|this\b|all\b|any\b))|\bpause\s+(?:here|now|for\s+(?:a|one|two|three|\d)|and\s+(?:think|test|recall|try|answer)|to\s+(?:think|recall|answer)|before\s+(?:you|answering))\b|\blet'?s\s+pause\b|\btake\s+a\s+pause\b/i },
-  { id: 'timed_instruction', re: /\b(wait|hold|pause|think|stop)\b[^.?!]{0,30}\b(one|two|three|four|five|ten|\d+)[- ]seconds?\b/i },
+  // Learner-directed timing only: sentence-initial / after now|please|let's|just, verbs wait|pause|think|hold on. Driving content
+  // ("hold the signal for at least two seconds", "stop for three seconds") is narration, not a direction (2026-10-27, sec08).
+  { id: 'timed_instruction', re: /(?:^|[.!?]\s+|\b(?:now|please|just|let'?s)\s+)(?:wait|pause|think|hold\s+on)\b[^.?!]{0,30}\b(one|two|three|four|five|ten|\d+)[- ]seconds?\b/i },
   { id: 'seconds_of_silence', re: /\b(one|two|three|four|five|ten|\d+)[- ]seconds?\s+(of silence|pause|beat|to think|to recall|to answer)\b/i },
   { id: 'ellipsis_timing_marker', re: /\.\.\.|…/ },
   { id: 'production_cue', re: /\b(sound effect|music cue|stage direction|cut to|fade (in|out))\b/i },

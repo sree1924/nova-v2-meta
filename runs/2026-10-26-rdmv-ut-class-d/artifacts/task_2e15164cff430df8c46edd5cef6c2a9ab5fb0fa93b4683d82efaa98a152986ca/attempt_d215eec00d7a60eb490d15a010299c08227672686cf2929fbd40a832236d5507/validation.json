@@ -1,0 +1,206 @@
+{
+  "status": "HOLD",
+  "stage_id": "06.exam_bank",
+  "checks": [
+    {
+      "check_id": "06.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/06-exambank.schema.json"
+    },
+    {
+      "check_id": "06.ENVELOPE",
+      "status": "PASS",
+      "evidence": "probe slug, input_manifest_sha256 format and stamp/ref strings valid"
+    },
+    {
+      "check_id": "06.INPUT_MANIFEST",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 equals bound manifest 708fba5dde03…"
+    },
+    {
+      "check_id": "06.ID_INTEGRITY",
+      "status": "PASS",
+      "evidence": "2 unique items; all 0 form refs and 0 quiz refs resolve",
+      "metrics": {
+        "items": 2,
+        "unresolved": 0
+      }
+    },
+    {
+      "check_id": "06.ITEM_BINDING",
+      "status": "PASS",
+      "evidence": "all 2 items bound; every fact_id resolves in fact_registry",
+      "metrics": {
+        "unresolved_fact_ids": 0
+      }
+    },
+    {
+      "check_id": "06.PAGE_OR_DEBT",
+      "status": "PASS",
+      "evidence": "all 2 items cite a pdf/printed page",
+      "metrics": {
+        "paged": 2,
+        "page_debt": 0
+      }
+    },
+    {
+      "check_id": "06.OPTIONS_SHAPE",
+      "status": "FAIL",
+      "evidence": "1 item(s): sec16-itm-02: 5 options (need 4 = 1 correct + 3 distractors); duplicate option keys",
+      "metrics": {
+        "bad_items": 1
+      }
+    },
+    {
+      "check_id": "06.DISTRACTOR_SOURCE",
+      "status": "PASS",
+      "evidence": "every item records 3 distractor sources (4 labelled synthesized near-miss)",
+      "metrics": {
+        "synthesized": 4
+      }
+    },
+    {
+      "check_id": "06.ANSWER_RATIONALE_AGREEMENT",
+      "status": "PASS",
+      "evidence": "all 2 correct rationales name the keyed answer; no rationale endorses another option",
+      "metrics": {
+        "disagreements": 0
+      }
+    },
+    {
+      "check_id": "06.BANNED_CLAIMS",
+      "status": "PASS",
+      "evidence": "no actual/real/leaked/official-question, prediction or unverified full-length claims in learner strings",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "06.PRACTICE_LABEL",
+      "status": "PASS",
+      "evidence": "all 0 form titles carry a practice label"
+    },
+    {
+      "check_id": "06.FORM_NUMERALS",
+      "status": "PASS",
+      "evidence": "no form-level numeral asserts an unverified official fact (0 forms)",
+      "metrics": {
+        "leaks": 0
+      }
+    },
+    {
+      "check_id": "06.ITEM_NUMERALS",
+      "status": "PASS",
+      "evidence": "no numerals in item/quiz learner strings"
+    },
+    {
+      "check_id": "06.OFFICIAL_MIRROR",
+      "status": "PASS",
+      "evidence": "official mirror records consistent on 0 forms (0 verified, 0 practice-only)"
+    },
+    {
+      "check_id": "06.SCORING_POLICY",
+      "status": "PASS",
+      "evidence": "all forms score by product policy runs/2026-10-26-rdmv-ut-class-d/19-learning-loop.json",
+      "metrics": {
+        "distinct_refs": 0
+      }
+    },
+    {
+      "check_id": "06.DECLARED_COUNT",
+      "status": "PASS",
+      "evidence": "declared_count equals served item ids on all 0 forms"
+    },
+    {
+      "check_id": "06.TITLED_PROMISE",
+      "status": "PASS",
+      "evidence": "every countable title promise equals served content"
+    },
+    {
+      "check_id": "06.FORM_OVERLAP",
+      "status": "PASS",
+      "evidence": "pairwise overlap n/a; disclosures present where >20%",
+      "metrics": {
+        "pairs": 0,
+        "max_overlap_pct": 0
+      }
+    },
+    {
+      "check_id": "06.DUPLICATE_STEM",
+      "status": "PASS",
+      "evidence": "no duplicate stem+answer pairs (0 shared instruction stem(s) with distinct answers)",
+      "metrics": {
+        "duplicates": 0,
+        "shared_instruction_stems": 0
+      }
+    },
+    {
+      "check_id": "06.ITEM_CLONE",
+      "status": "PASS",
+      "evidence": "no clones among 2 items",
+      "metrics": {
+        "clone_groups": 0
+      }
+    },
+    {
+      "check_id": "06.NEEDS_REVIEW_ZERO",
+      "status": "PASS",
+      "evidence": "needs_review_count 0 and no served item flagged",
+      "metrics": {
+        "needs_review": 0
+      }
+    },
+    {
+      "check_id": "06.SELF_FLAGGED_RESOLVED",
+      "status": "PASS",
+      "evidence": "no unresolved self-flagged distractors",
+      "metrics": {
+        "unresolved": 0
+      }
+    },
+    {
+      "check_id": "06.DERIVED_PLACEMENT",
+      "status": "PASS",
+      "evidence": "no derived items in practice forms (0 derived items total)"
+    },
+    {
+      "check_id": "06.FORM_COUNT",
+      "status": "FAIL",
+      "evidence": "0 practice form(s) (need >= 2)"
+    },
+    {
+      "check_id": "06.MODULE_QUIZ_COVERAGE",
+      "status": "FAIL",
+      "evidence": "declared module(s) without quiz: sec16-m01; sec16-m02"
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22",
+    "06.ID_INTEGRITY.items": 2,
+    "06.ID_INTEGRITY.unresolved": 0,
+    "06.ITEM_BINDING.unresolved_fact_ids": 0,
+    "06.PAGE_OR_DEBT.paged": 2,
+    "06.PAGE_OR_DEBT.page_debt": 0,
+    "06.OPTIONS_SHAPE.bad_items": 1,
+    "06.DISTRACTOR_SOURCE.synthesized": 4,
+    "06.ANSWER_RATIONALE_AGREEMENT.disagreements": 0,
+    "06.BANNED_CLAIMS.hits": 0,
+    "06.FORM_NUMERALS.leaks": 0,
+    "06.SCORING_POLICY.distinct_refs": 0,
+    "06.FORM_OVERLAP.pairs": 0,
+    "06.FORM_OVERLAP.max_overlap_pct": 0,
+    "06.DUPLICATE_STEM.duplicates": 0,
+    "06.DUPLICATE_STEM.shared_instruction_stems": 0,
+    "06.ITEM_CLONE.clone_groups": 0,
+    "06.NEEDS_REVIEW_ZERO.needs_review": 0,
+    "06.SELF_FLAGGED_RESOLVED.unresolved": 0,
+    "required_checks": 25,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "fda664d8f438d63351ea0f4ef17972943397901f6800b345bebc4ac918e0ce55",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}
