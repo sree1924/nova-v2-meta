@@ -34,8 +34,13 @@ export function readNativeSnapshot(runDir,config){
 
 export function acceptedRuntimeRefs(snapshot,projectRoot,runDir){
   const out=[];
+  // Latest accepted wins per stage (except 02, whose parts are deduped per part set by the compiler): a stage re-run after a
+  // fix supersedes its earlier accepted artifact for downstream context (context forbids duplicate accepted kinds).
+  const latest=new Map();
+  for(const task of snapshot.tasks||[]){if(task.status!=='accepted'||task.stage_id==='02.dossier_sections')continue;const prev=latest.get(task.stage_id);if(!prev||String(task.updated_at)>String(prev.updated_at)||(String(task.updated_at)===String(prev.updated_at)&&task.task_id>prev.task_id))latest.set(task.stage_id,task);}
   for(const task of snapshot.tasks||[]){
     if(task.status!=='accepted')continue;
+    if(task.stage_id!=='02.dossier_sections'&&latest.get(task.stage_id)?.task_id!==task.task_id)continue;
     const main=(snapshot.artifacts||[]).find(a=>a.artifact_id===task.accepted_artifact_id);
     if(!main)throw new Error('Accepted task has no accepted artifact.');
     const outputFile=verifyRef(main,runDir),validationFile=verifyRef(main.validation_ref_json,runDir),acceptanceFile=verifyRef(main.acceptance_ref_json,runDir);
@@ -118,7 +123,9 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   // Dossier parts per call (JAM-UT-03): the generator is asked for exactly these envelope section ids; role 16 merges later.
   const inputData={kind:'bound_task_inputs',stage_id:stageId,section_ids:sectionIds,assigned_dossier_parts:partIds.length?partIds:null,chunk_plan:partIds.length?{chunk_index:1,chunk_total:1,kind:'partial_chunk'}:null,output_conventions:outputConventions,output_shape_example:outputExample,depth_floor:config.scope?.depth_floor??null,
     // The ONE lineage block the output must echo (03 attempt 17:44Z copied the accepted dossier's own manifest hash instead).
-    lineage_to_copy:{candidate_lineage_id:config.candidate_lineage_id,input_manifest_sha256:assembled.context.input_manifest_sha256,note:'copy these two values verbatim into your lineage / input_manifest_sha256 / candidate_lineage_id fields; hashes inside accepted_inputs belong to THOSE artifacts, not to this task'},runtime_bindings:runtimeBindings,safe_run_config:assembled.context.safe_model_input?.model_input,accepted_inputs:sourceViews,source_registry:assembled.context.source_registry,page_map:assembled.context.page_map,selected_source_pages:selected.sections,source_policy:assembled.context.policy,pilot_overlay:assembled.context.overlay,instruction_templates:{master_sme:masterTemplate},missing_inputs:assembled.missing};
+    lineage_to_copy:{candidate_lineage_id:config.candidate_lineage_id,input_manifest_sha256:assembled.context.input_manifest_sha256,note:'copy these two values verbatim into your lineage / input_manifest_sha256 / candidate_lineage_id fields; hashes inside accepted_inputs belong to THOSE artifacts, not to this task'},
+    // Flat {fact_id: accepted statement} for stages whose learner text must BYTE-EQUAL accepted wording (04 backs, 05 answers).
+    accepted_fact_statements:assembled.context.fact_registry?.facts?Object.fromEntries(Object.entries(assembled.context.fact_registry.facts).map(([id,f])=>[id,f.spoken_statement??f.statement])):null,runtime_bindings:runtimeBindings,safe_run_config:assembled.context.safe_model_input?.model_input,accepted_inputs:sourceViews,source_registry:assembled.context.source_registry,page_map:assembled.context.page_map,selected_source_pages:selected.sections,source_policy:assembled.context.policy,pilot_overlay:assembled.context.overlay,instruction_templates:{master_sme:masterTemplate},missing_inputs:assembled.missing};
   const rendered=renderRequest({promptText,headerTemplateText:fs.readFileSync(path.join(projectRoot,'prompts/controller-header.template.json'),'utf8'),bindings:{
     mode:roleId==='04'?'qualification':'production',render_only:!go,execution_authorized:go&&policy.status==='ELIGIBLE_FOR_BOUND_TASK_CHECKS',
     execution_authority_ref:policy.approval_ref?.path??'contracts/execution-authority.v0.4.0.json',execution_authority_sha256:policy.approval_ref?.sha256??policy.authority_ref.sha256,

@@ -1,0 +1,247 @@
+{
+  "status": "HOLD",
+  "stage_id": "04.cards",
+  "checks": [
+    {
+      "check_id": "04.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/04-carddeck.schema.json"
+    },
+    {
+      "check_id": "04.STRING_BOUNDS",
+      "status": "PASS",
+      "evidence": "probe slug, hashes, non-empty strings, intro_order>=0, exam_weight>=0, recap_hooks>=1 hold over 39 cards / 3 recaps",
+      "metrics": {
+        "violations": 0
+      }
+    },
+    {
+      "check_id": "04.CARD_IDS",
+      "status": "PASS",
+      "evidence": "39 unique card_ids; intro_order unique within each of 3 decks",
+      "metrics": {
+        "duplicate_card_ids": 0,
+        "duplicate_intro_orders": 0
+      }
+    },
+    {
+      "check_id": "04.MERGES",
+      "status": "PASS",
+      "evidence": "0 recorded merge(s) well-formed",
+      "metrics": {
+        "merges": 0
+      }
+    },
+    {
+      "check_id": "04.EXAM_WEIGHT_STATUS",
+      "status": "PASS",
+      "evidence": "official exam_weight honest on 3 decks (verified 0, unknown 3); 3 authored emphasis value(s) labelled product policy, never promoted to official",
+      "metrics": {
+        "verified": 0,
+        "unknown": 3,
+        "emphasis_values": 3
+      }
+    },
+    {
+      "check_id": "04.SRS_POLICY",
+      "status": "PASS",
+      "evidence": "39/39 cards tier == f(difficulty, high_yield); 28 high-yield cards tightened | learning_loop_ref null: tiers follow the adapter-bound product policy only",
+      "metrics": {
+        "mismatches": 0,
+        "high_yield_tightened": 28
+      }
+    },
+    {
+      "check_id": "04.BACK_SPOKEN_FORM",
+      "status": "PASS",
+      "evidence": "81 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+      "metrics": {
+        "violating_fields": 0,
+        "fields_checked": 81
+      }
+    },
+    {
+      "check_id": "04.HOOK_LENGTH",
+      "status": "PASS",
+      "evidence": "39 hooks within 1..6 words (max 6)",
+      "metrics": {
+        "over_limit": 0,
+        "max_words": 6
+      }
+    },
+    {
+      "check_id": "04.HOOK_ORIGIN",
+      "status": "PASS",
+      "evidence": "hook_origin consistent with Blueprint mnemonics on 39 cards",
+      "metrics": {
+        "sme-carried": 0,
+        "sme-adapted": 0,
+        "minted": 39
+      }
+    },
+    {
+      "check_id": "04.FACT_IDS",
+      "status": "PASS",
+      "evidence": "every card/recap hook carries >=1 unique fact id; all resolve in context.fact_registry",
+      "metrics": {
+        "defects": 0,
+        "unresolved_in_registry": 0
+      }
+    },
+    {
+      "check_id": "04.BACK_FIDELITY",
+      "status": "FAIL",
+      "evidence": "39/39 back(s) not equal to accepted fact wording: card-F01: back \"Flex lanes may reverse direction by time of day; check the o\" != accepted wording of F01; card-F02: back \"Keep at least two seconds of following distance on the freew\" != accepted wording of F02; card-F03: back \"U-turns on the freeway are prohibited, as is driving or stop\" != accepted wording of F03; card-F04: back \"A left-lane driver approached from behind must move safely r\" != accepted wording of F04; card-F05: back \"Express lanes on I-15 are free for vehicles with two or more\" != accepted wording of F05; card-F06: back \"Crossing a double white line to enter or leave the express l\" != accepted wording of F06; card-F07: back \"Ramp meters show alternating red and green and generally rel\" != accepted wording of F07; card-F08: back \"Runaway-vehicle ramps are for emergency stops only; stopping\" != accepted wording of F08; …(+31 more)",
+      "metrics": {
+        "exact": 0,
+        "drift": 39
+      }
+    },
+    {
+      "check_id": "04.ATOMIC_CLUSTER",
+      "status": "PASS",
+      "evidence": "0 cluster(s) valid (one umbrella, atomics share node+source_ref, atomic backs verbatim)",
+      "metrics": {
+        "clusters": 0,
+        "defects": 0,
+        "unverified_atomics": 0
+      }
+    },
+    {
+      "check_id": "04.DUPLICATE_BACKS",
+      "status": "PASS",
+      "evidence": "39 backs distinct after NFKC/lowercase/punctuation normalization",
+      "metrics": {
+        "duplicate_groups": 0,
+        "cards_in_duplicates": 0
+      }
+    },
+    {
+      "check_id": "04.PAGE_CITATIONS",
+      "status": "PASS",
+      "evidence": "39/39 cards cite a pdf_page or printed_page",
+      "metrics": {
+        "cited": 39,
+        "open_debt": 0,
+        "uncited": 0
+      }
+    },
+    {
+      "check_id": "04.PAGE_RESOLUTION",
+      "status": "PASS",
+      "evidence": "39 cited page(s) resolve in context.page_map",
+      "metrics": {
+        "resolved": 39,
+        "unresolved": 0
+      }
+    },
+    {
+      "check_id": "04.LEARNER_SCAFFOLD",
+      "status": "PASS",
+      "evidence": "no \"(verify\", needs_review, flag-as, MOD- code, bare module id, Q:/A: label or doubled article in front/back/hook/recap fields",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "04.MEDIA_DISPOSITION",
+      "status": "PASS",
+      "evidence": "sentinel deferred:not_applicable_pilot bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (image_cards_enabled false, image-scout non-applicability listed); no deictic visual references",
+      "metrics": {
+        "deictic_cards": 0
+      }
+    },
+    {
+      "check_id": "04.RECAP_PER_DECK",
+      "status": "PASS",
+      "evidence": "3 decks, one recap each",
+      "metrics": {
+        "decks": 3,
+        "recaps": 3
+      }
+    },
+    {
+      "check_id": "04.DECKS_MIRROR_KG",
+      "status": "PASS",
+      "evidence": "3 decks mirror KG modules in order; 39 nodes carded or merged; dynamic flags match KG",
+      "metrics": {
+        "kg_nodes": 39,
+        "dropped": 0
+      }
+    },
+    {
+      "check_id": "04.ORIGINALITY",
+      "status": "PASS",
+      "evidence": "120 learner fields; longest contiguous source overlap 7 words (<= 12) at card-F09.back",
+      "metrics": {
+        "longest_overlap_words": 7,
+        "longest_at": "card-F09.back",
+        "source_tokens": 42548
+      }
+    },
+    {
+      "check_id": "04.INPUT_BINDING",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 equals scoped manifest f9f1bdbf52dcc473f874a2a2487a341df9eee14843d4850f51edbed111dae82c"
+    },
+    {
+      "check_id": "04.VERIFICATION_DEBT",
+      "status": "PASS",
+      "evidence": "no open verification debt",
+      "metrics": {
+        "open_debt": 0
+      }
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d",
+    "04.STRING_BOUNDS.violations": 0,
+    "04.CARD_IDS.duplicate_card_ids": 0,
+    "04.CARD_IDS.duplicate_intro_orders": 0,
+    "04.MERGES.merges": 0,
+    "04.EXAM_WEIGHT_STATUS.verified": 0,
+    "04.EXAM_WEIGHT_STATUS.unknown": 3,
+    "04.EXAM_WEIGHT_STATUS.emphasis_values": 3,
+    "04.SRS_POLICY.mismatches": 0,
+    "04.SRS_POLICY.high_yield_tightened": 28,
+    "04.BACK_SPOKEN_FORM.violating_fields": 0,
+    "04.BACK_SPOKEN_FORM.fields_checked": 81,
+    "04.HOOK_LENGTH.over_limit": 0,
+    "04.HOOK_LENGTH.max_words": 6,
+    "04.HOOK_ORIGIN.sme-carried": 0,
+    "04.HOOK_ORIGIN.sme-adapted": 0,
+    "04.HOOK_ORIGIN.minted": 39,
+    "04.FACT_IDS.defects": 0,
+    "04.FACT_IDS.unresolved_in_registry": 0,
+    "04.BACK_FIDELITY.exact": 0,
+    "04.BACK_FIDELITY.drift": 39,
+    "04.ATOMIC_CLUSTER.clusters": 0,
+    "04.ATOMIC_CLUSTER.defects": 0,
+    "04.ATOMIC_CLUSTER.unverified_atomics": 0,
+    "04.DUPLICATE_BACKS.duplicate_groups": 0,
+    "04.DUPLICATE_BACKS.cards_in_duplicates": 0,
+    "04.PAGE_CITATIONS.cited": 39,
+    "04.PAGE_CITATIONS.open_debt": 0,
+    "04.PAGE_CITATIONS.uncited": 0,
+    "04.PAGE_RESOLUTION.resolved": 39,
+    "04.PAGE_RESOLUTION.unresolved": 0,
+    "04.LEARNER_SCAFFOLD.hits": 0,
+    "04.MEDIA_DISPOSITION.deictic_cards": 0,
+    "04.RECAP_PER_DECK.decks": 3,
+    "04.RECAP_PER_DECK.recaps": 3,
+    "04.DECKS_MIRROR_KG.kg_nodes": 39,
+    "04.DECKS_MIRROR_KG.dropped": 0,
+    "04.ORIGINALITY.longest_overlap_words": 7,
+    "04.ORIGINALITY.longest_at": "card-F09.back",
+    "04.ORIGINALITY.source_tokens": 42548,
+    "04.VERIFICATION_DEBT.open_debt": 0,
+    "required_checks": 22,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "ebbd616f7b6b350443461ec8f8591d875a81e830897fae3204810fbf5bb0d55c",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

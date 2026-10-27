@@ -55,7 +55,10 @@ function indexFact(id, section, pageMap) {
   if (identities.size !== 1) return {error: `${id}: multi-page span needs an explicit fact split; compiler will not choose a page`};
   let statement = raw;
   for (const anchor of anchors) statement = statement.split(`[${anchor.anchor_id}]`).join('');
-  statement = statement.replace(/[ \t]+(?=\n|$)/g, '').trim();
+  // Scaffold lines ("Group: x | Prereq: y | Difficulty: 2 | Confusable: z") are dossier bookkeeping, never fact wording;
+  // anchor removal leaves " ." / " ," which is closed up. Both fixes are learner-facing: 04 backs must equal this statement.
+  statement = statement.split('\n').filter(l => !/^\s*(?:[A-Za-z][A-Za-z _-]{0,20}:\s*[^|\n]*\|\s*){1,}[A-Za-z][A-Za-z _-]{0,20}:\s*[^|\n]*$/.test(l)).join('\n');
+  statement = statement.replace(/\s+([.,;:!?])/g, '$1').replace(/[ \t]+(?=\n|$)/g, '').trim();
   if (!statement || /\(\s*verify\b/i.test(statement)) return {error: `${id}: empty or unresolved fact span cannot enter accepted wording`};
   const page = pages[0].page;
   return {fact: {
@@ -74,7 +77,7 @@ function indexFact(id, section, pageMap) {
 /** Accepted refs are supplied by the controller from the ledger, never inferred
  * from file presence or PASS text inside an output. Relative paths use projectRoot.
  */
-export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: acceptedEnvelopesIn = [], sourceRegistryRef, pageMapRef, overlayRef, candidateLineageId = null} = {}) {
+export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: acceptedEnvelopesIn = [], sourceRegistryRef, pageMapRef, overlayRef, candidateLineageId = null, outputDir = 'root'} = {}) {
   // Per-part dispatch (JAM-UT-03) + lineage resets mean accepted parts legitimately come from several lineages, and a part may be
   // re-accepted under a new task identity (validator closure reseal). Rule: one envelope per assigned part set — the latest
   // accepted wins (ledger accepted_at, then task_id for determinism); lineages are recorded, not required to match.
@@ -150,12 +153,16 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: accepte
     high_yield_ranked: clone(envelopes.flatMap(e => e.high_yield_ranked ?? [])),
     verification_debt: clone(envelopes.flatMap(e => e.verification_debt ?? [])),
     external_review_requests: clone(envelopes.flatMap(e => e.external_review_requests ?? [])),
-    stage17, fact_registry_sha256: sha256(jsonBytes(factRegistry)), errors: [...new Set(errors)]};
-  return {status, blueprint, factRegistry, markdown: merged.markdown, errors: [...new Set(errors)], inputRefs,
+    stage17, fact_registry_sha256: sha256(jsonBytes(factRegistry)), compiler_note: 'statements: anchors removed, scaffold key:value|… lines dropped, punctuation closed up', errors: [...new Set(errors)]};
+  // Output paths: the root names for the first compile; a RE-compile over the same inputs (compiler fix) goes under
+  // 16/<fact-registry sha8>/ so the immutable first files stay as history. Basenames are kept (context binds kinds by basename).
+  const registrySha = sha256(jsonBytes(factRegistry));
+  const dir = outputDir === 'root' ? '' : `16/${registrySha.slice(0, 8)}/`;
+  return {status, blueprint, factRegistry, markdown: merged.markdown, errors: [...new Set(errors)], inputRefs, fact_registry_sha256: registrySha,
     writePlan: [
-      {path: '16-compiled-dossier.json', value_key: 'blueprint', sha256: sha256(jsonBytes(blueprint))},
-      {path: '16-fact-registry.json', value_key: 'factRegistry', sha256: sha256(jsonBytes(factRegistry))},
-      {path: '02-blueprint.md', value_key: 'markdown', sha256: merged.sha256, encoding: 'utf8'},
-      {path: '17-disposition.json', value_key: 'blueprint.stage17', sha256: sha256(jsonBytes(stage17))},
+      {path: dir + '16-compiled-dossier.json', value_key: 'blueprint', sha256: sha256(jsonBytes(blueprint))},
+      {path: dir + '16-fact-registry.json', value_key: 'factRegistry', sha256: registrySha},
+      {path: dir + '02-blueprint.md', value_key: 'markdown', sha256: merged.sha256, encoding: 'utf8'},
+      {path: dir + '17-disposition.json', value_key: 'blueprint.stage17', sha256: sha256(jsonBytes(stage17))},
     ]};
 }

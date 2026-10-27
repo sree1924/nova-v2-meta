@@ -162,13 +162,19 @@ export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfig
   const envelopes=accepted.filter(a=>a.kind==='02.dossier_sections'),source=accepted.find(a=>a.kind==='source_registry'),pages=accepted.find(a=>a.kind==='page_map');
   if(!envelopes.length||!source||!pages)return{status:'HOLD',reason:'Accepted02 envelopes, registered source and page map are required.',model_calls:0};
   const overlay=pin(path.join(projectRoot,'contracts/pilot-overrides-v0.4.0.json'));
-  const result=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id});
-  if(result.status!=='PASS')return{status:'HOLD',errors:result.errors,model_calls:0};
+  const result0=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id});
+  if(result0.status!=='PASS')return{status:'HOLD',errors:result0.errors,model_calls:0};
   // Reuse across lineage resets: a compile already accepted in this run over the SAME accepted inputs (input_manifest_sha256) is the
   // compile. Without this, a reset mints a new 16 task whose output differs only by candidate_lineage_id and collides with the
   // immutable 16-compiled-dossier.json (attempt b473c3dd, 2026-10-27 17:52Z, left `running`).
   const priorCompiled=accepted.find(a=>a.kind==='compiled_dossier'||a.kind==='16-compiled-dossier.json');
-  if(priorCompiled){try{const prev=JSON.parse(fs.readFileSync(path.resolve(projectRoot,priorCompiled.path),'utf8'));if(prev.input_manifest_sha256===result.blueprint.input_manifest_sha256)return{status:'PASS',reused:true,reused_from:priorCompiled.path,model_calls:0};}catch{}}
+  let result=result0;
+  if(priorCompiled){try{const prev=JSON.parse(fs.readFileSync(path.resolve(projectRoot,priorCompiled.path),'utf8'));
+    // Same inputs AND same fact index => the accepted compile IS this compile (lineage id alone never forces a re-compile).
+    if(prev.input_manifest_sha256===result.blueprint.input_manifest_sha256&&prev.fact_registry_sha256===result.fact_registry_sha256)return{status:'PASS',reused:true,reused_from:priorCompiled.path,model_calls:0};
+    // Same inputs, different fact index => compiler fix; re-compile under a versioned dir (root files are immutable history).
+    result=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id,outputDir:'versioned'});
+  }catch(e){if(!/ENOENT/.test(e.message))throw e;}}
   const lockHandle=acquireExecutorLock({runDir:loaded.runDir,runId:loaded.config.run_id,executorId});let ledger,fence;
   try{
     ledger=openLedger({dbPath:inside(loaded.runDir,loaded.config.execution.ledger.path),lockHandle});
@@ -179,7 +185,7 @@ export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfig
     if(task.status==='accepted')return{status:'PASS',reused:true,model_calls:0};
     const attempt=ledger.startAttempt(fence,{taskId:task.taskId,commandId:'compile:'+task.taskId});
     const values={'blueprint':result.blueprint,'factRegistry':result.factRegistry,'markdown':result.markdown,'blueprint.stage17':result.blueprint.stage17};
-    const files=result.writePlan.map(p=>{const saved=writeImmutable(loaded.runDir,p.path,values[p.value_key],{lockHandle,bytes:p.encoding==='utf8'});if(saved.sha256!==p.sha256)throw Error('Compiler output hash mismatch.');return{...saved,kind:p.path};});
+    const files=result.writePlan.map(p=>{const saved=writeImmutable(loaded.runDir,p.path,values[p.value_key],{lockHandle,bytes:p.encoding==='utf8'});if(saved.sha256!==p.sha256)throw Error('Compiler output hash mismatch.');return{...saved,kind:path.posix.basename(p.path)};});
     const main=files.find(f=>f.kind==='16-compiled-dossier.json');
     const validation=writeImmutable(loaded.runDir,'receipts/16-validation-'+main.sha256+'.json',{status:'PASS',output_sha256:main.sha256,checks:[{check_id:'16.MERGE',status:'PASS'},{check_id:'16.FACT_SPANS',status:'PASS'}],companions:files.filter(f=>f.kind!=='02-blueprint.md').map(f=>({...evidenceRef(f),kind:f.kind})),supporting_files:files.filter(f=>f.kind==='02-blueprint.md').map(evidenceRef),factual_audit:'pending07/08'},{lockHandle});
     const acceptance=writeImmutable(loaded.runDir,'receipts/16-acceptance-'+main.sha256+'.json',{status:'PASS',output_sha256:main.sha256,kind:'deterministic_compile_only',auditors:'pending07/08'},{lockHandle});

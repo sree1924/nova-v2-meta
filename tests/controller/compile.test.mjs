@@ -46,7 +46,8 @@ test('role16 exact merge/fact index is deterministic and does not write or claim
   assert.equal(a.markdown, mergeSections(s.envelope.sections).markdown);
   assert.equal(a.blueprint.canonical_blueprint_validation_claimed, false);
   assert.equal(a.blueprint.stage17.status, 'n/a_pilot');
-  assert.equal(a.factRegistry.facts.F1.statement, 'A full stop is required at a red octagonal sign .\n- Applies at every marked stop line.');
+  // 2026-10-27: anchor removal no longer leaves " ." — punctuation is closed up (learner-facing: 04 backs equal this statement).
+  assert.equal(a.factRegistry.facts.F1.statement, 'A full stop is required at a red octagonal sign.\n- Applies at every marked stop line.');
   assert.equal(a.factRegistry.facts.F1.pdf_page, 2);
   assert.equal(a.factRegistry.facts.F1.printed_page, '1');
   assert.equal(a.factRegistry.facts.F1.status, 'authored');
