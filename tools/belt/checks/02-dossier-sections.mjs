@@ -53,7 +53,8 @@ export function mergeEnvelopes(envelopes, { requireComplete = true } = {}) {
     }
     for (const k of EXAM_FACT_KEYS) {
       const f = env?.exam_facts?.[k];
-      if (!f) continue;
+      // Only section A authors exam facts; every other part emits {null, unknown, null} = "not asserted", never a conflict.
+      if (!f || (f.status === 'unknown' && f.value == null)) continue;
       const sig = JSON.stringify([f.value, f.status, f.source_page]);
       if (factVals.has(k) && factVals.get(k) !== sig) errors.push(`conflicting exam_facts.${k} across envelopes: ${factVals.get(k)} vs ${sig}`);
       else factVals.set(k, sig);

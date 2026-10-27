@@ -1,0 +1,169 @@
+{
+  "status": "HOLD",
+  "stage_id": "02.dossier_sections",
+  "checks": [
+    {
+      "check_id": "02.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/02-sme-dossier-envelope.schema.json"
+    },
+    {
+      "check_id": "02.PROBE_SLUG",
+      "status": "PASS",
+      "evidence": "probe \"rdmv-ut-class-d\" matches ^[a-z0-9][a-z0-9-]*$"
+    },
+    {
+      "check_id": "02.LINEAGE",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 matches context; candidate_lineage_id=2026-10-26-rdmv-ut-class-d:lineage:10"
+    },
+    {
+      "check_id": "02.CHUNK_IDENTITY",
+      "status": "PASS",
+      "evidence": "1 chunks, merge_seq 1..1 contiguous, ids unique"
+    },
+    {
+      "check_id": "02.SCOPE_COMPLETENESS",
+      "status": "PASS",
+      "evidence": "partial_chunk: sections present A"
+    },
+    {
+      "check_id": "02.SECTION_BOUNDS",
+      "status": "PASS",
+      "evidence": "all 1 chunks < 12000 code points (computed); self-reported char_count off on 1: A.01 declared 500 vs computed 348",
+      "metrics": {
+        "effective_limit": 12000,
+        "max_chunk_chars": 348,
+        "self_count_mismatches": 1
+      }
+    },
+    {
+      "check_id": "02.TRUNCATION_GUARD",
+      "status": "PASS",
+      "evidence": "1 chunks balanced (fences, **, brackets) and end cleanly"
+    },
+    {
+      "check_id": "02.MERGE_DETERMINISTIC",
+      "status": "PASS",
+      "evidence": "merge order [A.01] -> sha256 6030ddde3a8b32e6377efefa33106c30c9949d66434fac29f9981d0fe742e6ef (no expected hash declared); merged with 2 sibling envelope(s) -> 6c83a0a6c4c50ac173214c7c731ae5bcc7f0bfdfb80c0d067f0d6b5808c5c9d8",
+      "metrics": {
+        "merged_sha256": "6030ddde3a8b32e6377efefa33106c30c9949d66434fac29f9981d0fe742e6ef",
+        "merged_code_points": 348
+      }
+    },
+    {
+      "check_id": "02.ANCHORS_REGISTERED",
+      "status": "PASS",
+      "evidence": "2/2 anchors resolve to registered sources (116 registry codes)"
+    },
+    {
+      "check_id": "02.FACT_LINES_CITED",
+      "status": "PASS",
+      "evidence": "1/1 fact-bearing lines cite a declared anchor or (verify)+open debt",
+      "metrics": {
+        "fact_lines": 1,
+        "uncited": 0
+      }
+    },
+    {
+      "check_id": "02.EXAM_FACT_STATUS",
+      "status": "PASS",
+      "evidence": "exam_facts consistent: {\"unknown\":8,\"verified\":1}",
+      "metrics": {
+        "unknown": 8,
+        "verified": 1
+      }
+    },
+    {
+      "check_id": "02.NUMERAL_LEAK",
+      "status": "PASS",
+      "evidence": "0 withheld/unverified value(s) absent from 1 learner-facing chunks",
+      "metrics": {
+        "forbidden_values": 0,
+        "leaks": 0
+      }
+    },
+    {
+      "check_id": "02.HIGH_YIELD_PER_DOMAIN",
+      "status": "PASS",
+      "evidence": "0/0 knowledge domains carry a contiguous ranked high_yield list",
+      "metrics": {
+        "domains": 0
+      }
+    },
+    {
+      "check_id": "02.DEDICATED_SURFACE",
+      "status": "FAIL",
+      "evidence": "status unknown without an exam_policy_unclear VerificationDebt located in section C"
+    },
+    {
+      "check_id": "02.CORPUS_STABILITY",
+      "status": "PASS",
+      "evidence": "assessment stable_le_1_per_year, blocked_probe false"
+    },
+    {
+      "check_id": "02.DEBT_TYPED",
+      "status": "PASS",
+      "evidence": "2 debt record(s) typed + located",
+      "metrics": {
+        "debts": 2,
+        "ship_blocking": 1
+      }
+    },
+    {
+      "check_id": "02.EXTERNAL_REVIEW",
+      "status": "PASS",
+      "evidence": "0 request(s); every legal/clinical debt covered"
+    },
+    {
+      "check_id": "02.MARKET_SIGNAL",
+      "status": "PASS",
+      "evidence": "origin sme, disposition typed_debt, 0 chunk(s), 1 debt ref(s)"
+    },
+    {
+      "check_id": "02.DEPTH_FLOOR",
+      "status": "FAIL",
+      "evidence": "hollow envelope: A.01 (A) 348 code points < floor 400",
+      "metrics": {
+        "A_cp": 348,
+        "A_fact_blocks": 0
+      }
+    },
+    {
+      "check_id": "02.G_MATRIX",
+      "status": "PASS",
+      "evidence": "partial_chunk without part G: DoD matrix deferred to the G part / merged dossier (assigned A)",
+      "metrics": {
+        "deferred": true
+      }
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111",
+    "02.SECTION_BOUNDS.effective_limit": 12000,
+    "02.SECTION_BOUNDS.max_chunk_chars": 348,
+    "02.SECTION_BOUNDS.self_count_mismatches": 1,
+    "02.MERGE_DETERMINISTIC.merged_sha256": "6030ddde3a8b32e6377efefa33106c30c9949d66434fac29f9981d0fe742e6ef",
+    "02.MERGE_DETERMINISTIC.merged_code_points": 348,
+    "02.FACT_LINES_CITED.fact_lines": 1,
+    "02.FACT_LINES_CITED.uncited": 0,
+    "02.EXAM_FACT_STATUS.unknown": 8,
+    "02.EXAM_FACT_STATUS.verified": 1,
+    "02.NUMERAL_LEAK.forbidden_values": 0,
+    "02.NUMERAL_LEAK.leaks": 0,
+    "02.HIGH_YIELD_PER_DOMAIN.domains": 0,
+    "02.DEBT_TYPED.debts": 2,
+    "02.DEBT_TYPED.ship_blocking": 1,
+    "02.DEPTH_FLOOR.A_cp": 348,
+    "02.DEPTH_FLOOR.A_fact_blocks": 0,
+    "02.G_MATRIX.deferred": true,
+    "required_checks": 20,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "5c27996a981211fc66d20aebe3c3c987dd68f4f8931ddfae3209f06fa214568b",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

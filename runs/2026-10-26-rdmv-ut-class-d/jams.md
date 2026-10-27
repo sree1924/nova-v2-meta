@@ -39,3 +39,27 @@
 - 2026-10-27T17:15:58.161Z retry nonce 02.dossier_sections:C → 1 after HOLD (sec09-rules-of-the-road); non-PASS: unknown_provider_result
 
 - 2026-10-27T17:26:00Z lost-response reconciliation attempt_c6d99687 (02 part C, lineage 8): client timeout 60 s after send; charge assumed $1.00 (reserve); proof receipts/attempt-reconciliation-c6d99687-lost-response.json; fix = 240 s timeout + runner auto-reconcile (commit 14f6122)
+
+- 2026-10-27T17:25:33.565Z retry nonce 02.dossier_sections:C2 → 5 after HOLD (sec09-rules-of-the-road); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T17:25:33.661Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:9 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T17:26:34.472Z retry nonce 02.dossier_sections:A → 1 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.DEPTH_FLOOR=FAIL
+
+- 2026-10-27T17:26:34.571Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:10 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.MERGE_DETERMINISTIC=FAIL,02.DEPTH_FLOOR=FAIL
+
+- 2026-10-27T17:26:53.916Z retry nonce 02.dossier_sections:A → 2 after HOLD (sec09-rules-of-the-road); non-PASS: 02.DEPTH_FLOOR=FAIL
+
+- 2026-10-27T17:27:15.305Z retry nonce 02.dossier_sections:A → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 02.DEDICATED_SURFACE=FAIL, 02.DEPTH_FLOOR=FAIL
+
+- 2026-10-27T17:27:15.387Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:11 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.DEDICATED_SURFACE=FAIL,02.DEPTH_FLOOR=FAIL
+
+- 2026-10-27T17:27:47.044Z retry nonce 02.dossier_sections:A → 4 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL
+
+- 2026-10-27T17:28:13.425Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:12 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T17:28:30.937Z retry nonce 02.dossier_sections:B → 1 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.DEDICATED_SURFACE=FAIL
+
+- 2026-10-27T17:28:45.400Z retry nonce 02.dossier_sections:B → 2 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.DEDICATED_SURFACE=FAIL, 02.CORPUS_STABILITY=FAIL
+
+- 2026-10-27T17:28:45.485Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:13 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.MERGE_DETERMINISTIC=FAIL,02.DEDICATED_SURFACE=FAIL,02.CORPUS_STABILITY=FAIL

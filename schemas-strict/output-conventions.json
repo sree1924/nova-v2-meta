@@ -25,7 +25,9 @@
       "sections_char_budget": "HARD CAP: each sections[].markdown must stay BELOW 12,000 Unicode code points (the validator treats >= 12,000 as truncated and FAILs). Target 6,000–9,500 for section C: one FACT_ID block per fact, each block 2–4 lines (statement, why it matters, source) — terse, no repetition, no preamble paragraphs. If the selected pages hold more facts than fit, keep every fact but shorten the explanations; never drop facts to save space and never pad.",
       "g_matrix_on_partial": "When the chunk does not include section G (e.g. assigned_dossier_parts [\"C\"]), emit g_matrix as an EMPTY array []. The DoD matrix is produced only with part G.",
       "merge_order_across_parts": "Within your envelope, merge_seq is 1..N by document order. The dossier-wide order is NOT yours to encode: the validator/compiler merge parts in canonical section order A,B,C,C2,D,E,E2,F,G, then by merge_seq inside each section. Never continue another part's numbering.",
-      "high_yield_on_C2": "C2 is a knowledge continuation of C: when you emit C2 alone, its chunks carry a domain label and high_yield_ranked covers that domain (chunk_id must be one of your C2 chunks)."
+      "high_yield_on_C2": "C2 is a knowledge continuation of C: when you emit C2 alone, its chunks carry a domain label and high_yield_ranked covers that domain (chunk_id must be one of your C2 chunks).",
+      "depth_floor_numbers": "HARD MINIMUMS per chunk (inputData.depth_floor, graded by 02.DEPTH_FLOOR): section A markdown >= 400 code points; section C >= 2500 code points AND >= 10 FACT_ID blocks; every other section >= 200 code points. Count before you emit; pad with substance (more rules, exceptions, definitions from the pages), never filler.",
+      "exam_facts_by_part": "Only part A authors exam_facts (exam_name, issuing_body, edition, … with status verified when restating safe_run_config.exam_facts, else unknown). Every other part emits each exam_facts entry as {value:null, status:unknown, source_page:null} — not asserted — so the merge never sees two different authored values."
     }
   }
 }
