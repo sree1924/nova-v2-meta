@@ -95,7 +95,7 @@ function reconcileLostResponse(stageId) {
     disposition: 'attempt → failed, reservation → reported at the reserve (worst case), model_call → failed/LOST_RESPONSE; task → retry_wait|failed; the part is re-dispatched as a new logical task if still needed',
     authority: 'standing authority (founder, $30 cap, no per-call ceremony)', founder_words: standing.founder_words,
     recorded_by: { actor_id: 'claude-code-runner', session_id: EXECUTOR }, recorded_at: new Date().toISOString() });
-  const proofRef = { path: rel, sha256: sha(fs.readFileSync(path.join(ROOT, rel))) };
+  const proofRef = { path: path.posix.relative(RUN, rel), sha256: sha(fs.readFileSync(path.join(ROOT, rel))) }; // run-dir relative for the ledger
   fs.appendFileSync(path.join(ROOT, RUN, 'jams.md'), `\n- ${new Date().toISOString()} lost-response reconciliation ${row.attempt_id.slice(0, 24)} (${stageId}, ${section}): charge assumed $${(row.reserved_microusd / 1e6).toFixed(2)}; proof ${rel}\n`);
   return { attemptId: row.attempt_id, proofRef };
 }
@@ -116,7 +116,7 @@ async function runStage(stageId, partIds) {
     catch (e) {
       if (/LINEAGE_ATTEMPT_LIMIT/.test(e.message) && resets < maxResets) { resets++; const to = resetLineage(stageId, `attempt limit after HOLDs; last non-PASS: ${(global.__last ?? []).join(',')}`); console.log(`  lineage → ${to} (reset ${resets}/${maxResets})`); continue; }
       if (/not eligible for a new attempt/.test(e.message)) { bumpRetryNonce(stageId, partIds, global.__last ?? ['blocked_task']); continue; }
-      if (/SEQUENTIAL_TASK_BUSY/.test(e.message)) {
+      if (/SEQUENTIAL_TASK_BUSY|Rebind is blocked while an attempt or uncertain provider result remains active/.test(e.message)) {
         // Another task is parked unknown_provider_result (lost response on an earlier part): reconcile it, then retry this dispatch.
         const lost = reconcileLostResponse(stageId);
         if (!lost) { console.log(`  ERROR ${label}: ${e.message.slice(0, 200)} (no unknown attempt found to reconcile)`); return { status: 'ERROR', error: e.message }; }

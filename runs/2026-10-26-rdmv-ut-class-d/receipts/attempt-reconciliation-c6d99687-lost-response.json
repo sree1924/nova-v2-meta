@@ -1,0 +1,25 @@
+{
+  "schema_version": "nova-attempt-reconciliation.v0.4.0",
+  "run_id": "2026-10-26-rdmv-ut-class-d",
+  "task_id": "task_66351e35ddb60b8da798149b4e2132c2cbc3410d90e4ca6a62263979990f87f6",
+  "attempt_id": "attempt_c6d996879b3221c064ac127d533f7634a2ec2ecfb94bb02034a0ae7dae9ab752",
+  "kind": "lost_response",
+  "request_sent": true,
+  "response_received": false,
+  "no_request_sent": false,
+  "charge_assumed_microusd": 1000000,
+  "evidence": {
+    "dispatching_at": "2026-10-27T17:14:58.100Z",
+    "unknown_at": "2026-10-27T17:15:58.139Z",
+    "elapsed_ms": 60039,
+    "provider_unknown_file": "artifacts/task_66351e35…/attempt_c6d99687…/provider-unknown.json — error_code UNKNOWN_PROVIDER_RESULT, no http_status, no usage",
+    "raw_response_present": false,
+    "reading": "meta-client.mjs timeoutMs was 60000; the transport aborted at exactly 60 s after send (part C dossier generation with a 30k reasoning budget exceeds 60 s). The request reached the provider; the response was never read. Meta may have generated and charged; no usage is known, so the full $1 reserve is booked as spent (worst case).",
+    "fix_shipped": "meta-client.mjs default timeout 240 s (ceiling 300 s) + cause capture; run-utah.mjs auto-reconciles lost responses and skips already-accepted parts (commit 14f6122)"
+  },
+  "disposition": "attempt → failed, reservation → reported at the reserve ($1.00, worst case), model_call → failed/LOST_RESPONSE; task → retry_wait|failed. Part C is already accepted on lineage 5, so this task is never re-dispatched.",
+  "authority": "standing authority (founder, $30 cap, no per-call ceremony) — runs/2026-10-26-rdmv-ut-class-d/approvals/STANDING-AUTHORITY-utah-full-run.json",
+  "jam_ref": "runs/2026-10-26-rdmv-ut-class-d/jams.md (2026-10-27T17:15Z entries)",
+  "recorded_by": { "actor_id": "claude-code-runner", "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03", "model": "claude-fable-5-1" },
+  "recorded_at": "2026-10-27T17:24:00Z"
+}

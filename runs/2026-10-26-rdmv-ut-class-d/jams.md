@@ -37,3 +37,5 @@
 - 2026-10-27T17:14:57.970Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:8 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
 
 - 2026-10-27T17:15:58.161Z retry nonce 02.dossier_sections:C → 1 after HOLD (sec09-rules-of-the-road); non-PASS: unknown_provider_result
+
+- 2026-10-27T17:26:00Z lost-response reconciliation attempt_c6d99687 (02 part C, lineage 8): client timeout 60 s after send; charge assumed $1.00 (reserve); proof receipts/attempt-reconciliation-c6d99687-lost-response.json; fix = 240 s timeout + runner auto-reconcile (commit 14f6122)

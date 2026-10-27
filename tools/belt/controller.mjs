@@ -287,7 +287,7 @@ export async function reconcileAttempt({projectRoot=PROJECT_ROOT,runConfigPath,e
     const previous=ledger.getRun(loaded.config.run_id);
     fence=ledger.claimRun({runId:loaded.config.run_id,bindingSha256:previous?.binding_sha256??loaded.configRef.sha256,mode:previous?.mode??'dry_run',budget:previous?.budget_json??planBudget(loaded.config)});
     // Proof kind selects the reconciliation: no_request_sent (pre-send throw, $0) or request_sent+response lost (charge assumed).
-    const proof=JSON.parse(fs.readFileSync(path.resolve(projectRoot,proofRef.path),'utf8'));
+    const proof=JSON.parse(fs.readFileSync(path.resolve(loaded.runDir,proofRef.path),'utf8')); // proof paths are run-dir relative (ledger #verified)
     const result=proof.no_request_sent===true?ledger.reconcileAttemptNoRequest(fence,{attemptId,proofRef}):ledger.reconcileAttemptLostResponse(fence,{attemptId,proofRef});
     return{...result,model_calls_new:0,content_dispatched:false};
   }finally{if(fence&&ledger)ledger.releaseRun(fence);ledger?.close();lockHandle.release();}
