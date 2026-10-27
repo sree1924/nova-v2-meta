@@ -185,7 +185,7 @@ export function emitAuthoringPacket({previousNonPass=[],...options}){
   const paths=authoringPaths(p.runDir,key);
   for(const d of [path.dirname(paths.inbox),path.dirname(paths.outbox),paths.done])fs.mkdirSync(d,{recursive:true});
   const rel=f=>path.relative(p.projectRoot,f).replace(/\\/g,'/');
-  const packet={schema_version:'nova-muse-authoring-packet.v1',key,run_id:p.config.run_id,stage_id:p.stageId,section_ids:p.sectionIds,part_ids:p.partIds,retry_nonce:nonce,
+  const packet={schema_version:'nova-muse-authoring-packet.v1',key,run_id:p.config.run_id,candidate_lineage_id:p.config.candidate_lineage_id,input_manifest_sha256:p.context.input_manifest_sha256,stage_id:p.stageId,section_ids:p.sectionIds,part_ids:p.partIds,retry_nonce:nonce,
     authoring:{mode:'muse_code_subscription',model:p.config.producer.model,billing:'Muse Code subscription (operator tokens); no Model API call; ledger actual = $0',
       instructions:'You ARE the producer model for this request. Read request.messages exactly as the Model API would (system, then user). Obey request.response_format.json_schema.schema STRICTLY: every required key, no extra keys, exact enums and types. Obey the output_conventions and lineage_to_copy inside the user message. Every statement comes from the handbook text in the request; never invent. If previous_non_pass lists check ids, they failed on the last attempt: fix exactly those. Write the artifact as `artifact` in the outbox file named below, with this packet file\'s sha256 as packet_sha256.',
       write_outbox_to:rel(paths.outbox),
@@ -195,7 +195,7 @@ export function emitAuthoringPacket({previousNonPass=[],...options}){
   const body=JSON.stringify(packet,null,2)+'\n';
   fs.writeFileSync(paths.inbox,body);
   const packetSha=sha256(Buffer.from(body));
-  fs.writeFileSync(paths.next,JSON.stringify({key,inbox:rel(paths.inbox),outbox:rel(paths.outbox),packet_sha256:packetSha,stage_id:p.stageId,section_ids:p.sectionIds,part_ids:p.partIds,retry_nonce:nonce,previous_non_pass:previousNonPass,required_checks:p.requiredChecks,emitted_at:packet.emitted_at},null,2)+'\n');
+  fs.writeFileSync(paths.next,JSON.stringify({key,inbox:rel(paths.inbox),outbox:rel(paths.outbox),packet_sha256:packetSha,candidate_lineage_id:p.config.candidate_lineage_id,input_manifest_sha256:p.context.input_manifest_sha256,stage_id:p.stageId,section_ids:p.sectionIds,part_ids:p.partIds,retry_nonce:nonce,previous_non_pass:previousNonPass,required_checks:p.requiredChecks,emitted_at:packet.emitted_at},null,2)+'\n');
   return{status:p.preflight.status==='PASS'?'EMITTED':'HOLD',key,inbox:paths.inbox,outbox:paths.outbox,packet_sha256:packetSha,request_bytes:packet.request_bytes,blockers:p.preflight.blockers};
 }
 // Reads Muse's outbox for a key without throwing: {ok, reason, outbox}. The runner calls this BEFORE dispatching so a missing or

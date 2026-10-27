@@ -110,6 +110,12 @@ function sectionRegistries() {
     } finally { db.close(); }
   } catch { return null; }
 }
+// Attempts already booked on (lineage, stage) — the C28 cap counts these across all logical tasks of the stage.
+function lineageAttempts(stageId, lineageId) {
+  const db = new DatabaseSync(path.join(ROOT, RUN, 'ledger/run.sqlite'), { readOnly: true });
+  try { return db.prepare('select count(*) c from attempts a join tasks t on t.task_id=a.task_id where t.lineage_id=? and t.stage_id=?').get(lineageId, stageId).c; }
+  finally { db.close(); }
+}
 function reconcileLostResponse(stageId) {
   const db = new DatabaseSync(path.join(ROOT, RUN, 'ledger/run.sqlite'), { readOnly: true });
   let row, events, unknownFile;
@@ -150,12 +156,35 @@ async function runStage(stageId, partIds) {
     // packet and hand the step back (WAITING). The ingest goes through dispatchStage unchanged, with a file transport.
     let transport = null, outboxKey = null;
     if (stepMode) {
-      const nonce = readJ(`${RUN}/run-config.json`).execution?.retry_nonces?.[retryNonceKey(stageId, partIds, [section])] ?? 0;
+      const cfg0 = readJ(`${RUN}/run-config.json`);
+      const nonce = cfg0.execution?.retry_nonces?.[retryNonceKey(stageId, partIds, [section])] ?? 0;
       const key = authoringKey(stageId, [section], partIds, nonce);
-      const got = readAuthoringOutbox(path.join(ROOT, RUN), key);
+      const ap = authoringPaths(path.join(ROOT, RUN), key);
+      const maxPerLineage = cfg0.limits?.max_automatic_attempts_per_logical_task ?? 2;
+      let got = readAuthoringOutbox(path.join(ROOT, RUN), key);
+      // The lineage attempt cap (C28: 2 attempts per lineage+stage) trips on every third task; in Model-API mode the runner
+      // resets the lineage and re-dispatches in the same loop. In authoring mode the outbox was written against the OLD
+      // lineage block, so ingesting it would fail 02.LINEAGE by construction (A n0 / B n0, 2026-10-27 23:35Z). So: reset the
+      // lineage BEFORE emitting when the cap is already spent, and treat an outbox authored under a superseded lineage as stale.
+      let previousNonPass = global.__last ?? [];
+      if (got.ok) {
+        let packetLineage = null;
+        try { packetLineage = JSON.parse(fs.readFileSync(ap.inbox, 'utf8')).candidate_lineage_id ?? null; } catch {}
+        const stale = (packetLineage && packetLineage !== cfg0.candidate_lineage_id) || lineageAttempts(stageId, cfg0.candidate_lineage_id) >= maxPerLineage;
+        if (stale) {
+          try { fs.renameSync(ap.outbox, path.join(ap.done, `${key}.stale_lineage.${Date.now()}.json`)); } catch {}
+          console.log(`  ${label}: outbox authored under ${packetLineage ?? 'an exhausted lineage'} — lineage moves on; re-emitting the packet (content may be reused, lineage block must be re-copied)`);
+          previousNonPass = ['LINEAGE_RESET: lineage_to_copy changed since you authored; re-copy candidate_lineage_id and input_manifest_sha256 from THIS packet (your content can stay)'];
+          got = { ok: false, reason: 'stale_lineage' };
+        }
+      }
       if (!got.ok) {
-        if (got.reason !== 'outbox_absent') console.log(`  ${label}: outbox unusable (${got.reason}) — re-emitting packet`);
-        const e = emitAuthoringPacket({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, previousNonPass: global.__last ?? [] });
+        if (lineageAttempts(stageId, readJ(`${RUN}/run-config.json`).candidate_lineage_id) >= maxPerLineage) {
+          const to = resetLineage(stageId, `proactive reset before authoring packet ${key} (lineage attempts exhausted)`);
+          console.log(`  lineage → ${to} (proactive, before authoring)`);
+        }
+        if (!['outbox_absent', 'stale_lineage'].includes(got.reason)) console.log(`  ${label}: outbox unusable (${got.reason}) — re-emitting packet`);
+        const e = emitAuthoringPacket({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, previousNonPass });
         const rel = (f) => path.relative(ROOT, f).replace(/\\/g, '/');
         console.log(`  ${label}: ${e.status} packet ${key} (${Math.round(e.request_bytes / 1024)} KB)${e.blockers.length ? ' blockers ' + e.blockers.join(',') : ''}`);
         console.log(`    → read ${rel(e.inbox)}, author the artifact under the Muse Code subscription, write ${rel(e.outbox)}, re-run this command`);
