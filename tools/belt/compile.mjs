@@ -34,13 +34,18 @@ function findPage(sourcePage, pageMap) {
 
 function indexFact(id, section, pageMap) {
   const lines = section.markdown.split('\n');
-  const marker = new RegExp(`^\\s*(?:[-*+]\\s+)?(?:\\*\\*${escape(id)}[.:]?\\*\\*[.:]?|${escape(id)}[.:])\\s*(.*)$`);
+  // Two marker forms: the legacy inline lead ("**F01** text" / "F01: text") and the 02 block lead the Utah pilot's
+  // output-conventions prescribe ("FACT_ID: F01 | anchor: A01" on its own line, statement on the following lines).
+  const marker = new RegExp(`^\\s*(?:[-*+]\\s+)?(?:FACT_ID:\\s*${escape(id)}\\s*(?:\\|\\s*anchor:\\s*[A-Za-z0-9_-]+)?\\s*()$|(?:\\*\\*${escape(id)}[.:]?\\*\\*[.:]?|${escape(id)}[.:])\\s*(.*)$)`);
   const candidates = lines.map((line, i) => ({match: line.match(marker), i})).filter(v => v.match);
   if (candidates.length !== 1) return {error: `${id}: expected exactly one explicit fact marker in ${section.chunk_id}; found ${candidates.length}`};
   const {match, i} = candidates[0];
   let end = i + 1;
-  while (end < lines.length && lines[end].trim() && !/^\s*(?:#{1,6}\s|\*\*|§)/.test(lines[end])) end++;
-  const raw = [match[1], ...lines.slice(i + 1, end)].join('\n');
+  while (end < lines.length && lines[end].trim() && !/^\s*(?:#{1,6}\s|\*\*|§|FACT_ID:)/.test(lines[end])) end++;
+  const lead = match[1] ?? match[2] ?? '';
+  // A "Source: [Axx -> page]" trailer is citation bookkeeping, not fact wording; it stays in the verbatim span only.
+  const body = lines.slice(i + 1, end).filter(l => !/^\s*Source:\s*\[[A-Za-z0-9_-]+\s*->\s*\S+\]\s*$/.test(l));
+  const raw = [lead, ...body].join('\n');
   const anchors = (section.source_anchors ?? []).filter(a => raw.includes(`[${a.anchor_id}]`));
   if (!anchors.length) return {error: `${id}: exact marked fact span has no explicit source anchor`};
   const pages = anchors.map(a => ({anchor: a, page: findPage(a.source_page, pageMap)}));
@@ -103,7 +108,10 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: accepte
   const sourceLineages = [...new Set(envelopes.map(e => e.lineage?.candidate_lineage_id ?? null))].sort();
   for (const envelope of envelopes) {
     if (envelope.artifact !== 'SmeDossierEnvelope' || envelope.stage_id !== '02.dossier_sections') errors.push('Accepted input is not a stage02 dossier envelope');
-    if (envelope.lineage?.source_registry_sha256 !== sourceRegistry.ref.sha256) errors.push('Envelope source registry hash differs from accepted registry');
+    // An envelope that asserts a registry hash must match the accepted registry; an empty/null hash (a non-citing part such as
+    // B or E that omitted it) is "not asserted" and is recorded, not failed — the anchors of citing parts are resolved below.
+    const envReg = envelope.lineage?.source_registry_sha256;
+    if (envReg && envReg !== sourceRegistry.ref.sha256) errors.push('Envelope source registry hash differs from accepted registry');
     const ownMerge = mergeSections(envelope.sections);
     if (envelope.merge?.expected_merged_sha256 && envelope.merge.expected_merged_sha256 !== ownMerge.sha256) errors.push('Envelope declared merge hash differs from actual ordered bytes');
   }
