@@ -32,7 +32,7 @@ const readJ = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const writeJ = (p, v) => fs.writeFileSync(path.join(ROOT, p), JSON.stringify(v, null, 2) + '\n');
 const standing = readJ(`${RUN}/approvals/STANDING-AUTHORITY-utah-full-run.json`);
 const { dispatchStage, retryNonceKey } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/dispatch.mjs')).href);
-const { compileAcceptedDossier } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/controller.mjs')).href);
+const { compileAcceptedDossier, reconcileAttempt } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/controller.mjs')).href);
 const { DatabaseSync } = await import('node:sqlite');
 
 const STAGE_IDS = { '02': '02.dossier_sections', '03': '03.combined_kg', '04': '04.cards', '06': '06.exam_bank', '05.sessions': '05.sessions', '05.card_scripts': '05.card_scripts' };
@@ -68,6 +68,37 @@ function bumpRetryNonce(stageId, partIds, np) {
   fs.appendFileSync(path.join(ROOT, RUN, 'jams.md'), `\n- ${new Date().toISOString()} retry nonce ${key} → ${cfg.execution.retry_nonces[key]} after HOLD (${section}); non-PASS: ${np.join(', ')}\n`);
   console.log(`  retry → ${key} nonce ${cfg.execution.retry_nonces[key]}`);
 }
+// Parts already accepted under ANY task identity/lineage (the validator closure may have been resealed since) are not re-bought.
+function acceptedParts(stageId) {
+  const db = new DatabaseSync(path.join(ROOT, RUN, 'ledger/run.sqlite'), { readOnly: true });
+  try { return db.prepare("select identity_json from tasks where stage_id=? and status='accepted'").all(stageId).map(r => JSON.stringify(JSON.parse(r.identity_json)?.config?.dossier_parts ?? [])); }
+  finally { db.close(); }
+}
+// A request that was sent but whose response was lost (client timeout/abort) parks the task as unknown_provider_result and
+// blocks every other dispatch (SEQUENTIAL_TASK_BUSY). Reconcile it honestly: charge assumed = the full reserve (worst case).
+function reconcileLostResponse(stageId) {
+  const db = new DatabaseSync(path.join(ROOT, RUN, 'ledger/run.sqlite'), { readOnly: true });
+  let row, events, unknownFile;
+  try {
+    row = db.prepare("select a.attempt_id, a.task_id, r.reserved_microusd from attempts a join reservations r on r.attempt_id=a.attempt_id where a.status='unknown_provider_result' order by a.created_at desc limit 1").get();
+    if (!row) return null;
+    events = db.prepare("select type, occurred_at, payload_json from events where attempt_id=? and type in ('model_call.dispatching','model_call.unknown_provider_result') order by occurred_at").all(row.attempt_id);
+  } finally { db.close(); }
+  const dir = path.join(ROOT, RUN, 'artifacts', row.task_id, row.attempt_id);
+  try { unknownFile = JSON.parse(fs.readFileSync(path.join(dir, 'provider-unknown.json'), 'utf8')); } catch { unknownFile = null; }
+  const t0 = events.find(e => e.type === 'model_call.dispatching')?.occurred_at, t1 = events.find(e => e.type === 'model_call.unknown_provider_result')?.occurred_at;
+  const rel = `${RUN}/receipts/attempt-reconciliation-${row.attempt_id.slice(8, 16)}-lost-response.json`;
+  writeJ(rel, { schema_version: 'nova-attempt-reconciliation.v0.4.0', run_id: standing.run_id, task_id: row.task_id, attempt_id: row.attempt_id, kind: 'lost_response',
+    request_sent: true, response_received: false, no_request_sent: false, charge_assumed_microusd: row.reserved_microusd,
+    evidence: { dispatching_at: t0 ?? null, unknown_at: t1 ?? null, elapsed_ms: t0 && t1 ? Date.parse(t1) - Date.parse(t0) : null, provider_unknown_file: unknownFile, raw_response_present: fs.existsSync(path.join(dir, 'raw-response.json')),
+      reading: 'transport threw after send (client timeout/abort); provider may have generated and charged; no usage is known, so the full reserve is booked as spent' },
+    disposition: 'attempt → failed, reservation → reported at the reserve (worst case), model_call → failed/LOST_RESPONSE; task → retry_wait|failed; the part is re-dispatched as a new logical task if still needed',
+    authority: 'standing authority (founder, $30 cap, no per-call ceremony)', founder_words: standing.founder_words,
+    recorded_by: { actor_id: 'claude-code-runner', session_id: EXECUTOR }, recorded_at: new Date().toISOString() });
+  const proofRef = { path: rel, sha256: sha(fs.readFileSync(path.join(ROOT, rel))) };
+  fs.appendFileSync(path.join(ROOT, RUN, 'jams.md'), `\n- ${new Date().toISOString()} lost-response reconciliation ${row.attempt_id.slice(0, 24)} (${stageId}, ${section}): charge assumed $${(row.reserved_microusd / 1e6).toFixed(2)}; proof ${rel}\n`);
+  return { attemptId: row.attempt_id, proofRef };
+}
 function nonPass(result) {
   try { if (result.validation?.path) { const v = JSON.parse(fs.readFileSync(result.validation.path, 'utf8')); return v.checks.filter(c => c.status !== 'PASS').map(c => `${c.check_id}=${c.status}`); } } catch {}
   return [result.reason ?? result.status];
@@ -85,12 +116,27 @@ async function runStage(stageId, partIds) {
     catch (e) {
       if (/LINEAGE_ATTEMPT_LIMIT/.test(e.message) && resets < maxResets) { resets++; const to = resetLineage(stageId, `attempt limit after HOLDs; last non-PASS: ${(global.__last ?? []).join(',')}`); console.log(`  lineage → ${to} (reset ${resets}/${maxResets})`); continue; }
       if (/not eligible for a new attempt/.test(e.message)) { bumpRetryNonce(stageId, partIds, global.__last ?? ['blocked_task']); continue; }
+      if (/SEQUENTIAL_TASK_BUSY/.test(e.message)) {
+        // Another task is parked unknown_provider_result (lost response on an earlier part): reconcile it, then retry this dispatch.
+        const lost = reconcileLostResponse(stageId);
+        if (!lost) { console.log(`  ERROR ${label}: ${e.message.slice(0, 200)} (no unknown attempt found to reconcile)`); return { status: 'ERROR', error: e.message }; }
+        const rc = await reconcileAttempt({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, attemptId: lost.attemptId, proofRef: lost.proofRef });
+        console.log(`  reconciled lost response ${lost.attemptId.slice(0, 24)}: ${rc.status} charge assumed $${rc.charge_assumed_usd}; task ${rc.task_status}`);
+        continue;
+      }
       console.log(`  ERROR ${label}: ${e.message.slice(0, 200)}`); return { status: 'ERROR', error: e.message };
     }
     const np = nonPass(r); global.__last = np;
     console.log(`  ${label}: ${r.status}${r.estimated_usd != null ? ` $${r.estimated_usd.toFixed(3)}` : ''}${r.status !== 'accepted' ? ' — ' + np.join(', ') : ''}  [spent $${spentUsd().toFixed(3)}]`);
     if (r.status === 'accepted' || r.reused) return r;
-    if (r.reason === 'unknown_provider_result_requires_reconciliation') return { status: 'NEEDS_RECONCILE' };
+    if (r.reason === 'unknown_provider_result_requires_reconciliation' || r.reason === 'unknown_provider_result') {
+      const lost = reconcileLostResponse(stageId);
+      if (!lost) return { status: 'NEEDS_RECONCILE' };
+      const rc = await reconcileAttempt({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, attemptId: lost.attemptId, proofRef: lost.proofRef });
+      console.log(`  reconciled lost response ${lost.attemptId.slice(0, 24)}: ${rc.status} charge assumed $${rc.charge_assumed_usd}; task ${rc.task_status}`);
+      bumpRetryNonce(stageId, partIds, ['LOST_RESPONSE']);
+      continue;
+    }
     // HOLD: the ledger marks the logical task `blocked`, and a blocked task never gets a second attempt. A retry is a NEW
     // logical task (bounded by the lineage attempt cap, which dispatchStage still enforces → LINEAGE_ATTEMPT_LIMIT → reset path).
     bumpRetryNonce(stageId, partIds, np);
@@ -107,7 +153,9 @@ for (const st of stages) {
   }
   const stageId = STAGE_IDS[st] ?? st;
   const partList = stageId === '02.dossier_sections' ? parts.map(p => [p]) : [[]];
+  const done = acceptedParts(stageId);
   for (const partIds of partList) {
+    if (done.includes(JSON.stringify(partIds))) { console.log(`  ${stageId}${partIds.length ? ' part ' + partIds.join('+') : ''}: already accepted — skipped`); continue; }
     const r = await runStage(stageId, partIds);
     if (!['accepted'].includes(r.status) && !r.reused) { console.log(`STOP at ${stageId} ${partIds.join('+')}: ${r.status}`); process.exit(1); }
   }

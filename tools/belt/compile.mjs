@@ -69,7 +69,19 @@ function indexFact(id, section, pageMap) {
 /** Accepted refs are supplied by the controller from the ledger, never inferred
  * from file presence or PASS text inside an output. Relative paths use projectRoot.
  */
-export function compileDossier({projectRoot, runRoot, acceptedEnvelopes = [], sourceRegistryRef, pageMapRef, overlayRef} = {}) {
+export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: acceptedEnvelopesIn = [], sourceRegistryRef, pageMapRef, overlayRef, candidateLineageId = null} = {}) {
+  // Per-part dispatch (JAM-UT-03) + lineage resets mean accepted parts legitimately come from several lineages, and a part may be
+  // re-accepted under a new task identity (validator closure reseal). Rule: one envelope per assigned part set — the latest
+  // accepted wins (ledger accepted_at, then task_id for determinism); lineages are recorded, not required to match.
+  const byParts = new Map();
+  for (const r of acceptedEnvelopesIn) {
+    const parts = (() => { try { return JSON.stringify(JSON.parse(r.identity ?? 'null')?.config?.dossier_parts ?? []); } catch { return '[]'; } })();
+    const key = parts === '[]' ? 'whole:' + (r.task_id ?? r.sha256) : parts;
+    const prev = byParts.get(key);
+    if (!prev || String(r.accepted_at ?? '') > String(prev.accepted_at ?? '') || (String(r.accepted_at ?? '') === String(prev.accepted_at ?? '') && String(r.task_id ?? '') > String(prev.task_id ?? ''))) byParts.set(key, r);
+  }
+  const acceptedEnvelopes = [...byParts.values()];
+  const supersededEnvelopes = acceptedEnvelopesIn.filter(r => !acceptedEnvelopes.includes(r)).map(r => ({path: r.path, sha256: r.sha256, task_id: r.task_id ?? null}));
   if (!projectRoot || !runRoot) throw new Error('projectRoot and isolated runRoot are required');
   projectRoot = fs.realpathSync(projectRoot);
   runRoot = inside(path.join(projectRoot, 'runs'), runRoot);
@@ -86,8 +98,9 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes = [], so
   }
   const envelopes = loaded.map(l => l.value);
   const errors = [];
-  const identities = new Set(envelopes.map(e => canonicalJson([e.probe, e.lineage?.candidate_lineage_id])));
-  if (identities.size !== 1) errors.push('Accepted envelopes have conflicting probe/candidate lineage');
+  const probes = new Set(envelopes.map(e => e.probe));
+  if (probes.size !== 1) errors.push('Accepted envelopes have conflicting probe');
+  const sourceLineages = [...new Set(envelopes.map(e => e.lineage?.candidate_lineage_id ?? null))].sort();
   for (const envelope of envelopes) {
     if (envelope.artifact !== 'SmeDossierEnvelope' || envelope.stage_id !== '02.dossier_sections') errors.push('Accepted input is not a stage02 dossier envelope');
     if (envelope.lineage?.source_registry_sha256 !== sourceRegistry.ref.sha256) errors.push('Envelope source registry hash differs from accepted registry');
@@ -120,7 +133,8 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes = [], so
     facts: Object.fromEntries(factEntries.sort(([a], [b]) => a.localeCompare(b)))};
   const blueprint = {artifact_type: 'CompiledDossierPilot', schema_version: '0.4.0', role_id: '16', status,
     canonical_blueprint_validation_claimed: false, probe: envelopes[0].probe,
-    candidate_lineage_id: envelopes[0].lineage?.candidate_lineage_id ?? null,
+    candidate_lineage_id: candidateLineageId ?? envelopes[0].lineage?.candidate_lineage_id ?? null,
+    source_lineages: sourceLineages, superseded_envelopes: supersededEnvelopes,
     input_manifest_sha256: inputManifestHash, input_refs: inputRefs,
     source_registry_sha256: sourceRegistry.ref.sha256, page_map_sha256: map.ref.sha256,
     merge: {order: merged.order, sha256: merged.sha256, rule: 'merge_seq_ascending_concat_no_separator'},

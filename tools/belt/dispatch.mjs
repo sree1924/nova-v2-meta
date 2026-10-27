@@ -43,7 +43,7 @@ export function acceptedRuntimeRefs(snapshot,projectRoot,runDir){
     if(validation.status!=='PASS'||acceptance.status!=='PASS'||validation.output_sha256!==main.sha256||acceptance.output_sha256!==main.sha256)throw new Error('Stale accepted artifact receipts.');
     if(Array.isArray(validation.companions)){
       for(const companion of validation.companions||[]){const file=verifyRef(companion,runDir);out.push({...ref(companion),path:file,kind:companion.kind,stage_id:task.stage_id,accepted:true});}
-    }else out.push({...ref(main),path:outputFile,kind:task.stage_id,stage_id:task.stage_id,accepted:true});
+    }else out.push({...ref(main),path:outputFile,kind:task.stage_id,stage_id:task.stage_id,accepted:true,accepted_at:task.updated_at,task_id:task.task_id,identity:task.identity_json??null});
   }
   return out;
 }
@@ -196,7 +196,7 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
       ledger.settleReservation(fence,{reservationId,status:'released',evidenceRef:failure});ledger.failAttempt(fence,{attemptId,status:'failed',errorRef:failure});
       return{status:'HOLD',reason:'failed_pre_send',detail:String(error.message).slice(0,200),raw_ref:failure};
     }
-    const failure=writeImmutable(p.runDir,folder+'/provider-unknown.json',{status:'unknown_provider_result',error_code:error.code||'UNKNOWN_PROVIDER_RESULT',request_sha256:requestHash},{lockHandle});
+    const failure=writeImmutable(p.runDir,folder+'/provider-unknown.json',{status:'unknown_provider_result',error_code:error.code||'UNKNOWN_PROVIDER_RESULT',request_sha256:requestHash,cause_name:error.cause_name??null,cause_message:error.cause_message??null,elapsed_ms:error.elapsed_ms??null,timeout_ms:error.timeout_ms??null},{lockHandle});
     ledger.completeModelCall(fence,{callId,status:'unknown_provider_result',usage:null,receiptRef:failure,responseMetadata:{error_code:error.code||'UNKNOWN_PROVIDER_RESULT'}});
     ledger.settleReservation(fence,{reservationId,status:'unknown_provider_result',evidenceRef:failure});ledger.failAttempt(fence,{attemptId,status:'unknown_provider_result',errorRef:failure});
     return{status:'HOLD',reason:'unknown_provider_result',raw_ref:failure};

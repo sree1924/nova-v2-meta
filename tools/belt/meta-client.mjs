@@ -1,8 +1,10 @@
 import {assertDispatchAllowed} from './execution-policy.mjs';
 
 // No dotenv, SDK or top-level network activity. Every request checks authority first.
-export function createMetaClient({projectRoot,config,go=false,mode='dry_run',stageId,roleId,sectionIds=[],approvalRef,nowUtc,maxUsd,runDir,transport=globalThis.fetch,keyEnvName='MODEL_API_KEY',clock=()=>new Date().toISOString(),timeoutMs=60_000}={}) {
-  if(!Number.isInteger(timeoutMs)||timeoutMs<1||timeoutMs>60_000)throw new Error('Provider timeout must be bounded at 1..60000 milliseconds');
+// Timeout: run-config limits.provider_timeout_ms (default 240 s) — a part-C dossier call with 30k reasoning tokens exceeded the
+// old 60 s bound on 2026-10-27 (attempt c6d99687, parked unknown). Hard ceiling 300 s.
+export function createMetaClient({projectRoot,config,go=false,mode='dry_run',stageId,roleId,sectionIds=[],approvalRef,nowUtc,maxUsd,runDir,transport=globalThis.fetch,keyEnvName='MODEL_API_KEY',clock=()=>new Date().toISOString(),timeoutMs=config?.limits?.provider_timeout_ms??240_000}={}) {
+  if(!Number.isInteger(timeoutMs)||timeoutMs<1||timeoutMs>300_000)throw new Error('Provider timeout must be bounded at 1..300000 milliseconds');
   const pinnedConfig=structuredClone(config);
   const bound={projectRoot,config:pinnedConfig,go,mode,stageId,roleId,sectionIds:structuredClone(sectionIds),approvalRef:structuredClone(approvalRef),nowUtc,maxUsd,runDir};
   return {
@@ -28,9 +30,10 @@ export function createMetaClient({projectRoot,config,go=false,mode='dry_run',sta
           method: 'POST', signal:dispatchSignal, headers: {'Content-Type': 'application/json', Authorization: 'Bearer ' + key}, body: JSON.stringify(request)
         });
         rawText = await response.text();
-      } catch {
+      } catch (cause) {
         const error = new Error('Provider result unknown; do not release the reservation or automatically retry.');
-        error.code = 'UNKNOWN_PROVIDER_RESULT'; throw error;
+        error.code = 'UNKNOWN_PROVIDER_RESULT'; error.cause_name=cause?.name??null; error.cause_message=String(cause?.message??'').slice(0,300);
+        error.elapsed_ms=Math.round(performance.now()-started); error.timeout_ms=timeoutMs; throw error;
       }
       let body;
       try { body = JSON.parse(rawText); } catch { body = null; }

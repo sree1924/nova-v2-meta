@@ -162,7 +162,7 @@ export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfig
   const envelopes=accepted.filter(a=>a.kind==='02.dossier_sections'),source=accepted.find(a=>a.kind==='source_registry'),pages=accepted.find(a=>a.kind==='page_map');
   if(!envelopes.length||!source||!pages)return{status:'HOLD',reason:'Accepted02 envelopes, registered source and page map are required.',model_calls:0};
   const overlay=pin(path.join(projectRoot,'contracts/pilot-overrides-v0.4.0.json'));
-  const result=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay});
+  const result=compileDossier({projectRoot,runRoot:loaded.runDir,acceptedEnvelopes:envelopes,sourceRegistryRef:source,pageMapRef:pages,overlayRef:overlay,candidateLineageId:loaded.config.candidate_lineage_id});
   if(result.status!=='PASS')return{status:'HOLD',errors:result.errors,model_calls:0};
   const lockHandle=acquireExecutorLock({runDir:loaded.runDir,runId:loaded.config.run_id,executorId});let ledger,fence;
   try{
@@ -286,7 +286,9 @@ export async function reconcileAttempt({projectRoot=PROJECT_ROOT,runConfigPath,e
     ledger=openLedger({dbPath:inside(loaded.runDir,loaded.config.execution?.ledger?.path||'ledger/run.sqlite'),lockHandle});
     const previous=ledger.getRun(loaded.config.run_id);
     fence=ledger.claimRun({runId:loaded.config.run_id,bindingSha256:previous?.binding_sha256??loaded.configRef.sha256,mode:previous?.mode??'dry_run',budget:previous?.budget_json??planBudget(loaded.config)});
-    const result=ledger.reconcileAttemptNoRequest(fence,{attemptId,proofRef});
+    // Proof kind selects the reconciliation: no_request_sent (pre-send throw, $0) or request_sent+response lost (charge assumed).
+    const proof=JSON.parse(fs.readFileSync(path.resolve(projectRoot,proofRef.path),'utf8'));
+    const result=proof.no_request_sent===true?ledger.reconcileAttemptNoRequest(fence,{attemptId,proofRef}):ledger.reconcileAttemptLostResponse(fence,{attemptId,proofRef});
     return{...result,model_calls_new:0,content_dispatched:false};
   }finally{if(fence&&ledger)ledger.releaseRun(fence);ledger?.close();lockHandle.release();}
 }

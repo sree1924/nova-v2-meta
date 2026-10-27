@@ -407,6 +407,31 @@ export class Ledger{
       this.#event(fence,{eventId:eventId??attemptId+':'+status,type:'attempt.'+status,taskId:task.task_id,attemptId,payload:{error_ref:errorRef,task_status:taskStatus,reserve_retained:status==='unknown_provider_result'}});return parseRow(this.#db.prepare('SELECT * FROM attempts WHERE attempt_id=?').get(attemptId));
     });
   }
+  /** Operator reconciliation of an attempt parked in unknown_provider_result when the request WAS sent but the response was
+   *  lost (client timeout / transport abort). The provider may have charged: the reservation is settled as `reported` at the
+   *  proof's charge_assumed_microusd (the runner passes the full reserve = worst case), so the cap absorbs it. Attempt → failed,
+   *  model_call → failed/LOST_RESPONSE, task → retry_wait|failed. Added 2026-10-27 by the runner (standing authority). */
+  reconcileAttemptLostResponse(fence,{attemptId,proofRef}={}){
+    const saved=this.#verified(proofRef,'Attempt reconciliation proof'),proof=JSON.parse(saved.bytes);
+    if(proof.schema_version!=='nova-attempt-reconciliation.v0.4.0'||proof.attempt_id!==attemptId||proof.request_sent!==true||proof.response_received!==false||!Number.isInteger(proof.charge_assumed_microusd)||proof.charge_assumed_microusd<0||!proof.evidence||!(proof.recorded_by?.actor_id||typeof proof.recorded_by==='string'))throw new Error('Lost-response proof is incomplete or not bound to this attempt');
+    return this.#transaction(()=>{this.#fence(fence);const attempt=this.#attempt(fence,attemptId),task=this.#task(fence,attempt.task_id);
+      if(task.active_attempt_id!==attemptId||attempt.executor_id!==fence.executorId)throw new Error('RECONCILE_SCOPE: attempt is not this executor\'s active attempt for its task');
+      if(attempt.status!=='unknown_provider_result')throw new Error('Only an unknown_provider_result attempt can be reconciled');
+      const now=this.#now(),generation_hop={from:attempt.generation,to:fence.generation};
+      const reservation=this.#db.prepare('SELECT * FROM reservations WHERE attempt_id=? AND run_id=?').get(attemptId,fence.runId);
+      if(!reservation)throw new Error('Lost-response reconciliation requires the attempt reservation');
+      const charged=Math.min(proof.charge_assumed_microusd,reservation.reserved_microusd);
+      if(['reserved','unknown_provider_result'].includes(reservation.state))this.#db.prepare('UPDATE reservations SET state=?,actual_microusd=?,updated_at=? WHERE reservation_id=?').run('reported',charged,now,reservation.reservation_id);
+      const call=this.#db.prepare('SELECT * FROM model_calls WHERE attempt_id=? AND run_id=?').get(attemptId,fence.runId);
+      if(call&&call.status==='unknown_provider_result'){const meta={...JSON.parse(call.metadata_json||'{}'),error_code:'LOST_RESPONSE',reconciliation_ref:proofRef,charge_assumed_microusd:charged};this.#db.prepare('UPDATE model_calls SET status=?,metadata_json=?,updated_at=? WHERE call_id=?').run('failed',JSON.stringify(meta),now,call.call_id);}
+      const attempts=this.#db.prepare('SELECT count(*) AS count FROM attempts a JOIN tasks t ON t.task_id=a.task_id WHERE t.run_id=? AND t.lineage_id=? AND t.stage_id=? AND t.role_id=?').get(fence.runId,task.lineage_id,task.stage_id,task.role_id).count;
+      const taskStatus=attempts<task.max_attempts?'retry_wait':'failed';
+      this.#db.prepare('UPDATE attempts SET status=?,error_ref_json=?,updated_at=? WHERE attempt_id=?').run('failed',canonical(proofRef),now,attemptId);
+      this.#db.prepare('UPDATE tasks SET status=?,updated_at=? WHERE task_id=?').run(taskStatus,now,task.task_id);
+      this.#event(fence,{eventId:attemptId+':reconciled_lost_response',type:'attempt.reconciled_lost_response',taskId:task.task_id,attemptId,payload:{proof_ref:proofRef,charge_assumed_usd:charged/1e6,task_status:taskStatus,generation_hop}});
+      return{status:'RECONCILED',kind:'lost_response',attempt_id:attemptId,task_id:task.task_id,task_status:taskStatus,charge_assumed_usd:charged/1e6,attempts_used:attempts,max_attempts:task.max_attempts};
+    });
+  }
   /** Operator reconciliation of an attempt parked in unknown_provider_result when verified proof shows NO request was sent
    *  (pre-send throw). One transaction: reservation → released, model_call → failed, attempt → failed, event appended.
    *  Added 2026-10-27 by the runner (Claude, JAM-UT-01) with the founder's order; never grants spend; proof is hash-verified. */

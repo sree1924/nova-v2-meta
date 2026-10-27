@@ -33,3 +33,7 @@
 - 2026-10-27T17:05:24.271Z retry nonce 02.dossier_sections:C2 → 3 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL, 02.FACT_LINES_CITED=FAIL, 02.HIGH_YIELD_PER_DOMAIN=FAIL
 
 - 2026-10-27T17:05:46.451Z retry nonce 02.dossier_sections:C2 → 4 after HOLD (sec09-rules-of-the-road); non-PASS: 02.MERGE_DETERMINISTIC=FAIL
+
+- 2026-10-27T17:14:57.970Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:8 for 02.dossier_sections (sec09-rules-of-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T17:15:58.161Z retry nonce 02.dossier_sections:C → 1 after HOLD (sec09-rules-of-the-road); non-PASS: unknown_provider_result
