@@ -95,7 +95,10 @@ export function buildDryPlan({projectRoot = PROJECT_ROOT, runConfigPath, executo
 async function registerSource({projectRoot,loaded,ledger,fence,lockHandle}) {
   const {buildRegistration} = await import('../roles/15-register.mjs');
   const configEvidenceRef=writeImmutable(loaded.runDir,'sources/private/input-snapshots/'+loaded.configRef.sha256+'.json',fs.readFileSync(loaded.configPath),{lockHandle,bytes:true});
-  const result = await buildRegistration({projectRoot,runConfigPath:loaded.configPath,configEvidenceRef});
+  // A sibling run (same handbook, different authoring mode) carries its own copy of the role-15 visual observation whose
+  // source_document.path points at ITS private snapshot (scope.visual_observation_ref); otherwise the repo default applies.
+  const observationPath=loaded.config.scope?.visual_observation_ref?.path??undefined;
+  const result = await buildRegistration({projectRoot,runConfigPath:loaded.configPath,configEvidenceRef,...(observationPath?{observationPath}:{})});
   const script = pin(path.join(projectRoot,'tools/roles/15-register.mjs'));
   const role = read(path.join(projectRoot,'contracts/bot-contract-bindings.json')).roles.find(r=>r.role_id==='15');
   const contract = verifiedContract(projectRoot,role);

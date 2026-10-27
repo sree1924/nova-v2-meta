@@ -171,6 +171,59 @@ export function acceptDossier(validation,requiredChecks){
 export function retryNonceKey(stageId,partIds=[],sectionIds=[]){const base=stageId+':'+(partIds||[]).join('+');const secs=[...(sectionIds||[])].sort();return secs.length&&!(secs.length===1&&secs[0]==='sec09-rules-of-the-road')?base+'@'+secs.join('+'):base;}
 function retryNonce(p){const n=p.config.execution?.retry_nonces?.[retryNonceKey(p.stageId,p.partIds,p.sectionIds)];return Number.isInteger(n)&&n>0?{retry_nonce:n}:{};}
 
+// ---- Muse Code subscription authoring (founder, 2026-10-27 23:20Z: "switch to muse authoring under subscription") ----
+// The belt stays the foreman. It renders the exact bound request (prompt + inputs + strict schema) into a PACKET; Muse Code
+// authors the artifact under its subscription (no Model API call, $0 on the credit); the belt ingests the artifact through the
+// SAME client → validator → ledger path via a fetch-compatible file transport. Packets carry private handbook text, so they
+// live under sources/private/ (gitignored). Nothing in the validators, ledger or acceptance policy changes.
+export function authoringKey(stageId,sectionIds=[],partIds=[],nonce=0){return [stageId,...[...(sectionIds||[])].sort(),(partIds||[]).join('+')||'-','n'+(nonce||0)].join('__').replace(/[^A-Za-z0-9_.+@-]/g,'_');}
+export function authoringPaths(runDir,key){const base=path.join(runDir,'sources','private','muse-authoring');return{base,inbox:path.join(base,'inbox',key+'.json'),outbox:path.join(base,'outbox',key+'.json'),done:path.join(base,'done'),next:path.join(base,'inbox','NEXT.json')};}
+export function emitAuthoringPacket({previousNonPass=[],...options}){
+  const p=prepareDispatch({...options,go:false});
+  const nonce=retryNonce(p).retry_nonce??0;
+  const key=authoringKey(p.stageId,p.sectionIds,p.partIds,nonce);
+  const paths=authoringPaths(p.runDir,key);
+  for(const d of [path.dirname(paths.inbox),path.dirname(paths.outbox),paths.done])fs.mkdirSync(d,{recursive:true});
+  const rel=f=>path.relative(p.projectRoot,f).replace(/\\/g,'/');
+  const packet={schema_version:'nova-muse-authoring-packet.v1',key,run_id:p.config.run_id,stage_id:p.stageId,section_ids:p.sectionIds,part_ids:p.partIds,retry_nonce:nonce,
+    authoring:{mode:'muse_code_subscription',model:p.config.producer.model,billing:'Muse Code subscription (operator tokens); no Model API call; ledger actual = $0',
+      instructions:'You ARE the producer model for this request. Read request.messages exactly as the Model API would (system, then user). Obey request.response_format.json_schema.schema STRICTLY: every required key, no extra keys, exact enums and types. Obey the output_conventions and lineage_to_copy inside the user message. Every statement comes from the handbook text in the request; never invent. If previous_non_pass lists check ids, they failed on the last attempt: fix exactly those. Write the artifact as `artifact` in the outbox file named below, with this packet file\'s sha256 as packet_sha256.',
+      write_outbox_to:rel(paths.outbox),
+      outbox_shape:{key,packet_sha256:'<sha256 of this inbox file>',authored_by:'muse-code/'+p.config.producer.model+' (subscription)',artifact:'<JSON matching request.response_format.json_schema.schema>'}},
+    previous_non_pass:previousNonPass,required_checks:p.requiredChecks,
+    request:p.request,request_sha256:sha256(canonicalJson(p.request)),request_bytes:Buffer.byteLength(canonicalJson(p.request)),preflight:p.preflight,emitted_at:new Date().toISOString()};
+  const body=JSON.stringify(packet,null,2)+'\n';
+  fs.writeFileSync(paths.inbox,body);
+  const packetSha=sha256(Buffer.from(body));
+  fs.writeFileSync(paths.next,JSON.stringify({key,inbox:rel(paths.inbox),outbox:rel(paths.outbox),packet_sha256:packetSha,stage_id:p.stageId,section_ids:p.sectionIds,part_ids:p.partIds,retry_nonce:nonce,previous_non_pass:previousNonPass,required_checks:p.requiredChecks,emitted_at:packet.emitted_at},null,2)+'\n');
+  return{status:p.preflight.status==='PASS'?'EMITTED':'HOLD',key,inbox:paths.inbox,outbox:paths.outbox,packet_sha256:packetSha,request_bytes:packet.request_bytes,blockers:p.preflight.blockers};
+}
+// Reads Muse's outbox for a key without throwing: {ok, reason, outbox}. The runner calls this BEFORE dispatching so a missing or
+// malformed outbox never reaches the client (a transport throw would park the attempt as unknown_provider_result).
+export function readAuthoringOutbox(runDir,key){
+  const paths=authoringPaths(runDir,key);
+  if(!fs.existsSync(paths.outbox))return{ok:false,reason:'outbox_absent',path:paths.outbox};
+  let out;try{out=JSON.parse(fs.readFileSync(paths.outbox,'utf8'));}catch(e){return{ok:false,reason:'outbox_invalid_json:'+String(e.message).slice(0,80),path:paths.outbox};}
+  if(out?.key!==key)return{ok:false,reason:'outbox_key_mismatch:'+String(out?.key),path:paths.outbox};
+  if(!out.artifact||typeof out.artifact!=='object'||Array.isArray(out.artifact))return{ok:false,reason:'outbox_no_artifact_object',path:paths.outbox};
+  return{ok:true,outbox:out,path:paths.outbox};
+}
+// fetch-compatible transport answering the bound request from the outbox (Model API response shape; usage 0 → ledger actual $0).
+// Never throws (a throw = "may have reached the provider"); a bad outbox answers 422 with zero usage → HOLD http_status_not_200.
+export function museFileTransport({runDir,key}){
+  return async function transport(_url,init){
+    const zero={prompt_tokens:0,completion_tokens:0,total_tokens:0};
+    const got=readAuthoringOutbox(runDir,key);
+    if(!got.ok){const text=JSON.stringify({error:{message:got.reason,type:'muse_outbox_unusable'},usage:zero,model:null});return{status:422,ok:false,headers:{get:()=>null},text:async()=>text};}
+    const raw=fs.readFileSync(got.path);const req=JSON.parse(init.body);
+    const body={id:'musecode-'+sha256(raw).slice(0,24),object:'chat.completion',created:Math.floor(Date.now()/1000),model:req.model,
+      choices:[{index:0,finish_reason:'stop',message:{role:'assistant',content:JSON.stringify(got.outbox.artifact)}}],usage:zero,
+      billing:{mode:'muse_code_subscription',authored_by:got.outbox.authored_by??'muse-code (subscription)',packet_sha256:got.outbox.packet_sha256??null,outbox_sha256:sha256(raw),model_api_called:false,credit_usd:0}};
+    const text=JSON.stringify(body);
+    return{status:200,ok:true,headers:{get:()=>null},text:async()=>text};
+  };
+}
+
 export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandle,client,validator=validateArtifact}){
   if(p.preflight.status!=='PASS')throw new Error('Dispatch inputs remain HOLD: '+p.preflight.blockers.join(', '));
   for(const bound of [...(p.inputRefs||[]),p.contract,p.schema,p.mapping,p.registryRef,p.pricingRef,p.validatorRef,p.ownerReceiptRef,...(p.ownerFiles||[])].filter(r=>r?.path)){

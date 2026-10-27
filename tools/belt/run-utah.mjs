@@ -15,10 +15,16 @@ import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..', '..');
-const RUN = 'runs/2026-10-26-rdmv-ut-class-d';
-const EXECUTOR = '2bdcad95-d4cc-467e-a88d-be4a6260cf03';
 const args = process.argv.slice(2);
 const get = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
+// --run <runs/...> picks the run dir (default: the Utah Model-API run). --author muse switches every dispatch to Muse Code
+// subscription authoring: each call to this script is ONE STEP — ingest the outbox Muse wrote (if present) through the normal
+// validator/ledger path at $0, then emit the next packet and exit 3 (WAITING). Exit 0 = every requested section DONE.
+const RUN = get('--run', 'runs/2026-10-26-rdmv-ut-class-d').replace(/\\/g, '/').replace(/\/$/, '');
+const EXECUTOR = '2bdcad95-d4cc-467e-a88d-be4a6260cf03';
+const author = get('--author', null);
+const stepMode = author === 'muse';
+if (author && !stepMode) { console.error(`unknown --author ${author}; supported: muse`); process.exit(2); }
 const stages = get('--stages', '02,16,03,04,06,05.sessions,05.card_scripts').split(',');
 const parts = get('--parts', 'C,C2,A,B,D,E,E2,F,G').split(',');
 const maxResets = Number(get('--max-resets', '2'));
@@ -36,7 +42,7 @@ const sha = (buf) => createHash('sha256').update(buf).digest('hex');
 const readJ = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const writeJ = (p, v) => fs.writeFileSync(path.join(ROOT, p), JSON.stringify(v, null, 2) + '\n');
 const standing = readJ(`${RUN}/approvals/STANDING-AUTHORITY-utah-full-run.json`);
-const { dispatchStage, retryNonceKey } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/dispatch.mjs')).href);
+const { dispatchStage, retryNonceKey, emitAuthoringPacket, museFileTransport, readAuthoringOutbox, authoringKey, authoringPaths } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/dispatch.mjs')).href);
 const { compileAcceptedDossier, reconcileAttempt } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/controller.mjs')).href);
 const { DatabaseSync } = await import('node:sqlite');
 
@@ -140,7 +146,24 @@ async function runStage(stageId, partIds) {
     const label = `${stageId}${partIds.length ? ' part ' + partIds.join('+') : ''}`;
     if (dry) { console.log(`DRY ${label} approval ${approvalRef.path}`); return { status: 'DRY' }; }
     let r;
-    try { r = await dispatchStage({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, approvalRef, go: true }); }
+    // Muse subscription authoring: dispatch only when Muse's outbox for this exact task identity exists; otherwise emit the
+    // packet and hand the step back (WAITING). The ingest goes through dispatchStage unchanged, with a file transport.
+    let transport = null, outboxKey = null;
+    if (stepMode) {
+      const nonce = readJ(`${RUN}/run-config.json`).execution?.retry_nonces?.[retryNonceKey(stageId, partIds, [section])] ?? 0;
+      const key = authoringKey(stageId, [section], partIds, nonce);
+      const got = readAuthoringOutbox(path.join(ROOT, RUN), key);
+      if (!got.ok) {
+        if (got.reason !== 'outbox_absent') console.log(`  ${label}: outbox unusable (${got.reason}) — re-emitting packet`);
+        const e = emitAuthoringPacket({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, previousNonPass: global.__last ?? [] });
+        const rel = (f) => path.relative(ROOT, f).replace(/\\/g, '/');
+        console.log(`  ${label}: ${e.status} packet ${key} (${Math.round(e.request_bytes / 1024)} KB)${e.blockers.length ? ' blockers ' + e.blockers.join(',') : ''}`);
+        console.log(`    → read ${rel(e.inbox)}, author the artifact under the Muse Code subscription, write ${rel(e.outbox)}, re-run this command`);
+        return { status: 'WAITING', key, inbox: e.inbox, outbox: e.outbox };
+      }
+      transport = museFileTransport({ runDir: path.join(ROOT, RUN), key }); outboxKey = key;
+    }
+    try { r = await dispatchStage({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, approvalRef, go: true, ...(transport ? { transport } : {}) }); }
     catch (e) {
       if (/LINEAGE_ATTEMPT_LIMIT/.test(e.message) && resets < maxResets) { resets++; const to = resetLineage(stageId, `attempt limit after HOLDs; last non-PASS: ${(global.__last ?? []).join(',')}`); console.log(`  lineage → ${to} (reset ${resets}/${maxResets})`); continue; }
       if (/not eligible for a new attempt/.test(e.message)) { bumpRetryNonce(stageId, partIds, global.__last ?? ['blocked_task']); continue; }
@@ -156,7 +179,12 @@ async function runStage(stageId, partIds) {
       console.log(`  ERROR ${label}: ${e.message.slice(0, 200)}`); return { status: 'ERROR', error: e.message };
     }
     const np = nonPass(r); global.__last = np;
-    console.log(`  ${label}: ${r.status}${r.estimated_usd != null ? ` $${r.estimated_usd.toFixed(3)}` : ''}${r.status !== 'accepted' ? ' — ' + np.join(', ') : ''}  [spent $${spentUsd().toFixed(3)}]`);
+    if (outboxKey) {
+      // Consumed: park the outbox under done/ with its verdict so the same key can never be ingested twice.
+      const ap = authoringPaths(path.join(ROOT, RUN), outboxKey);
+      try { fs.renameSync(ap.outbox, path.join(ap.done, `${outboxKey}.${r.status}.${Date.now()}.json`)); } catch {}
+    }
+    console.log(`  ${label}${outboxKey ? ' [muse subscription, $0]' : ''}: ${r.status}${r.estimated_usd != null ? ` $${r.estimated_usd.toFixed(3)}` : ''}${r.status !== 'accepted' ? ' — ' + np.join(', ') : ''}  [spent $${spentUsd().toFixed(3)}]`);
     if (r.status === 'accepted' || r.reused) return r;
     if (r.reason === 'budget_cap') { console.log(`CAP: reservation refused — ${r.detail ?? 'budget cap'} (spent $${spentUsd().toFixed(3)} / cap $${standing.usd_cap_total})`); return { status: 'CAP' }; }
     if (r.reason === 'unknown_provider_result_requires_reconciliation' || r.reason === 'unknown_provider_result') {
@@ -205,6 +233,7 @@ sectionLoop: for (section of sections) {
       if (done.includes(JSON.stringify(partIds))) { console.log(`  ${stageId}${partIds.length ? ' part ' + partIds.join('+') : ''}: already accepted — skipped`); continue; }
       const r = await runStage(stageId, partIds);
       if (r.status === 'CAP') { outcomes[section] = 'CAP'; break sectionLoop; }
+      if (r.status === 'WAITING') { outcomes[section] = `WAITING ${stageId} ${partIds.join('+')} → ${r.key}`; console.log(`WAITING ${section}: packet ${r.key} emitted; author it, then re-run --step`); break sectionLoop; }
       if (!['accepted'].includes(r.status) && !r.reused) { console.log(`STOP ${section} at ${stageId} ${partIds.join('+')}: ${r.status}`); outcomes[section] = `STOP ${stageId} ${partIds.join('+')} ${r.status}`; continue sectionLoop; }
     }
   }
@@ -213,4 +242,5 @@ sectionLoop: for (section of sections) {
 }
 console.log(`\nSUMMARY spent $${spentUsd().toFixed(3)} / cap $${standing.usd_cap_total}`);
 for (const s of sections) console.log(`  ${s}: ${outcomes[s] ?? 'not reached'}`);
+if (Object.values(outcomes).some(v => String(v).startsWith('WAITING'))) process.exit(3);
 process.exit(Object.values(outcomes).every(v => v === 'DONE') && Object.keys(outcomes).length === sections.length ? 0 : 1);
