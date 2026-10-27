@@ -203,8 +203,9 @@ function vSettings() {
   <p class="muted">Data source: ${D.from === "fetch" ? "app-preview/data/*.json over HTTP" : "embedded fallback copy (identical content, used because local files could not be fetched)"}.</p></div>
   <div class="card"><h2>Reviewer</h2>
   <p><a class="btn" href="#/dossier">Source dossier (reviewer view)</a>
-  <a class="btn" href="#/modules">Module structure (reviewer view)</a></p>
-  <p class="muted">Accepted belt artifacts only. Dossier shows an empty state until stage 02 has an accepted task; module structure until stage 03 has one. Never linked from the learner screens above.</p></div>
+  <a class="btn" href="#/modules">Module structure (reviewer view)</a>
+  <a class="btn" href="#/real-cards">Real flashcards (reviewer view)</a></p>
+  <p class="muted">Accepted belt artifacts only. Dossier shows an empty state until stage 02 has an accepted task; module structure until stage 03 has one; real flashcards until stage 04 has one. Never linked from the learner screens above.</p></div>
   <div class="card"><h2>Progress on this device</h2>
   <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the sample syllabus. Changing the syllabus invalidates them.</p>
   <p><button id="reset-progress" class="secondary">Erase my preview progress</button></p></div>`;
@@ -217,7 +218,8 @@ function realEntries() {
   return {
     dossier: list.filter((e) => e.stage_id === "02.dossier_sections"),
     kg: list.filter((e) => e.stage_id === "03.combined_kg"),
-    other: list.filter((e) => e.stage_id !== "02.dossier_sections" && e.stage_id !== "03.combined_kg")
+    cards: list.filter((e) => e.stage_id === "04.cards"),
+    other: list.filter((e) => e.stage_id !== "02.dossier_sections" && e.stage_id !== "03.combined_kg" && e.stage_id !== "04.cards")
   };
 }
 
@@ -226,7 +228,7 @@ function factBlocks(md) {
 }
 
 function vDossier() {
-  const { dossier, kg, other } = realEntries();
+  const { dossier, kg, cards, other } = realEntries();
   if (!dossier.length && !other.length) {
     return `<h1>Source dossier — reviewer view</h1>
     <div class="card"><h2>No accepted dossier parts yet</h2>
@@ -253,6 +255,8 @@ function vDossier() {
   }).join("")}
   ${kg.length ? `<div class="card"><h2>Accepted knowledge graph</h2>
   <p>Stage 03 combined KG: ${kg.length} accepted task(s). <a class="btn" href="#/modules">View module structure</a></p></div>` : ""}
+  ${cards.length ? `<div class="card"><h2>Accepted flashcards</h2>
+  <p>Stage 04 cards: ${cards.length} accepted task(s). <a class="btn" href="#/real-cards">Study the real cards</a></p></div>` : ""}
   ${other.length ? `<div class="card"><h2>Other accepted stages (learner wiring pending)</h2>
   <ul>${other.map((e) => `<li><code>${esc(e.stage_id)}</code> — task <code>${esc(e.task_id)}</code> · sha256 <code>${esc(e.sha256)}</code></li>`).join("")}</ul></div>` : ""}`;
 }
@@ -284,6 +288,34 @@ function vModules() {
       <p class="muted">${esc(m.domain)} · ${(m.node_ids || []).length} nodes</p>
       ${((byMod[m.module_id]) || []).map((n) => `<h2>${esc(n.id)} — ${esc(n.label)}</h2><p class="muted">${esc(n.node_type)} · difficulty ${esc(n.difficulty)} · confidence ${esc(n.confidence)}${n.high_yield ? " · high-yield" : ""}${n.needs_review ? " · NEEDS REVIEW" : ""}</p>`).join("") || "<p>(no nodes in this module)</p>"}</div>`).join("")
     + (hints.length ? `<div class="card"><h2>Curriculum unit hints</h2><ul>${hints.map((u) => `<li><code>${esc(u.unit_id)}</code> → module <code>${esc(u.module_id)}</code> · ${(u.node_ids || []).length} nodes</li>`).join("")}</ul></div>` : "");
+  }).join("")}`;
+}
+
+function vRealCards() {
+  const { cards } = realEntries();
+  if (!cards.length) {
+    return `<h1>Real flashcards — Utah Section 9</h1>
+    <div class="card"><h2>No accepted cards yet</h2>
+    <p>Stage 04 (cards) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here. The synthetic learner screens remain fully synthetic.</p>
+    <p class="muted">Operator step after the belt accepts cards: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
+  }
+  return `<h1>Real flashcards — Utah Section 9</h1>
+  <p class="muted">${esc(REAL_NOTE)}. Accepted stage-04 cards with provenance. Full audit is still pending. No images in this text-first preview: each card gives a page-sourced verbal cue task instead of a claimed visual-recognition measurement.</p>
+  ${cards.map((e) => {
+    const art = (R.files || {})[e.file.replace(/^data\/real\//, "")];
+    if (!art) return `<div class="card"><h2>${esc(e.stage_id)} — file missing</h2><p>Listed in the manifest but not loaded.</p></div>`;
+    const decks = Array.isArray(art.decks) ? art.decks : [];
+    const all = decks.flatMap((d) => d.cards || []);
+    return `<div class="card"><h2>Stage 04 cards: ${all.length} cards · ${decks.length} deck(s)</h2>
+    <dl class="kv"><dt>Provenance</dt><dd>task <code>${esc(e.task_id)}</code> · attempt <code>${esc(e.attempt_id)}</code><br>sha256 <code>${esc(e.sha256)}</code> · ${esc(e.bytes)} bytes</dd></dl></div>`
+    + decks.map((d, di) => `<div class="card"><h2>Deck ${di + 1} of ${decks.length} — ${(d.cards || []).length} cards</h2></div>`
+      + (d.cards || []).map((c, i) => `<div class="card"><h2>Card ${i + 1} of ${(d.cards || []).length} — ${esc(c.card_id)}</h2>
+      <p>${esc(c.front)}</p>
+      <p><button data-reveal>Reveal answer</button></p>
+      <div hidden data-answer><p><b>Answer.</b> ${esc(c.back)}</p>
+      <p><b>Memory hook.</b> ${esc(c.memory_hook)}</p>
+      <p class="muted">Module ${esc(c.module_id)} · node ${esc(c.node_id)} · difficulty ${esc(c.difficulty)}${c.high_yield ? " · high-yield" : ""}</p>
+      <p class="muted">Source: ${esc(c.source_ref && c.source_ref.ref)} · tier ${esc(c.source_ref && c.source_ref.tier)} · hook origin ${esc(c.hook_origin)}</p></div></div>`).join("")).join("");
   }).join("")}`;
 }
 
@@ -363,10 +395,11 @@ function route() {
   else if (parts[0] === "settings") { html = vSettings(); nav = "settings"; }
   else if (parts[0] === "dossier") html = vDossier();
   else if (parts[0] === "modules") html = vModules();
+  else if (parts[0] === "real-cards") html = vRealCards();
   else html = vMissing();
-  if (parts[0] === "dossier" || parts[0] === "modules") {
+  if (parts[0] === "dossier" || parts[0] === "modules" || parts[0] === "real-cards") {
     const re = realEntries();
-    const n = parts[0] === "dossier" ? re.dossier.length + re.kg.length + re.other.length : re.kg.length;
+    const n = parts[0] === "dossier" ? re.dossier.length + re.kg.length + re.cards.length + re.other.length : parts[0] === "modules" ? re.kg.length : re.cards.length;
     setBanner(n ? "real" : "review", n ? REAL_NOTE : REVIEWER_EMPTY_NOTE);
   } else setBanner("synthetic", SYNTHETIC_NOTE);
   view.innerHTML = html;
