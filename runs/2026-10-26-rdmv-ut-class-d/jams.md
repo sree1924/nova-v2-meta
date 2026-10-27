@@ -329,3 +329,5 @@
 - 2026-10-27T19:50:12.279Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:72 for 02.dossier_sections (sec06-examinations) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
 
 - 2026-10-27T19:50:50.806Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:73 for 02.dossier_sections (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T20:06:33.310Z founder amendment: standing cap $30 → $60 ("cap $60 go finish all 16"); per-role sub-caps already raised; Muse operator tokens on subscription
