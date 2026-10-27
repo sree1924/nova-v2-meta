@@ -77,11 +77,14 @@ const db = new DatabaseSync(path.join(RUN_DIR, 'ledger', 'run.sqlite'), { readOn
 const all = (sql, params = []) => db.prepare(sql).all(...params);
 
 const runRow = all('SELECT * FROM runs WHERE run_id = ?', [RUN_ID])[0] || null;
-const tasks = all('SELECT * FROM tasks WHERE run_id = ? ORDER BY created_at', [RUN_ID]);
-const attempts = all('SELECT * FROM attempts WHERE run_id = ? ORDER BY created_at', [RUN_ID]);
-const calls = all('SELECT * FROM model_calls WHERE run_id = ? ORDER BY created_at', [RUN_ID]);
-const reservations = all('SELECT * FROM reservations WHERE run_id = ? ORDER BY created_at', [RUN_ID]);
-const artifacts = all('SELECT * FROM artifacts WHERE run_id = ? ORDER BY created_at', [RUN_ID]);
+// NOTE: no SQL ORDER BY — sandboxed SQLite cannot spill large sorts to temp
+// files ("unable to open database file"); these sets are small, sort in JS.
+const byCreated = (a, b) => String(a.created_at || '').localeCompare(String(b.created_at || ''));
+const tasks = all('SELECT * FROM tasks WHERE run_id = ?', [RUN_ID]).sort(byCreated);
+const attempts = all('SELECT * FROM attempts WHERE run_id = ?', [RUN_ID]).sort(byCreated);
+const calls = all('SELECT * FROM model_calls WHERE run_id = ?', [RUN_ID]).sort(byCreated);
+const reservations = all('SELECT * FROM reservations WHERE run_id = ?', [RUN_ID]).sort(byCreated);
+const artifacts = all('SELECT * FROM artifacts WHERE run_id = ?', [RUN_ID]).sort(byCreated);
 const taskById = new Map(tasks.map((t) => [t.task_id, t]));
 const callByAttempt = new Map(calls.map((c) => [c.attempt_id, c]));
 const resByAttempt = new Map(reservations.map((r) => [r.attempt_id, r]));

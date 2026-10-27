@@ -559,3 +559,7 @@
 - 2026-10-27T21:55:54.934Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:133 for 02.dossier_sections (sec16-towing) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
 
 - 2026-10-27T21:57:12.278Z retry nonce 06.exam_bank:@sec16-towing → 1 after HOLD (sec16-towing); non-PASS: 06.OPTIONS_SHAPE=FAIL, 06.FORM_COUNT=FAIL, 06.MODULE_QUIZ_COVERAGE=FAIL
+
+- 2026-10-27T22:10:48.361Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:134 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T22:12:42.958Z retry nonce 04.cards:@sec15-vehicle-equipment → 1 after HOLD (sec15-vehicle-equipment); non-PASS: finish_reason_not_stop
