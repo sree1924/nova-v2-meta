@@ -489,3 +489,45 @@
 - 2026-10-27T21:35:53.333Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:111 for 02.dossier_sections (sec12-crashes-insurance) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
 
 - 2026-10-27T21:37:17.806Z retry nonce 04.cards:@sec12-crashes-insurance → 1 after HOLD (sec12-crashes-insurance); non-PASS: 04.ATOMIC_CLUSTER=FAIL
+
+- 2026-10-27T21:39:07.186Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:112 for 02.dossier_sections (sec13-suspensions-record) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:39:24.419Z retry nonce 02.dossier_sections:C@sec13-suspensions-record → 1 after HOLD (sec13-suspensions-record); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:39:44.994Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:113 for 02.dossier_sections (sec13-suspensions-record) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:40:32.011Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:114 for 02.dossier_sections (sec13-suspensions-record) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:40:55.487Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:115 for 02.dossier_sections (sec13-suspensions-record) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:41:19.945Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:116 for 02.dossier_sections (sec13-suspensions-record) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:42:58.852Z retry nonce 06.exam_bank:@sec13-suspensions-record → 1 after HOLD (sec13-suspensions-record); non-PASS: 06.OPTIONS_SHAPE=FAIL
+
+- 2026-10-27T21:44:14.969Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:117 for 02.dossier_sections (sec14-sharing-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:44:47.214Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:118 for 02.dossier_sections (sec14-sharing-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:44:59.816Z retry nonce 02.dossier_sections:A@sec14-sharing-the-road → 1 after HOLD (sec14-sharing-the-road); non-PASS: 02.CORPUS_STABILITY=FAIL
+
+- 2026-10-27T21:45:13.977Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:119 for 02.dossier_sections (sec14-sharing-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:45:33.923Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:120 for 02.dossier_sections (sec14-sharing-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:46:00.473Z retry nonce 02.dossier_sections:E2@sec14-sharing-the-road → 1 after HOLD (sec14-sharing-the-road); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:46:00.613Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:121 for 02.dossier_sections (sec14-sharing-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:46:22.042Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:122 for 02.dossier_sections (sec14-sharing-the-road) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:48:02.683Z retry nonce 06.exam_bank:@sec14-sharing-the-road → 1 after HOLD (sec14-sharing-the-road); non-PASS: 06.ID_INTEGRITY=FAIL, 06.OPTIONS_SHAPE=FAIL, 06.FORM_OVERLAP=FAIL
+
+- 2026-10-27T21:50:19.585Z retry nonce 02.dossier_sections:C@sec15-vehicle-equipment → 1 after HOLD (sec15-vehicle-equipment); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:50:19.715Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:123 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:50:37.681Z retry nonce 02.dossier_sections:C@sec15-vehicle-equipment → 2 after HOLD (sec15-vehicle-equipment); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:51:07.506Z retry nonce 02.dossier_sections:C@sec15-vehicle-equipment → 3 after HOLD (sec15-vehicle-equipment); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:51:07.618Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:124 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
