@@ -437,3 +437,27 @@
 - 2026-10-27T21:18:53.639Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:95 for 05.sessions (sec08-basic-driving) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 05.SLIDE_ARC=FAIL,05.STAGE_DIRECTIONS=FAIL
 
 - 2026-10-27T21:19:22.325Z retry nonce 05.sessions:@sec08-basic-driving → 3 after HOLD (sec08-basic-driving); non-PASS: 05.SLIDE_ARC=FAIL
+
+- 2026-10-27T21:21:17.617Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:96 for 02.dossier_sections (sec10-alcohol-drugs) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:21:47.101Z retry nonce 02.dossier_sections:B@sec10-alcohol-drugs → 1 after HOLD (sec10-alcohol-drugs); non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:21:47.267Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:97 for 02.dossier_sections (sec10-alcohol-drugs) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.FACT_LINES_CITED=FAIL
+
+- 2026-10-27T21:22:14.220Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:98 for 02.dossier_sections (sec10-alcohol-drugs) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:22:42.309Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:99 for 02.dossier_sections (sec10-alcohol-drugs) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
+
+- 2026-10-27T21:23:13.983Z retry nonce 02.dossier_sections:G@sec10-alcohol-drugs → 1 after HOLD (sec10-alcohol-drugs); non-PASS: 02.MARKET_SIGNAL=FAIL
+
+- 2026-10-27T21:23:14.244Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:100 for 02.dossier_sections (sec10-alcohol-drugs) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 02.MARKET_SIGNAL=FAIL
+
+- 2026-10-27T21:24:41.697Z retry nonce 06.exam_bank:@sec10-alcohol-drugs → 1 after HOLD (sec10-alcohol-drugs); non-PASS: 06.ID_INTEGRITY=FAIL, 06.OPTIONS_SHAPE=FAIL
+
+- 2026-10-27T21:25:14.421Z retry nonce 06.exam_bank:@sec10-alcohol-drugs → 2 after HOLD (sec10-alcohol-drugs); non-PASS: 06.OPTIONS_SHAPE=FAIL
+
+- 2026-10-27T21:25:14.642Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:101 for 06.exam_bank (sec10-alcohol-drugs) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 06.OPTIONS_SHAPE=FAIL
+
+- 2026-10-27T21:27:16.983Z retry nonce 02.dossier_sections:C@sec11-distractions-challenges → 1 after HOLD (sec11-distractions-challenges); non-PASS: 02.MARKET_SIGNAL=FAIL
+
+- 2026-10-27T21:27:54.560Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:102 for 02.dossier_sections (sec11-distractions-challenges) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 

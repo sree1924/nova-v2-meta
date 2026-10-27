@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nova.local/schemas/hackathon-project-tracker-v1",
+  "title": "Meta hackathon project watch tracker",
+  "description": "Private research record. Watch priority expresses editorial attention, not verified superiority or a likelihood of winning. Evidence levels must reflect the work actually inspected.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "event", "updated_at", "summary", "monitor", "coverage", "projects", "changes"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "event": { "$ref": "#/$defs/event" },
+    "updated_at": { "$ref": "#/$defs/dateTime" },
+    "summary": { "$ref": "#/$defs/nonemptyString" },
+    "monitor": { "$ref": "#/$defs/monitor" },
+    "coverage": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/coverage" }
+    },
+    "projects": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/project" }
+    },
+    "changes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/change" }
+    }
+  },
+  "$defs": {
+    "nonemptyString": { "type": "string", "minLength": 1 },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "httpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://",
+      "description": "An exact observed external source URL. URLs must not contain credentials or private account state."
+    },
+    "stringList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonemptyString" }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "server_id", "submission_deadline", "timezone"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonemptyString" },
+        "server_id": { "type": "string", "pattern": "^[0-9]+$" },
+        "submission_deadline": { "$ref": "#/$defs/dateTime" },
+        "timezone": { "$ref": "#/$defs/nonemptyString" }
+      }
+    },
+    "monitor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cadence_hours", "through", "automation_id", "status"],
+      "properties": {
+        "cadence_hours": { "type": "integer", "minimum": 1 },
+        "through": { "$ref": "#/$defs/dateTime" },
+        "automation_id": { "type": ["string", "null"], "minLength": 1 },
+        "status": { "type": "string", "enum": ["pending", "active", "paused", "complete", "blocked"] }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "channel_id", "url", "checked_at", "scope", "notes"],
+      "properties": {
+        "channel": { "$ref": "#/$defs/nonemptyString" },
+        "channel_id": { "type": "string", "pattern": "^[0-9]+$" },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "checked_at": { "$ref": "#/$defs/dateTime" },
+        "scope": { "$ref": "#/$defs/nonemptyString" },
+        "notes": { "type": "string" }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "name", "builders", "track", "track_basis", "theme", "priority", "why_watch",
+        "technical_approach", "meta_use", "reported_status", "evidence_level",
+        "verified_observations", "unverified_claims", "nova_relevance", "next_check", "last_seen_at", "sources"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "name": { "$ref": "#/$defs/nonemptyString" },
+        "builders": {
+          "$ref": "#/$defs/stringList",
+          "description": "Public builder names or handles only; no private contact or account details."
+        },
+        "track": { "type": "string", "enum": ["indie", "startup", "unknown"] },
+        "track_basis": {
+          "$ref": "#/$defs/nonemptyString",
+          "description": "Observed basis for the entry track, or an explicit statement that the track was not stated. A theme channel is not a participant track."
+        },
+        "theme": { "$ref": "#/$defs/stringList" },
+        "priority": {
+          "type": "string",
+          "enum": ["high", "medium", "background"],
+          "description": "Editorial watch priority based on technical depth, visible execution and relevance to Nova; not a prediction of judging outcomes."
+        },
+        "why_watch": { "$ref": "#/$defs/nonemptyString" },
+        "technical_approach": { "$ref": "#/$defs/nonemptyString" },
+        "meta_use": { "$ref": "#/$defs/stringList" },
+        "reported_status": {
+          "$ref": "#/$defs/nonemptyString",
+          "description": "State attributed to the participant or public artifact; it does not imply independent validation."
+        },
+        "evidence_level": {
+          "type": "string",
+          "enum": ["participant_report", "public_artifacts_inspected", "demo_observed", "independently_reproduced"],
+          "description": "participant_report: claims/posts only; public_artifacts_inspected: repository or public artifacts directly read; demo_observed: demonstration actually viewed; independently_reproduced: functionality independently executed and checked. A linked or attached demo alone is not demo_observed."
+        },
+        "verified_observations": {
+          "$ref": "#/$defs/stringList",
+          "description": "Only facts directly observed in the inspected evidence, with scope preserved."
+        },
+        "unverified_claims": { "$ref": "#/$defs/stringList" },
+        "nova_relevance": { "$ref": "#/$defs/nonemptyString" },
+        "next_check": { "$ref": "#/$defs/nonemptyString" },
+        "last_seen_at": { "$ref": "#/$defs/dateTime" },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/source" }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "url", "observed_at", "note"],
+      "properties": {
+        "type": { "type": "string", "enum": ["discord", "repository", "demo", "official"] },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "observed_at": { "$ref": "#/$defs/dateTime" },
+        "note": { "type": "string" }
+      }
+    },
+    "change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["at", "project_id", "change"],
+      "properties": {
+        "at": { "$ref": "#/$defs/dateTime" },
+        "project_id": { "type": ["string", "null"], "minLength": 1 },
+        "change": { "$ref": "#/$defs/nonemptyString" }
+      }
+    }
+  }
+}
