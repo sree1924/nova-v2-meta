@@ -360,8 +360,15 @@ export function run(artifact, context = {}) {
     if (n.status === 'declared' && !items.some(i => i.needs_dedicated_surface === true)) errs.push('status declared but no item has needs_dedicated_surface:true');
     if (n.status === 'none_required' && items.some(i => i.needs_dedicated_surface === true)) errs.push('status none_required contradicts an item flagged true');
     for (const i of items) if (!i.why || !i.skill) errs.push(`item "${i.skill}" lacks skill/why`);
+    // Per-part dispatch: the disposition is authored with the knowledge part (C). A partial chunk without C that says
+    // {status: unknown, items: []} is "not asserted here" — graded when C arrives / on the merged dossier.
+    const assignedHere = arr(a.envelope_scope?.assigned_section_ids);
+    const deferred = a.envelope_scope?.kind === 'partial_chunk' && !assignedHere.includes('C') && n.status === 'unknown' && items.length === 0;
+    if (deferred) out.push(chk('DEDICATED_SURFACE', P, `partial_chunk without part C: needs_dedicated_surface deferred to the C part (assigned ${assignedHere.join(',')})`, { deferred: true }));
+    else {
     if (n.status === 'unknown' && !debts.some(d => d.blocker_kind === 'exam_policy_unclear' && d.located_at?.section_id === 'C')) errs.push('status unknown without an exam_policy_unclear VerificationDebt located in section C');
     out.push(errs.length ? chk('DEDICATED_SURFACE', F, head(errs)) : chk('DEDICATED_SURFACE', P, `needs_dedicated_surface ${n.status} with ${items.length} item(s)`));
+    }
   }
 
   // CORPUS_STABILITY — volatility emits BlockedProbe.

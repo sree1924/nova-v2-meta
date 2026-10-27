@@ -27,7 +27,8 @@
       "merge_order_across_parts": "Within your envelope, merge_seq is 1..N by document order. The dossier-wide order is NOT yours to encode: the validator/compiler merge parts in canonical section order A,B,C,C2,D,E,E2,F,G, then by merge_seq inside each section. Never continue another part's numbering.",
       "high_yield_on_C2": "C2 is a knowledge continuation of C: when you emit C2 alone, its chunks carry a domain label and high_yield_ranked covers that domain (chunk_id must be one of your C2 chunks).",
       "depth_floor_numbers": "HARD MINIMUMS per chunk (inputData.depth_floor, graded by 02.DEPTH_FLOOR): section A markdown >= 400 code points; section C >= 2500 code points AND >= 10 FACT_ID blocks; every other section >= 200 code points. Count before you emit; pad with substance (more rules, exceptions, definitions from the pages), never filler.",
-      "exam_facts_by_part": "Only part A authors exam_facts (exam_name, issuing_body, edition, … with status verified when restating safe_run_config.exam_facts, else unknown). Every other part emits each exam_facts entry as {value:null, status:unknown, source_page:null} — not asserted — so the merge never sees two different authored values."
+      "exam_facts_by_part": "Only part A authors exam_facts (exam_name, issuing_body, edition, … with status verified when restating safe_run_config.exam_facts, else unknown). Every other part emits each exam_facts entry as {value:null, status:unknown, source_page:null} — not asserted — so the merge never sees two different authored values.",
+      "dedicated_surface_by_part": "needs_dedicated_surface is authored with part C (declared/none_required with items, or unknown backed by an exam_policy_unclear VerificationDebt located in C). Every other part emits {status: unknown, items: []} — not asserted here."
     }
   }
 }
