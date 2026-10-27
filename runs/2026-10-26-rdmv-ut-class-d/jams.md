@@ -395,3 +395,5 @@
 - 2026-10-27T20:46:34.633Z retry nonce 03.combined_kg:@sec07-preparing-vehicle → 2 after HOLD (sec07-preparing-vehicle); non-PASS: 03.HIGH_YIELD_SET=FAIL
 
 - 2026-10-27T20:46:34.740Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:85 for 03.combined_kg (sec07-preparing-vehicle) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 03.HIGH_YIELD_SET=FAIL
+
+- 2026-10-27T20:49:59.373Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:86 for 16.compile (sec04-license-types-id-documents) under standing authority; cause: compile attempt cap on shared lineage (sec04-license-types-id-documents)
