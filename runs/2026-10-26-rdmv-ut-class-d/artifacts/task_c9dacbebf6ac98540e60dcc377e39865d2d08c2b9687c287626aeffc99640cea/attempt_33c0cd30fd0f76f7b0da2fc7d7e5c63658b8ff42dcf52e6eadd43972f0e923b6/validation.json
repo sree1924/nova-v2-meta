@@ -1,0 +1,209 @@
+{
+  "status": "HOLD",
+  "stage_id": "02.dossier_sections",
+  "checks": [
+    {
+      "check_id": "02.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/02-sme-dossier-envelope.schema.json"
+    },
+    {
+      "check_id": "02.PROBE_SLUG",
+      "status": "PASS",
+      "evidence": "probe \"rdmv-ut-class-d\" matches ^[a-z0-9][a-z0-9-]*$"
+    },
+    {
+      "check_id": "02.LINEAGE",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 matches context; candidate_lineage_id=2026-10-26-rdmv-ut-class-d:lineage:3"
+    },
+    {
+      "check_id": "02.CHUNK_IDENTITY",
+      "status": "PASS",
+      "evidence": "9 chunks, merge_seq 1..9 contiguous, ids unique"
+    },
+    {
+      "check_id": "02.SCOPE_COMPLETENESS",
+      "status": "FAIL",
+      "evidence": "chunk carries unassigned section(s) A,B,D,E,E2,F,G",
+      "metrics": {
+        "sections_present": "C,C2,A,B,D,E,E2,F,G"
+      }
+    },
+    {
+      "check_id": "02.SECTION_BOUNDS",
+      "status": "PASS",
+      "evidence": "all 9 chunks < 12000 code points (computed); self-reported char_count off on 9: C:L01 declared 5879 vs computed 4538; C2:L01 declared 1152 vs computed 959; A:L01 declared 642 vs computed 535; B:L01 declared 415 vs computed 325; D:L01 declared 538 vs computed 372; E:L01 declared 323 vs computed 284; E2:L01 declared 331 vs computed 259; F:L01 declared 390 vs computed 296; … (+1 more)",
+      "metrics": {
+        "effective_limit": 12000,
+        "max_chunk_chars": 4538,
+        "self_count_mismatches": 9
+      }
+    },
+    {
+      "check_id": "02.TRUNCATION_GUARD",
+      "status": "PASS",
+      "evidence": "9 chunks balanced (fences, **, brackets) and end cleanly"
+    },
+    {
+      "check_id": "02.MERGE_DETERMINISTIC",
+      "status": "PASS",
+      "evidence": "merge order [C:L01; C2:L01; A:L01; B:L01; … (+5 more)] -> sha256 c8ce1b21db319ad84413d45e0fe943ae93907976d4262c750b486dbfd6099611 (no expected hash declared); partial_chunk: cross-envelope merge not exercised (context.sibling_envelopes absent)",
+      "metrics": {
+        "merged_sha256": "c8ce1b21db319ad84413d45e0fe943ae93907976d4262c750b486dbfd6099611",
+        "merged_code_points": 7918
+      }
+    },
+    {
+      "check_id": "02.ANCHORS_REGISTERED",
+      "status": "PASS",
+      "evidence": "21/21 anchors resolve to registered sources (116 registry codes)"
+    },
+    {
+      "check_id": "02.FACT_LINES_CITED",
+      "status": "FAIL",
+      "evidence": "2/10 fact-bearing lines uncited: A:L01:L11; G:L01:L7",
+      "metrics": {
+        "fact_lines": 10,
+        "uncited": 2
+      }
+    },
+    {
+      "check_id": "02.EXAM_FACT_STATUS",
+      "status": "PASS",
+      "evidence": "exam_facts consistent: {\"unknown\":6,\"verified\":3}",
+      "metrics": {
+        "unknown": 6,
+        "verified": 3
+      }
+    },
+    {
+      "check_id": "02.NUMERAL_LEAK",
+      "status": "PASS",
+      "evidence": "4 withheld/unverified value(s) absent from 2 learner-facing chunks",
+      "metrics": {
+        "forbidden_values": 4,
+        "leaks": 0
+      }
+    },
+    {
+      "check_id": "02.HIGH_YIELD_PER_DOMAIN",
+      "status": "PASS",
+      "evidence": "1/1 knowledge domains carry a contiguous ranked high_yield list",
+      "metrics": {
+        "domains": 1
+      }
+    },
+    {
+      "check_id": "02.DEDICATED_SURFACE",
+      "status": "PASS",
+      "evidence": "needs_dedicated_surface declared with 3 item(s)"
+    },
+    {
+      "check_id": "02.CORPUS_STABILITY",
+      "status": "PASS",
+      "evidence": "assessment stable_le_1_per_year, blocked_probe false"
+    },
+    {
+      "check_id": "02.DEBT_TYPED",
+      "status": "PASS",
+      "evidence": "1 debt record(s) typed + located",
+      "metrics": {
+        "debts": 1,
+        "ship_blocking": 0
+      }
+    },
+    {
+      "check_id": "02.EXTERNAL_REVIEW",
+      "status": "PASS",
+      "evidence": "0 request(s); every legal/clinical debt covered"
+    },
+    {
+      "check_id": "02.MARKET_SIGNAL",
+      "status": "PASS",
+      "evidence": "origin sme, disposition typed_debt, 0 chunk(s), 1 debt ref(s)"
+    },
+    {
+      "check_id": "02.DEPTH_FLOOR",
+      "status": "PASS",
+      "evidence": "bound depth floor met; C:16f/4538cp C2:4f/959cp A:2f/535cp B:1f/325cp D:1f/372cp E:1f/284cp E2:1f/259cp F:1f/296cp G:1f/350cp",
+      "metrics": {
+        "C_cp": 4538,
+        "C2_cp": 959,
+        "A_cp": 535,
+        "B_cp": 325,
+        "D_cp": 372,
+        "E_cp": 284,
+        "E2_cp": 259,
+        "F_cp": 296,
+        "G_cp": 350,
+        "C_fact_blocks": 16,
+        "C2_fact_blocks": 4,
+        "A_fact_blocks": 2,
+        "B_fact_blocks": 1,
+        "D_fact_blocks": 1,
+        "E_fact_blocks": 1,
+        "E2_fact_blocks": 1,
+        "F_fact_blocks": 1,
+        "G_fact_blocks": 1
+      }
+    },
+    {
+      "check_id": "02.G_MATRIX",
+      "status": "FAIL",
+      "evidence": "G04_misconceptions located_at C:L02 unresolved; G05_mnemonics located_at C:L03 unresolved; G06_glossary located_at C:L04 unresolved; G07_dynamic_isolated located_at C:L05 unresolved",
+      "metrics": {
+        "completed": 7,
+        "non_applicable": 2,
+        "debt": 2
+      }
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111",
+    "02.SCOPE_COMPLETENESS.sections_present": "C,C2,A,B,D,E,E2,F,G",
+    "02.SECTION_BOUNDS.effective_limit": 12000,
+    "02.SECTION_BOUNDS.max_chunk_chars": 4538,
+    "02.SECTION_BOUNDS.self_count_mismatches": 9,
+    "02.MERGE_DETERMINISTIC.merged_sha256": "c8ce1b21db319ad84413d45e0fe943ae93907976d4262c750b486dbfd6099611",
+    "02.MERGE_DETERMINISTIC.merged_code_points": 7918,
+    "02.FACT_LINES_CITED.fact_lines": 10,
+    "02.FACT_LINES_CITED.uncited": 2,
+    "02.EXAM_FACT_STATUS.unknown": 6,
+    "02.EXAM_FACT_STATUS.verified": 3,
+    "02.NUMERAL_LEAK.forbidden_values": 4,
+    "02.NUMERAL_LEAK.leaks": 0,
+    "02.HIGH_YIELD_PER_DOMAIN.domains": 1,
+    "02.DEBT_TYPED.debts": 1,
+    "02.DEBT_TYPED.ship_blocking": 0,
+    "02.DEPTH_FLOOR.C_cp": 4538,
+    "02.DEPTH_FLOOR.C2_cp": 959,
+    "02.DEPTH_FLOOR.A_cp": 535,
+    "02.DEPTH_FLOOR.B_cp": 325,
+    "02.DEPTH_FLOOR.D_cp": 372,
+    "02.DEPTH_FLOOR.E_cp": 284,
+    "02.DEPTH_FLOOR.E2_cp": 259,
+    "02.DEPTH_FLOOR.F_cp": 296,
+    "02.DEPTH_FLOOR.G_cp": 350,
+    "02.DEPTH_FLOOR.C_fact_blocks": 16,
+    "02.DEPTH_FLOOR.C2_fact_blocks": 4,
+    "02.DEPTH_FLOOR.A_fact_blocks": 2,
+    "02.DEPTH_FLOOR.B_fact_blocks": 1,
+    "02.DEPTH_FLOOR.D_fact_blocks": 1,
+    "02.DEPTH_FLOOR.E_fact_blocks": 1,
+    "02.DEPTH_FLOOR.E2_fact_blocks": 1,
+    "02.DEPTH_FLOOR.F_fact_blocks": 1,
+    "02.DEPTH_FLOOR.G_fact_blocks": 1,
+    "02.G_MATRIX.completed": 7,
+    "02.G_MATRIX.non_applicable": 2,
+    "02.G_MATRIX.debt": 2,
+    "required_checks": 20,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "922b649285704cf7895bf8877a5fe6c1f20d4e3bfe83773d5ca425a64475c9fa",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

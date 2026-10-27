@@ -1,0 +1,18 @@
+{
+  "schema_version": "nova-lineage-reset.v0.4.0",
+  "run_id": "2026-10-26-rdmv-ut-class-d",
+  "stage_id": "02.dossier_sections",
+  "from_lineage": "2026-10-26-rdmv-ut-class-d:lineage:2",
+  "to_lineage": "2026-10-26-rdmv-ut-class-d:lineage:3",
+  "founder_words": "reset lineage 3 and go... we need muse working",
+  "founder": "Sridhar Varadarajulu (chat, 2026-10-27 ~11:30 MDT)",
+  "cause": "lineage 2 attempts failed on validator-side gaps, not on budget or on the contract: attempt 1 = conventions the prompt never stated (fixed: schemas-strict/output-conventions.json injected into inputData); attempt 2 = hollow but structurally compliant output (fixed: 02.DEPTH_FLOOR bound from run-config scope.depth_floor)",
+  "evidence": [
+    { "attempt": "attempt_e416de131bb13f1f3e6b2b2971f45f0e227ce5ecbdc0a05cba60203001fd691d", "outcome": "HTTP 200, $0.097, 10 fact blocks, HOLD on CHUNK_IDENTITY/SECTION_BOUNDS/FACT_LINES_CITED/EXAM_FACT_STATUS/NUMERAL_LEAK" },
+    { "attempt": "attempt_2373a2d95cdf3d044c067902aa42b285bcf6bcd7c7acf12168f7d9570a216484", "outcome": "HTTP 200, $0.100, 9 sections x ~145 code points, HOLD on LINEAGE + MERGE hash; now also fails DEPTH_FLOOR" }
+  ],
+  "changes_since": "02 checks: SECTION_BOUNDS recompute, FACT_LINES_CITED block lead, MERGE_DETERMINISTIC null/zero hash, DEPTH_FLOOR added; conventions: lineage copy-through, merge hash, depth; run caps unchanged",
+  "stop_rule": "if lineage 3 fails on depth or lineage again, stop stage 02 single-call dispatch and switch to the builder's per-section chunk plan; no lineage 4 without a design change",
+  "recorded_by": { "actor_id": "claude-code-runner", "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03", "model": "claude-fable-5-1" },
+  "recorded_at": "2026-10-27T17:35:00Z"
+}

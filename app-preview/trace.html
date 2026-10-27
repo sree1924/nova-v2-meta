@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reviewer Trace — Utah Class D run</title>
+<link rel="stylesheet" href="styles.css">
+<script src="trace-embedded.js" defer></script>
+</head>
+<body>
+<div class="sample-banner" role="note">REVIEWER TRACE — real belt ledger data, not learner content. Not linked from learner navigation.</div>
+<header class="site">
+  <div class="wrap">
+    <span class="brand">Nova Dev Preview · Reviewer trace</span>
+  </div>
+</header>
+<main class="wrap" id="view" tabindex="-1"></main>
+<footer class="site">dev preview — no production claims</footer>
+<script type="module">
+const view = document.getElementById("view");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtUSD = (n) => typeof n === "number" ? "$" + n.toFixed(6) : "unknown";
+const short = (id) => typeof id === "string" && id.length > 24 ? id.slice(0, 20) + "…" : esc(id);
+
+async function load() {
+  try {
+    const r = await fetch("data/trace.json", {cache: "no-store"});
+    if (!r.ok) throw new Error("http " + r.status);
+    return { ...(await r.json()), from: "fetch" };
+  } catch (e) {
+    if (window.__TRACE_EMBEDDED) return { ...window.__TRACE_EMBEDDED, from: "embedded-fallback" };
+    view.innerHTML = "<h1>Trace unavailable</h1><p>data/trace.json could not be fetched. Serve app-preview/ over a static file server.</p>";
+    throw e;
+  }
+}
+
+function attemptCard(a) {
+  const tok = `prompt ${a.prompt_tokens ?? "?"} · completion ${a.completion_tokens ?? "?"} · reasoning ${a.reasoning_tokens ?? "?"}`;
+  const checks = Array.isArray(a.checks) ? a.checks.map((c) =>
+    `<tr><td><code>${esc(c.check_id)}</code></td><td class="${String(c.status || "").toLowerCase()}">${esc(c.status)}</td><td>${esc(c.evidence)}</td></tr>`).join("")
+    : `<tr><td colspan="3">checks unknown: ${esc((a.unknown_reasons.find((u) => u.field === "checks") || {}).reason || "")}</td></tr>`;
+  const arts = [...(a.stage_outputs || []), ...(a.raw_responses || []), ...(a.other_artifacts || [])].map((r) =>
+    `<tr><td>${esc(r.kind)}</td><td>${esc(r.status)}</td><td><code>${esc(r.sha256)}</code></td><td>${esc(r.bytes)}</td></tr>`).join("");
+  const unknowns = (a.unknown_reasons || []).map((u) => `<li><code>${esc(u.field)}</code>: ${esc(u.reason)}</li>`).join("");
+  return `<div class="card" id="${esc(a.attempt_id)}">
+  <h2>${esc(a.stage_id)} · attempt ${a.attempt_no} · ${esc(a.attempt_status)}</h2>
+  <dl class="kv">
+  <dt>role</dt><dd>${esc(a.role_id)} · lineage <code>${esc(a.lineage_id)}</code></dd>
+  <dt>model</dt><dd>requested ${esc(a.model_requested)} · returned ${esc(a.model_returned)}</dd>
+  <dt>tokens</dt><dd>${esc(tok)}</dd>
+  <dt>cost</dt><dd>estimated ${fmtUSD(a.estimated_usd)} (${esc(a.estimated_usd_microusd)} micro-USD) · ledger actual ${esc(a.actual_microusd)} micro-USD · reserved ${esc(a.reserved_microusd)} (${esc(a.reservation_state)})</dd>
+  <dt>timing</dt><dd>elapsed ${esc(a.elapsed_ms)} ms · finish ${esc(a.finish_reason)} · HTTP ${esc(a.http_status)}</dd>
+  <dt>validation</dt><dd class="${String(a.validation_overall || "").toLowerCase()}">${esc(a.validation_overall)}</dd>
+  <dt>task</dt><dd><code>${short(a.task_id)}</code> · task status ${esc(a.task_status)} · executor <code>${short(a.executor_id)}</code> · generation ${esc(a.generation)}</dd>
+  </dl>
+  <h3>Checks</h3>
+  <table class="checks"><tr><th>check</th><th>status</th><th>evidence</th></tr>${checks}</table>
+  <h3>Artifacts (hashes only — content never embedded)</h3>
+  <table class="checks"><tr><th>kind</th><th>status</th><th>sha256</th><th>bytes</th></tr>${arts || '<tr><td colspan="4">none recorded</td></tr>'}</table>
+  ${unknowns ? `<h3>Unknowns (null with reason)</h3><ul>${unknowns}</ul>` : ""}
+  </div>`;
+}
+
+load().then((t) => {
+  const tot = t.totals;
+  view.innerHTML = `<h1>How it was made — run <code>${esc(t.run_id)}</code></h1>
+  <p class="muted">Committed-ledger view exported ${esc(t.exported_at)} by <code>${esc(t.exporter)}</code> from <code>${esc(t.ledger_path)}</code>. Run status: ${esc(t.run_status)} · mode ${esc(t.run_mode)}. Raw prompts and responses are never embedded — only sha256 and byte counts. Every unknown is null with a reason on its attempt card.</p>
+  <div class="totals-strip" role="list">
+    <span class="stat" role="listitem"><b>${tot.attempts}</b>attempts</span>
+    <span class="stat" role="listitem"><b>${tot.prompt_tokens.toLocaleString()}</b>prompt tokens</span>
+    <span class="stat" role="listitem"><b>${tot.completion_tokens.toLocaleString()}</b>completion tokens</span>
+    <span class="stat" role="listitem"><b>${tot.reasoning_tokens_observed.toLocaleString()}</b>reasoning tokens (observed)</span>
+    <span class="stat" role="listitem"><b>${fmtUSD(tot.estimated_usd)}</b>estimated</span>
+    <span class="stat" role="listitem"><b>${tot.actual_microusd_exact.toLocaleString()} µUSD</b>ledger actual (exact)</span>
+  </div>
+  <h2>Timeline per lineage</h2>
+  ${t.lineages.map((l) => `<div class="card"><h3><code>${esc(l.lineage_id)}</code></h3>
+    <ol>${l.attempts.map((id) => { const a = t.attempts.find((x) => x.attempt_id === id);
+      return `<li><a href="#${esc(id)}">${esc(a.stage_id)} · attempt ${a.attempt_no} · ${esc(a.attempt_status)}</a> — ${esc(a.model_requested)} · ${fmtUSD(a.estimated_usd)}</li>`; }).join("")}</ol></div>`).join("")}
+  ${t.tasks_without_attempts.length ? `<h2>Queued stages (no attempt yet)</h2><div class="card"><ul>${t.tasks_without_attempts.map((q) => `<li><code>${esc(q.stage_id)}</code> · role ${esc(q.role_id)} · ${esc(q.status)}</li>`).join("")}</ul></div>` : ""}
+  <h2>Attempts</h2>
+  ${t.attempts.map(attemptCard).join("")}
+  <h2>Human interventions</h2>
+  <div class="card"><h3>Approvals (${t.interventions.approvals.length})</h3>
+  <ul>${t.interventions.approvals.map((a) => `<li><code>${esc(a.file)}</code> — “${esc(a.founder_words)}” · ceiling $${esc(a.usd_ceiling)} · recorded ${esc(a.recorded_at)}</li>`).join("")}</ul>
+  <h3>Lineage resets (${t.interventions.lineage_resets.length})</h3>
+  ${t.interventions.lineage_resets.map((r) => `<p><code>${esc(r.file)}</code> — ${esc(r.from_lineage)} → ${esc(r.to_lineage)}: ${esc(r.cause)}</p>`).join("")}
+  <h3>Jams (${t.interventions.jams.entries.length})</h3>
+  ${t.interventions.jams.entries.map((j) => `<h4>${esc(j.title)}</h4><p>${esc(j.body)}${j.body_truncated ? " …(truncated)" : ""}</p>`).join("")}</div>
+  <p class="muted">Cost basis: ${esc(t.honesty.cost_basis)}</p>`;
+});
+</script>
+</body>
+</html>

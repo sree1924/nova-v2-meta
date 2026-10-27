@@ -264,7 +264,8 @@ export function run(artifact, context = {}) {
   // FACT_LINES_CITED — every fact-bearing line cites a declared anchor (inline or by list/table block lead) or carries (verify) + an open debt id.
   {
     let fact = 0; const bad = [];
-    for (const s of sections) { const r = uncitedFactLines(s, openDebtIds); fact += r.factLines; bad.push(...r.uncited); }
+    // F (VERIFY list) and G (DoD matrix) are bookkeeping sections: their numerals are counts/box ids, not learner facts.
+    for (const s of sections) { if (['F', 'G'].includes(s.section_id)) continue; const r = uncitedFactLines(s, openDebtIds); fact += r.factLines; bad.push(...r.uncited); }
     out.push(bad.length ? chk('FACT_LINES_CITED', F, `${bad.length}/${fact} fact-bearing lines uncited: ${head(bad)}`, { fact_lines: fact, uncited: bad.length })
       : chk('FACT_LINES_CITED', P, `${fact}/${fact} fact-bearing lines cite a declared anchor or (verify)+open debt`, { fact_lines: fact, uncited: 0 }));
   }

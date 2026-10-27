@@ -66,7 +66,7 @@ function sourceSelection(context,sectionIds,config){
   return{sections,missing};
 }
 
-export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,sectionIds=[],go=false,approvalRef,nowUtc=new Date().toISOString(),snapshot=null}){
+export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,sectionIds=[],partIds=[],go=false,approvalRef,nowUtc=new Date().toISOString(),snapshot=null}){
   const configPath=inside(projectRoot,runConfigPath),config=read(configPath),runDir=path.dirname(configPath),configRef=pin(configPath);
   if(path.basename(runDir)!==config.run_id)throw new Error('Run/config directory mismatch.');
   inside(path.join(projectRoot,'runs'),runDir);
@@ -112,7 +112,8 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   // Output conventions the owner's compensating checks enforce (schemas-strict/output-conventions.json) travel with the inputs,
   // so the generator is only graded on rules it was told. Added 2026-10-27 after JAM-UT-02's convention-mismatch HOLD.
   let outputConventions=null;try{const oc=read(path.join(projectRoot,'schemas-strict/output-conventions.json'));outputConventions=oc.stages?.[stageId]??null;}catch{}
-  const inputData={kind:'bound_task_inputs',stage_id:stageId,section_ids:sectionIds,output_conventions:outputConventions,runtime_bindings:runtimeBindings,safe_run_config:assembled.context.safe_model_input?.model_input,accepted_inputs:sourceViews,source_registry:assembled.context.source_registry,page_map:assembled.context.page_map,selected_source_pages:selected.sections,source_policy:assembled.context.policy,pilot_overlay:assembled.context.overlay,instruction_templates:{master_sme:masterTemplate},missing_inputs:assembled.missing};
+  // Dossier parts per call (JAM-UT-03): the generator is asked for exactly these envelope section ids; role 16 merges later.
+  const inputData={kind:'bound_task_inputs',stage_id:stageId,section_ids:sectionIds,assigned_dossier_parts:partIds.length?partIds:null,chunk_plan:partIds.length?{chunk_index:1,chunk_total:1,kind:'partial_chunk'}:null,output_conventions:outputConventions,runtime_bindings:runtimeBindings,safe_run_config:assembled.context.safe_model_input?.model_input,accepted_inputs:sourceViews,source_registry:assembled.context.source_registry,page_map:assembled.context.page_map,selected_source_pages:selected.sections,source_policy:assembled.context.policy,pilot_overlay:assembled.context.overlay,instruction_templates:{master_sme:masterTemplate},missing_inputs:assembled.missing};
   const rendered=renderRequest({promptText,headerTemplateText:fs.readFileSync(path.join(projectRoot,'prompts/controller-header.template.json'),'utf8'),bindings:{
     mode:roleId==='04'?'qualification':'production',render_only:!go,execution_authorized:go&&policy.status==='ELIGIBLE_FOR_BOUND_TASK_CHECKS',
     execution_authority_ref:policy.approval_ref?.path??'contracts/execution-authority.v0.4.0.json',execution_authority_sha256:policy.approval_ref?.sha256??policy.authority_ref.sha256,
@@ -124,7 +125,7 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   if(requestBytes>(config.limits.max_request_bytes||262144))blockers.push('request_byte_limit');
   const conservativeEstimate=pricing?Math.ceil(((requestBytes+1024)*pricing.input_usd_per_million+request.max_completion_tokens*pricing.output_usd_per_million))/1e6:null;
   if(conservativeEstimate!==null&&conservativeEstimate>config.limits.max_call_usd)blockers.push('call_cap_below_conservative_request_estimate');
-  return{projectRoot,runDir,config,configRef,stageId,roleId,sectionIds,executorId,nowUtc,go,policy,context:assembled.context,inputRefs:assembled.inputRefs,
+  return{projectRoot,runDir,config,configRef,stageId,roleId,sectionIds,partIds,executorId,nowUtc,go,policy,context:assembled.context,inputRefs:assembled.inputRefs,
     contract,schema,mapping,registryRef,requiredChecks:mapped.check_ids,pricing,pricingRef,rendered,request,
     validatorRef:pin(path.join(projectRoot,'tools/belt/post-validate.mjs')),ownerFiles,ownerReceiptRef:ownerRef,
     renderingInputs:{promptText,headerTemplateText:fs.readFileSync(path.join(projectRoot,'prompts/controller-header.template.json'),'utf8'),inputData},
@@ -145,7 +146,7 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
     if(sha256(bytes)!==bound.sha256)throw new Error('Bound input/tool changed before dispatch: '+bound.path);
   }
   const task=ledger.ensureTask(fence,{lineageId:p.config.candidate_lineage_id,stageId:p.stageId,roleId:p.roleId,inputs:p.inputRefs,
-    versions:{contract:p.contract.sha256,schema:p.schema.sha256,mapping:p.mapping.sha256,prompt:p.rendered.hashes.template_body_sha256,header:p.rendered.hashes.header_template_sha256,registry:p.registryRef.sha256,validator:p.validatorRef?.sha256??null,validator_closure:sha256(canonicalJson(p.ownerFiles||[]))},model:p.config.producer.model,config:{section_ids:p.sectionIds,generation:{max_completion_tokens:p.request.max_completion_tokens,reasoning_effort:p.request.reasoning_effort}},maxAttempts:p.config.limits.max_automatic_attempts_per_logical_task});
+    versions:{contract:p.contract.sha256,schema:p.schema.sha256,mapping:p.mapping.sha256,prompt:p.rendered.hashes.template_body_sha256,header:p.rendered.hashes.header_template_sha256,registry:p.registryRef.sha256,validator:p.validatorRef?.sha256??null,validator_closure:sha256(canonicalJson(p.ownerFiles||[]))},model:p.config.producer.model,config:{section_ids:p.sectionIds,dossier_parts:p.partIds??[],generation:{max_completion_tokens:p.request.max_completion_tokens,reasoning_effort:p.request.reasoning_effort}},maxAttempts:p.config.limits.max_automatic_attempts_per_logical_task});
   const taskId=task.taskId??task.task_id;
   if(task.status==='accepted')return runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,requiredChecks:p.requiredChecks});
   const old=ledger.listAttempts(fence.runId).filter(a=>a.task_id===taskId);

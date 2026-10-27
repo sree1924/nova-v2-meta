@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Dev Preview — Fictional Sample Chapter</title>
+<link rel="stylesheet" href="styles.css">
+<script src="data-embedded.js" defer></script>
+</head>
+<body>
+<div class="sample-banner" role="note">SYNTHETIC SAMPLE — not Utah content</div>
+<header class="site">
+  <div class="wrap">
+    <span class="brand">Nova Dev Preview</span>
+    <nav class="main" aria-label="Learner">
+      <a href="#/" data-nav="home">Home</a>
+      <a href="#/chapters" data-nav="chapters">Chapters</a>
+      <a href="#/practice" data-nav="practice">Practice test</a>
+      <a href="#/settings" data-nav="settings">Settings</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="view" tabindex="-1"></main>
+<footer class="site">dev preview — no production claims</footer>
+<script type="module">
+const SYNTHETIC_NOTE = "SYNTHETIC SAMPLE — not Utah content.";
+const view = document.getElementById("view");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+async function loadData() {
+  try {
+    const get = async (p) => (await fetch(p, {cache: "no-store"})).json();
+    const manifest = await get("data/manifest.json");
+    const ch = manifest.chapters[0];
+    const [cards, teaching, exam] = await Promise.all([
+      get("data/" + ch.cards), get("data/" + ch.units[0].teaching), get("data/" + ch.exam)
+    ]);
+    return { manifest, cards, teaching, exam, from: "fetch" };
+  } catch (e) {
+    const emb = window.__PREVIEW_EMBEDDED;
+    if (!emb) {
+      view.innerHTML = "<h1>Could not load sample data</h1><p>No data files found and no embedded fallback. Serve this folder over HTTP or keep data-embedded.js next to index.html.</p>";
+      throw e;
+    }
+    return { ...emb, from: "embedded-fallback" };
+  }
+}
+
+const store = {
+  key: "nova-preview:v1:sample",
+  read() { try { return JSON.parse(localStorage.getItem(this.key)) || {}; } catch { return {}; } },
+  write(s) { localStorage.setItem(this.key, JSON.stringify(s)); }
+};
+const saveResult = (rec) => { const s = store.read(); s.results = s.results || {}; s.results[rec.attemptId] = rec; store.write(s); };
+const getResult = (id) => (store.read().results || {})[id] || null;
+const markDone = (unitId, what) => { const s = store.read(); s.progress = s.progress || {}; s.progress[unitId] = s.progress[unitId] || {}; s.progress[unitId][what] = true; store.write(s); };
+
+let D = null;
+function unitRefs() {
+  const ch = D.manifest.chapters[0];
+  const u = ch.units[0];
+  const cards = D.cards.decks[0].cards.filter((c) => c.unit_id === u.unit_id);
+  const unit = D.teaching.units.find((x) => x.unit_id === u.unit_id);
+  const items = D.exam.items.filter((i) => i.unit_id === u.unit_id);
+  const quiz = D.exam.module_quizzes.find((q) => q.unit_id === u.unit_id);
+  const form = D.exam.practice_forms[0];
+  return { ch, u, cards, unit, items, quiz, form };
+}
+function itemById(id) { return D.exam.items.find((i) => i.item_id === id); }
+
+function vHome() {
+  const { ch, u, cards, items } = unitRefs();
+  return `<h1>Practice with a fictional sample</h1>
+  <p>${esc(SYNTHETIC_NOTE)} Every sign and rule below is invented for the pretend island of Nowhere. Nothing here is Utah content or a real driving rule.</p>
+  <div class="card"><h2>${esc(ch.title)}</h2>
+  <p class="muted">${cards.length} flashcards · ${items.length} practice questions · 1 lesson · free · no account · text only</p>
+  <p><a class="btn" href="#/chapters">Open the chapter hub</a></p></div>
+  <div class="card"><h2>How this preview works</h2>
+  <p>Study the lesson, drill the cards, then try the quiz and the practice set. Scores describe observed practice only — never licensing eligibility, driving competence, or predicted success.</p></div>`;
+}
+
+function vChapters() {
+  const { ch, u, cards, unit, items, quiz } = unitRefs();
+  const s = store.read().progress?.[u.unit_id] || {};
+  return `<h1>Chapter hub</h1>
+  <div class="card"><h2>${esc(ch.title)}</h2>
+  <p class="muted">${esc(SYNTHETIC_NOTE)}</p>
+  <dl class="kv"><dt>Lesson</dt><dd>${s.lesson ? "done" : "not started"}</dd>
+  <dt>Cards seen</dt><dd>${s.cards ? "yes" : "no"}</dd></dl>
+  <p><a class="btn" href="#/lesson/${u.unit_id}">Lesson: ${esc(unit.title.text)}</a></p>
+  <p><a class="btn" href="#/cards/${u.unit_id}">Flashcards (${cards.length})</a>
+  <a class="btn" href="#/quiz/${u.unit_id}">${esc(quiz.title)}</a></p></div>`;
+}
+
+function vLesson(unitId) {
+  const { unit } = unitRefs();
+  if (!unit || unit.unit_id !== unitId) return vMissing();
+  const wx = unit.worked_example, mc = unit.misconception, sc = unit.self_check;
+  return `<h1>Lesson: ${esc(unit.title.text)}</h1>
+  <p class="muted">${esc(SYNTHETIC_NOTE)}</p>
+  ${unit.why_how.map((w) => `<div class="card"><h2>Why this exists</h2><p>${esc(w.text)}</p></div>`).join("")}
+  ${unit.slides.map((sl) => `<div class="card"><h2>${esc(sl.title.text)}</h2>
+    ${sl.lines.map((l) => `<p>${esc(l.text)}</p>`).join("")}</div>`).join("")}
+  <div class="card"><h2>Worked example</h2>
+    <p><b>Situation.</b> ${esc(wx.scenario.text)}</p>
+    <p><b>Reasoning.</b> ${esc(wx.reasoning.text)}</p>
+    <p><b>Outcome.</b> ${esc(wx.result.text)}</p></div>
+  <div class="card"><h2>Common misconception</h2>
+    <p><b>False:</b> ${esc(mc.claim.text)}</p><p><b>Truth:</b> ${esc(mc.correction.text)}</p></div>
+  <div class="card"><h2>Memory support</h2><p>${esc(unit.memory_support.text)}</p></div>
+  <div class="card"><h2>Self-check</h2><p>${esc(sc.prompt.text)}</p>
+    <p><button data-reveal>Reveal answer</button></p>
+    <p hidden data-answer><b>Answer.</b> ${esc(sc.answer.text)}<br><b>Why.</b> ${esc(sc.rationale.text)}</p></div>
+  <p><a class="btn" href="#/cards/${unitId}">Continue to flashcards</a></p>`;
+}
+
+function vCards(unitId) {
+  const { cards } = unitRefs();
+  const list = cards.filter((c) => c.unit_id === unitId);
+  if (!list.length) return vMissing();
+  return `<h1>Flashcards — recall, then reveal</h1>
+  <p class="muted">${esc(SYNTHETIC_NOTE)} No images in this text-first preview: each card gives a page-sourced verbal cue task instead of a claimed visual-recognition measurement.</p>
+  ${list.map((c, i) => `<div class="card"><h2>Card ${i + 1} of ${list.length}</h2>
+    <p>${esc(c.front)}</p>
+    <p><button data-reveal>Reveal answer</button></p>
+    <div hidden data-answer><p><b>Answer.</b> ${esc(c.back)}</p>
+    <p><b>Memory hook.</b> ${esc(c.memory_hook)}</p>
+    <p class="muted">Source: ${esc(c.source_ref.ref)} · tier ${esc(c.source_ref.tier)} · hook origin ${esc(c.hook_origin)}</p></div></div>`).join("")}
+  <p><a class="btn" href="#/quiz/${unitId}">Continue to the quiz</a></p>`;
+}
+
+function quizBlock(ids, formId, title, policyNote) {
+  return `<h1>${esc(title)}</h1>
+  <p class="muted">${esc(SYNTHETIC_NOTE)} ${esc(policyNote)}</p>
+  <form data-quiz="${esc(formId)}">
+  ${ids.map((id, i) => { const it = itemById(id); if (!it) return "";
+    return `<div class="card" data-item="${esc(it.item_id)}"><h2>Question ${i + 1}</h2>
+    <p>${esc(it.stem)}</p>
+    <ol class="choices">${it.options.map((o) => `<li><button type="button" class="option" data-key="${o.key}"><b>${o.key}.</b> ${esc(o.text)}</button></li>`).join("")}</ol>
+    <div hidden data-feedback></div></div>`; }).join("")}
+  <p><button type="submit">Check answers</button></p>
+  <div data-summary></div></form>`;
+}
+
+function vQuiz(unitId) {
+  const { quiz } = unitRefs();
+  if (!quiz || quiz.unit_id !== unitId) return vMissing();
+  return quizBlock(quiz.item_ids, "quiz:" + quiz.quiz_id, quiz.title,
+    "Unit practice with supported rationales. Missed questions are listed for review after you check.");
+}
+
+function vPractice() {
+  const { form } = unitRefs();
+  return quizBlock(form.item_ids, "form:" + form.form_id, form.title,
+    "Cumulative authored practice under declared product policy. Official count, passing rule and timing are unknown (practice-only overlay) — this score predicts nothing.");
+}
+
+function vResults(attemptId) {
+  const r = getResult(attemptId);
+  if (!r) return `<h1>Results</h1><p>No practice attempt <code>${esc(attemptId)}</code> is stored in this browser. Scores live only here, on this device.</p><p><a class="btn" href="#/practice">Take the practice set</a></p>`;
+  const missed = r.answers.filter((a) => !a.correct);
+  return `<h1>Results — observed practice only</h1>
+  <p class="muted">${esc(SYNTHETIC_NOTE)}</p>
+  <div class="card"><h2>${esc(r.title)}</h2>
+  <p>You answered <b>${r.correctCount} of ${r.answers.length}</b> in this practice set, taken ${esc(r.takenAt)}.</p>
+  <p class="muted">This describes observed practice only — never licensing eligibility, driving competence, or predicted success.</p></div>
+  ${missed.length ? `<div class="card"><h2>Review these next</h2>${missed.map((a) => {
+    const it = itemById(a.itemId);
+    return `<p><b>Question:</b> ${esc(it ? it.stem : a.itemId)}<br><b>You chose ${esc(a.picked)}; correct answer ${esc(it ? it.correct_key : "?")}.</b> ${esc(it ? it.correct_rationale : "")}</p>`; }).join("")}</div>`
+  : `<div class="card"><h2>Clean sweep</h2><p>Every answer matched. A useful next step: re-drill the flashcards from memory, then retake the practice set tomorrow.</p></div>`}
+  <p><a class="btn" href="#/chapters">Back to the chapter hub</a></p>`;
+}
+
+function vSettings() {
+  return `<h1>Settings and about</h1>
+  <div class="card"><h2>About this preview</h2>
+  <p>A standalone developer preview of the learner experience. Everything is free, with no account and no audio. Content on screen is a clearly-labelled synthetic sample shaped like the belt's strict adapters — not Utah content, not real driving rules.</p>
+  <p class="muted">Data source: ${D.from === "fetch" ? "app-preview/data/*.json over HTTP" : "embedded fallback copy (identical content, used because local files could not be fetched)"}.</p></div>
+  <div class="card"><h2>Progress on this device</h2>
+  <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the sample syllabus. Changing the syllabus invalidates them.</p>
+  <p><button id="reset-progress" class="secondary">Erase my preview progress</button></p></div>`;
+}
+
+function vMissing() { return `<h1>Nothing here</h1><p>That chapter or unit is not part of this preview.</p><p><a class="btn" href="#/chapters">Chapter hub</a></p>`; }
+
+function gradeQuiz(form, formId, title) {
+  const answers = [];
+  form.querySelectorAll("[data-item]").forEach((box) => {
+    const item = itemById(box.dataset.item);
+    const picked = box.querySelector(".option[aria-pressed='true']")?.dataset.key || null;
+    const correct = picked === item.correct_key;
+    answers.push({ itemId: item.item_id, picked, correct });
+    const fb = box.querySelector("[data-feedback]");
+    fb.hidden = false;
+    const opt = item.options.find((o) => o.key === item.correct_key);
+    fb.innerHTML = picked
+      ? (correct ? `<p class="result-good">Correct.</p>` : `<p class="result-bad">Not quite — you chose ${esc(picked)}.</p>`) + `<p><b>Why ${esc(item.correct_key)}:</b> ${esc(item.correct_rationale)}</p>`
+      : `<p class="result-bad">No answer chosen.</p><p><b>Correct answer ${esc(item.correct_key)}:</b> ${esc(opt.text)} — ${esc(item.correct_rationale)}</p>`;
+    box.querySelectorAll(".option").forEach((b) => {
+      b.disabled = true;
+      if (b.dataset.key === item.correct_key) b.classList.add("picked-correct");
+      else if (b.getAttribute("aria-pressed") === "true") b.classList.add("picked-wrong");
+      else b.classList.add("dim");
+    });
+  });
+  const correctCount = answers.filter((a) => a.correct).length;
+  const attemptId = "attempt-" + Date.now().toString(36);
+  saveResult({ attemptId, formId, title, answers, correctCount, takenAt: new Date().toISOString() });
+  form.querySelector("[data-summary]").innerHTML =
+    `<div class="card"><h2>You answered ${correctCount} of ${answers.length}</h2>
+    <p class="muted">Observed practice only — never licensing eligibility or predicted success.</p>
+    <p><a class="btn" href="#/results/${attemptId}">See results and next steps</a></p></div>`;
+  form.querySelector("[data-summary]").scrollIntoView();
+}
+
+function wire() {
+  view.querySelectorAll("[data-reveal]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const ans = btn.closest(".card").querySelector("[data-answer]");
+      ans.hidden = !ans.hidden;
+      btn.textContent = ans.hidden ? "Reveal answer" : "Hide answer";
+    });
+  });
+  const lessonHit = location.hash.startsWith("#/lesson/");
+  const cardsHit = location.hash.startsWith("#/cards/");
+  if (lessonHit) markDone(location.hash.split("/")[2], "lesson");
+  if (cardsHit) markDone(location.hash.split("/")[2], "cards");
+  view.querySelectorAll(".option").forEach((b) => {
+    b.addEventListener("click", () => {
+      b.closest("[data-item]").querySelectorAll(".option").forEach((x) => x.removeAttribute("aria-pressed"));
+      b.setAttribute("aria-pressed", "true");
+    });
+  });
+  view.querySelectorAll("form[data-quiz]").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      gradeQuiz(form, form.dataset.quiz, document.querySelector("#view h1")?.textContent || "Practice");
+    });
+  });
+  const reset = view.querySelector("#reset-progress");
+  if (reset) reset.addEventListener("click", () => {
+    localStorage.removeItem(store.key);
+    view.querySelector("[data-reset-done]")?.remove();
+    reset.insertAdjacentHTML("afterend", `<p data-reset-done class="result-good">Preview progress erased on this device.</p>`);
+  });
+}
+
+function route() {
+  const h = location.hash || "#/";
+  const parts = h.replace(/^#\//, "").split("/");
+  let html = "", nav = "home";
+  if (parts[0] === "" ) html = vHome();
+  else if (parts[0] === "chapters") { html = vChapters(); nav = "chapters"; }
+  else if (parts[0] === "lesson") html = vLesson(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "cards") html = vCards(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "quiz") html = vQuiz(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "practice") { html = vPractice(); nav = "practice"; }
+  else if (parts[0] === "results") html = vResults(decodeURIComponent(parts[1] || ""));
+  else if (parts[0] === "settings") { html = vSettings(); nav = "settings"; }
+  else html = vMissing();
+  view.innerHTML = html;
+  document.querySelectorAll("nav.main a").forEach((a) => {
+    if (a.dataset.nav === nav) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  });
+  wire();
+  view.focus({ preventScroll: true });
+  window.scrollTo(0, 0);
+}
+
+window.addEventListener("hashchange", route);
+loadData().then((d) => { D = d; route(); }).catch(() => {});
+</script>
+</body>
+</html>

@@ -13,3 +13,9 @@
 - Side finding: the model chose `envelope_scope.kind: partial_chunk` with assigned_section_ids ["C"] on its own; the controller currently sends one call per --section; chunk plan vs. single-call dossier needs the builder's decision (S5).
 - Lineage: two attempts on lineage 1 both operator errors (JAM-UT-01 env, JAM-UT-02 cap) → C28 cap hit → founder-authorized lineage reset to lineage:2 recorded at receipts/lineage-reset-02-lineage2.json.
 - Prompt is 56k tokens with cached_tokens 0: consider prompt caching / trimming the master SME template for later stages (cost, not correctness).
+
+## JAM-UT-03 — 2026-10-27 ~11:50 MDT — lineage 3 exhausted; whole-dossier single calls oscillate
+- L3#1 (attempt 33c0cd30): HTTP 200, $0.104, 21.6 KB; C 16 facts/4538cp; HOLD: SCOPE_COMPLETENESS (partial_chunk but all nine sections), FACT_LINES_CITED (A exam fact uncited + G bookkeeping numerals), G_MATRIX (wrong line refs). 17/20.
+- L3#2 (attempt 8cdf5afb): HTTP 200, $0.140, 13.4 KB; complete_dossier; C 11 facts/2619cp; B/C2/D/E/E2/F/G one-line stubs → TRUNCATION_GUARD, DEPTH_FLOOR, G_MATRIX. 17/20. Reasoning tokens 12,018 at reasoning_effort low.
+- Pattern across L2#1, L3#1, L3#2: section C is consistently substantive; asking for all nine parts in one call degrades the rest. Design change (stop rule): dispatch one dossier part per call (`--part C` first), merge with mergeEnvelopes (role 16). Conventions rule `assigned_dossier_parts` added; dispatch/controller `--part` plumbing added by the runner.
+- Spend to date: 6 live calls, ≈ $0.55 total.

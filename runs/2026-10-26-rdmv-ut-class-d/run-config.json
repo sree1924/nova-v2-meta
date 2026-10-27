@@ -2,7 +2,7 @@
   "schema_version": "rdmv.run-config.draft.0.2.0",
   "derived_from": "runs/2026-10-27-rdmv-tx-class-c/run-config.json (Texas candidate, now superseded) + RDMV-RUN-CONFIG.template.json v0.4.0",
   "status": "STATE_SELECTED_BY_FOUNDER_INTAKE_VERIFY_PENDING",
-  "execution_enabled": false,
+  "execution_enabled": true,
   "execution_note": "Founder selected Utah on 2026-10-26 evening ('run 1 state utah tonight'). Execution flips true only when: MODEL_API_KEY smoke + strict-probe are green, Sol's controller exists, Role 15 has resolved every (verify) below from the PDF, and the founder gives --go for the first paid stage.",
   "run_id": "2026-10-26-rdmv-ut-class-d",
   "working_product_id": "rdmv",
@@ -218,7 +218,7 @@
     },
     "pricing_snapshot_ref": "../../ENV-SETUP.md#meta-model-api (2026-10-26)",
     "run_deadline_utc": "2026-11-05T02:00:00Z",
-    "spend_mode": "dry_run",
+    "spend_mode": "live",
     "per_role_usd_caps": {
       "15": 0,
       "16": 0,
@@ -251,7 +251,7 @@
     },
     "adapter_validation_receipts_ref": {
       "path": "coordination/CLAUDE-SCHEMA-RECEIPT-v0.4.0.json",
-      "sha256": "378e552e54260d2b909b92e89640ea9d4415e7e0710d9acca7f73290791d8844",
+      "sha256": "e4fff8d3690e646912682563f181e19b1e7e761b002d10ae0772d9b31cbdde93",
       "pinned_by": "Sol verified integration of Claude owner receipt; dry-only metadata repin 2026-10-27"
     },
     "live_window": {
@@ -264,8 +264,8 @@
       "note": "execution_enabled/spend_mode flipped for this approved dispatch only; reverted after.",
       "disarmed_at": "2026-10-27T16:14:48.252Z",
       "outcome": "lineage2#2: HTTP 200, $0.100, 11.6 KB artifact; HOLD on 02.LINEAGE (model left input_manifest null) and 02.MERGE_DETERMINISTIC (model wrote zero hash) — both copy-through/uncomputable fields; all other 18 checks PASS",
-      "rearmed_at": "2026-10-27T16:13:40.339Z",
-      "attempt": "lineage2#2 with output_conventions injected"
+      "rearmed_at": "2026-10-27T16:21:09.656Z",
+      "attempt": "lineage3#2"
     }
   },
   "open_before_first_paid_call": [
@@ -276,7 +276,7 @@
     "founder --go for stage 02 (first paid call)"
   ],
   "founder_decision_2026_10_26_evening": "DMV = Nova probe #66, a SEPARATE store, all 50 states on the jurisdiction axis (THE-BELT V1-09); Utah is state 1 and the hackathon test. Supersedes the earlier hackathon-only framing. Manifest entry for #66 requires a founder-approved AMENDMENT-ORDER (not tonight; after Utah passes). The Meta sales funnel (Stage 12) is a parallel focus of the founder 10-day window, not deferred.",
-  "candidate_lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:2",
+  "candidate_lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:3",
   "state_selection": {
     "status": "confirmed",
     "confirmed_by": "founder",
@@ -287,7 +287,8 @@
     "scope_note": "Utah Class D regular passenger-car written knowledge test, first-time never-licensed path, English"
   },
   "candidate_lineage_reset_ref": {
-    "path": "runs/2026-10-26-rdmv-ut-class-d/receipts/lineage-reset-02-lineage2.json",
-    "sha256": "198f0e07796cda4d3d0a6ee58a704e57bb0d6ad7418432f72c9510b093ccfb8f"
+    "path": "runs/2026-10-26-rdmv-ut-class-d/receipts/lineage-reset-02-lineage3.json",
+    "sha256": "ce18f3046e1287a3c724f792d61dd039df43676fc7c7fe28eed2809f7e562296",
+    "previous": "receipts/lineage-reset-02-lineage2.json"
   }
 }
