@@ -1,0 +1,1308 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-cloud-session",
+    "lane": "tool_assisted",
+    "pass": "03.combined_kg"
+  },
+  "probe": "rdmv-ky-d",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "75c7c7d23d093ed668f5e3bf7946d1720600c1443d57a1744bd7348a6205eb97",
+    "candidate_lineage_id": "2026-10-28-rdmv-ky-class-d:lineage:58"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-ky-class-d/D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-ky-class-d/16/sec05-basic-driving/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-ky-class-d/D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-ky-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec05-F01",
+      "label": "Starting sequence: manual, right foot brake, park, key, gauges",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F01"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F02",
+          "why": "sec05-F01 is the starting chain of manual, right-foot brake, park, key and gauges, while sec05-F02 is the moving chain of drive under braking, checks, signal and throttle; the two chains are run together",
+          "fact_ids": [
+            "sec05-F01",
+            "sec05-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F02",
+      "label": "Moving off: drive under braking, checks, signal, ease onto accelerator",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F02"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F03",
+          "why": "sec05-F02 moves off by shifting to drive under braking with checks and a signal, while sec05-F03 stops by mirror-checking, swapping to the brake and pressing steadily; learners forget the mirror check before stopping",
+          "fact_ids": [
+            "sec05-F02",
+            "sec05-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F03",
+      "label": "Stopping: mirror check, swap to brake, press steadily",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F03"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F02",
+          "why": "sec05-F03 is the stopping sequence, while sec05-F02 is the moving sequence; learners confuse which sequence begins with a mirror check",
+          "fact_ids": [
+            "sec05-F03",
+            "sec05-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F04",
+      "label": "The wheel turns toward the intended travel direction",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F04"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F05",
+      "label": "Two-and-ten hand placement is retired as airbag-dangerous",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F05"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F06",
+          "why": "sec05-F05 retires the two-and-ten hand placement as airbag-dangerous, while sec05-F06 gives the current three-and-nine outside grip; learners still reach for the retired position",
+          "fact_ids": [
+            "sec05-F05",
+            "sec05-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F06",
+      "label": "Three-and-nine outside grip with fingers and raised thumbs",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F06"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F05",
+          "why": "sec05-F06 is the current three-and-nine outside grip with raised thumbs, while sec05-F05 is the retired two-and-ten position; the clock positions are swapped",
+          "fact_ids": [
+            "sec05-F06",
+            "sec05-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F07",
+      "label": "Backing starts with a walk-around look",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F07"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F08",
+      "label": "Reverse posture: left hand at twelve, right arm over seatback, eyes through rear glass",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F08"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F10",
+          "why": "sec05-F08 is the reverse posture with the left hand at twelve and eyes through the rear glass, while sec05-F10 is the slow reverse motion with slight steering; learners mix how to sit with how to move",
+          "fact_ids": [
+            "sec05-F08",
+            "sec05-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F09",
+      "label": "Mirrors miss the zone directly behind",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F09"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F10",
+      "label": "Reverse stays slow with slight steering toward the tail path",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F10"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F11",
+          "why": "sec05-F10 keeps reverse slow with slight steering toward the tail path, while sec05-F11 adds quick front-side checks on turning reverses and holds the rear gaze until stopped; learners drop the front-side checks when turning",
+          "fact_ids": [
+            "sec05-F10",
+            "sec05-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F11",
+      "label": "Turning reverses add front-side checks; rear gaze holds until stopped",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F11"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F08",
+          "why": "sec05-F11 adds front-side checks for turning reverses while keeping eyes rearward until stopped, while sec05-F08 sets the basic rearward posture; learners think a turning reverse changes where the eyes rest",
+          "fact_ids": [
+            "sec05-F11",
+            "sec05-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R01",
+      "label": "Starting chain versus moving chain",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R01"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F01",
+          "why": "sec05-R01 contrasts the starting chain with the moving chain, while sec05-F01 lists only the starting steps; learners place the signal in the starting chain",
+          "fact_ids": [
+            "sec05-R01",
+            "sec05-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R02",
+      "label": "Stopping swaps feet; steering points where the car goes",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R02"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R03",
+      "label": "Two-and-ten retired; three-and-nine rules today",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R03"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F06",
+          "why": "sec05-R03 contrasts the retired two-and-ten with the current three-and-nine, while sec05-F06 details the grip itself; learners remember the clock numbers but not the outside grip with raised thumbs",
+          "fact_ids": [
+            "sec05-R03",
+            "sec05-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R04",
+      "label": "Walk-around look versus mirror coverage",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R04"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R05",
+      "label": "Reverse posture versus reverse motion",
+      "domain": "Basic Driving",
+      "module_id": "sec05-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R05"
+      ],
+      "source_ref": {
+        "ref": "Kentucky Driver Manual Updated 7-23-26 pdf p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ky-d:kentucky-state-police-ksp-driver-testing:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R04",
+          "why": "sec05-R05 contrasts reverse posture with reverse motion, while sec05-R04 contrasts the walk-around look with mirror coverage; learners confuse the pre-backing look with the backing posture",
+          "fact_ids": [
+            "sec05-R05",
+            "sec05-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec05-F01",
+      "to": "sec05-F02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F02",
+      "to": "sec05-F03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F03",
+      "to": "sec05-F04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F02",
+      "to": "sec05-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F04",
+      "to": "sec05-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F05",
+      "to": "sec05-F06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F06",
+      "to": "sec05-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F07",
+      "to": "sec05-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F08",
+      "to": "sec05-F09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F09",
+      "to": "sec05-F10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F10",
+      "to": "sec05-F11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F09",
+      "to": "sec05-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F11",
+      "to": "sec05-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F05",
+      "to": "sec05-F06",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F08",
+      "to": "sec05-F10",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F10",
+      "to": "sec05-F11",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F11",
+      "to": "sec05-F08",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F01",
+      "to": "sec05-F02",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F02",
+      "to": "sec05-F03",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-R03",
+      "to": "sec05-F06",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-R01",
+      "to": "sec05-F01",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-R05",
+      "to": "sec05-R04",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec05-m01",
+      "title": "Starting, moving and stopping",
+      "domain": "Basic Driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 37.2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec05-F01",
+        "sec05-F02",
+        "sec05-F03",
+        "sec05-F04",
+        "sec05-R01",
+        "sec05-R02"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m02",
+      "title": "Hand position and steering grip",
+      "domain": "Basic Driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 20.9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec05-F05",
+        "sec05-F06",
+        "sec05-R03"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m03",
+      "title": "Backing up safely",
+      "domain": "Basic Driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 41.9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec05-F07",
+        "sec05-F08",
+        "sec05-F09",
+        "sec05-F10",
+        "sec05-F11",
+        "sec05-R04",
+        "sec05-R05"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec05-m01",
+      "unit_id": "sec05-u01",
+      "node_ids": [
+        "sec05-F01",
+        "sec05-F02",
+        "sec05-F03",
+        "sec05-F04",
+        "sec05-R01",
+        "sec05-R02"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the starting chain, then moving off, then stopping and the steering direction rule",
+      "flashcard_strategy": "one-fact visible-answer cards on the start, move and stop sequences",
+      "quiz_strategy": "module quiz on the order of starting, moving and stopping steps",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m02",
+      "unit_id": "sec05-u02",
+      "node_ids": [
+        "sec05-F05",
+        "sec05-F06",
+        "sec05-R03"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach why two-and-ten is retired, then the three-and-nine outside grip",
+      "flashcard_strategy": "one-fact visible-answer cards on hand placement and grip",
+      "quiz_strategy": "module quiz on retired and current hand positions",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m03",
+      "unit_id": "sec05-u03",
+      "node_ids": [
+        "sec05-F07",
+        "sec05-F08",
+        "sec05-F09",
+        "sec05-F10",
+        "sec05-F11",
+        "sec05-R04",
+        "sec05-R05"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the walk-around look, then reverse posture, then mirror limits and slow reverse motion with checks",
+      "flashcard_strategy": "one-fact visible-answer cards on backing posture, mirror limits and reverse motion",
+      "quiz_strategy": "module quiz on backing steps, hand positions and where to look",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec05-F01",
+    "sec05-F02",
+    "sec05-F03",
+    "sec05-F04",
+    "sec05-R01",
+    "sec05-R02",
+    "sec05-F05",
+    "sec05-F06",
+    "sec05-R03",
+    "sec05-F07",
+    "sec05-F08",
+    "sec05-F09",
+    "sec05-F10",
+    "sec05-F11",
+    "sec05-R04",
+    "sec05-R05"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "topological prerequisite order; module order and handbook order break ties; dynamic nodes never on the path"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 16,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "rule",
+          "definition": "one accepted page-sourced handbook fact"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "learn the from-fact before the to-fact"
+        },
+        {
+          "type": "easily_confused",
+          "directed": false,
+          "acyclic": false,
+          "definition": "pair of facts learners commonly swap"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec05-F01",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "Starting, moving and stopping"
+        },
+        {
+          "concept_id": "sec05-F02",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "Starting, moving and stopping"
+        },
+        {
+          "concept_id": "sec05-F03",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "Starting, moving and stopping"
+        },
+        {
+          "concept_id": "sec05-F04",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "Starting, moving and stopping"
+        },
+        {
+          "concept_id": "sec05-F05",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "Hand position and steering grip"
+        },
+        {
+          "concept_id": "sec05-F06",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "Hand position and steering grip"
+        },
+        {
+          "concept_id": "sec05-F07",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "Backing up safely"
+        },
+        {
+          "concept_id": "sec05-F08",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "Backing up safely"
+        },
+        {
+          "concept_id": "sec05-F09",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "Backing up safely"
+        },
+        {
+          "concept_id": "sec05-F10",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "Backing up safely"
+        },
+        {
+          "concept_id": "sec05-F11",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "Backing up safely"
+        },
+        {
+          "concept_id": "sec05-R01",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "Starting, moving and stopping"
+        },
+        {
+          "concept_id": "sec05-R02",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "Starting, moving and stopping"
+        },
+        {
+          "concept_id": "sec05-R03",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "Hand position and steering grip"
+        },
+        {
+          "concept_id": "sec05-R04",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "Backing up safely"
+        },
+        {
+          "concept_id": "sec05-R05",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "Backing up safely"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec05-F01",
+          "to": "sec05-F02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F02",
+          "to": "sec05-F03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F03",
+          "to": "sec05-F04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F02",
+          "to": "sec05-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F04",
+          "to": "sec05-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F05",
+          "to": "sec05-F06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F06",
+          "to": "sec05-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F07",
+          "to": "sec05-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F08",
+          "to": "sec05-F09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F09",
+          "to": "sec05-F10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F10",
+          "to": "sec05-F11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F09",
+          "to": "sec05-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F11",
+          "to": "sec05-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F05",
+          "to": "sec05-F06",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F08",
+          "to": "sec05-F10",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F10",
+          "to": "sec05-F11",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F11",
+          "to": "sec05-F08",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F01",
+          "to": "sec05-F02",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F02",
+          "to": "sec05-F03",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-R03",
+          "to": "sec05-F06",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-R01",
+          "to": "sec05-F01",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-R05",
+          "to": "sec05-R04",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Basic Driving",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "topological prerequisite order, then module order and handbook order; dynamic excluded",
+        "module_order": [
+          "sec05-m01",
+          "sec05-m02",
+          "sec05-m03"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}
