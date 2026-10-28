@@ -76,8 +76,10 @@ while ($true) {
     elseif ($s -eq "never") { $candidates += @{ st = $st; why = "new" } }
     elseif ($s -eq "finished") { if (-not $relaunches.ContainsKey($st)) { $relaunches[$st] = 0 }; if ($relaunches[$st] -lt 3) { $candidates += @{ st = $st; why = "relaunch" } } }
   }
-  # New states first (the v2 pilot gets a slot at the reset), then relaunches.
-  $candidates = @(@($candidates | Where-Object { $_.why -eq "new" }) + @($candidates | Where-Object { $_.why -ne "new" }))
+  # Order (2026-10-28 22:48): states with a run dir and progress resume FIRST (finish what is started), then AZ (v2 pilot), then the rest by name.
+  $withRun = @(); $pilot = @(); $rest = @()
+  foreach ($c in $candidates) { $lower = $c.st.ToLower(); if (Get-ChildItem -Path (Join-Path $lane "runs") -Directory -Filter "2026-10-28-rdmv-$lower-*" -ErrorAction SilentlyContinue) { $withRun += $c } elseif ($c.st -eq "AZ") { $pilot += $c } else { $rest += $c } }
+  $candidates = @($withRun + $pilot + $rest)
   $slots = $MaxParallel - $running.Count
   if ((Get-Date) -lt $script:pauseUntil) { if ($candidates.Count -gt 0) { Log "paused until $($script:pauseUntil) (429); running: $($running -join ',')" } }
   elseif ($slots -gt 0 -and $candidates.Count -gt 0) {
