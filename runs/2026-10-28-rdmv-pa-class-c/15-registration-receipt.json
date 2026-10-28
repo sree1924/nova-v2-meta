@@ -1,0 +1,126 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "3732cfe940ca042b7ebd89479190753382c4f167a752172ccbc6326f42d129ad",
+    "bytes": 32041
+  },
+  "source": {
+    "source_ref": "src:rdmv-pa-c:pennsylvania-department-of-transportatio:handbook",
+    "path": "runs/2026-10-28-rdmv-pa-class-c/sources/private/pub_2095.pdf",
+    "sha256": "3a6e48560b81d1e8afb10a0f0cbeb840d7b452c42e736199f0aa1b2a8e02715e",
+    "bytes": 8168037,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-pa-class-c/sources/private/input-snapshots/3a7afb33d9df58b1e9a68fe91feec947cdf272ecd27a45f32544dbf9d6abf1c0.json",
+      "sha256": "3a7afb33d9df58b1e9a68fe91feec947cdf272ecd27a45f32544dbf9d6abf1c0"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 104,
+    "printed_page_count": 0,
+    "page_map_sha256": "5e76d79bd92f5830b72b9335ede38a9bfb62a0d317a91841f8d3f0bf409c20a8",
+    "extracted_text_sha256": "d6bc4c78babf8b8e47c5cce33e3e32cfda005cfd51a275c9433e0e000867f4e1",
+    "recorded_retrieved_at": "2026-10-28T07:10:11.848790Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": "PUB 95 (4-21) English Version",
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-pa-class-c/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "b6a381b772232db27f154a03b992465ae3083f8d6c83d570006e26698c435d51"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-pa-class-c/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "7c5e0483bc5aeca1e60ccb60b31d7fb6f2bf450c4af3c9ad4dbc1c88d4431bc3"
+      },
+      "observed_at_utc": "2026-10-28T08:59:01.101Z",
+      "official_page_url": "https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual",
+      "observation_method": "Rendered page text excerpt (WebFetch/browser) with the exact visible handbook href; saved snapshot bytes are JSON, not the HTTP response body.",
+      "recorder": {
+        "actor": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker); current official page checked via web; exact href in scout HTML",
+        "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-pa-class-c/receipts/issuer-page-snapshot.json",
+        "sha256": "2b344a078a191299cfec20ee02ad66696e56b3e55c9192197a5b8b49acb53f61",
+        "bytes": 1195,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "issuer page states no effective date; edition recorded as debt per S4 order"
+      },
+      "disposition_acceptance": "recorded_dated_effective_date_debt_not_full_liveness_PASS",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": true,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-pa-class-c/sources/private/input-snapshots/3a7afb33d9df58b1e9a68fe91feec947cdf272ecd27a45f32544dbf9d6abf1c0.json",
+          "sha256": "3a7afb33d9df58b1e9a68fe91feec947cdf272ecd27a45f32544dbf9d6abf1c0"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "643bc755bc144bbb64c82e5b21691c27918519b2f96f9b0ff96b63899c04fddb",
+      "bytes": 47915,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "5e76d79bd92f5830b72b9335ede38a9bfb62a0d317a91841f8d3f0bf409c20a8",
+      "bytes": 67213,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "d125293461efac0b369397a252e58fe1686ca24cdc89a306e2ea205c1feddb7c",
+      "bytes": 1104,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "d6bc4c78babf8b8e47c5cce33e3e32cfda005cfd51a275c9433e0e000867f4e1",
+      "bytes": 332253,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "9812dd6ca6a4852e1bea1dc040b44bbde56c7c2570224b3e6a29e019ca1d213d",
+      "bytes": 723,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "15-effective-date-dispositions.json",
+      "sha256": "4b9a0f086724fe308669b4e8e7d14aaa11e27aed861203dfa2e267045550364a",
+      "bytes": 547,
+      "kind": "accepted_dispositions"
+    }
+  ],
+  "content_calls": 0
+}

@@ -1,9 +1,10 @@
-# Worker token ledger — generated 2026-10-28T07:01:57.067Z
+# Worker token ledger — generated 2026-10-28T10:13:39.505Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
-| muse | Muse Code subscription | 20 | 571,600,494 | 1,828,254 | 573,428,748 | $0.00 | AZ CA CO CT FL IA KY NY OK TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 66 | 0 | 0 | 17,422,060 | $0.00 | AL AZ CO FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
+| muse | Muse Code subscription | 26 | 817,696,352 | 2,576,756 | 820,273,108 | $0.00 | AZ CA CO CT FL IA KY MT NM NY OK TX UT VA |
+| claude | Anthropic subscription (Claude Code subagent) | 73 | 0 | 0 | 19,804,701 | $0.00 | AL AZ CA CO FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
+| sol | ChatGPT Pro subscription | 21 | 0 | 0 | 83,354,209 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -24,10 +25,16 @@
 | muse | muse-spark-1.3 | NY | intake-NY-r1 | 46,970,894 | 46,634,494 | 152,083 | 39,025 | — | 232 | — | $0.00 |
 | muse | muse-spark-1.3 | TX | intake-TX-r1 | 12,588,570 | 12,253,890 | 64,181 | 20,885 | — | 107 | — | $0.00 |
 | muse | muse-spark-1.3 | VA | intake-VA-r1 | 34,317,363 | 33,990,975 | 168,529 | 52,132 | — | 197 | — | $0.00 |
-| muse | muse-spark-1.3 | CT | intake-CT | — | — | — | — | — | 58 | — | $0.00 |
-| muse | muse-spark-1.3 | IA | intake-IA | — | — | — | — | — | 36 | — | $0.00 |
-| muse | muse-spark-1.3 | KY | intake-KY | — | — | — | — | — | 39 | — | $0.00 |
-| muse | muse-spark-1.3 | OK | intake-OK | — | — | — | — | — | 29 | — | $0.00 |
+| muse | muse-spark-1.3 | CT | intake-CT | 52,197,898 | 51,516,723 | 191,311 | 46,948 | — | 245 | — | $0.00 |
+| muse | muse-spark-1.3 | IA | intake-IA | 68,806,537 | 68,198,657 | 163,265 | 55,204 | — | 293 | — | $0.00 |
+| muse | muse-spark-1.3 | KY | intake-KY | 50,840,022 | 50,078,311 | 169,710 | 69,955 | — | 240 | — | $0.00 |
+| muse | muse-spark-1.3 | OK | intake-OK | 41,046,372 | 40,719,191 | 118,896 | 48,358 | — | 213 | — | $0.00 |
+| muse | muse-spark-1.3 | CT | intake-CT-r1 | 33,205,029 | 32,880,899 | 105,320 | 29,095 | — | 184 | — | $0.00 |
+| muse | muse-spark-1.3 | IA | intake-IA-r1 | — | — | — | — | — | 164 | — | $0.00 |
+| muse | muse-spark-1.3 | KY | intake-KY-r1 | — | — | — | — | — | 200 | — | $0.00 |
+| muse | muse-spark-1.3 | MT | intake-MT | — | — | — | — | — | 147 | — | $0.00 |
+| muse | muse-spark-1.3 | NM | intake-NM | — | — | — | — | — | 19 | — | $0.00 |
+| muse | muse-spark-1.3 | OK | intake-OK-r1 | — | — | — | — | — | 15 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
 | claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | UT | multi-state shell: state picker, #/<st>/ routes, states.json, harness rewrite, Utah onboarded | — | — | — | — | 243,214 | 95 | 14 min | $0.00 |
@@ -94,4 +101,32 @@
 | claude | claude-opus-5-5 | OR | downstream worker: sec07-11 — OREGON DOWNSTREAM COMPLETE 11/11 (8 merges; official_mirror 35q/80% verified) — delta of resumed agent | — | — | — | — | 236,939 | 91 | 32 min | $0.00 |
 | claude | claude-opus-5-5 | SC | downstream worker: sec01-07 through 03/04/06/05 (35/35; 378 nodes/365 cards/378 items, 44 units/304 slides, 409 scripts; 8 merges) — delta of resumed agent | — | — | — | — | 411,509 | 177 | 77 min | $0.00 |
 | claude | claude-opus-5-5 | FL | downstream worker: sec01-06 through 03/04/06/05 (30/30 first-try; 263 nodes/cards/items, 32 units/235 slides, 295 scripts) — delta of resumed agent | — | — | — | — | 341,084 | 126 | 40 min | $0.00 |
+| sol | gpt-6.1-sol | NE | First-four02/16 main client token delta; includes cached-input replay; uncached+output 212095; estimated tool count | — | — | — | — | 6,257,535 | 45 | 16 min | $0.00 |
+| sol | gpt-6.1-sol | NE | Read-only source-check helper actual client token snapshot; includes cached-input replay; uncached+output 68971 | — | — | — | — | 1,780,843 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | First-four02/16 main client token delta; includes cached-input replay; uncached+output 158615; estimated tool count | — | — | — | — | 3,323,159 | 33 | 19 min | $0.00 |
+| sol | gpt-6.1-sol | ID | Checkpoint main client delta; includes cached-input replay 5687296; uncached-input+output delta 219346; tool count estimated | — | — | — | — | 5,906,642 | 44 | 21 min | $0.00 |
+| sol | gpt-6.1-sol | KS | Checkpoint main client delta; includes cached-input replay 4245120; uncached-input+output delta 176816; tool count estimated | — | — | — | — | 4,421,936 | 90 | 19 min | $0.00 |
+| sol | gpt-6.1-sol | DE | Checkpoint main client delta; includes cached-input replay 4551296; uncached-input+output delta 197817; tool count estimated | — | — | — | — | 4,749,113 | 40 | 22 min | $0.00 |
+| sol | gpt-6.1-sol | NM | Checkpoint main client delta; includes cached-input replay 2850048; uncached-input+output delta 52241; tool count estimated | — | — | — | — | 2,902,289 | 11 | 13 min | $0.00 |
+| sol | gpt-6.1-sol | NE | Repair capability main repair audit delta; cached replay 1716352; uncached-input+output 28811 | — | — | — | — | 1,745,163 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | Repair capability read-only helper repair audit delta; cached replay 537984; uncached-input+output 16390 | — | — | — | — | 554,374 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | Factual review main delta; previous helper usage excluded; cached replay included | — | — | — | — | 3,775,081 | — | 23 min | $0.00 |
+| sol | gpt-6.1-sol | KS | Factual review main delta; previous helper usage excluded; cached replay included | — | — | — | — | 5,312,187 | — | 31 min | $0.00 |
+| sol | gpt-6.1-sol | DE | Factual review main delta; previous helper usage excluded; cached replay included | — | — | — | — | 5,326,143 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | Factual review main delta; previous helper usage excluded; cached replay included | — | — | — | — | 5,589,300 | — | 21 min | $0.00 |
+| sol | gpt-6.1-sol | NM | Factual review main delta; previous helper usage excluded; cached replay included | — | — | — | — | 3,200,119 | — | 21 min | $0.00 |
+| sol | gpt-6.1-sol | PA | Intake/SME fixed quiesce main snapshot; cached replay included | — | — | — | — | 3,994,619 | — | 12 min | $0.00 |
+| sol | gpt-6.1-sol | WY | Intake/SME fixed quiesce main snapshot; cached replay included | — | — | — | — | 4,230,033 | — | 21 min | $0.00 |
+| sol | gpt-6.1-sol | ME | Intake/SME fixed quiesce main snapshot; cached replay included | — | — | — | — | 4,026,407 | — | 20 min | $0.00 |
+| sol | gpt-6.1-sol | SD | Intake/SME fixed quiesce main snapshot; cached replay included | — | — | — | — | 2,719,932 | — | 21 min | $0.00 |
+| sol | gpt-6.1-sol | MT | Intake/SME fixed quiesce main snapshot; cached replay included | — | — | — | — | 6,345,599 | — | 21 min | $0.00 |
+| claude | claude-opus-5-5 | VA | downstream worker: sec01-08 through 03/04/06/05 (40/40 first-try; 264 nodes/263 cards/264 items, 31 units/209 slides, 294 scripts) — delta of resumed agent | — | — | — | — | 348,430 | 60 | 60 min | $0.00 |
+| claude | claude-opus-5-5 | WA | downstream worker: sec01-03,05-07 through 03/04/06/05 + KG sec01-07 (311 nodes; 267 cards/items; 42 units/302 slides; 309 scripts); sec04 blocked at 04 on pull/push slash — delta of resumed agent | — | — | — | — | 394,199 | 60 | 60 min | $0.00 |
+| claude | claude-opus-5-5 | CA | downstream worker: sec01-07 through 03/04/06/05 (35/35 first-try; 275 nodes/274 cards/275 items, 39 units/276 slides, 313 scripts) — delta of resumed agent | — | — | — | — | 344,412 | 60 | 60 min | $0.00 |
+| sol | gpt-6.1-sol | ID | Native factual repair batch01 main-client delta; cached replay included | — | — | — | — | 2,907,550 | — | 8 min | $0.00 |
+| sol | gpt-6.1-sol | DE | Native factual repair batch01 main-client delta; cached replay included | — | — | — | — | 4,286,185 | — | — | $0.00 |
+| claude | claude-opus-5-5 | IN | downstream worker: sec06-10 — INDIANA DOWNSTREAM COMPLETE 10/10: 580 nodes/573 cards/580 items, 56 units/403 slides, 629 scripts; 7 merges — delta of resumed agent | — | — | — | — | 249,713 | 8 | 7 min | $0.00 |
+| claude | claude-opus-5-5 | MN | downstream worker: sec01-07 (sec07 card_scripts held on request_byte_limit): 434 nodes/433 cards/434 items, 46 units/334 slides, 392 scripts — delta of resumed agent | — | — | — | — | 439,030 | 13 | 8 min | $0.00 |
+| claude | claude-opus-5-5 | WI | downstream worker: sec07-12 — WISCONSIN DOWNSTREAM COMPLETE 12/12: 612 nodes/609 cards/612 items, 69 units/509 slides, 670 scripts — delta of resumed agent | — | — | — | — | 215,432 | 16 | 8 min | $0.00 |
+| claude | claude-opus-5-5 | NY | downstream worker: sec01-07 through 03/04/06/05 (35/35; 235 nodes/233 cards/235 items, 41 units/309 slides, 274 scripts; 2 merges) — delta of resumed agent | — | — | — | — | 391,425 | 13 | 8 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

@@ -326,7 +326,7 @@
     "max_completion_tokens": 30000,
     "per_role_usd_caps_note": "per-role SUB-caps for the 16-section Utah run (raised 2026-10-27 20:02Z from the single-section pilot values 12/5/5/5/3 after BUDGET_CAP_EXCEEDED on sec07; the binding cap is the standing-authority total, limits.max_total_usd)",
     "max_completion_tokens_note": "raised 8000→30000 on 2026-10-27 after attempt aafbd5e9 hit finish_reason=length with 6453/8000 tokens consumed by reasoning at reasoning_effort low (JAM-UT-02); worst case ≈ $0.20/call at list price, under the $1 per-call reservation",
-    "max_request_bytes": 640000,
+    "max_request_bytes": 700000,
     "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority"
   },
   "execution": {
@@ -355,7 +355,8 @@
       "sha256": "1ea62d2cc202c8d091600e353b3beec663d3f63833335a0a8060fc219ee3a23b"
     },
     "retry_nonces": {
-      "04.cards:@sec04-your-vehicle": 1
+      "04.cards:@sec04-your-vehicle": 1,
+      "05.card_scripts:@sec07-sharing-the-road-part-1": 1
     },
     "retry_nonces_note": "per stage+part retry counter: each bump after a HOLD mints a NEW logical task (the held task stays blocked); the lineage attempt cap (C28) still bounds spend and triggers lineage resets"
   },
@@ -367,7 +368,7 @@
     "founder --go for stage 02 (first paid call)"
   ],
   "founder_decision_2026_10_26_evening": "DMV = Nova probe #66, a SEPARATE store, all 50 states on the jurisdiction axis (THE-BELT V1-09); Utah is state 1 and the hackathon test. Supersedes the earlier hackathon-only framing. Manifest entry for #66 requires a founder-approved AMENDMENT-ORDER (not tonight; after Utah passes). The Meta sales funnel (Stage 12) is a parallel focus of the founder 10-day window, not deferred.",
-  "candidate_lineage_id": "2026-10-28-rdmv-mn-class-d:lineage:66",
+  "candidate_lineage_id": "2026-10-28-rdmv-mn-class-d:lineage:67",
   "state_selection": {
     "status": "confirmed",
     "confirmed_by": "founder",
@@ -384,8 +385,8 @@
     "spec": "coordination/intake/MN.spec.json"
   },
   "candidate_lineage_reset_ref": {
-    "path": "runs/2026-10-28-rdmv-mn-class-d/receipts/lineage-reset-04cards-lineage66.json",
-    "sha256": "062dcff6287102a2ef0255618091267441200acae8c0613a7c707f9d04f53fac",
-    "previous": "runs/2026-10-28-rdmv-mn-class-d/receipts/lineage-reset-04cards-lineage65.json"
+    "path": "runs/2026-10-28-rdmv-mn-class-d/receipts/lineage-reset-05cardscripts-lineage67.json",
+    "sha256": "528600421ff01ab0368ecdd501d8939cd6b98c96b23a8773df82e931faae1b98",
+    "previous": "runs/2026-10-28-rdmv-mn-class-d/receipts/lineage-reset-04cards-lineage66.json"
   }
 }

@@ -165,3 +165,5 @@ Seeded 2026-10-28T05:03:22.057Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:42:55.000Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:82 for 03.combined_kg (sec03-intermediate-licenses-gdl) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-intermediate-licenses-gdl__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:55:09.497Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:83 for 03.combined_kg (sec05-getting-familiar-with-your-vehicle) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-getting-familiar-with-your-vehicle__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:12:34.950Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:84 for 03.combined_kg (sec07-traffic-signs-and-signals) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-traffic-signs-and-signals__-__n0 (lineage attempts exhausted)

@@ -1,0 +1,126 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "3732cfe940ca042b7ebd89479190753382c4f167a752172ccbc6326f42d129ad",
+    "bytes": 32041
+  },
+  "source": {
+    "source_ref": "src:rdmv-id-d:idaho-transportation-department-division:handbook",
+    "path": "runs/2026-10-28-rdmv-id-class-d/sources/private/driver_manual.pdf",
+    "sha256": "e5102efdeb257cac4a527846eb475ed9c86ea4b17f7805d5e99893ee206499a8",
+    "bytes": 2617571,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-id-class-d/sources/private/input-snapshots/b35bb7f0bda732d11b4a6a7d639229bda8d1862b4b4c1aac4ac9c4259929c75f.json",
+      "sha256": "b35bb7f0bda732d11b4a6a7d639229bda8d1862b4b4c1aac4ac9c4259929c75f"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 139,
+    "printed_page_count": 135,
+    "page_map_sha256": "68de01e80b4ac7c398c4a1f35c708a1b781c0e2bb6e037da3c643c5c9f1cf6b4",
+    "extracted_text_sha256": "efc0742815f99b8cb524bbcf8f1cae59016b8c8bfb334e4b9d13bad7bf378bec",
+    "recorded_retrieved_at": "2026-10-28T07:11:07Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": "JULY 2026",
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-id-class-d/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "b1c5791b58df68024ad8106b295fe843b57b0ae7f5632fbcb28f47133f4f379d"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-id-class-d/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "d4bdf6c7b1eacac3cc639a66a99aa02db06675098bb7ce1dc74ee7754d239df7"
+      },
+      "observed_at_utc": "2026-10-28T07:24:04.674Z",
+      "official_page_url": "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/",
+      "observation_method": "Rendered page text excerpt (WebFetch/browser) with the exact visible handbook href; saved snapshot bytes are JSON, not the HTTP response body.",
+      "recorder": {
+        "actor": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker); current official issuer page checked with web and exact saved issuer HTML href",
+        "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-id-class-d/receipts/issuer-page-snapshot.json",
+        "sha256": "c77cc29dd89fdfc82fff8ee8933277616b4429926db61063a9811e76904bd243",
+        "bytes": 1615,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "issuer page states no effective date; edition recorded as debt per S4 order"
+      },
+      "disposition_acceptance": "recorded_dated_effective_date_debt_not_full_liveness_PASS",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": true,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-id-class-d/sources/private/input-snapshots/b35bb7f0bda732d11b4a6a7d639229bda8d1862b4b4c1aac4ac9c4259929c75f.json",
+          "sha256": "b35bb7f0bda732d11b4a6a7d639229bda8d1862b4b4c1aac4ac9c4259929c75f"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "9c432577e712960022ff656d6738a091319c6e5e4dcbdcf9429cd450e142e543",
+      "bytes": 54608,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "68de01e80b4ac7c398c4a1f35c708a1b781c0e2bb6e037da3c643c5c9f1cf6b4",
+      "bytes": 112574,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "eee60602368bd429216c9c2833be0be6ed9e505e5c5accebaefb9d2b9a847475",
+      "bytes": 988,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "efc0742815f99b8cb524bbcf8f1cae59016b8c8bfb334e4b9d13bad7bf378bec",
+      "bytes": 201405,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "d34ef4ab3114b70297b11e64a94091770f82f3ed5f69c8aecbc35659cb8ce1d8",
+      "bytes": 723,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "15-effective-date-dispositions.json",
+      "sha256": "60d1b2e28ba118e126d97a47fad4eeadc6f4dbaca3f92c9bf2b0f1c0f695d354",
+      "bytes": 547,
+      "kind": "accepted_dispositions"
+    }
+  ],
+  "content_calls": 0
+}

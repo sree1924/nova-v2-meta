@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {sha256,canonicalJson,inside,verifyRef,writeImmutable} from './atomic-file.mjs';
-import {assembleContext} from './context.mjs';
+import {assembleContext,inspectAccepted02Replacement} from './context.mjs';
+export {inspectAccepted02Replacement} from './context.mjs';
 import {createMetaClient} from './meta-client.mjs';
 import {inspectExecutionPolicy,assertDispatchAllowed} from './execution-policy.mjs';
 import {openLedger} from './ledger.mjs';
@@ -40,6 +41,22 @@ export function taskSectionIds(task){
   return task.stage_id==='16.compile'?LEGACY_UNSCOPED_COMPILE_SECTION:[];
 }
 const sectionKey=ids=>JSON.stringify([...(ids||[])].sort());
+// Source revisions are an explicit parent chain. Receipt time/task hash only
+// breaks ties between unrelated nonrevision registrations, never reverses it.
+function sourceDescendsFrom(task,ancestor,snapshot,projectRoot,runDir,seen=new Set()){
+  if(seen.has(task.task_id))throw new Error('Accepted source revision chain is cyclic.');
+  seen.add(task.task_id);
+  const raw=task.identity_json??task.identity??null,identity=typeof raw==='string'?JSON.parse(raw):raw;
+  const parent=identity?.config?.source_revision?.previous_registry_ref;
+  if(!parent)return false;
+  const parentFile=inside(runDir,verifyRef(parent,projectRoot));
+  const matches=(snapshot.tasks||[]).filter(t=>t.status==='accepted'&&t.stage_id===task.stage_id&&t.task_id!==task.task_id).filter(t=>{
+    const main=(snapshot.artifacts||[]).find(a=>a.artifact_id===t.accepted_artifact_id);
+    return main?.sha256===parent.sha256&&path.resolve(runDir,main.path)===parentFile;
+  });
+  if(!matches.length)throw new Error('Accepted source revision parent is not ledger accepted.');
+  return matches.some(t=>t.task_id===ancestor.task_id||sourceDescendsFrom(t,ancestor,snapshot,projectRoot,runDir,new Set(seen)));
+}
 export function acceptedRuntimeRefs(snapshot,projectRoot,runDir,{sectionIds=null}={}){
   const out=[];
   // Latest accepted wins per (stage, section) (except 02, whose parts are deduped per part set by the compiler): a stage re-run
@@ -47,7 +64,12 @@ export function acceptedRuntimeRefs(snapshot,projectRoot,runDir,{sectionIds=null
   // With sectionIds, only that section's scoped artifacts plus run-level ones are returned (per-section belt, 2026-10-27).
   const want=sectionIds?sectionKey(sectionIds):null;
   const latest=new Map();
-  for(const task of snapshot.tasks||[]){if(task.status!=='accepted'||task.stage_id==='02.dossier_sections')continue;const k=task.stage_id+'@'+sectionKey(taskSectionIds(task));const prev=latest.get(k);if(!prev||String(task.updated_at)>String(prev.updated_at)||(String(task.updated_at)===String(prev.updated_at)&&task.task_id>prev.task_id))latest.set(k,task);}
+  for(const task of snapshot.tasks||[]){
+    if(task.status!=='accepted'||task.stage_id==='02.dossier_sections')continue;
+    const k=task.stage_id+'@'+sectionKey(taskSectionIds(task)),prev=latest.get(k);
+    const source=task.stage_id==='15.sources';
+    if(!prev||(source&&sourceDescendsFrom(task,prev,snapshot,projectRoot,runDir))||(!(source&&sourceDescendsFrom(prev,task,snapshot,projectRoot,runDir))&&(String(task.updated_at)>String(prev.updated_at)||(String(task.updated_at)===String(prev.updated_at)&&task.task_id>prev.task_id))))latest.set(k,task);
+  }
   for(const task of snapshot.tasks||[]){
     if(task.status!=='accepted')continue;
     const secs=taskSectionIds(task);
@@ -58,9 +80,15 @@ export function acceptedRuntimeRefs(snapshot,projectRoot,runDir,{sectionIds=null
     const outputFile=verifyRef(main,runDir),validationFile=verifyRef(main.validation_ref_json,runDir),acceptanceFile=verifyRef(main.acceptance_ref_json,runDir);
     const validation=read(validationFile),acceptance=read(acceptanceFile);
     if(validation.status!=='PASS'||acceptance.status!=='PASS'||validation.output_sha256!==main.sha256||acceptance.output_sha256!==main.sha256)throw new Error('Stale accepted artifact receipts.');
+    // Native snapshot readers expose identity_json as either parsed data or SQL text.
+    // The compiler consumes serialized identities to retain exact part-set history.
+    const identity=task.identity_json??task.identity??null;
+    const metadata={stage_id:task.stage_id,accepted:true,accepted_at:task.updated_at,task_id:task.task_id,artifact_id:main.artifact_id,
+      identity:typeof identity==='string'?identity:JSON.stringify(identity),section_ids:secs,
+      validation_ref:{...ref(main.validation_ref_json),path:validationFile},acceptance_ref:{...ref(main.acceptance_ref_json),path:acceptanceFile}};
     if(Array.isArray(validation.companions)){
-      for(const companion of validation.companions||[]){const file=verifyRef(companion,runDir);out.push({...ref(companion),path:file,kind:companion.kind,stage_id:task.stage_id,accepted:true});}
-    }else out.push({...ref(main),path:outputFile,kind:task.stage_id,stage_id:task.stage_id,accepted:true,accepted_at:task.updated_at,task_id:task.task_id,identity:task.identity_json??null,section_ids:secs});
+      for(const companion of validation.companions||[]){const file=verifyRef(companion,runDir);out.push({...ref(companion),path:file,kind:companion.kind,...metadata});}
+    }else out.push({...ref(main),path:outputFile,kind:task.stage_id,...metadata});
   }
   return out;
 }
@@ -83,7 +111,7 @@ function sourceSelection(context,sectionIds,config){
   return{sections,missing};
 }
 
-export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,sectionIds=[],partIds=[],go=false,approvalRef,nowUtc=new Date().toISOString(),snapshot=null}){
+export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,sectionIds=[],partIds=[],go=false,approvalRef,nowUtc=new Date().toISOString(),snapshot=null,replacementRef=null}){
   const configPath=inside(projectRoot,runConfigPath),config=read(configPath),runDir=path.dirname(configPath),configRef=pin(configPath);
   if(path.basename(runDir)!==config.run_id)throw new Error('Run/config directory mismatch.');
   inside(path.join(projectRoot,'runs'),runDir);
@@ -103,7 +131,7 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   snapshot??=readNativeSnapshot(runDir,config);
   const acceptedArtifacts=acceptedRuntimeRefs(snapshot,projectRoot,runDir,{sectionIds:sectionIds.length?sectionIds:null});
   const bindings=Object.fromEntries(Object.entries({overlay:'pilot-overrides-v0.4.0.json',policy:'source-fact-policy.json',media_disposition:'media-disposition.json',finish_criteria:'pilot-finish-criteria.json',prompt_authorship:'prompt-authorship.json'}).map(([k,name])=>[k,pin(path.join(projectRoot,'contracts',name))]));
-  const assembled=assembleContext({projectRoot,runRoot:runDir,stageId,acceptedArtifacts,bindings,config,configRef,nowUtc});
+  const assembled=assembleContext({projectRoot,runRoot:runDir,stageId,acceptedArtifacts,bindings,config,configRef,nowUtc,replacementRef,sectionIds,partIds});
   // Depth floor (run-config scope.depth_floor) rides in the validation context so 02.DEPTH_FLOOR can reject hollow envelopes.
   assembled.context.depth_floor=config.scope?.depth_floor??null;
   const selected=sourceSelection(assembled.context,sectionIds,config);
@@ -134,6 +162,7 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   let outputExample=null;try{const mp=read(path.join(projectRoot,stage.mapping));const pos=(mp.fixtures||[]).find(f=>f.expected_status==='PASS'&&/synthetic/.test(f.kind||''))||(mp.fixtures||[]).find(f=>f.expected_status==='PASS');if(pos){const ex=read(path.join(projectRoot,pos.path));delete ex._fixture;outputExample={note:'SHAPE EXAMPLE ONLY — synthetic placeholder content from a fixture; copy the STRUCTURE (keys, nesting, id styles, status enums), never the facts, names or numbers.',fixture:pos.path,example:ex};}}catch{}
   // Dossier parts per call (JAM-UT-03): the generator is asked for exactly these envelope section ids; role 16 merges later.
   const inputData={kind:'bound_task_inputs',stage_id:stageId,section_ids:sectionIds,assigned_dossier_parts:partIds.length?partIds:null,chunk_plan:partIds.length?{chunk_index:1,chunk_total:1,kind:'partial_chunk'}:null,output_conventions:outputConventions,output_shape_example:outputExample,depth_floor:config.scope?.depth_floor??null,
+    ...(assembled.context.accepted_replacement?{accepted_replacement:assembled.context.accepted_replacement}:{}),
     // The ONE lineage block the output must echo (03 attempt 17:44Z copied the accepted dossier's own manifest hash instead).
     lineage_to_copy:{candidate_lineage_id:config.candidate_lineage_id,input_manifest_sha256:assembled.context.input_manifest_sha256,note:'copy these two values verbatim into your lineage / input_manifest_sha256 / candidate_lineage_id fields; hashes inside accepted_inputs belong to THOSE artifacts, not to this task'},
     // Flat {fact_id: accepted statement} for stages whose learner text must BYTE-EQUAL accepted wording (04 backs, 05 answers).
@@ -152,7 +181,7 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   if(requestBytes>(config.limits.max_request_bytes||262144))blockers.push('request_byte_limit');
   const conservativeEstimate=pricing?Math.ceil(((requestBytes+1024)*pricing.input_usd_per_million+request.max_completion_tokens*pricing.output_usd_per_million))/1e6:null;
   if(conservativeEstimate!==null&&conservativeEstimate>config.limits.max_call_usd)blockers.push('call_cap_below_conservative_request_estimate');
-  return{projectRoot,runDir,config,configRef,stageId,roleId,sectionIds,partIds,executorId,nowUtc,go,policy,context:assembled.context,inputRefs:assembled.inputRefs,
+  return{projectRoot,runDir,config,configRef,stageId,roleId,sectionIds,partIds,executorId,nowUtc,go,policy,context:assembled.context,inputRefs:assembled.inputRefs,replacement:assembled.replacement,replacementRef:assembled.replacement?.ref??null,
     contract,schema,mapping,registryRef,requiredChecks:mapped.check_ids,pricing,pricingRef,rendered,request,
     validatorRef:pin(path.join(projectRoot,'tools/belt/post-validate.mjs')),ownerFiles,ownerReceiptRef:ownerRef,
     renderingInputs:{promptText,headerTemplateText:fs.readFileSync(path.join(projectRoot,'prompts/controller-header.template.json'),'utf8'),inputData},
@@ -176,16 +205,18 @@ function retryNonce(p){const n=p.config.execution?.retry_nonces?.[retryNonceKey(
 // authors the artifact under its subscription (no Model API call, $0 on the credit); the belt ingests the artifact through the
 // SAME client → validator → ledger path via a fetch-compatible file transport. Packets carry private handbook text, so they
 // live under sources/private/ (gitignored). Nothing in the validators, ledger or acceptance policy changes.
-export function authoringKey(stageId,sectionIds=[],partIds=[],nonce=0){return [stageId,...[...(sectionIds||[])].sort(),(partIds||[]).join('+')||'-','n'+(nonce||0)].join('__').replace(/[^A-Za-z0-9_.+@-]/g,'_');}
+export function authoringKey(stageId,sectionIds=[],partIds=[],nonce=0,replacementSha256=null){if(replacementSha256!==null&&!/^[a-f0-9]{64}$/.test(replacementSha256))throw new Error('Replacement authoring key requires an exact proof hash.');return [stageId,...[...(sectionIds||[])].sort(),(partIds||[]).join('+')||'-','n'+(nonce||0),...(replacementSha256?['r'+replacementSha256]:[])].join('__').replace(/[^A-Za-z0-9_.+@-]/g,'_');}
 export function authoringPaths(runDir,key){const base=path.join(runDir,'sources','private','muse-authoring');return{base,inbox:path.join(base,'inbox',key+'.json'),outbox:path.join(base,'outbox',key+'.json'),done:path.join(base,'done'),next:path.join(base,'inbox','NEXT.json')};}
 export function emitAuthoringPacket({previousNonPass=[],...options}){
   const p=prepareDispatch({...options,go:false});
+  if(options.replacementRef&&p.replacement?.status!=='PASS')return{status:'HOLD',key:null,inbox:null,outbox:null,blockers:p.preflight.blockers};
   const nonce=retryNonce(p).retry_nonce??0;
-  const key=authoringKey(p.stageId,p.sectionIds,p.partIds,nonce);
+  const key=authoringKey(p.stageId,p.sectionIds,p.partIds,nonce,p.replacementRef?.sha256??null);
   const paths=authoringPaths(p.runDir,key);
   for(const d of [path.dirname(paths.inbox),path.dirname(paths.outbox),paths.done])fs.mkdirSync(d,{recursive:true});
   const rel=f=>path.relative(p.projectRoot,f).replace(/\\/g,'/');
   const packet={schema_version:'nova-muse-authoring-packet.v1',key,run_id:p.config.run_id,candidate_lineage_id:p.config.candidate_lineage_id,input_manifest_sha256:p.context.input_manifest_sha256,stage_id:p.stageId,section_ids:p.sectionIds,part_ids:p.partIds,retry_nonce:nonce,
+    ...(p.replacementRef?{replacement_ref:p.replacementRef}:{}),
     authoring:{mode:'muse_code_subscription',model:p.config.producer.model,billing:'Muse Code subscription (operator tokens); no Model API call; ledger actual = $0',
       instructions:'You ARE the producer model for this request. Read request.messages exactly as the Model API would (system, then user). Obey request.response_format.json_schema.schema STRICTLY: every required key, no extra keys, exact enums and types. Obey the output_conventions and lineage_to_copy inside the user message. Every statement comes from the handbook text in the request; never invent. If previous_non_pass lists check ids, they failed on the last attempt: fix exactly those. Write the artifact as `artifact` in the outbox file named below, with this packet file\'s sha256 as packet_sha256.',
       write_outbox_to:rel(paths.outbox),
@@ -214,8 +245,9 @@ function writeLayerIfChanged(file, value) {
 }
 export function emitThinPacket({ previousNonPass = [], ...options }) {
   const p = prepareDispatch({ ...options, go: false });
+  if (options.replacementRef && p.replacement?.status !== 'PASS') return {status: 'HOLD', key: null, inbox: null, outbox: null, blockers: p.preflight.blockers};
   const nonce = retryNonce(p).retry_nonce ?? 0;
-  const key = authoringKey(p.stageId, p.sectionIds, p.partIds, nonce);
+  const key = authoringKey(p.stageId, p.sectionIds, p.partIds, nonce, p.replacementRef?.sha256 ?? null);
   const paths = authoringPaths(p.runDir, key);
   for (const d of [path.dirname(paths.inbox), path.dirname(paths.outbox), paths.done]) fs.mkdirSync(d, { recursive: true });
   const rel = (f) => path.relative(p.projectRoot, f).replace(/\\/g, '/');
@@ -236,6 +268,7 @@ export function emitThinPacket({ previousNonPass = [], ...options }) {
   }
   const packet = { schema_version: 'nova-muse-authoring-packet.v2-thin', key, run_id: p.config.run_id, candidate_lineage_id: p.config.candidate_lineage_id, input_manifest_sha256: p.context.input_manifest_sha256,
     stage_id: p.stageId, section_ids: p.sectionIds, part_ids: p.partIds, retry_nonce: nonce,
+    ...(p.replacementRef ? {replacement_ref: p.replacementRef} : {}),
     layers: { state: { path: rel(stateRef.path), sha256: stateRef.sha256 }, section: { path: rel(secRef.path), sha256: secRef.sha256 } },
     assembly: 'full request = [system: delta.system_header] + [user: layers.state.prompts[stage_id]] + [user: canonical JSON of {...layers.state.inputData, ...layers.section.inputData, ...delta.inputData}]; response_format = layers.state.response_formats[stage_id]. Read the state layer once per launch and the section layer once per section; every part packet only changes delta.',
     delta: { system_header: p.rendered.messages[0].content, inputData: delta },
@@ -282,11 +315,23 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
     const bytes=fs.readFileSync(path.resolve(p.projectRoot,bound.path));
     if(sha256(bytes)!==bound.sha256)throw new Error('Bound input/tool changed before dispatch: '+bound.path);
   }
+  if(p.replacementRef){
+    if(!(p.inputRefs||[]).some(r=>r.kind==='accepted02_replacement_proof'&&r.sha256===p.replacementRef.sha256&&path.resolve(p.projectRoot,r.path)===path.resolve(p.projectRoot,p.replacementRef.path)))return{status:'HOLD',reason:'accepted02_replacement_proof_not_bound',new_model_calls:0};
+    // Re-resolve against the held native ledger: a superseding acceptance between
+    // rendering and lock acquisition must never authorize another submission.
+    const replacement=inspectAccepted02Replacement({projectRoot:p.projectRoot,runDir:p.runDir,runId:fence.runId,stageId:p.stageId,sectionIds:p.sectionIds,partIds:p.partIds,
+      acceptedArtifacts:acceptedRuntimeRefs(ledger.snapshot(fence.runId),p.projectRoot,p.runDir,{sectionIds:p.sectionIds}),replacementRef:p.replacementRef,nowUtc:p.nowUtc});
+    if(replacement.status!=='PASS')return{status:'HOLD',reason:'accepted02_replacement_proof',blockers:replacement.blockers,new_model_calls:0};
+    if(replacement.acceptedReplacement){
+      const prior=ledger.getTask(replacement.acceptedReplacement.task_id);
+      return{...await runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task:prior,requiredChecks:p.requiredChecks}),new_model_calls:0,replacement_ref:p.replacementRef};
+    }
+  }
   const task=ledger.ensureTask(fence,{lineageId:p.config.candidate_lineage_id,stageId:p.stageId,roleId:p.roleId,inputs:p.inputRefs,
     versions:{contract:p.contract.sha256,schema:p.schema.sha256,mapping:p.mapping.sha256,prompt:p.rendered.hashes.template_body_sha256,header:p.rendered.hashes.header_template_sha256,registry:p.registryRef.sha256,validator:p.validatorRef?.sha256??null,validator_closure:sha256(canonicalJson(p.ownerFiles||[]))},model:p.config.producer.model,config:{section_ids:p.sectionIds,dossier_parts:p.partIds??[],generation:{max_completion_tokens:p.request.max_completion_tokens,reasoning_effort:p.request.reasoning_effort},
     // Runner retry nonce (2026-10-27, standing authority): a HOLD leaves the logical task `blocked` for good; the runner retries by
     // minting a NEW logical task keyed per stage+part (run-config execution.retry_nonces). Absent/0 → identity unchanged.
-    ...retryNonce(p)},maxAttempts:p.config.limits.max_automatic_attempts_per_logical_task});
+    ...retryNonce(p),...(p.replacementRef?{replacement_ref:p.replacementRef}:{})},maxAttempts:p.config.limits.max_automatic_attempts_per_logical_task});
   const taskId=task.taskId??task.task_id;
   if(task.status==='accepted')return runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,requiredChecks:p.requiredChecks});
   const old=ledger.listAttempts(fence.runId).filter(a=>a.task_id===taskId);
@@ -321,7 +366,7 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
   const bound=renderRequest({...p.renderingInputs,bindings:{...p.rendered.header,render_only:false,execution_authorized:true,task:{...p.rendered.header.task,logical_task_id:taskId,attempt_id:attemptId,budget_reservation_ref:reservationRef.path,budget_reservation_sha256:reservationRef.sha256}}});
   const request={...p.request,messages:bound.messages},requestHash=sha256(canonicalJson(request));
   const savedRequest=writeImmutable(p.runDir,'sources/private/requests/'+attemptId+'.json',request,{lockHandle});
-  const envelopeRef=writeImmutable(p.runDir,folder+'/request-envelope.json',{header:bound.header,hashes:bound.hashes,request_sha256:requestHash,request_ref:ref(savedRequest),stage_id:p.stageId,section_ids:p.sectionIds,inputs:p.inputRefs,contract:p.contract,schema:p.schema,mapping:p.mapping,registry:p.registryRef,reservation_id:reservationId,executor_id:p.executorId},{lockHandle});
+  const envelopeRef=writeImmutable(p.runDir,folder+'/request-envelope.json',{header:bound.header,hashes:bound.hashes,request_sha256:requestHash,request_ref:ref(savedRequest),stage_id:p.stageId,section_ids:p.sectionIds,inputs:p.inputRefs,contract:p.contract,schema:p.schema,mapping:p.mapping,registry:p.registryRef,reservation_id:reservationId,executor_id:p.executorId,...(p.replacementRef?{replacement_ref:p.replacementRef}:{})},{lockHandle});
   const callId='call_'+attemptId;
   ledger.recordModelCall(fence,{attemptId,reservationId,callId,status:'dispatching',provider:'meta',roleId:p.roleId,model_requested:request.model,request_sha256:requestHash,envelope_ref:ref(envelopeRef)});
   let result;

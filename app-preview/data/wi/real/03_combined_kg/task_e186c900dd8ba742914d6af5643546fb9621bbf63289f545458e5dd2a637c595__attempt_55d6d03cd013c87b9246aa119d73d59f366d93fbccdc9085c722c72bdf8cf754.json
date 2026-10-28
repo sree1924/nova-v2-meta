@@ -1,0 +1,3838 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-wi-d",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "8d19c70a1681f8d11b8c07bbbb80a76af0637178c0e3b46172ea51a6c6f27229",
+    "candidate_lineage_id": "2026-10-28-rdmv-wi-class-d:lineage:56"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-wi-class-d/16/sec06-signals-markings-lanes/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-wi-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec06-F01",
+      "label": "Signal layout",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F01"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F02",
+      "label": "Single-light country intersections",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F02"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F03",
+      "label": "Dark signal: treat as a stop sign",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F03"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R04",
+          "why": "A dark or malfunctioning signal is treated as a stop sign.",
+          "fact_ids": [
+            "sec06-F03",
+            "sec06-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F04",
+      "label": "Officer at a signal",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F04"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F05",
+      "label": "Steady red",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F05"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R01",
+          "why": "At a steady red you stop and wait for green and for cross traffic to clear.",
+          "fact_ids": [
+            "sec06-F05",
+            "sec06-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F06",
+      "label": "Right on red",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F06"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R03",
+          "why": "Right on red is allowed when safe and not forbidden by a sign.",
+          "fact_ids": [
+            "sec06-F06",
+            "sec06-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F07",
+      "label": "Left on red: one-way to one-way",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F07"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R03",
+          "why": "Left on red is allowed only from a one-way street onto another one-way street.",
+          "fact_ids": [
+            "sec06-F07",
+            "sec06-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F08",
+      "label": "Stop, yield, stay in lane",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F08"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F09",
+      "label": "Flashing red",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F09"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R01",
+          "why": "At a flashing red you stop and then go when it is safe.",
+          "fact_ids": [
+            "sec06-F09",
+            "sec06-R01"
+          ]
+        },
+        {
+          "other_id": "sec06-F11",
+          "why": "A flashing red light and a flashing red arrow both mean stop, then go when safe.",
+          "fact_ids": [
+            "sec06-F09",
+            "sec06-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F10",
+      "label": "Steady red arrow",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F10"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F11",
+          "why": "A steady red arrow means wait for green, while a flashing red arrow means go after stopping when safe.",
+          "fact_ids": [
+            "sec06-F10",
+            "sec06-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F11",
+      "label": "Flashing red arrow",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F11"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F09",
+          "why": "A flashing red light and a flashing red arrow both mean stop, then go when safe.",
+          "fact_ids": [
+            "sec06-F11",
+            "sec06-F09"
+          ]
+        },
+        {
+          "other_id": "sec06-F10",
+          "why": "A steady red arrow means wait for green, while a flashing red arrow means go after stopping when safe.",
+          "fact_ids": [
+            "sec06-F11",
+            "sec06-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F12",
+      "label": "Steady yellow",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F12"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R05",
+          "why": "A steady yellow means stop before entering if you have not entered yet.",
+          "fact_ids": [
+            "sec06-F12",
+            "sec06-R05"
+          ]
+        },
+        {
+          "other_id": "sec06-F13",
+          "why": "A steady yellow means stop before the intersection, but if you are already in it you keep going.",
+          "fact_ids": [
+            "sec06-F12",
+            "sec06-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F13",
+      "label": "Yellow while in the intersection",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F13"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F12",
+          "why": "A steady yellow means stop before the intersection, but if you are already in it you keep going.",
+          "fact_ids": [
+            "sec06-F13",
+            "sec06-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F14",
+      "label": "Flashing yellow",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F14"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R05",
+          "why": "A flashing yellow means slow down, check cross traffic and proceed with caution.",
+          "fact_ids": [
+            "sec06-F14",
+            "sec06-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F15",
+      "label": "Steady yellow arrow",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F15"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F16",
+      "label": "Flashing yellow arrow",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F16"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F17",
+      "label": "Steady green still yields",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F17"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F19",
+          "why": "A steady green lets you go but still requires yielding, including to oncoming traffic on a left turn.",
+          "fact_ids": [
+            "sec06-F17",
+            "sec06-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F18",
+      "label": "Let cross traffic clear",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F18"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F19",
+      "label": "Left turn on a green ball",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F19"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R07",
+          "why": "On a steady green ball a left turn yields to oncoming traffic.",
+          "fact_ids": [
+            "sec06-F19",
+            "sec06-R07"
+          ]
+        },
+        {
+          "other_id": "sec06-F17",
+          "why": "A steady green lets you go but still requires yielding, including to oncoming traffic on a left turn.",
+          "fact_ids": [
+            "sec06-F19",
+            "sec06-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F20",
+      "label": "Steady green arrow",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F20"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R07",
+          "why": "Under a green arrow no oncoming or crossing traffic should be moving.",
+          "fact_ids": [
+            "sec06-F20",
+            "sec06-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F21",
+      "label": "What pavement lines do",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F21"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F22",
+      "label": "Edge lines",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F22"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F23",
+      "label": "White dashed lines and arrows",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F23"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R10",
+          "why": "A white dashed line may be crossed when safe.",
+          "fact_ids": [
+            "sec06-F23",
+            "sec06-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F24",
+      "label": "Solid white line between lanes",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F24"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R10",
+          "why": "A solid white line between lanes may be crossed only for a hazard or a turn within the next block.",
+          "fact_ids": [
+            "sec06-F24",
+            "sec06-R10"
+          ]
+        },
+        {
+          "other_id": "sec06-F25",
+          "why": "The solid white line at a crosswalk is a stop line, while a solid white line between lanes is a no-crossing line.",
+          "fact_ids": [
+            "sec06-F24",
+            "sec06-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F25",
+      "label": "Stopping at a crosswalk",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F25"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F24",
+          "why": "The solid white line at a crosswalk is a stop line, while a solid white line between lanes is a no-crossing line.",
+          "fact_ids": [
+            "sec06-F25",
+            "sec06-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F26",
+      "label": "Where crosswalks are",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F26"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F27",
+      "label": "Solid and double yellow lines",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F27"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R11",
+          "why": "Two solid yellow lines forbid passing from either side.",
+          "fact_ids": [
+            "sec06-F27",
+            "sec06-R11"
+          ]
+        },
+        {
+          "other_id": "sec06-F31",
+          "why": "A double solid yellow forbids passing for everyone, but a dashed-and-solid pair allows the dashed side to pass.",
+          "fact_ids": [
+            "sec06-F27",
+            "sec06-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F28",
+      "label": "Crossing double yellow for a driveway",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F28"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R13",
+          "why": "One double yellow exception is turning into a driveway when safe.",
+          "fact_ids": [
+            "sec06-F28",
+            "sec06-R13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F29",
+      "label": "Passing a very slow vehicle",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F29"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R13",
+          "why": "The other exception is passing a vehicle going under half the speed limit, never farm equipment.",
+          "fact_ids": [
+            "sec06-F29",
+            "sec06-R13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F30",
+      "label": "Dashed yellow line",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F30"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R11",
+          "why": "A single dashed yellow line allows passing when safe.",
+          "fact_ids": [
+            "sec06-F30",
+            "sec06-R11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F31",
+      "label": "Dashed beside solid yellow",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F31"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R12",
+          "why": "With mixed yellow lines, only the dashed side may pass.",
+          "fact_ids": [
+            "sec06-F31",
+            "sec06-R12"
+          ]
+        },
+        {
+          "other_id": "sec06-F27",
+          "why": "A double solid yellow forbids passing for everyone, but a dashed-and-solid pair allows the dashed side to pass.",
+          "fact_ids": [
+            "sec06-F31",
+            "sec06-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F32",
+      "label": "Passing zone signs",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F32"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F33",
+      "label": "Shared center lane",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F33"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R14",
+          "why": "A shared center lane is only for left turns and U-turns from either direction.",
+          "fact_ids": [
+            "sec06-F33",
+            "sec06-R14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F34",
+      "label": "Entering the shared center lane",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F34"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F35",
+      "label": "Reversible lanes",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F35"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R14",
+          "why": "A reversible lane is marked with double dashed yellow lines and runs on set hours.",
+          "fact_ids": [
+            "sec06-F35",
+            "sec06-R14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F36",
+      "label": "Reversible lane lights",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F36"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F44",
+          "why": "Reversible and flex lanes both use red X, yellow X and green arrow lights with similar meanings.",
+          "fact_ids": [
+            "sec06-F36",
+            "sec06-F44"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F37",
+      "label": "Reserved lanes",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F37"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F38",
+      "label": "Turning across a reserved lane",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F38"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F39",
+      "label": "Bus and car pool lane hours",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F39"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F40",
+      "label": "Colored bus and bike lanes",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F40"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F41",
+      "label": "Flex lanes",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F41"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F42",
+      "label": "No large trucks in flex lanes",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F42"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R16",
+          "why": "Large trucks may never drive in a flex lane, even when it is open.",
+          "fact_ids": [
+            "sec06-F42",
+            "sec06-R16"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F43",
+      "label": "Flex lane incidents",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F43"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F44",
+      "label": "Flex lane lights",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F44"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F36",
+          "why": "Reversible and flex lanes both use red X, yellow X and green arrow lights with similar meanings.",
+          "fact_ids": [
+            "sec06-F44",
+            "sec06-F36"
+          ]
+        },
+        {
+          "other_id": "sec06-R17",
+          "why": "Over a flex lane a yellow X means closing and a red X means closed.",
+          "fact_ids": [
+            "sec06-F44",
+            "sec06-R17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F45",
+      "label": "End of the flex lane",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "module_id": "sec06-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F45"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R01",
+      "label": "Steady versus flashing red",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R01"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F05",
+          "why": "At a steady red you stop and wait for green and for cross traffic to clear.",
+          "fact_ids": [
+            "sec06-R01",
+            "sec06-F05"
+          ]
+        },
+        {
+          "other_id": "sec06-F09",
+          "why": "At a flashing red you stop and then go when it is safe.",
+          "fact_ids": [
+            "sec06-R01",
+            "sec06-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R02",
+      "label": "Steady versus flashing red arrow",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R02"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R03",
+      "label": "Right on red versus left on red",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R03"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F06",
+          "why": "Right on red is allowed when safe and not forbidden by a sign.",
+          "fact_ids": [
+            "sec06-R03",
+            "sec06-F06"
+          ]
+        },
+        {
+          "other_id": "sec06-F07",
+          "why": "Left on red is allowed only from a one-way street onto another one-way street.",
+          "fact_ids": [
+            "sec06-R03",
+            "sec06-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R04",
+      "label": "Dark signal is not a green light",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R04"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F03",
+          "why": "A dark or malfunctioning signal is treated as a stop sign.",
+          "fact_ids": [
+            "sec06-R04",
+            "sec06-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R05",
+      "label": "Steady versus flashing yellow",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R05"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F12",
+          "why": "A steady yellow means stop before entering if you have not entered yet.",
+          "fact_ids": [
+            "sec06-R05",
+            "sec06-F12"
+          ]
+        },
+        {
+          "other_id": "sec06-F14",
+          "why": "A flashing yellow means slow down, check cross traffic and proceed with caution.",
+          "fact_ids": [
+            "sec06-R05",
+            "sec06-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R06",
+      "label": "Steady versus flashing yellow arrow",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R06"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R07",
+      "label": "Green ball versus green arrow",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R07"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F19",
+          "why": "On a steady green ball a left turn yields to oncoming traffic.",
+          "fact_ids": [
+            "sec06-R07",
+            "sec06-F19"
+          ]
+        },
+        {
+          "other_id": "sec06-F20",
+          "why": "Under a green arrow no oncoming or crossing traffic should be moving.",
+          "fact_ids": [
+            "sec06-R07",
+            "sec06-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R08",
+      "label": "Green still means yield",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R08"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R09",
+      "label": "White versus yellow lines",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R09"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R10",
+      "label": "Dashed versus solid white",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R10"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F24",
+          "why": "A solid white line between lanes may be crossed only for a hazard or a turn within the next block.",
+          "fact_ids": [
+            "sec06-R10",
+            "sec06-F24"
+          ]
+        },
+        {
+          "other_id": "sec06-F23",
+          "why": "A white dashed line may be crossed when safe.",
+          "fact_ids": [
+            "sec06-R10",
+            "sec06-F23"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R11",
+      "label": "Dashed versus double solid yellow",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R11"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F27",
+          "why": "Two solid yellow lines forbid passing from either side.",
+          "fact_ids": [
+            "sec06-R11",
+            "sec06-F27"
+          ]
+        },
+        {
+          "other_id": "sec06-F30",
+          "why": "A single dashed yellow line allows passing when safe.",
+          "fact_ids": [
+            "sec06-R11",
+            "sec06-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R12",
+      "label": "The line nearest you decides",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R12"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F31",
+          "why": "With mixed yellow lines, only the dashed side may pass.",
+          "fact_ids": [
+            "sec06-R12",
+            "sec06-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R13",
+      "label": "Double yellow exceptions",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R13"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F28",
+          "why": "One double yellow exception is turning into a driveway when safe.",
+          "fact_ids": [
+            "sec06-R13",
+            "sec06-F28"
+          ]
+        },
+        {
+          "other_id": "sec06-F29",
+          "why": "The other exception is passing a vehicle going under half the speed limit, never farm equipment.",
+          "fact_ids": [
+            "sec06-R13",
+            "sec06-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R14",
+      "label": "Shared center versus reversible lane",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R14"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F33",
+          "why": "A shared center lane is only for left turns and U-turns from either direction.",
+          "fact_ids": [
+            "sec06-R14",
+            "sec06-F33"
+          ]
+        },
+        {
+          "other_id": "sec06-F35",
+          "why": "A reversible lane is marked with double dashed yellow lines and runs on set hours.",
+          "fact_ids": [
+            "sec06-R14",
+            "sec06-F35"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R15",
+      "label": "The half-block reserved lane rule",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R15"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R16",
+      "label": "Trucks never use flex lanes",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R16"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F42",
+          "why": "Large trucks may never drive in a flex lane, even when it is open.",
+          "fact_ids": [
+            "sec06-R16",
+            "sec06-F42"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R17",
+      "label": "Yellow X versus red X",
+      "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+      "module_id": "sec06-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R17"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F44",
+          "why": "Over a flex lane a yellow X means closing and a red X means closed.",
+          "fact_ids": [
+            "sec06-R17",
+            "sec06-F44"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec06-F03",
+      "to": "sec06-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F05",
+      "to": "sec06-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F09",
+      "to": "sec06-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F10",
+      "to": "sec06-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F11",
+      "to": "sec06-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F06",
+      "to": "sec06-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F07",
+      "to": "sec06-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F12",
+      "to": "sec06-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F14",
+      "to": "sec06-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F15",
+      "to": "sec06-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F16",
+      "to": "sec06-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F19",
+      "to": "sec06-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F20",
+      "to": "sec06-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F17",
+      "to": "sec06-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F20",
+      "to": "sec06-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F22",
+      "to": "sec06-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F23",
+      "to": "sec06-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F24",
+      "to": "sec06-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F28",
+      "to": "sec06-R13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F29",
+      "to": "sec06-R13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F27",
+      "to": "sec06-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F30",
+      "to": "sec06-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F31",
+      "to": "sec06-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F33",
+      "to": "sec06-R14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F35",
+      "to": "sec06-R14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F38",
+      "to": "sec06-R15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F41",
+      "to": "sec06-R16",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F42",
+      "to": "sec06-R16",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F44",
+      "to": "sec06-R17",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec06-m01",
+      "title": "Signal basics and red lights",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 17,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F01",
+        "sec06-F02",
+        "sec06-F03",
+        "sec06-R04",
+        "sec06-F04",
+        "sec06-F05",
+        "sec06-F09",
+        "sec06-R01",
+        "sec06-F10",
+        "sec06-F11",
+        "sec06-R02"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m02",
+      "title": "Turning on red",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F06",
+        "sec06-F07",
+        "sec06-R03",
+        "sec06-F08"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m03",
+      "title": "Yellow and green signals",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 18,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F12",
+        "sec06-F13",
+        "sec06-F14",
+        "sec06-R05",
+        "sec06-F15",
+        "sec06-F16",
+        "sec06-R06",
+        "sec06-F17",
+        "sec06-F18",
+        "sec06-F19",
+        "sec06-F20",
+        "sec06-R07",
+        "sec06-R08"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m04",
+      "title": "White lines and crosswalks",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F21",
+        "sec06-F22",
+        "sec06-R09",
+        "sec06-F23",
+        "sec06-F24",
+        "sec06-R10",
+        "sec06-F25",
+        "sec06-F26"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m05",
+      "title": "Yellow lines and passing",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F27",
+        "sec06-F28",
+        "sec06-F29",
+        "sec06-R13",
+        "sec06-F30",
+        "sec06-R11",
+        "sec06-F31",
+        "sec06-R12",
+        "sec06-F32"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m06",
+      "title": "Shared center and reversible lanes",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F33",
+        "sec06-F34",
+        "sec06-F35",
+        "sec06-R14",
+        "sec06-F36"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m07",
+      "title": "Reserved and flex lanes",
+      "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F37",
+        "sec06-F38",
+        "sec06-R15",
+        "sec06-F39",
+        "sec06-F40",
+        "sec06-F41",
+        "sec06-F42",
+        "sec06-R16",
+        "sec06-F43",
+        "sec06-F44",
+        "sec06-R17",
+        "sec06-F45"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec06-m01",
+      "unit_id": "sec06-u01",
+      "node_ids": [
+        "sec06-F01",
+        "sec06-F02",
+        "sec06-F03",
+        "sec06-R04",
+        "sec06-F04",
+        "sec06-F05",
+        "sec06-F09",
+        "sec06-R01",
+        "sec06-F10",
+        "sec06-F11",
+        "sec06-R02"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain signal layout, single-light rural intersections, dark signals, officers at signals, and the steady and flashing red lights and arrows.",
+      "flashcard_strategy": "Cards for each red signal; contrast cards for steady versus flashing red and red arrows, and a dark signal as a stop sign.",
+      "quiz_strategy": "Hub-chosen quiz naming a red signal and asking what you must do.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m02",
+      "unit_id": "sec06-u02",
+      "node_ids": [
+        "sec06-F06",
+        "sec06-F07",
+        "sec06-R03",
+        "sec06-F08"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach right on red, the one-way to one-way left on red, and the stop-yield-stay-in-lane sequence.",
+      "flashcard_strategy": "Cards for each turn-on-red rule; a contrast card for right versus left on red.",
+      "quiz_strategy": "Hub-chosen quiz describing a turn on red and asking whether it is allowed.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m03",
+      "unit_id": "sec06-u03",
+      "node_ids": [
+        "sec06-F12",
+        "sec06-F13",
+        "sec06-F14",
+        "sec06-R05",
+        "sec06-F15",
+        "sec06-F16",
+        "sec06-R06",
+        "sec06-F17",
+        "sec06-F18",
+        "sec06-F19",
+        "sec06-F20",
+        "sec06-R07",
+        "sec06-R08"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover steady and flashing yellow lights and arrows, then steady green, waiting for cross traffic, left turns on green and green arrows.",
+      "flashcard_strategy": "Cards for each yellow and green signal; contrast cards for steady versus flashing yellow and green ball versus green arrow.",
+      "quiz_strategy": "Hub-chosen quiz naming a yellow or green signal and asking the action.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m04",
+      "unit_id": "sec06-u04",
+      "node_ids": [
+        "sec06-F21",
+        "sec06-F22",
+        "sec06-R09",
+        "sec06-F23",
+        "sec06-F24",
+        "sec06-R10",
+        "sec06-F25",
+        "sec06-F26"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain what pavement lines do, edge lines, white lane lines dashed and solid, and where to stop at a crosswalk.",
+      "flashcard_strategy": "Cards for each white-line and crosswalk rule; contrast cards for white versus yellow and dashed versus solid white.",
+      "quiz_strategy": "Hub-chosen quiz describing a white line and asking whether you may cross it.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m05",
+      "unit_id": "sec06-u05",
+      "node_ids": [
+        "sec06-F27",
+        "sec06-F28",
+        "sec06-F29",
+        "sec06-R13",
+        "sec06-F30",
+        "sec06-R11",
+        "sec06-F31",
+        "sec06-R12",
+        "sec06-F32"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach solid and double yellow lines and their two exceptions, dashed yellow, mixed dashed-and-solid lines and passing zone signs.",
+      "flashcard_strategy": "Cards for each yellow-line rule; contrast cards for dashed versus double solid, the line nearest you and the farm equipment exception.",
+      "quiz_strategy": "Hub-chosen quiz describing a yellow line and asking whether you may pass.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m06",
+      "unit_id": "sec06-u06",
+      "node_ids": [
+        "sec06-F33",
+        "sec06-F34",
+        "sec06-F35",
+        "sec06-R14",
+        "sec06-F36"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain the shared center lane for left turns and U-turns, then reversible lanes and their overhead lights.",
+      "flashcard_strategy": "Cards for each special lane; a contrast card for shared center versus reversible lane markings.",
+      "quiz_strategy": "Hub-chosen quiz on special lane markings and lights.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m07",
+      "unit_id": "sec06-u07",
+      "node_ids": [
+        "sec06-F37",
+        "sec06-F38",
+        "sec06-R15",
+        "sec06-F39",
+        "sec06-F40",
+        "sec06-F41",
+        "sec06-F42",
+        "sec06-R16",
+        "sec06-F43",
+        "sec06-F44",
+        "sec06-R17",
+        "sec06-F45"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover reserved bus, bike and car pool lanes and the half-block turning rule, then flex lanes, the truck ban and the lane lights and merge sign.",
+      "flashcard_strategy": "Cards for reserved and flex lane rules; contrast cards for the half-block rule, trucks in flex lanes and yellow X versus red X.",
+      "quiz_strategy": "Hub-chosen quiz describing a lane light or reserved lane and asking what you may do.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec06-F01",
+    "sec06-F02",
+    "sec06-F03",
+    "sec06-R04",
+    "sec06-F04",
+    "sec06-F05",
+    "sec06-F09",
+    "sec06-R01",
+    "sec06-F10",
+    "sec06-F11",
+    "sec06-R02",
+    "sec06-F06",
+    "sec06-F07",
+    "sec06-R03",
+    "sec06-F08",
+    "sec06-F12",
+    "sec06-F13",
+    "sec06-F14",
+    "sec06-R05",
+    "sec06-F15",
+    "sec06-F16",
+    "sec06-R06",
+    "sec06-F17",
+    "sec06-F18",
+    "sec06-F19",
+    "sec06-F20",
+    "sec06-R07",
+    "sec06-R08",
+    "sec06-F21",
+    "sec06-F22",
+    "sec06-R09",
+    "sec06-F23",
+    "sec06-F24",
+    "sec06-R10",
+    "sec06-F25",
+    "sec06-F26",
+    "sec06-F27",
+    "sec06-F28",
+    "sec06-F29",
+    "sec06-R13",
+    "sec06-F30",
+    "sec06-R11",
+    "sec06-F31",
+    "sec06-R12",
+    "sec06-F32",
+    "sec06-F33",
+    "sec06-F34",
+    "sec06-F35",
+    "sec06-R14",
+    "sec06-F36",
+    "sec06-F37",
+    "sec06-F38",
+    "sec06-R15",
+    "sec06-F39",
+    "sec06-F40",
+    "sec06-F41",
+    "sec06-F42",
+    "sec06-R16",
+    "sec06-F43",
+    "sec06-F44",
+    "sec06-R17",
+    "sec06-F45"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec06-m01..sec06-m07; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 62,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec06-F01",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F02",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F03",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F04",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F05",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F06",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F07",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F08",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F09",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F10",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F11",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F12",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F13",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F14",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F15",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F16",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F17",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F18",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F19",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F20",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F21",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F22",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F23",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F24",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F25",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F26",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F27",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F28",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F29",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F30",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F31",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F32",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F33",
+          "module_id": "sec06-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F34",
+          "module_id": "sec06-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F35",
+          "module_id": "sec06-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F36",
+          "module_id": "sec06-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F37",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F38",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F39",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F40",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F41",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F42",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F43",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F44",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F45",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R01",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R02",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R03",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R04",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R05",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R06",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R07",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R08",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R09",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R10",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R11",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R12",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R13",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R14",
+          "module_id": "sec06-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R15",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R16",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R17",
+          "module_id": "sec06-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec06-F03",
+          "to": "sec06-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F05",
+          "to": "sec06-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F09",
+          "to": "sec06-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F10",
+          "to": "sec06-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F11",
+          "to": "sec06-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F06",
+          "to": "sec06-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F07",
+          "to": "sec06-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F12",
+          "to": "sec06-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F14",
+          "to": "sec06-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F15",
+          "to": "sec06-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F16",
+          "to": "sec06-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F19",
+          "to": "sec06-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F20",
+          "to": "sec06-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F17",
+          "to": "sec06-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F20",
+          "to": "sec06-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F22",
+          "to": "sec06-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F23",
+          "to": "sec06-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F24",
+          "to": "sec06-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F28",
+          "to": "sec06-R13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F29",
+          "to": "sec06-R13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F27",
+          "to": "sec06-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F30",
+          "to": "sec06-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F31",
+          "to": "sec06-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F33",
+          "to": "sec06-R14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F35",
+          "to": "sec06-R14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F38",
+          "to": "sec06-R15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F41",
+          "to": "sec06-R16",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F42",
+          "to": "sec06-R16",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F44",
+          "to": "sec06-R17",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Signals, pavement markings and lane controls: traffic lights and arrows, white and yellow lines, crosswalks and special lanes",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 69.3,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Signal and marking confusables: steady versus flashing lights, lights versus arrows, white versus yellow lines and special-lane look-alikes",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 30.7,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec06-m01",
+          "sec06-m02",
+          "sec06-m03",
+          "sec06-m04",
+          "sec06-m05",
+          "sec06-m06",
+          "sec06-m07"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

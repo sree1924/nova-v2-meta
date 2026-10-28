@@ -1,0 +1,97 @@
+{
+  "artifact_type": "SolRepairApiCheckpoint",
+  "run_id": "2026-10-28-rdmv-ne-class-o",
+  "recorded_at_utc": "2026-10-28T07:43:12.841Z",
+  "status": "MANUAL_HOLD_EXISTING_REPAIR_APIS_INSUFFICIENT",
+  "blocking_findings": [
+    {
+      "id": "NE-REPAIR-ENTRYPOINT-MISSING",
+      "kind": "existing_API_limitation",
+      "observed_by": "read-only source inspection; no rejected dispatch attempted",
+      "scope": "accepted 02 C/C2 envelopes",
+      "api": "run-utah.mjs acceptedParts + sectionLoop",
+      "evidence": [
+        {
+          "path": "tools/belt/run-utah.mjs",
+          "line": 85,
+          "end": 90,
+          "sha256": "6b0c248a3069535983fa3d732ef6d8872bf46f256f0d7f925d7b74fedb6f1e48",
+          "behavior": "All accepted parts count as complete regardless of lineage or retry nonce."
+        },
+        {
+          "path": "tools/belt/run-utah.mjs",
+          "line": 267,
+          "end": 270,
+          "behavior": "Matching accepted part is skipped before runStage; no repair/force CLI flag."
+        },
+        {
+          "path": "tools/belt/ledger.mjs",
+          "line": 398,
+          "end": 403,
+          "sha256": "a0084bb9a5480fee6404f2f9cf11a55e1067c9e46e543ca6be2355ef95ee9a28",
+          "behavior": "failAttempt(route_back) requires an active running attempt; accepted outcomes cannot be reopened."
+        }
+      ],
+      "existing_error_text": "Attempt outcome already recorded",
+      "result": "Cannot emit corrective outboxes through mandated --author muse --packet thin runner without changing shared code or bypassing accepted history."
+    },
+    {
+      "id": "NE-SOURCE-REFRESH-NOT-VERSIONED",
+      "kind": "existing_API_limitation",
+      "observed_by": "read-only source inspection; no source re-registration attempted",
+      "scope": "physical-page map seam and issuer timestamp correction",
+      "api": "reregister-source.mjs -> controller.registerSource -> writeImmutable",
+      "evidence": [
+        {
+          "path": "tools/belt/reregister-source.mjs",
+          "line": 34,
+          "end": 34,
+          "sha256": "128dc934a0c6097867c7647b8a99642f9525d5d6c4baa0776dd7cac2a7b6dfc2",
+          "behavior": "Calls existing registerSource on current run; no versioned source destination."
+        },
+        {
+          "path": "tools/belt/controller.mjs",
+          "line": 126,
+          "end": 129,
+          "sha256": "b29291fb09c08341e2b95ac586df55a2c24134c20f330fcdd30d8f13aae20e11",
+          "behavior": "Writes 15-source-registry.json, 15-page-map.json and 15-source-liveness.json at fixed paths."
+        },
+        {
+          "path": "tools/belt/atomic-file.mjs",
+          "line": 32,
+          "end": 39,
+          "sha256": "a0ee3831fd0974b3ee4951d76ec06c2faad6d19b495138b8cab010ea69f878c9",
+          "behavior": "Different bytes at an existing immutable path throw rather than replace/version."
+        },
+        {
+          "path": "tools/belt/controller.mjs",
+          "line": 101,
+          "behavior": "Source registration wrapper does not forward an alternate issuerConfirmationPath; default sealed receipt remains selected."
+        }
+      ],
+      "existing_error_text": "Immutable artifact already exists with different bytes: <relativePath>",
+      "result": "Rebinding a config does not create source-version destinations. Replacing timestamp/source registration would collide with preserved accepted bytes. A fresh genuine web observation alone cannot repair the fixed-path persistence limitation."
+    }
+  ],
+  "mutations": {
+    "belt_steps": 0,
+    "source_refreshes": 0,
+    "config_changes": 0,
+    "accepted_artifact_changes": 0,
+    "ledger_changes": 0,
+    "shared_tool_changes": 0,
+    "new_SME_sections": 0,
+    "downstream_artifacts": 0
+  },
+  "available_capability": {
+    "path": "tools/belt/compile.mjs",
+    "lines": [
+      205,
+      217
+    ],
+    "sha256": "71cd2a51e0258bf21982e45cc3671e3ae08f83351abd3a94c535870c9e62b3b0",
+    "behavior": "Compiler can select latest accepted part replacements and record superseded refs; controller can version compiles. Missing supported runner replacement entrypoint and source-version persistence prevent reaching that capability."
+  },
+  "required_coordinator_action": "Provide an existing supported append-only accepted-part repair/source-refresh entrypoint or coordinator-owned implementation. Worker scope forbids shared tool or gate edits. No founder confirmation requested; this is a concrete coordinator artifact blocker.",
+  "edition": "January 2025 on physical 88 remains location-policy verification debt; no waiver or alternate date invented."
+}

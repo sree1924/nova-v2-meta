@@ -133,3 +133,9 @@ Seeded 2026-10-28T05:04:23.825Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:35:45.885Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:65 for 04.cards (sec04-your-vehicle) under standing authority; cause: proactive reset before authoring packet 04.cards__sec04-your-vehicle__-__n1 (lineage attempts exhausted)
 
 - 2026-10-28T06:51:03.980Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:66 for 04.cards (sec06-traffic-laws-part-2) under standing authority; cause: proactive reset before authoring packet 04.cards__sec06-traffic-laws-part-2__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:14:21Z JAM MN-DS-01: limits.max_request_bytes raised 640000 -> 700000 on coordinator order so the 05.card_scripts sec07 thin packet (full request ~644 KB) can dispatch over the muse file transport; file transport $0; revert before any Model-API dispatch. Money caps unchanged.
+
+- 2026-10-28T10:14:24.684Z retry nonce 05.card_scripts:@sec07-sharing-the-road-part-1 → 1 after HOLD (sec07-sharing-the-road-part-1); non-PASS: 05.INPUT_BINDING=FAIL
+
+- 2026-10-28T10:14:24.709Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:67 for 05.card_scripts (sec07-sharing-the-road-part-1) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec07-sharing-the-road-part-1__-__n1 (lineage attempts exhausted)

@@ -1,0 +1,3143 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-mo-f",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "01acb95203b222cb8a80bc092392391d7fd869249197f01c3f27254ac819a435",
+    "candidate_lineage_id": "2026-10-28-rdmv-mo-class-f:lineage:80"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-mo-class-f/16/sec07-highway-driving/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-mo-class-f/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec07-F01",
+      "label": "Keep scanning; pull off to read a map",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F01"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F02",
+      "label": "Two-lane highway: right lane, pass with care",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F02"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R04",
+          "why": "sec07-F02 is the one-lane-each-way rule; sec07-R04 contrasts it with keeping right on four or more lanes.",
+          "fact_ids": [
+            "sec07-F02",
+            "sec07-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F03",
+      "label": "Multi-lane highway: keep right",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F03"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R04",
+          "why": "sec07-F03 keeps you right on a highway with two or more lanes each way; sec07-R04 contrasts the two-lane highway, where the center line may be crossed to pass.",
+          "fact_ids": [
+            "sec07-F03",
+            "sec07-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F04",
+      "label": "Check the speedometer and limits",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F04"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F05",
+      "label": "Which lanes may be used to pass",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F05"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F06",
+      "label": "Mirror and shoulder checks before passing",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F06"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R03",
+          "why": "sec07-F06 is the left shoulder look before passing; sec07-R03 adds the right shoulder look before moving back in.",
+          "fact_ids": [
+            "sec07-F06",
+            "sec07-R03"
+          ]
+        },
+        {
+          "other_id": "sec07-F07",
+          "why": "sec07-F07 explains that mirrors cannot show a blind spot; sec07-F06 adds the shoulder look before passing.",
+          "fact_ids": [
+            "sec07-F06",
+            "sec07-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F07",
+      "label": "What a blind spot is",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F07"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F06",
+          "why": "sec07-F07 explains that mirrors cannot show a blind spot; sec07-F06 adds the shoulder look before passing.",
+          "fact_ids": [
+            "sec07-F07",
+            "sec07-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F08",
+      "label": "Do not ride in blind spots",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F08"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F09",
+      "label": "Move through blind spots quickly",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F09"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F10",
+      "label": "Truck and bus blind spots",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F10"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R07",
+          "why": "sec07-F10 warns about truck blind spots; sec07-R07 says return only once the truck's cab appears in your mirror.",
+          "fact_ids": [
+            "sec07-F10",
+            "sec07-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F11",
+      "label": "Signal, then pass quickly",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F11"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F12",
+      "label": "Returning after a pass",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F12"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R03",
+          "why": "sec07-F12 is the right shoulder look before returning; sec07-R03 contrasts it with the left shoulder look before moving out.",
+          "fact_ids": [
+            "sec07-F12",
+            "sec07-R03"
+          ]
+        },
+        {
+          "other_id": "sec07-R07",
+          "why": "sec07-F12 returns once the passed vehicle shows in the mirror; sec07-R07 applies the same idea to a truck's cab and adds not slowing in front of it.",
+          "fact_ids": [
+            "sec07-F12",
+            "sec07-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F13",
+      "label": "When you are being passed",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F13"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F14",
+          "why": "sec07-F13 says hold your lane and do not speed up when passed; sec07-F14 says move right if many drivers pass you on the right.",
+          "fact_ids": [
+            "sec07-F13",
+            "sec07-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F14",
+      "label": "Passed on the right: move right",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F14"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F13",
+          "why": "sec07-F13 says hold your lane and do not speed up when passed; sec07-F14 says move right if many drivers pass you on the right.",
+          "fact_ids": [
+            "sec07-F14",
+            "sec07-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F15",
+      "label": "Keep pace with traffic",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F15"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F16",
+      "label": "Speeding saves little time",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F16"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F17",
+      "label": "Too slow is dangerous too",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F17"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F18",
+      "label": "Check mirrors every few seconds",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F18"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F19",
+      "label": "Spot slow vehicles early",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F19"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F20",
+      "label": "Never stop in highway travel lanes",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F20"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F21",
+      "label": "Look ahead to avoid panic stops",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F21"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F22",
+      "label": "Emergency stop on the shoulder",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F22"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R05",
+          "why": "sec07-F22 allows an emergency stop on the shoulder with flashers; sec07-R05 names the raised hood and white cloth on the antenna.",
+          "fact_ids": [
+            "sec07-F22",
+            "sec07-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F23",
+      "label": "Controlled access highways",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F23"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F24",
+      "label": "Entering with the acceleration lane",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F24"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F26",
+          "why": "sec07-F24 says reach highway speed and merge into a gap; sec07-F26 says yield to highway traffic if no one makes room.",
+          "fact_ids": [
+            "sec07-F24",
+            "sec07-F26"
+          ]
+        },
+        {
+          "other_id": "sec07-R01",
+          "why": "sec07-R01 places the acceleration lane at the end of entrance ramps; sec07-F24 uses it to reach highway speed.",
+          "fact_ids": [
+            "sec07-F24",
+            "sec07-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F25",
+      "label": "Stopping at the end of the acceleration lane",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F25"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F26",
+      "label": "Yield when merging if needed",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F26"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F24",
+          "why": "sec07-F24 says reach highway speed and merge into a gap; sec07-F26 says yield to highway traffic if no one makes room.",
+          "fact_ids": [
+            "sec07-F26",
+            "sec07-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F27",
+      "label": "Leaving with the deceleration lane",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F27"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F28",
+          "why": "sec07-F27 is leaving with the deceleration lane; sec07-F28 is what to do if you miss the exit.",
+          "fact_ids": [
+            "sec07-F27",
+            "sec07-F28"
+          ]
+        },
+        {
+          "other_id": "sec07-R01",
+          "why": "sec07-R01 places the deceleration lane at the start of exit ramps; sec07-F27 uses it to slow down.",
+          "fact_ids": [
+            "sec07-F27",
+            "sec07-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F28",
+      "label": "Missed your exit",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F28"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F27",
+          "why": "sec07-F27 is leaving with the deceleration lane; sec07-F28 is what to do if you miss the exit.",
+          "fact_ids": [
+            "sec07-F28",
+            "sec07-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F29",
+      "label": "Diverging Diamond Interchange",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F29"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R12",
+          "why": "sec07-F29 describes driving on the left in a diverging diamond; sec07-R12 lists it among four interchange layouts.",
+          "fact_ids": [
+            "sec07-F29",
+            "sec07-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F30",
+      "label": "What highway hypnosis is",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F30"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F31",
+          "why": "sec07-F30 describes highway hypnosis; sec07-F31 gives the prevention.",
+          "fact_ids": [
+            "sec07-F30",
+            "sec07-F31"
+          ]
+        },
+        {
+          "other_id": "sec07-F32",
+          "why": "sec07-F30 is highway hypnosis from road sameness; sec07-F32 is plain drowsiness, as dangerous as drunk driving.",
+          "fact_ids": [
+            "sec07-F30",
+            "sec07-F32"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F31",
+      "label": "Preventing highway hypnosis",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F31"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F30",
+          "why": "sec07-F30 describes highway hypnosis; sec07-F31 gives the prevention.",
+          "fact_ids": [
+            "sec07-F31",
+            "sec07-F30"
+          ]
+        },
+        {
+          "other_id": "sec07-R14",
+          "why": "sec07-R14 gives the shared fix of leaving the highway; sec07-F31 adds keeping your eyes moving.",
+          "fact_ids": [
+            "sec07-F31",
+            "sec07-R14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F32",
+      "label": "Drowsy driving",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F32"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F30",
+          "why": "sec07-F30 is highway hypnosis from road sameness; sec07-F32 is plain drowsiness, as dangerous as drunk driving.",
+          "fact_ids": [
+            "sec07-F32",
+            "sec07-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F33",
+      "label": "Be seen after a breakdown",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F33"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F34",
+      "label": "Reporting a breakdown",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F34"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.43",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0043"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F35",
+      "label": "Get off the road and use flashers",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F35"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.43",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0043"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F36",
+          "why": "sec07-F35 says get off the road if possible; sec07-F36 says where to stop if you cannot.",
+          "fact_ids": [
+            "sec07-F35",
+            "sec07-F36"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F36",
+      "label": "Where to stop if you cannot leave the road",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F36"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.43",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0043"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F35",
+          "why": "sec07-F35 says get off the road if possible; sec07-F36 says where to stop if you cannot.",
+          "fact_ids": [
+            "sec07-F36",
+            "sec07-F35"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F37",
+      "label": "Emergency flares",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-F37"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.43",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0043"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F38",
+          "why": "sec07-F37 sets flares behind the vehicle; sec07-F38 forbids standing in or changing a tire from a traffic lane.",
+          "fact_ids": [
+            "sec07-F37",
+            "sec07-F38"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-F38",
+      "label": "Never stand in the roadway",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "module_id": "sec07-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-F38"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.43",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0043"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R06",
+          "why": "sec07-F38 lists the antenna, side mirror and door handle for the white cloth; sec07-R06 notes the breakdown page adds the mirror and handle.",
+          "fact_ids": [
+            "sec07-F38",
+            "sec07-R06"
+          ]
+        },
+        {
+          "other_id": "sec07-F37",
+          "why": "sec07-F37 sets flares behind the vehicle; sec07-F38 forbids standing in or changing a tire from a traffic lane.",
+          "fact_ids": [
+            "sec07-F38",
+            "sec07-F37"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R01",
+      "label": "Acceleration versus deceleration lanes",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-R01"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F24",
+          "why": "sec07-R01 places the acceleration lane at the end of entrance ramps; sec07-F24 uses it to reach highway speed.",
+          "fact_ids": [
+            "sec07-R01",
+            "sec07-F24"
+          ]
+        },
+        {
+          "other_id": "sec07-F27",
+          "why": "sec07-R01 places the deceleration lane at the start of exit ramps; sec07-F27 uses it to slow down.",
+          "fact_ids": [
+            "sec07-R01",
+            "sec07-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R02",
+      "label": "Ramps carry one-way traffic",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-R02"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R03",
+      "label": "Left shoulder out, right shoulder back",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-R03"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F06",
+          "why": "sec07-F06 is the left shoulder look before passing; sec07-R03 adds the right shoulder look before moving back in.",
+          "fact_ids": [
+            "sec07-R03",
+            "sec07-F06"
+          ]
+        },
+        {
+          "other_id": "sec07-F12",
+          "why": "sec07-F12 is the right shoulder look before returning; sec07-R03 contrasts it with the left shoulder look before moving out.",
+          "fact_ids": [
+            "sec07-R03",
+            "sec07-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R04",
+      "label": "Two-lane versus multi-lane lane use",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-R04"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F03",
+          "why": "sec07-F03 keeps you right on a highway with two or more lanes each way; sec07-R04 contrasts the two-lane highway, where the center line may be crossed to pass.",
+          "fact_ids": [
+            "sec07-R04",
+            "sec07-F03"
+          ]
+        },
+        {
+          "other_id": "sec07-F02",
+          "why": "sec07-F02 is the one-lane-each-way rule; sec07-R04 contrasts it with keeping right on four or more lanes.",
+          "fact_ids": [
+            "sec07-R04",
+            "sec07-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R05",
+      "label": "Signals for a shoulder stop",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-R05"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F22",
+          "why": "sec07-F22 allows an emergency stop on the shoulder with flashers; sec07-R05 names the raised hood and white cloth on the antenna.",
+          "fact_ids": [
+            "sec07-R05",
+            "sec07-F22"
+          ]
+        },
+        {
+          "other_id": "sec07-R06",
+          "why": "sec07-R05 names the antenna for the white cloth on a shoulder stop; sec07-R06 adds the side mirror and door handle.",
+          "fact_ids": [
+            "sec07-R05",
+            "sec07-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R06",
+      "label": "More places for the white cloth",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-R06"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.43",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0043"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F38",
+          "why": "sec07-F38 lists the antenna, side mirror and door handle for the white cloth; sec07-R06 notes the breakdown page adds the mirror and handle.",
+          "fact_ids": [
+            "sec07-R06",
+            "sec07-F38"
+          ]
+        },
+        {
+          "other_id": "sec07-R05",
+          "why": "sec07-R05 names the antenna for the white cloth on a shoulder stop; sec07-R06 adds the side mirror and door handle.",
+          "fact_ids": [
+            "sec07-R06",
+            "sec07-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R07",
+      "label": "After passing a truck",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-R07"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F10",
+          "why": "sec07-F10 warns about truck blind spots; sec07-R07 says return only once the truck's cab appears in your mirror.",
+          "fact_ids": [
+            "sec07-R07",
+            "sec07-F10"
+          ]
+        },
+        {
+          "other_id": "sec07-F12",
+          "why": "sec07-F12 returns once the passed vehicle shows in the mirror; sec07-R07 applies the same idea to a truck's cab and adds not slowing in front of it.",
+          "fact_ids": [
+            "sec07-R07",
+            "sec07-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R08",
+      "label": "Lingering in a blind spot",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-R08"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R09",
+      "label": "Slow climbers and slow joiners",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-R09"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R10",
+      "label": "Keep a safe following distance",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-R10"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R11",
+      "label": "Slow or change lanes early",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-R11"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R12",
+      "label": "Four interchange layouts",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-R12"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F29",
+          "why": "sec07-F29 describes driving on the left in a diverging diamond; sec07-R12 lists it among four interchange layouts.",
+          "fact_ids": [
+            "sec07-R12",
+            "sec07-F29"
+          ]
+        },
+        {
+          "other_id": "sec07-R13",
+          "why": "sec07-R12 names the four interchange layouts; sec07-R13 says what an interchange is.",
+          "fact_ids": [
+            "sec07-R12",
+            "sec07-R13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R13",
+      "label": "What an interchange is",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-R13"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-R12",
+          "why": "sec07-R12 names the four interchange layouts; sec07-R13 says what an interchange is.",
+          "fact_ids": [
+            "sec07-R13",
+            "sec07-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R14",
+      "label": "One fix for hypnosis and sleepiness",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec07-R14"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.42",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0042"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec07-F31",
+          "why": "sec07-R14 gives the shared fix of leaving the highway; sec07-F31 adds keeping your eyes moving.",
+          "fact_ids": [
+            "sec07-R14",
+            "sec07-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec07-R15",
+      "label": "Stay alert for the unexpected",
+      "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+      "module_id": "sec07-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec07-R15"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec07-F02",
+      "to": "sec07-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F03",
+      "to": "sec07-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F06",
+      "to": "sec07-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F12",
+      "to": "sec07-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F09",
+      "to": "sec07-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F10",
+      "to": "sec07-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F24",
+      "to": "sec07-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F27",
+      "to": "sec07-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-R13",
+      "to": "sec07-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-R12",
+      "to": "sec07-F29",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F30",
+      "to": "sec07-F31",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F31",
+      "to": "sec07-R14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F22",
+      "to": "sec07-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F38",
+      "to": "sec07-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec07-F35",
+      "to": "sec07-F36",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec07-m01",
+      "title": "Scanning, lanes and speed",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec07-F01",
+        "sec07-F02",
+        "sec07-F03",
+        "sec07-R04",
+        "sec07-F04",
+        "sec07-F05"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m02",
+      "title": "Passing and blind spots",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 19,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec07-F06",
+        "sec07-F07",
+        "sec07-R03",
+        "sec07-F08",
+        "sec07-F09",
+        "sec07-R08",
+        "sec07-F10",
+        "sec07-R07",
+        "sec07-F11",
+        "sec07-F12",
+        "sec07-F13",
+        "sec07-F14"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m03",
+      "title": "Keeping pace with traffic",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec07-F15",
+        "sec07-F16",
+        "sec07-F17",
+        "sec07-F18",
+        "sec07-F19",
+        "sec07-R09",
+        "sec07-R10",
+        "sec07-F20",
+        "sec07-F21",
+        "sec07-R11"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m04",
+      "title": "Ramps and interchanges",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 16,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec07-F23",
+        "sec07-R02",
+        "sec07-F24",
+        "sec07-F25",
+        "sec07-F26",
+        "sec07-F27",
+        "sec07-R01",
+        "sec07-F28",
+        "sec07-R13",
+        "sec07-R12",
+        "sec07-F29"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m05",
+      "title": "Highway hypnosis and alertness",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec07-F30",
+        "sec07-F31",
+        "sec07-F32",
+        "sec07-R14",
+        "sec07-R15"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m06",
+      "title": "Breakdowns and emergency stops",
+      "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec07-F22",
+        "sec07-R05",
+        "sec07-F33",
+        "sec07-F34",
+        "sec07-F35",
+        "sec07-F36",
+        "sec07-F37",
+        "sec07-F38",
+        "sec07-R06"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec07-m01",
+      "unit_id": "sec07-u01",
+      "node_ids": [
+        "sec07-F01",
+        "sec07-F02",
+        "sec07-F03",
+        "sec07-R04",
+        "sec07-F04",
+        "sec07-F05"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Open with constant scanning, then lane use on two-lane and multi-lane highways, speed control, and which lanes may be used for passing.",
+      "flashcard_strategy": "One card per rule; a contrast card for two-lane versus multi-lane lane use.",
+      "quiz_strategy": "Hub-chosen quiz on choosing the right highway lane.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m02",
+      "unit_id": "sec07-u02",
+      "node_ids": [
+        "sec07-F06",
+        "sec07-F07",
+        "sec07-R03",
+        "sec07-F08",
+        "sec07-F09",
+        "sec07-R08",
+        "sec07-F10",
+        "sec07-R07",
+        "sec07-F11",
+        "sec07-F12",
+        "sec07-F13",
+        "sec07-F14"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the checks before passing, what a blind spot is, staying out of blind spots and truck blind spots, how to pass and return, and what to do when you are being passed.",
+      "flashcard_strategy": "Cards for each passing step; contrast cards for the left and right shoulder checks.",
+      "quiz_strategy": "Hub-chosen quiz on the steps of a safe pass.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m03",
+      "unit_id": "sec07-u03",
+      "node_ids": [
+        "sec07-F15",
+        "sec07-F16",
+        "sec07-F17",
+        "sec07-F18",
+        "sec07-F19",
+        "sec07-R09",
+        "sec07-R10",
+        "sec07-F20",
+        "sec07-F21",
+        "sec07-R11"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain why keeping pace matters, the costs of speeding and of driving too slowly, checking mirrors, spotting slow vehicles, never stopping in travel lanes and avoiding panic stops.",
+      "flashcard_strategy": "One card per rule.",
+      "quiz_strategy": "Hub-chosen quiz on speed and spacing choices.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m04",
+      "unit_id": "sec07-u04",
+      "node_ids": [
+        "sec07-F23",
+        "sec07-R02",
+        "sec07-F24",
+        "sec07-F25",
+        "sec07-F26",
+        "sec07-F27",
+        "sec07-R01",
+        "sec07-F28",
+        "sec07-R13",
+        "sec07-R12",
+        "sec07-F29"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover controlled access highways, entering with the acceleration lane, yielding when merging, leaving with the deceleration lane, missed exits, and interchange layouts including the diverging diamond.",
+      "flashcard_strategy": "Cards for each step; a contrast card for acceleration versus deceleration lanes.",
+      "quiz_strategy": "Hub-chosen quiz on entering, leaving and missing exits.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m05",
+      "unit_id": "sec07-u05",
+      "node_ids": [
+        "sec07-F30",
+        "sec07-F31",
+        "sec07-F32",
+        "sec07-R14",
+        "sec07-R15"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain highway hypnosis, how to prevent it, the danger of drowsy driving and the shared fix of leaving the highway.",
+      "flashcard_strategy": "Cards for each alertness rule.",
+      "quiz_strategy": "Hub-chosen quiz on staying alert on long drives.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec07-m06",
+      "unit_id": "sec07-u06",
+      "node_ids": [
+        "sec07-F22",
+        "sec07-R05",
+        "sec07-F33",
+        "sec07-F34",
+        "sec07-F35",
+        "sec07-F36",
+        "sec07-F37",
+        "sec07-F38",
+        "sec07-R06"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach emergency stops on the shoulder, being seen after a breakdown, reporting it, where to stop if you cannot leave the road, flares, and the signals for trouble.",
+      "flashcard_strategy": "Cards for each breakdown step; contrast cards for the white cloth locations.",
+      "quiz_strategy": "Hub-chosen quiz on what to do after a breakdown.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec07-F01",
+    "sec07-F02",
+    "sec07-F03",
+    "sec07-R04",
+    "sec07-F04",
+    "sec07-F05",
+    "sec07-F06",
+    "sec07-F07",
+    "sec07-F08",
+    "sec07-F09",
+    "sec07-R08",
+    "sec07-F10",
+    "sec07-R07",
+    "sec07-F11",
+    "sec07-F12",
+    "sec07-R03",
+    "sec07-F13",
+    "sec07-F14",
+    "sec07-F15",
+    "sec07-F16",
+    "sec07-F17",
+    "sec07-F18",
+    "sec07-F19",
+    "sec07-R09",
+    "sec07-R10",
+    "sec07-F20",
+    "sec07-F21",
+    "sec07-R11",
+    "sec07-F23",
+    "sec07-R02",
+    "sec07-F24",
+    "sec07-F25",
+    "sec07-F26",
+    "sec07-F27",
+    "sec07-R01",
+    "sec07-F28",
+    "sec07-R13",
+    "sec07-R12",
+    "sec07-F29",
+    "sec07-F30",
+    "sec07-F31",
+    "sec07-F32",
+    "sec07-R14",
+    "sec07-R15",
+    "sec07-F22",
+    "sec07-R05",
+    "sec07-F33",
+    "sec07-F34",
+    "sec07-F35",
+    "sec07-F36",
+    "sec07-F37",
+    "sec07-F38",
+    "sec07-R06"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec07-m01..sec07-m06; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 53,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec07-F01",
+          "module_id": "sec07-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F02",
+          "module_id": "sec07-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F03",
+          "module_id": "sec07-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F04",
+          "module_id": "sec07-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F05",
+          "module_id": "sec07-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F06",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F07",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F08",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F09",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F10",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F11",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F12",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F13",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F14",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F15",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F16",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F17",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F18",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F19",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F20",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F21",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F22",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F23",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F24",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F25",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F26",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F27",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F28",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F29",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F30",
+          "module_id": "sec07-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F31",
+          "module_id": "sec07-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F32",
+          "module_id": "sec07-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F33",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F34",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F35",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F36",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F37",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-F38",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R01",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R02",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R03",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R04",
+          "module_id": "sec07-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R05",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R06",
+          "module_id": "sec07-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R07",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R08",
+          "module_id": "sec07-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R09",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R10",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R11",
+          "module_id": "sec07-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R12",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R13",
+          "module_id": "sec07-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R14",
+          "module_id": "sec07-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec07-R15",
+          "module_id": "sec07-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec07-F02",
+          "to": "sec07-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F03",
+          "to": "sec07-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F06",
+          "to": "sec07-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F12",
+          "to": "sec07-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F09",
+          "to": "sec07-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F10",
+          "to": "sec07-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F24",
+          "to": "sec07-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F27",
+          "to": "sec07-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-R13",
+          "to": "sec07-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-R12",
+          "to": "sec07-F29",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F30",
+          "to": "sec07-F31",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F31",
+          "to": "sec07-R14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F22",
+          "to": "sec07-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F38",
+          "to": "sec07-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec07-F35",
+          "to": "sec07-F36",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Missouri highway driving: lane choice, speed control, passing and being passed, matching traffic, stopping, ramps, interchanges, highway hypnosis, drowsiness and breakdowns",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 69.3,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Highway driving look-alikes: acceleration versus deceleration lanes, shoulder checks, emergency signals and lane rules",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 30.7,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec07-m01",
+          "sec07-m02",
+          "sec07-m03",
+          "sec07-m04",
+          "sec07-m05",
+          "sec07-m06"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

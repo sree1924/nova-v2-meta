@@ -1,0 +1,82 @@
+{
+  "artifact_type": "AuthorContentHold",
+  "run_id": "2026-10-28-rdmv-ne-class-o",
+  "recorded_at_utc": "2026-10-28T07:36:48.003Z",
+  "actor": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
+  "status": "MANUAL_CONTENT_HOLD_BEFORE_DOWNSTREAM",
+  "machine_check_failures": [],
+  "issues": [
+    {
+      "id": "AUTHOR-NE-AGE-ISSUED",
+      "kind": "manual_content_finding",
+      "where": "sec02-R36",
+      "page": 23,
+      "problem": "Current-holder age wording loses age-at-issuance condition.",
+      "proposed_statement": "A license issued to a person aged at least 21 expires on the holder’s birthday in the fifth year after issuance."
+    },
+    {
+      "id": "AUTHOR-NE-NIGHT-ANCHOR",
+      "kind": "manual_source_anchor_finding",
+      "where": "sec01-F08",
+      "page": 9,
+      "problem": "Accompaniment exception is supported at physical 12, not cited physical 9.",
+      "proposed_statement": "Under the graduated restrictions, provisional driving between midnight and six a.m. is limited to school-activity or work travel.",
+      "preserve_exception_at": "sec01-R06, physical 12"
+    },
+    {
+      "id": "AUTHOR-NE-COVERAGE",
+      "kind": "manual_coverage_finding",
+      "where": "sec01 C/C2; sec02 C/C2",
+      "problem": "Missing LPE eligibility link; POP certification signer; one identity document requirement; city/county birth-certificate qualification; Refugee I-797 condition; unacceptable I-151/I-94W/I-94 Border Crosser; complete ADIT pathway. Several identity facts need exact form/status names for self-contained statements.",
+      "pages": [
+        10,
+        12,
+        17,
+        18
+      ]
+    },
+    {
+      "id": "AUTHOR-NE-MAP-SEAM",
+      "kind": "manual_page_map_finding",
+      "where": "section map excludes physical 16",
+      "problem": "Page 16 mixes motorcycle/CDL scope with beginning of passenger-car application requirements; page 17 begins mid-sentence. Map/author the passenger-car span under supported rebind before claiming full coverage.",
+      "page": 16
+    },
+    {
+      "id": "AUTHOR-NE-CITIZENSHIP-QUALIFIER",
+      "kind": "manual_content_finding",
+      "where": "sec02-F03",
+      "page": 17,
+      "problem": "General citizenship-proof sentence needs U.S.-citizen qualifier so noncitizens follow the adjacent lawful-status alternative; review with exact same-page text."
+    },
+    {
+      "id": "ENGINEERING-NE-TIMESTAMP",
+      "kind": "self_reported_evidence_timestamp_defect",
+      "where": "receipts/issuer-current-edition-confirmation.json",
+      "problem": "Helper initially wrote placeholder observed_at_utc 07:27:00Z. A correction raced registration; sealed original bytes were restored exactly to preserve accepted hashes. Correct scout observation time is 07:15:12Z. Spec now uses that truthful time; future source refresh must consume it. No liveness PASS claimed."
+    },
+    {
+      "id": "CONTRACT-NE-EDITION-LOCATION",
+      "kind": "contract_limitation",
+      "where": "tools/roles/15-register.mjs edition location policy",
+      "problem": "Printed January 2025 is physical 88 of 92, outside first twelve/last three. Edition remains null and source liveness VERIFICATION_DEBT."
+    },
+    {
+      "id": "RUNNER-WAIT-EXIT",
+      "kind": "documentation_mismatch",
+      "where": "run-utah file-transport mode",
+      "problem": "Observed WAITING packet emission exits 1, whereas worker brief documents exit 3; packets and hashes were checked."
+    },
+    {
+      "id": "COMPILER-STABILITY-OMISSION",
+      "kind": "wrapper_or_consumer_limitation",
+      "where": "16 compiled dossier",
+      "problem": "Unknown corpus stability with blocked_probe:true is retained only in authored envelopes; compiler omits corpus_stability. It is not an enforced downstream or publication stop. Currency debt is retained separately."
+    }
+  ],
+  "repair_rule": "Do not mutate accepted artifacts or shared tools. In continuation, use supported existing correction/route-back mechanics; unresolved tooling limitation is a jam for root aggregation. No further belt steps issued after four-section completion.",
+  "independent_review": {
+    "role": "read-only subagent; no authoring or writes",
+    "scope": "sec01/sec02 source qualifier and coverage spot check"
+  }
+}

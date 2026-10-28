@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {sha256, canonicalJson, inside, writeImmutable, verifyRef} from './atomic-file.mjs';
+import {sha256, canonicalJson, jsonBytes, inside, writeImmutable, verifyRef} from './atomic-file.mjs';
 import {inspectExecutionPolicy, assertDispatchAllowed} from './execution-policy.mjs';
 import {openLedger, stableTaskIdentity} from './ledger.mjs';
 import {acquireExecutorLock} from './executor-lock.mjs';
@@ -92,13 +92,95 @@ export function buildDryPlan({projectRoot = PROJECT_ROOT, runConfigPath, executo
     observed_model_calls:0,note:'Plans and review headers do not dispatch or establish stage acceptance.'};
 }
 
-export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle}) {
+const sameRunRef = (a,b,runDir) => !!a && !!b && a.sha256===b.sha256 && inside(runDir,a.path)===inside(runDir,b.path);
+
+function sourceRevisionInputs({projectRoot,loaded,ledger,fence,revisionProofRef}) {
+  const snapshot=ledger.snapshot(fence.runId);
+  const current=acceptedRuntimeRefs(snapshot,projectRoot,loaded.runDir).find(a=>a.kind==='source_registry')??null;
+  if(!revisionProofRef)return{current,revision:null};
+  const proofFile=verifyRef(revisionProofRef,loaded.runDir),proofRef=pin(proofFile),proof=read(proofFile);
+  if(proof.artifact_type!=='SourceRegistrationRevision'||proof.version!=='1.0.0'||proof.run_id!==loaded.config.run_id||
+      typeof proof.reason!=='string'||!proof.reason.trim()||proof.reconciliation?.status!=='required'||
+      !Array.isArray(proof.reconciliation.affected_section_ids)||!proof.reconciliation.affected_section_ids.length||
+      proof.reconciliation.affected_section_ids.some(id=>typeof id!=='string'||!id.trim())||
+      new Set(proof.reconciliation.affected_section_ids).size!==proof.reconciliation.affected_section_ids.length) {
+    throw new Error('Source revision proof must bind this run, its prior registry, reason and explicit required section reconciliation.');
+  }
+  const priorFile=verifyRef(proof.previous_registry_ref,loaded.runDir),priorRef=pin(priorFile);
+  const acceptedIds=new Set(snapshot.tasks.filter(t=>t.status==='accepted'&&t.stage_id==='15.sources').map(t=>t.accepted_artifact_id));
+  if(!snapshot.artifacts.some(a=>acceptedIds.has(a.artifact_id)&&sameRunRef(a,priorRef,loaded.runDir)))throw new Error('Source revision prior registry must be ledger-accepted in this run.');
+  const prior=read(priorFile),currentValue=current?read(current.path):null;
+  const replay=currentValue?.source_revision?.proof_ref?.sha256===proofRef.sha256;
+  if(!current||(!sameRunRef(current,priorRef,loaded.runDir)&&!replay))throw new Error('Source revision proof targets a stale registry; use the latest accepted registration.');
+  if(replay&&!sameRunRef(currentValue.source_revision.previous_registry_ref,priorRef,loaded.runDir))throw new Error('Source revision replay changed its prior registry.');
+  const configFile=verifyRef(proof.config_ref,loaded.runDir),configEvidenceRef=pin(configFile);
+  inside(path.join(loaded.runDir,'sources/private'),configFile);
+  if(configFile===loaded.configPath||configEvidenceRef.sha256!==loaded.configRef.sha256||!fs.readFileSync(configFile).equals(fs.readFileSync(loaded.configPath)))throw new Error('Source revision config_ref must be a separate immutable private snapshot matching the current run config.');
+  const priorConfigFile=verifyRef(prior.input_config,projectRoot),priorConfig=read(priorConfigFile);
+  const resolveEvidence=(explicit,inherited)=>{
+    // An alternate receipt never excuses broken historical evidence.
+    if(inherited){const file=verifyRef(inherited,projectRoot);inside(loaded.runDir,file);}
+    if(explicit)return pin(verifyRef(explicit,loaded.runDir));
+    if(!inherited)return null;
+    const file=verifyRef(inherited,projectRoot);inside(loaded.runDir,file);return pin(file);
+  };
+  const priorSource=prior.sources?.[0];
+  if(!priorSource)throw new Error('Prior source registry has no source.');
+  for(const historical of [{path:priorSource.snapshot_ref,sha256:priorSource.snapshot_hash},priorSource.issuer_current_edition_observation?.page_snapshot_ref].filter(Boolean)){
+    const file=verifyRef(historical,projectRoot);inside(loaded.runDir,file);
+  }
+  const issuerRef=resolveEvidence(proof.issuer_confirmation_ref,priorSource.issuer_current_edition_observation?.receipt_ref);
+  const observationRef=resolveEvidence(proof.visual_observation_ref,priorSource.frontmatter?.visual_observation_ref);
+  return{current,revision:{proof_ref:evidenceRef(proofRef),previous_registry_ref:evidenceRef(priorRef),reconciliation_required:true,
+    affected_section_ids:[...proof.reconciliation.affected_section_ids].sort()},configEvidenceRef,issuerRef,observationRef,prior,
+    sourceScopeChanged:canonicalJson(priorConfig.scope)!==canonicalJson(loaded.config.scope)};
+}
+
+function versionSourceRegistration(result,revision) {
+  if(!revision)return result;
+  const prefix='15/revisions/'+revision.proof_ref.sha256+'/';
+  const privatePrefix='sources/private/15-revisions/'+revision.proof_ref.sha256+'/';
+  // Role 15 remains the authority for every value. Only destinations and the registration provenance change here.
+  const value=structuredClone(result);
+  value.registry.source_revision=revision;
+  const pageMapSha=sha256(jsonBytes(value.pageMap));
+  value.source.page_map_sha256=pageMapSha;
+  for(const source of value.registry.sources)source.page_map_sha256=pageMapSha;
+  for(const item of value.privateArtifacts||[]){
+    item.path=privatePrefix+path.posix.basename(item.path.replaceAll('\\','/'));
+    if(item.value?.page_map_sha256)item.value.page_map_sha256=pageMapSha;
+    item.sha256=sha256(item.encoding==='utf8'?Buffer.from(item.contents??item.value,'utf8'):jsonBytes(item.value??item.contents));
+  }
+  const publicValues={registry:value.registry,pageMap:value.pageMap,liveness:value.liveness};
+  value.writePlan=value.writePlan.map(item=>{
+    const privateIndex=/^privateArtifacts\[(\d+)\]/.exec(item.value_key);
+    if(privateIndex){const companion=value.privateArtifacts[Number(privateIndex[1])];return{...item,path:companion.path,sha256:companion.sha256};}
+    return{...item,path:prefix+path.posix.basename(item.path),sha256:sha256(jsonBytes(publicValues[item.value_key]))};
+  });
+  return value;
+}
+
+export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle,revisionProofRef=null}) {
   const {buildRegistration} = await import('../roles/15-register.mjs');
-  const configEvidenceRef=writeImmutable(loaded.runDir,'sources/private/input-snapshots/'+loaded.configRef.sha256+'.json',fs.readFileSync(loaded.configPath),{lockHandle,bytes:true});
+  const inputs=sourceRevisionInputs({projectRoot,loaded,ledger,fence,revisionProofRef});
+  const configEvidenceRef=inputs.configEvidenceRef??writeImmutable(loaded.runDir,'sources/private/input-snapshots/'+loaded.configRef.sha256+'.json',fs.readFileSync(loaded.configPath),{lockHandle,bytes:true});
   // A sibling run (same handbook, different authoring mode) carries its own copy of the role-15 visual observation whose
   // source_document.path points at ITS private snapshot (scope.visual_observation_ref); otherwise the repo default applies.
-  const observationPath=loaded.config.scope?.visual_observation_ref?.path??undefined;
-  const result = await buildRegistration({projectRoot,runConfigPath:loaded.configPath,configEvidenceRef,...(observationPath?{observationPath}:{})});
+  const observationPath=inputs.observationRef?.path??loaded.config.scope?.visual_observation_ref?.path??undefined;
+  const raw = await buildRegistration({projectRoot,runConfigPath:loaded.configPath,configEvidenceRef,...(observationPath?{observationPath}:{}),...(inputs.issuerRef?{issuerConfirmationPath:inputs.issuerRef.path}:{})});
+  if(inputs.revision){
+    for(const bound of [inputs.revision.proof_ref,inputs.revision.previous_registry_ref,configEvidenceRef,inputs.issuerRef,inputs.observationRef].filter(Boolean))verifyRef(bound,loaded.runDir);
+    if((inputs.issuerRef&&raw.source.issuer_confirmation?.receipt_ref?.sha256!==inputs.issuerRef.sha256)||
+        (inputs.observationRef&&raw.source.visual_observation_ref?.sha256!==inputs.observationRef.sha256))throw new Error('Source revision evidence changed while registration was being built.');
+    const priorSource=inputs.prior.sources[0];
+    if(!inputs.sourceScopeChanged&&raw.source.page_map_sha256===priorSource.page_map_sha256&&
+        raw.source.issuer_confirmation?.receipt_ref?.sha256===priorSource.issuer_current_edition_observation?.receipt_ref?.sha256&&
+        raw.source.visual_observation_ref?.sha256===priorSource.frontmatter?.visual_observation_ref?.sha256)throw new Error('Source revision requires a genuine source-scope, page-map or issuer/visual evidence change.');
+  }else if(inputs.current&&inputs.current.sha256!==raw.writePlan.find(p=>p.value_key==='registry').sha256){
+    throw new Error('Changed source registration requires an explicit hash-bound revision proof.');
+  }
+  const result=versionSourceRegistration(raw,inputs.revision);
+  const outputPrefix=inputs.revision?'15/revisions/'+inputs.revision.proof_ref.sha256+'/':'';
   const script = pin(path.join(projectRoot,'tools/roles/15-register.mjs'));
   const role = read(path.join(projectRoot,'contracts/bot-contract-bindings.json')).roles.find(r=>r.role_id==='15');
   const contract = verifiedContract(projectRoot,role);
@@ -106,15 +188,15 @@ export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle
     acceptance_basis:'Direct founder S4 order: keep effective_date null with dated issuer-confirmed-edition disposition.',effective_date:null,not_a_fact_audit:true}]:null;
   const dispositionSha=dispositions?sha256(Buffer.from(JSON.stringify(dispositions,null,2)+'\n')):null;
   const registrationDigest = sha256(canonicalJson({source:result.source,writePlan:result.writePlan,disposition_sha256:dispositionSha}));
-  const assignment = {lineageId:loaded.config.candidate_lineage_id||loaded.config.run_id+':lineage:1',stageId:'15.sources',roleId:'15',inputs:[loaded.configRef,{path:result.source.path,sha256:result.source.sha256}],versions:{contract_sha256:contract.sha256,script_sha256:script.sha256,registration_input_and_outputs_sha256:registrationDigest},model:null,config:{operation:'offline_local_registration'},maxAttempts:2};
+  const assignment = {lineageId:loaded.config.candidate_lineage_id||loaded.config.run_id+':lineage:1',stageId:'15.sources',roleId:'15',inputs:[inputs.revision?evidenceRef(configEvidenceRef):loaded.configRef,{path:result.source.path,sha256:result.source.sha256},...(inputs.revision?[inputs.revision.proof_ref,inputs.revision.previous_registry_ref,...[inputs.issuerRef,inputs.observationRef].filter(Boolean).map(evidenceRef)]:[])],versions:{contract_sha256:contract.sha256,script_sha256:script.sha256,registration_input_and_outputs_sha256:registrationDigest},model:null,config:{operation:'offline_local_registration',...(inputs.revision?{source_revision:inputs.revision}:{})},maxAttempts:2};
   const task = ledger.ensureTask(fence,assignment);
   const taskId = task.taskId ?? task.task_id;
   if (['accepted','blocked'].includes(task.status)) {
     const existing = ledger.listArtifacts(fence.runId).filter(a=>a.task_id===taskId);
     for (const ref of existing) {
-      verifyRef(ref,loaded.runDir);
-      const expected = result.writePlan.find(item=>path.resolve(loaded.runDir,item.path)===path.resolve(ref.path));
-      const expectedHash=expected?.sha256||(path.resolve(ref.path)===path.join(loaded.runDir,'15-effective-date-dispositions.json')?dispositionSha:null);
+      const file=verifyRef(ref,loaded.runDir);
+      const expected = result.writePlan.find(item=>path.resolve(loaded.runDir,item.path)===file);
+      const expectedHash=expected?.sha256||(file===path.join(loaded.runDir,outputPrefix+'15-effective-date-dispositions.json')?dispositionSha:null);
       if (expectedHash!==ref.sha256) throw new Error('Source registration reuse does not match its current exact input/output plan.');
     }
     if (!existing.length) throw new Error('Prior source task has no saved evidence.');
@@ -124,10 +206,11 @@ export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle
   const attemptId = attempt.attemptId ?? attempt.attempt_id;
   const artifacts = [];
   const values = [['15-source-registry.json',result.registry],['15-page-map.json',result.pageMap],['15-source-liveness.json',result.liveness]];
-  for (const [relative,value] of values) if (value != null) {
+  for (const [kind,value] of values) if (value != null) {
+    const relative=outputPrefix+kind;
     const saved=writeImmutable(loaded.runDir,relative,value,{lockHandle});
     if (saved.sha256!==result.writePlan.find(item=>item.path===relative)?.sha256) throw new Error('Source registration artifact differs from the exact write plan.');
-    artifacts.push({...saved,kind:relative});
+    artifacts.push({...saved,kind});
   }
   for (const item of result.privateArtifacts || []) {
     const relative = item.path ?? item.relativePath;
@@ -138,11 +221,11 @@ export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle
     artifacts.push({...saved,kind:'private_source_evidence'});
   }
   if(dispositions){
-    artifacts.push({...writeImmutable(loaded.runDir,'15-effective-date-dispositions.json',dispositions,{lockHandle}),kind:'accepted_dispositions'});
+    artifacts.push({...writeImmutable(loaded.runDir,outputPrefix+'15-effective-date-dispositions.json',dispositions,{lockHandle}),kind:'accepted_dispositions'});
   }
   const receipt = {schema_version:'role15-registration-receipt.v0.4.0',status:result.status,script_ref:script,source:result.source,
-    verification_debt:result.verification_debt,artifacts:artifacts.map(a=>({path:path.relative(loaded.runDir,a.path).replaceAll('\\','/'),sha256:a.sha256,bytes:a.bytes,kind:a.kind})),content_calls:0};
-  const receiptRef = writeImmutable(loaded.runDir,'15-registration-receipt.json',receipt,{lockHandle});
+    verification_debt:result.verification_debt,...(inputs.revision?{source_revision:inputs.revision}:{}),artifacts:artifacts.map(a=>({path:path.relative(loaded.runDir,a.path).replaceAll('\\','/'),sha256:a.sha256,bytes:a.bytes,kind:a.kind})),content_calls:0};
+  const receiptRef = writeImmutable(loaded.runDir,outputPrefix+'15-registration-receipt.json',receipt,{lockHandle});
   const main=artifacts.find(a=>a.kind==='15-source-registry.json');
   const kinds={'15-source-registry.json':'source_registry','15-page-map.json':'page_map','15-source-liveness.json':'source_liveness'};
   const companions=artifacts.map(a=>({...evidenceRef(a),kind:kinds[a.kind]||(a.kind==='accepted_dispositions'?'accepted_dispositions':a.path.endsWith('.txt')?'source_text':'source_text_extraction')}));
@@ -150,8 +233,8 @@ export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle
     {check_id:'15.PAGE_MAP_COMPLETE',status:result.pageMap.pages.length===result.source.pdf_page_count?'PASS':'HOLD'},
     {check_id:'15.OUTPUT_HASHES',status:artifacts.filter(a=>a.kind!=='accepted_dispositions').every(a=>result.writePlan.some(p=>path.resolve(loaded.runDir,p.path)===a.path&&p.sha256===a.sha256))?'PASS':'HOLD'}];
   const registrationAccepted=structuralChecks.every(c=>c.status==='PASS');
-  const validationRef=writeImmutable(loaded.runDir,'receipts/15-registration-validation-'+registrationDigest+'.json',{status:registrationAccepted?'PASS':'HOLD',output_sha256:main.sha256,checks:structuralChecks,companions,status_scope:'registration_metadata_only_not_factual_or_liveness_acceptance'},{lockHandle});
-  const acceptanceRef=writeImmutable(loaded.runDir,'receipts/15-registration-acceptance-'+registrationDigest+'.json',{status:registrationAccepted?'PASS':'HOLD',output_sha256:main.sha256,kind:'deterministic_source_registration_only',liveness_status:result.liveness?.status??'VERIFICATION_DEBT',factual_acceptance:false},{lockHandle});
+  const validationRef=writeImmutable(loaded.runDir,outputPrefix+'receipts/15-registration-validation-'+registrationDigest+'.json',{status:registrationAccepted?'PASS':'HOLD',output_sha256:main.sha256,checks:structuralChecks,companions,status_scope:'registration_metadata_only_not_factual_or_liveness_acceptance',...(inputs.revision?{source_revision:inputs.revision}:{})},{lockHandle});
+  const acceptanceRef=writeImmutable(loaded.runDir,outputPrefix+'receipts/15-registration-acceptance-'+registrationDigest+'.json',{status:registrationAccepted?'PASS':'HOLD',output_sha256:main.sha256,kind:'deterministic_source_registration_only',liveness_status:result.liveness?.status??'VERIFICATION_DEBT',factual_acceptance:false,...(inputs.revision?{source_revision:inputs.revision}:{})},{lockHandle});
   for (const artifact of artifacts.filter(a=>a!==main)) ledger.recordArtifact(fence,{taskId,attemptId,artifact,status:'output_saved'});
   if(registrationAccepted)ledger.acceptArtifact(fence,{taskId,attemptId,artifact:main,validationReceipt:validationRef,acceptanceReceipt:acceptanceRef});
   else{ledger.recordArtifact(fence,{taskId,attemptId,artifact:main,status:'output_saved'});ledger.failAttempt(fence,{attemptId,status:'blocked',errorRef:receiptRef});}

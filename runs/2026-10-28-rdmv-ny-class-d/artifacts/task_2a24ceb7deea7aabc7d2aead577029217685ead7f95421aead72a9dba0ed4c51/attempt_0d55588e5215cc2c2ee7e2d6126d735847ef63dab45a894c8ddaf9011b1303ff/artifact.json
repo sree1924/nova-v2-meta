@@ -1,0 +1,4061 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-ny-d",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "4dbb96b168bbd38a73ed74391cb025addf874a24d9c00ea7cac768a919d8f719",
+    "candidate_lineage_id": "2026-10-28-rdmv-ny-class-d:lineage:64"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-ny-class-d/16/sec01-driver-licenses/d868857e/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-ny-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec01-F01",
+      "label": "Who may drive and new-resident trade-in",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F01"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=6"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F02",
+      "label": "Forging motor-vehicle documents",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F02"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=6"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F03",
+      "label": "When a commercial license is needed",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F03"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=6"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F04",
+          "why": "sec01-R02 contrasts sec01-F03 with sec01-F04: Commercial duty turns on either size or service: twenty-six thousand pounds of rating, fifteen-plus carried people, Article 19-A bus status, or placarded hazmat, while ordinary cars and small trailers stay non-commercial.",
+          "fact_ids": [
+            "sec01-F03",
+            "sec01-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F04",
+      "label": "Class D",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F04"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=6"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F06",
+          "why": "sec01-F04 makes Class D available at eighteen, or seventeen with driver education, and sec01-F06 gives Class M the same ages for motorcycles and mopeds.",
+          "fact_ids": [
+            "sec01-F04",
+            "sec01-F06"
+          ]
+        },
+        {
+          "other_id": "sec01-F05",
+          "why": "sec01-R01 contrasts sec01-F04 with sec01-F05: Class D is the adult operator license from eighteen, Class DJ the junior version from sixteen with lower caps, and Class E the hire-carrying counterpart of D from eighteen, so age plus purpose separates all three.",
+          "fact_ids": [
+            "sec01-F04",
+            "sec01-F05"
+          ]
+        },
+        {
+          "other_id": "sec01-F03",
+          "why": "sec01-R02 contrasts sec01-F04 with sec01-F03: Commercial duty turns on either size or service: twenty-six thousand pounds of rating, fifteen-plus carried people, Article 19-A bus status, or placarded hazmat, while ordinary cars and small trailers stay non-commercial.",
+          "fact_ids": [
+            "sec01-F04",
+            "sec01-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F05",
+      "label": "Class DJ and Class E",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F05"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=6"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F04",
+          "why": "sec01-R01 contrasts sec01-F05 with sec01-F04: Class D is the adult operator license from eighteen, Class DJ the junior version from sixteen with lower caps, and Class E the hire-carrying counterpart of D from eighteen, so age plus purpose separates all three.",
+          "fact_ids": [
+            "sec01-F05",
+            "sec01-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F06",
+      "label": "Class M and MJ",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F06"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=7"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F04",
+          "why": "sec01-F04 makes Class D available at eighteen, or seventeen with driver education, and sec01-F06 gives Class M the same ages for motorcycles and mopeds.",
+          "fact_ids": [
+            "sec01-F06",
+            "sec01-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F07",
+      "label": "The Enhanced license",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F07"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=7"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F08",
+          "why": "sec01-R03 contrasts sec01-F07 with sec01-F08: The Enhanced license proves citizenship for border crossings and domestic flights, while REAL ID only certifies the card meets federal checkpoint standards, so crossing needs the former and flying accepts either.",
+          "fact_ids": [
+            "sec01-F07",
+            "sec01-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F08",
+      "label": "REAL ID",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F08"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=7"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F07",
+          "why": "sec01-R03 contrasts sec01-F08 with sec01-F07: The Enhanced license proves citizenship for border crossings and domestic flights, while REAL ID only certifies the card meets federal checkpoint standards, so crossing needs the former and flying accepts either.",
+          "fact_ids": [
+            "sec01-F08",
+            "sec01-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F09",
+      "label": "The R endorsement",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F09"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=7"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F10",
+      "label": "First-time application steps",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F10"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.8",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=8"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F11",
+          "why": "sec01-R05 contrasts sec01-F10 with sec01-F11: Form MV-44 opens the application, but the six-point identity tally with one signed paper is a separate gate, and a current New York photo card alone clears all six points.",
+          "fact_ids": [
+            "sec01-F10",
+            "sec01-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F11",
+      "label": "Identity proofs and the six-point rule",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F11"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.8",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=8"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F12",
+          "why": "sec01-F11 requires name proofs totaling six points with one signed, and sec01-F12 lists the papers worth four points each.",
+          "fact_ids": [
+            "sec01-F11",
+            "sec01-F12"
+          ]
+        },
+        {
+          "other_id": "sec01-F10",
+          "why": "sec01-R05 contrasts sec01-F11 with sec01-F10: Form MV-44 opens the application, but the six-point identity tally with one signed paper is a separate gate, and a current New York photo card alone clears all six points.",
+          "fact_ids": [
+            "sec01-F11",
+            "sec01-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F12",
+      "label": "Four-point proofs",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F12"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.8",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=8"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F11",
+          "why": "sec01-F11 requires name proofs totaling six points with one signed, and sec01-F12 lists the papers worth four points each.",
+          "fact_ids": [
+            "sec01-F12",
+            "sec01-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F13",
+      "label": "Three-point proofs",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F13"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=9"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F14",
+      "label": "Two-point proofs, first list",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F14"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=9"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F15",
+      "label": "Two-point proofs, second list",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F15"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=9"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F16",
+      "label": "One-point proofs, first list",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F16"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=9"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F17",
+      "label": "One-point proofs, second list, and age proofs",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F17"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.10",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=10"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F18",
+      "label": "The vision standard",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F18"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.10",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=10"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F19",
+          "why": "sec01-F18 sets the vision standard of twenty-forty in at least one eye, while sec01-F19 sets out what the written test covers and its passing bars.",
+          "fact_ids": [
+            "sec01-F18",
+            "sec01-F19"
+          ]
+        },
+        {
+          "other_id": "sec01-F20",
+          "why": "sec01-R07 contrasts sec01-F18 with sec01-F20: Vision screening at twenty-forty and the written test are independent gates, and the OKTA online pre-test only works for students from fifteen years eleven months at participating schools.",
+          "fact_ids": [
+            "sec01-F18",
+            "sec01-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F19",
+      "label": "The written test",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F19"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.10",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=10"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F18",
+          "why": "sec01-F18 sets the vision standard of twenty-forty in at least one eye, while sec01-F19 sets out what the written test covers and its passing bars.",
+          "fact_ids": [
+            "sec01-F19",
+            "sec01-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F20",
+      "label": "Other manuals, languages and school pre-tests",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F20"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.10",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=10"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F18",
+          "why": "sec01-R07 contrasts sec01-F20 with sec01-F18: Vision screening at twenty-forty and the written test are independent gates, and the OKTA online pre-test only works for students from fifteen years eleven months at participating schools.",
+          "fact_ids": [
+            "sec01-F20",
+            "sec01-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F21",
+      "label": "After an online pre-test",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F21"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.11",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=11"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F22",
+      "label": "Earning the learner permit",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F22"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.11",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=11"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F24",
+          "why": "sec01-F22 earns the permit and requires a front-seat supervisor twenty-one or older, while sec01-F24 adds the city and Long Island day hours, supervisor list and night ban for junior permits.",
+          "fact_ids": [
+            "sec01-F22",
+            "sec01-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F23",
+      "label": "Junior license terms defined",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F23"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.12",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=12"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F24",
+      "label": "Junior-permit rules in the city and on Long Island",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F24"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.12",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=12"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F22",
+          "why": "sec01-F22 earns the permit and requires a front-seat supervisor twenty-one or older, while sec01-F24 adds the city and Long Island day hours, supervisor list and night ban for junior permits.",
+          "fact_ids": [
+            "sec01-F24",
+            "sec01-F22"
+          ]
+        },
+        {
+          "other_id": "sec01-F25",
+          "why": "sec01-F24 limits city and Long Island junior-permit days to a short supervisor list and bans nights, while sec01-F25 lets upstate days use any supervisor twenty-one or older.",
+          "fact_ids": [
+            "sec01-F24",
+            "sec01-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F25",
+      "label": "Junior-permit rules upstate",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F25"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.12",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=12"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F24",
+          "why": "sec01-F24 limits city and Long Island junior-permit days to a short supervisor list and bans nights, while sec01-F25 lets upstate days use any supervisor twenty-one or older.",
+          "fact_ids": [
+            "sec01-F25",
+            "sec01-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F26",
+      "label": "Junior purposes, supervisors and restricted roads",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F26"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.13",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=13"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F27",
+      "label": "Junior-permit passengers and belts",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F27"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.13",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=13"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F28",
+      "label": "Recommended practice and the safe-driving course",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F28"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.13",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=13"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F30",
+          "why": "sec01-F28 recommends fifty hours of practice, while sec01-F30 requires the permit to be valid for six months before the junior upgrade test path.",
+          "fact_ids": [
+            "sec01-F28",
+            "sec01-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F29",
+      "label": "Course certificate at booking",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F29"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.14",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=14"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F33",
+          "why": "sec01-R12 contrasts sec01-F29 with sec01-F33: The point-and-insurance course buys point relief and premium cuts but never satisfies the safe-driving course gate, the single costliest paperwork confusion in the chapter.",
+          "fact_ids": [
+            "sec01-F29",
+            "sec01-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F30",
+      "label": "Upgrading a junior license and test-day papers",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F30"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.14",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=14"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F28",
+          "why": "sec01-F28 recommends fifty hours of practice, while sec01-F30 requires the permit to be valid for six months before the junior upgrade test path.",
+          "fact_ids": [
+            "sec01-F30",
+            "sec01-F28"
+          ]
+        },
+        {
+          "other_id": "sec01-F31",
+          "why": "sec01-R11 contrasts sec01-F30 with sec01-F31: MV-278 proves the five-hour course, MV-285 proves student driver education, and MV-262 certifies supervised hours, three papers with three distinct jobs at test time.",
+          "fact_ids": [
+            "sec01-F30",
+            "sec01-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F31",
+      "label": "Test car, supervisor and booking",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F31"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.14",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=14"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F30",
+          "why": "sec01-R11 contrasts sec01-F31 with sec01-F30: MV-278 proves the five-hour course, MV-285 proves student driver education, and MV-262 certifies supervised hours, three papers with three distinct jobs at test time.",
+          "fact_ids": [
+            "sec01-F31",
+            "sec01-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F32",
+      "label": "Test day and the interim license",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F32"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.15",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=15"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F33",
+      "label": "The point-and-insurance course",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F33"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.15",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=15"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F29",
+          "why": "sec01-R12 contrasts sec01-F33 with sec01-F29: The point-and-insurance course buys point relief and premium cuts but never satisfies the safe-driving course gate, the single costliest paperwork confusion in the chapter.",
+          "fact_ids": [
+            "sec01-F33",
+            "sec01-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F34",
+      "label": "Junior-license passengers and limits",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F34"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.15",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=15"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F35",
+      "label": "Proof for solo job and school runs",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F35"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.16",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=16"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F36",
+      "label": "Junior-license day and night limits",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F36"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.16",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=16"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R14",
+          "why": "sec01-R14 sharpens sec01-F36: Licensed-junior nights ban the city, shuttle school and farm trips on Long Island, and allow job or school runs upstate, a three-way split that mirrors but never matches the permit chart.",
+          "fact_ids": [
+            "sec01-F36",
+            "sec01-R14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F37",
+      "label": "Motorcycle and moped supervision",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F37"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.17",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=17"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F38",
+      "label": "Driving elsewhere, address changes and renewal",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F38"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.17",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=17"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F39",
+      "label": "REAL ID dates, proofs and the non-REAL ID path",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F39"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.17",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=17"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F40",
+      "label": "Service members and out-of-state licensees",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F40"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.18",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=18"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F41",
+          "why": "sec01-R17 contrasts sec01-F40 with sec01-F41: United States and Canadian newcomers surrender and test lightly, other-country newcomers test fully, young visitors obey both states, and nobody under sixteen drives at all.",
+          "fact_ids": [
+            "sec01-F40",
+            "sec01-F41"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F41",
+      "label": "New residents by origin",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-F41"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.18",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=18"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F40",
+          "why": "sec01-R17 contrasts sec01-F41 with sec01-F40: United States and Canadian newcomers surrender and test lightly, other-country newcomers test fully, young visitors obey both states, and nobody under sixteen drives at all.",
+          "fact_ids": [
+            "sec01-F41",
+            "sec01-F40"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R01",
+      "label": "D versus DJ versus E",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R01"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=6"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F04",
+          "why": "sec01-R01 is the contrast built on sec01-F04; learners who keep only one side of it misapply sec01-F04: Class D is the adult operator license from eighteen, Class DJ the junior version from sixteen with lower caps, and Class E the hire-carrying counterpart of D from eighteen, so age plus purpose separates all three.",
+          "fact_ids": [
+            "sec01-R01",
+            "sec01-F04"
+          ]
+        },
+        {
+          "other_id": "sec01-F05",
+          "why": "sec01-R01 is the contrast built on sec01-F05; learners who keep only one side of it misapply sec01-F05: Class D is the adult operator license from eighteen, Class DJ the junior version from sixteen with lower caps, and Class E the hire-carrying counterpart of D from eighteen, so age plus purpose separates all three.",
+          "fact_ids": [
+            "sec01-R01",
+            "sec01-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R02",
+      "label": "Commercial by size or by service",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R02"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=6"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F03",
+          "why": "sec01-R02 is the contrast built on sec01-F03; learners who keep only one side of it misapply sec01-F03: Commercial duty turns on either size or service: twenty-six thousand pounds of rating, fifteen-plus carried people, Article 19-A bus status, or placarded hazmat, while ordinary cars and small trailers stay non-commercial.",
+          "fact_ids": [
+            "sec01-R02",
+            "sec01-F03"
+          ]
+        },
+        {
+          "other_id": "sec01-F04",
+          "why": "sec01-R02 is the contrast built on sec01-F04; learners who keep only one side of it misapply sec01-F04: Commercial duty turns on either size or service: twenty-six thousand pounds of rating, fifteen-plus carried people, Article 19-A bus status, or placarded hazmat, while ordinary cars and small trailers stay non-commercial.",
+          "fact_ids": [
+            "sec01-R02",
+            "sec01-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R03",
+      "label": "Enhanced versus REAL ID",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R03"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=7"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F07",
+          "why": "sec01-R03 is the contrast built on sec01-F07; learners who keep only one side of it misapply sec01-F07: The Enhanced license proves citizenship for border crossings and domestic flights, while REAL ID only certifies the card meets federal checkpoint standards, so crossing needs the former and flying accepts either.",
+          "fact_ids": [
+            "sec01-R03",
+            "sec01-F07"
+          ]
+        },
+        {
+          "other_id": "sec01-F08",
+          "why": "sec01-R03 is the contrast built on sec01-F08; learners who keep only one side of it misapply sec01-F08: The Enhanced license proves citizenship for border crossings and domestic flights, while REAL ID only certifies the card meets federal checkpoint standards, so crossing needs the former and flying accepts either.",
+          "fact_ids": [
+            "sec01-R03",
+            "sec01-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R04",
+      "label": "R endorsement triggers and road test",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-R04"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=7"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F09",
+          "why": "sec01-R04 is the contrast built on sec01-F09; learners who keep only one side of it misapply sec01-F09: The R endorsement trips on either bulk or length, past twenty-six thousand pounds or forty feet, and its road test has no written companion, unlike the ordinary license path.",
+          "fact_ids": [
+            "sec01-R04",
+            "sec01-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R05",
+      "label": "Application form versus six-point gate",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-R05"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.8",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=8"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F10",
+          "why": "sec01-R05 is the contrast built on sec01-F10; learners who keep only one side of it misapply sec01-F10: Form MV-44 opens the application, but the six-point identity tally with one signed paper is a separate gate, and a current New York photo card alone clears all six points.",
+          "fact_ids": [
+            "sec01-R05",
+            "sec01-F10"
+          ]
+        },
+        {
+          "other_id": "sec01-F11",
+          "why": "sec01-R05 is the contrast built on sec01-F11; learners who keep only one side of it misapply sec01-F11: Form MV-44 opens the application, but the six-point identity tally with one signed paper is a separate gate, and a current New York photo card alone clears all six points.",
+          "fact_ids": [
+            "sec01-R05",
+            "sec01-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R06",
+      "label": "The written test's two bars",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R06"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.10",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=10"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F19",
+          "why": "sec01-R06 is the contrast built on sec01-F19; learners who keep only one side of it misapply sec01-F19: The written test has twin bars, fourteen of twenty overall and two of four signs, so strong rules knowledge still fails without the sign minimum.",
+          "fact_ids": [
+            "sec01-R06",
+            "sec01-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R07",
+      "label": "Independent testing gates",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-R07"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.10",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=10"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F18",
+          "why": "sec01-R07 is the contrast built on sec01-F18; learners who keep only one side of it misapply sec01-F18: Vision screening at twenty-forty and the written test are independent gates, and the OKTA online pre-test only works for students from fifteen years eleven months at participating schools.",
+          "fact_ids": [
+            "sec01-R07",
+            "sec01-F18"
+          ]
+        },
+        {
+          "other_id": "sec01-F20",
+          "why": "sec01-R07 is the contrast built on sec01-F20; learners who keep only one side of it misapply sec01-F20: Vision screening at twenty-forty and the written test are independent gates, and the OKTA online pre-test only works for students from fifteen years eleven months at participating schools.",
+          "fact_ids": [
+            "sec01-R07",
+            "sec01-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R08",
+      "label": "Junior-permit nights by region",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R08"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.12",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=12"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F24",
+          "why": "sec01-R08 is the contrast built on sec01-F24; learners who keep only one side of it misapply sec01-F24: Junior-permit nights ban city and Long Island driving outright yet allow supervised upstate driving, while days everywhere demand a qualified supervisor, tighter in the city and on Long Island than upstate.",
+          "fact_ids": [
+            "sec01-R08",
+            "sec01-F24"
+          ]
+        },
+        {
+          "other_id": "sec01-F25",
+          "why": "sec01-R08 is the contrast built on sec01-F25; learners who keep only one side of it misapply sec01-F25: Junior-permit nights ban city and Long Island driving outright yet allow supervised upstate driving, while days everywhere demand a qualified supervisor, tighter in the city and on Long Island than upstate.",
+          "fact_ids": [
+            "sec01-R08",
+            "sec01-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R09",
+      "label": "Supervisor rules by region",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-R09"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.13",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=13"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F26",
+          "why": "sec01-R09 is the contrast built on sec01-F26; learners who keep only one side of it misapply sec01-F26: The supervisor must be twenty-one or older and licensed for the vehicle everywhere, but the city and Long Island further require a parent, guardian or instructor, unlike upstate.",
+          "fact_ids": [
+            "sec01-R09",
+            "sec01-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R10",
+      "label": "Recommendation versus rule",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-R10"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.13",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=13"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F28",
+          "why": "sec01-R10 is the contrast built on sec01-F28; learners who keep only one side of it misapply sec01-F28: Practice targets fifty hours with fifteen after sunset and ten in heavier traffic, all recommendation rather than the six-month permit hold, which is a hard rule.",
+          "fact_ids": [
+            "sec01-R10",
+            "sec01-F28"
+          ]
+        },
+        {
+          "other_id": "sec01-F30",
+          "why": "sec01-R10 is the contrast built on sec01-F30; learners who keep only one side of it misapply sec01-F30: Practice targets fifty hours with fifteen after sunset and ten in heavier traffic, all recommendation rather than the six-month permit hold, which is a hard rule.",
+          "fact_ids": [
+            "sec01-R10",
+            "sec01-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R11",
+      "label": "Three test-day papers",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R11"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.14",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=14"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F30",
+          "why": "sec01-R11 is the contrast built on sec01-F30; learners who keep only one side of it misapply sec01-F30: MV-278 proves the five-hour course, MV-285 proves student driver education, and MV-262 certifies supervised hours, three papers with three distinct jobs at test time.",
+          "fact_ids": [
+            "sec01-R11",
+            "sec01-F30"
+          ]
+        },
+        {
+          "other_id": "sec01-F31",
+          "why": "sec01-R11 is the contrast built on sec01-F31; learners who keep only one side of it misapply sec01-F31: MV-278 proves the five-hour course, MV-285 proves student driver education, and MV-262 certifies supervised hours, three papers with three distinct jobs at test time.",
+          "fact_ids": [
+            "sec01-R11",
+            "sec01-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R12",
+      "label": "Point course versus safe-driving course",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R12"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.14",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=14"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F29",
+          "why": "sec01-R12 is the contrast built on sec01-F29; learners who keep only one side of it misapply sec01-F29: The point-and-insurance course buys point relief and premium cuts but never satisfies the safe-driving course gate, the single costliest paperwork confusion in the chapter.",
+          "fact_ids": [
+            "sec01-R12",
+            "sec01-F29"
+          ]
+        },
+        {
+          "other_id": "sec01-F33",
+          "why": "sec01-R12 is the contrast built on sec01-F33; learners who keep only one side of it misapply sec01-F33: The point-and-insurance course buys point relief and premium cuts but never satisfies the safe-driving course gate, the single costliest paperwork confusion in the chapter.",
+          "fact_ids": [
+            "sec01-R12",
+            "sec01-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R13",
+      "label": "What point relief gives",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R13"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.15",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=15"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F33",
+          "why": "sec01-R13 is the contrast built on sec01-F33; learners who keep only one side of it misapply sec01-F33: Point relief erases up to four points, repeats every eighteen months, and discounts premiums ten percent for three years, a reward program wholly separate from test eligibility.",
+          "fact_ids": [
+            "sec01-R13",
+            "sec01-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R14",
+      "label": "Junior-license nights by region",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R14"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.16",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=16"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F36",
+          "why": "sec01-R14 is the contrast built on sec01-F36; learners who keep only one side of it misapply sec01-F36: Licensed-junior nights ban the city, shuttle school and farm trips on Long Island, and allow job or school runs upstate, a three-way split that mirrors but never matches the permit chart.",
+          "fact_ids": [
+            "sec01-R14",
+            "sec01-F36"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R15",
+      "label": "The destination picks the paper",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-R15"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.16",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=16"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F35",
+          "why": "sec01-R15 is the contrast built on sec01-F35; learners who keep only one side of it misapply sec01-F35: Solo job runs need MV-58A employment proof, or upstate an employer letter, while solo school runs need a letterhead enrollment letter, so the destination picks the paper.",
+          "fact_ids": [
+            "sec01-R15",
+            "sec01-F35"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R16",
+      "label": "Two supervision shapes",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-R16"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.17",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=17"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F37",
+          "why": "sec01-R16 is the contrast built on sec01-F37; learners who keep only one side of it misapply sec01-F37: Motorcycle supervisors stay within a quarter mile of a passenger-free rider, while car supervisors ride in the front seat, two supervision shapes for two vehicle kinds.",
+          "fact_ids": [
+            "sec01-R16",
+            "sec01-F37"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R17",
+      "label": "Newcomers by origin",
+      "domain": "Driver licenses",
+      "module_id": "sec01-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec01-R17"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.18",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=18"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F40",
+          "why": "sec01-R17 is the contrast built on sec01-F40; learners who keep only one side of it misapply sec01-F40: United States and Canadian newcomers surrender and test lightly, other-country newcomers test fully, young visitors obey both states, and nobody under sixteen drives at all.",
+          "fact_ids": [
+            "sec01-R17",
+            "sec01-F40"
+          ]
+        },
+        {
+          "other_id": "sec01-F41",
+          "why": "sec01-R17 is the contrast built on sec01-F41; learners who keep only one side of it misapply sec01-F41: United States and Canadian newcomers surrender and test lightly, other-country newcomers test fully, young visitors obey both states, and nobody under sixteen drives at all.",
+          "fact_ids": [
+            "sec01-R17",
+            "sec01-F41"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec01-F04",
+      "to": "sec01-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F05",
+      "to": "sec01-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F03",
+      "to": "sec01-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F04",
+      "to": "sec01-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F07",
+      "to": "sec01-R03",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F08",
+      "to": "sec01-R03",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F09",
+      "to": "sec01-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F04",
+      "to": "sec01-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F10",
+      "to": "sec01-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F11",
+      "to": "sec01-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F19",
+      "to": "sec01-R06",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F18",
+      "to": "sec01-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F20",
+      "to": "sec01-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F24",
+      "to": "sec01-R08",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F25",
+      "to": "sec01-R08",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F22",
+      "to": "sec01-R08",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F26",
+      "to": "sec01-R09",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F22",
+      "to": "sec01-R09",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F28",
+      "to": "sec01-R10",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F30",
+      "to": "sec01-R10",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F30",
+      "to": "sec01-R11",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F31",
+      "to": "sec01-R11",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F29",
+      "to": "sec01-R12",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F33",
+      "to": "sec01-R12",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F28",
+      "to": "sec01-R12",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F33",
+      "to": "sec01-R13",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F36",
+      "to": "sec01-R14",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F24",
+      "to": "sec01-R14",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F35",
+      "to": "sec01-R15",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F37",
+      "to": "sec01-R16",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F22",
+      "to": "sec01-R16",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F40",
+      "to": "sec01-R17",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F41",
+      "to": "sec01-R17",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F01",
+      "to": "sec01-R17",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F01",
+      "to": "sec01-F04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F04",
+      "to": "sec01-F05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F04",
+      "to": "sec01-F06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F08",
+      "to": "sec01-F39",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F10",
+      "to": "sec01-F11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F11",
+      "to": "sec01-F12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F12",
+      "to": "sec01-F13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F13",
+      "to": "sec01-F14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F14",
+      "to": "sec01-F15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F15",
+      "to": "sec01-F16",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F16",
+      "to": "sec01-F17",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F18",
+      "to": "sec01-F19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F21",
+      "to": "sec01-F22",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F23",
+      "to": "sec01-F24",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F28",
+      "to": "sec01-F29",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F30",
+      "to": "sec01-F31",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F31",
+      "to": "sec01-F32",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F34",
+      "to": "sec01-F36",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F38",
+      "to": "sec01-F40",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec01-m01",
+      "title": "Who needs a license and license classes",
+      "domain": "Driver licenses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 13,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec01-F01",
+        "sec01-F02",
+        "sec01-F03",
+        "sec01-R02",
+        "sec01-F04",
+        "sec01-F05",
+        "sec01-R01",
+        "sec01-F06"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m02",
+      "title": "Enhanced, REAL ID and the R endorsement",
+      "domain": "Driver licenses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 7,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec01-F07",
+        "sec01-F08",
+        "sec01-R03",
+        "sec01-F39",
+        "sec01-F09",
+        "sec01-R04"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m03",
+      "title": "Applying and proving identity",
+      "domain": "Driver licenses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec01-F10",
+        "sec01-F11",
+        "sec01-R05",
+        "sec01-F12",
+        "sec01-F13",
+        "sec01-F14",
+        "sec01-F15",
+        "sec01-F16",
+        "sec01-F17"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m04",
+      "title": "Vision, written test and the permit",
+      "domain": "Driver licenses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec01-F18",
+        "sec01-F19",
+        "sec01-R06",
+        "sec01-F20",
+        "sec01-R07",
+        "sec01-F21",
+        "sec01-F22"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m05",
+      "title": "Junior permit rules by region",
+      "domain": "Driver licenses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec01-F23",
+        "sec01-F24",
+        "sec01-F25",
+        "sec01-R08",
+        "sec01-F26",
+        "sec01-R09",
+        "sec01-F27"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m06",
+      "title": "Preparing for and taking the road test",
+      "domain": "Driver licenses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec01-F28",
+        "sec01-R10",
+        "sec01-F29",
+        "sec01-F33",
+        "sec01-R12",
+        "sec01-R13",
+        "sec01-F30",
+        "sec01-R11",
+        "sec01-F31",
+        "sec01-F32"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m07",
+      "title": "Junior license limits",
+      "domain": "Driver licenses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec01-F34",
+        "sec01-F35",
+        "sec01-R15",
+        "sec01-F36",
+        "sec01-R14",
+        "sec01-F37",
+        "sec01-R16"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m08",
+      "title": "Moving, renewing and new residents",
+      "domain": "Driver licenses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 4,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec01-F38",
+        "sec01-F40",
+        "sec01-F41",
+        "sec01-R17"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec01-m01",
+      "unit_id": "sec01-u01",
+      "node_ids": [
+        "sec01-F01",
+        "sec01-F02",
+        "sec01-F03",
+        "sec01-R02",
+        "sec01-F04",
+        "sec01-F05",
+        "sec01-R01",
+        "sec01-F06"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Start with who may drive and the crime of forging documents, then separate commercial licenses from Class D, DJ, E, M and MJ by age, weight and purpose.",
+      "flashcard_strategy": "One card per class rule; contrast cards on commercial triggers and on D versus DJ versus E.",
+      "quiz_strategy": "Hub-chosen quiz naming a driver's age and vehicle and asking which class fits.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m02",
+      "unit_id": "sec01-u02",
+      "node_ids": [
+        "sec01-F07",
+        "sec01-F08",
+        "sec01-R03",
+        "sec01-F39",
+        "sec01-F09",
+        "sec01-R04"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Compare the Enhanced license with REAL ID and the dates and proofs for REAL ID, then explain when the R endorsement is needed and how its road test works.",
+      "flashcard_strategy": "Cards for each card type and the R endorsement; contrast cards on Enhanced versus REAL ID and on the R endorsement's two triggers.",
+      "quiz_strategy": "Hub-chosen quiz on which card fits a trip and when a rental rig needs the R endorsement.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m03",
+      "unit_id": "sec01-u03",
+      "node_ids": [
+        "sec01-F10",
+        "sec01-F11",
+        "sec01-R05",
+        "sec01-F12",
+        "sec01-F13",
+        "sec01-F14",
+        "sec01-F15",
+        "sec01-F16",
+        "sec01-F17"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain the first-time application, the six-point identity rule, and the four, three, two and one-point proof lists, ending with age proofs.",
+      "flashcard_strategy": "One card per proof list and rule; a contrast card on the application form versus the six-point gate.",
+      "quiz_strategy": "Hub-chosen quiz naming a document and asking how many points it is worth.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m04",
+      "unit_id": "sec01-u04",
+      "node_ids": [
+        "sec01-F18",
+        "sec01-F19",
+        "sec01-R06",
+        "sec01-F20",
+        "sec01-R07",
+        "sec01-F21",
+        "sec01-F22"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover the vision standard, what the written test covers and its two bars, other manuals and the school pre-test, then what earns a learner permit and who may supervise.",
+      "flashcard_strategy": "Cards for vision, the written test, pre-testing and the permit; contrast cards on the two written-test bars and the independent gates.",
+      "quiz_strategy": "Hub-chosen quiz on what each test checks and what earns the permit.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m05",
+      "unit_id": "sec01-u05",
+      "node_ids": [
+        "sec01-F23",
+        "sec01-F24",
+        "sec01-F25",
+        "sec01-R08",
+        "sec01-F26",
+        "sec01-R09",
+        "sec01-F27"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Define the key junior terms, then the day and night rules for the city, Long Island and upstate, the supervisor rules, restricted roads, and passenger limits.",
+      "flashcard_strategy": "Cards for each regional rule and the passenger limit; contrast cards on the regional night rules and supervisor requirements.",
+      "quiz_strategy": "Hub-chosen quiz naming a region and time of day and asking whether a junior-permit drive is allowed.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m06",
+      "unit_id": "sec01-u06",
+      "node_ids": [
+        "sec01-F28",
+        "sec01-R10",
+        "sec01-F29",
+        "sec01-F33",
+        "sec01-R12",
+        "sec01-R13",
+        "sec01-F30",
+        "sec01-R11",
+        "sec01-F31",
+        "sec01-F32"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover recommended practice, the required safe-driving course and how it differs from the point-and-insurance course, then the papers, car and booking for the road test and what happens after it.",
+      "flashcard_strategy": "Cards for practice, courses, test papers and test day; contrast cards on the two courses, the three test papers and recommendation versus rule.",
+      "quiz_strategy": "Hub-chosen quiz that swaps the course types and the test-day forms.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m07",
+      "unit_id": "sec01-u07",
+      "node_ids": [
+        "sec01-F34",
+        "sec01-F35",
+        "sec01-R15",
+        "sec01-F36",
+        "sec01-R14",
+        "sec01-F37",
+        "sec01-R16"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain junior-license passenger rules, the proofs for solo job and school runs, the regional day and night limits, and motorcycle supervision.",
+      "flashcard_strategy": "Cards for passenger limits, solo-run proofs, regional limits and motorcycle supervision; contrast cards on the night split and the two supervision shapes.",
+      "quiz_strategy": "Hub-chosen quiz naming a region, time and purpose and asking whether a junior license holder may drive alone.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m08",
+      "unit_id": "sec01-u08",
+      "node_ids": [
+        "sec01-F38",
+        "sec01-F40",
+        "sec01-F41",
+        "sec01-R17"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover driving elsewhere with a junior credential, address changes and renewals, service members, and what new residents from other states and countries must do.",
+      "flashcard_strategy": "Cards for address changes and renewals, service members and new residents; a contrast card on newcomers by origin.",
+      "quiz_strategy": "Hub-chosen quiz describing a newcomer or a mover and asking what they must do.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec01-F01",
+    "sec01-F02",
+    "sec01-F03",
+    "sec01-F04",
+    "sec01-R02",
+    "sec01-F05",
+    "sec01-R01",
+    "sec01-F06",
+    "sec01-F07",
+    "sec01-F08",
+    "sec01-R03",
+    "sec01-F39",
+    "sec01-F09",
+    "sec01-R04",
+    "sec01-F10",
+    "sec01-F11",
+    "sec01-R05",
+    "sec01-F12",
+    "sec01-F13",
+    "sec01-F14",
+    "sec01-F15",
+    "sec01-F16",
+    "sec01-F17",
+    "sec01-F18",
+    "sec01-F19",
+    "sec01-R06",
+    "sec01-F20",
+    "sec01-R07",
+    "sec01-F21",
+    "sec01-F22",
+    "sec01-F23",
+    "sec01-F24",
+    "sec01-F25",
+    "sec01-R08",
+    "sec01-F26",
+    "sec01-R09",
+    "sec01-F27",
+    "sec01-F28",
+    "sec01-F29",
+    "sec01-F33",
+    "sec01-R12",
+    "sec01-R13",
+    "sec01-F30",
+    "sec01-R10",
+    "sec01-F31",
+    "sec01-R11",
+    "sec01-F32",
+    "sec01-F34",
+    "sec01-F35",
+    "sec01-R15",
+    "sec01-F36",
+    "sec01-R14",
+    "sec01-F37",
+    "sec01-R16",
+    "sec01-F38",
+    "sec01-F40",
+    "sec01-F41",
+    "sec01-R17"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec01-m01..sec01-m08; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 58,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec01-F01",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F02",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F03",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F04",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F05",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F06",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F07",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F08",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F09",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F10",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F11",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F12",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F13",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F14",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F15",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F16",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F17",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F18",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F19",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F20",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F21",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F22",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F23",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F24",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F25",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F26",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F27",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F28",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F29",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F30",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F31",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F32",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F33",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F34",
+          "module_id": "sec01-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F35",
+          "module_id": "sec01-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F36",
+          "module_id": "sec01-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F37",
+          "module_id": "sec01-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F38",
+          "module_id": "sec01-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F39",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F40",
+          "module_id": "sec01-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-F41",
+          "module_id": "sec01-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R01",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R02",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R03",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R04",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R05",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R06",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R07",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R08",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R09",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R10",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R11",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R12",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R13",
+          "module_id": "sec01-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R14",
+          "module_id": "sec01-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R15",
+          "module_id": "sec01-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R16",
+          "module_id": "sec01-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec01-R17",
+          "module_id": "sec01-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec01-F04",
+          "to": "sec01-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F05",
+          "to": "sec01-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F03",
+          "to": "sec01-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F04",
+          "to": "sec01-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F07",
+          "to": "sec01-R03",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F08",
+          "to": "sec01-R03",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F09",
+          "to": "sec01-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F04",
+          "to": "sec01-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F10",
+          "to": "sec01-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F11",
+          "to": "sec01-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F19",
+          "to": "sec01-R06",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F18",
+          "to": "sec01-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F20",
+          "to": "sec01-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F24",
+          "to": "sec01-R08",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F25",
+          "to": "sec01-R08",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F22",
+          "to": "sec01-R08",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F26",
+          "to": "sec01-R09",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F22",
+          "to": "sec01-R09",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F28",
+          "to": "sec01-R10",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F30",
+          "to": "sec01-R10",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F30",
+          "to": "sec01-R11",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F31",
+          "to": "sec01-R11",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F29",
+          "to": "sec01-R12",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F33",
+          "to": "sec01-R12",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F28",
+          "to": "sec01-R12",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F33",
+          "to": "sec01-R13",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F36",
+          "to": "sec01-R14",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F24",
+          "to": "sec01-R14",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F35",
+          "to": "sec01-R15",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F37",
+          "to": "sec01-R16",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F22",
+          "to": "sec01-R16",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F40",
+          "to": "sec01-R17",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F41",
+          "to": "sec01-R17",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F01",
+          "to": "sec01-R17",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F01",
+          "to": "sec01-F04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F04",
+          "to": "sec01-F05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F04",
+          "to": "sec01-F06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F08",
+          "to": "sec01-F39",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F10",
+          "to": "sec01-F11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F11",
+          "to": "sec01-F12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F12",
+          "to": "sec01-F13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F13",
+          "to": "sec01-F14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F14",
+          "to": "sec01-F15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F15",
+          "to": "sec01-F16",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F16",
+          "to": "sec01-F17",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F18",
+          "to": "sec01-F19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F21",
+          "to": "sec01-F22",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F23",
+          "to": "sec01-F24",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F28",
+          "to": "sec01-F29",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F30",
+          "to": "sec01-F31",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F31",
+          "to": "sec01-F32",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F34",
+          "to": "sec01-F36",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F38",
+          "to": "sec01-F40",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Driver licenses",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec01-m01",
+          "sec01-m02",
+          "sec01-m03",
+          "sec01-m04",
+          "sec01-m05",
+          "sec01-m06",
+          "sec01-m07",
+          "sec01-m08"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "3732cfe940ca042b7ebd89479190753382c4f167a752172ccbc6326f42d129ad",
+    "bytes": 32041
+  },
+  "source": {
+    "source_ref": "src:rdmv-mt-d:montana-department-of-justice-motor-vehi:handbook",
+    "path": "runs/2026-10-28-rdmv-mt-class-d/sources/private/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+    "sha256": "25dde1a86830b48504c3ecb62e303143686276b6f186beff74c460e8b25b8fc1",
+    "bytes": 2433985,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-mt-class-d/sources/private/input-snapshots/ea44b10017d3ea8e3a9907fc157a889c8c07b657c9e258cceb657b28c7cd35da.json",
+      "sha256": "ea44b10017d3ea8e3a9907fc157a889c8c07b657c9e258cceb657b28c7cd35da"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 99,
+    "printed_page_count": 0,
+    "page_map_sha256": "0ff794b4c5d6be1879bf333ee0e1fda6cb8462e3106171e95c0631863a66286f",
+    "extracted_text_sha256": "185b80d3425d566fc5f2e62336baa79eb7182bcd20465c396eaf890798763d87",
+    "recorded_retrieved_at": "2026-10-28T07:15:58.170051Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": "Revised April 2024",
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-mt-class-d/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "ffae426ab8c117a97be0564816f49a1cdf801698a867bedd287463adbb0f4b20"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-mt-class-d/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "30d4cbb906d01494f853ed0f510aba88a01e1cc30a1880b9b61bf56c5b55b22f"
+      },
+      "observed_at_utc": "2026-10-28T07:16:00Z",
+      "official_page_url": "https://mvdmt.gov/forms-driver-license/",
+      "observation_method": "Rendered page text excerpt (WebFetch/browser) with the exact visible handbook href; saved snapshot bytes are JSON, not the HTTP response body.",
+      "recorder": {
+        "actor": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker); exact issuer link from dated scout observation, current official search corroboration",
+        "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-mt-class-d/receipts/issuer-page-snapshot.json",
+        "sha256": "68460756300533dc6a89f5a5ba268faa513e2a3ddc97351a33532758d012e14c",
+        "bytes": 822,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "issuer page states no effective date; edition recorded as debt per S4 order"
+      },
+      "disposition_acceptance": "recorded_dated_effective_date_debt_not_full_liveness_PASS",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": true,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "image_only_pages_need_review",
+      "field": "rights_and_frontmatter_review",
+      "reason": "Physical PDF pages 10 contain no extractable text. A scoped visual annotation, if bound, resolves only its stated observation; no OCR or complete visual clearance is claimed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-mt-class-d/sources/private/input-snapshots/ea44b10017d3ea8e3a9907fc157a889c8c07b657c9e258cceb657b28c7cd35da.json",
+          "sha256": "ea44b10017d3ea8e3a9907fc157a889c8c07b657c9e258cceb657b28c7cd35da"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "35425fc1b75886d4bce9129f5de9443ae8cee634cff4a62363bbcd7cc017fe32",
+      "bytes": 48658,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "0ff794b4c5d6be1879bf333ee0e1fda6cb8462e3106171e95c0631863a66286f",
+      "bytes": 64050,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "bf7b5d7e97593e3a1c6181f4785c9171cedac6e24ab65da907a644a4b4907add",
+      "bytes": 1031,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "185b80d3425d566fc5f2e62336baa79eb7182bcd20465c396eaf890798763d87",
+      "bytes": 288794,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "1d8dce33a52e277b01727b8adae6aba6db106c1ba7708eaef0e425016ce31daf",
+      "bytes": 732,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "15-effective-date-dispositions.json",
+      "sha256": "6f6cd38fe1c86342c2cfc5b24c94ee617ff5709e9867482364591f31486c7cf0",
+      "bytes": 547,
+      "kind": "accepted_dispositions"
+    }
+  ],
+  "content_calls": 0
+}

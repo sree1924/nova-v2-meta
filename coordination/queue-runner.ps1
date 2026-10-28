@@ -68,7 +68,9 @@ while ($true) {
   $stagedNow = Staged
   # Worker boundary (founder 2026-10-28): states assigned to another worker in runs\_intake\QUEUE.json are not Muse's.
   $notMine = @()
-  try { $q = Get-Content -Raw (Join-Path $lane "runs\_intake\QUEUE.json") | ConvertFrom-Json; foreach ($r in $q.queue) { if ($r.worker -and $r.worker -ne "muse") { $code = ("" + $r.jurisdiction).Replace("US-", "").ToUpper(); if ($code.Length -eq 2) { $notMine += $code } } } } catch {}
+  # 2026-10-28 04:1x: Sol's rows carry jurisdiction "Montana" (not "US-MT"), so deriving the code from jurisdiction let the
+  # runner launch Muse on MT (two writers on one run). Exclude by the row's own 2-letter state first; jurisdiction is the fallback.
+  try { $q = Get-Content -Raw (Join-Path $lane "runs\_intake\QUEUE.json") | ConvertFrom-Json; foreach ($r in $q.queue) { if ($r.worker -and $r.worker -ne "muse") { if ($r.state -and ("" + $r.state) -match '^[A-Za-z]{2}$') { $notMine += ("" + $r.state).ToUpper() }; $code = ("" + $r.jurisdiction).Replace("US-", "").ToUpper(); if ($code.Length -eq 2) { $notMine += $code } } } } catch {}
   $states = @($stagedNow | Where-Object { ($skip -notcontains $_) -and ($notMine -notcontains $_) })
   $running = @(); $candidates = @()
   foreach ($st in $states) {
