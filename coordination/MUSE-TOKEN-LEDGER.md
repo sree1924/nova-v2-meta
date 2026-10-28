@@ -1,6 +1,6 @@
 # Muse token ledger (operator cost, subscription)
 
-Generated 2026-10-28T11:40:48.566Z. Source: `muse exec --json` transcripts; only numbers are kept here.
+Generated 2026-10-28T17:57:28.632Z. Source: `muse exec --json` transcripts; only numbers are kept here.
 
 | launch | started (UTC) | model | events | tool results | input | cached | output | reasoning |
 |---|---|---|---|---|---|---|---|---|
@@ -25,12 +25,15 @@ Generated 2026-10-28T11:40:48.566Z. Source: `muse exec --json` transcripts; only
 | intake-KY | 2026-10-28T06:56:27.926Z | muse-spark-1.3 | 5711 | 240 | 50,840,022 | 50,078,311 | 169,710 | 69,955 |
 | intake-OK | 2026-10-28T06:56:37.602Z | muse-spark-1.3 | 5176 | 213 | 41,046,372 | 40,719,191 | 118,896 | 48,358 |
 | intake-CT-r1 | 2026-10-28T09:48:30.716Z | muse-spark-1.3 | 4611 | 184 | 33,205,029 | 32,880,899 | 105,320 | 29,095 |
-| intake-IA-r1 | 2026-10-28T09:48:34.546Z | muse-spark-1.3 | 6977 | 277 | 72,242,286 | 71,133,637 | 272,648 | 42,100 |
-| intake-KY-r1 | 2026-10-28T09:48:43.484Z | muse-spark-1.3 | 7153 | 294 | 55,840,461 | 55,243,905 | 202,544 | 49,580 |
+| intake-IA-r1 | 2026-10-28T09:48:34.546Z | muse-spark-1.3 | 7863 | 322 | 72,242,286 | 71,133,637 | 272,648 | 42,100 |
+| intake-KY-r1 | 2026-10-28T09:48:43.484Z | muse-spark-1.3 | 7888 | 327 | 55,840,461 | 55,243,905 | 202,544 | 49,580 |
 | intake-MT | 2026-10-28T09:48:53.355Z | muse-spark-1.3 | 3516 | 147 | — | — | — | — |
 | intake-NM | 2026-10-28T10:11:04.445Z | muse-spark-1.3 | 370 | 19 | — | — | — | — |
-| intake-OK-r1 | 2026-10-28T10:11:55.948Z | muse-spark-1.3 | 9084 | 366 | 88,852,703 | 87,598,229 | 226,780 | 42,258 |
+| intake-OK-r1 | 2026-10-28T10:11:55.948Z | muse-spark-1.3 | 10024 | 407 | 88,852,703 | 87,598,229 | 226,780 | 42,258 |
+| intake-OK-r2 | 2026-10-28T17:52:24.334Z | muse-spark-1.3 | 233 | 11 | — | — | — | — |
+| intake-AK | 2026-10-28T17:53:31.916Z | muse-spark-1.3 | 250 | 14 | 261,135 | 207,797 | 2,866 | 1,419 |
+| intake-HI | 2026-10-28T17:54:40.665Z | muse-spark-1.3 | 207 | 11 | 195,255 | 142,020 | 2,031 | 807 |
 
-**Totals (max block per launch):** input 1,034,631,802 · cached 1,021,696,780 · output 3,278,728 · reasoning 958,167
+**Totals (max block per launch):** input 1,035,088,192 · cached 1,022,046,597 · output 3,283,625 · reasoning 960,393
 
 Launches before 2026-10-27 23:43Z ran without `--json` and have no transcript; their operator cost is visible only as the credit-meter delta before the subscription (see COST-ACCOUNTING.md) and as `muse usage` window percentages.

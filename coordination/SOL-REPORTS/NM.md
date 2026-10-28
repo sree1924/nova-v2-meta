@@ -1,31 +1,21 @@
-# NM — sections01–12 checkpoint
-Open: five older F/G metadata debt groups; edition/effective-date/source currency, visual/ambiguity and independent07/08 debts remain. Whole state incomplete.
-Run: 2026-10-28-rdmv-nm-class-std; actual author gpt-6.1-sol (own-session metadata verified).
-New sections09–12 native-accepted through02/16;175facts,36dossierparts,fourcompiles; all36 parts passed20mappedchecks.
-sec09-lights-and-communication: C28 + C2 14 =42facts, physical pages20–23 topic-filtered.
-sec10-road-and-traffic-conditions: C35 + C2 22 =57facts, physical pages23–26 topic-filtered.
-sec11-space-and-passing: C23 + C2 15 =38facts, physical pages26–28 topic-filtered.
-sec12-bicycles-trucks-and-rvs: C24 + C2 14 =38facts, physical pages28–30 topic-filtered.
-Total523facts (C289/C2 234);12/15sections;108currentdossierparts;124acceptedhistoricalparts;28historicalcompiles.
-All175 new facts manually source-checked before outbox; exact page hashes/excerpt offsets pinned under owned run receipts/source-reviews/.
-Seven new cross-page facts preserve native supporting_pages; no incomplete page alone is claimed to prove the whole statement.
-All new F counts/debt inventories and G line locators match active compiled inputs; accepted prior sec03/07/08 F/G untouched.
-First8 current compile/registry pairs unchanged; original49 corrections and eight coverage additions preserved.
-Source PDF remains3612b1745ada55d5e1cf18aadc6b9efe921f6b3da873c37753e5134331f95da9.
-New source debts: ambiguous500-foot headlight phrase; lighting/flare currency; wet/snow/stopping/passing examples and studded-tire permissions.
-More new source debts: slow-vehicle threshold context, merge-gap/following-gap distinction, bicycle legal/visual review and truck blind-area/stopping guidance.
-Five-foot bicycle text stays a target; minor helmet language gets no invented age. No uninspected hand-signal/diagram geometry authored.
-Question count/passing/time and all safe exam facts remain unknown/null; corpus stability unknown with blocked_probe true.
-No independent/source-currency/release PASS; motorcycle operation/CDL licensing excluded; truck sharing content is passenger-driver context.
-Four resolved scratch issues disclosed: exact-excerpt line hyphen, queued-task guard, historical-reservation guard, runtime accepted-ref kind.
-No native failed check, HOLD, automatic retry or remint; accepted sec09C recovered by read-only selector correction only.
-Lineage44→62:18 immutable standing-authorized new-candidate receipts, each after two accepted stage attempts; caps/counters retained.
-CURRENT: all12 pointers verified under own native lock; runner had already set new four pointers, final refresh changed0.
-Actual/outstanding unknown/reserved/uncertain provider amount all$0.000; no paid API/audio/publishing/shared edits.
-Usage snapshot 2026-10-28T11:25:11.543Z: cumulative 26674326; cached-input subset 26084224.
-Fixed prior root baseline22988112: delta 3686214; cached replay subset 3535616; noncache input plus output 150598.
-Cached replay is included in totals; unique newly authored-work tokens unavailable. Native Muse model/token labels are inherited file-transport wrappers, not actual authorship/usage.
-All subprocesses complete; native locks released. No section13 packet emitted; all downstream remain owed.
-Next bounded SME: sections13-fitness-and-impairment,14-emergency-control,15-collisions-and-insurance; head owns old metadata repair path.
-Exact accepted companions/part/validation/acceptance/call/raw hashes, debts, source spans and usage: NM.checkpoint.json; scratch/sol-nm/new-sme-batch3-verification.json.
-Root alone aggregates shared queue/usage/defect rows.
+# NM — required card-binding HOLD; accepted work preserved
+Blocked: sec03-F24 exact accepted wording says that symbol, which shared native04 media lint treats as unbound visual reference. BACK_FIDELITY PASS and MEDIA_DISPOSITION FAIL in read-only component proof; no card03 packet/attempt.
+Additional required bindings:sec10-R03 slash andsec12-R02 mph remain in accepted wording without safe spoken_statement. No paraphrase, invented image or check waiver applied.
+Resolution belongs to shared contract/validator and native accepted-format owners; own evidence scratch/sol-nm/CARDS-REQUIRED-BINDING-HOLD.json.
+Run:2026-10-28-rdmv-nm-class-std; actualgpt-6.1-sol / ChatGPT Pro subscription / Sol.
+All15KG nativeaccepted:654facts as653stable+1dynamic contact,120links,63modules;375mapped checks in accepted validation receipts.
+LatestKG11–15:207facts,48links,24modules,125mappedPASS. All187typedKG debt rows/flags retained.
+Cards01–02 nativeaccepted:78cards,7decks,7recaps;44mappedPASS. Allstable nodes in those sections carded with exact accepted spoken backs; dynamic contact stays quarantined.
+sec01-license-and-restraints card acceptance:D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\artifacts\task_e171c3f560794715a430c96e4b8a2533f1d6f4c27d9026a3ee5037a361009e9d\attempt_75b0530363cb6f92d654e351fd319048111d1bcc57fdf9d02fbb588ada001c8b\artifact.json @ f08e38d97f95a386be13827dcc1c527ba66b84f3fc7144d550326ab592999dd5.
+sec02-traffic-signals card acceptance:D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\artifacts\task_5194a71ccd1e2225dac051807de180176dac27a86543add54b6c1a9b07c487e0\attempt_bb924527f625a9dedcfad67c1293bf038d952f1e1ed8d794a5185637fbd8ebe3\artifact.json @ e0ce5358705b762754c3318fed7bf06f131c98d65d5987b565b2645e77192a2f.
+All15SME pairs unchanged:654facts135currentparts111currentenvelopes. No accepted work repeated.
+207native attempts allaccepted. No nativeHOLD/exception, pending packet/outbox or in-flight attempt. This HOLD is required-binding readiness, not a submitted failed candidate.
+KG11–14 accepted-capacity advances81→82→83, thenKG15 83→84; cause+ordinaryGO/native authorization receipts retained. Caps/nonces/counters/history unchanged.
+File transport raw model_api_called:false/credit0; paid API calls0; actual/reserved/uncertain all$0.000. Locks released.
+No06/05accepted or attempted. No audio, publishing, nested agents or shared edits.
+Independent07/08 and all source/clinical/legal/visual/currency review remain open. Authoring acceptance grants no release clearance.
+Fixedusage 2026-10-28T17:04:09.300Z: cumulative54694171; cached53563136.
+Headbaseline49769045/cache48784256: DELTA4925126; cached subset4778880; uncached+output146246.
+Observed shared root baseline:49769045/cache48784256. Root alone reconciles unaggregated delta; cached input is included, not additive.
+Full accepted refs, hashes, counts, costs, source debts and fixed usage:scratch/sol-nm/CONTINUOUS-AUTHORING-HOLD-CHECKPOINT.json.
+Quiesced. Await owner correction of required bindings; no automatic retry, recovery or failed-candidate reset.

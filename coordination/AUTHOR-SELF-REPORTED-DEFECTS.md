@@ -241,3 +241,74 @@ claim. Workers are told to report what they know is off. Fix pass = re-author th
 
 | 2026-10-28 | NM | checkpoint follow-up | [RESOLVED-NM-ORIGINAL-REVIEW49] All49 original correction proposals now have accepted native replacements. New slower-traffic fact explicitly retains primaryphysical15+supporting16 and crossing-visibility fact physical19; exact source spans and receipts verified. This resolves those implementation/citation omissions only; source/currency/F/G and independent QA debts remain. Source: scratch/sol-nm/native-repair-batch4-verification.json. | gpt-6.1-sol Sol worker; root aggregation |
 | 2026-10-28 | AZ | sec17 F34; sec17-22 911 (7 facts); sec18 F49/R10/F14/F26/R05; sec16 F10 distractor | locked back "daylight begins to fade in" trips 05.STAGE_DIRECTIONS → 04 re-mint with merge onto R08 (coordinator go); 911; "SR-twenty-two"; "Class one misdemeanor"; "half" in a wrong option | claude-opus-5-5 AZ downstream worker |
+
+| 2026-10-28 | NM | reporting | [AUTHOR-NM-CHECKPOINT-PART-COUNT] Worker checkpoint current_dossier_parts72 is stale; independent native verification finds108 active parts,12 compiles523facts. Worker report correction requested; accepted content is not overwritten. Source: scratch/sol-state-coordinator/nm-final-sme-verification-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | ME | citation implementation | [RESOLVED-ME-F23-SUPPORTING-PAGE-INDEXED] Native follow-up now preserves primaryphysical8 plus supporting9 for F23; original citation representation omission resolved. Independent07/08 and seven separate source ambiguities remain pending. Source: scratch/sol-me/CITATION-REPAIR-CHECKPOINT.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | belt | compiler | [RESOLVED-BELT-KINDLESS-COMPILE-COMPATIBILITY] Integrated source-group selector initially dropped kindless refs from the pure compile API, causing5 controller regressions. Original refs are now validated before selection and typed proxies used consistently for selection/evidence; caller identities retained.167 controller tests PASS; real group typed-vs-kindless check pending. Source: scratch/sol-state-coordinator/SOURCE-GROUP-INTEGRATION-RECEIPT-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | belt | dispatch | [RESOLVED-BELT-FILE-TRANSPORT-WAIVER-AUTHENTICITY] Concurrent estimate waiver originally accepted any transport function. Reviewed hardening authenticates exact factory transport and captures one identity through preflight/dispatch; arbitrary/paid paths retain limits.45 isolated native tests and167 public controller tests PASS. Source: scratch/sol-state-coordinator/file-transport-hardening/receipt.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | belt/KS | native group pre-ingest guard | [BELT-GROUP-RANKING-DOMAIN-KEY] Real sec01 accepted C/C2 has four ranking rows with the same domain and distinct chunk IDs; source-group preservation guard incorrectly keyed uniqueness by domain alone. Stopped before ingest; exact row-preserving domain+chunk identity fix under review, factual validators unchanged. Source: scratch/sol-ks/group-sec01/candidate-check.json. | gpt-6.1-sol Sol root |
+
+| 2026-10-28 | belt/KS | verified native closure | [RESOLVED-BELT-GROUP-RANKING-DOMAIN-KEY] Exact ranking rows now keyed by domain+chunk only for conflict detection; full order/multiplicity preserved.10 focused and167 controller testsPASS. Real KS sec01 native group accepted21mapped checks,130facts,11 superseded history envelopes;64pins and pure typed/kindless compile equality verified. All8 source debts retained; independent07/08 pending. Source: scratch/sol-state-coordinator/FIRST-REAL-NATIVE-GROUP-VERIFICATION-20261028.json. | gpt-6.1-sol Sol root |
+
+| 2026-10-28 | ID | verified checkpoint | [ID-FINAL-SME-SOURCE-REVIEW-DEBTS] Final13–16 adds59 typed debts,25 blocking, including source-span gaps, lighting/braking conflicts, current sanctions and clinical/legal review. All16SME1030facts accepted with those debts retained; independent07/08 and first4F/G stillpending. Source: scratch/sol-state-coordinator/id-final-sme-verification-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | DE | verified checkpoint | [DE-SME13-16-SOURCE-REVIEW-DEBTS] New13–16 retains41debts including4blocking: DE-OBSERVATION-VISUAL,DE-VISIBILITY-STOPPING,DE-SPACE-MERGE-MATH,DE-SPACE-CYCLIST-SCOPE. Current16/18SME1312facts; arithmetic example withheld rather than taught as invented corrected rule. Source: scratch/sol-state-coordinator/de-sme13-16-verification-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | NM | verified checkpoint | [RESOLVED-NM-CHECKPOINT-PART-COUNT] Own report correction108parts for12sections is now verified; final15sections135currentparts654facts. Reporting defect only resolved; source/clinical/legal/visual/currentness/F-G and independentQA remain pending. Source: scratch/sol-state-coordinator/nm-final-all-sme-verification-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | NE | verified checkpoint | [NE-SOURCE-REVISION-FIRST-TWO-VERIFIED] Versioned same-PDF/text source15 metadata revision and first2source groups verified; truthful observation/retrieval times separated, old sealedbytes preserved, all177facts and34debtrows unchanged. Edition/effective_dateNULL, page16 contentcoverage debt and remaining03/04+Dlocator work retained. Source: scratch/sol-state-coordinator/ne-source-first-two-verification-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | KS | verified checkpoint | [KS-NUMBER-BOUNDARY-REPAIR-VERIFIED] Eight targeted number/unit boundary defects repaired natively, with official83/94/96/97 evidence and correct raw/spoken3.5hp/130cc/30mph,ages17/18/21,Fahrenheit85/75/45.126pins verified;1320otherfacts unchanged. Compiled outer ranking-row enumeration changed but fullrowmultiset/internalranking preserved; no contractglobalorder. Source: scratch/sol-state-coordinator/ks-spacing-repair-verification-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | NE | verified checkpoint | [NE-D-LOCATOR-IMPLEMENTATION-VERIFIED] Exactly one unresolved insurance-note locator token37to36 corrected through native fullsection policy, supported by specificofficialpage36quote. All369facts/othermetadata/statusflags preserved; insurance inconsistency hypothesis remains unproved, page16coverage/source/currentness/QA debts retained. Source: scratch/sol-state-coordinator/ne-d-locator-verification-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | DE | verified checkpoint | [DE-FINAL-SME-DEBTS-RETAINED] Final17/18adds86source-coveredfacts with27typeddebts/eightblocking retained, including clinical/legal and equipment-specific brake/procedure issues. All18SME1398facts verified; first4F/G andindependent07/08 stillpending. Source: scratch/sol-state-coordinator/de-final-all-sme-verification-20261028.json. | gpt-6.1-sol Sol root aggregation |
+
+| 2026-10-28 | KS | checkpoint finding | [KG-CALLER-KS-GO-STAGE-FILENAME] Graph draft passed25localchecks butGO-03-SOL approval filename failed fullstage prefix policy before any native attempt/call/reservation. Correct GO-03.combined_kg filename authorized with same scope and preserved packet/candidate; no counter/lineage/cap change. Native acceptance stillpending at recorded checkpoint. Source: scratch/sol-ks/KG-FIRST2-CHECKPOINT.json. | gpt-6.1-sol Sol root |
+
+| 2026-10-28 | ID | checkpoint finding | [KG-CALLER-ID-SOURCE-TIER-ENUM] Local draft passed registry trust_tier official_body directly into graph tier enum, causing60schema errors before any native attempt. Verified official issuer evidence may encode graph tier official without modifying registry/source authority or facts. Rejected draft retained; same-candidate local encoding correction authorized, nativeHOLD remains strict. Source: scratch/sol-id/KG-SEC01-HOLD-CHECKPOINT.json. | gpt-6.1-sol Sol root |
+
+| 2026-10-28 | NE | checkpoint finding | [NE-PAGE16-COVERAGE-IMPLEMENTATION-VERIFIED] NewF54 plus supporting16citationsF03/F48 implement applicable page16 coverage. All369prior fact meanings/IDs preserved,total370; all18sec02debtrows,Dlocator36,sourcebindings/history preserved. Historical scope-seam and independentQA/source/currentness debt NOTcleared. Source: scratch/sol-state-coordinator/ne-page16-coverage-verification-20261028.json. | gpt-6.1-sol Sol root |
+
+| 2026-10-28 | KG callers/KS | native checkpoint | [RESOLVED-KG-CALLER-BOOTSTRAP-AND-KS-FIRST2] Missing explicit project dotenv initialization caused pre-attempt model_api_key_env_absent for new file callers. Existing environment loaded without printing/changing credentials or fallback; KS now has2nativeacceptedgraphs with50mappedchecks244facts85edges18modules,clear$0accounting. Priorapproval/envHOLD evidence preserved; ID/NMfirstgraph checkpoints nowPASS_NATIVE_KG pending rootbatchverification. No validator/cap/schema change or source/QA debtclearance. Source: scratch/sol-state-coordinator/ks-first-two-kg-verification-20261028.json. | gpt-6.1-sol Sol root |
+
+| 2026-10-28 | PA | verified checkpoint | [PA-TWO-SEMANTIC-CORRECTIONS-VERIFIED] First-time applicant actor and railroad SHOULD/ORbranch qualifiers corrected through2native accepted repairs;40checks/66pins,290otherfacts anddebts/F-G unchanged. CURRENT01/03stale pointers found; run-localrefresh requested beforegrowth, no re-ingest. Source: scratch/sol-state-coordinator/pa-two-corrections-verification-20261028.json. | gpt-6.1-sol Sol root |
+
+| 2026-10-28 | NE | verified checkpoint | [NE-NEXT-FOUR-BOOTSTRAP-CONTINUATION] New own SME runner omitted project dotenv, causing pre-attempt envpreflightstop;24precheckedCfacts/outbox preserved. Explicit existing.envbootstrap andsame-packetcontinuation authorized with no nonce/cap/lineage/source reset. Source: scratch/sol-ne/next-four-hold-checkpoint.json. | gpt-6.1-sol Sol root |
+
+### SOL-PA-LEADING-DECIMAL-20261028
+
+Source: scratch/sol-pa/GROWTH-06-08-CHECKPOINT.json, registry_transformation_findings. Compiler punctuation cleanup removes the whitespace before leading decimals in sec07-R02/R03/R15/R19 (.05/.10/.02/.08 percent). Raw accepted source spans and numeric/spoken values remain intact. PA downstream remains held pending compiler review; no shared code or accepted files changed.
+
+### SOL-ROOT-KG-DEBT-KEY-ORDER-20261028
+
+Root scratch verifier used JSON.stringify equality, falsely treating object-key order as changed debt in NM07–10. Replaced with isDeepStrictEqual (object keys order-independent, arrays and all values exact). All four native graph verifications passed; no accepted content, shared belt code, schema or validator changed.
+
+### SOL-NM-CARD-BINDING-HOLD-20261028
+
+Source: scratch/sol-nm/CARDS-REQUIRED-BINDING-HOLD.json and CONTINUOUS-AUTHORING-HOLD-CHECKPOINT.json. sec03-F24 exact accepted wording conflicts with required text-only media binding; two later facts lack accepted spoken forms. Worker stopped before any failed native attempt, preserving all15 graphs and78cards. Existing native checks intact; no fact rewriting, shared code change or accepted-file overwrite. NE fills the released lane. Resolution pending.
+
+
+### SOL-KS-DE-SPOKEN-BINDING-20261028
+
+Source: scratch/sol-state-coordinator/CARD-BINDING-REPAIR-JOB.json (worker reports from compact chat snapshots). KS sec07 needs seven unit/spoken-form corrections, but native downstream-reconciliation guard correctly blocks source replacement after KG acceptance. DE sec05-R13 accepted spoken form retains mph; card exact-wording and speakability constraints conflict. Both stopped at confirmed released native boundaries with no active or unsettled attempts; PA/WY fill their lanes. Existing accepted history and checks remain unchanged. Supported repair capability investigation only; no live shared edit.
+
+
+### SOL-ME-SLASH-SPOKEN-BINDING-20261028
+
+Source: scratch/sol-me/AUTHORING-HOLD-CHECKPOINT.json. sec11-F27 stop/yield lacks an accepted spoken normalization. Cards must retain exact accepted spoken wording, so worker stopped with985cards,11KG and1056facts preserved. All accounting settled, lock released; SD fills the lane. No arbitrary slash interpretation, shared validator change or accepted-file edit. Separate from the minimal numeric-unit compiler candidate.
+
+
+### SOL-PA-DOWNSTREAM-PREFLIGHT-FRONTS-20261028
+
+Source: scratch/sol-pa/DOWNSTREAM-STOP-CHECKPOINT.json. sec01 card-script preflight request exceeds its configured byte limit; accepted card-front ellipses also conflict with script speakability. No failed native submission for this preflight. Head authorized own-caller/native-front-revision recovery using the proven ID pattern, preserving caps, required inputs and accepted history; no shared edit or input filtering allowed. Fixed actual usage recorded separately; PA remains assigned to focused recovery.
+
+
+### SOL-MT-CONFIG-BINDING-PREEMISSION-20261028
+
+Source: scratch/sol-mt/CONTINUOUS-HOLD-CHECKPOINT.json. Current run-config SHA differs from native ledger binding; emission stopped before any attempt or call. All90 prior attempts accepted, accounting settled, lock released. Head assigned proof of exact config change and recovery only via existing ordinary-GO-authorized native claimRun/rebindRun, with prior caps/counters/history intact. No direct ledger edits or failed-candidate reset allowed.
+

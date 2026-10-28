@@ -1,8 +1,8 @@
 {
-  "checkpoint_version": 1,
+  "checkpoint_version": 4,
   "state": "PA",
   "run_id": "2026-10-28-rdmv-pa-class-c",
-  "status": "BOUNDED_FOUR_COMPLETE_WITH_AUTHOR_FACT_FLAGS",
+  "status": "SME_ALL_COMPLETE_DOWNSTREAM_SEC01_PARTIAL_STOPPED_ON_PREFLIGHT_HOLD_AND_ACCEPTED_CARD_EXCEPTION",
   "model_id": "gpt-6.1-sol",
   "authored_by": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
   "completed_sections": [
@@ -14,21 +14,129 @@
         7,
         8
       ],
-      "stages": [
-        "02.dossier_sections",
-        "16.compile"
-      ],
       "facts": 70,
-      "counts": {
-        "C": 34,
-        "C2": 36
+      "C": 34,
+      "C2": 36,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec01-permit-and-license/CURRENT.json",
+        "sha256": "a53f686ca1c9287adae4635169e91149c71ddc3b965a7bab5a9b4b8751eb3d17"
       },
-      "compiled_ref": "runs/2026-10-28-rdmv-pa-class-c/16/sec01-permit-and-license/16-compiled-dossier.json",
-      "fact_registry_ref": "runs/2026-10-28-rdmv-pa-class-c/16/sec01-permit-and-license/16-fact-registry.json",
-      "compile_status": "PASS",
-      "preaccept_receipts": [
-        "scratch/sol-pa/sec01-C.fact-check.json",
-        "scratch/sol-pa/sec01-C2.fact-check.json"
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec01-permit-and-license/4360d314/16-compiled-dossier.json",
+        "sha256": "9c17b3deefd031fc1177afff6dc0e667300b247d63b55fbbb825f3e9549b5edd"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec01-permit-and-license/4360d314/16-fact-registry.json",
+        "sha256": "4360d3142688c34f502b1a938590c58528d136604bea274452eb3837d173f8c7"
+      },
+      "native_compile_ref": {
+        "task_id": "task_91791fd239fad4a27fe1e4ea651b17de2e5718e384adfc3e56b0d566c23cd0e1",
+        "artifact_id": "accepted_80b012bb3d40ae6ee38eeb350d5bc667f574f06c9987d8f96c3894f0afc2d6c7",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec01-permit-and-license\\4360d314\\16-compiled-dossier.json",
+        "sha256": "9c17b3deefd031fc1177afff6dc0e667300b247d63b55fbbb825f3e9549b5edd",
+        "validation_ref": {
+          "bytes": 1494,
+          "path": "receipts/16-validation-9c17b3deefd031fc1177afff6dc0e667300b247d63b55fbbb825f3e9549b5edd.json",
+          "sha256": "9d3119ea2490e04d3e6a4cc609073ef5cd379f014f00d6ab5d943903abb62ccb"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-9c17b3deefd031fc1177afff6dc0e667300b247d63b55fbbb825f3e9549b5edd.json",
+          "sha256": "511ee7fa5dbb72a9dd3ae6fae31970a95f45b7adf3f60ad614899c3720538d9b"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec01-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec01-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec01-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec01-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec-PERMIT-MARKET",
+          "claim_text": "Demand research for learner permit and class c licensing has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec-PERMIT-TEARDOWN",
+          "claim_text": "Competitor analysis for learner permit and class c licensing remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
       ]
     },
     {
@@ -37,21 +145,129 @@
         9,
         10
       ],
-      "stages": [
-        "02.dossier_sections",
-        "16.compile"
-      ],
       "facts": 43,
-      "counts": {
-        "C": 22,
-        "C2": 21
+      "C": 22,
+      "C2": 21,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec02-knowledge-and-road-tests/CURRENT.json",
+        "sha256": "6b363c836dfe2ac817a338b6797cc3cc3dd4ff139153941bfd7d6e72a0af9d9f"
       },
-      "compiled_ref": "runs/2026-10-28-rdmv-pa-class-c/16/sec02-knowledge-and-road-tests/16-compiled-dossier.json",
-      "fact_registry_ref": "runs/2026-10-28-rdmv-pa-class-c/16/sec02-knowledge-and-road-tests/16-fact-registry.json",
-      "compile_status": "PASS",
-      "preaccept_receipts": [
-        "scratch/sol-pa/sec02-C.fact-check.json",
-        "scratch/sol-pa/sec02-C2.fact-check.json"
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec02-knowledge-and-road-tests/16-compiled-dossier.json",
+        "sha256": "9d0331316f3b36602d3769a15ec05ef531323d8ff14d5d9ae812a203453bfc4d"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec02-knowledge-and-road-tests/16-fact-registry.json",
+        "sha256": "cee92335720195a5fa6863ed99f6c8ab2bdd299d67716bf536b3c077d848e68e"
+      },
+      "native_compile_ref": {
+        "task_id": "task_9ef293c94a81debc7fdcf8f1b919d31e0227016ef18e6809712beb6f318db289",
+        "artifact_id": "accepted_5a8ef2e7a4a73e75c1a89426faf204d78fbc3e0d02c2a4251afe6b6c8dbb2722",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec02-knowledge-and-road-tests\\16-compiled-dossier.json",
+        "sha256": "9d0331316f3b36602d3769a15ec05ef531323d8ff14d5d9ae812a203453bfc4d",
+        "validation_ref": {
+          "bytes": 1477,
+          "path": "receipts/16-validation-9d0331316f3b36602d3769a15ec05ef531323d8ff14d5d9ae812a203453bfc4d.json",
+          "sha256": "b727a49f65960958b48d002304c549059617e6ebdc6e0910dcffc17001733fc5"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-9d0331316f3b36602d3769a15ec05ef531323d8ff14d5d9ae812a203453bfc4d.json",
+          "sha256": "03cdcb4e314073ebaec0737a619a89a209e57c025b1de610de514420c7e53e60"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec02-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec02-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec02-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec02-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec-TESTS-MARKET",
+          "claim_text": "Demand research for knowledge and road tests has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec-TESTS-TEARDOWN",
+          "claim_text": "Competitor analysis for knowledge and road tests remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
       ]
     },
     {
@@ -61,21 +277,129 @@
         12,
         13
       ],
-      "stages": [
-        "02.dossier_sections",
-        "16.compile"
-      ],
       "facts": 50,
-      "counts": {
-        "C": 27,
-        "C2": 23
+      "C": 27,
+      "C2": 23,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec03-traffic-signals/CURRENT.json",
+        "sha256": "33338540433091edc3d15ffcc4b1ebef9f61581591f331fa4b2f05b7006ee4e6"
       },
-      "compiled_ref": "runs/2026-10-28-rdmv-pa-class-c/16/sec03-traffic-signals/16-compiled-dossier.json",
-      "fact_registry_ref": "runs/2026-10-28-rdmv-pa-class-c/16/sec03-traffic-signals/16-fact-registry.json",
-      "compile_status": "PASS",
-      "preaccept_receipts": [
-        "scratch/sol-pa/sec03-C.fact-check.json",
-        "scratch/sol-pa/sec03-C2.fact-check.json"
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec03-traffic-signals/54b5b75b/16-compiled-dossier.json",
+        "sha256": "15945530da0c0e519c1150f1f541169429c51f83d71d5549d0938d0df9eae67a"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec03-traffic-signals/54b5b75b/16-fact-registry.json",
+        "sha256": "54b5b75b3c0e4696be44ebac092bc68e7599c8dbe0cbf835451980789185ba5c"
+      },
+      "native_compile_ref": {
+        "task_id": "task_1a66973345101a16f9377780eac0fbf823e9cb25bce35e90f2c011b8d106d856",
+        "artifact_id": "accepted_7ff1ed0b926acc4c48007c7fcecd7afd5414968a90c4567b77ec6f2026ca1d75",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec03-traffic-signals\\54b5b75b\\16-compiled-dossier.json",
+        "sha256": "15945530da0c0e519c1150f1f541169429c51f83d71d5549d0938d0df9eae67a",
+        "validation_ref": {
+          "bytes": 1481,
+          "path": "receipts/16-validation-15945530da0c0e519c1150f1f541169429c51f83d71d5549d0938d0df9eae67a.json",
+          "sha256": "5cf110c3e7c944e5fc13e4b26fed6e0debc7df57ea77cc5afc7ef39dbdc0b335"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-15945530da0c0e519c1150f1f541169429c51f83d71d5549d0938d0df9eae67a.json",
+          "sha256": "c78332b3b4bc183c35e7d581fbe421b89b4e6aa86f12fd11d80e5685a42b1a4d"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec03-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec03-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec03-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec03-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec-SIGNALS-MARKET",
+          "claim_text": "Demand research for traffic signals has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec-SIGNALS-TEARDOWN",
+          "claim_text": "Competitor analysis for traffic signals remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
       ]
     },
     {
@@ -85,191 +409,2461 @@
         15,
         16
       ],
-      "stages": [
-        "02.dossier_sections",
-        "16.compile"
+      "facts": 52,
+      "C": 35,
+      "C2": 17,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec04-regulatory-signs/CURRENT.json",
+        "sha256": "e4bc6ebddc5bd6342b5f2b3e5ee17bb13d11a323a950b69b93efe330261914fc"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec04-regulatory-signs/16-compiled-dossier.json",
+        "sha256": "1b93e5e4a29df9efa3fbe05b4ab6e6f5df6819d8f9cbfa915d638706f1a4ae41"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec04-regulatory-signs/16-fact-registry.json",
+        "sha256": "af6b55f0673f406825036f82b7a0b9815ac518a090d44f3933bf98a9cac7f1f0"
+      },
+      "native_compile_ref": {
+        "task_id": "task_eb313e352a90a201ca5ec7c5af235564c12607a40ab485836a67e4f98380297e",
+        "artifact_id": "accepted_f06e3a2899b750a32a09674af9a6cd10f8c13be51eadd5d444855f9b41affedb",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec04-regulatory-signs\\16-compiled-dossier.json",
+        "sha256": "1b93e5e4a29df9efa3fbe05b4ab6e6f5df6819d8f9cbfa915d638706f1a4ae41",
+        "validation_ref": {
+          "bytes": 1445,
+          "path": "receipts/16-validation-1b93e5e4a29df9efa3fbe05b4ab6e6f5df6819d8f9cbfa915d638706f1a4ae41.json",
+          "sha256": "93b7529391153a54f25b7eb5a73251306401c95fe62ac965ddd2d81c35617778"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-1b93e5e4a29df9efa3fbe05b4ab6e6f5df6819d8f9cbfa915d638706f1a4ae41.json",
+          "sha256": "2f26b1c26ee672c2b9d7ba3395a3f6cf12989e39a4bd23e268680e00136ead5e"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec04-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec04-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec04-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec04-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SIGNS-VISUAL",
+          "claim_text": "Physical page14 contains a supplementary right-turn sign whose legend is not extracted; identify and bind the actual sign before teaching its exception.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SIGNS-STATISTIC",
+          "claim_text": "Physical page16 teen crash-ranking statistic lacks a data period and must not be asserted as current stable knowledge.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec-SIGNS-MARKET",
+          "claim_text": "Demand research for regulatory signs has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec-SIGNS-TEARDOWN",
+          "claim_text": "Competitor analysis for regulatory signs remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec05-warning-signs",
+      "pages": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "facts": 77,
+      "C": 36,
+      "C2": 41,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec05-warning-signs/CURRENT.json",
+        "sha256": "6a0b8da701711b745b46e5c36f36c5dc27dd641ea7352e48a48fcc482ce62cdb"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec05-warning-signs/16-compiled-dossier.json",
+        "sha256": "1fb1af6e80e876f8412e57308b3e6a8441cf352a510f6da47983ecb2427672ab"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec05-warning-signs/16-fact-registry.json",
+        "sha256": "dd0273226faefae544f1bb199c34c84a1ae09ec15110f56b153a4855465e26e7"
+      },
+      "native_compile_ref": {
+        "task_id": "task_ef0273013fe60f9ceb295052048c47a760132f0ba492e4e296cabee8288f16e5",
+        "artifact_id": "accepted_21b5259f32c3359a1603b8cc6bff5c48abd90afc758493d9798aa827a4e3293f",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec05-warning-signs\\16-compiled-dossier.json",
+        "sha256": "1fb1af6e80e876f8412e57308b3e6a8441cf352a510f6da47983ecb2427672ab",
+        "validation_ref": {
+          "bytes": 1434,
+          "path": "receipts/16-validation-1fb1af6e80e876f8412e57308b3e6a8441cf352a510f6da47983ecb2427672ab.json",
+          "sha256": "8093d5dc5bf1b4b1ba5700dbadf5c6f455327d754c91f9df64c1d2c3befcc93e"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-1fb1af6e80e876f8412e57308b3e6a8441cf352a510f6da47983ecb2427672ab.json",
+          "sha256": "92ac0e70447f194405d8efd7c5a88db1a885226a1a4e88deade303b445c599d0"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec05-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec05-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec05-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec05-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-WARNING-MARKET",
+          "claim_text": "Demand research for warning signs has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-WARNING-TEARDOWN",
+          "claim_text": "Competitor analysis for warning signs remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec06-guide-signs-and-markings",
+      "pages": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "facts": 66,
+      "C": 33,
+      "C2": 33,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec06-guide-signs-and-markings/CURRENT.json",
+        "sha256": "ca3fd731e562061a2624bc433c730aeb654ed2616ed1d4ab1a291e2fbee2a9a7"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec06-guide-signs-and-markings/16-compiled-dossier.json",
+        "sha256": "fdca5193323df32f4eebbc16a00d463714e211d1a313b13961fcfb70283a58be"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec06-guide-signs-and-markings/16-fact-registry.json",
+        "sha256": "81463de28f4af8adcb43c21eb194f419136462a61dfa8e73bbbf165e5afe34d3"
+      },
+      "native_compile_ref": {
+        "task_id": "task_fccd596d18d962df3749fbda2e8abf8c7a7630bb5f5ea937a459ccf577a40f0c",
+        "artifact_id": "accepted_a00dd94fb8e9949e7d47ee20a838da159d9dbc5de6ca2edc32b979fe0d12ce03",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec06-guide-signs-and-markings\\16-compiled-dossier.json",
+        "sha256": "fdca5193323df32f4eebbc16a00d463714e211d1a313b13961fcfb70283a58be",
+        "validation_ref": {
+          "bytes": 1478,
+          "path": "receipts/16-validation-fdca5193323df32f4eebbc16a00d463714e211d1a313b13961fcfb70283a58be.json",
+          "sha256": "797bc9fe49a1648554641c8d3869eb3619ca4f3367324765938c5c483be413ad"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-fdca5193323df32f4eebbc16a00d463714e211d1a313b13961fcfb70283a58be.json",
+          "sha256": "8fe256a66a10879d75d1fc2c7c0578bfce6ea12786a14c6e931575e7e88279ab"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec06-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec06-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec06-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec06-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-GUIDES-MARKET",
+          "claim_text": "Demand research for guide signs and pavement markings has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-GUIDES-TEARDOWN",
+          "claim_text": "Competitor analysis for guide signs and pavement markings remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec07-preparing-and-driver-factors",
+      "pages": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "facts": 80,
+      "C": 39,
+      "C2": 41,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec07-preparing-and-driver-factors/CURRENT.json",
+        "sha256": "2a6df89a3925cbc59c4db38722b43446405941ef85609ca586933d2e1b88dd54"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec07-preparing-and-driver-factors/16-compiled-dossier.json",
+        "sha256": "3d28697104594f666fbabeac3ab31a73a05db47169c405273f2fd3360bcd554e"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec07-preparing-and-driver-factors/16-fact-registry.json",
+        "sha256": "2afcfb6f90fd75a4a0e20bb64f8dfef28840d5b9074167a6d13bb035ff9c7ae3"
+      },
+      "native_compile_ref": {
+        "task_id": "task_f85c0afe1c8ffdf4e769396deaad93d89489557ab379c53fd65e9e3189536c7c",
+        "artifact_id": "accepted_efae67798d8ac97c284318bc61f9374504dd8ccc8453ea5643561f82ee20862e",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec07-preparing-and-driver-factors\\16-compiled-dossier.json",
+        "sha256": "3d28697104594f666fbabeac3ab31a73a05db47169c405273f2fd3360bcd554e",
+        "validation_ref": {
+          "bytes": 1494,
+          "path": "receipts/16-validation-3d28697104594f666fbabeac3ab31a73a05db47169c405273f2fd3360bcd554e.json",
+          "sha256": "1abd90b38ad623006d6539dedc03424b211ebdc5070f372e5593ca549463fb0d"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-3d28697104594f666fbabeac3ab31a73a05db47169c405273f2fd3360bcd554e.json",
+          "sha256": "ed12be6fea1638832ac0caabdabcbaea3287534fe7c9b9eac345c203d3605263"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec07-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec07-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec07-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec07-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-FACTORS-HISTORICAL-STATS",
+          "claim_text": "Quantitative safety callouts on physical35–38 include2017 seat-belt data, unperioded distraction/alcohol/death statistics,2013–2014 drug survey data and illustrative individual BAC estimates; preserve as historical source evidence, not current general learner rules.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-FACTORS-SPLIT-RISK",
+          "claim_text": "The .04 BAC versus no-alcohol crash-risk comparison and its2–7 multiplier start on physical37 and finish on38; no single-page complete claim is available under the one-page-per-fact constraint.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-FACTORS-HELP-CONTACT",
+          "claim_text": "Physical38 lists PA Get Help Now as1-800-662-HELP(4357), staffed24/7; current official availability and routing are unverified, so no stable contact fact is emitted.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-FACTORS-MARKET",
+          "claim_text": "Demand research for preparing to drive and driver factors has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-FACTORS-TEARDOWN",
+          "claim_text": "Competitor analysis for preparing to drive and driver factors remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec08-space-and-speed",
+      "pages": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "facts": 142,
+      "C": 60,
+      "C2": 82,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec08-space-and-speed/CURRENT.json",
+        "sha256": "c1e2a0d67dea906f762cf84e211159938d3357ffa6892cb85df8c433b3838b21"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec08-space-and-speed/16-compiled-dossier.json",
+        "sha256": "5eee33e32b17f4a401cee0ae4c374c6d1f2849a023b5fc733f6043c169e6f4da"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec08-space-and-speed/16-fact-registry.json",
+        "sha256": "a3b1b8aa6e233793d693b5fe21fbcf1915d3b380ee816eb08bc7102edb8e8c83"
+      },
+      "native_compile_ref": {
+        "task_id": "task_17a20e01ce7faed7fc2c9ea585bcfa49a22658f8cad1cae0996a4f05c6bd9f27",
+        "artifact_id": "accepted_b0f7eca6680451158b821d292894e3ce5f391d6e7033487f43bd0457944938ea",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec08-space-and-speed\\16-compiled-dossier.json",
+        "sha256": "5eee33e32b17f4a401cee0ae4c374c6d1f2849a023b5fc733f6043c169e6f4da",
+        "validation_ref": {
+          "bytes": 1442,
+          "path": "receipts/16-validation-5eee33e32b17f4a401cee0ae4c374c6d1f2849a023b5fc733f6043c169e6f4da.json",
+          "sha256": "ef2ef8eed03bc554c3986306d0bbe6b68b9af65b18782ea8d4fc986181d7e2ff"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-5eee33e32b17f4a401cee0ae4c374c6d1f2849a023b5fc733f6043c169e6f4da.json",
+          "sha256": "8a83985372894ee806e07231443b73159f14062d807afcf4d519130a8fadd203"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec08-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec08-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec08-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec08-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SPACE-CRASH-STATISTICS",
+          "claim_text": "Physical39 and42–43 contain2017 teen crash data,92/93-percent crash group shares, inexperienced-driver rankings and3–4-times nighttime fatality estimates; dated/unperioded figures are not emitted as current stable facts.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SPACE-ECO-QUANTITIES",
+          "claim_text": "Physical43 quotes5-percent fuel growth per5mph above60,40-percent usage versus4-percent travel time, AC above40mph,30-second warmup and7-percent cruise savings; individual vehicle applicability is unverified. Quantitative dirty-headlight output estimates on44/46 also lack an identified measurement basis.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SPACE-SNOW-PENALTY",
+          "claim_text": "Physical45 quotes a July10,2006-effective snow/ice rule and200–1000-dollar fine for death or serious bodily injury; current legal status has not been checked. Preserve the source rather than asserting the historical amount as current law.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SPACE-WEATHER-ALERTS",
+          "claim_text": "Physical47 describes NWS Snow Squall Warnings, typically under45minutes for a roadway, and vendor text/app signup. Current availability, duration conventions and signup details remain unverified.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SPACE-BRAKE-CROSS-REFERENCE",
+          "claim_text": "Physical45 says apply brakes gently, ease off if skidding and reapply after regaining control, with an explicit reference to conventional versus anti-lock emergency-stop instructions later in the chapter. Preserve the sequence as debt pending the complete brake-type context rather than teaching it as a universal emergency-braking instruction.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SPACE-MARKET",
+          "claim_text": "Demand research for managing space and speed has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SPACE-TEARDOWN",
+          "claim_text": "Competitor analysis for managing space and speed remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec09-turning-merging-passing",
+      "pages": [
+        49,
+        50,
+        51
+      ],
+      "facts": 46,
+      "C": 31,
+      "C2": 15,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec09-turning-merging-passing/CURRENT.json",
+        "sha256": "112a7229eb034e7ba42d833c1c8ab67f4ac354d772171c81c938649e5614cb01"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec09-turning-merging-passing/16-compiled-dossier.json",
+        "sha256": "0eb00cf5eda34db7d840269ff70807eca7268a4835edd53ea2828eba59db0719"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec09-turning-merging-passing/16-fact-registry.json",
+        "sha256": "8e455a8a2b01fd3ef6efdbecfd1365bc3bbce3221c7d210619f704420b2c5981"
+      },
+      "native_compile_ref": {
+        "task_id": "task_b5da2210098cf919233915f608d3ff5b76c1f8c4aa11fdd95ab5b49d710c7161",
+        "artifact_id": "accepted_d8e99c12d154482f4c7293b324cf8bc71908b9c84d58ca6b723ff46312f452cc",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec09-turning-merging-passing\\16-compiled-dossier.json",
+        "sha256": "0eb00cf5eda34db7d840269ff70807eca7268a4835edd53ea2828eba59db0719",
+        "validation_ref": {
+          "bytes": 1473,
+          "path": "receipts/16-validation-0eb00cf5eda34db7d840269ff70807eca7268a4835edd53ea2828eba59db0719.json",
+          "sha256": "141ac1dda5c5176361890ca5927d72d5623906a630060a8f4c6a82ec8a55f65e"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-0eb00cf5eda34db7d840269ff70807eca7268a4835edd53ea2828eba59db0719.json",
+          "sha256": "e8cc98be22b73661d6ddabdd36c8c418d1d7b40a3d8ca1ecbadcc50456713f6a"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec09-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec09-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec09-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec09-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-TURNS-SHOULDER-CONFLICT",
+          "claim_text": "Physical51 printed47 says that when passing a left-turning driver on the right the passing driver must stay on the berm or shoulder, but also prohibits passing on the shoulder of a multilane highway. Page image confirms the printed wording; neither an on/off correction nor a general shoulder-passing permission is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-TURNS-HISTORICAL",
+          "claim_text": "Physical49 has2017 teen-turning crash data; physical51 has2013–2017 wrong-side crash and death counts. These dated statistics remain historical source evidence.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-TURNS-MARKET",
+          "claim_text": "Demand research for turning merging and passing has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-TURNS-TEARDOWN",
+          "claim_text": "Competitor analysis for turning merging and passing remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec10-intersections-and-curves",
+      "pages": [
+        52,
+        53,
+        54,
+        55
       ],
       "facts": 52,
-      "counts": {
-        "C": 35,
-        "C2": 17
+      "C": 29,
+      "C2": 23,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec10-intersections-and-curves/CURRENT.json",
+        "sha256": "0df79e95d556a9a7bb53af02abc0ab375d27971bcb01e0c91d163b48b5b00431"
       },
-      "compiled_ref": "runs/2026-10-28-rdmv-pa-class-c/16/sec04-regulatory-signs/16-compiled-dossier.json",
-      "fact_registry_ref": "runs/2026-10-28-rdmv-pa-class-c/16/sec04-regulatory-signs/16-fact-registry.json",
-      "compile_status": "PASS",
-      "preaccept_receipts": [
-        "scratch/sol-pa/sec04-C.fact-check.json",
-        "scratch/sol-pa/sec04-C2.fact-check.json"
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec10-intersections-and-curves/16-compiled-dossier.json",
+        "sha256": "4d0275318cdce1ddba032597a08f22eca3a35491a0fa3c7368ff092a6a326d0b"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec10-intersections-and-curves/16-fact-registry.json",
+        "sha256": "34db0c8cc809699a773b03ce095b1dcdc8315004259a430564fdb36cb7e5ee44"
+      },
+      "native_compile_ref": {
+        "task_id": "task_1eee46d206e3bc565408148009337eaac9b8d3801dbfcc63a1d59bbf5a3abc7f",
+        "artifact_id": "accepted_91c494e94c23aa89dc65cabed1bd12e45a006af213dfe72f33eeb6d4341d4d88",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec10-intersections-and-curves\\16-compiled-dossier.json",
+        "sha256": "4d0275318cdce1ddba032597a08f22eca3a35491a0fa3c7368ff092a6a326d0b",
+        "validation_ref": {
+          "bytes": 1477,
+          "path": "receipts/16-validation-4d0275318cdce1ddba032597a08f22eca3a35491a0fa3c7368ff092a6a326d0b.json",
+          "sha256": "e554da0af83eaadab7b50d2ddc0e149a91891218366feafdcbe7282093b8c4aa"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-4d0275318cdce1ddba032597a08f22eca3a35491a0fa3c7368ff092a6a326d0b.json",
+          "sha256": "c1251a178e338c75654f8b71a3e6aacb0992b9fd31db156ee1b983839255e84a"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec10-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec10-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec10-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec10-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-JUNCTIONS-HISTORY",
+          "claim_text": "Physical52 has an unperioded teen intersection-crash proportion;55 has2013–2017 run-off-road teen crash counts and fatalities. These are not current stable facts.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-JUNCTIONS-ABSOLUTE-RISK",
+          "claim_text": "Physical54 says circular geometry eliminates head-on, left-turn and right-angle crash risk. No absolute real-world safety guarantee is emitted; independent fact review must assess the scope of that source wording.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-JUNCTIONS-MARKET",
+          "claim_text": "Demand research for intersections and curves has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-JUNCTIONS-TEARDOWN",
+          "claim_text": "Competitor analysis for intersections and curves remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec11-highways-and-parking",
+      "pages": [
+        56,
+        57
+      ],
+      "facts": 40,
+      "C": 20,
+      "C2": 20,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec11-highways-and-parking/CURRENT.json",
+        "sha256": "33e95d2e129e4ce27dae3950c3d3e41a53d894b973be15b286915be70542ab39"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec11-highways-and-parking/16-compiled-dossier.json",
+        "sha256": "8c9f999508c7ec8005e4badd58371fe854b1a18e83e768f897e92d38cc02562f"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec11-highways-and-parking/16-fact-registry.json",
+        "sha256": "65c03f02c57ba109b099296baa669de9cdc417c63ff7a32aa66e07ab8e4780d8"
+      },
+      "native_compile_ref": {
+        "task_id": "task_486c6a0a787fde302f0e2f4c99cbe39c72e42d2252658c15a4197316f17f2c86",
+        "artifact_id": "accepted_c56b5d04e64ebf9e4aec86ef4edeaa6af37c0a3da175ddc15ad6d28c569c8b42",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec11-highways-and-parking\\16-compiled-dossier.json",
+        "sha256": "8c9f999508c7ec8005e4badd58371fe854b1a18e83e768f897e92d38cc02562f",
+        "validation_ref": {
+          "bytes": 1461,
+          "path": "receipts/16-validation-8c9f999508c7ec8005e4badd58371fe854b1a18e83e768f897e92d38cc02562f.json",
+          "sha256": "02efedbdbc3a1be1c63ab194107c8fa97d323d6f79af49f4a6013739b8cc578c"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-8c9f999508c7ec8005e4badd58371fe854b1a18e83e768f897e92d38cc02562f.json",
+          "sha256": "5b0be55e4a29732f4b9d073889aecbef8b44dfe4e1c996189d7994d66d4aa328"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec11-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec11-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec11-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec11-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-PARKING-STATISTICS",
+          "claim_text": "Physical56 gives half of highway fatal crashes as run-off-road and20percent as rear-end, without a data period; preserve as source-currentness debt.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-PARKING-MARKET",
+          "claim_text": "Demand research for highways and parking has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-PARKING-TEARDOWN",
+          "claim_text": "Competitor analysis for highways and parking remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec12-sharing-and-work-zones",
+      "pages": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "facts": 85,
+      "C": 53,
+      "C2": 32,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec12-sharing-and-work-zones/CURRENT.json",
+        "sha256": "d35b37d5b2dc6d773fdc12a7570c12f6f44fb220bd66fc5e5cd5735c6232c911"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec12-sharing-and-work-zones/16-compiled-dossier.json",
+        "sha256": "ef8ec78a91e30f227666c8827e07bedd9f6db13567749b41b88235ab5c436c5c"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec12-sharing-and-work-zones/16-fact-registry.json",
+        "sha256": "6f5ad030ee3f5db63f62384730d7c917e8d02c8f6bb4ee8850d43058669fcd54"
+      },
+      "native_compile_ref": {
+        "task_id": "task_8773c0174a111b2b6acb709962add7c30c1ee37bcf00e7a098b0348fab696430",
+        "artifact_id": "accepted_e4f9bec06f5a3074ec94cd88bd68dd33376c8f79a4fa36b2a0e978bb7333bda1",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec12-sharing-and-work-zones\\16-compiled-dossier.json",
+        "sha256": "ef8ec78a91e30f227666c8827e07bedd9f6db13567749b41b88235ab5c436c5c",
+        "validation_ref": {
+          "bytes": 1470,
+          "path": "receipts/16-validation-ef8ec78a91e30f227666c8827e07bedd9f6db13567749b41b88235ab5c436c5c.json",
+          "sha256": "439f346850fa920227365ca55b542059601829b83d25526d0dd22e0827604784"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-ef8ec78a91e30f227666c8827e07bedd9f6db13567749b41b88235ab5c436c5c.json",
+          "sha256": "f98e5590ad4fa77b534f3838f96e26e513ef15ee3f4abba31a006c22d03d1247"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec12-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec12-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec12-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec12-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SHARING-CURRENTNESS",
+          "claim_text": "Unperioded work-zone/rail/aggressive-driving crash statistics on58,59,64 and511PA service availability are not asserted as current stable facts.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SHARING-OPEN-BED",
+          "claim_text": "Physical63 says open-bed occupancy bars speeds above35mph and children under18, then exceptions begin: farmer's child for farm work. Physical64 continues farm-employee child, licensed child hunter between camp/sites during season, and officially sanctioned parade participant during parade. Whole rule and exceptions retained as debt rather than guessing exception reach across the two prohibitions.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SHARING-MOVEOVER-DETAILS",
+          "claim_text": "Physical63 has an ambiguous at-least-two-lamps/other-markers definition and overlapping general harm penalties90days/up-to1000dollars, protected-person serious injury6months/up-to5000, protected-person death1year/up-to10000. Exact current legal scope needs resolution before learner assertion.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SHARING-TURBULENCE",
+          "claim_text": "Physical61 claims truck wind turbulence pushes vehicles apart and never pulls them together. This absolute directional claim is withheld pending contextual physics/source verification.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SHARING-MARKET",
+          "claim_text": "Demand research for sharing the road and work zones has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-SHARING-TEARDOWN",
+          "claim_text": "Competitor analysis for sharing the road and work zones remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec13-driving-emergencies",
+      "pages": [
+        65,
+        66,
+        67,
+        68
+      ],
+      "facts": 60,
+      "C": 25,
+      "C2": 35,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec13-driving-emergencies/CURRENT.json",
+        "sha256": "b273d8e0061e3369a90c46875d431f3e7ea27573b1a6047cad76e9fd16a5d0d3"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec13-driving-emergencies/16-compiled-dossier.json",
+        "sha256": "451d39b50990b42b3335917c8f0cd39771a9df7d7288d8a21c9d9ffa4cb599be"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec13-driving-emergencies/16-fact-registry.json",
+        "sha256": "6f69544a54e09434384e483550fb269e9b26ae5dacbe6132038cb07ff58633d5"
+      },
+      "native_compile_ref": {
+        "task_id": "task_1f12e584cc1cb5b912c43983bca1d22887b25c8fcff1d92e53ea3a61521b51ea",
+        "artifact_id": "accepted_554b5d73a43a4ed7201be48cd559b556b9576893e62cd250ab05ef6d50efe583",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec13-driving-emergencies\\16-compiled-dossier.json",
+        "sha256": "451d39b50990b42b3335917c8f0cd39771a9df7d7288d8a21c9d9ffa4cb599be",
+        "validation_ref": {
+          "bytes": 1458,
+          "path": "receipts/16-validation-451d39b50990b42b3335917c8f0cd39771a9df7d7288d8a21c9d9ffa4cb599be.json",
+          "sha256": "3b40a8820429dc9a9207ef3a73a126372a91156c5904c5911b8657de71a1402a"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-451d39b50990b42b3335917c8f0cd39771a9df7d7288d8a21c9d9ffa4cb599be.json",
+          "sha256": "9b82452376bcbbe9edb8f73fade1f835b32bcd9855c60776cae9f243cd5052c6"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec13-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec13-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec13-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec13-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-EMERGENCIES-ABS-STEERING",
+          "claim_text": "Physical65 prescribes at least a half-turn then nearly a full opposite turn for evasive steering and says an ABS vehicle will not skid. Vehicle-dependent maneuver limits and this absolute guarantee are not learner rules; basic source-qualified ABS operation is retained separately.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-EMERGENCIES-FLOOD-DATA",
+          "claim_text": "Physical66 cites vehicle-related flood-death proportions since2006 without an endpoint; no current percentage is asserted.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-EMERGENCIES-MARKET",
+          "claim_text": "Demand research for driving emergencies has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-EMERGENCIES-TEARDOWN",
+          "claim_text": "Competitor analysis for driving emergencies remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec14-driving-record",
+      "pages": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "facts": 65,
+      "C": 36,
+      "C2": 29,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec14-driving-record/CURRENT.json",
+        "sha256": "d3fe1271b15adc922fd375b5f7862d85543b74900a536d6a06940062411b1719"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec14-driving-record/16-compiled-dossier.json",
+        "sha256": "5e254a5fac923de82dcbd2542816411694abeb788467b4881f147f9cd3a88f6b"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec14-driving-record/16-fact-registry.json",
+        "sha256": "4aa3365b3c9f3df8dede36835a36c76325a48b0db9ee1429249fb205fdd4040e"
+      },
+      "native_compile_ref": {
+        "task_id": "task_db098c65a1f3d6272d2a9e7490b37902f7f7d7411d9c01f557e8012dd7c7b149",
+        "artifact_id": "accepted_d2ea7868a625289de4731d405ab4366df943e2cb810f3e3728ea46a8cac68be8",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec14-driving-record\\16-compiled-dossier.json",
+        "sha256": "5e254a5fac923de82dcbd2542816411694abeb788467b4881f147f9cd3a88f6b",
+        "validation_ref": {
+          "bytes": 1438,
+          "path": "receipts/16-validation-5e254a5fac923de82dcbd2542816411694abeb788467b4881f147f9cd3a88f6b.json",
+          "sha256": "6216bfb5fe54b5c0128fe4e3910e2e5bbf8b904127913a2bf26c7580930b5f23"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-5e254a5fac923de82dcbd2542816411694abeb788467b4881f147f9cd3a88f6b.json",
+          "sha256": "20fcb76f0b21f9f6f4230f15c4d3c54f0cfa25cccd29508e2cc1f8d4dbcf2ce6"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec14-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec14-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec14-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec14-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RECORD-PENALTY-MATRICES",
+          "claim_text": "Physical85–88 detailed DUI/refusal/underage/supplier penalties,87 Tables1–3 by BAC/offense, ARD conditions and ungraded-misdemeanor/jury-trial claim remain source/legal-currentness debt. Table2 injury scope differs between86 bodily injury and87 serious bodily injury; no inferred reconciliation or current punishment guarantee is made. All source rows remain in the pinned handbook.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RECORD-SERVICES",
+          "claim_text": "Physical83 online driving-record transaction fields and85 AA-600 mailing address/website are not asserted as current service instructions without official reconfirmation.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RECORD-STATISTICS",
+          "claim_text": "Physical85 fleeing crash/injury totals and88 teenage mortality ranking have no current period; no present statistical estimate is emitted.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RECORD-MARKET",
+          "claim_text": "Demand research for driving record and enforcement has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RECORD-TEARDOWN",
+          "claim_text": "Competitor analysis for driving record and enforcement remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec15-laws-and-restraints",
+      "pages": [
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "facts": 50,
+      "C": 28,
+      "C2": 22,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec15-laws-and-restraints/CURRENT.json",
+        "sha256": "ad95b06939c207cdf02e158966338c3eef95b8336c2baa7ce7bf661a53031984"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec15-laws-and-restraints/16-compiled-dossier.json",
+        "sha256": "da0f2a396062e257b0f1e6182110d86c3e659c6d679a713247fec419dcbb8f7c"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec15-laws-and-restraints/16-fact-registry.json",
+        "sha256": "1d3d1a6139a2fcc6055f714cbfd34217ab80f177eb9611fb6e4759c342c613de"
+      },
+      "native_compile_ref": {
+        "task_id": "task_37de0c4623a1aaf3c8756f9221fb87a8464bb4c9ffbfa2ea6901f559590c8ff1",
+        "artifact_id": "accepted_520919ffad8ef5f99c1347a82efc1414f86e3a448b2699f1779d445f46201956",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec15-laws-and-restraints\\16-compiled-dossier.json",
+        "sha256": "da0f2a396062e257b0f1e6182110d86c3e659c6d679a713247fec419dcbb8f7c",
+        "validation_ref": {
+          "bytes": 1457,
+          "path": "receipts/16-validation-da0f2a396062e257b0f1e6182110d86c3e659c6d679a713247fec419dcbb8f7c.json",
+          "sha256": "5a033d6f94c3ebe6d74f0adfbd7f678f0ef90e492f527e8043484ea5332c163b"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-da0f2a396062e257b0f1e6182110d86c3e659c6d679a713247fec419dcbb8f7c.json",
+          "sha256": "d20ebec225a53bbdc49eede8c892190add0134c2623c2ea4c2aebd8c3b2fad7d"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec15-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec15-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec15-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec15-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RESTRAINTS-SAFETY-NUMBERS",
+          "claim_text": "Physical93 injury-force/ejection ratios,30mph building comparison,12mph fatality example,1/50second stopping,25-times ejection risk,150feet ejection,4-of-5 survival;94 child crash totals and heatstroke80sF/10minute illustration lack individualized/dated context. Do not emit as universal predictions.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RESTRAINTS-SERVICES",
+          "claim_text": "Physical93 update-card zero-fee assertion and phone routes,95 interpreter two-week/three-date phone arrangements,96 county/model-year1975 emissions applicability and hotline are currentness debt. Accommodation concepts are retained without promising current channels.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RESTRAINTS-TEXTING",
+          "claim_text": "Physical97 describes the March8,2012 anti-texting law,50-dollar fine, IWCD definition, local preemption, no seizure and GPS/integrated/transit device exclusions. Current handheld-device law and exception scope must be checked before these historical details become learner rules.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RESTRAINTS-MARKET",
+          "claim_text": "Demand research for laws restraints and related issues has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-RESTRAINTS-TEARDOWN",
+          "claim_text": "Competitor analysis for laws restraints and related issues remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
+      ]
+    },
+    {
+      "section_id": "sec16-carbon-monoxide",
+      "pages": [
+        99
+      ],
+      "facts": 21,
+      "C": 16,
+      "C2": 5,
+      "current_pointer_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec16-carbon-monoxide/CURRENT.json",
+        "sha256": "a4dd89b8861d0bb56ec861a9db014beefcda30f3c1cbd90646c8f818dbeea400"
+      },
+      "compiled_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec16-carbon-monoxide/16-compiled-dossier.json",
+        "sha256": "d3ca328334080c2690576b5927a8c84b1fd0221b2a0a88cb652e5f7271444dc6"
+      },
+      "fact_registry_ref": {
+        "path": "D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-pa-class-c/16/sec16-carbon-monoxide/16-fact-registry.json",
+        "sha256": "d6acb31ab402947a35b41d08b1e6fecce101778889c02be090a08aaaf3c4d6e2"
+      },
+      "native_compile_ref": {
+        "task_id": "task_6836ea4a7c78695a88348a1788afe335b50be1062007100022355777d9c26da9",
+        "artifact_id": "accepted_f99e928892244595a8a51019360ce18941382c0f492f66824ab06748885efe28",
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\16\\sec16-carbon-monoxide\\16-compiled-dossier.json",
+        "sha256": "d3ca328334080c2690576b5927a8c84b1fd0221b2a0a88cb652e5f7271444dc6",
+        "validation_ref": {
+          "bytes": 1440,
+          "path": "receipts/16-validation-d3ca328334080c2690576b5927a8c84b1fd0221b2a0a88cb652e5f7271444dc6.json",
+          "sha256": "37c953b4af3846537a3ecd72f041e417780d50a69177f069487cdf0cbdc56b35"
+        },
+        "acceptance_ref": {
+          "bytes": 180,
+          "path": "receipts/16-acceptance-d3ca328334080c2690576b5927a8c84b1fd0221b2a0a88cb652e5f7271444dc6.json",
+          "sha256": "81f9a5a040c54a4a3602e2346282bab86b9d9dc9ce6a732decff2ffad2e72a30"
+        },
+        "mapped_checks": 2
+      },
+      "debt": [
+        {
+          "claim_id": "PA-sec16-A-PERCENT",
+          "claim_text": "No passing percentage is stated; keep the percentage null and preserve the exact raw passing count.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec16-A-TIME",
+          "claim_text": "No test time limit was located; keep the value and source page null.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec16-A-FRESH",
+          "claim_text": "The currently linked manual carries an April 2021 edition code; confirm changed laws against current official evidence before release.",
+          "blocker_kind": "source_stale",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-sec16-A-EFFECTIVE",
+          "claim_text": "The edition code is not an effective date; no effective date is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "A",
+            "chunk_id": "A.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-EXHAUST-PREVENTION-CONTEXT",
+          "claim_text": "Physical99 advises fully opening a garage door when running a vehicle there and partly opening a window when idling in traffic. These clauses are withheld pending current clinical prevention guidance and a registered authoritative source; no permission to idle safely in an attached garage is asserted.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "EvidenceLibrarian",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "D",
+            "chunk_id": "D.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-EXHAUST-MARKET",
+          "claim_text": "Demand research for carbon monoxide poisoning has not been performed.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E",
+            "chunk_id": "E.01"
+          },
+          "withheld_values": []
+        },
+        {
+          "claim_id": "PA-EXHAUST-TEARDOWN",
+          "claim_text": "Competitor analysis for carbon monoxide poisoning remains unresearched.",
+          "blocker_kind": "source_missing",
+          "source_tier_required": "official",
+          "owner_worker": "SMEResearchAgent",
+          "ship_blocking": false,
+          "expires_by": null,
+          "resolution_artifact_ref": null,
+          "located_at": {
+            "section_id": "E2",
+            "chunk_id": "E2.01"
+          },
+          "withheld_values": []
+        }
       ]
     }
   ],
-  "totals": {
-    "mapped_sections": 16,
-    "completed_sections": 4,
-    "accepted_02_parts": 36,
-    "compiled_sections": 4,
-    "facts": 215,
-    "C": 118,
-    "C2": 97,
-    "downstream_artifacts": 0
-  },
-  "source": {
-    "sha256": "3a6e48560b81d1e8afb10a0f0cbeb840d7b452c42e736199f0aa1b2a8e02715e",
-    "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-manuals/pa-drivers-manual-non-commercial/english/pub%2095.pdf",
-    "edition": "Pennsylvania Driver’s Manual PUB 95 (4-21) English Version",
-    "edition_physical_page": 1,
-    "edition_observation": "cover rendered with pypdfium2 and inspected via view_image",
-    "liveness": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT",
-    "examfacts": {
-      "question_count": {
-        "value": 18,
-        "physical_page": 9,
-        "printed_page": "5",
-        "verbatim": "The Knowledge Test consists of 18 multiple choice questions."
+  "counts": {
+    "current_sme_sections": 16,
+    "current_facts": 999,
+    "native_history": [
+      {
+        "stage_id": "02.dossier_sections",
+        "status": "accepted",
+        "n": 146
       },
-      "passing_standard": {
-        "value": "15 correct answers",
-        "physical_page": 9,
-        "printed_page": "5",
-        "verbatim": "You must answer 15 questions correctly to pass the test."
+      {
+        "stage_id": "02.dossier_sections",
+        "status": "queued",
+        "n": 1
       },
-      "passing_percent": {
-        "value": null,
-        "source_page": null
+      {
+        "stage_id": "03.combined_kg",
+        "status": "accepted",
+        "n": 1
       },
-      "time_limit": {
-        "value": null,
-        "source_page": null
+      {
+        "stage_id": "03.combined_kg",
+        "status": "queued",
+        "n": 1
+      },
+      {
+        "stage_id": "04.cards",
+        "status": "accepted",
+        "n": 1
+      },
+      {
+        "stage_id": "04.cards",
+        "status": "queued",
+        "n": 1
+      },
+      {
+        "stage_id": "05.card_scripts",
+        "status": "queued",
+        "n": 1
+      },
+      {
+        "stage_id": "05.sessions",
+        "status": "accepted",
+        "n": 1
+      },
+      {
+        "stage_id": "05.sessions",
+        "status": "queued",
+        "n": 1
+      },
+      {
+        "stage_id": "06.exam_bank",
+        "status": "accepted",
+        "n": 1
+      },
+      {
+        "stage_id": "06.exam_bank",
+        "status": "queued",
+        "n": 1
+      },
+      {
+        "stage_id": "07.content_coverage",
+        "status": "queued",
+        "n": 1
+      },
+      {
+        "stage_id": "08.content_facts",
+        "status": "queued",
+        "n": 1
+      },
+      {
+        "stage_id": "09.package",
+        "status": "queued",
+        "n": 1
+      },
+      {
+        "stage_id": "15.sources",
+        "status": "accepted",
+        "n": 1
+      },
+      {
+        "stage_id": "16.compile",
+        "status": "accepted",
+        "n": 18
+      },
+      {
+        "stage_id": "19.learning_inputs",
+        "status": "accepted",
+        "n": 1
+      },
+      {
+        "stage_id": "19A.units",
+        "status": "queued",
+        "n": 1
       }
-    }
-  },
-  "next": {
-    "section": "sec05-warning-signs",
-    "stage": "02.dossier_sections",
-    "part": "C",
-    "packet": "not emitted; bounded run stopped after section4",
-    "suggested_sections": [
-      "sec05-warning-signs",
-      "sec06-guide-signs-and-markings",
-      "sec07-preparing-and-driver-factors",
-      "sec08-space-and-speed"
     ]
   },
-  "holds": [
+  "downstream": [
     {
-      "id": "AUTHOR-FACT-SCOPE-PA-SEC01-F01",
-      "scope": "downstream use of sec01-F01",
-      "reason": "First-time applicant actor is implicit in accepted statement; suggested scoped rewrite is in scratch/sol-pa/sec01-F01.defect.json."
+      "stage_id": "03.combined_kg",
+      "current_accepted_sections": 1,
+      "accepted": [
+        {
+          "section_id": "sec01-permit-and-license",
+          "counts": {
+            "nodes": 70,
+            "modules": 6
+          },
+          "task_id": "task_0358901634a687d2befde0bc2db3cc49611b27994d27e7a12117ac06a13a7225",
+          "artifact_id": "accepted_53115e5e9e1d33ac78ede34d75770f6c2ad7533fb7e98fe8db5c90c0b6d9de84",
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\artifacts\\task_0358901634a687d2befde0bc2db3cc49611b27994d27e7a12117ac06a13a7225\\attempt_6809814f662fd84118d8c38ca2c694052119c197a3cf9fab94244692cfc5aa8f\\artifact.json",
+          "sha256": "058f65e15e4f5ca3a010bb154cdfa3fcf506f0fdd6b3b73a12822adf8ad19d58",
+          "validation_ref": {
+            "bytes": 5388,
+            "path": "artifacts/task_0358901634a687d2befde0bc2db3cc49611b27994d27e7a12117ac06a13a7225/attempt_6809814f662fd84118d8c38ca2c694052119c197a3cf9fab94244692cfc5aa8f/validation.json",
+            "sha256": "dd9ef43b02b03723b7dc095dc5f73841d4b18dcd47b082a0ad633a77e4bf5a15"
+          },
+          "acceptance_ref": {
+            "bytes": 184,
+            "path": "artifacts/task_0358901634a687d2befde0bc2db3cc49611b27994d27e7a12117ac06a13a7225/attempt_6809814f662fd84118d8c38ca2c694052119c197a3cf9fab94244692cfc5aa8f/acceptance.json",
+            "sha256": "b565fd6b202a65de1ac251345e5165055ede164e1a729486d80815a8e5381089"
+          },
+          "mapped_checks": 25
+        }
+      ]
     },
     {
-      "id": "AUTHOR-FACT-SCOPE-PA-SEC03-R21",
-      "scope": "downstream use of sec03-R21",
-      "reason": "Hazardous-proximity qualifier may incorrectly scope the audible-warning branch; suggested rewrite is in scratch/sol-pa/sec03-R21.defect.json."
+      "stage_id": "04.cards",
+      "current_accepted_sections": 1,
+      "accepted": [
+        {
+          "section_id": "sec01-permit-and-license",
+          "counts": {
+            "cards": 70,
+            "recaps": 6,
+            "merges": 0
+          },
+          "task_id": "task_2bf976bf2b1998ae849ca55e546e3459cf5851a67a2908a0c532bb5718680c99",
+          "artifact_id": "accepted_671422df783c658d5d614d60fff9370154579a412c4d143252019d907ea0330a",
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\artifacts\\task_2bf976bf2b1998ae849ca55e546e3459cf5851a67a2908a0c532bb5718680c99\\attempt_504eea58fc4063a9e4432804c79688dc340d871251f2692f64814ba39ddd705b\\artifact.json",
+          "sha256": "e8a781826f4fa0e721e00a2c05e629f0d2efc0488e41b20fd1548858be09803d",
+          "validation_ref": {
+            "bytes": 7598,
+            "path": "artifacts/task_2bf976bf2b1998ae849ca55e546e3459cf5851a67a2908a0c532bb5718680c99/attempt_504eea58fc4063a9e4432804c79688dc340d871251f2692f64814ba39ddd705b/validation.json",
+            "sha256": "0dabe03c34e53b60cb99f524d1880486cf309dfecd3156e431d0e27d7a360f6d"
+          },
+          "acceptance_ref": {
+            "bytes": 184,
+            "path": "artifacts/task_2bf976bf2b1998ae849ca55e546e3459cf5851a67a2908a0c532bb5718680c99/attempt_504eea58fc4063a9e4432804c79688dc340d871251f2692f64814ba39ddd705b/acceptance.json",
+            "sha256": "b22d70828a122d1e948432dbc75cbbff3d6ce9524f8b812bc0efe0df82273dcd"
+          },
+          "mapped_checks": 22
+        }
+      ]
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "current_accepted_sections": 1,
+      "accepted": [
+        {
+          "section_id": "sec01-permit-and-license",
+          "counts": {
+            "items": 70,
+            "quizzes": 6,
+            "forms": 2
+          },
+          "task_id": "task_5e1d57ba3098d95dbeb15bbe9ae0a22d7b65ee79116634471e8bc16761126314",
+          "artifact_id": "accepted_ddc5841d51ef1bfb5b2b6208b8ddd4c950f71244c4ba3f40b6bfdc114631b885",
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\artifacts\\task_5e1d57ba3098d95dbeb15bbe9ae0a22d7b65ee79116634471e8bc16761126314\\attempt_696c8527042693f1ae051ce283d25ebaef73d8cf9d22461d43bcd09d020f8215\\artifact.json",
+          "sha256": "5e18a5a5338fc73ef73cba697d9e358d16f2698401940f0662ec1fab9f13e555",
+          "validation_ref": {
+            "bytes": 5928,
+            "path": "artifacts/task_5e1d57ba3098d95dbeb15bbe9ae0a22d7b65ee79116634471e8bc16761126314/attempt_696c8527042693f1ae051ce283d25ebaef73d8cf9d22461d43bcd09d020f8215/validation.json",
+            "sha256": "b5c7419a32f40973a5d611703d195642ab066d0c8c3dcb525c5b21f6807d611f"
+          },
+          "acceptance_ref": {
+            "bytes": 184,
+            "path": "artifacts/task_5e1d57ba3098d95dbeb15bbe9ae0a22d7b65ee79116634471e8bc16761126314/attempt_696c8527042693f1ae051ce283d25ebaef73d8cf9d22461d43bcd09d020f8215/acceptance.json",
+            "sha256": "a147b908946ff75bfeaa33da305e91333fd8c9ebbe045f49e336ee0a5f078f38"
+          },
+          "mapped_checks": 25
+        }
+      ]
+    },
+    {
+      "stage_id": "05.sessions",
+      "current_accepted_sections": 1,
+      "accepted": [
+        {
+          "section_id": "sec01-permit-and-license",
+          "counts": {
+            "units": 6,
+            "slides": 42,
+            "fact_coverage": 70,
+            "narration_chars": {
+              "min": 527,
+              "max": 720
+            }
+          },
+          "task_id": "task_0a0f7cd55c4017d15dd65cf15eb734337a4e8ad96fd64fddf4ed08803ebae06d",
+          "artifact_id": "accepted_2df539343bfe24e60213ffedfa524e4b203bff741a96293d801bb4386e414cce",
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-pa-class-c\\artifacts\\task_0a0f7cd55c4017d15dd65cf15eb734337a4e8ad96fd64fddf4ed08803ebae06d\\attempt_9c7d45bb1b9257f652c0e0320a3b4e02efca16ed00f2c654d2ce1b3268a629cc\\artifact.json",
+          "sha256": "2321b98160590a322cbd4c621d0faa30a70e628819759669025ef408d9f41e3b",
+          "validation_ref": {
+            "bytes": 6469,
+            "path": "artifacts/task_0a0f7cd55c4017d15dd65cf15eb734337a4e8ad96fd64fddf4ed08803ebae06d/attempt_9c7d45bb1b9257f652c0e0320a3b4e02efca16ed00f2c654d2ce1b3268a629cc/validation.json",
+            "sha256": "1abc862d7778ce5f87711cfef8ead14081370a6a803532ea5453e5d93a9c51d7"
+          },
+          "acceptance_ref": {
+            "bytes": 184,
+            "path": "artifacts/task_0a0f7cd55c4017d15dd65cf15eb734337a4e8ad96fd64fddf4ed08803ebae06d/attempt_9c7d45bb1b9257f652c0e0320a3b4e02efca16ed00f2c654d2ce1b3268a629cc/acceptance.json",
+            "sha256": "f3cb82d34b7b9ea9e34c41be72df0e9fb0d67b7b1cc4f1c702221238f36f3192"
+          },
+          "mapped_checks": 20
+        }
+      ]
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "current_accepted_sections": 0,
+      "accepted": []
     }
   ],
-  "deterministic_non_pass_checks": [],
-  "debt": [
-    "Old April2021 edition; current issuer link confirmed; effective date absent.",
-    "PA-SIGNS-VISUAL: supplementary right-turn sign legend unresolved in extracted text, physical14.",
-    "PA-SIGNS-STATISTIC: unperioded teen crash ranking withheld, physical16.",
-    "Time limit and percentage unknown. Market and competitors unresearched."
-  ],
-  "helpers": {
-    "structure_reuse": "build.mjs structural pattern from the read-only NV scratch helper; all state paths, identity and facts replaced; own parameterized gen.mjs",
-    "generated_parts": [
-      "A",
-      "B",
-      "D",
-      "E",
-      "E2",
-      "F",
-      "G"
+  "blockers": {
+    "stage": "05.card_scripts",
+    "section": "sec01-permit-and-license",
+    "key": "05.card_scripts__sec01-permit-and-license__-__n0",
+    "preflight": {
+      "status": "HOLD",
+      "blockers": [
+        "request_byte_limit"
+      ]
+    },
+    "current_max_request_bytes": 640000,
+    "local_checks": [
+      {
+        "check_id": "05.STAGE_DIRECTIONS",
+        "status": "FAIL",
+        "evidence": "70 narrated span(s) with stage directions/timing tokens: script.sec01-card-sec01-F01.question.text: ellipsis_timing_marker; script.sec01-card-sec01-F02.question.text: ellipsis_timing_marker; script.sec01-card-sec01-F03.question.text: ellipsis_timing_marker; script.sec01-card-sec01-F04.question.text: ellipsis_timing_marker; script.sec01-card-sec01-F05.question.text: ellipsis_timing_marker; script.sec01-card-sec01-F06.question.text: ellipsis_timing_marker; script.sec01-card-sec01-F07.question.text: ellipsis_timing_marker; script.sec01-card-sec01-F08.question.text: ellipsis_timing_marker; …(+62 more)",
+        "metrics": {
+          "hits": 70
+        }
+      }
     ],
-    "authored_parts": [
-      "C",
-      "C2"
-    ],
-    "no_nested_agents": true
+    "diagnostic_ref": {
+      "path": "D:/nova/fb-ai-hackathon/scratch/sol-pa/SCRIPTS-BLOCKER-DIAGNOSTIC.json",
+      "sha256": "d3d9d048537d76365b19dfba80bf38ace5b50c345f2dbd97c866c4f9d4f6ff9f"
+    },
+    "repair_proposal_ref": {
+      "path": "D:/nova/fb-ai-hackathon/scratch/sol-pa/sec01-cards.front-repair.proposal.json",
+      "sha256": "fc119f05dd1a3f7b361445adbfcf33c3db71eda453084303357b7a8ce65ba959"
+    },
+    "native_ingest_attempted": false,
+    "outbox_exists": false,
+    "accepted_history_unchanged": true,
+    "requires": "Root-controlled append-only card-front repair, dependent-stage rebinding, and explicit disposition of request byte cap; no native failure retry/reset.",
+    "repair_proposal_validation": {
+      "passed": 21,
+      "total": 22,
+      "nonpass": "04.INPUT_BINDING: preserved accepted input digest differs from the currently prepared manifest. Native fresh repair binding is required; no candidate has been accepted.",
+      "front_stage_direction_lint": "PASS"
+    },
+    "future_helper_fix": "scratch/sol-pa/build-cards.mjs now emits cloze fronts without ellipses; accepted deck remains unchanged.",
+    "author_defect": "The worker introduced Unicode ellipses in accepted card fronts. The source facts and accepted backs are unchanged."
   },
-  "metadata_disclosure": {
-    "true_model": "gpt-6.1-sol",
-    "outbox_authored_by": "actual model id on all36 outboxes",
-    "inherited_producer_model": "muse-spark-1.3",
-    "inherited_visual_model": "claude-fable-5-1",
-    "visual_actor_id": "gpt-6.1-sol (Sol state worker)",
-    "inherited_executor_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03",
-    "note": "Shared transport records36 completed model calls with Meta/Muse model labels; these were file transports under ChatGPT Pro, not remote ModelAPI calls. Intake wrapper hardcodes visual model despite truthful actor/provider fields. Shared tools preserved."
+  "retained_corrections_ref": {
+    "path": "D:/nova/fb-ai-hackathon/scratch/sol-pa/CORRECTIONS-CHECKPOINT.json",
+    "sha256": "bf64d8591f868f6a3f79df1ea9d0520c89c11faa984140351f1819406c4bb106"
   },
+  "format_findings_ref": {
+    "path": "D:/nova/fb-ai-hackathon/scratch/sol-pa/GROWTH-06-08-CHECKPOINT.json",
+    "sha256": "0f1d09658ddeb8ac4266917b289092d2569799035c6808e50fca4171e100761f"
+  },
+  "source_snapshot_sha256": "3a6e48560b81d1e8afb10a0f0cbeb840d7b452c42e736199f0aa1b2a8e02715e",
   "money": {
     "actual_usd": 0,
     "outstanding_reserved_usd": 0,
-    "outstanding_unknown_usd": 0,
-    "read_only_ledger": "runs/2026-10-28-rdmv-pa-class-c/ledger/run.sqlite"
+    "uncertain_usd": 0
   },
-  "locks": {
-    "native_ownership_state": "released",
-    "lock_file_present": false
-  },
+  "ownership_state": "released",
+  "native_lock_held": false,
+  "independent07_08_status": "pending; native deterministic acceptance is not independent factual QA",
   "usage": {
     "platform": "ChatGPT Pro subscription",
     "model_id": "gpt-6.1-sol",
     "session_id": "01a181b9-e706-7c31-a619-e74940fc4354",
-    "tokens": {
-      "input_tokens": 3967962,
-      "cached_input_tokens": 3817856,
+    "as_of": "2026-10-28T17:44:53.384Z",
+    "cumulative_actual_client_counters": {
+      "input_tokens": 32382600,
+      "cached_input_tokens": 31904640,
       "cache_write_input_tokens": 0,
-      "output_tokens": 26657,
-      "reasoning_output_tokens": 5650,
-      "total_tokens": 3994619
+      "output_tokens": 174966,
+      "reasoning_output_tokens": 60577,
+      "total_tokens": 32557566
     },
-    "token_snapshot_at": "2026-10-28T09:07:20.052Z",
-    "token_count_basis": "Actual client token_count metadata; cumulative repeated/cached input is included; this is not API-billed token cost.",
-    "tool_uses": 40,
-    "tool_uses_basis": "estimated external tool invocations; exact count not exposed in permitted metadata",
-    "duration_ms": 706892,
-    "duration_basis": "session_meta timestamp to checkpoint creation"
+    "root_last_recorded_baseline": {
+      "total_tokens": 16818555,
+      "cached_input_tokens": 16471168
+    },
+    "root_delta_only": {
+      "total_tokens": 15739011,
+      "cached_input_tokens": 15433472
+    },
+    "basis": "Actual client token_count metadata; root records only the delta, never the cumulative total as new usage."
   },
-  "proposed_shared_updates": {
-    "queue": {
-      "state": "PA",
-      "status": "in_progress",
-      "run_id": "2026-10-28-rdmv-pa-class-c",
-      "checkpoint": "intake + first4 through02/16 complete; two author fact flags"
-    },
-    "token_ledger": {
-      "worker": "sol",
-      "model": "gpt-6.1-sol",
-      "state": "PA",
-      "task": "intake + first4 SME02/16; tool count estimated; tokens actual client",
-      "tokens": 3994619,
-      "tool_uses": 40,
-      "duration_ms": 706892
-    },
-    "defect_rows": [
-      {
-        "date": "2026-10-28",
-        "state": "PA",
-        "where": "sec01-F01 / physical5",
-        "what": "First-time applicant actor is implicit in accepted statement; suggested scoped rewrite is in scratch/sol-pa/sec01-F01.defect.json.",
-        "author": "gpt-6.1-sol Sol worker"
-      },
-      {
-        "date": "2026-10-28",
-        "state": "PA",
-        "where": "sec03-R21 / physical13",
-        "what": "Hazardous-proximity qualifier may incorrectly scope the audible-warning branch; suggested rewrite is in scratch/sol-pa/sec03-R21.defect.json.",
-        "author": "gpt-6.1-sol Sol worker"
-      }
-    ]
-  },
-  "limits": "Deterministic preparation acceptance only. Same-model preaccept receipts cover all215 draft facts but missed two wording risks later flagged. Independent07/08 is pending. Whole-state work and downstream stages are not complete. PaidModelAPI/audio/publishing remainedOFF.",
-  "local_precheck_history": [
-    {
-      "check_id": "02.SCHEMA",
-      "status": "FAIL_BEFORE_SUBMISSION_CORRECTED",
-      "reason": "dedicated-surface item missing domain; own generator corrected before first outbox"
-    }
-  ],
-  "intake_preparation_issue": "Relative issuer link resolved to exact official URL; initial spec absence caused no half-created run and no accepted-work loss.",
-  "runner_wait_exit_note": "Process exit1 with WAITING/NEXT instead of documented exit3; honored NEXT and hashes."
+  "shared_updates": "Root alone owns shared queue, usage and defect rows; this worker did not edit them.",
+  "recorded_at": "2026-10-28T17:45:23.958Z"
 }

@@ -1,10 +1,10 @@
-# Worker token ledger — generated 2026-10-28T11:40:48.609Z
+# Worker token ledger — generated 2026-10-28T17:57:28.670Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
-| muse | Muse Code subscription | 26 | 1,034,631,802 | 3,278,728 | 1,037,910,530 | $0.00 | AZ CA CO CT FL IA KY MT NM NY OK TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 94 | 0 | 0 | 23,134,128 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
-| sol | ChatGPT Pro subscription | 36 | 0 | 0 | 162,075,548 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
+| muse | Muse Code subscription | 29 | 1,035,088,192 | 3,283,625 | 1,038,371,817 | $0.00 | AK AZ CA CO CT FL HI IA KY MT NM NY OK TX UT VA |
+| claude | Anthropic subscription (Claude Code subagent) | 95 | 0 | 0 | 23,250,037 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO MS/WV/HI/RI/VT/AK/ND NC NJ NV NY OR SC TN TX UT VA WA WI |
+| sol | ChatGPT Pro subscription | 86 | 0 | 0 | 400,934,159 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -30,11 +30,14 @@
 | muse | muse-spark-1.3 | KY | intake-KY | 50,840,022 | 50,078,311 | 169,710 | 69,955 | — | 240 | — | $0.00 |
 | muse | muse-spark-1.3 | OK | intake-OK | 41,046,372 | 40,719,191 | 118,896 | 48,358 | — | 213 | — | $0.00 |
 | muse | muse-spark-1.3 | CT | intake-CT-r1 | 33,205,029 | 32,880,899 | 105,320 | 29,095 | — | 184 | — | $0.00 |
-| muse | muse-spark-1.3 | IA | intake-IA-r1 | 72,242,286 | 71,133,637 | 272,648 | 42,100 | — | 277 | — | $0.00 |
-| muse | muse-spark-1.3 | KY | intake-KY-r1 | 55,840,461 | 55,243,905 | 202,544 | 49,580 | — | 294 | — | $0.00 |
+| muse | muse-spark-1.3 | IA | intake-IA-r1 | 72,242,286 | 71,133,637 | 272,648 | 42,100 | — | 322 | — | $0.00 |
+| muse | muse-spark-1.3 | KY | intake-KY-r1 | 55,840,461 | 55,243,905 | 202,544 | 49,580 | — | 327 | — | $0.00 |
 | muse | muse-spark-1.3 | MT | intake-MT | — | — | — | — | — | 147 | — | $0.00 |
 | muse | muse-spark-1.3 | NM | intake-NM | — | — | — | — | — | 19 | — | $0.00 |
-| muse | muse-spark-1.3 | OK | intake-OK-r1 | 88,852,703 | 87,598,229 | 226,780 | 42,258 | — | 366 | — | $0.00 |
+| muse | muse-spark-1.3 | OK | intake-OK-r1 | 88,852,703 | 87,598,229 | 226,780 | 42,258 | — | 407 | — | $0.00 |
+| muse | muse-spark-1.3 | OK | intake-OK-r2 | — | — | — | — | — | 11 | — | $0.00 |
+| muse | muse-spark-1.3 | AK | intake-AK | 261,135 | 207,797 | 2,866 | 1,419 | — | 14 | — | $0.00 |
+| muse | muse-spark-1.3 | HI | intake-HI | 195,255 | 142,020 | 2,031 | 807 | — | 11 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
 | claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | UT | multi-state shell: state picker, #/<st>/ routes, states.json, harness rewrite, Utah onboarded | — | — | — | — | 243,214 | 95 | 14 min | $0.00 |
@@ -165,4 +168,55 @@
 | sol | gpt-6.1-sol | ME | Native sec01 C/C2 wording repair main delta; citation representation follow-up still pending; cached replay included | — | — | — | — | 3,544,383 | — | — | $0.00 |
 | claude | claude-opus-5-5 | AZ | downstream worker: sec16,18-22 complete; sec17 card_scripts held on 05.STAGE_DIRECTIONS (locked back contains "fade in") — delta | — | — | — | — | 288,980 | 266 | 95 min | $0.00 |
 | claude | claude-opus-5-5 | AZ | downstream worker: sec17 re-mint + card scripts — ARIZONA DOWNSTREAM COMPLETE 22/22: 1169 nodes/1162 cards/1169 items, 132 units/949 slides, 1294 scripts — delta | — | — | — | — | 5,028 | 6 | 1 min | $0.00 |
+| sol | gpt-6.1-sol | ID | New SME09-12 fixed batch main-client delta; cached replay included | — | — | — | — | 3,985,084 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KS | Final SME09-12 fixed batch main-client delta; cached replay included | — | — | — | — | 4,790,853 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | New SME09-12 fixed batch main-client delta; cached replay included | — | — | — | — | 3,599,475 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ME | Native F23 primary8/supporting9 citation representation repair fixed delta; cached replay included | — | — | — | — | 1,844,996 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | Safe shared-code writer checkpoint actual client delta; includes unsampled prior completion tail; cached input subset | — | — | — | — | 410,220 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KS | Safe shared-code writer checkpoint actual client delta; includes unsampled prior completion tail; cached input subset | — | — | — | — | 1,078,808 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | Safe shared-code writer checkpoint actual client delta; includes unsampled prior completion tail; cached input subset | — | — | — | — | 1,045,254 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ME | Safe shared-code writer checkpoint actual client delta; includes unsampled prior completion tail; cached input subset | — | — | — | — | 639,770 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | New SME09-12 fixed batch main-client delta; cached replay included | — | — | — | — | 3,686,214 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | Safe shared-code writer checkpoint actual client delta; cached input subset | — | — | — | — | 414,844 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KS | First native group preparation stopped before outbox due per-chunk ranking guard bug; actual client delta, cached subset | — | — | — | — | 3,609,547 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KS | First real native full-section metadata reconciliation accepted and compiled; actual client delta, cached subset | — | — | — | — | 3,409,265 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KS | Two native full-section F/G reconciliations accepted and compiled; actual client delta, cached subset | — | — | — | — | 4,976,408 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | Final SME13-15 completed checkpoint fixed main-client delta; cached replay included | — | — | — | — | 2,282,750 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | Native source revision plus first two source-binding metadata groups; fixed supplied snapshot delta only | — | — | — | — | 5,862,986 | — | 6 min | $0.00 |
+| sol | gpt-6.1-sol | ID | SME13-16 completed checkpoint fixed main-client delta from exact assignments baseline; cached replay included | — | — | — | — | 4,578,817 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | SME13-16 completed checkpoint fixed main-client delta from exact assignments baseline; cached replay included | — | — | — | — | 4,076,884 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KS | Final original F/G metadata group native accepted and compiled; cached subset | — | — | — | — | 3,744,182 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | Native F/G groups03/07 accepted and compiled; fixed actual client delta, cached subset | — | — | — | — | 3,602,433 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | ID first-two native F/G groups fixed actual cumulative delta; cached replay included | — | — | — | — | 4,077,740 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | Native source-binding metadata groups sec03/sec04; bounded fixed actual delta only | — | — | — | — | 1,976,320 | — | 4 min | $0.00 |
+| sol | gpt-6.1-sol | KS | Eight accepted C spacing/spoken-unit repairs in sec09/sec11; exact fixed client delta; cached replay included | — | — | — | — | 7,716,078 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | DE final17-18 SME fixed main-client cumulative delta; cached replay included | — | — | — | — | 2,658,309 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | Final native F/G groups verified; fixed actual client delta, cached subset | — | — | — | — | 3,185,523 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | Final native F/G groups verified; fixed actual client delta, cached subset | — | — | — | — | 1,320,684 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | Native one-claim NE sec03 D locator37-to36 correction; fixed actual delta only | — | — | — | — | 1,680,761 | — | 5 min | $0.00 |
+| sol | gpt-6.1-sol | KS | 03 initial graph local PASS, stopped pre-dispatch for approval filename correction; no native attempt | — | — | — | — | 4,357,663 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | 03 local schema draft tier projection mismatch, stopped before native attempt; correction authorized | — | — | — | — | 4,438,681 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | DE first-two native F/G groups fixed actual main-client cumulative delta; cached replay included | — | — | — | — | 7,593,541 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | NE page16 coverage: one native sec02 correction and compile | — | — | — | — | 2,602,029 | — | 31 min | $0.00 |
+| sol | gpt-6.1-sol | KS | KS first-two native03 graphs fixed main-client cumulative delta; cached replay included | — | — | — | — | 2,464,393 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | Next four SME prepared; native preflight environment bootstrap stop before any attempt; preserved same outbox | — | — | — | — | 4,236,719 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | ID first-two native03 graphs fixed main-client cumulative delta; cached replay included | — | — | — | — | 6,933,794 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | First two native combined KG sections fixed actual checkpoint delta; cached replay included | — | — | — | — | 9,099,573 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | DE final original F/G groups03-04 fixed main-client cumulative delta; cached replay included | — | — | — | — | 2,871,223 | — | — | $0.00 |
+| sol | gpt-6.1-sol | PA | Two bounded native accepted C/C2 corrections fixed actual client delta; cached replay included | — | — | — | — | 5,480,323 | — | — | $0.00 |
+| sol | gpt-6.1-sol | WY | Fixed actual usage for completed bounded repairs; independent content verification remains pending | — | — | — | — | 4,971,189 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | undefined | — | — | — | — | 4,212,394 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | undefined | — | — | — | — | 3,146,304 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | undefined | — | — | — | — | 5,154,669 | — | — | $0.00 |
+| sol | gpt-6.1-sol | PA | undefined | — | — | — | — | 7,343,613 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ME | undefined | — | — | — | — | 14,914,771 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | undefined | — | — | — | — | 2,162,041 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | undefined | — | — | — | — | 4,925,126 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KS | undefined | — | — | — | — | 6,147,401 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | undefined | — | — | — | — | 7,500,390 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ME | undefined | — | — | — | — | 8,521,517 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | undefined | — | — | — | — | 17,953,500 | — | — | $0.00 |
+| sol | gpt-6.1-sol | PA | undefined | — | — | — | — | 15,739,011 | — | — | $0.00 |
+| sol | gpt-6.1-sol | MT | undefined | — | — | — | — | 5,834,541 | — | — | $0.00 |
+| claude | claude-opus-5-5 | MS/WV/HI/RI/VT/AK/ND | scout round 5: staged 7 handbooks for Muse (NH 403; AR off-domain pending ruling) | — | — | — | — | 115,909 | 30 | 8 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

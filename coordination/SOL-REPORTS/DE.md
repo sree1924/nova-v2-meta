@@ -1,22 +1,17 @@
-Delaware — sections 09–12 complete through 02/16; whole state remains in progress.
-Open: head-owned earlier F/G group reconciliation, independent 07/08, legal/source review and visual-source debts. DE-SIGNALS-DIAGRAMS remains ship-blocking.
-This batch: 36 accepted dossier parts, four passing compiles, 362 facts. Cumulative: twelve of eighteen SME sections, 1,104 facts; no downstream artifacts started.
-sec09-traffic-laws: C=59, C2=64, total=123; chunks 1/2; typed debts=9; actual F/G inventory PASS.
-sec10-parking-speed: C=31, C2=32, total=63; chunks 1/1; typed debts=10; actual F/G inventory PASS.
-sec11-sharing-road: C=60, C2=30, total=90; chunks 1/1; typed debts=10; actual F/G inventory PASS.
-sec12-before-driving: C=49, C2=37, total=86; chunks 1/1; typed debts=13; actual F/G inventory PASS.
-All new accepted statements/page IDs match the manually reviewed specs. Source proof binds each claim to exact page hash and line span; this is author-side source checking, not independent factual acceptance.
-Four new F inventories contain all 42 accepted typed debts. G locations and debt references resolve; completed means bounded parts exist, not that source or shipping holds are cleared.
-New source concerns: camera-pilot currency, cross-page parking exceptions, school-zone presence definition, school-bus divided-highway mismatch, and exact motorcycle speed boundary.
-Child-restraint legal thresholds/front-seat exceptions and broad traffic-stop rights claims are withheld for qualified/current-law review. Equipment generalizations and fixed impact-force examples remain debt.
-New ship blockers: DE-TRAFFIC-VISUAL, DE-PARKING-VISUAL, DE-SHARING-BUS-SCOPE, DE-SHARING-VISUAL, DE-PREPARATION-CHILD-LEGAL, DE-PREPARATION-STOP-RIGHTS, DE-PREPARATION-VISUAL.
-Prior eight compile/index pins are unchanged; no previously accepted F/G was edited. Historical checkpoints, review records and accepted bytes are preserved.
-CURRENT: twelve pointers verified under the own native lock against latest accepted companions; no logical ledger or accepted-byte changes. Exact paths/hashes are in the checkpoint.
-Lineages 40→58 advanced by native completed-capacity policy; original caps, counters and ancestry retained. Native validation failures zero; local preparation issues resolved before submission.
-Ledger read-only: actual $0.000, reserved $0.000, uncertain $0.000; $60 cap unchanged. Ownership released and native lock absent.
-Runtime model gpt-6.1-sol; truthful ChatGPT Pro Sol authored_by. Inherited Muse/Claude wrapper defaults remain disclosed. No shared edits, paid API, audio or publishing.
-Fixed usage snapshot 2026-10-28T11:27:27.266Z: cumulative total=32495111, input=32290628, cached input=31725824, output=204483.
-Delta vs root-recorded 28895636: 3599475 total; 3415296 cached input; 184179 uncached input plus output. Includes prior unrecorded closeout; excludes later writing.
-Checkpoint: scratch/sol-de/new09-12/checkpoint.json and coordination/SOL-REPORTS/DE.checkpoint.json.
-Evidence: scratch/sol-de/new09-12/verification.json, manual-source-proof.json, debt-source-proof.json and client-usage.json. Shared queue/usage/defect proposals are saved only.
-Next action: STOP after this assigned batch. Head owns earlier F/G group patch and review. Six SME sections remain (sec13–18); no downstream work in this dispatch.
+Delaware HOLD: accepted spoken wording for sec05-R13 contains five mph; exact fidelity and spoken-form lint conflict.
+Both alternatives are proved with the native read-only checks: unchanged wording passes04.BACK_FIDELITY/fails04.BACK_SPOKEN_FORM; expanded miles per hour reverses those results.
+No section05 candidate,outbox,dispatch,attempt,model call or reservation was created. Exact packet/context/config/GO/layers remain pinned for owner review.
+Accepted03 KG:18/18 sections,1398 nodes,94 comparison edges,172 modules;25 required checks passed per section.
+Accepted04 cards:4/18 sections (sec01–04),264 cards across38 decks;22 required checks passed per accepted section.
+06.exam_bank,05.sessions and05.card_scripts have not started. Continuous authoring stopped on the bound-input conflict.
+All18 upstream dossier/registry pins are unchanged;1398 facts,177 typed debts,20 blocking source/review holds and final27 typed/eight blocking SME batch retained.
+All four original F/G reconciliations remain complete. Source tier stays unverified; independent07/08 and all clinical/legal/source/visual/currentness reviews remain pending.
+First card draft incorrectly projected upstream market/exam-policy debt into the card-defect slot; corrected locally before dispatch with original draft and prevalidation preserved. No source debt was resolved.
+Native ledger has196 file-transport model_calls (baseline176),all paid API calls0. Actual/reserved/uncertain$0.000; ownership released,lock absent,all existing reservations reported.
+Lineage87 to97 advances were accepted-capacity only. Every old counter,cap,nonce and historical accepted artifact remains; latest97 has no section05 attempt.
+No shared tool/schema/contract edits,credentials printed/edited,provider probes,audio,publishing,nested authors or shared queue/usage writes.
+Fixed cumulative usage 2026-10-28T17:12:50.174Z:total=61387016,cached=59891712,output=372413.
+DELTA ONLY vs root baseline53886626:total=7500390,cached=7391744,uncached input plus output=108646;excludes later writing.
+HOLD proof:scratch/sol-de/continuous/HOLD-spoken-normalization.json. Exact native completion receipts and stage/section refs are in the checkpoint.
+Checkpoint:scratch/sol-de/continuous/checkpoint.json and coordination/SOL-REPORTS/DE.checkpoint.json.
+STOP pending a head/schema-owner resolution and explicit resume. No silent context patch,accepted-input edit,filtered fact set or automatic retry.

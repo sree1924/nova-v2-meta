@@ -34,3 +34,10 @@ her downstream. Re-author pass (wrong-meaning BAC backs first: AL sec06, NV sec1
 Fully downstream + onboarded (18): MI NJ TX MD CO OR IN WI NV CA FL MO NC VA NY AL WA SC (+UT). Running: AZ (sec09-15, then 16-22), MN (08-14), TN (sec05 remint + 08-17), CT (08-12). Muse SME done: KY IA (downstream HELD for budget), OK 10/13. Sol: 10 in progress, none complete.
 
 ## 14:20Z 2026-10-28 — DOWNSTREAM COMPLETE for the original 22 + CT (23 live incl. UT). Muse SME done for KY IA OK (downstream held to Saturday). Sol: KS SME done, 9 in progress. Next after the Saturday reset: KY/IA/OK downstream, re-author pass (wrong-meaning backs first), fidelity audit (CT first), audio on founder go.
+
+## 18:10Z 2026-10-28 — MUSE OUT until 2026-11-02T00:00Z (weekly quota)
+Unfinished and unowned: KY IA OK downstream (SME done), MS WV HI RI VT AK ND (+AR) full belt (staged, PDFs private; URLs in QUEUE.json).
+Owners available: Claude after the Saturday reset (2026-10-31 13:00Z); a cloud session on the $204 credit if the app can bind the lane
+repo (it refused once: project folder D:\nova is not a git checkout — open a session in D:\nova\fb-ai-hackathon or name a cloud
+environment); Sol (busy, founder says fumbling). Model API credit ($83) would cost ~$40/state — not the plan.
+Sol's compile.mjs write barrier: ACK written (BELT-WRITE-BARRIER-OWNER-ACK.json); runner stays stopped; await her RELEASE file.
