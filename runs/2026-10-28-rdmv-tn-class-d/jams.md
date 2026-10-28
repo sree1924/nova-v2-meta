@@ -177,3 +177,5 @@ Seeded 2026-10-28T05:03:22.057Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:28:22.148Z retry nonce 05.card_scripts:@sec07-traffic-signs-and-signals → 1 after HOLD (sec07-traffic-signs-and-signals); non-PASS: 05.INPUT_BINDING=FAIL
 
 - 2026-10-28T10:28:39.903Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:85 for 04.cards (sec05-getting-familiar-with-your-vehicle) under standing authority; cause: proactive reset before authoring packet 04.cards__sec05-getting-familiar-with-your-vehicle__-__n1 (lineage attempts exhausted)
+
+- 2026-10-28T10:41:21.842Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:86 for 04.cards (sec10-interstate-driving) under standing authority; cause: proactive reset before authoring packet 04.cards__sec10-interstate-driving__-__n0 (lineage attempts exhausted)

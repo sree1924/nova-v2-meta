@@ -57,3 +57,7 @@ Seeded 2026-10-28T07:24:39.385Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:38:06.834Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:24 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__A__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:39:16.300Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:25 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:41:08.389Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:26 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:41:19.405Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:27 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__G__n0 (lineage attempts exhausted)

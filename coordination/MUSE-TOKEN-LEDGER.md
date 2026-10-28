@@ -1,6 +1,6 @@
 # Muse token ledger (operator cost, subscription)
 
-Generated 2026-10-28T10:39:48.360Z. Source: `muse exec --json` transcripts; only numbers are kept here.
+Generated 2026-10-28T10:41:37.330Z. Source: `muse exec --json` transcripts; only numbers are kept here.
 
 | launch | started (UTC) | model | events | tool results | input | cached | output | reasoning |
 |---|---|---|---|---|---|---|---|---|
@@ -25,12 +25,12 @@ Generated 2026-10-28T10:39:48.360Z. Source: `muse exec --json` transcripts; only
 | intake-KY | 2026-10-28T06:56:27.926Z | muse-spark-1.3 | 5711 | 240 | 50,840,022 | 50,078,311 | 169,710 | 69,955 |
 | intake-OK | 2026-10-28T06:56:37.602Z | muse-spark-1.3 | 5176 | 213 | 41,046,372 | 40,719,191 | 118,896 | 48,358 |
 | intake-CT-r1 | 2026-10-28T09:48:30.716Z | muse-spark-1.3 | 4611 | 184 | 33,205,029 | 32,880,899 | 105,320 | 29,095 |
-| intake-IA-r1 | 2026-10-28T09:48:34.546Z | muse-spark-1.3 | 6627 | 266 | — | — | — | — |
+| intake-IA-r1 | 2026-10-28T09:48:34.546Z | muse-spark-1.3 | 6977 | 277 | 72,242,286 | 71,133,637 | 272,648 | 42,100 |
 | intake-KY-r1 | 2026-10-28T09:48:43.484Z | muse-spark-1.3 | 7153 | 294 | 55,840,461 | 55,243,905 | 202,544 | 49,580 |
 | intake-MT | 2026-10-28T09:48:53.355Z | muse-spark-1.3 | 3516 | 147 | — | — | — | — |
 | intake-NM | 2026-10-28T10:11:04.445Z | muse-spark-1.3 | 370 | 19 | — | — | — | — |
-| intake-OK-r1 | 2026-10-28T10:11:55.948Z | muse-spark-1.3 | 4365 | 181 | — | — | — | — |
+| intake-OK-r1 | 2026-10-28T10:11:55.948Z | muse-spark-1.3 | 4694 | 194 | — | — | — | — |
 
-**Totals (max block per launch):** input 873,536,813 · cached 862,964,914 · output 2,779,300 · reasoning 873,809
+**Totals (max block per launch):** input 945,779,099 · cached 934,098,551 · output 3,051,948 · reasoning 915,909
 
 Launches before 2026-10-27 23:43Z ran without `--json` and have no transcript; their operator cost is visible only as the credit-meter delta before the subscription (see COST-ACCOUNTING.md) and as `muse usage` window percentages.

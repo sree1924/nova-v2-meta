@@ -1,0 +1,2077 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-ny-d",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "ecdb4f8c161a4b964e52fb18419cccac50fc8124b7c7116d11c726a27cc92618",
+    "candidate_lineage_id": "2026-10-28-rdmv-ny-class-d:lineage:66"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-ny-class-d/16/sec11-sharing-the-road/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-ny-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec11-F01",
+      "label": "Who shares the road and pedestrian danger",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F01"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=67"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F02",
+      "label": "Rules for walkers, turners and blind travelers",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F02"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=67"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F03",
+      "label": "Driver tips around pedestrians",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F03"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=67"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F04",
+      "label": "Backing, crosswalks and yielding",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F04"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=68"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F05",
+          "why": "sec11-R01 contrasts sec11-F04 with sec11-F05: Marked and unmarked crosswalks grant walkers equal priority with every approach yielding, and red-lit school buses plus stopped-for-walker vehicles freeze all passing.",
+          "fact_ids": [
+            "sec11-F04",
+            "sec11-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F05",
+      "label": "Disabled travelers, children and school buses",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F05"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=68"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F04",
+          "why": "sec11-R01 contrasts sec11-F05 with sec11-F04: Marked and unmarked crosswalks grant walkers equal priority with every approach yielding, and red-lit school buses plus stopped-for-walker vehicles freeze all passing.",
+          "fact_ids": [
+            "sec11-F05",
+            "sec11-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F06",
+      "label": "Sharing space with cyclists",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F06"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=68"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F07",
+          "why": "sec11-F06 tells drivers to head-check and give cyclists room, while sec11-F07 says where cyclists ride and that they pair at most two abreast.",
+          "fact_ids": [
+            "sec11-F06",
+            "sec11-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F07",
+      "label": "Where cyclists ride and helmets",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F07"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.69",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=69"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F06",
+          "why": "sec11-F06 tells drivers to head-check and give cyclists room, while sec11-F07 says where cyclists ride and that they pair at most two abreast.",
+          "fact_ids": [
+            "sec11-F07",
+            "sec11-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F08",
+      "label": "Cyclist signals, passengers and crash reports",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F08"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.69",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=69"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F09",
+      "label": "Bicycle equipment and lights",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F09"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.69",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=69"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F10",
+      "label": "Turning and passing near cyclists",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F10"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.70",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=70"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F11",
+      "label": "Skaters, scooters and motorcycle rights",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F11"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.70",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=70"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F12",
+      "label": "Motorcycles any time; riders unprotected",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F12"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.71",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=71"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F13",
+      "label": "Why motorcycles are hard to judge",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F13"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.71",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=71"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F14",
+      "label": "Motorcycle lights and signals that mislead",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F14"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.71",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=71"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F15",
+      "label": "Where motorcycle crashes happen",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F15"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.72",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=72"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R08",
+          "why": "sec11-R08 sharpens sec11-F15: Left-turning vehicles meet forty-one percent of fatal riders, so car-seeking eyes must retrain into multi-hazard scans covering cycles among trucks buses bikes and walkers.",
+          "fact_ids": [
+            "sec11-F15",
+            "sec11-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F16",
+      "label": "Road surface hazards for riders",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F16"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.73",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=73"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F17",
+      "label": "Moped classes",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F17"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.73",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=73"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F18",
+      "label": "Moped lanes and truck blind spots",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F18"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.74",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=74"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F20",
+          "why": "sec11-F18 describes the deep rear and side shadows and the long-hood front blind zone of big trucks, while sec11-F20 says passes run longer and roomier with a full front view before returning.",
+          "fact_ids": [
+            "sec11-F18",
+            "sec11-F20"
+          ]
+        },
+        {
+          "other_id": "sec11-F19",
+          "why": "sec11-R07 contrasts sec11-F18 with sec11-F19: Long-hood tractors blind twenty feet ahead beyond deep rear and side shadows, so returns wait for full fronts in mirrors and cutoffs stay banned.",
+          "fact_ids": [
+            "sec11-F18",
+            "sec11-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F19",
+      "label": "Truck blind spots, stopping and turning",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F19"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.74",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=74"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F20",
+          "why": "sec11-F19 covers truck side and rear blind spots, long stops and wide turns, while sec11-F20 covers passing a truck with room, waiting for a backing truck, and leaving gaps behind stopped trucks.",
+          "fact_ids": [
+            "sec11-F19",
+            "sec11-F20"
+          ]
+        },
+        {
+          "other_id": "sec11-F18",
+          "why": "sec11-R07 contrasts sec11-F19 with sec11-F18: Long-hood tractors blind twenty feet ahead beyond deep rear and side shadows, so returns wait for full fronts in mirrors and cutoffs stay banned.",
+          "fact_ids": [
+            "sec11-F19",
+            "sec11-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F20",
+      "label": "Passing and backing near trucks",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F20"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=75"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F19",
+          "why": "sec11-F19 covers truck side and rear blind spots, long stops and wide turns, while sec11-F20 covers passing a truck with room, waiting for a backing truck, and leaving gaps behind stopped trucks.",
+          "fact_ids": [
+            "sec11-F20",
+            "sec11-F19"
+          ]
+        },
+        {
+          "other_id": "sec11-F18",
+          "why": "sec11-F18 describes the deep rear and side shadows and the long-hood front blind zone of big trucks, while sec11-F20 says passes run longer and roomier with a full front view before returning.",
+          "fact_ids": [
+            "sec11-F20",
+            "sec11-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F21",
+      "label": "Slow vehicles, all-terrain vehicles and horses",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F21"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=76"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F22",
+      "label": "Chapter review topics",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F22"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=76"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R01",
+      "label": "Crosswalk priority and frozen passing",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R01"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=68"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F04",
+          "why": "sec11-R01 is the contrast built on sec11-F04; learners who keep only one side of it misapply sec11-F04: Marked and unmarked crosswalks grant walkers equal priority with every approach yielding, and red-lit school buses plus stopped-for-walker vehicles freeze all passing.",
+          "fact_ids": [
+            "sec11-R01",
+            "sec11-F04"
+          ]
+        },
+        {
+          "other_id": "sec11-F05",
+          "why": "sec11-R01 is the contrast built on sec11-F05; learners who keep only one side of it misapply sec11-F05: Marked and unmarked crosswalks grant walkers equal priority with every approach yielding, and red-lit school buses plus stopped-for-walker vehicles freeze all passing.",
+          "fact_ids": [
+            "sec11-R01",
+            "sec11-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R02",
+      "label": "Cyclist lane position, pairs and helmets",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R02"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.69",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=69"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F07",
+          "why": "sec11-R02 is the contrast built on sec11-F07; learners who keep only one side of it misapply sec11-F07: Riders hold lanes or right edges except when turning left or dodging hazards, pair at most two abreast, and helmet through age thirteen.",
+          "fact_ids": [
+            "sec11-R02",
+            "sec11-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R03",
+      "label": "Night lights for bicycles",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R03"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.69",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=69"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F09",
+          "why": "sec11-R03 is the contrast built on sec11-F09; learners who keep only one side of it misapply sec11-F09: Night cycles show heads five hundred feet ahead, tails three hundred behind, and one lamp two hundred to each side, a three-rung visibility ladder.",
+          "fact_ids": [
+            "sec11-R03",
+            "sec11-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R04",
+      "label": "Motorcycle lane sharing",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R04"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.71",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=71"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F13",
+          "why": "sec11-R04 is the contrast built on sec11-F13; learners who keep only one side of it misapply sec11-F13: Two motorcyclists may share one lane side-by-side yet no rider may share or pass within a lane holding any non-motorcycle vehicle.",
+          "fact_ids": [
+            "sec11-R04",
+            "sec11-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R05",
+      "label": "Three moped classes by speed and license",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R05"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.73",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=73"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F17",
+          "why": "sec11-R05 is the contrast built on sec11-F17; learners who keep only one side of it misapply sec11-F17: Class A mopeds reach thirty-one to forty with motorcycle licenses and any-lane rights, B twenty-one to thirty and C twenty-or-less with any-class licenses and right-lane limits.",
+          "fact_ids": [
+            "sec11-R05",
+            "sec11-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R06",
+      "label": "Moped lane limits",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R06"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.74",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=74"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F18",
+          "why": "sec11-R06 is the contrast built on sec11-F18; learners who keep only one side of it misapply sec11-F18: Lower mopeds hug right edges, Class A roams freely, and every moped shuns expressways unless signs invite, all approached with cyclist-grade care.",
+          "fact_ids": [
+            "sec11-R06",
+            "sec11-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R07",
+      "label": "Truck front and rear blind spots",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R07"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.74",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=74"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F18",
+          "why": "sec11-R07 is the contrast built on sec11-F18; learners who keep only one side of it misapply sec11-F18: Long-hood tractors blind twenty feet ahead beyond deep rear and side shadows, so returns wait for full fronts in mirrors and cutoffs stay banned.",
+          "fact_ids": [
+            "sec11-R07",
+            "sec11-F18"
+          ]
+        },
+        {
+          "other_id": "sec11-F19",
+          "why": "sec11-R07 is the contrast built on sec11-F19; learners who keep only one side of it misapply sec11-F19: Long-hood tractors blind twenty feet ahead beyond deep rear and side shadows, so returns wait for full fronts in mirrors and cutoffs stay banned.",
+          "fact_ids": [
+            "sec11-R07",
+            "sec11-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R08",
+      "label": "The left-turn danger for riders",
+      "domain": "Sharing the road",
+      "module_id": "sec11-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R08"
+      ],
+      "source_ref": {
+        "ref": "New York State Driver's Manual (MV-21), PDF p.72",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ny-d:new-york-state-department-of-motor-vehic:handbook#pdf_page=72"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F15",
+          "why": "sec11-R08 is the contrast built on sec11-F15; learners who keep only one side of it misapply sec11-F15: Left-turning vehicles meet forty-one percent of fatal riders, so car-seeking eyes must retrain into multi-hazard scans covering cycles among trucks buses bikes and walkers.",
+          "fact_ids": [
+            "sec11-R08",
+            "sec11-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec11-F04",
+      "to": "sec11-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F05",
+      "to": "sec11-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F07",
+      "to": "sec11-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F09",
+      "to": "sec11-R03",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F13",
+      "to": "sec11-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F17",
+      "to": "sec11-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F18",
+      "to": "sec11-R06",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F18",
+      "to": "sec11-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F19",
+      "to": "sec11-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F15",
+      "to": "sec11-R08",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F01",
+      "to": "sec11-F02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F02",
+      "to": "sec11-F03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F03",
+      "to": "sec11-F04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F04",
+      "to": "sec11-F05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F06",
+      "to": "sec11-F07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F07",
+      "to": "sec11-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F08",
+      "to": "sec11-F09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F09",
+      "to": "sec11-F10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F11",
+      "to": "sec11-F12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F12",
+      "to": "sec11-F13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F13",
+      "to": "sec11-F14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F15",
+      "to": "sec11-F16",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F19",
+      "to": "sec11-F20",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F20",
+      "to": "sec11-F21",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec11-m01",
+      "title": "Sharing the road with pedestrians",
+      "domain": "Sharing the road",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F01",
+        "sec11-F02",
+        "sec11-F03",
+        "sec11-F04",
+        "sec11-F05",
+        "sec11-R01"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m02",
+      "title": "Sharing the road with bicyclists",
+      "domain": "Sharing the road",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F06",
+        "sec11-F07",
+        "sec11-R02",
+        "sec11-F08",
+        "sec11-F09",
+        "sec11-R03",
+        "sec11-F10"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m03",
+      "title": "Skaters, scooters and motorcycles",
+      "domain": "Sharing the road",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F11",
+        "sec11-F12",
+        "sec11-F13",
+        "sec11-R04",
+        "sec11-F14",
+        "sec11-F15",
+        "sec11-R08",
+        "sec11-F16"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m04",
+      "title": "Mopeds and large vehicles",
+      "domain": "Sharing the road",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F17",
+        "sec11-R05",
+        "sec11-F18",
+        "sec11-R06"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m05",
+      "title": "Trucks, slow vehicles and horses",
+      "domain": "Sharing the road",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 7,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F19",
+        "sec11-R07",
+        "sec11-F20",
+        "sec11-F21",
+        "sec11-F22"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec11-m01",
+      "unit_id": "sec11-u01",
+      "node_ids": [
+        "sec11-F01",
+        "sec11-F02",
+        "sec11-F03",
+        "sec11-F04",
+        "sec11-F05",
+        "sec11-R01"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain who shares the road and why pedestrians face the most danger, then the rules for walkers, blind travelers, turning, backing, crosswalks and school buses.",
+      "flashcard_strategy": "Cards for each pedestrian rule; a contrast card on crosswalk priority and frozen passing.",
+      "quiz_strategy": "Hub-chosen quiz describing a pedestrian situation and asking what the driver must do.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m02",
+      "unit_id": "sec11-u02",
+      "node_ids": [
+        "sec11-F06",
+        "sec11-F07",
+        "sec11-R02",
+        "sec11-F08",
+        "sec11-F09",
+        "sec11-R03",
+        "sec11-F10"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover how drivers share space with cyclists, where cyclists ride, helmets and passengers, required equipment and lights, and turning and passing near cyclists.",
+      "flashcard_strategy": "Cards for cyclist rules and driver duties; contrast cards on lane position and the night-light distances.",
+      "quiz_strategy": "Hub-chosen quiz on cyclist rules and how drivers pass or turn near them.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m03",
+      "unit_id": "sec11-u03",
+      "node_ids": [
+        "sec11-F11",
+        "sec11-F12",
+        "sec11-F13",
+        "sec11-R04",
+        "sec11-F14",
+        "sec11-F15",
+        "sec11-R08",
+        "sec11-F16"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain due care for skaters and scooters, then why motorcycles are hard to see, how they use the lane, what hides their signals, where crashes happen and road hazards for riders.",
+      "flashcard_strategy": "Cards for each motorcycle visibility and hazard point; contrast cards on lane sharing and the left-turn danger.",
+      "quiz_strategy": "Hub-chosen quiz on why motorcycles are missed and how to drive around them.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m04",
+      "unit_id": "sec11-u04",
+      "node_ids": [
+        "sec11-F17",
+        "sec11-R05",
+        "sec11-F18",
+        "sec11-R06"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Separate the three moped classes by speed, license and lane rules, then explain where mopeds ride and why large trucks have big blind spots.",
+      "flashcard_strategy": "Cards for moped classes and lane rules and truck blind spots; contrast cards on the three classes and their lane limits.",
+      "quiz_strategy": "Hub-chosen quiz naming a moped's top speed and asking its class and rules.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m05",
+      "unit_id": "sec11-u05",
+      "node_ids": [
+        "sec11-F19",
+        "sec11-R07",
+        "sec11-F20",
+        "sec11-F21",
+        "sec11-F22"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover truck blind spots, stopping and turning, passing and backing trucks, then slow-moving vehicles, all-terrain vehicles and snowmobiles, horses, and the chapter's review topics.",
+      "flashcard_strategy": "Cards for each truck rule and for slow vehicles and horses; a contrast card on truck front and rear blind spots.",
+      "quiz_strategy": "Hub-chosen quiz on driving near trucks and slow vehicles.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec11-F01",
+    "sec11-F02",
+    "sec11-F03",
+    "sec11-F04",
+    "sec11-F05",
+    "sec11-R01",
+    "sec11-F06",
+    "sec11-F07",
+    "sec11-R02",
+    "sec11-F08",
+    "sec11-F09",
+    "sec11-R03",
+    "sec11-F10",
+    "sec11-F11",
+    "sec11-F12",
+    "sec11-F13",
+    "sec11-R04",
+    "sec11-F14",
+    "sec11-F15",
+    "sec11-R08",
+    "sec11-F16",
+    "sec11-F17",
+    "sec11-R05",
+    "sec11-F18",
+    "sec11-R06",
+    "sec11-F19",
+    "sec11-R07",
+    "sec11-F20",
+    "sec11-F21",
+    "sec11-F22"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec11-m01..sec11-m05; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 30,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec11-F01",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F02",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F03",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F04",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F05",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F06",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F07",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F08",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F09",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F10",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F11",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F12",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F13",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F14",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F15",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F16",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F17",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F18",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F19",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F20",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F21",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F22",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R01",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R02",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R03",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R04",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R05",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R06",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R07",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R08",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec11-F04",
+          "to": "sec11-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F05",
+          "to": "sec11-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F07",
+          "to": "sec11-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F09",
+          "to": "sec11-R03",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F13",
+          "to": "sec11-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F17",
+          "to": "sec11-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F18",
+          "to": "sec11-R06",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F18",
+          "to": "sec11-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F19",
+          "to": "sec11-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F15",
+          "to": "sec11-R08",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F01",
+          "to": "sec11-F02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F02",
+          "to": "sec11-F03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F03",
+          "to": "sec11-F04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F04",
+          "to": "sec11-F05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F06",
+          "to": "sec11-F07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F07",
+          "to": "sec11-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F08",
+          "to": "sec11-F09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F09",
+          "to": "sec11-F10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F11",
+          "to": "sec11-F12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F12",
+          "to": "sec11-F13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F13",
+          "to": "sec11-F14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F15",
+          "to": "sec11-F16",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F19",
+          "to": "sec11-F20",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F20",
+          "to": "sec11-F21",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Sharing the road",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec11-m01",
+          "sec11-m02",
+          "sec11-m03",
+          "sec11-m04",
+          "sec11-m05"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}
