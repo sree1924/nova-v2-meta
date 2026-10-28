@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T06:48:46.857Z
+# Worker token ledger — generated 2026-10-28T06:50:55.089Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 16 | 571,600,494 | 1,828,254 | 573,428,748 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 58 | 0 | 0 | 15,154,948 | $0.00 | AL AZ CO IN MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
+| claude | Anthropic subscription (Claude Code subagent) | 59 | 0 | 0 | 15,239,998 | $0.00 | AL AZ CO IN MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -82,4 +82,5 @@
 | claude | claude-opus-5-5 | MD | downstream worker: sec01/03/04/05 through 03/04/06/05 + KG for all 6 (248 nodes, 164 cards/items, 25 units/164 slides, 189 scripts); sec02/sec06 blocked at 04 on fact wording — delta of resumed agent | — | — | — | — | 226,583 | 97 | 18 min | $0.00 |
 | claude | claude-opus-5-5 | NV | downstream worker: sec01-06 through 03/04/06/05 (30/30 first-try; 353 nodes/351 cards/353 items, 35 units/248 slides, 386 scripts) — delta of resumed agent | — | — | — | — | 376,940 | 260 | 81 min | $0.00 |
 | claude | claude-opus-5-5 | TX | downstream worker: sec08-14 (35/35 first-try) — TEXAS DOWNSTREAM COMPLETE 14/14: 347 nodes, 71 units/472 slides, 418 scripts; official_mirror 70% verified — delta of resumed agent | — | — | — | — | 205,117 | 219 | 76 min | $0.00 |
+| claude | claude-opus-5-5 | MD | downstream worker: sec02/06 merges + sec07-12 — MARYLAND DOWNSTREAM COMPLETE 12/12: 574 nodes/572 cards/574 items, 88 units/578 slides, 660 scripts — delta of resumed agent | — | — | — | — | 85,050 | 138 | 29 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |
