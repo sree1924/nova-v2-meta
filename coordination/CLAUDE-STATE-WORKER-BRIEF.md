@@ -28,4 +28,6 @@ HINTS (every hold tonight was one of these):
    H7 G MATRIX: dispositions completed | debt | non_applicable; located_at is an exact chunk_id.
    H8 Same check fails twice → read tools/belt/checks/02-dossier-sections.mjs (read-only) for that check before the third try; three in a row → stop and report.
 
+GENERATED PARTS (allowed, labeled): the formulaic parts A, B, D, E, E2, F, G may be produced by a small script you write (the Colorado worker's parts/gen.mjs pattern) as long as every sentence is section-specific and true for THIS handbook (exam facts not stated ⇒ null + typed debt; market/competitor parts = typed-debt prose with no digits). C and C2 are ALWAYS written by you from the section's pages: every FACT block is one real fact from one cited page, in your own words, never copied across sections. Say in your report which parts were generated.
+
 REPORT (your final message, ≤ 40 lines): state, run_id, sections mapped (id, title, pages), exam facts with page + verbatim, intake result, sections DONE through 16.compile, holds with check ids, what you could not verify. Ledger actual must read $0.000.

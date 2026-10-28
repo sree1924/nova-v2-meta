@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T03:25:59.129Z
+# Worker token ledger — generated 2026-10-28T03:35:03.832Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 11 | 390,087,743 | 1,138,963 | 391,226,706 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 1 | 0 | 0 | 125,817 | $0.00 |  |
+| claude | Anthropic subscription (Claude Code subagent) | 2 | 0 | 0 | 339,603 | $0.00 | CO |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -20,4 +20,5 @@
 | muse | muse-spark-1.3 | AZ | intake-AZ | — | — | — | — | — | 7 | — | $0.00 |
 | muse | muse-spark-1.3 | CO | intake-CO | — | — | — | — | — | 6 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
+| claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |
