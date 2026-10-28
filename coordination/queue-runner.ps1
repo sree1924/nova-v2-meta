@@ -34,18 +34,20 @@ function ReadTail($file, $bytes) {
   try { $fs = [System.IO.File]::Open($file.FullName, 'Open', 'Read', 'ReadWrite'); $len = $fs.Length; $start = [Math]::Max(0, $len - $bytes); $fs.Seek($start, 'Begin') | Out-Null; $buf = New-Object byte[] ($len - $start); $fs.Read($buf, 0, $buf.Length) | Out-Null; $fs.Close(); return [System.Text.Encoding]::UTF8.GetString($buf) } catch { return "" }
 }
 function Status($st) {
-  # returns: never | running | finished | complete ; also detects 429 reset times
-  if (Test-Path (Join-Path $lane "coordination\MUSE-INTAKE-$st-REPORT.md")) { return "complete" }
+  # returns: never | running | finished | complete ; also detects 429 reset times.
+  # A LIVE launch always wins over an older report (CA/VA had stale "blocked" reports from their first attempts — the runner
+  # counted them complete and over-filled to 7 loops, 2026-10-28 01:21Z). Report counts only if newer than the newest launch log.
   $log = NewestLog $st
-  if (-not $log) { return "never" }
+  $report = Get-Item -Path (Join-Path $lane "coordination\MUSE-INTAKE-$st-REPORT.md") -ErrorAction SilentlyContinue
+  if (-not $log) { if ($report) { return "complete" } else { return "never" } }
   $tail = ReadTail $log 400000
+  $live = (-not ($tail -match '"payload_type":"run\.terminal')) -and ((Get-Date) - $log.LastWriteTime -lt [TimeSpan]::FromMinutes(20))
+  if ($live) { return "running" }
+  if ($report -and $report.LastWriteTime -gt $log.LastWriteTime.AddMinutes(-5)) { return "complete" }
   if ($tail -match 'quota exhausted[^"]*resets at (\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)') {
     $t = [DateTime]::Parse($Matches[1]).ToUniversalTime().ToLocalTime()
     if ($t -gt $script:pauseUntil) { $script:pauseUntil = $t.AddMinutes(2); Log "429 seen for $st → pausing launches until $($script:pauseUntil)"; SaveState }
   }
-  if ($tail -match '"payload_type":"run\.terminal') { return "finished" }
-  # no terminal event: running if the file is still being written (modified within 20 min)
-  if ((Get-Date) - $log.LastWriteTime -lt [TimeSpan]::FromMinutes(20)) { return "running" }
   return "finished"
 }
 function Launch($st, $why) {
@@ -56,9 +58,11 @@ function Launch($st, $why) {
   Log "launched ($why): $st pid $($p.Id) → coordination\muse-launch-$tag.jsonl"
 }
 
-Log "queue runner start: max $MaxParallel parallel, poll ${PollSeconds}s, staged: $((Staged()) -join ', ')"
+$stagedNow = Staged
+Log "queue runner start: max $MaxParallel parallel, poll ${PollSeconds}s, staged: $($stagedNow -join ', ')"
 while ($true) {
-  $states = @(Staged() | Where-Object { $skip -notcontains $_ })
+  $stagedNow = Staged
+  $states = @($stagedNow | Where-Object { $skip -notcontains $_ })
   $running = @(); $candidates = @()
   foreach ($st in $states) {
     $s = Status $st
