@@ -1,11 +1,10 @@
-# Worker token ledger — generated 2026-10-28T17:57:28.670Z
+# Worker token ledger — generated 2026-10-28T19:49:36.757Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 29 | 1,035,088,192 | 3,283,625 | 1,038,371,817 | $0.00 | AK AZ CA CO CT FL HI IA KY MT NM NY OK TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 95 | 0 | 0 | 23,250,037 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO MS/WV/HI/RI/VT/AK/ND NC NJ NV NY OR SC TN TX UT VA WA WI |
+| claude | Anthropic subscription (Claude Code subagent) | 96 | 0 | 0 | 23,710,037 | $0.00 | AL AZ CA CO CT FL IN KY KY/OK/CT/IA MD MI MN MO MS/WV/HI/RI/VT/AK/ND NC NJ NV NY OR SC TN TX UT VA WA WI |
 | sol | ChatGPT Pro subscription | 86 | 0 | 0 | 400,934,159 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
-| meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -219,4 +218,4 @@
 | sol | gpt-6.1-sol | PA | undefined | — | — | — | — | 15,739,011 | — | — | $0.00 |
 | sol | gpt-6.1-sol | MT | undefined | — | — | — | — | 5,834,541 | — | — | $0.00 |
 | claude | claude-opus-5-5 | MS/WV/HI/RI/VT/AK/ND | scout round 5: staged 7 handbooks for Muse (NH 403; AR off-domain pending ruling) | — | — | — | — | 115,909 | 30 | 8 min | $0.00 |
-| meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |
+| claude | claude-fable-5-1 | KY | cloud downstream sec01-12 (03/04/06/05.sessions/05.card_scripts, 60 artifacts, $0 file transport) | — | — | — | — | 460,000 | 118 | 90 min | $0.00 |
