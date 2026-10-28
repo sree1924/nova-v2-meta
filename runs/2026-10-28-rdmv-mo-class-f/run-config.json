@@ -326,8 +326,9 @@
     "max_completion_tokens": 30000,
     "per_role_usd_caps_note": "per-role SUB-caps for the 16-section Utah run (raised 2026-10-27 20:02Z from the single-section pilot values 12/5/5/5/3 after BUDGET_CAP_EXCEEDED on sec07; the binding cap is the standing-authority total, limits.max_total_usd)",
     "max_completion_tokens_note": "raised 8000→30000 on 2026-10-27 after attempt aafbd5e9 hit finish_reason=length with 6453/8000 tokens consumed by reasoning at reasoning_effort low (JAM-UT-02); worst case ≈ $0.20/call at list price, under the $1 per-call reservation",
-    "max_request_bytes": 640000,
-    "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority"
+    "max_request_bytes": 700000,
+    "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority",
+    "muse_downstream_limits_note": "2026-10-28 JAM-MO-DS-01 (Claude downstream worker, sec01-06): the sec05 05.card_scripts full request reached about 657 KB, over max_request_bytes 640000 (preflight blocker request_byte_limit). This run is Muse/Claude subscription authoring only (no Model API calls), so max_request_bytes 640000->700000; max_completion_tokens (30000), max_call_usd ($1), per-role, per-provider and total caps unchanged, and the Model-API conservative estimate of that request stays about $0.95, under the $1 per-call cap, so no money ceiling is loosened. Same mechanism as JAM-NJ-DS-01. Revert before any Model-API dispatch on this run."
   },
   "execution": {
     "executor_id": null,

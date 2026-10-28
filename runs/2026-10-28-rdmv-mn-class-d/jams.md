@@ -131,3 +131,5 @@ Seeded 2026-10-28T05:04:23.825Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:35:45.867Z retry nonce 04.cards:@sec04-your-vehicle → 1 after HOLD (sec04-your-vehicle); non-PASS: 04.BACK_SPOKEN_FORM=FAIL
 
 - 2026-10-28T06:35:45.885Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:65 for 04.cards (sec04-your-vehicle) under standing authority; cause: proactive reset before authoring packet 04.cards__sec04-your-vehicle__-__n1 (lineage attempts exhausted)
+
+- 2026-10-28T06:51:03.980Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:66 for 04.cards (sec06-traffic-laws-part-2) under standing authority; cause: proactive reset before authoring packet 04.cards__sec06-traffic-laws-part-2__-__n0 (lineage attempts exhausted)

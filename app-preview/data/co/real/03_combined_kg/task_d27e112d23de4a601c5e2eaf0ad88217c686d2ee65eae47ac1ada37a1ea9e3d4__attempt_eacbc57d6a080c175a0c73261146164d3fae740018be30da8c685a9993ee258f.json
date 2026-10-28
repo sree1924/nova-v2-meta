@@ -1,0 +1,2043 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-co-class-std",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "79c4954b350c54492e60cccbcb55fd71e3d257de12649df22fe9e97af048caeb",
+    "candidate_lineage_id": "2026-10-28-rdmv-co-class-std:lineage:69"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-co-class-std/16/sec04-basic-driving/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-co-class-std/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec04-F01",
+      "label": "Health and driving",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F01"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F02",
+          "why": "sec04-F01 covers physical health problems that hurt driving; sec04-F02 covers strong emotions and road rage.",
+          "fact_ids": [
+            "sec04-F01",
+            "sec04-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F02",
+      "label": "Emotions and road rage",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F02"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F01",
+          "why": "sec04-F01 covers physical health problems that hurt driving; sec04-F02 covers strong emotions and road rage.",
+          "fact_ids": [
+            "sec04-F02",
+            "sec04-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F03",
+      "label": "Distraction is the leading error",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F03"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F05",
+          "why": "sec04-F03 defines distraction as the leading cause of driver error; sec04-F05 lists phone, passengers, children and rubbernecking as sources to avoid.",
+          "fact_ids": [
+            "sec04-F03",
+            "sec04-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F04",
+      "label": "Pre-drive adjustments",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F04"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F16",
+          "why": "sec04-F04 includes securing loose items before you set off; sec04-F16 says where loose objects become dangerous, on the rear shelf, back seat and floor.",
+          "fact_ids": [
+            "sec04-F04",
+            "sec04-F16"
+          ]
+        },
+        {
+          "other_id": "sec04-F17",
+          "why": "sec04-F04 lists the seat, mirror and restraint adjustments before driving; sec04-F17 sets the head restraint to touch the back of your head.",
+          "fact_ids": [
+            "sec04-F04",
+            "sec04-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F05",
+      "label": "Avoiding distraction",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F05"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F03",
+          "why": "sec04-F03 defines distraction as the leading cause of driver error; sec04-F05 lists phone, passengers, children and rubbernecking as sources to avoid.",
+          "fact_ids": [
+            "sec04-F05",
+            "sec04-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F06",
+      "label": "Driver keeps the vehicle safe",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F06"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F13",
+          "why": "sec04-F06 says a poorly maintained car costs more and can break down; sec04-F13 lists what a poorly tuned engine does, such as stalling in traffic.",
+          "fact_ids": [
+            "sec04-F06",
+            "sec04-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F07",
+      "label": "Brakes and lights",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F07"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F08",
+          "why": "sec04-F07 covers brakes and lights; sec04-F08 covers the windshield, wipers and clear windows.",
+          "fact_ids": [
+            "sec04-F07",
+            "sec04-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F08",
+      "label": "Windshield, wipers and windows",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F08"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F07",
+          "why": "sec04-F07 covers brakes and lights; sec04-F08 covers the windshield, wipers and clear windows.",
+          "fact_ids": [
+            "sec04-F08",
+            "sec04-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F09",
+      "label": "Worn or bald tires",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F09"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F10",
+          "why": "sec04-F09 is about worn or bald tires and stopping distance; sec04-F10 is about low pressure and unbalanced wheels.",
+          "fact_ids": [
+            "sec04-F09",
+            "sec04-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F10",
+      "label": "Tire pressure and balance",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F10"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F09",
+          "why": "sec04-F09 is about worn or bald tires and stopping distance; sec04-F10 is about low pressure and unbalanced wheels.",
+          "fact_ids": [
+            "sec04-F10",
+            "sec04-F09"
+          ]
+        },
+        {
+          "other_id": "sec04-F11",
+          "why": "sec04-R04 contrasts sec04-F10 with sec04-F11: A bouncing car points to two possible checks: tires when it bounces with a shaking wheel or pull, suspension when it keeps bouncing after a bump or stop.",
+          "fact_ids": [
+            "sec04-F10",
+            "sec04-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F11",
+      "label": "Steering and suspension checks",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F11"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F10",
+          "why": "sec04-R04 contrasts sec04-F11 with sec04-F10: A bouncing car points to two possible checks: tires when it bounces with a shaking wheel or pull, suspension when it keeps bouncing after a bump or stop.",
+          "fact_ids": [
+            "sec04-F11",
+            "sec04-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F12",
+      "label": "Exhaust leaks kill",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F12"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F13",
+          "why": "sec04-F12 warns that exhaust leaks can kill quickly; sec04-F13 covers engine tune problems and checking the horn.",
+          "fact_ids": [
+            "sec04-F12",
+            "sec04-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F13",
+      "label": "Engine tune and horn",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F13"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F06",
+          "why": "sec04-F06 says a poorly maintained car costs more and can break down; sec04-F13 lists what a poorly tuned engine does, such as stalling in traffic.",
+          "fact_ids": [
+            "sec04-F13",
+            "sec04-F06"
+          ]
+        },
+        {
+          "other_id": "sec04-F12",
+          "why": "sec04-F12 warns that exhaust leaks can kill quickly; sec04-F13 covers engine tune problems and checking the horn.",
+          "fact_ids": [
+            "sec04-F13",
+            "sec04-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F14",
+      "label": "Driver-side mirror",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F14"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F15",
+          "why": "sec04-R02 contrasts sec04-F14 with sec04-F15: Mirror setup differs by side: for the left mirror your head touches the left window, for the right mirror your head is centered under the inside mirror.",
+          "fact_ids": [
+            "sec04-F14",
+            "sec04-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F15",
+      "label": "Passenger-side mirror",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F15"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F14",
+          "why": "sec04-R02 contrasts sec04-F15 with sec04-F14: Mirror setup differs by side: for the left mirror your head touches the left window, for the right mirror your head is centered under the inside mirror.",
+          "fact_ids": [
+            "sec04-F15",
+            "sec04-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F16",
+      "label": "Remove loose objects",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F16"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F04",
+          "why": "sec04-F04 includes securing loose items before you set off; sec04-F16 says where loose objects become dangerous, on the rear shelf, back seat and floor.",
+          "fact_ids": [
+            "sec04-F16",
+            "sec04-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F17",
+      "label": "Head restraint position",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F17"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F04",
+          "why": "sec04-F04 lists the seat, mirror and restraint adjustments before driving; sec04-F17 sets the head restraint to touch the back of your head.",
+          "fact_ids": [
+            "sec04-F17",
+            "sec04-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F18",
+      "label": "Starting the vehicle",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F18"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F19",
+          "why": "sec04-R05 contrasts sec04-F18 with sec04-F19: When pressing the accelerator, the ball of the foot works the pedal while the heel stays on the floor; when starting the engine, the right foot is on the brake.",
+          "fact_ids": [
+            "sec04-F18",
+            "sec04-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F19",
+      "label": "Pulling away",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F19"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F20",
+          "why": "sec04-F19 is the pulling-away routine with gentle acceleration; sec04-F20 is the stopping routine with mirror check and steady brake pressure.",
+          "fact_ids": [
+            "sec04-F19",
+            "sec04-F20"
+          ]
+        },
+        {
+          "other_id": "sec04-F18",
+          "why": "sec04-R05 contrasts sec04-F19 with sec04-F18: When pressing the accelerator, the ball of the foot works the pedal while the heel stays on the floor; when starting the engine, the right foot is on the brake.",
+          "fact_ids": [
+            "sec04-F19",
+            "sec04-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F20",
+      "label": "Stopping smoothly",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F20"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F19",
+          "why": "sec04-F19 is the pulling-away routine with gentle acceleration; sec04-F20 is the stopping routine with mirror check and steady brake pressure.",
+          "fact_ids": [
+            "sec04-F20",
+            "sec04-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F21",
+      "label": "Steer toward where you go",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F21"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-R03",
+          "why": "sec04-R03 applies the sec04-F21 rule to backing up: turn the wheel toward where you want the vehicle to go.",
+          "fact_ids": [
+            "sec04-F21",
+            "sec04-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F22",
+      "label": "Approved hand positions",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F22"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-R01",
+          "why": "sec04-R01 sharpens sec04-F22: the approved positions are three and nine or four and eight o'clock, not ten and two.",
+          "fact_ids": [
+            "sec04-F22",
+            "sec04-R01"
+          ]
+        },
+        {
+          "other_id": "sec04-F23",
+          "why": "sec04-F22 sets where the hands go on the wheel; sec04-F23 sets how to grip, with fingers and thumbs up, never the inside of the rim.",
+          "fact_ids": [
+            "sec04-F22",
+            "sec04-F23"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-F23",
+      "label": "Correct grip",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-F23"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F22",
+          "why": "sec04-F22 sets where the hands go on the wheel; sec04-F23 sets how to grip, with fingers and thumbs up, never the inside of the rim.",
+          "fact_ids": [
+            "sec04-F23",
+            "sec04-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-R01",
+      "label": "Not ten and two",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-R01"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F22",
+          "why": "sec04-R01 sharpens sec04-F22: the approved positions are three and nine or four and eight o'clock, not ten and two.",
+          "fact_ids": [
+            "sec04-R01",
+            "sec04-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-R02",
+      "label": "Left versus right mirror setup",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-R02"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F14",
+          "why": "sec04-R02 is the contrast built on sec04-F14; learners who keep only one side of it misapply sec04-F14: Mirror setup differs by side: for the left mirror your head touches the left window, for the right mirror your head is centered under the inside mirror.",
+          "fact_ids": [
+            "sec04-R02",
+            "sec04-F14"
+          ]
+        },
+        {
+          "other_id": "sec04-F15",
+          "why": "sec04-R02 is the contrast built on sec04-F15; learners who keep only one side of it misapply sec04-F15: Mirror setup differs by side: for the left mirror your head touches the left window, for the right mirror your head is centered under the inside mirror.",
+          "fact_ids": [
+            "sec04-R02",
+            "sec04-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-R03",
+      "label": "Steering in reverse",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-R03"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F21",
+          "why": "sec04-R03 applies the sec04-F21 rule to backing up: turn the wheel toward where you want the vehicle to go.",
+          "fact_ids": [
+            "sec04-R03",
+            "sec04-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-R04",
+      "label": "Tires versus suspension bounce",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-R04"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F10",
+          "why": "sec04-R04 is the contrast built on sec04-F10; learners who keep only one side of it misapply sec04-F10: A bouncing car points to two possible checks: tires when it bounces with a shaking wheel or pull, suspension when it keeps bouncing after a bump or stop.",
+          "fact_ids": [
+            "sec04-R04",
+            "sec04-F10"
+          ]
+        },
+        {
+          "other_id": "sec04-F11",
+          "why": "sec04-R04 is the contrast built on sec04-F11; learners who keep only one side of it misapply sec04-F11: A bouncing car points to two possible checks: tires when it bounces with a shaking wheel or pull, suspension when it keeps bouncing after a bump or stop.",
+          "fact_ids": [
+            "sec04-R04",
+            "sec04-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec04-R05",
+      "label": "Foot position start versus go",
+      "domain": "Health, vehicle checks and basic driving",
+      "module_id": "sec04-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec04-R05"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.9",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0009"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec04-F18",
+          "why": "sec04-R05 is the contrast built on sec04-F18; learners who keep only one side of it misapply sec04-F18: When pressing the accelerator, the ball of the foot works the pedal while the heel stays on the floor; when starting the engine, the right foot is on the brake.",
+          "fact_ids": [
+            "sec04-R05",
+            "sec04-F18"
+          ]
+        },
+        {
+          "other_id": "sec04-F19",
+          "why": "sec04-R05 is the contrast built on sec04-F19; learners who keep only one side of it misapply sec04-F19: When pressing the accelerator, the ball of the foot works the pedal while the heel stays on the floor; when starting the engine, the right foot is on the brake.",
+          "fact_ids": [
+            "sec04-R05",
+            "sec04-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec04-F22",
+      "to": "sec04-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F14",
+      "to": "sec04-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F15",
+      "to": "sec04-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F21",
+      "to": "sec04-R03",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F10",
+      "to": "sec04-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F11",
+      "to": "sec04-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F18",
+      "to": "sec04-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F19",
+      "to": "sec04-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F03",
+      "to": "sec04-F05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F06",
+      "to": "sec04-F07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F09",
+      "to": "sec04-F10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F04",
+      "to": "sec04-F14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F18",
+      "to": "sec04-F19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F19",
+      "to": "sec04-F20",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec04-F22",
+      "to": "sec04-F23",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec04-m01",
+      "title": "Health, emotions and distraction",
+      "domain": "Health, vehicle checks and basic driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec04-F01",
+        "sec04-F02",
+        "sec04-F03",
+        "sec04-F05"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m02",
+      "title": "Brakes, lights, glass and tires",
+      "domain": "Health, vehicle checks and basic driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec04-F06",
+        "sec04-F07",
+        "sec04-F08",
+        "sec04-F09",
+        "sec04-F10"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m03",
+      "title": "Steering, suspension, exhaust and engine",
+      "domain": "Health, vehicle checks and basic driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec04-F11",
+        "sec04-R04",
+        "sec04-F12",
+        "sec04-F13"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m04",
+      "title": "Setting up before you drive",
+      "domain": "Health, vehicle checks and basic driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 12,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec04-F04",
+        "sec04-F14",
+        "sec04-F15",
+        "sec04-R02",
+        "sec04-F16",
+        "sec04-F17"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m05",
+      "title": "Starting, moving and stopping",
+      "domain": "Health, vehicle checks and basic driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec04-F18",
+        "sec04-F19",
+        "sec04-R05",
+        "sec04-F20"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m06",
+      "title": "Steering control",
+      "domain": "Health, vehicle checks and basic driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec04-F21",
+        "sec04-R03",
+        "sec04-F22",
+        "sec04-R01",
+        "sec04-F23"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec04-m01",
+      "unit_id": "sec04-u01",
+      "node_ids": [
+        "sec04-F01",
+        "sec04-F02",
+        "sec04-F03",
+        "sec04-F05"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Show how minor illness, medical conditions and strong emotions affect driving, then why distraction is the leading cause of driver error and how to avoid it.",
+      "flashcard_strategy": "One card per factor; contrast card for distraction sources.",
+      "quiz_strategy": "Hub-chosen quiz on fitness and distraction scenarios.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m02",
+      "unit_id": "sec04-u02",
+      "node_ids": [
+        "sec04-F06",
+        "sec04-F07",
+        "sec04-F08",
+        "sec04-F09",
+        "sec04-F10"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Start with the driver's duty to maintain the vehicle, then brakes and lights, windshield and wipers, and tire condition and pressure.",
+      "flashcard_strategy": "One card per system; contrast card for worn tires versus low pressure.",
+      "quiz_strategy": "Hub-chosen quiz on warning signs and what to check.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m03",
+      "unit_id": "sec04-u03",
+      "node_ids": [
+        "sec04-F11",
+        "sec04-R04",
+        "sec04-F12",
+        "sec04-F13"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover steering and suspension warning signs, the deadly danger of exhaust leaks, and engine tune and horn checks.",
+      "flashcard_strategy": "Cards for each system; contrast card for tire versus suspension bouncing.",
+      "quiz_strategy": "Hub-chosen quiz matching a symptom to the check it needs.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m04",
+      "unit_id": "sec04-u04",
+      "node_ids": [
+        "sec04-F04",
+        "sec04-F14",
+        "sec04-F15",
+        "sec04-R02",
+        "sec04-F16",
+        "sec04-F17"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Walk the pre-drive routine: seat, controls and restraints, then each side mirror, loose objects and the head restraint.",
+      "flashcard_strategy": "Cards for each setup step; contrast card for left versus right mirror head position.",
+      "quiz_strategy": "Hub-chosen quiz on correct setup positions.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m05",
+      "unit_id": "sec04-u05",
+      "node_ids": [
+        "sec04-F18",
+        "sec04-F19",
+        "sec04-R05",
+        "sec04-F20"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach starting with the foot on the brake, pulling away with a safe path and gentle acceleration, and stopping with steady pressure.",
+      "flashcard_strategy": "Cards for each step; contrast card for foot position when starting versus accelerating.",
+      "quiz_strategy": "Hub-chosen quiz on the order of steps.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec04-m06",
+      "unit_id": "sec04-u06",
+      "node_ids": [
+        "sec04-F21",
+        "sec04-R03",
+        "sec04-F22",
+        "sec04-R01",
+        "sec04-F23"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the steering direction rule forward and in reverse, the two approved hand positions, and a correct grip.",
+      "flashcard_strategy": "Cards for direction, hand positions and grip; contrast cards for reverse steering and ten-and-two.",
+      "quiz_strategy": "Hub-chosen quiz on hand positions and steering direction.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec04-F01",
+    "sec04-F02",
+    "sec04-F03",
+    "sec04-F05",
+    "sec04-F06",
+    "sec04-F07",
+    "sec04-F08",
+    "sec04-F09",
+    "sec04-F10",
+    "sec04-F11",
+    "sec04-R04",
+    "sec04-F12",
+    "sec04-F13",
+    "sec04-F04",
+    "sec04-F14",
+    "sec04-F15",
+    "sec04-R02",
+    "sec04-F16",
+    "sec04-F17",
+    "sec04-F18",
+    "sec04-F19",
+    "sec04-R05",
+    "sec04-F20",
+    "sec04-F21",
+    "sec04-R03",
+    "sec04-F22",
+    "sec04-R01",
+    "sec04-F23"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec04-m01..sec04-m06; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 28,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec04-F01",
+          "module_id": "sec04-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F02",
+          "module_id": "sec04-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F03",
+          "module_id": "sec04-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F04",
+          "module_id": "sec04-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F05",
+          "module_id": "sec04-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F06",
+          "module_id": "sec04-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F07",
+          "module_id": "sec04-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F08",
+          "module_id": "sec04-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F09",
+          "module_id": "sec04-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F10",
+          "module_id": "sec04-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F11",
+          "module_id": "sec04-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F12",
+          "module_id": "sec04-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F13",
+          "module_id": "sec04-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F14",
+          "module_id": "sec04-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F15",
+          "module_id": "sec04-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F16",
+          "module_id": "sec04-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F17",
+          "module_id": "sec04-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F18",
+          "module_id": "sec04-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F19",
+          "module_id": "sec04-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F20",
+          "module_id": "sec04-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F21",
+          "module_id": "sec04-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F22",
+          "module_id": "sec04-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-F23",
+          "module_id": "sec04-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-R01",
+          "module_id": "sec04-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-R02",
+          "module_id": "sec04-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-R03",
+          "module_id": "sec04-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-R04",
+          "module_id": "sec04-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec04-R05",
+          "module_id": "sec04-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec04-F22",
+          "to": "sec04-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F14",
+          "to": "sec04-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F15",
+          "to": "sec04-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F21",
+          "to": "sec04-R03",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F10",
+          "to": "sec04-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F11",
+          "to": "sec04-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F18",
+          "to": "sec04-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F19",
+          "to": "sec04-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F03",
+          "to": "sec04-F05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F06",
+          "to": "sec04-F07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F09",
+          "to": "sec04-F10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F04",
+          "to": "sec04-F14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F18",
+          "to": "sec04-F19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F19",
+          "to": "sec04-F20",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec04-F22",
+          "to": "sec04-F23",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Health, vehicle checks and basic driving",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec04-m01",
+          "sec04-m02",
+          "sec04-m03",
+          "sec04-m04",
+          "sec04-m05",
+          "sec04-m06"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}
