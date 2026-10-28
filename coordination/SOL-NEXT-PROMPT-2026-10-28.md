@@ -2,7 +2,7 @@ Sol — one message, three parts, in this order (founder, 2026-10-28 evening; th
 
 PART 0 — NOTICE. Shell onboarding is the coordinator's step, never yours: do not run export-content, onboard-state, embed-states, sync-store, or edit app-preview/* or store/*. Your nine finished runs (ID KS DE NE PA WY ME SD NM) are already in the shell from their ledgers. Flip NM's QUEUE row to complete when your report is final. Finish MT (write coordination\SOL-REPORTS\MT.md, flip its row) and stop; I onboard it. From here on, every state ends with report + row flip, then you stop. Full note: coordination\SOL-NOTICE-ONBOARDING-2026-10-28.md.
 
-PART 1 — RE-AUTHOR PASS (do this before the 15 new states). Brief: coordination\SOL-REAUTHOR-PASS-BRIEF.md, followed exactly (recompile 16 → nonce bump + --remint 04.cards → nonce bump + --remint 05.card_scripts; 03/06/05.sessions stay accepted; never alter an accepted artifact in place). Targets, worst first, with hidden-card counts from app-preview\data\quarantine-summary.json and the run ids (all under D:\nova\fb-ai-hackathon\runs\):
+PART 1 — RE-AUTHOR PASS (do this before the 14 new states). Brief: coordination\SOL-REAUTHOR-PASS-BRIEF.md, followed exactly (recompile 16 → nonce bump + --remint 04.cards → nonce bump + --remint 05.card_scripts; 03/06/05.sessions stay accepted; never alter an accepted artifact in place). Targets, worst first, with hidden-card counts from app-preview\data\quarantine-summary.json and the run ids (all under D:\nova\fb-ai-hackathon\runs\):
   MO 45  2026-10-28-rdmv-mo-class-f
   NJ 32  2026-10-28-rdmv-nj-class-d
   NV 32  2026-10-28-rdmv-nv-class-c
