@@ -1,53 +1,73 @@
 {
-  "schema_version": "shared-belt-writer-barrier-request.v1",
-  "status": "READY_REVIEWED_PATCH_WAITING_EXISTING_WRITER_BOUNDARY",
-  "founder_authority": [
-    "Yes—Sol fixes the belt and continues",
-    "u act as head cordinate"
-  ],
-  "requested_by": "Sol head coordinator 01a1764d-cf44-7fc1-a31f-bf0be7852006",
+  "schema_version": "sol-shared-belt-write-barrier.v2",
+  "request_id": "sol-spoken-compiler-20261028-v1",
+  "status": "READY_TESTED_COMPILER_PATCH_WAITING_FOREIGN_WRITER_BOUNDARY",
+  "requested_by": "Sol head coordinator",
+  "founder_authority": "Yes—Sol fixes the belt and continues",
+  "production_target": "tools/belt/compile.mjs",
+  "baseline_sha256": "acfda132a50760f863693f2757e4803a40c7a23da98ba47ecf43fe744209980d",
+  "candidate_sha256": "090642ed18005ca560035745c911ed6e920e588c3568b43ebc205b4a0318bc1a",
   "patch_ref": {
-    "path": "scratch/sol-state-coordinator/source-reconciliation-prototype/production.patch",
-    "sha256": "c39269d5593a35baf880f4ab043a8e81f4bc676d00f86cd5db121871afc02d01"
+    "path": "scratch/sol-state-coordinator/spoken-compiler-prototype/production.patch",
+    "sha256": "4013ba958b619d476456ac4a2d1f496683609c2cd9a5362700758ad3fae7b24d"
   },
   "receipt_ref": {
-    "path": "scratch/sol-state-coordinator/source-reconciliation-prototype/production-candidate/receipt.json",
-    "sha256": "4702ea38a6609f13e627fd47ef22cc35727919b4ba966d03376f649d87867834"
+    "path": "scratch/sol-state-coordinator/spoken-compiler-prototype/receipt.json",
+    "sha256": "1dec3662b238e91cbb3d1c18776b22a3b6fc2b8135fe1e43688da783f5d2123a"
   },
-  "owner_tests": "7/7 PASS",
-  "independent_review": "No actionable findings in final frozen patch; independent5/5+2/2 delta PASS",
+  "owner_tests": {
+    "command": "node --test ./spoken-units.test.mjs",
+    "cwd": "D:/nova/fb-ai-hackathon/scratch/sol-state-coordinator/spoken-compiler-prototype",
+    "exit_code": 0,
+    "tests": 33,
+    "passed": 33,
+    "failed": 0,
+    "log": "test-results.tap",
+    "log_sha256": "f51c81d1a91ecbfd7bec5acfd2c1ea78a96008a500270eb0c64ed7f1997b05be",
+    "node_version": "v22.13.1"
+  },
+  "root_validation": {
+    "focused_tests": 33,
+    "pass": 33,
+    "fail": 0,
+    "exit_code": 0,
+    "baseline_patch_candidate_log_hashes_match": true,
+    "scope_review": "Only derived spoken unit normalization; factual statements/IDs/citations and accepted input bytes unchanged"
+  },
   "applied": false,
-  "existing_non_sol_writer": {
-    "state": "OK",
-    "launcher_pid": 130872,
-    "tag": "intake-OK-r1",
-    "transcript": "coordination/muse-launch-intake-OK-r1.jsonl",
-    "observed_recent_activity": true,
-    "launcher_created_at": "2026-10-28T10:11:50.431613Z"
+  "previous_request_ref": {
+    "path": "scratch/sol-state-coordinator/coordination-history/SOL-SHARED-BELT-WRITE-BARRIER-REQUEST-1624e13fe56a327d1115ee2d628bdd888f5ab643412845e6bf793c9aa5d5f913.json",
+    "sha256": "1624e13fe56a327d1115ee2d628bdd888f5ab643412845e6bf793c9aa5d5f913"
   },
-  "new_launch_coordinator": "Paused only verified queue-runner PID128600; own restoration receipt scratch/sol-state-coordinator/MUSE-QUEUE-MAINTENANCE-v2.json; current OK worker and queue rows untouched",
-  "owner_request": "At the next safe native subprocess exit, save current OK packet/outbox and run checkpoint, release its native lock, stop issuing new belt calls, and write the owner acknowledgement below. Do not kill an in-flight attempt or alter accepted bytes. Sol will then briefly pause its own five writers, apply the reviewed patch, run native regression tests, refresh code/registry pins, restore the launch coordinator and issue resume receipts.",
+  "owner_request": "At a natural native subprocess boundary, pause foreign shared-code dispatchers/new-launch coordinators without killing in-flight workers or changing queue rows. Confirm no foreign native invocation can overlap the patch. Existing Sol five writers continue until this foreign boundary is acknowledged; Sol then checkpoints its own writers before applying. Do not modify live code on this request.",
   "acknowledgement_path": "coordination/BELT-WRITE-BARRIER-OWNER-ACK.json",
   "acknowledgement_required": {
-    "state": "OK",
-    "quiesced": true,
-    "native_lock_held": false,
-    "in_flight_attempts": 0,
-    "checkpoint_path": "<actual>",
-    "pending_packet_outbox_refs": "<actual exact paths/hashes or null>",
-    "recorded_by": "<actual owner/session>",
-    "recorded_at": "<actual UTC>",
-    "request_ref": {
-      "path": "coordination/SOL-SHARED-BELT-WRITE-BARRIER-REQUEST.json",
-      "sha256": "<SHA256 of this exact request>"
-    },
-    "patch_sha256": "c39269d5593a35baf880f4ab043a8e81f4bc676d00f86cd5db121871afc02d01",
-    "launcher_pid": 130872,
-    "launcher_created_at": "2026-10-28T10:11:50.431613Z"
+    "request_id": "sol-spoken-compiler-20261028-v1",
+    "request_sha256": "Compute SHA256 of this exact request",
+    "foreign_code_users_quiesced": true,
+    "new_launchers_paused": true,
+    "active_foreign_native_invocations": 0,
+    "evidence": "Explicit owner boundary evidence; PID absence/age or stale acknowledgements are insufficient"
   },
-  "sol_writers_continue_until_ack_or_verified_owner_terminal": true,
-  "no_paid_api": true,
-  "no_audio": true,
-  "no_publishing": true,
-  "recorded_at": "2026-10-28T10:58:35.456Z"
+  "release_path": "coordination/SOL-SPOKEN-COMPILER-WRITE-BARRIER-RELEASE.json",
+  "resume_requirement": "After release, use fresh processes/native packets with refreshed compiler/binding hashes; no stale ESM cache or old unconsumed packet replay",
+  "sol_writers_continue_until_foreign_ack": true,
+  "constraints": {
+    "no_paid_api": true,
+    "no_audio": true,
+    "no_publishing": true,
+    "no_factory_schema_manifest_edits": true,
+    "no_validator_weakening": true,
+    "no_accepted_file_overwrites": true,
+    "no_failed_candidate_reset": true
+  },
+  "remaining_limitations": [
+    "Candidate only. No live tool, schema, contract, accepted source, run, queue or binding changed; no patch application, dispatch, provider call or broad production suite.",
+    "NM that symbol remains a source-bound learner-wording/media-disposition conflict requiring separate capability.",
+    "NM sec10-R03 eastern/open and ME sec11-F27 stop/yield remain unchanged and fail slash speakability: existing generic alternatives support only 1–3-character tokens. No semantic choice is inferred.",
+    "Temperature glyphs, undeclared unit abbreviations and non-integer range grammar remain outside this repair.",
+    "The baseline unit rule removes a trailing unit period and uses plural dictionary forms (including one miles); those existing behaviors are preserved.",
+    "This is mechanical spoken derivation evidence, not factual, legal or clinical acceptance."
+  ],
+  "recorded_at": "2026-10-28T17:32:41.681Z"
 }
