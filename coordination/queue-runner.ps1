@@ -55,7 +55,7 @@ $briefV2 = Join-Path $lane "coordination\MUSE-STATE-INTAKE-BRIEF-v2.md"
 function Launch($st, $why) {
   $prompt = Join-Path $lane "coordination\intake\$st.prompt.md"
   # New states run the v2 brief (thin packets + hints); relaunches of states started on v1 keep v1 so their loop stays consistent.
-  $useBrief = $brief; if ($why -eq "new" -and (Test-Path $briefV2)) { $useBrief = $briefV2 }
+  $useBrief = $brief; if ($why -eq "new" -and (Test-Path $briefV2)) { $useBrief = $briefV2 }; if ((Test-Path $briefV3) -and -not (Test-Path (Join-Path $lane "coordinationMUSE-INTAKE-$st-REPORT.md"))) { $useBrief = $briefV3 }
   "STATE=$st`n`n" + (Get-Content -Raw -Path $useBrief) | Set-Content -Path $prompt -Encoding utf8
   $tag = "intake-$st"; if ($why -ne "new") { $tag = "intake-$st-r$($relaunches[$st])" }
   $p = Start-Process -FilePath "powershell" -ArgumentList @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $launcher, "-Brief", $prompt, "-Tag", $tag) -PassThru -WindowStyle Hidden
