@@ -115,3 +115,5 @@ Seeded 2026-10-28T06:59:51.145Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:42:41.382Z lineage reset → 2026-10-28-rdmv-ct-class-d:lineage:57 for 03.combined_kg (sec07-distractions-fatigue) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-distractions-fatigue__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:57:28.447Z lineage reset → 2026-10-28-rdmv-ct-class-d:lineage:58 for 03.combined_kg (sec11-pavement-markings-signals) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-pavement-markings-signals__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:57:57.089Z lineage reset → 2026-10-28-rdmv-ct-class-d:lineage:59 for 03.combined_kg (sec09-rules-of-road) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-rules-of-road__-__n0 (lineage attempts exhausted)

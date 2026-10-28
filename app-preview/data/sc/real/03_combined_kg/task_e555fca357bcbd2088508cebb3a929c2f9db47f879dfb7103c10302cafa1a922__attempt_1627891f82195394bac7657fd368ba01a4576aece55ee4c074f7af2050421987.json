@@ -1,0 +1,2536 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-sc-d",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "ca87646799ce56bcb712f517b1ca761125c807e89927af997ee73877dea03ac9",
+    "candidate_lineage_id": "2026-10-28-rdmv-sc-class-d:lineage:70"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-sc-class-d/16/sec06-basic-driving/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-sc-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec06-F01",
+      "label": "Check the owner's manual for starting",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F01"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F02",
+      "label": "Engine start steps",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F02"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R01",
+          "why": "The gear is in park to start and moves to drive only when ready to go.",
+          "fact_ids": [
+            "sec06-F02",
+            "sec06-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F03",
+      "label": "Check gauges and warning lights",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F03"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F04",
+      "label": "Shift to drive, check ahead",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F04"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R01",
+          "why": "Starting and pulling away use different gear positions.",
+          "fact_ids": [
+            "sec06-F04",
+            "sec06-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F05",
+      "label": "Check sides, rear and blind spots",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F05"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F06",
+      "label": "Signal, then accelerate gently",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F06"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F07",
+      "label": "Smooth acceleration, heel down",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F07"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F08",
+      "label": "Mirror check before braking",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F08"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R02",
+          "why": "The stopping sequence starts with mirrors, not with the brake.",
+          "fact_ids": [
+            "sec06-F08",
+            "sec06-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F09",
+      "label": "Steady brake pressure",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F09"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F10",
+      "label": "Turn the wheel the way you want to go",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F10"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F11",
+      "label": "Both hands, firm but gentle grip",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F11"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F12",
+      "label": "Fingers, thumbs up, outside the rim",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F12"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F13",
+      "label": "Basic hand positions on the clock",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F13"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F18",
+          "why": "The basic grip areas are wider than the push-pull starting positions.",
+          "fact_ids": [
+            "sec06-F13",
+            "sec06-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F14",
+      "label": "Both hands on the wheel",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F14"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F15",
+      "label": "Practice on quiet rural roads",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F15"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F16",
+      "label": "Ready for turning and parking",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F16"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F17",
+      "label": "When push-pull steering is used",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F17"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.55",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0055"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R05",
+          "why": "Push-pull is for normal forward driving, while hand-over-hand is for low-speed turns.",
+          "fact_ids": [
+            "sec06-F17",
+            "sec06-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F18",
+      "label": "Push-pull hand positions",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F18"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.55",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0055"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F13",
+          "why": "The basic grip areas are wider than the push-pull starting positions.",
+          "fact_ids": [
+            "sec06-F18",
+            "sec06-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F19",
+      "label": "How push-pull works",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F19"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.55",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0055"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F20",
+      "label": "Reversing the push-pull motion",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F20"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.55",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0055"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F21",
+      "label": "Lower hands reduce strain",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F21"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.55",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0055"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F22",
+      "label": "Push-pull protects arms in a crash",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F22"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.55",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0055"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F23",
+      "label": "Push-pull preferred, two and ten not",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F23"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F24",
+          "why": "Push-pull is preferred for normal driving, while hand-over-hand is used at low speeds.",
+          "fact_ids": [
+            "sec06-F23",
+            "sec06-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F24",
+      "label": "When hand-over-hand is used",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F24"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F23",
+          "why": "Push-pull is preferred for normal driving, while hand-over-hand is used at low speeds.",
+          "fact_ids": [
+            "sec06-F24",
+            "sec06-F23"
+          ]
+        },
+        {
+          "other_id": "sec06-R05",
+          "why": "Hand-over-hand belongs to slow turns at intersections and parking.",
+          "fact_ids": [
+            "sec06-F24",
+            "sec06-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F25",
+      "label": "Hand-over-hand starting positions",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F25"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F26",
+      "label": "How hand-over-hand works",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F26"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F27",
+      "label": "When one-hand steering is allowed",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F27"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F29",
+          "why": "One-hand steering is for backing or a short reach, and twelve o'clock is used only when backing.",
+          "fact_ids": [
+            "sec06-F27",
+            "sec06-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F28",
+      "label": "Other hand stays in position",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F28"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F29",
+      "label": "When twelve o'clock is used",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F29"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.57",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0057"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F27",
+          "why": "One-hand steering is for backing or a short reach, and twelve o'clock is used only when backing.",
+          "fact_ids": [
+            "sec06-F29",
+            "sec06-F27"
+          ]
+        },
+        {
+          "other_id": "sec06-R08",
+          "why": "Twelve o'clock appears only in backing, never in normal forward driving.",
+          "fact_ids": [
+            "sec06-F29",
+            "sec06-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F30",
+      "label": "Check behind before getting in",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F30"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.57",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0057"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F33",
+          "why": "Checking behind before getting in matters because mirrors miss the area right behind.",
+          "fact_ids": [
+            "sec06-F30",
+            "sec06-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F31",
+      "label": "Backing steps: brake, reverse, grip",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F31"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.57",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0057"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R08",
+          "why": "The backing steps put the left hand at twelve o'clock.",
+          "fact_ids": [
+            "sec06-F31",
+            "sec06-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F32",
+      "label": "Look through the rear window",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F32"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.57",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0057"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R09",
+          "why": "Your main backing view comes from looking through the rear window, not the mirrors.",
+          "fact_ids": [
+            "sec06-F32",
+            "sec06-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F33",
+      "label": "Mirrors miss the area right behind",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F33"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.57",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0057"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F30",
+          "why": "Checking behind before getting in matters because mirrors miss the area right behind.",
+          "fact_ids": [
+            "sec06-F33",
+            "sec06-F30"
+          ]
+        },
+        {
+          "other_id": "sec06-R09",
+          "why": "Mirrors and cameras are only checked now and then while backing.",
+          "fact_ids": [
+            "sec06-F33",
+            "sec06-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F34",
+      "label": "Slow speed in reverse",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F34"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.57",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0057"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F35",
+          "why": "Slow speed and slight steering together keep backing under control.",
+          "fact_ids": [
+            "sec06-F34",
+            "sec06-F35"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F35",
+      "label": "Steer toward where the rear should go",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F35"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.58",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0058"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F34",
+          "why": "Slow speed and slight steering together keep backing under control.",
+          "fact_ids": [
+            "sec06-F35",
+            "sec06-F34"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F36",
+      "label": "Check front and sides when turning back",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F36"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.58",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0058"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F37",
+      "label": "Look back until stopped",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "module_id": "sec06-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-F37"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.58",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0058"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R01",
+      "label": "Park to start, drive to go",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R01"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F02",
+          "why": "The gear is in park to start and moves to drive only when ready to go.",
+          "fact_ids": [
+            "sec06-R01",
+            "sec06-F02"
+          ]
+        },
+        {
+          "other_id": "sec06-F04",
+          "why": "Starting and pulling away use different gear positions.",
+          "fact_ids": [
+            "sec06-R01",
+            "sec06-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R02",
+      "label": "Mirrors first, then brake",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R02"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.53",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0053"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F08",
+          "why": "The stopping sequence starts with mirrors, not with the brake.",
+          "fact_ids": [
+            "sec06-R02",
+            "sec06-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R03",
+      "label": "Hand signals that free a hand",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R03"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.54",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0054"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R04",
+      "label": "Arms stay near the body",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R04"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.55",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0055"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R05",
+      "label": "Hand-over-hand versus push-pull",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R05"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F17",
+          "why": "Push-pull is for normal forward driving, while hand-over-hand is for low-speed turns.",
+          "fact_ids": [
+            "sec06-R05",
+            "sec06-F17"
+          ]
+        },
+        {
+          "other_id": "sec06-F24",
+          "why": "Hand-over-hand belongs to slow turns at intersections and parking.",
+          "fact_ids": [
+            "sec06-R05",
+            "sec06-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R06",
+      "label": "Free hand's normal position",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R06"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R07",
+      "label": "Why one hand stays on the wheel",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R07"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.56",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0056"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R08",
+      "label": "Twelve o'clock only for backing",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R08"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.57",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0057"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F29",
+          "why": "Twelve o'clock appears only in backing, never in normal forward driving.",
+          "fact_ids": [
+            "sec06-R08",
+            "sec06-F29"
+          ]
+        },
+        {
+          "other_id": "sec06-F31",
+          "why": "The backing steps put the left hand at twelve o'clock.",
+          "fact_ids": [
+            "sec06-R08",
+            "sec06-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R09",
+      "label": "Look back versus mirrors",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R09"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.57",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0057"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F32",
+          "why": "Your main backing view comes from looking through the rear window, not the mirrors.",
+          "fact_ids": [
+            "sec06-R09",
+            "sec06-F32"
+          ]
+        },
+        {
+          "other_id": "sec06-F33",
+          "why": "Mirrors and cameras are only checked now and then while backing.",
+          "fact_ids": [
+            "sec06-R09",
+            "sec06-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R10",
+      "label": "Steer and keep looking back",
+      "domain": "Steering and backing confusables",
+      "module_id": "sec06-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec06-R10"
+      ],
+      "source_ref": {
+        "ref": "South Carolina Driver's Manual (SCDMV, Revised 06/2024), PDF p.58",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-sc-d:south-carolina-department-of-motor-vehic:handbook:pdf-0058"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec06-F02",
+      "to": "sec06-F04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F13",
+      "to": "sec06-F18",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F17",
+      "to": "sec06-F19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F30",
+      "to": "sec06-F31",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F31",
+      "to": "sec06-F32",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec06-m01",
+      "title": "Starting, moving and stopping",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F01",
+        "sec06-F02",
+        "sec06-R01",
+        "sec06-F03",
+        "sec06-F04",
+        "sec06-F05",
+        "sec06-F06",
+        "sec06-F07",
+        "sec06-F08",
+        "sec06-R02",
+        "sec06-F09"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m02",
+      "title": "Hand position and push-pull steering",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 17,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F10",
+        "sec06-F11",
+        "sec06-F12",
+        "sec06-F13",
+        "sec06-F14",
+        "sec06-R03",
+        "sec06-F15",
+        "sec06-F16",
+        "sec06-F17",
+        "sec06-F18",
+        "sec06-F19",
+        "sec06-F20",
+        "sec06-F21",
+        "sec06-F22",
+        "sec06-R04"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m03",
+      "title": "Hand-over-hand and one-hand steering",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 13,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F23",
+        "sec06-R05",
+        "sec06-F24",
+        "sec06-F25",
+        "sec06-F26",
+        "sec06-F27",
+        "sec06-F28",
+        "sec06-R06",
+        "sec06-R07"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m04",
+      "title": "Backing up safely",
+      "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 19,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec06-F29",
+        "sec06-R08",
+        "sec06-F30",
+        "sec06-F31",
+        "sec06-F32",
+        "sec06-F33",
+        "sec06-R09",
+        "sec06-F34",
+        "sec06-F35",
+        "sec06-F36",
+        "sec06-F37",
+        "sec06-R10"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec06-m01",
+      "unit_id": "sec06-u01",
+      "node_ids": [
+        "sec06-F01",
+        "sec06-F02",
+        "sec06-R01",
+        "sec06-F03",
+        "sec06-F04",
+        "sec06-F05",
+        "sec06-F06",
+        "sec06-F07",
+        "sec06-F08",
+        "sec06-R02",
+        "sec06-F09"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Walk through starting the engine, pulling away and stopping smoothly.",
+      "flashcard_strategy": "Cards on start-up steps, checks before moving and the stopping order.",
+      "quiz_strategy": "Items on gear positions, checks and the stopping sequence.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m02",
+      "unit_id": "sec06-u02",
+      "node_ids": [
+        "sec06-F10",
+        "sec06-F11",
+        "sec06-F12",
+        "sec06-F13",
+        "sec06-F14",
+        "sec06-R03",
+        "sec06-F15",
+        "sec06-F16",
+        "sec06-F17",
+        "sec06-F18",
+        "sec06-F19",
+        "sec06-F20",
+        "sec06-F21",
+        "sec06-F22",
+        "sec06-R04"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the grip, hand positions and the push-pull steering method.",
+      "flashcard_strategy": "Cards on grip, clock positions and how push-pull works.",
+      "quiz_strategy": "Items on hand positions and when push-pull is used.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m03",
+      "unit_id": "sec06-u03",
+      "node_ids": [
+        "sec06-F23",
+        "sec06-R05",
+        "sec06-F24",
+        "sec06-F25",
+        "sec06-F26",
+        "sec06-F27",
+        "sec06-F28",
+        "sec06-R06",
+        "sec06-R07"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Contrast hand-over-hand and one-hand steering with push-pull.",
+      "flashcard_strategy": "Cards on when each method is used and where the hands go.",
+      "quiz_strategy": "Items that pick the right steering method for a situation.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m04",
+      "unit_id": "sec06-u04",
+      "node_ids": [
+        "sec06-F29",
+        "sec06-R08",
+        "sec06-F30",
+        "sec06-F31",
+        "sec06-F32",
+        "sec06-F33",
+        "sec06-R09",
+        "sec06-F34",
+        "sec06-F35",
+        "sec06-F36",
+        "sec06-F37",
+        "sec06-R10"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Walk through the backing steps from the walk-around to the full stop.",
+      "flashcard_strategy": "Cards on hand position, looking back, mirrors and speed.",
+      "quiz_strategy": "Items on the backing procedure and its traps.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec06-F01",
+    "sec06-F02",
+    "sec06-R01",
+    "sec06-F03",
+    "sec06-F04",
+    "sec06-F05",
+    "sec06-F06",
+    "sec06-F07",
+    "sec06-F08",
+    "sec06-R02",
+    "sec06-F09",
+    "sec06-F10",
+    "sec06-F11",
+    "sec06-F12",
+    "sec06-F13",
+    "sec06-F14",
+    "sec06-R03",
+    "sec06-F15",
+    "sec06-F16",
+    "sec06-F17",
+    "sec06-F18",
+    "sec06-F19",
+    "sec06-F20",
+    "sec06-F21",
+    "sec06-F22",
+    "sec06-R04",
+    "sec06-F23",
+    "sec06-R05",
+    "sec06-F24",
+    "sec06-F25",
+    "sec06-F26",
+    "sec06-F27",
+    "sec06-F28",
+    "sec06-R06",
+    "sec06-R07",
+    "sec06-F29",
+    "sec06-R08",
+    "sec06-F30",
+    "sec06-F31",
+    "sec06-F32",
+    "sec06-F33",
+    "sec06-R09",
+    "sec06-F34",
+    "sec06-F35",
+    "sec06-F36",
+    "sec06-F37",
+    "sec06-R10"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec06-m01..sec06-m04; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 47,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec06-F01",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F02",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F03",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F04",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F05",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F06",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F07",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F08",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F09",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F10",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F11",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F12",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F13",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F14",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F15",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F16",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F17",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F18",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F19",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F20",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F21",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F22",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F23",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F24",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F25",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F26",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F27",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F28",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F29",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F30",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F31",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F32",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F33",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F34",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F35",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F36",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-F37",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R01",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R02",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R03",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R04",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R05",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R06",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R07",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R08",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R09",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec06-R10",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec06-F02",
+          "to": "sec06-F04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F13",
+          "to": "sec06-F18",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F17",
+          "to": "sec06-F19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F30",
+          "to": "sec06-F31",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F31",
+          "to": "sec06-F32",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Basic driving: starting, moving, stopping, steering methods and backing up",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 76.2,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Steering and backing confusables",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 23.8,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec06-m01",
+          "sec06-m02",
+          "sec06-m03",
+          "sec06-m04"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

@@ -83,3 +83,7 @@ Seeded 2026-10-28T07:24:39.385Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:57:26.183Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:37 for 02.dossier_sections (sec08-signals-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-signs__C2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:57:44.445Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:38 for 02.dossier_sections (sec08-signals-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-signs__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:57:52.587Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:39 for 02.dossier_sections (sec08-signals-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-signs__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:58:03.627Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:40 for 02.dossier_sections (sec08-signals-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-signs__F__n0 (lineage attempts exhausted)

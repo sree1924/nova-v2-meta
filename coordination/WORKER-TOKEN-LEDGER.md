@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T10:57:40.569Z
+# Worker token ledger — generated 2026-10-28T10:58:11.318Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 26 | 945,779,099 | 3,051,948 | 948,831,047 | $0.00 | AZ CA CO CT FL IA KY MT NM NY OK TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 86 | 0 | 0 | 21,834,565 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
+| claude | Anthropic subscription (Claude Code subagent) | 87 | 0 | 0 | 22,052,268 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
 | sol | ChatGPT Pro subscription | 31 | 0 | 0 | 128,167,879 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
@@ -34,7 +34,7 @@
 | muse | muse-spark-1.3 | KY | intake-KY-r1 | 55,840,461 | 55,243,905 | 202,544 | 49,580 | — | 294 | — | $0.00 |
 | muse | muse-spark-1.3 | MT | intake-MT | — | — | — | — | — | 147 | — | $0.00 |
 | muse | muse-spark-1.3 | NM | intake-NM | — | — | — | — | — | 19 | — | $0.00 |
-| muse | muse-spark-1.3 | OK | intake-OK-r1 | — | — | — | — | — | 294 | — | $0.00 |
+| muse | muse-spark-1.3 | OK | intake-OK-r1 | — | — | — | — | — | 295 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
 | claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | UT | multi-state shell: state picker, #/<st>/ routes, states.json, harness rewrite, Utah onboarded | — | — | — | — | 243,214 | 95 | 14 min | $0.00 |
@@ -152,4 +152,5 @@
 | sol | gpt-6.1-sol | ME | First-four02/16 completion main delta since quiesce; cached replay included | — | — | — | — | 6,533,291 | — | — | $0.00 |
 | sol | gpt-6.1-sol | NM | Native correction batch03 sections05-06 main delta; cached replay included | — | — | — | — | 2,368,654 | — | — | $0.00 |
 | claude | claude-opus-5-5 | WA | downstream worker: sec04 merge + sec08-14 — WASHINGTON DOWNSTREAM COMPLETE 14/14: 646 nodes/645 cards/646 items, 101 units/716 slides, 746 scripts — post-cut session counter | — | — | — | — | 153,428 | 121 | 48 min | $0.00 |
+| claude | claude-opus-5-5 | SC | downstream worker: sec08-15 — SOUTH CAROLINA DOWNSTREAM COMPLETE 15/15: 799 nodes/786 cards/799 items, 94 units/660 slides, 880 scripts — post-cut session counter | — | — | — | — | 217,703 | 108 | 53 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |
