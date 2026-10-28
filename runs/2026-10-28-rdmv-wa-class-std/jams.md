@@ -37,3 +37,11 @@ Seeded 2026-10-28T03:24:01.059Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T03:39:05.537Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:18 for 02.dossier_sections (sec04-occupant-protection-and-vehicle-control) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-occupant-protection-and-vehicle-control__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T03:39:11.957Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:19 for 02.dossier_sections (sec05-driver-health-and-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driver-health-and-impairment__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:53:32.946Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:20 for 02.dossier_sections (sec05-driver-health-and-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driver-health-and-impairment__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:53:42.395Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:21 for 02.dossier_sections (sec05-driver-health-and-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driver-health-and-impairment__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:53:46.622Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:22 for 02.dossier_sections (sec05-driver-health-and-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driver-health-and-impairment__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:53:51.189Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:23 for 02.dossier_sections (sec05-driver-health-and-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driver-health-and-impairment__G__n0 (lineage attempts exhausted)
