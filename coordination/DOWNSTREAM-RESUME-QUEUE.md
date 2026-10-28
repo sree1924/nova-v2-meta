@@ -29,3 +29,6 @@ Weekly Claude 76% (jumped 9 pts in 75 min: resumed workers re-read large context
 Done + onboarded: MI NJ TX MD CO OR IN WI NV CA (+UT). HOLD Claude downstream for Muse's KY/IA/OK (and AZ sec16–22 if budget
 < 15 pts remain when it comes up) until Saturday's reset (2026-10-31 13:00Z) unless the founder says otherwise. Sol's 10 states =
 her downstream. Re-author pass (wrong-meaning BAC backs first: AL sec06, NV sec12, IN sec05, CO sec02) after the reset.
+
+## 12:45Z 2026-10-28
+Fully downstream + onboarded (18): MI NJ TX MD CO OR IN WI NV CA FL MO NC VA NY AL WA SC (+UT). Running: AZ (sec09-15, then 16-22), MN (08-14), TN (sec05 remint + 08-17), CT (08-12). Muse SME done: KY IA (downstream HELD for budget), OK 10/13. Sol: 10 in progress, none complete.

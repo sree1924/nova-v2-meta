@@ -1,27 +1,27 @@
-# NM — native correction batch three
-Pending head metadata: sec03 accepted F says C26/C2 18 while actual counts are C28/C2 22; G04–G07 point to L107–L110 while labels are L115–L118.
-Run: 2026-10-28-rdmv-nm-class-std; model gpt-6.1-sol under ChatGPT Pro subscription.
-Sections05–06: fourteen existing-fact corrections accepted through four native C/C2 replacements; no coverage additions.
-Section05: C four / C2 one correction; nineteen fact IDs preserved.
-Section06: C four / C2 five corrections; twenty-nine fact IDs preserved.
-Cumulative: thirty-nine of forty-nine original-matrix corrections native-accepted; ten remain in sections07–08.
-Current scope: 346 facts across 8/15 compiled sections; 72 current dossier parts, 84 accepted historical parts, 20 historical compiles.
-All original340 fact IDs and six previously added coverage IDs retained; unaffected statements and old accepted bytes verified unchanged.
-Current sec05 compile: runs/2026-10-28-rdmv-nm-class-std/16/sec05-lane-use-and-turning/d3987418/16-compiled-dossier.json @ 6ada6d213c8721f6c3162e70a12c4150305b64bdf59ec96520a13edbb544e926.
-Current sec06 compile: runs/2026-10-28-rdmv-nm-class-std/16/sec06-right-of-way/4b1b0557/16-compiled-dossier.json @ a28d74abcd848a2609c38ed446a08f03fdf21109c6d40792e30d8129945be303.
-Each current compile binds both accepted corrected parts, excludes superseded inputs and retains their provenance.
-Native mapped validations, prechecks, packet/layer hashes and originality passed for all four parts; no HOLDs.
-Current section01–04 compile hashes: unchanged from prior checkpoint.
-No new F/G discrepancy in sec05/sec06; exact existing sec03 F/G evidence remains in checkpoint and verification JSON for the head group path.
-Accepted F/G parts were not edited. Source, edition, effective-date, visual, legal-currency and ambiguous-source debts preserved.
-Question count/passing/time facts and their pages remain unknown/null; independent07/08 pending.
-Recorded new-candidate lineage40→41 and41→42 only after accepted-work exhaustion; all old counters/caps/global budget retained.
-Every subprocess completed before the next mutation in this batch; no recurrence of the earlier wait sequencing issue.
-CURRENT export refreshed only owned run under native lock: eight pointers match latest companions, two changed.
-Next bounded pair: sec07 speed/parking and sec08 basic driving/scanning, ten original corrections plus remaining coverage/debt dispositions.
-Seven dossier sections09–15 and downstream03/04/06/05.sessions/05.card_scripts remain owed; no audio/publishing.
+# NM — original review correction matrix implemented
+Residual metadata: sec03 F/G, sec07 F and sec08 F/G remain stale; exact active-input hashes/counts/line pointers are recorded for the head group path.
+Run: 2026-10-28-rdmv-nm-class-std; actual gpt-6.1-sol under ChatGPT Pro subscription.
+Sections07–08: ten existing-fact corrections and two coverage facts accepted in four native replacements.
+Section07: C three corrections; C2 two corrections + sec07-R28. Section08: C one correction + sec08-F39; C2 four corrections.
+All forty-nine original-review corrections are now native-accepted; no original-matrix corrections remain.
+All original340 fact IDs preserved; eight supported coverage facts added across the repair batches; current348 facts.
+Current scope: 8/15 dossier sections compiled, 72 current dossier parts, 88 accepted historical parts, 24 historical compiles.
+Current sec07 compile: runs/2026-10-28-rdmv-nm-class-std/16/sec07-speed-and-parking/54ea8ecc/16-compiled-dossier.json @ 73be40e15d4c871b655e51270e52aa78c5058baeb7862624d5532ae36159c568.
+Current sec08 compile: runs/2026-10-28-rdmv-nm-class-std/16/sec08-basic-driving-and-scanning/f10b1031/16-compiled-dossier.json @ c4a2a1eeb1a31ba913e06e522d299c9c466dd8a450c89c3a602cd96976c89274.
+Every replacement passed native mapped validation; corrected inputs selected, old inputs superseded, original accepted bytes retained.
+sec07-R28 explicitly records page15 as record plus page16 in native supporting_pages; neither page is claimed to support the complete statement alone.
+NM-SPEED-PAGE-BOUNDARY resolves citation representation only via immutable source/code evidence; current-source currency, downstream consumer validation and independent07/08 remain pending.
+All five original textual coverage findings are represented; visual recognition/current-issuer/edition/effective-date/legal-source ambiguities remain separate open debts.
+Question count/passing/time and source pages remain unknown/null; no factual, legal, independent-audit or release PASS claimed.
+Exact F inventory: sec03 accepted26/18 vs28/22; sec07 accepted25/27 vs25/28; sec08 accepted38/45 vs39/45.
+Exact G pointers: sec03 old107–110 vs115–118; sec08 old155–158 vs159–162. Accepted F/G bytes not edited.
+CURRENT refreshed only owned run under native lock: eight pointers match latest accepted companions; two changed.
+Lineage42→43 and43→44 recorded after accepted-work exhaustion; old counters/caps/global budget unchanged.
+All subprocesses completed before the next mutation; no HOLDs, paid API, audio, shared edits or publication.
+Next: head metadata reconciliation and bounded continuation for seven remaining SME sections09–15; all downstream stages remain owed.
 Read-only ledger: actual $0.000; outstanding unknown $0.000; reserved $0.000; uncertain provider amount $0.000.
-Client snapshot 2026-10-28T10:36:15.561Z: cumulative 20018933, cached-input subset 19616512.
-Delta since prior root checkpoint 17650279: 2368654 total; cached replay subset 2339584; metered noncache input plus output 29070.
-Cached replay is already included in totals; unique newly authored-work tokens are not exposed and not invented.
-Native locks released. Root alone aggregates shared queue/usage/defect rows; NM.checkpoint.json has exact refs and remaining corrections.
+Usage snapshot 2026-10-28T10:52:53.466Z: cumulative 22988112; cached-input subset 22548608.
+Delta since prior root checkpoint 20018933: 2969179 total; cached replay subset 2932096; metered noncache input plus output 37083.
+Cached replay is included in totals; unique newly authored-work tokens are unavailable and not invented.
+Native locks released; whole-state assignment remains incomplete. Root alone aggregates shared queue/usage/defect rows.
+Exact proofs/current refs/debts: NM.checkpoint.json and scratch/sol-nm/native-repair-batch4-verification.json.
