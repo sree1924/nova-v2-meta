@@ -161,3 +161,5 @@ Seeded 2026-10-28T05:03:22.057Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:21:09.053Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:80 for 02.dossier_sections (sec17-helping-new-drivers-learn) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-helping-new-drivers-learn__E__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:21:47.349Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:81 for 02.dossier_sections (sec17-helping-new-drivers-learn) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-helping-new-drivers-learn__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:42:55.000Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:82 for 03.combined_kg (sec03-intermediate-licenses-gdl) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-intermediate-licenses-gdl__-__n0 (lineage attempts exhausted)

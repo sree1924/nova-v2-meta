@@ -121,3 +121,11 @@ Seeded 2026-10-28T05:02:18.164Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:34:35.502Z lineage reset → 2026-10-28-rdmv-md-class-c:lineage:59 for 03.combined_kg (sec03-basic-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-basic-driving__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:36:57.963Z lineage reset → 2026-10-28-rdmv-md-class-c:lineage:60 for 03.combined_kg (sec05-traffic-signs) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-traffic-signs__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:42:05.632Z lineage reset → 2026-10-28-rdmv-md-class-c:lineage:61 for 04.cards (sec06-pavement-markings) under standing authority; cause: proactive reset before authoring packet 04.cards__sec06-pavement-markings__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:44:10.589Z lineage reset → 2026-10-28-rdmv-md-class-c:lineage:62 for 04.cards (sec08-dangerous-driving-behaviors) under standing authority; cause: proactive reset before authoring packet 04.cards__sec08-dangerous-driving-behaviors__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:46:35.332Z lineage reset → 2026-10-28-rdmv-md-class-c:lineage:63 for 04.cards (sec10-crashes-traffic-stops) under standing authority; cause: proactive reset before authoring packet 04.cards__sec10-crashes-traffic-stops__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:48:54.054Z lineage reset → 2026-10-28-rdmv-md-class-c:lineage:64 for 04.cards (sec12-other-important-information) under standing authority; cause: proactive reset before authoring packet 04.cards__sec12-other-important-information__-__n0 (lineage attempts exhausted)

@@ -131,3 +131,5 @@ Seeded 2026-10-28T00:58:10.604Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T05:21:56.831Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:60 for 02.dossier_sections (sec13-adas) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-adas__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T05:22:50.351Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:61 for 02.dossier_sections (sec13-adas) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-adas__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:39:40.472Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:62 for 03.combined_kg (sec05-intersections-and-turns) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-intersections-and-turns__-__n0 (lineage attempts exhausted)

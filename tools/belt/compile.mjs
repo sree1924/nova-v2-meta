@@ -45,7 +45,7 @@ export function numberToWords(n) {
   if (n < 1_000_000) return numberToWords(Math.floor(n / 1000)) + ' thousand' + (n % 1000 ? ' ' + numberToWords(n % 1000) : '');
   return numberToWords(Math.floor(n / 1_000_000)) + ' million' + (n % 1_000_000 ? ' ' + numberToWords(n % 1_000_000) : '');
 }
-const UNIT_WORDS = {mph: 'miles per hour', 'mi/h': 'miles per hour', kph: 'kilometers per hour', ft: 'feet', yd: 'yards', yds: 'yards', mi: 'miles', lb: 'pounds', lbs: 'pounds', oz: 'ounces', sec: 'seconds', secs: 'seconds', hr: 'hours', hrs: 'hours', min: 'minutes', mins: 'minutes', mo: 'months', yr: 'years', yrs: 'years', db: 'decibels'};
+const UNIT_WORDS = {mph: 'miles per hour', 'mi/h': 'miles per hour', kph: 'kilometers per hour', ft: 'feet', yd: 'yards', yds: 'yards', mi: 'miles', lb: 'pounds', lbs: 'pounds', oz: 'ounces', sec: 'seconds', secs: 'seconds', hr: 'hours', hrs: 'hours', min: 'minutes', mins: 'minutes', mo: 'months', yr: 'years', yrs: 'years', db: 'decibels', psi: 'pounds per square inch'};
 // Spoken fractions (2026-10-28): "1/16 inch" was spoken "one or sixteen inch" by the alternatives rule; "20/50" vision as
 // "twenty or fifty". Numeric a/b is a fraction or a ratio, never an alternative.
 const FRACTION_WORDS = {2: ['half', 'halves'], 3: ['third', 'thirds'], 4: ['quarter', 'quarters'], 5: ['fifth', 'fifths'], 6: ['sixth', 'sixths'], 8: ['eighth', 'eighths'], 10: ['tenth', 'tenths'], 12: ['twelfth', 'twelfths'], 16: ['sixteenth', 'sixteenths'], 32: ['thirty-second', 'thirty-seconds']};
@@ -84,6 +84,9 @@ export function spokenize(text) {
   // Emergency number and money in millions/billions (2026-10-28, Michigan "911" → "nine hundred eleven", "$130 million" →
   // "one hundred thirty dollars million"); engine displacement "125cc".
   s = s.replace(/\b911\b/g, 'nine one one');
+  // Vulgar-fraction glyphs (Nevada "15½" was "fifteen½"): "fifteen and a half"; standalone "½" → "one half".
+  s = s.replace(/(\d+)\s*([½¼¾⅓⅔⅛])/g, (_, n, g) => `${numberToWords(Number(n)) ?? n} and ${({'½': 'a half', '¼': 'a quarter', '¾': 'three quarters', '⅓': 'a third', '⅔': 'two thirds', '⅛': 'an eighth'})[g]}`);
+  s = s.replace(/[½¼¾⅓⅔⅛]/g, (g) => ({'½': 'one half', '¼': 'one quarter', '¾': 'three quarters', '⅓': 'one third', '⅔': 'two thirds', '⅛': 'one eighth'})[g]);
   s = s.replace(/\$\s?(\d+(?:\.\d+)?)\s*(million|billion|trillion)\b/gi, (_, n, scale) => `${spokenizeDecimal(n)} ${scale.toLowerCase()} dollars`);
   s = s.replace(/\b(\d+)\s*cc\b/g, (_, n) => `${numberToWords(Number(n)) ?? n} cubic centimeters`);
   // Years 1900–1999 (New Jersey "since 1998" was "one thousand nine hundred ninety-eight"): "nineteen ninety-eight" unless a
@@ -111,7 +114,7 @@ export function spokenize(text) {
   });
   // Ordinals "18th", "21st", "3rd" (North Carolina sec03 kept the digits): spoken ordinal words.
   s = s.replace(/\b(\d{1,3})(st|nd|rd|th)\b/g, (m, n) => ordinalWords(Number(n)) ?? m);
-  s = s.replace(/\b(\d+)\s*(mph|mi\/h|kph|ft|yds?|mi|lbs?|oz|secs?|hrs?|mins?|mo|yrs?|dB)\b\.?/gi, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()] ?? unit}`);
+  s = s.replace(/\b(\d+)\s*(mph|mi\/h|kph|ft|yds?|mi|lbs?|oz|secs?|hrs?|mins?|mo|yrs?|dB|psi)\b\.?/gi, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()] ?? unit}`);
   // Leading-dot decimals (2026-10-28, Colorado ".08 / .02 / .04 BAC" came out "over.eight"): spoken "point zero eight".
   s = s.replace(/(^|[^\d.])\.(\d+)\b/g, (_, pre, frac) => `${pre}${pre && !/\s/.test(pre) ? ' ' : ''}point ${[...frac].map(d => ONES[Number(d)]).join(' ')}`);
   s = s.replace(/\b(\d+)\.(\d+)\b/g, (_, a, b) => `${numberToWords(Number(a)) ?? a} point ${[...b].map(d => ONES[Number(d)]).join(' ')}`);

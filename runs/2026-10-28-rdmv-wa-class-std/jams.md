@@ -135,3 +135,5 @@ Seeded 2026-10-28T03:24:01.059Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:16:34.268Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:65 for 16.compile (sec04-occupant-protection-and-vehicle-control) under standing authority; cause: compile attempt cap on shared lineage (sec04-occupant-protection-and-vehicle-control)
 
 - 2026-10-28T06:37:30.479Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:66 for 03.combined_kg (sec03-vehicle-services-and-maintenance) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-vehicle-services-and-maintenance__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:44:39.900Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:67 for 03.combined_kg (sec05-driver-health-and-impairment) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-driver-health-and-impairment__-__n0 (lineage attempts exhausted)

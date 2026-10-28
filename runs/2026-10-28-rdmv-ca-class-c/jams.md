@@ -145,3 +145,5 @@ extracted handbook text and a fresh issuer-page fetch; seed adopted as-is. Phase
 - 2026-10-28T06:17:34.859Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:62 for 16.compile (sec12-driver-safety) under standing authority; cause: compile attempt cap on shared lineage (sec12-driver-safety)
 
 - 2026-10-28T06:35:33.306Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:63 for 03.combined_kg (sec03-testing-process) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-testing-process__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:43:10.657Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:64 for 03.combined_kg (sec05-introduction-to-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-introduction-to-driving__-__n0 (lineage attempts exhausted)

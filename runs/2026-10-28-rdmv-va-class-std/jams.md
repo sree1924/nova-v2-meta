@@ -156,3 +156,5 @@ intact; Phase 2 (02/16 authoring) not started. Ledger actual $0.000, 0 model cal
 - 2026-10-28T06:17:22.744Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:71 for 16.compile (sec14-license-types-learner-permit) under standing authority; cause: compile attempt cap on shared lineage (sec14-license-types-learner-permit)
 
 - 2026-10-28T06:38:12.625Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:72 for 03.combined_kg (sec03-regulatory-warning-signs) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-regulatory-warning-signs__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:47:16.655Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:73 for 03.combined_kg (sec05-pavement-markings-curbs-toll) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-pavement-markings-curbs-toll__-__n0 (lineage attempts exhausted)

@@ -1,0 +1,2562 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-wi-d",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "22d5c2f63ed758b371d25c9d86da2bb1b6f5d4584307495f6d2513b62fa1438d",
+    "candidate_lineage_id": "2026-10-28-rdmv-wi-class-d:lineage:57"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-wi-class-d/16/sec08-driving-conditions/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-wi-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec08-F01",
+      "label": "Plan ahead; stay home if unsafe",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F01"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F02",
+      "label": "Bald tires",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F02"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F12",
+          "why": "Bald tires lower traction and can make hydroplaning happen even at low speeds.",
+          "fact_ids": [
+            "sec08-F02",
+            "sec08-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F03",
+      "label": "Low visibility distorts speed",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F03"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R03",
+          "why": "In low visibility, vehicles can seem slower than they are.",
+          "fact_ids": [
+            "sec08-F03",
+            "sec08-R03"
+          ]
+        },
+        {
+          "other_id": "sec08-F04",
+          "why": "Low visibility distorts how fast vehicles seem, and night makes distance and speed harder to judge.",
+          "fact_ids": [
+            "sec08-F03",
+            "sec08-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F04",
+      "label": "Judging oncoming vehicles at night",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F04"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F03",
+          "why": "Low visibility distorts how fast vehicles seem, and night makes distance and speed harder to judge.",
+          "fact_ids": [
+            "sec08-F04",
+            "sec08-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F05",
+      "label": "Fog and rain",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F05"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F06",
+      "label": "Stay off dangerous roads",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F06"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F07",
+      "label": "Bridges and overpasses freeze first",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F07"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R04",
+          "why": "Bridges and overpasses freeze before the rest of the road.",
+          "fact_ids": [
+            "sec08-F07",
+            "sec08-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F08",
+      "label": "Driving on slick roads",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F08"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R02",
+          "why": "Every car on slick roads should avoid hard braking and sudden sharp turns.",
+          "fact_ids": [
+            "sec08-F08",
+            "sec08-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F09",
+      "label": "Pumping brakes without ABS",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F09"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R02",
+          "why": "Gently pumping the brakes is the advice for cars without ABS.",
+          "fact_ids": [
+            "sec08-F09",
+            "sec08-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F10",
+      "label": "Shady spots and bridges",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F10"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R04",
+          "why": "Shady spots and bridges are slippery on cold, wet days.",
+          "fact_ids": [
+            "sec08-F10",
+            "sec08-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F11",
+      "label": "Freezing point, first rain, standing water",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F11"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F12",
+      "label": "What hydroplaning is",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F12"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F02",
+          "why": "Bald tires lower traction and can make hydroplaning happen even at low speeds.",
+          "fact_ids": [
+            "sec08-F12",
+            "sec08-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F13",
+      "label": "Hydroplaning response",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F13"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R01",
+          "why": "When hydroplaning you ease off the gas, keep the wheel straight and do not brake or turn until the tires grip.",
+          "fact_ids": [
+            "sec08-F13",
+            "sec08-R01"
+          ]
+        },
+        {
+          "other_id": "sec08-F15",
+          "why": "Hydroplaning means hold the wheel straight, while a skid means steer where you want to go.",
+          "fact_ids": [
+            "sec08-F13",
+            "sec08-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F14",
+      "label": "What a skid is",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F14"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F15",
+      "label": "Skid: off the brake, steer",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F15"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F13",
+          "why": "Hydroplaning means hold the wheel straight, while a skid means steer where you want to go.",
+          "fact_ids": [
+            "sec08-F15",
+            "sec08-F13"
+          ]
+        },
+        {
+          "other_id": "sec08-F16",
+          "why": "In a skid you first steer where you want to go, then steer back as the car straightens.",
+          "fact_ids": [
+            "sec08-F15",
+            "sec08-F16"
+          ]
+        },
+        {
+          "other_id": "sec08-R07",
+          "why": "Skid recovery starts with staying off the brake and steering where you want to go.",
+          "fact_ids": [
+            "sec08-F15",
+            "sec08-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F16",
+      "label": "Skid: steer back as it straightens",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F16"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F15",
+          "why": "In a skid you first steer where you want to go, then steer back as the car straightens.",
+          "fact_ids": [
+            "sec08-F16",
+            "sec08-F15"
+          ]
+        },
+        {
+          "other_id": "sec08-R07",
+          "why": "Skid recovery ends with turning the wheel back as the car straightens.",
+          "fact_ids": [
+            "sec08-F16",
+            "sec08-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F17",
+      "label": "The first snowfall",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F17"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F18",
+      "label": "Clear the whole vehicle",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F18"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F19",
+      "label": "Drive slowly with extra space",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F19"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F20",
+          "why": "Winter driving calls for slow speed and extra space, and no cruise control on slippery roads.",
+          "fact_ids": [
+            "sec08-F19",
+            "sec08-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F20",
+      "label": "No cruise control on slick roads",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F20"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F19",
+          "why": "Winter driving calls for slow speed and extra space, and no cruise control on slippery roads.",
+          "fact_ids": [
+            "sec08-F20",
+            "sec08-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F21",
+      "label": "Headlights on, no high beams",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F21"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R08",
+          "why": "Winter driving means headlights on and high beams off.",
+          "fact_ids": [
+            "sec08-F21",
+            "sec08-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F22",
+      "label": "Snowplow distance",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F22"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R08",
+          "why": "The snowplow rule is a distance: at least two hundred feet behind a plow with flashing lights.",
+          "fact_ids": [
+            "sec08-F22",
+            "sec08-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F23",
+      "label": "Rural road hazards",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F23"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F28",
+          "why": "Farm tractors on highways are a rural hazard, and no one under sixteen may drive one there.",
+          "fact_ids": [
+            "sec08-F23",
+            "sec08-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F24",
+      "label": "Farm equipment visibility and signals",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F24"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R12",
+          "why": "Farm equipment may have no brake lights or turn signals.",
+          "fact_ids": [
+            "sec08-F24",
+            "sec08-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F25",
+      "label": "Patience with farm equipment",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F25"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F26",
+      "label": "Yield to livestock",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F26"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R11",
+          "why": "Livestock on or beside the highway get the right-of-way.",
+          "fact_ids": [
+            "sec08-F26",
+            "sec08-R11"
+          ]
+        },
+        {
+          "other_id": "sec08-F27",
+          "why": "Yielding to livestock comes with not honking, which may frighten them.",
+          "fact_ids": [
+            "sec08-F26",
+            "sec08-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F27",
+      "label": "No horn near livestock",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-F27"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-R11",
+          "why": "Near livestock you slow down and keep a safe distance instead of honking.",
+          "fact_ids": [
+            "sec08-F27",
+            "sec08-R11"
+          ]
+        },
+        {
+          "other_id": "sec08-F26",
+          "why": "Yielding to livestock comes with not honking, which may frighten them.",
+          "fact_ids": [
+            "sec08-F27",
+            "sec08-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-F28",
+      "label": "Tractor age rule",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "module_id": "sec08-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-F28"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F23",
+          "why": "Farm tractors on highways are a rural hazard, and no one under sixteen may drive one there.",
+          "fact_ids": [
+            "sec08-F28",
+            "sec08-F23"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R01",
+      "label": "Hydroplane: no braking or turning",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-R01"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F13",
+          "why": "When hydroplaning you ease off the gas, keep the wheel straight and do not brake or turn until the tires grip.",
+          "fact_ids": [
+            "sec08-R01",
+            "sec08-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R02",
+      "label": "ABS versus pumping",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-R02"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F09",
+          "why": "Gently pumping the brakes is the advice for cars without ABS.",
+          "fact_ids": [
+            "sec08-R02",
+            "sec08-F09"
+          ]
+        },
+        {
+          "other_id": "sec08-F08",
+          "why": "Every car on slick roads should avoid hard braking and sudden sharp turns.",
+          "fact_ids": [
+            "sec08-R02",
+            "sec08-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R03",
+      "label": "Looks slow, may be fast",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-R03"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F03",
+          "why": "In low visibility, vehicles can seem slower than they are.",
+          "fact_ids": [
+            "sec08-R03",
+            "sec08-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R04",
+      "label": "Where ice forms first",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-R04"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F07",
+          "why": "Bridges and overpasses freeze before the rest of the road.",
+          "fact_ids": [
+            "sec08-R04",
+            "sec08-F07"
+          ]
+        },
+        {
+          "other_id": "sec08-F10",
+          "why": "Shady spots and bridges are slippery on cold, wet days.",
+          "fact_ids": [
+            "sec08-R04",
+            "sec08-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R05",
+      "label": "First rain is slippery",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-R05"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R06",
+      "label": "Two harms of bald tires",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-R06"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.48",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0048"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R07",
+      "label": "Skid steering sequence",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-R07"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F15",
+          "why": "Skid recovery starts with staying off the brake and steering where you want to go.",
+          "fact_ids": [
+            "sec08-R07",
+            "sec08-F15"
+          ]
+        },
+        {
+          "other_id": "sec08-F16",
+          "why": "Skid recovery ends with turning the wheel back as the car straightens.",
+          "fact_ids": [
+            "sec08-R07",
+            "sec08-F16"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R08",
+      "label": "Headlights versus plow distance",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-R08"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F21",
+          "why": "Winter driving means headlights on and high beams off.",
+          "fact_ids": [
+            "sec08-R08",
+            "sec08-F21"
+          ]
+        },
+        {
+          "other_id": "sec08-F22",
+          "why": "The snowplow rule is a distance: at least two hundred feet behind a plow with flashing lights.",
+          "fact_ids": [
+            "sec08-R08",
+            "sec08-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R09",
+      "label": "Any plow light color",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-R09"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R10",
+      "label": "Clear lamps, mirrors and plates too",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec08-R10"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R11",
+      "label": "Livestock: slow, no horn",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-R11"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F26",
+          "why": "Livestock on or beside the highway get the right-of-way.",
+          "fact_ids": [
+            "sec08-R11",
+            "sec08-F26"
+          ]
+        },
+        {
+          "other_id": "sec08-F27",
+          "why": "Near livestock you slow down and keep a safe distance instead of honking.",
+          "fact_ids": [
+            "sec08-R11",
+            "sec08-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec08-R12",
+      "label": "Farm machinery may not signal",
+      "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+      "module_id": "sec08-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec08-R12"
+      ],
+      "source_ref": {
+        "ref": "Wisconsin Motorists' Handbook 2026 (BDS126), PDF p.49",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0049"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec08-F24",
+          "why": "Farm equipment may have no brake lights or turn signals.",
+          "fact_ids": [
+            "sec08-R12",
+            "sec08-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec08-F02",
+      "to": "sec08-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F03",
+      "to": "sec08-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F07",
+      "to": "sec08-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F10",
+      "to": "sec08-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F11",
+      "to": "sec08-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F09",
+      "to": "sec08-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F08",
+      "to": "sec08-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F13",
+      "to": "sec08-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F15",
+      "to": "sec08-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F16",
+      "to": "sec08-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F18",
+      "to": "sec08-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F21",
+      "to": "sec08-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F22",
+      "to": "sec08-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F22",
+      "to": "sec08-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F24",
+      "to": "sec08-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F26",
+      "to": "sec08-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec08-F27",
+      "to": "sec08-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec08-m01",
+      "title": "Planning, tires and visibility",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec08-F01",
+        "sec08-F02",
+        "sec08-R06",
+        "sec08-F03",
+        "sec08-R03",
+        "sec08-F04",
+        "sec08-F05"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec08-m02",
+      "title": "Slippery roads",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 13,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec08-F06",
+        "sec08-F07",
+        "sec08-F10",
+        "sec08-R04",
+        "sec08-F11",
+        "sec08-R05",
+        "sec08-F08",
+        "sec08-F09",
+        "sec08-R02"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec08-m03",
+      "title": "Hydroplaning and skids",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 12,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec08-F12",
+        "sec08-F13",
+        "sec08-R01",
+        "sec08-F14",
+        "sec08-F15",
+        "sec08-F16",
+        "sec08-R07"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec08-m04",
+      "title": "Winter driving",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 13,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec08-F17",
+        "sec08-F18",
+        "sec08-R10",
+        "sec08-F19",
+        "sec08-F20",
+        "sec08-F21",
+        "sec08-F22",
+        "sec08-R08",
+        "sec08-R09"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec08-m05",
+      "title": "Rural and farm hazards",
+      "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 12,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec08-F23",
+        "sec08-F24",
+        "sec08-R12",
+        "sec08-F25",
+        "sec08-F26",
+        "sec08-F27",
+        "sec08-R11",
+        "sec08-F28"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec08-m01",
+      "unit_id": "sec08-u01",
+      "node_ids": [
+        "sec08-F01",
+        "sec08-F02",
+        "sec08-R06",
+        "sec08-F03",
+        "sec08-R03",
+        "sec08-F04",
+        "sec08-F05"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover planning ahead, bald tires, how reduced visibility and night affect judging other vehicles, and driving in fog or rain.",
+      "flashcard_strategy": "Cards for each rule; contrast cards for the two harms of bald tires and perceived versus real speed.",
+      "quiz_strategy": "Hub-chosen quiz on tires and low-visibility driving.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec08-m02",
+      "unit_id": "sec08-u02",
+      "node_ids": [
+        "sec08-F06",
+        "sec08-F07",
+        "sec08-F10",
+        "sec08-R04",
+        "sec08-F11",
+        "sec08-R05",
+        "sec08-F08",
+        "sec08-F09",
+        "sec08-R02"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach staying off bad roads, where ice forms first, other slippery times and places, and how to brake and steer on slick roads.",
+      "flashcard_strategy": "Cards per slippery-road fact; contrast cards for where ice forms first, first rain, and ABS versus pumping.",
+      "quiz_strategy": "Hub-chosen quiz naming a road condition and asking the safe response.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec08-m03",
+      "unit_id": "sec08-u03",
+      "node_ids": [
+        "sec08-F12",
+        "sec08-F13",
+        "sec08-R01",
+        "sec08-F14",
+        "sec08-F15",
+        "sec08-F16",
+        "sec08-R07"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Define hydroplaning and its response, then skids and the steering sequence to recover.",
+      "flashcard_strategy": "Cards for each recovery step; contrast cards for the hydroplane response and the skid steering sequence.",
+      "quiz_strategy": "Hub-chosen quiz describing a loss of traction and asking the response.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec08-m04",
+      "unit_id": "sec08-u04",
+      "node_ids": [
+        "sec08-F17",
+        "sec08-F18",
+        "sec08-R10",
+        "sec08-F19",
+        "sec08-F20",
+        "sec08-F21",
+        "sec08-F22",
+        "sec08-R08",
+        "sec08-R09"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover the first snowfall, clearing the whole vehicle, slow speed and space, cruise control, headlights and snowplow distance.",
+      "flashcard_strategy": "Cards for each winter rule; contrast cards for headlights versus snowplow distance and the plow light colors.",
+      "quiz_strategy": "Hub-chosen quiz on winter driving rules.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec08-m05",
+      "unit_id": "sec08-u05",
+      "node_ids": [
+        "sec08-F23",
+        "sec08-F24",
+        "sec08-R12",
+        "sec08-F25",
+        "sec08-F26",
+        "sec08-F27",
+        "sec08-R11",
+        "sec08-F28"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach rural hazards, farm equipment limits, patience, livestock right-of-way and the tractor age rule.",
+      "flashcard_strategy": "Cards for each rural rule; contrast cards for farm machinery signals and livestock.",
+      "quiz_strategy": "Hub-chosen quiz on farm equipment and livestock.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec08-F01",
+    "sec08-F02",
+    "sec08-R06",
+    "sec08-F03",
+    "sec08-R03",
+    "sec08-F04",
+    "sec08-F05",
+    "sec08-F06",
+    "sec08-F07",
+    "sec08-F10",
+    "sec08-R04",
+    "sec08-F11",
+    "sec08-R05",
+    "sec08-F08",
+    "sec08-F09",
+    "sec08-R02",
+    "sec08-F12",
+    "sec08-F13",
+    "sec08-R01",
+    "sec08-F14",
+    "sec08-F15",
+    "sec08-F16",
+    "sec08-R07",
+    "sec08-F17",
+    "sec08-F18",
+    "sec08-R10",
+    "sec08-F19",
+    "sec08-F20",
+    "sec08-F21",
+    "sec08-F22",
+    "sec08-R08",
+    "sec08-R09",
+    "sec08-F23",
+    "sec08-F24",
+    "sec08-R12",
+    "sec08-F25",
+    "sec08-F26",
+    "sec08-F27",
+    "sec08-R11",
+    "sec08-F28"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec08-m01..sec08-m05; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 40,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec08-F01",
+          "module_id": "sec08-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F02",
+          "module_id": "sec08-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F03",
+          "module_id": "sec08-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F04",
+          "module_id": "sec08-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F05",
+          "module_id": "sec08-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F06",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F07",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F08",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F09",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F10",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F11",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F12",
+          "module_id": "sec08-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F13",
+          "module_id": "sec08-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F14",
+          "module_id": "sec08-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F15",
+          "module_id": "sec08-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F16",
+          "module_id": "sec08-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F17",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F18",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F19",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F20",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F21",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F22",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F23",
+          "module_id": "sec08-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F24",
+          "module_id": "sec08-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F25",
+          "module_id": "sec08-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F26",
+          "module_id": "sec08-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F27",
+          "module_id": "sec08-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-F28",
+          "module_id": "sec08-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R01",
+          "module_id": "sec08-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R02",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R03",
+          "module_id": "sec08-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R04",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R05",
+          "module_id": "sec08-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R06",
+          "module_id": "sec08-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R07",
+          "module_id": "sec08-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R08",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R09",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R10",
+          "module_id": "sec08-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R11",
+          "module_id": "sec08-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec08-R12",
+          "module_id": "sec08-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec08-F02",
+          "to": "sec08-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F03",
+          "to": "sec08-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F07",
+          "to": "sec08-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F10",
+          "to": "sec08-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F11",
+          "to": "sec08-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F09",
+          "to": "sec08-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F08",
+          "to": "sec08-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F13",
+          "to": "sec08-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F15",
+          "to": "sec08-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F16",
+          "to": "sec08-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F18",
+          "to": "sec08-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F21",
+          "to": "sec08-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F22",
+          "to": "sec08-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F22",
+          "to": "sec08-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F24",
+          "to": "sec08-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F26",
+          "to": "sec08-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec08-F27",
+          "to": "sec08-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Driving conditions: bald tires, reduced visibility, severe weather, hydroplaning and skids, winter driving and rural farm hazards",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 66.7,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Driving condition confusables: hydroplaning versus skidding, braking with and without ABS, headlights versus high beams in bad weather, and farm traffic rules",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 33.3,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec08-m01",
+          "sec08-m02",
+          "sec08-m03",
+          "sec08-m04",
+          "sec08-m05"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}
