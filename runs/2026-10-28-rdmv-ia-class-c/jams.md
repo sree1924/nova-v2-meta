@@ -133,3 +133,5 @@ Seeded 2026-10-28T07:01:29.980Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:27:30.363Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:65 for 02.dossier_sections (sec15-highways-interchanges-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-highways-interchanges-roundabouts__C2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:28:37.183Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:66 for 02.dossier_sections (sec15-highways-interchanges-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-highways-interchanges-roundabouts__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:29:33.309Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:67 for 02.dossier_sections (sec15-highways-interchanges-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-highways-interchanges-roundabouts__E__n0 (lineage attempts exhausted)

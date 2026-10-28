@@ -153,3 +153,5 @@ extracted handbook text and a fresh issuer-page fetch; seed adopted as-is. Phase
 - 2026-10-28T10:17:14.783Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:66 for 03.combined_kg (sec09-alcohol-and-drugs) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-alcohol-and-drugs__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:23:35.742Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:67 for 03.combined_kg (sec11-vehicle-registration-requirements) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-vehicle-registration-requirements__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:29:03.485Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:68 for 03.combined_kg (sec13-seniors-and-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-seniors-and-driving__-__n0 (lineage attempts exhausted)

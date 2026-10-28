@@ -115,3 +115,5 @@ Seeded 2026-10-28T07:01:23.778Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:26:54.644Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:54 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__D__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:28:06.651Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:55 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:29:07.905Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:56 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__G__n0 (lineage attempts exhausted)
