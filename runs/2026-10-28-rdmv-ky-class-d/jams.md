@@ -117,3 +117,15 @@ Seeded 2026-10-28T07:01:23.778Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:28:06.651Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:55 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:29:07.905Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:56 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T19:09:56.974Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:57 for 03.combined_kg (sec03-be-in-shape-to-drive) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-be-in-shape-to-drive__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T19:16:30.110Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:58 for 03.combined_kg (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-basic-driving__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T19:23:14.715Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:59 for 03.combined_kg (sec07-general-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-general-driving__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T19:32:53.216Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:60 for 03.combined_kg (sec09-emergency-situations) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-emergency-situations__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T19:42:06.827Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:61 for 03.combined_kg (sec11-special-driving-situations) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-special-driving-situations__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T19:49:27Z cloud session (Claude) note: ledger receipts embed Windows absolute paths (D:\\nova\\fb-ai-hackathon\\...) in companion refs; the cloud clone resolved them with local-only symlinks inside the run dir (42 backslash-named links plus a D:/nova/fb-ai-hackathon/runs/<run> tree), kept out of git via .git/info/exclude. Private sources (handbook PDF, 15-source-text.txt, 15-extraction-receipt.json) were rebuilt byte-exact from the issuer URL with pypdf 6.17.0/pdfplumber 0.11.10 (page hashes matched the registered page map on all 81 pages). No size holds; limits unchanged.
