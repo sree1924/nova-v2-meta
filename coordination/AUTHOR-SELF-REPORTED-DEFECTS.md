@@ -19,3 +19,5 @@ claim. Workers are told to report what they know is off. Fix pass = re-author th
 | 2026-10-28 | MI | sec10, sec11 needs_dedicated_surface | picture sign drill / diagram drill are the author's product judgement, not handbook statements | claude-opus-5-5 worker |
 | 2026-10-28 | MI | sec09 C2 | a few comparison lines lean on mild inference (e.g. "not simply to whoever parked it") | claude-opus-5-5 worker |
 | 2026-10-28 | MI | sec10 | sign meanings taken from answer text; sign pictures are not in extracted text | claude-opus-5-5 worker |
+| 2026-10-28 | CO | sec12 facts F33–F40 | sourced from an old-format spread embedded on p23 (printed 29/30); current p24 text differs ("serious legal consequences" vs specific penalties); debts sec12-D-C01/C02 | claude-opus-5-5 worker |
+| 2026-10-28 | CO | p25, p27 tables | handbook tables mix "bicyclist"/"motorcyclist"; restated for bicyclists only, noted in part D | claude-opus-5-5 worker |

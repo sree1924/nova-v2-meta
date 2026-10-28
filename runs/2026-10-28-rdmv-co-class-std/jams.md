@@ -109,3 +109,29 @@ Seeded 2026-10-28T03:23:58.751Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T03:53:10.856Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:54 for 02.dossier_sections (sec12-sharing-road-trucks-school-buses) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-road-trucks-school-buses__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T03:53:19.031Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:55 for 02.dossier_sections (sec13-railroad-light-rail-bicyclists) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-railroad-light-rail-bicyclists__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:54:49.098Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:56 for 02.dossier_sections (sec13-railroad-light-rail-bicyclists) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-railroad-light-rail-bicyclists__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:54:59.496Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:57 for 02.dossier_sections (sec13-railroad-light-rail-bicyclists) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-railroad-light-rail-bicyclists__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:55:10.121Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:58 for 02.dossier_sections (sec13-railroad-light-rail-bicyclists) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-railroad-light-rail-bicyclists__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:55:21.807Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:59 for 02.dossier_sections (sec13-railroad-light-rail-bicyclists) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-railroad-light-rail-bicyclists__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:56:46.170Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:60 for 02.dossier_sections (sec14-motorcycles-pedestrians-careless-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-motorcycles-pedestrians-careless-driving__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:56:56.641Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:61 for 02.dossier_sections (sec14-motorcycles-pedestrians-careless-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-motorcycles-pedestrians-careless-driving__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:57:07.632Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:62 for 02.dossier_sections (sec14-motorcycles-pedestrians-careless-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-motorcycles-pedestrians-careless-driving__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:57:17.111Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:63 for 02.dossier_sections (sec14-motorcycles-pedestrians-careless-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-motorcycles-pedestrians-careless-driving__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:57:25.819Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:64 for 02.dossier_sections (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-aggressive-driving-emergencies-crashes__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:59:06.862Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:65 for 02.dossier_sections (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-aggressive-driving-emergencies-crashes__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:59:18.267Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:66 for 02.dossier_sections (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-aggressive-driving-emergencies-crashes__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:59:27.590Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:67 for 02.dossier_sections (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-aggressive-driving-emergencies-crashes__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:59:35.822Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:68 for 02.dossier_sections (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-aggressive-driving-emergencies-crashes__G__n0 (lineage attempts exhausted)
