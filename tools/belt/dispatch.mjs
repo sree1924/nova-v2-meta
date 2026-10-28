@@ -416,6 +416,15 @@ export async function dispatchStage(options){
   const prepared=prepareDispatch(options);
   if(!options.go)return{status:'DRY_DISPATCH_ENVELOPE',stage_id:prepared.stageId,section_ids:prepared.sectionIds,mode:prepared.rendered.header.mode,render_only:true,hashes:prepared.rendered.hashes,adapter_sha256:prepared.schema.sha256,request_sha256:prepared.request_sha256,max_completion_tokens:prepared.request.max_completion_tokens,reasoning_effort:prepared.request.reasoning_effort,proposed_reservation:prepared.proposed_reservation,preflight:prepared.preflight,approval_policy:prepared.policy,model_calls:0};
   assertDispatchAllowed({projectRoot:prepared.projectRoot,config:prepared.config,runDir:prepared.runDir,go:true,mode:'live',stageId:prepared.stageId,sectionIds:prepared.sectionIds,approvalRef:prepared.policy.approval_ref,nowUtc:prepared.nowUtc,maxUsd:prepared.config.limits.max_call_usd});
+  // File transport (subscription authoring, 2026-10-28): no provider request is sent and the ledger actual is $0, so the Model-API
+  // request-size and cost-estimate blockers are meaningless there (Tennessee sec08/sec16 card scripts at 840–900 KB sat on
+  // call_cap_below_conservative_request_estimate; NJ/MO/MN had to amend run-configs). Money caps, checks and every other
+  // blocker are unchanged; the waiver is recorded on the prepared envelope.
+  if(options.transport&&prepared.preflight.status!=='PASS'){
+    const waived=prepared.preflight.blockers.filter(b=>b==='request_byte_limit'||b==='call_cap_below_conservative_request_estimate');
+    const remaining=prepared.preflight.blockers.filter(b=>!waived.includes(b));
+    if(waived.length){prepared.preflight={status:remaining.length?'HOLD':'PASS',blockers:remaining,waived_for_file_transport:waived};}
+  }
   if(prepared.preflight.status!=='PASS')throw new Error('Dispatch remains HOLD: '+prepared.preflight.blockers.join(', '));
   const lockHandle=acquireExecutorLock({runDir:prepared.runDir,runId:prepared.config.run_id,executorId:prepared.executorId});
   let ledger,fence;

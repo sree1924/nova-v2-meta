@@ -91,3 +91,11 @@ Seeded 2026-10-28T07:23:58.772Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:56:48.509Z Batch03 four new SME sections05-08 accepted through02/16:559 manually source-checked facts,43 explicit debts;new F/G inventories resolve. First-four F/G hold remains, independent QA pending. Own CURRENT hashes verified under executor lock. No downstream.
 
 - 2026-10-28T11:10:52.805Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:41 for 02.dossier_sections (sec09-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:14:14.532Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:42 for 02.dossier_sections (sec09-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:14:17.911Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:43 for 02.dossier_sections (sec09-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:14:21.235Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:44 for 02.dossier_sections (sec09-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:14:25.059Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:45 for 02.dossier_sections (sec09-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road__G__n0 (lineage attempts exhausted)
