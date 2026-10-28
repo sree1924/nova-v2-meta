@@ -1,0 +1,220 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-nc-c",
+  "lineage": {
+    "input_manifest_sha256": "4959fe3cc65895d738dd24b8077a7a56cbbfafa9125313cea82ac4347cb3b0ae",
+    "candidate_lineage_id": "2026-10-28-rdmv-nc-class-c:lineage:64",
+    "source_registry_sha256": "e128656a3d00ba5437556728ebd87f5842c83601163739613417fe77cf9f423b",
+    "source_liveness_sha256": "dbfdf3e6d892a41c42c05809a9213d44a78aedd480dc6de23937c97292428b74"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "C2"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "C2",
+      "chunk_id": "C2.01",
+      "merge_seq": 1,
+      "domain": "Traffic signs and pavement markings confusables",
+      "heading": "C2 — Confusable pairs and knowledge-graph hints: sign shapes, sign colors, route markers, center lines, edge lines and pavement marker colors",
+      "learner_facing": false,
+      "markdown": "## C2 — Confusable pairs and knowledge-graph hints: sign shapes, sign colors, route markers, center lines, edge lines and pavement marker colors\nConfusable pairs among the sign shapes and colors, route markers and pavement markings, each tied to one handbook page; hint metadata sits only in trailing lines.\n\nFACT_ID: sec15-R01 | anchor: A01\nA stop sign always demands a full stop, while a yield sign demands slowing and yielding, with a stop only when cross traffic requires it. [A01]\nWhy it matters: group regulatory signs; difficulty high; confusable stop versus yield duty.\nSource: [A01 -> pdf-0085]\n\nFACT_ID: sec15-R02 | anchor: A01\nThe octagon belongs to the stop sign alone, while the downward-pointing triangle belongs to the yield sign. [A01]\nWhy it matters: group sign shapes; difficulty medium.\nSource: [A01 -> pdf-0085]\n\nFACT_ID: sec15-R03 | anchor: A02\nA diamond in black on yellow is an ordinary warning, while a diamond in black on orange warns of a construction or maintenance area. [A02]\nWhy it matters: group warning colors; difficulty high; confusable yellow versus orange.\nSource: [A02 -> pdf-0086]\n\nFACT_ID: sec15-R04 | anchor: A02\nThe yellow pennant on the left marks where a no-passing zone begins, while the rectangular DO NOT PASS sign states the rule itself. [A02]\nWhy it matters: group no-passing signs; difficulty medium; confusable warning versus regulatory.\nSource: [A02 -> pdf-0086]\n\nFACT_ID: sec15-R05 | anchor: A02\nThe round yellow RR sign gives advance warning before the crossing, while the white crossbuck stands at the crossing itself. [A02]\nWhy it matters: group railroad signs; difficulty medium; confusable advance versus at-crossing.\nSource: [A02 -> pdf-0086]\n\nFACT_ID: sec15-R06 | anchor: A03\nThe five-sided pentagon signals a school zone or crossing, which is a different shape from both the stop octagon and the yield triangle. [A03]\nWhy it matters: group sign shapes; difficulty high; confusable pentagon versus octagon.\nSource: [A03 -> pdf-0087]\n\nFACT_ID: sec15-R07 | anchor: A03\nU.S. route markers are shields, interstate markers are red, white and blue shields, and North Carolina route markers are diamonds. [A03]\nWhy it matters: group route markers; difficulty high; confusable U.S. versus interstate versus state.\nSource: [A03 -> pdf-0087]\n\nFACT_ID: sec15-R08 | anchor: A03\nOdd-numbered highways generally run north to south, whereas even-numbered highways generally run east to west. [A03]\nWhy it matters: group highway numbers; difficulty medium.\nSource: [A03 -> pdf-0087]\n\nFACT_ID: sec15-R09 | anchor: A05\nYellow lines separate opposite-direction traffic, while white lines separate traffic moving the same way. [A05]\nWhy it matters: group line colors; difficulty medium; confusable yellow versus white.\nSource: [A05 -> pdf-0090]\n\nFACT_ID: sec15-R10 | anchor: A05\nA broken yellow line on your side lets you pass with care, but double solid yellow lines forbid passing from either side. [A05]\nWhy it matters: group center lines; difficulty high; confusable broken versus double solid.\nSource: [A05 -> pdf-0090]\n\nFACT_ID: sec15-R11 | anchor: A05\nRed pavement markers warn of wrong-way travel, while blue markers show the location of fire hydrants or water supplies. [A05]\nWhy it matters: group pavement markers; difficulty high; confusable red versus blue markers.\nSource: [A05 -> pdf-0090]\n",
+      "char_count": 3343,
+      "fact_ids": [
+        "sec15-R01",
+        "sec15-R02",
+        "sec15-R03",
+        "sec15-R04",
+        "sec15-R05",
+        "sec15-R06",
+        "sec15-R07",
+        "sec15-R08",
+        "sec15-R09",
+        "sec15-R10",
+        "sec15-R11"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0085"
+        },
+        {
+          "anchor_id": "A02",
+          "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0086"
+        },
+        {
+          "anchor_id": "A03",
+          "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0087"
+        },
+        {
+          "anchor_id": "A05",
+          "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0090"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [
+    {
+      "domain": "Traffic signs and pavement markings confusables",
+      "chunk_id": "C2.01",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "sec15-R01"
+          ],
+          "label": "stop versus yield duty"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "sec15-R10"
+          ],
+          "label": "broken versus double solid yellow"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "sec15-R09"
+          ],
+          "label": "yellow versus white lines"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "sec15-R03"
+          ],
+          "label": "yellow versus orange diamond"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "sec15-R06"
+          ],
+          "label": "pentagon versus octagon"
+        },
+        {
+          "rank": 6,
+          "item_refs": [
+            "sec15-R07"
+          ],
+          "label": "route marker shapes"
+        },
+        {
+          "rank": 7,
+          "item_refs": [
+            "sec15-R11"
+          ],
+          "label": "red versus blue markers"
+        },
+        {
+          "rank": 8,
+          "item_refs": [
+            "sec15-R04"
+          ],
+          "label": "pennant versus DO NOT PASS sign"
+        },
+        {
+          "rank": 9,
+          "item_refs": [
+            "sec15-R05"
+          ],
+          "label": "RR advance sign versus crossbuck"
+        },
+        {
+          "rank": 10,
+          "item_refs": [
+            "sec15-R08"
+          ],
+          "label": "odd versus even highways"
+        },
+        {
+          "rank": 11,
+          "item_refs": [
+            "sec15-R02"
+          ],
+          "label": "octagon versus triangle"
+        }
+      ]
+    }
+  ],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The handbook prints a single revision date (Revised May 2025) on its back cover and states laws and fees are subject to change by the General Assembly; no sign of more than one revision per year in the selected pages."
+  },
+  "verification_debt": [],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

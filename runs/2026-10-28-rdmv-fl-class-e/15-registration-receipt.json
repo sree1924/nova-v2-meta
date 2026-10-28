@@ -1,0 +1,645 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "d7d0fca02a272c31281fab71b3b88f0912b766cb347c4866c37970ee5f5c49c4",
+    "bytes": 29818
+  },
+  "source": {
+    "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+    "path": "runs/2026-10-28-rdmv-fl-class-e/sources/private/englishdriverhandbook.pdf",
+    "sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+    "bytes": 6431087,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-fl-class-e/sources/private/input-snapshots/2c296f021d4366e4cdc3cfbd76121387021c662f58b0527d3956957f1c28ef9c.json",
+      "sha256": "2c296f021d4366e4cdc3cfbd76121387021c662f58b0527d3956957f1c28ef9c"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 104,
+    "printed_page_count": 0,
+    "page_map_sha256": "7f24eb61db95eb0f43ebe9e94987305cc9173c19808c5094206ead9d0406482b",
+    "extracted_text_sha256": "14cc95702e61acc8cdd6ae64c600a76bd8cf76e5f606831cf405a3ab1e2149dd",
+    "recorded_retrieved_at": "2026-10-28T00:36:00Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": null,
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-fl-class-e/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "76d6ca2c348e5a8fdc562140d2a81b8ad0fa465d01b00109e1ce0bc849c173eb"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-fl-class-e/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "d3abbdbf669911c52692f9b1ee445b234bde07b521a9b97c8d4108228a153b43"
+      },
+      "observed_at_utc": "2026-10-28T00:57:00Z",
+      "official_page_url": "https://www.flhsmv.gov/resources/handbooks-manuals-es/",
+      "observation_method": "Rendered page text excerpt (WebFetch/browser) with the exact visible handbook href; saved snapshot bytes are JSON, not the HTTP response body.",
+      "recorder": {
+        "actor": "Muse Code (subscription) via tools/belt/intake-state.mjs",
+        "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-fl-class-e/receipts/issuer-page-snapshot.json",
+        "sha256": "a1c480258f5004a78f25fc1be81e21ef04f1b8285495ba0f8a855e8eed5f21e0",
+        "bytes": 551,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "issuer page states no effective date; edition recorded as debt per S4 order"
+      },
+      "disposition_acceptance": "not_granted_by_registration",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": false,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "edition_unconfirmed",
+      "field": "edition",
+      "reason": "No edition has been independently confirmed. Filename/year and law-section headings are not edition evidence.",
+      "evidence_refs": [
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0003",
+          "pdf_page": 3,
+          "printed_page": null,
+          "page_text_sha256": "6a187a74adbdcae2a91ef87bd9457827a6b3eebf12bb9be5f1ad521063451d30",
+          "kind": "unresolved_edition_statement_candidate",
+          "verbatim": "revision date (located at the bottom of this page)."
+        }
+      ]
+    },
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "effective_date_disposition_unaccepted",
+      "field": "effective_date_disposition",
+      "reason": "The issuer receipt proposes an effective-date debt disposition. Registration records it but cannot grant acceptance or change the frozen liveness status contract.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-fl-class-e/receipts/issuer-current-edition-confirmation.json",
+          "sha256": "d3abbdbf669911c52692f9b1ee445b234bde07b521a9b97c8d4108228a153b43"
+        }
+      ]
+    },
+    {
+      "code": "image_only_pages_need_review",
+      "field": "rights_and_frontmatter_review",
+      "reason": "Physical PDF pages 1, 10, 91, 94, 98, 104 contain no extractable text. A scoped visual annotation, if bound, resolves only its stated observation; no OCR or complete visual clearance is claimed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": [
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0002",
+          "pdf_page": 2,
+          "printed_page": null,
+          "page_text_sha256": "04b217bca3991eb358c8232853eb6b60df0433c045021406de91a6fff13bf7f0",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "©2023 Florida Department of Highway Safety and Motor Vehicles.  "
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0002",
+          "pdf_page": 2,
+          "printed_page": null,
+          "page_text_sha256": "04b217bca3991eb358c8232853eb6b60df0433c045021406de91a6fff13bf7f0",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "All rights reserved. No portion of this material may be modified in any way  "
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0004",
+          "pdf_page": 4,
+          "printed_page": null,
+          "page_text_sha256": "3d6328ca3ffa20328bbe969c569ad46e45b75a55547d5953728d0774e628fd98",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "ii ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0006",
+          "pdf_page": 6,
+          "printed_page": null,
+          "page_text_sha256": "fd928ab34063c028153e167d0b3b7efa15c73a8a020eb59464a23627a0f2ba07",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "iv  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0008",
+          "pdf_page": 8,
+          "printed_page": null,
+          "page_text_sha256": "fd7f2713617c85f90d8432d52cf5022c38e5725927cd9e36c18968a088b2d5dc",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "vi  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0012",
+          "pdf_page": 12,
+          "printed_page": null,
+          "page_text_sha256": "d5352a495131d9d495f9e39045ba8f8d7207851ff16ff0b91c3d922b97e3de12",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "4 ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0014",
+          "pdf_page": 14,
+          "printed_page": null,
+          "page_text_sha256": "62fc06ba804b9d689bc7d040f9d1ecf149e16f2103a178003dd3c93f49793214",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "6  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0016",
+          "pdf_page": 16,
+          "printed_page": null,
+          "page_text_sha256": "35b716910db979beb43ad8a7f615c1d323c313d46b8ab70acd77c2315a6bc506",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "8  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0018",
+          "pdf_page": 18,
+          "printed_page": null,
+          "page_text_sha256": "89058c8201b234eed98a0ca3632519672afbe1503321f5bf0b6931c1f8762b42",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "10  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0020",
+          "pdf_page": 20,
+          "printed_page": null,
+          "page_text_sha256": "ffe7f423a60c45e7c66d5f7c854067cd7a9fbeb3bc32193563aa5188d13d3d94",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "12  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0022",
+          "pdf_page": 22,
+          "printed_page": null,
+          "page_text_sha256": "dbaf733a09936dc40ed321b65f6fa5d26fc8b3321ec8a5e10c24847d5a8726c3",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "14  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0024",
+          "pdf_page": 24,
+          "printed_page": null,
+          "page_text_sha256": "aff99147d2c81e0d22aff7725f0dbd10ce30677b30084dbec7a540ea6b889c75",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "16  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026",
+          "pdf_page": 26,
+          "printed_page": null,
+          "page_text_sha256": "b8cf11e388a1e702c3c7c42bfbbb1dd8954ba6faefc4ec88b028532dc22b5233",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "18  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0028",
+          "pdf_page": 28,
+          "printed_page": null,
+          "page_text_sha256": "8f353fe44ae09ccd4390c34c10e4453c43d73b948214bbc444b49b9c6d0bf2a9",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "20  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0030",
+          "pdf_page": 30,
+          "printed_page": null,
+          "page_text_sha256": "68cc563817bc67db5892836a71f3bbbaf0978a80b34cdc024dabcf0aa523cc0b",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "22  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0032",
+          "pdf_page": 32,
+          "printed_page": null,
+          "page_text_sha256": "4365d8352d58e59ca496e5a2702da41e34da0fef0c096cc8eaa603667577cf2f",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "24  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0034",
+          "pdf_page": 34,
+          "printed_page": null,
+          "page_text_sha256": "54dfa878a0136d854e796c9a52439332024b98fecf224567ec8c5d755c082db0",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "26  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0036",
+          "pdf_page": 36,
+          "printed_page": null,
+          "page_text_sha256": "43fe8e00af343ddaca9bbefa25a8aed6738099e90a29feeed95c28d209961317",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "28  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0038",
+          "pdf_page": 38,
+          "printed_page": null,
+          "page_text_sha256": "d40aaf97eeb087715010e1bd1213922dd385659ddd5b9e163405d338853be3ba",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "30  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0040",
+          "pdf_page": 40,
+          "printed_page": null,
+          "page_text_sha256": "df5dc1b9d05fdf0220726621cdef39168dbed0ea2b07a0f8c678b444165daff6",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "32  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0042",
+          "pdf_page": 42,
+          "printed_page": null,
+          "page_text_sha256": "ec2ebdcd32b5a42fad4f2f6b5f0bd75ba54d295fb7fa95f4d172c67e18fd3d34",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "34  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0044",
+          "pdf_page": 44,
+          "printed_page": null,
+          "page_text_sha256": "c2d769ee9f91318a0b94b13974b476e78aa811540b09baf4a29a6e767ab26db4",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "36  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0046",
+          "pdf_page": 46,
+          "printed_page": null,
+          "page_text_sha256": "3a72ab91e5e013d02efefdbff73a8a866c57299b6300659d7c7a4aadc9ea4f39",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "38  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0048",
+          "pdf_page": 48,
+          "printed_page": null,
+          "page_text_sha256": "63372f85c37c439362105618f3543fdf3bc1f7feef4cf3c3e3d7fcd45b121427",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "40  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0050",
+          "pdf_page": 50,
+          "printed_page": null,
+          "page_text_sha256": "e6c04e9f57bab5eff7b30534175a664e795386d5ec851191d8da4688614b14f3",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "42  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0052",
+          "pdf_page": 52,
+          "printed_page": null,
+          "page_text_sha256": "527da19c226d83438d29a871253dcfc0e7dc21aa085aff68f795c94f0ac0790e",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "44  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0054",
+          "pdf_page": 54,
+          "printed_page": null,
+          "page_text_sha256": "38d66d10744060058e1ecc7f9cbeb8d691ffaba8774be939b1b5701deda218ae",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "46  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0056",
+          "pdf_page": 56,
+          "printed_page": null,
+          "page_text_sha256": "19216273b00c0b0650f122dd7e38b1c3b3480f7d0bbad018030f8d820ec832f3",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "48  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0058",
+          "pdf_page": 58,
+          "printed_page": null,
+          "page_text_sha256": "ef3974b26136ee2b203773e9c81f8dfecc664cc4cb8982b4af42460fbcb685e3",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "50  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0060",
+          "pdf_page": 60,
+          "printed_page": null,
+          "page_text_sha256": "33ef2ebc780b151d865e3eed7587ccfea86f85263d1544a047b1b9e6a7cc6f44",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "52  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0062",
+          "pdf_page": 62,
+          "printed_page": null,
+          "page_text_sha256": "fc88c9d019a4d433adee33c37687a371208ea7f4ba7ea2a5210bba4a5e814664",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "54  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0064",
+          "pdf_page": 64,
+          "printed_page": null,
+          "page_text_sha256": "334c28f0e4dcbb2865fcb37bc546856fc03611e80f523b83120a994aab38ec1c",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "56  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0066",
+          "pdf_page": 66,
+          "printed_page": null,
+          "page_text_sha256": "aaa785788b8074d16e3af97418f01ea39e699ac2b1a72de564d8342548495984",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "58  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0068",
+          "pdf_page": 68,
+          "printed_page": null,
+          "page_text_sha256": "7a3758f377e7377a80ec5e8778abe4bb0f7de8cb845e5ad5d331734e4e077216",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "60  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0070",
+          "pdf_page": 70,
+          "printed_page": null,
+          "page_text_sha256": "607ae74be417523222ccd4bf54e348b1358a3aba3b3f9320f7730cd250492146",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "62  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0072",
+          "pdf_page": 72,
+          "printed_page": null,
+          "page_text_sha256": "920b6ab38ebde22b4f2d258012c49b5cf6420711fe622ad4d7050b389710052b",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "64  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0074",
+          "pdf_page": 74,
+          "printed_page": null,
+          "page_text_sha256": "5565de798ebe0edd25350b4fc82968c88a92929740895e904a8fbb73c5b1a0e9",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "66  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0076",
+          "pdf_page": 76,
+          "printed_page": null,
+          "page_text_sha256": "5624d5f9fbbaeff92677d21eafbf737bb96a94fca70672d29e59c3d8e691b69c",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "68  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0078",
+          "pdf_page": 78,
+          "printed_page": null,
+          "page_text_sha256": "12cea2fa23719b3a29cba1608de490f785737d22b22235639fc7062af40971cd",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "70  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0080",
+          "pdf_page": 80,
+          "printed_page": null,
+          "page_text_sha256": "0a27779e187eab72cc708203645512665c635952985a46aa695d44799f7c11f3",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "72  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0084",
+          "pdf_page": 84,
+          "printed_page": null,
+          "page_text_sha256": "0990ec3334a6ec5ccbac0eaf9b489194b696579bfd5a15f3aebd72d7bc640f01",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "76  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0084",
+          "pdf_page": 84,
+          "printed_page": null,
+          "page_text_sha256": "0990ec3334a6ec5ccbac0eaf9b489194b696579bfd5a15f3aebd72d7bc640f01",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "online at: www.aamva.org/law-  "
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0086",
+          "pdf_page": 86,
+          "printed_page": null,
+          "page_text_sha256": "7a844f6c6955a771b936549949ead0df3bf5111ce3dd3fbc60d2d221eb67c707",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "78  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0088",
+          "pdf_page": 88,
+          "printed_page": null,
+          "page_text_sha256": "a806bbb9521e95fc4eecbe4b2b624e3091f056057c3d7c299d13cfffe923e79b",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "80  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0090",
+          "pdf_page": 90,
+          "printed_page": null,
+          "page_text_sha256": "5dc8cd3d1f502a16ec887bb75b59487e5c383556189305699ca613482792c129",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "82  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0092",
+          "pdf_page": 92,
+          "printed_page": null,
+          "page_text_sha256": "49a25d3a7032ac0fdabf604831bf9159ac256d6b0673d1dac606d7d3ed8fb8ef",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "84  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0096",
+          "pdf_page": 96,
+          "printed_page": null,
+          "page_text_sha256": "955a8287c045834a95e5bea23a4aa1d0a294d38675be82c01369ed51f0437fdc",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "88  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0100",
+          "pdf_page": 100,
+          "printed_page": null,
+          "page_text_sha256": "68da851cf8fc4a355427741634bfb095c5178640f9ed0fef1ff134cfececb0f5",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "92  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        },
+        {
+          "source_ref": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook",
+          "source_document_sha256": "5c0b8e495f955b9ee030058489b74b8876614251462211774c97ce98fb9ed269",
+          "page_map_id": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0102",
+          "pdf_page": 102,
+          "printed_page": null,
+          "page_text_sha256": "8f59bfd5418a16c89f41a33f8d1c06b87990306aad99a0063d6c2e37ff63d7c1",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "94  ©2023 Florida Department of Highway Safety and Motor Vehicles"
+        }
+      ]
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-fl-class-e/sources/private/input-snapshots/2c296f021d4366e4cdc3cfbd76121387021c662f58b0527d3956957f1c28ef9c.json",
+          "sha256": "2c296f021d4366e4cdc3cfbd76121387021c662f58b0527d3956957f1c28ef9c"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "b17b1a3691c9724cc739459037987900e5b1edce40443ad13e42b6eee3e12974",
+      "bytes": 112390,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "7f24eb61db95eb0f43ebe9e94987305cc9173c19808c5094206ead9d0406482b",
+      "bytes": 67262,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "0968940df7e2ea0794d4b4ea984515bb41aeba17bada73f538009ca9e9f9cf7a",
+      "bytes": 736,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "14cc95702e61acc8cdd6ae64c600a76bd8cf76e5f606831cf405a3ab1e2149dd",
+      "bytes": 234656,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "d1bc23b10aae373ecd12d05c408d6a4c95e3093da5587ccf8cc02229cbc625ef",
+      "bytes": 773,
+      "kind": "private_source_evidence"
+    }
+  ],
+  "content_calls": 0
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "62f1a975b1547527634d8de8c7ea5ac8339ba91e829774c1aad53712373b9ff4",
+    "bytes": 30396
+  },
+  "source": {
+    "source_ref": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook",
+    "path": "runs/2026-10-28-rdmv-nj-class-d/sources/private/drivermanual.pdf",
+    "sha256": "bcc99f5cc49c1a19b67e7d7342e148eccd15d18ec105ae5e18c850b870c4c239",
+    "bytes": 45733484,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-nj-class-d/sources/private/input-snapshots/709f297cebe5d4c81bd17ee88d85903f0465ba88785a6e7f3ee38bffd90b1e70.json",
+      "sha256": "709f297cebe5d4c81bd17ee88d85903f0465ba88785a6e7f3ee38bffd90b1e70"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 243,
+    "printed_page_count": 0,
+    "page_map_sha256": "bfcb26557f72432436fda34549ab1df988d172ae82de961cf2b12e6e44c40c3e",
+    "extracted_text_sha256": "6ce0f42921010ac7fe324593536292f8fd6beb50cb5b2c8d6f5e356b73b7f1c9",
+    "recorded_retrieved_at": "2026-10-28T01:20:12Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": null,
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-nj-class-d/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "3ebe4e03e247a93072674b3ab3aec9723fa197b8ce1b0a276891ca360fd6adf1"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-nj-class-d/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "150975d1d3044a64bb9e55cb72953226fc9caff0c09dbf62927bdf2360be6fd2"
+      },
+      "observed_at_utc": "2026-10-28T03:27:23Z",
+      "official_page_url": "https://www.nj.gov/mvc/about/manuals.htm",
+      "observation_method": "Rendered page text excerpt (WebFetch/browser) with the exact visible handbook href; saved snapshot bytes are JSON, not the HTTP response body.",
+      "recorder": {
+        "actor": "claude-opus-5-5 (state worker) via curl + intake-state.mjs",
+        "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-nj-class-d/receipts/issuer-page-snapshot.json",
+        "sha256": "88608863ccf9c6efbbc4341016721c71125bdb32fbdd7db06d9235c16e4fb75f",
+        "bytes": 1074,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "issuer page states no effective date; edition recorded as debt per S4 order"
+      },
+      "disposition_acceptance": "not_granted_by_registration",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": false,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "edition_unconfirmed",
+      "field": "edition",
+      "reason": "No edition has been independently confirmed. Filename/year and law-section headings are not edition evidence.",
+      "evidence_refs": []
+    },
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "effective_date_disposition_unaccepted",
+      "field": "effective_date_disposition",
+      "reason": "The issuer receipt proposes an effective-date debt disposition. Registration records it but cannot grant acceptance or change the frozen liveness status contract.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-nj-class-d/receipts/issuer-current-edition-confirmation.json",
+          "sha256": "150975d1d3044a64bb9e55cb72953226fc9caff0c09dbf62927bdf2360be6fd2"
+        }
+      ]
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": [
+        {
+          "source_ref": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook",
+          "source_document_sha256": "bcc99f5cc49c1a19b67e7d7342e148eccd15d18ec105ae5e18c850b870c4c239",
+          "page_map_id": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0232",
+          "pdf_page": 232,
+          "printed_page": null,
+          "page_text_sha256": "140206930771fe27e9c52672b73ecbc85420931591b6180a8f49fe6b5d29c330",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "Photo by Jim Hooker. All rights reserved."
+        }
+      ]
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-nj-class-d/sources/private/input-snapshots/709f297cebe5d4c81bd17ee88d85903f0465ba88785a6e7f3ee38bffd90b1e70.json",
+          "sha256": "709f297cebe5d4c81bd17ee88d85903f0465ba88785a6e7f3ee38bffd90b1e70"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "057b72c7c679c997f56ae00ef97a6b14dbe264551f4121b9bf67b0457d9cf7c1",
+      "bytes": 87829,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "bfcb26557f72432436fda34549ab1df988d172ae82de961cf2b12e6e44c40c3e",
+      "bytes": 152812,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "1ca7bfbb9e3c0a6b19e5e808ecab6fe8329f3b4799e394abc260d65c1d6513e7",
+      "bytes": 720,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "6ce0f42921010ac7fe324593536292f8fd6beb50cb5b2c8d6f5e356b73b7f1c9",
+      "bytes": 380674,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "57e804c412cfee859c5f02ac94c853252ad7c75f248e76cef81bb6b45b050fa3",
+      "bytes": 723,
+      "kind": "private_source_evidence"
+    }
+  ],
+  "content_calls": 0
+}

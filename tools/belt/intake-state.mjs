@@ -136,7 +136,26 @@ s.handbook_edition = `${spec.handbook_title} ${spec.handbook_edition}`.trim(); s
 s.handbook_sha256 = pdfSha; s.handbook_snapshot_bytes = pdfBytes.length; s.handbook_retrieved_at_utc = spec.retrieved_at_utc;
 delete s.source_pages_checked_2026_10_26;
 s.issuer_page_domains = ip.domains || [new URL(ip.url).hostname.replace(/^www\./, '')];
-s.exam_facts = { ...(spec.exam_facts || {}), passing_score_observation_ref: { path: `${TO}/${passingRel}`, sha256: sha(fs.readFileSync(dst(passingRel))) }, recorded_from: 'handbook page text (intake spec); issuer page statements in receipts/issuer-current-edition-confirmation.json' };
+// exam_facts in the shape the safe model-input view verifies (tools/sanitize-model-input.mjs normalizeOfficialFact): each fact
+// is {value, status, source_page, source_ref, source_snapshot_sha256, liveness_receipt_ref} bound to the source the registrar
+// will register (same source_ref derivation as tools/roles/15-register.mjs). Flat numbers read as "unknown" (bug of 2026-10-28,
+// migrated by tools/belt/migrate-exam-facts.mjs). Provenance lives beside it, never inside it.
+{
+  const stateCode = spec.jurisdiction.slice(3).toLowerCase();
+  const issuerSlug = String(spec.issuing_authority ?? 'issuer').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+  const sourceRef = `src:${cfg.working_product_id || ('rdmv-' + stateCode)}:${issuerSlug}:handbook`;
+  const liveness = `${TO}/15-source-liveness.json`;
+  const ef = spec.exam_facts || {};
+  const unknown = () => ({ value: null, status: 'unknown', source_page: null, source_ref: null, source_snapshot_sha256: null, liveness_receipt_ref: null });
+  const fact = (value, page) => (value == null || page == null) ? unknown() : { value, status: 'verified', source_page: `${sourceRef}:pdf-${String(page).padStart(4, '0')}`, source_ref: sourceRef, source_snapshot_sha256: pdfSha, liveness_receipt_ref: liveness };
+  const passingPage = ps.pdf_page ?? null;
+  const questionPage = ef.question_count_page ?? (ef.source_pages || []).find((p) => p !== passingPage) ?? passingPage;
+  s.exam_facts = { question_count: fact(ef.question_count ?? null, questionPage), passing_percent: fact(ef.passing_percent ?? null, passingPage), time_limit: fact(ef.time_limit ?? null, ef.time_limit_page ?? null), format: unknown() };
+  s.exam_facts_provenance = { note: ef.note ?? null, source_pages: ef.source_pages ?? null, passing_score_observation_ref: { path: `${TO}/${passingRel}`, sha256: sha(fs.readFileSync(dst(passingRel))) }, recorded_from: 'handbook page text (intake spec); issuer page statements in receipts/issuer-current-edition-confirmation.json' };
+  // the observation receipt names the same registered source
+  const obs = readJ(dst(passingRel)); obs.source_ref = sourceRef; obs.source_page = `${sourceRef}:pdf-${String(ps.pdf_page).padStart(4, '0')}`; writeJ(dst(passingRel), obs);
+  s.exam_facts_provenance.passing_score_observation_ref.sha256 = sha(fs.readFileSync(dst(passingRel)));
+}
 s.section_page_ranges = ranges;
 s.section_page_ranges_note = `physical PDF pages per handbook section (${Object.keys(ranges).length} sections), mapped by the operator from the extracted page text; <= 30 pages each; titles in section_titles`;
 s.section_titles = spec.section_titles || {};

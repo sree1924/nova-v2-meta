@@ -125,3 +125,5 @@ Seeded 2026-10-28T03:26:23.541Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T03:58:40.359Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:62 for 02.dossier_sections (sec14-stopping-night-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-stopping-night-emergencies-crashes__E__n0 (lineage attempts exhausted)
 
 - 2026-10-28T03:58:48.620Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:63 for 02.dossier_sections (sec14-stopping-night-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-stopping-night-emergencies-crashes__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:06:19.204Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance

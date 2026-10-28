@@ -21,3 +21,7 @@ claim. Workers are told to report what they know is off. Fix pass = re-author th
 | 2026-10-28 | MI | sec10 | sign meanings taken from answer text; sign pictures are not in extracted text | claude-opus-5-5 worker |
 | 2026-10-28 | CO | sec12 facts F33–F40 | sourced from an old-format spread embedded on p23 (printed 29/30); current p24 text differs ("serious legal consequences" vs specific penalties); debts sec12-D-C01/C02 | claude-opus-5-5 worker |
 | 2026-10-28 | CO | p25, p27 tables | handbook tables mix "bicyclist"/"motorcyclist"; restated for bicyclists only, noted in part D | claude-opus-5-5 worker |
+| 2026-10-28 | NC | sec15 C dynamic line + F note | "set locally / posted on site" for school-zone speed cuts is the author's inference | claude-opus-5-5 worker |
+| 2026-10-28 | NC | sec11 part D | fuel-saving bullets cited to p69 (A02); most are on p70 (facts cite correctly) | claude-opus-5-5 worker |
+| 2026-10-28 | NC | sec15 vs sec10 | railroad signs taught twice (new wording in sec15) | claude-opus-5-5 worker |
+| 2026-10-28 | NC | sec12 C2 R01 | "only when a sign lists it" — handbook does not say "only" | claude-opus-5-5 worker |

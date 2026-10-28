@@ -41,7 +41,7 @@ function get(target, dotted) { return dotted.split('.').reduce((v, k) => v?.[k],
 // Compatibility view for the existing safe-input guard. "current" confirms the
 // dated issuer edition only; effective_date_status is retained as debt. No raw
 // config claim is upgraded to verified by this projection.
-function acceptedSourceProjection({context, runtime, projectRoot, runRoot, nowUtc}) {
+function acceptedSourceProjection({context, runtime, projectRoot, runRoot, nowUtc, config = null}) {
   const projection = {sources: []};
   if (!runtime.has('source_registry') || !runtime.has('page_map') || !runtime.has('source_liveness') || !nowUtc) return projection;
   for (const source of arr(context.source_registry?.sources)) {
@@ -53,8 +53,11 @@ function acceptedSourceProjection({context, runtime, projectRoot, runRoot, nowUt
       const issuerPath = verifyRef({path: receipt.issuer_current_edition_ref, sha256: receipt.issuer_current_edition_sha256}, projectRoot);
       inside(runRoot, issuerPath);
       const issuer = JSON.parse(fs.readFileSync(issuerPath, 'utf8'));
-      if (issuer.handbook_snapshot_sha256 !== snapshot || issuer.links_exact_handbook_url !== receipt.official_url ||
-          !/^https:\/\/dld\.utah\.gov\//.test(issuer.page_url ?? '')) continue;
+      // Issuer page must be on the run's declared issuer domain(s) (scope.issuer_page_domains; Utah DLD by default) — multi-state
+      // intake 2026-10-28; the Utah literal here excluded every other state's source from the projection.
+      const issuerDomains = Array.isArray(config?.scope?.issuer_page_domains) && config.scope.issuer_page_domains.length ? config.scope.issuer_page_domains : ['dld.utah.gov'];
+      const onIssuerDomain = issuerDomains.some(d => new RegExp('^https://(?:[a-z0-9-]+\\.)*' + String(d).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '/').test(issuer.page_url ?? ''));
+      if (issuer.handbook_snapshot_sha256 !== snapshot || issuer.links_exact_handbook_url !== receipt.official_url || !onIssuerDomain) continue;
       const age = Date.parse(nowUtc) - Date.parse(issuer.observed_at_utc);
       if (!Number.isFinite(age) || age < 0 || age > (context.policy?.freshness?.max_receipt_age_hours ?? 24) * 3_600_000) continue;
       if (receipt.status === 'CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT') {
@@ -228,7 +231,7 @@ export function assembleContext({projectRoot, runRoot, stageId, acceptedArtifact
     const learningPolicy = context.learning_loop ? {kind: 'product_policy', ref: context.learning_loop.ref,
       sha256: context.learning_loop_sha256, accepted: true,
       quiz_threshold_pct: context.learning_loop.mastery_gate?.quiz_threshold_pct} : null;
-    context.accepted_source_projection = acceptedSourceProjection({context, runtime, projectRoot, runRoot, nowUtc});
+    context.accepted_source_projection = acceptedSourceProjection({context, runtime, projectRoot, runRoot, nowUtc, config});
     const safe = sanitizeModelInput(config, {sourceRegistry: context.accepted_source_projection, learningPolicy});
     context.exam_facts_view = safe.model_input.exam_facts;
     context.safe_model_input = safe;

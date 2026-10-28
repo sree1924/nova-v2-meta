@@ -135,3 +135,5 @@ Seeded 2026-10-28T03:23:58.751Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T03:59:27.590Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:67 for 02.dossier_sections (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-aggressive-driving-emergencies-crashes__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T03:59:35.822Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:68 for 02.dossier_sections (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-aggressive-driving-emergencies-crashes__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:06:19.198Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
