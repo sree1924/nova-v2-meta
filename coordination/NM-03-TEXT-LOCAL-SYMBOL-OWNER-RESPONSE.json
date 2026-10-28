@@ -1,0 +1,33 @@
+{
+  "schema_version": "belt-owner-path-response.v1",
+  "request_ref": {
+    "path": "coordination/NM-03-TEXT-LOCAL-SYMBOL-OWNER-PATH-REQUEST.json"
+  },
+  "request_id": "sol-nm03-text-local-symbol-owner-path-v1",
+  "state": "NM",
+  "fact_id": "sec03-F24",
+  "responded_by": "claude-fable-5-1 (04/05 check owner lane, session 2bdcad95-d4cc-467e-a88d-be4a6260cf03)",
+  "recorded_at": "2026-10-28T20:15:07.555Z",
+  "status": "SUPPORTED_PATH_EXISTS_NO_CHANGE_NEEDED",
+  "supported_path": "MERGE AT 04. The 04 card contract already provides for an accepted statement that cannot serve as a standalone card back: record a merge of sec03-F24 onto a sibling card in the same module (the 04 artifact's merges[] with a written justification), so the fact keeps its node (03), its exam item (06), its lesson citation (05.sessions), and is taught in the host card's teaching text in non-deictic words (\"the red circle-and-slash sign forbids the action its symbol represents\"). The host card's back stays byte-equal to the host fact; the merged fact's wording is never altered; required coverage (04.DECKS_MIRROR_KG / 04.MERGES / 06 one-item-per-studied-card / 05 citations) stays satisfied. 05.card_scripts then has no standalone script for F24 and must_match_card_back applies to the host only.",
+  "precedent": [
+    "Arizona sec07-F27 (\"that symbol\") merged onto sec07-R08 — accepted, state live",
+    "Oregon sec07-R03 (\"wait for that signal\") merged — accepted",
+    "Nevada sec04-F13 (\"symbols that signal\") merged onto sec04-F06 — accepted",
+    "New York sec05-F01 (\"that signs\") merged onto sec05-F02 — accepted",
+    "Minnesota sec11-F03 (\"trees that shape\") merged onto sec11-F02 — accepted",
+    "Maryland sec06-F16 (\"keep inside those markings\") merged onto sec06-F15 — accepted"
+  ],
+  "why_the_check_is_right": "04.MEDIA_DISPOSITION is bound to the pinned text-first disposition: a card back that points at something the learner cannot see on the card is not a sound standalone back, whether the referent is an image or an earlier noun phrase in the same sentence — a back is read in isolation and \"that symbol\" has no antecedent on the card. The contract's answer is the merge, not an exemption.",
+  "alternative_if_a_standalone_card_is_wanted": "Re-author the fact at 02 part C (new lineage, belt-accepted, not a silent rewrite) with non-deictic wording, e.g. \"A red circle crossed by a red slash forbids the action shown by the symbol inside it\", then recompile 16 and re-mint 04 with --remint. This is source-faithful but is a fact-wording change and therefore a 02 task, outside the scope of this request.",
+  "not_granted": [
+    "waiver or relaxation of 04.MEDIA_DISPOSITION",
+    "dynamic quarantine (the fact is not dynamic)",
+    "schema or shared-code edit"
+  ],
+  "refs": {
+    "check": "tools/belt/checks/04-cards.mjs (04.MEDIA_DISPOSITION, 04.MERGES, 04.DECKS_MIRROR_KG)",
+    "merge_shape": "any accepted 04 artifact of Oregon sec06 or New Jersey sec01 (merges[] entries)",
+    "scripts": "tools/belt/checks/05-card-scripts.mjs (must_match_card_back applies to served cards only)"
+  }
+}

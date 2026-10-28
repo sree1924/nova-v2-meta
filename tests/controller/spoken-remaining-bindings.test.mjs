@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {spokenize} from '../../tools/belt/compile.mjs';
+test('declared remaining labels retain glyph identity and idempotence',()=>{for(const label of ['through/left','through/right','work/school','work/school-zone','red-light/stop-arm','red-light/extended-arm','vehicle/insurance','eastern/open']){const expected=label.replace('/',' slash ');assert.equal(spokenize(label),expected);assert.equal(spokenize(expected),expected);}});
+test('declared identifiers retain prefix value suffix and idempotence',()=>{for(const [raw,expected]of [['I-94A','I-ninety-four A'],['I-94W','I-ninety-four W'],['F1','F one'],['F2','F two'],['J1','J one'],['J2','J two'],['M1','M one'],['M2','M two']]){assert.equal(spokenize(raw),expected);assert.equal(spokenize(expected),expected);}});
+test('official form title retains punctuation and full literal title',()=>{const raw='form titled Graduated Driver Licensing Parent/Legal Guardian/Responsible Adult Certification.';assert.equal(spokenize(raw),raw.replaceAll('/',' slash '));});
+test('remaining label map excludes paths and retains inherited URL behavior',()=>{for(const raw of ['./through/left','/work/school-zone','red-light/stop-arm/file','vehicle/insurance.json','(eastern/open)','pre-through/left','work/school-zones','through/left.'])assert.equal(spokenize(raw),raw);assert.equal(spokenize('https://example.gov/through/left'),'https://example.gov slash through slash left');});
