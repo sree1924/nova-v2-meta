@@ -335,11 +335,18 @@
       "bytes": 3240835,
       "sha256": "1450c8b59b1c5f6247d20c1d00b3a759314df966a744c5ad20fe2d9c091fb4a5",
       "retrieved_at_utc": "2026-10-28T07:11:32Z",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/KS.pdf",
       "note": "Current official issuer forms page links Driver’s license handbook - Vehicles; cover confirms Revised February 2022. PDF page 9 explicitly names Non-Commercial Class C. Separate motorcycle and CDL manuals. Provenance: scratch/sol-scout-a/KS.provenance.json.",
-      "sol_thread_id": "01a18161-db49-7ba0-93e7-480520e0ea38"
+      "sol_thread_id": "01a18161-db49-7ba0-93e7-480520e0ea38",
+      "completion_scope": "authoring_except_audio",
+      "authoring_completed_at": "2026-10-28T19:18:19.438Z",
+      "final_batch_oversight_pending": true,
+      "completion_receipt_ref": {
+        "path": "scratch/sol-state-coordinator/ks-authoring-complete-20261028.json",
+        "sha256": "4a1b2a18c453a3a15505970b78d6609f61e3ff575d7197828189fe69914e5131"
+      }
     },
     {
       "state": "DE",
@@ -451,13 +458,20 @@
       "bytes": 7428527,
       "sha256": "34b9f5adc87622c5e43fd0d24144307fa0148d578936005c13861da2420b92e3",
       "retrieved_at_utc": "2026-10-28T09:05:42.014Z",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/ME.pdf",
       "note": "Fresh direct retrieval from exact published www.maine.gov URL succeeded HTTP200 PDF with same SHA; URL request percent-encodes spaces. Earlier www3 mirror receipt retained as history; no tool or source-check waiver.",
       "sol_thread_id": "01a181b9-f0e8-7633-8402-cedde9ec4697",
       "retrieval_url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/Maine%20Driver%20License%20Manual_2.pdf",
-      "direct_retrieval_receipt": "scratch/sol-state-coordinator/ME-direct-verification.json"
+      "direct_retrieval_receipt": "scratch/sol-state-coordinator/ME-direct-verification.json",
+      "completion_scope": "authoring_except_audio",
+      "authoring_completed_at": "2026-10-28T19:40:17.973Z",
+      "final_batch_oversight_pending": true,
+      "completion_receipt_ref": {
+        "path": "scratch/sol-state-coordinator/me-authoring-complete-20261028.json",
+        "sha256": "7931b47fb0c0c1ad57baa06664953edf13a94ae8c80c26dc102f79d6db37c4c1"
+      }
     },
     {
       "state": "SD",
@@ -620,21 +634,97 @@
       "status": "staged",
       "worker": "muse",
       "local_path": "runs/_intake/sources/private/AR.pdf"
-    }
-  ],
-  "refused": [
+    },
+    {
+      "state": "OH",
+      "jurisdiction": "US-OH",
+      "issuing_authority": "Ohio Department of Public Safety / Bureau of Motor Vehicles",
+      "license_class": "Class D (operator's license)",
+      "handbook_title": "Digest of Ohio Motor Vehicle Laws",
+      "handbook_url": "https://publicsafety.ohio.gov/who-we-are/resources/digest-of-motor-vehicle-laws/welcome",
+      "issuer_page_url": "https://publicsafety.ohio.gov/who-we-are/resources/digest-of-motor-vehicle-laws/welcome",
+      "bytes": 11396740,
+      "sha256": "25c2964c4c5bfe35e231b2508ae93d932fc36aa162bbb61d505618c6100df5ac",
+      "retrieved_at_utc": "2026-10-28T19:41:55Z",
+      "note": "assembled from issuer web chapters (see OH-provenance.json); no issuer PDF exists. Welcome + Sections 1-13 (14 pages on publicsafety.ohio.gov, all HTTP 200) printed by headless Edge and merged with pypdf; 94 pages extracted by handbook-text.mjs. Exam fact p4 (Section 1): \"The test is 40 multiple-choice questions (with a 75% passage rate needed)\". Class D named in Section 13 (p87). Site print CSS drops the per-section dateline (January 26, 2024)",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/OH.pdf"
+    },
+    {
+      "state": "IL",
+      "jurisdiction": "US-IL",
+      "issuing_authority": "Illinois Secretary of State, Driver Services Department",
+      "license_class": "Class D",
+      "handbook_title": "Illinois Rules of the Road 2026",
+      "handbook_url": "https://www.ilsos.gov/publications/pdf_publications/dsd_a112.pdf",
+      "issuer_page_url": "https://www.ilsos.gov/departments/drivers/drivers_license/rules_of_road.html",
+      "note": "founder manual browser download 2026-10-28 (site blocks scripted curl); edition line p1 \"Illinois Rules of the Road 2026\"; PDF URL to be confirmed at intake",
+      "bytes": 4344406,
+      "sha256": "8b637e0702708585c19a9747f6eddf51af8cc373eb4721cbcd8f48c1014061dd",
+      "pages": 113,
+      "retrieved_at_utc": "2026-10-28T19:45:35.950Z",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/IL.pdf",
+      "provenance": "founder-manual-download"
+    },
+    {
+      "state": "GA",
+      "jurisdiction": "US-GA",
+      "issuing_authority": "Georgia Department of Driver Services",
+      "license_class": "Class C",
+      "handbook_title": "Georgia Drivers Manual 2023-2024",
+      "handbook_url": "https://dds.georgia.gov/dds-forms-and-manuals/manuals",
+      "issuer_page_url": "https://dds.georgia.gov/dds-forms-and-manuals/manuals",
+      "note": "founder manual browser download 2026-10-28 (dds.georgia.gov 403 to curl); cover \"2023-2024\" — freshness verify; exact PDF URL to be confirmed at intake",
+      "bytes": 49586555,
+      "sha256": "e311de54ad0ee6f5913e18e694914a560dac3592987437290c271f53c0c7fa71",
+      "pages": 52,
+      "retrieved_at_utc": "2026-10-28T19:45:35.950Z",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/GA.pdf",
+      "provenance": "founder-manual-download"
+    },
     {
       "state": "MA",
       "jurisdiction": "US-MA",
-      "issuing_authority": "Massachusetts Registry of Motor Vehicles (MassDOT RMV)",
+      "issuing_authority": "Massachusetts Registry of Motor Vehicles",
       "license_class": "Class D",
-      "handbook_title": "Massachusetts Driver's Manual (English)",
+      "handbook_title": "Massachusetts Driver's Manual (Revised April 2026)",
       "handbook_url": "https://www.mass.gov/doc/english-drivers-manual/download",
-      "issuer_page_url": "https://mass.gov/lists/drivers-manuals",
-      "bytes": 0,
-      "retrieved_at_utc": "2026-10-28T01:21:11Z",
-      "status": "refused: mass.gov returned HTTP 403 with an HTML body to scripted curl (issuer page also 403)"
+      "issuer_page_url": "https://www.mass.gov/lists/drivers-manuals",
+      "note": "founder manual browser download 2026-10-28 (mass.gov 403 to curl); \"Revised April 2026\" in front matter",
+      "bytes": 7279638,
+      "sha256": "a24e5e352bf519f9000c753c9788e4b8cdd44001f1266f58f721117488df7fe3",
+      "pages": 140,
+      "retrieved_at_utc": "2026-10-28T19:45:35.950Z",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/MA.pdf",
+      "provenance": "founder-manual-download"
     },
+    {
+      "state": "NH",
+      "jurisdiction": "US-NH",
+      "issuing_authority": "New Hampshire Division of Motor Vehicles",
+      "license_class": "Class D (class not stated in text; verify)",
+      "handbook_title": "New Hampshire Driver's Manual",
+      "handbook_url": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/nhdm.pdf",
+      "issuer_page_url": "https://www.dmv.nh.gov/drivers-licenses-ids/drivers-license-manual",
+      "note": "founder manual browser download 2026-10-28 (Akamai 403 to curl); no edition line found in front matter — liveness will stay debt unless a cover render shows one",
+      "bytes": 2622741,
+      "sha256": "4af2af2ac8115a1a8c4a3a8dab50739998b3e159a37fc280addd10d05e737902",
+      "pages": 52,
+      "retrieved_at_utc": "2026-10-28T19:45:35.950Z",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/NH.pdf",
+      "provenance": "founder-manual-download"
+    }
+  ],
+  "refused": [
     {
       "state": "LA",
       "jurisdiction": "US-LA",
@@ -646,18 +736,6 @@
       "bytes": 0,
       "retrieved_at_utc": "2026-10-28T06:47:00Z",
       "status": "refused: off-issuer-domain - the OMV page (HTTP 200) links the guide only on public.powerdms.com (vendor PowerDMS host; it returns HTTP 200 application/pdf) and no copy is linked on expresslane.la.gov; dpsweb.dps.louisiana.gov holds an unlinked 2017 copy (stale, not used). Needs a founder call on whether the issuer's PowerDMS tenant counts as issuer domain"
-    },
-    {
-      "state": "NH",
-      "jurisdiction": "US-NH",
-      "issuing_authority": "New Hampshire Division of Motor Vehicles (NH DMV), Department of Safety",
-      "license_class": "standard non-commercial (class not verified)",
-      "handbook_title": "New Hampshire Driver Manual",
-      "handbook_url": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/nhdm.pdf",
-      "issuer_page_url": "https://www.dmv.nh.gov/drivers-licenses-ids/drivers-license-manual",
-      "bytes": 0,
-      "retrieved_at_utc": "2026-10-28T17:52:30Z",
-      "status": "refused: dmv.nh.gov returned HTTP 403 (Akamai Access Denied HTML) to scripted curl for the PDF and every issuer page tried (www.nh.gov root also 403); retried with HTTP/1.1, same 403"
     },
     {
       "state": "DC",
