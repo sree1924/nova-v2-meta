@@ -13,8 +13,9 @@
 // drives a state picker at #/ and per-state routes #/<xx>/…; legacy
 // unprefixed routes redirect to Utah. The harness asserts the picker (one
 // card per registry entry, Utah card -> #/ut/, a non-complete entry renders
-// "coming soon" with no link), the redirects, and runs every content/audio/
-// voice assertion against Utah's prefixed routes. Content and audio load
+// "coming soon" with no link), the redirects, and runs every content/audio
+// assertion against Utah's prefixed routes. Spoken recall was removed
+// 2026-10-28; the harness asserts no trace of it remains in index.html. Content and audio load
 // through the app's own per-state loaders: in the default mode fetch fails
 // and the app injects the state's *-embedded.js fallbacks (exactly like a
 // file:// open); with --http=<base> the app fetches from a running
@@ -147,7 +148,7 @@ const driver = m[1] + '\n;globalThis.__go = (hash) => { location.hash = hash; ro
   + '\nglobalThis.__states = () => STATES; globalThis.__statesFrom = () => STATES_FROM; globalThis.__setStates = (l) => { STATES = l; };'
   + '\nglobalThis.__ensure = (slug) => ensureState(stateBySlug(slug)); globalThis.__summaries = () => Promise.all((STATES || []).filter((s) => s.status === "complete").map((s) => ensureSummary(s)));'
   + '\nglobalThis.__summary = (code) => SUMMARY[code]; globalThis.__active = () => (ST ? ST.code : null);'
-  + '\nglobalThis.__voiceMatch = voiceMatch; globalThis.__audio = () => ({ has: !!AUDIO_MANIFEST, files: AUDIO_FILES.size, pause_ms: AUDIO_PAUSE_MS, from: AUDIO_FROM, root: AUDIO_ROOT });';
+  + '\nglobalThis.__audio = () => ({ has: !!AUDIO_MANIFEST, files: AUDIO_FILES.size, pause_ms: AUDIO_PAUSE_MS, from: AUDIO_FROM, root: AUDIO_ROOT });';
 vm.runInContext(driver, sandbox);
 
 const tick = () => new Promise((r) => setImmediate(r));
@@ -492,26 +493,20 @@ function buildExpected() {
     ok('reviewer ' + rt + ': REAL banner + content', r.bannerClass === 'real-banner' && r.html.length > 2000, 'len=' + r.html.length);
   }
 
-  // ---- spoken recall ("Say it") + minted narration ----
-  // The transcribe endpoint is mocked out of existence here: harness fetch
-  // throws, so these checks cover rendering, the honesty strings, the match
-  // function with canned transcripts, and the narration buttons/labels.
+  // ---- flashcard recall beat + minted narration (spoken recall removed 2026-10-28) ----
   const vMod = X.sections[secIds[0]].modules[0];
   const vDeck = X.findDeck(vMod.unit_id, vMod.module_id);
   const vLesson = X.findUnit(vMod.unit_id);
   if (vDeck.length) {
     r = go(PFX + 'cards/' + vMod.unit_id);
-    ok('voice: say-it button per card', (r.html.match(/<button data-sayit[ >]/g) || []).length === vDeck.length,
-      'found=' + ((r.html.match(/<button data-sayit[ >]/g) || []).length));
-    ok('voice: card back embedded for matching', vDeck.every((c) => r.html.includes('data-back="' + escS(c.back) + '"')));
-    ok('voice: voice-result slot per card', (r.html.match(/data-voice-result/g) || []).length === vDeck.length);
-    ok('voice: honesty note verbatim', r.html.includes('voice is transcribed by Meta Voice Transcribe via a local dev proxy; nothing is stored beyond this browser and the local log'));
-    ok('voice: posts to dev proxy', html.includes('fetch("/api/transcribe"'));
-    ok('voice: manual recall path kept', (r.html.match(/data-recall/g) || []).length === vDeck.length);
+    ok('cards: manual recall beat per card', (r.html.match(/data-recall/g) || []).length === vDeck.length);
+    ok('cards: play button per card', (r.html.match(/data-card-audio/g) || []).length === vDeck.length,
+      'found=' + ((r.html.match(/data-card-audio/g) || []).length));
+    ok('cards: no spoken-recall markup on cards route', !/data-sayit|data-voice-result|Say it/.test(r.html));
     ok('audio: narration label on cards', countTag(r.html) === 1, 'found=' + countTag(r.html));
     ok('audio: no device-voice remnants on cards', !/data-listen/.test(r.html) && !/device voice/.test(r.html) && !/speechSynthesis/.test(r.html));
   } else {
-    ok('voice: cards route has deck to test', false, vMod.unit_id);
+    ok('cards: cards route has deck to test', false, vMod.unit_id);
   }
   if (vLesson) {
     r = go(PFX + 'lesson/' + vMod.unit_id);
@@ -523,17 +518,9 @@ function buildExpected() {
   } else {
     ok('audio: lesson route has unit to test', false, vMod.unit_id);
   }
-  const vm = sandbox.__voiceMatch;
-  let m = vm('stop completely at the limit line', 'Stop completely at the limit line.');
-  ok('voice-match: exact+case+punct', m.score === 1 && m.recalled === true, JSON.stringify(m));
-  m = vm('twenty five miles per hour', 'Speed limit 25 miles per hour');
-  ok('voice-match: number words vs digits recalled', m.recalled === true && m.score >= 0.6, JSON.stringify(m));
-  m = vm('25 miles per hour', 'Speed limit twenty-five miles per hour');
-  ok('voice-match: digits vs number words recalled', m.recalled === true, JSON.stringify(m));
-  m = vm('something entirely different here', 'Stop completely at the limit line');
-  ok('voice-match: unrelated missed', m.recalled === false, JSON.stringify(m));
-  m = vm('', 'Stop completely at the limit line');
-  ok('voice-match: empty transcript missed', m.score === 0 && m.recalled === false, JSON.stringify(m));
+  // ---- spoken recall is gone from the app (founder 2026-10-28) ----
+  const voiceHits = ['Say it', 'transcribe', 'MediaRecorder', 'Voice Transcribe'].filter((s) => html.includes(s));
+  ok('no spoken-recall strings in app-preview/index.html (Say it, transcribe, MediaRecorder, Voice Transcribe)', voiceHits.length === 0, voiceHits.join(','));
 
   // ---- no device-voice string left in app-preview/ ----
   const walkFiles = (dir) => {

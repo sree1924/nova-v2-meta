@@ -5,13 +5,14 @@ Standalone static web app. Plain HTML + inline ES modules + CSS. No bundler, no 
 ## How to open
 
 - Double-click `app-preview/index.html`, or
-- serve the folder and open the printed URL. Spoken recall needs the dev
-  server: `node tools/preview/serve.mjs` (static app-preview/ on
-  127.0.0.1:4310 plus `POST /api/transcribe`, a dev proxy to Meta Voice
-  Transcribe; needs `MODEL_API_KEY` in the lane-root `.env`). Plain static
-  alternatives (`node tools/preview/static-serve.mjs`,
-  `python -m http.server --directory app-preview`) work for everything except
-  the "Say it" button, which reports the endpoint as unavailable.
+- serve the folder and open the printed URL: `node tools/preview/serve.mjs [port]`
+  (plain static app-preview/ on 127.0.0.1:4310 by default; no API endpoints,
+  no network, no `.env` loading; `.env` returns 403). `node tools/preview/static-serve.mjs`
+  and `python -m http.server --directory app-preview` work the same.
+
+The learner loop is **lesson (the narrated "memory session") → flashcards → test**
+(module quiz, then chapter practice forms). There is no spoken recall (founder
+decision 2026-10-28: "just good old memory session, flashcards, test").
 
 Both paths work: pages fetch each state's `data_root` (Utah: `data/real/*.json`) over
 HTTP when served, and fall back to that state's generated embedded copy (Utah:
@@ -117,8 +118,8 @@ it is NOT in the learner top nav.
 all 16 chapters in handbook order · `#/ut/chapter/:section` chapter hub ·
 `#/ut/module/:module` module hub (Lesson → Flashcards → Quiz, with "not yet built"
 states where the belt has not accepted that artifact) · `#/ut/lesson/:unit` lesson (Play/Pause per "Teacher says" slide) ·
-`#/ut/cards/:unit` flashcards (3-second recall beat; "Say it" spoken recall via
-the dev server; Play runs question → think cue → answer → teaching) ·
+`#/ut/cards/:unit` flashcards (Recall, then reveal: 3-second recall beat; Play
+runs question → think cue → answer → teaching) ·
 `#/ut/quiz/:unit` module quiz · `#/ut/practice` practice-form chooser (forms grouped by
 chapter) · `#/ut/practice/:form` practice form · `#/ut/results/:attempt` results
 (device-local) · `#/ut/settings` settings/about · `#/synthetic-sample` fictional
@@ -131,20 +132,8 @@ comparison sample (global, not state-scoped). Reviewer routes are prefixed the s
 Free-only, no auth, one shared audio element for narration. Scores describe observed practice only.
 Progress lives in `localStorage` under `nova-preview:v1:ut-handbook` (per-state key, unchanged for Utah).
 
-## Voice and narration (2026-10-27)
+## Narration (2026-10-27; spoken recall removed 2026-10-28)
 
-- **"Say it" spoken recall** (flashcards, recall beat): records up to 10 s in
-  the browser, re-encodes to 16 kHz mono WAV locally, and posts it to the dev
-  proxy `POST /api/transcribe` (raw `audio/wav` body, 2 MB cap). The proxy
-  forwards to Meta Voice Transcribe (`muse-voice-transcribe-1.0`,
-  `PUSH_TO_TALK`) and returns `{transcript, elapsed_ms, model}`. The
-  transcript is scored against the card back with a lenient normalized match
-  (lowercase, punctuation stripped, numbers as digits and words both accepted;
-  score = fraction of answer tokens heard, ≥ 0.6 = recalled), the card is
-  marked recalled/missed in device-local progress, the answer reveals, and the
-  transcript shows under it with the match score. The manual Recall button and
-  keyboard path are unchanged; if the mic or endpoint is unavailable the
-  button says why and never blocks the learner.
 - **Minted narration** (every lesson slide, every flashcard, every deck
   recap): pre-generated MP3 clips minted by the Nova fleet recipe — OpenAI
   `gpt-4o-mini-tts`, voice `nova`, deliberately unhurried pace (atempo 0.85);
@@ -160,11 +149,12 @@ Progress lives in `localStorage` under `nova-preview:v1:ut-handbook` (per-state 
   "narration · pre-generated (OpenAI TTS, not a Meta model)". Works over any
   static server or `file://` (fallback copy `audio-manifest-embedded.js`,
   regenerate with `node tools/preview/embed-audio-manifest.mjs`).
-- Honesty: the flashcard screen states "voice is transcribed by Meta Voice
-  Transcribe via a local dev proxy; nothing is stored beyond this browser and
-  the local log". Each proxy call appends one line (timestamp, bytes,
-  elapsed_ms, status — never audio, never the key) to
-  `data/voice-log.jsonl`. The server never serves `.env`.
+- No model runs in the learner path: narration is pre-generated files, the
+  app makes no API calls, and no learner audio is captured. The former
+  spoken-recall code is parked, not loaded by any page and not mounted by any
+  server: browser half `app-preview/parked/voice-recall.js`, server half
+  `tools/preview/transcribe-proxy.parked.mjs` (Meta Voice Transcribe proxy;
+  needs `MODEL_API_KEY`; candidate for a later onboarding/marketing agent).
 
 Reviewer routes (not in the top nav; linked from settings/about):
 `#/dossier` source-dossier view — accepted stage-02 artifacts only, FACT_ID
@@ -178,13 +168,14 @@ plus accepted stage-05 card_scripts narration (teaching text per card) under eac
 interactive with per-option rationales and device-local results. `#/real-lesson` real lesson —
 accepted stage-05 teaching units (all 16 sections) with provenance.
 
-## Files (sha256, 2026-10-28 multi-state shell build)
+## Files (sha256, 2026-10-28 multi-state shell build; index.html + styles.css re-hashed after spoken-recall removal)
 
 | file | sha256 | bytes |
 |---|---|---|
-| index.html | 1131c88033f840c81992955ce12a09b826f3dd21ef7c4bfd95b0180c22ce5fe0 | 86588 |
+| index.html | fd8702a2f950f1b53322e6c3668b3fc9e629b6c7b17136cb56c66fda531db138 | 77961 |
 | trace.html | 6d4501a1dfad55d54ed0f30d0eb77cf4ca0a5fe7a22c5e9eb04880098631e325 | 6662 |
-| styles.css | 3fd313b14ba269a871550fa41dff6ebd40390e4920405826eb98931b1e0d7517 | 4935 |
+| styles.css | e53f28b7c7eb1fb05b848fb06534e504eb0f32bb04b3aa778ff9e379ea8ff4cb | 4744 |
+| parked/voice-recall.js (parked, not loaded) | 80856d74821ad9f8cccb51a27296ce85c3f9935ac73e7352f550e3aeaf07b2ec | 9831 |
 | data/states.json (state registry) | c9f5d143103119d9943c85433bad2d30ae4e525a18d35a561c823e4e4c4f6bcd | 1850 |
 | states-embedded.js (generated) | 87afcc5ae278ed0ffc5018b427c9c873cd51052e85479167e96f7a57cb608e51 | 1750 |
 | data-embedded.js (generated) | c84fa9dbcf7eea8de9cc04509752ab2b33924a0df106507190e6e78ad75e6eaf | 15625 |
