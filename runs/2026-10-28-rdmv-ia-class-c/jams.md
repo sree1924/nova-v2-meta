@@ -153,3 +153,5 @@ Seeded 2026-10-28T07:01:29.980Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:37:42.758Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:75 for 02.dossier_sections (sec17-emergencies-crashes-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-emergencies-crashes-law-enforcement__B__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:38:32.836Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:76 for 02.dossier_sections (sec17-emergencies-crashes-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-emergencies-crashes-law-enforcement__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:39:24.500Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:77 for 02.dossier_sections (sec17-emergencies-crashes-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-emergencies-crashes-law-enforcement__F__n0 (lineage attempts exhausted)

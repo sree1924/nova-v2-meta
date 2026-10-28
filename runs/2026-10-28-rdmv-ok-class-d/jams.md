@@ -59,3 +59,5 @@ Seeded 2026-10-28T07:07:07.574Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:38:22.340Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:29 for 02.dossier_sections (sec07-basic-speed-rule) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-basic-speed-rule__A__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:39:09.476Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:30 for 02.dossier_sections (sec07-basic-speed-rule) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-basic-speed-rule__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:39:53.718Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:31 for 02.dossier_sections (sec07-basic-speed-rule) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-basic-speed-rule__E2__n0 (lineage attempts exhausted)
