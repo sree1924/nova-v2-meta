@@ -123,3 +123,5 @@ Seeded 2026-10-28T07:01:23.778Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T19:16:30.110Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:58 for 03.combined_kg (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-basic-driving__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T19:23:14.715Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:59 for 03.combined_kg (sec07-general-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-general-driving__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T19:32:53.216Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:60 for 03.combined_kg (sec09-emergency-situations) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-emergency-situations__-__n0 (lineage attempts exhausted)
