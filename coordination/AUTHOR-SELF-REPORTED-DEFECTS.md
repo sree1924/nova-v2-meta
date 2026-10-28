@@ -25,3 +25,8 @@ claim. Workers are told to report what they know is off. Fix pass = re-author th
 | 2026-10-28 | NC | sec11 part D | fuel-saving bullets cited to p69 (A02); most are on p70 (facts cite correctly) | claude-opus-5-5 worker |
 | 2026-10-28 | NC | sec15 vs sec10 | railroad signs taught twice (new wording in sec15) | claude-opus-5-5 worker |
 | 2026-10-28 | NC | sec12 C2 R01 | "only when a sign lists it" — handbook does not say "only" | claude-opus-5-5 worker |
+| 2026-10-28 | WA | sec14 fact F37 (p182) | ties the supervisor request to disagreeing with an officer; guide ties it to concerns about conduct (R09 states it correctly) — re-author | claude-opus-5-5 worker |
+| 2026-10-28 | WA | sec14 glossary | "tourniquet" definition is general knowledge, not printed on p177 | claude-opus-5-5 worker |
+| 2026-10-28 | WA | sec14 R01, sec12 R10, sec13 F34 | added comparison / "left turn" paraphrase / "stomping" paraphrase not in the guide's words | claude-opus-5-5 worker |
+| 2026-10-28 | WA | sec12, sec10 memory aids | mnemonic invented; line-rule aid simplifies (center-turn-lane crossing covered by F15) | claude-opus-5-5 worker |
+| 2026-10-28 | WA | sec10 C n0 | 02.LINEAGE hold caused by the exam_facts config migration mid-run (expected rebind); n1 accepted | runner |

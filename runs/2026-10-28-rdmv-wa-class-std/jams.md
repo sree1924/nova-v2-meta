@@ -87,3 +87,47 @@ Seeded 2026-10-28T03:24:01.059Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T04:08:51.366Z retry nonce 02.dossier_sections:C@sec10-road-markings-and-zones → 1 after HOLD (sec10-road-markings-and-zones); non-PASS: 02.LINEAGE=FAIL
 
 - 2026-10-28T04:08:51.374Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:42 for 02.dossier_sections (sec10-road-markings-and-zones) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-road-markings-and-zones__C__n1 (lineage attempts exhausted)
+
+- 2026-10-28T04:10:19.088Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:43 for 02.dossier_sections (sec10-road-markings-and-zones) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-road-markings-and-zones__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:11:12.177Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:44 for 02.dossier_sections (sec10-road-markings-and-zones) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-road-markings-and-zones__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:11:26.832Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:45 for 02.dossier_sections (sec10-road-markings-and-zones) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-road-markings-and-zones__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:11:34.444Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:46 for 02.dossier_sections (sec10-road-markings-and-zones) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-road-markings-and-zones__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:13:46.421Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:47 for 02.dossier_sections (sec11-parking-transporting-maritime) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-parking-transporting-maritime__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:14:35.831Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:48 for 02.dossier_sections (sec11-parking-transporting-maritime) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-parking-transporting-maritime__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:14:45.771Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:49 for 02.dossier_sections (sec11-parking-transporting-maritime) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-parking-transporting-maritime__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:14:54.240Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:50 for 02.dossier_sections (sec11-parking-transporting-maritime) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-parking-transporting-maritime__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:15:00.553Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:51 for 02.dossier_sections (sec12-speed-space-and-time) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-speed-space-and-time__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:16:21.448Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:52 for 02.dossier_sections (sec12-speed-space-and-time) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-speed-space-and-time__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:16:42.209Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:53 for 02.dossier_sections (sec12-speed-space-and-time) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-speed-space-and-time__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:16:47.230Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:54 for 02.dossier_sections (sec12-speed-space-and-time) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-speed-space-and-time__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:16:53.590Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:55 for 02.dossier_sections (sec12-speed-space-and-time) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-speed-space-and-time__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:17:54.165Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:56 for 02.dossier_sections (sec13-focus-and-road-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-focus-and-road-conditions__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:18:57.329Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:57 for 02.dossier_sections (sec13-focus-and-road-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-focus-and-road-conditions__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:19:03.978Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:58 for 02.dossier_sections (sec13-focus-and-road-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-focus-and-road-conditions__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:19:10.147Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:59 for 02.dossier_sections (sec13-focus-and-road-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-focus-and-road-conditions__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:19:16.750Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:60 for 02.dossier_sections (sec14-failures-collisions-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-failures-collisions-law-enforcement__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:20:55.394Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:61 for 02.dossier_sections (sec14-failures-collisions-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-failures-collisions-law-enforcement__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:21:40.592Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:62 for 02.dossier_sections (sec14-failures-collisions-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-failures-collisions-law-enforcement__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:21:48.907Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:63 for 02.dossier_sections (sec14-failures-collisions-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-failures-collisions-law-enforcement__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:21:58.359Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:64 for 02.dossier_sections (sec14-failures-collisions-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-failures-collisions-law-enforcement__G__n0 (lineage attempts exhausted)
