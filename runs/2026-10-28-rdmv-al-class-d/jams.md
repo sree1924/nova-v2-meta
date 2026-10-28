@@ -125,3 +125,5 @@ Seeded 2026-10-28T05:08:44.916Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:47:10.658Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:62 for 03.combined_kg (sec07-drugs-stopping-crashes-and-railroads) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-drugs-stopping-crashes-and-railroads__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:16:06.643Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:63 for 03.combined_kg (sec09-guide-signs-markings-signals-roundabouts) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-guide-signs-markings-signals-roundabouts__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:29:54.734Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:64 for 03.combined_kg (sec11-adjusting-to-driving-conditions) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-adjusting-to-driving-conditions__-__n0 (lineage attempts exhausted)

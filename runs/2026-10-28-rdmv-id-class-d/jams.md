@@ -69,3 +69,11 @@ Seeded 2026-10-28T07:24:05.831Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:27:13.497Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:31 for 02.dossier_sections (sec06-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signals-and-markings__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:27:30.518Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:32 for 02.dossier_sections (sec07-intersections) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-intersections__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:32:03.181Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:33 for 02.dossier_sections (sec07-intersections) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-intersections__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:32:18.669Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:34 for 02.dossier_sections (sec07-intersections) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-intersections__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:32:30.945Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:35 for 02.dossier_sections (sec07-intersections) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-intersections__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:32:42.711Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:36 for 02.dossier_sections (sec07-intersections) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-intersections__G__n0 (lineage attempts exhausted)

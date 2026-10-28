@@ -1,6 +1,6 @@
 {
   "task_marker": "SOL_STATE_TASK_NM_20261028_A",
-  "generated_at": "2026-10-28T10:28:45.404Z",
+  "generated_at": "2026-10-28T10:31:08.336Z",
   "state": "NM",
   "run_id": "2026-10-28-rdmv-nm-class-std",
   "model_id": "gpt-6.1-sol",
@@ -604,6 +604,18 @@
       "source": "sec08 C2 / physical p19",
       "status": "left-turn between one-way streets clause does not explicitly repeat on red; no red-signal exception inferred",
       "ship_blocking": true
+    },
+    {
+      "id": "NM-SEC03-F-COUNT-DEBT",
+      "source": "runs/2026-10-28-rdmv-nm-class-std/artifacts/task_b5178005b4da754455e1d3312da8978738ade09275fbef4e726219b1763e6727/attempt_8abc3fd9720b7a735691cb4681502397dcb1e6695bae89c8029e9dc56f334bfc/artifact.json",
+      "status": "UNRESOLVED_ACCEPTED_METADATA_DISCREPANCY",
+      "ship_blocking": true
+    },
+    {
+      "id": "NM-SEC03-G-LINE-LOCATOR-DEBT",
+      "source": "runs/2026-10-28-rdmv-nm-class-std/artifacts/task_ef1d1a44b69dcf6f0d446981d01ad7948483ace0a8f8cd0e8d8c04b31146f1cb/attempt_91b588c9bdf8336aafc6537b0876074d8cb53d6314f5613bc8d0677fc79c0e42/artifact.json",
+      "status": "UNRESOLVED_ACCEPTED_METADATA_DISCREPANCY",
+      "ship_blocking": true
     }
   ],
   "failed_mapped_checks": [],
@@ -920,10 +932,96 @@
     {
       "date": "2026-10-28",
       "state": "NM",
+      "id": "NM-SEC03-F-COUNT-DEBT",
+      "where": "sec03-traffic-signs F",
+      "what": "Update F count prose through an authorized native F replacement path; do not edit accepted bytes.",
+      "details": {
+        "id": "NM-SEC03-F-COUNT-DEBT",
+        "section_id": "sec03-traffic-signs",
+        "part": "F",
+        "accepted_ref": {
+          "path": "runs/2026-10-28-rdmv-nm-class-std/artifacts/task_b5178005b4da754455e1d3312da8978738ade09275fbef4e726219b1763e6727/attempt_8abc3fd9720b7a735691cb4681502397dcb1e6695bae89c8029e9dc56f334bfc/artifact.json",
+          "sha256": "7773b9a7a3f728fbf864d92e5d0d7a923c75aea75a25dfbf01a6617eabfb260b"
+        },
+        "located_at": "F.01:L3",
+        "observed": {
+          "C": 26,
+          "C2": 18
+        },
+        "expected": {
+          "C": 28,
+          "C2": 22
+        },
+        "status": "UNRESOLVED_ACCEPTED_METADATA_DISCREPANCY",
+        "proposed_change": "Update F count prose through an authorized native F replacement path; do not edit accepted bytes.",
+        "ship_blocking": true
+      },
+      "resolved": false,
+      "author": "gpt-6.1-sol Sol state worker"
+    },
+    {
+      "date": "2026-10-28",
+      "state": "NM",
+      "id": "NM-SEC03-G-LINE-LOCATOR-DEBT",
+      "where": "sec03-traffic-signs G",
+      "what": "Refresh G line hints through an authorized native G replacement path; native chunk resolution PASS does not repair semantic line locations.",
+      "details": {
+        "id": "NM-SEC03-G-LINE-LOCATOR-DEBT",
+        "section_id": "sec03-traffic-signs",
+        "part": "G",
+        "accepted_ref": {
+          "path": "runs/2026-10-28-rdmv-nm-class-std/artifacts/task_ef1d1a44b69dcf6f0d446981d01ad7948483ace0a8f8cd0e8d8c04b31146f1cb/attempt_91b588c9bdf8336aafc6537b0876074d8cb53d6314f5613bc8d0677fc79c0e42/artifact.json",
+          "sha256": "76df450be3edb8c9231057e4a13668aeb701ba6a363e289b9ff6e517a4a87839"
+        },
+        "locators": [
+          {
+            "box_id": "G04_misconceptions",
+            "observed": "C.01:L107",
+            "expected": "C.01:L115",
+            "label": "Misconceptions:"
+          },
+          {
+            "box_id": "G05_mnemonics",
+            "observed": "C.01:L108",
+            "expected": "C.01:L116",
+            "label": "Mnemonics:"
+          },
+          {
+            "box_id": "G06_glossary",
+            "observed": "C.01:L109",
+            "expected": "C.01:L117",
+            "label": "Glossary:"
+          },
+          {
+            "box_id": "G07_dynamic_isolated",
+            "observed": "C.01:L110",
+            "expected": "C.01:L118",
+            "label": "Dynamic facts:"
+          }
+        ],
+        "status": "UNRESOLVED_ACCEPTED_METADATA_DISCREPANCY",
+        "proposed_change": "Refresh G line hints through an authorized native G replacement path; native chunk resolution PASS does not repair semantic line locations.",
+        "ship_blocking": true
+      },
+      "resolved": false,
+      "author": "gpt-6.1-sol Sol state worker"
+    },
+    {
+      "date": "2026-10-28",
+      "state": "NM",
       "id": "NM-REPAIR-SUBPROCESS-WAIT",
       "resolved": true,
       "where": "section04 C/C2 repair command orchestration",
       "what": "A command exceeded the initial exec wait and returned a process session; the next packet step began before explicit exit confirmation. Both native commands subsequently exited PASS; all four saved results were present, latest compiled bindings/statements were verified, and no accepted state or manifest result was lost. Future command sequencing must await returned process sessions before the next mutation.",
+      "author": "gpt-6.1-sol Sol state worker"
+    },
+    {
+      "date": "2026-10-28",
+      "state": "NM",
+      "id": "NM-METADATA-AUDIT-HISTORICAL-ENVELOPE",
+      "resolved": true,
+      "where": "scratch metadata comparison only",
+      "what": "Initial audit chose the first historical C/C2 reference and falsely showed no F/G mismatch. Corrected to select the exact dossier-envelope hashes in the latest accepted compile input_refs; no custom snapshot supplied to native validation and no accepted state changed.",
       "author": "gpt-6.1-sol Sol state worker"
     }
   ],
@@ -1830,7 +1928,67 @@
       ]
     }
   ],
-  "accepted_metadata_discrepancies": [],
+  "accepted_metadata_discrepancies": [
+    {
+      "id": "NM-SEC03-F-COUNT-DEBT",
+      "section_id": "sec03-traffic-signs",
+      "part": "F",
+      "accepted_ref": {
+        "path": "runs/2026-10-28-rdmv-nm-class-std/artifacts/task_b5178005b4da754455e1d3312da8978738ade09275fbef4e726219b1763e6727/attempt_8abc3fd9720b7a735691cb4681502397dcb1e6695bae89c8029e9dc56f334bfc/artifact.json",
+        "sha256": "7773b9a7a3f728fbf864d92e5d0d7a923c75aea75a25dfbf01a6617eabfb260b"
+      },
+      "located_at": "F.01:L3",
+      "observed": {
+        "C": 26,
+        "C2": 18
+      },
+      "expected": {
+        "C": 28,
+        "C2": 22
+      },
+      "status": "UNRESOLVED_ACCEPTED_METADATA_DISCREPANCY",
+      "proposed_change": "Update F count prose through an authorized native F replacement path; do not edit accepted bytes.",
+      "ship_blocking": true
+    },
+    {
+      "id": "NM-SEC03-G-LINE-LOCATOR-DEBT",
+      "section_id": "sec03-traffic-signs",
+      "part": "G",
+      "accepted_ref": {
+        "path": "runs/2026-10-28-rdmv-nm-class-std/artifacts/task_ef1d1a44b69dcf6f0d446981d01ad7948483ace0a8f8cd0e8d8c04b31146f1cb/attempt_91b588c9bdf8336aafc6537b0876074d8cb53d6314f5613bc8d0677fc79c0e42/artifact.json",
+        "sha256": "76df450be3edb8c9231057e4a13668aeb701ba6a363e289b9ff6e517a4a87839"
+      },
+      "locators": [
+        {
+          "box_id": "G04_misconceptions",
+          "observed": "C.01:L107",
+          "expected": "C.01:L115",
+          "label": "Misconceptions:"
+        },
+        {
+          "box_id": "G05_mnemonics",
+          "observed": "C.01:L108",
+          "expected": "C.01:L116",
+          "label": "Mnemonics:"
+        },
+        {
+          "box_id": "G06_glossary",
+          "observed": "C.01:L109",
+          "expected": "C.01:L117",
+          "label": "Glossary:"
+        },
+        {
+          "box_id": "G07_dynamic_isolated",
+          "observed": "C.01:L110",
+          "expected": "C.01:L118",
+          "label": "Dynamic facts:"
+        }
+      ],
+      "status": "UNRESOLVED_ACCEPTED_METADATA_DISCREPANCY",
+      "proposed_change": "Refresh G line hints through an authorized native G replacement path; native chunk resolution PASS does not repair semantic line locations.",
+      "ship_blocking": true
+    }
+  ],
   "current_pointer_refresh_ref": "scratch/sol-nm/current-pointers-refresh-batch2.json",
   "usage_checkpoint_before_native_repair_batch2": {
     "platform": "ChatGPT Pro subscription",

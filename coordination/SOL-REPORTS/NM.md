@@ -19,6 +19,7 @@ All safe exam counts/passing/time values and source pages remain unknown/null; s
 Recorded lineage38→39 and39→40 after accepted-work exhaustion; two advances used; all old counters, caps and budgets unchanged.
 CURRENT refresh used the exported markCurrentCompiles for this own run only, under native executor lock: eight pointers match latest accepted companions, four changed.
 Operational issue: a native subprocess outlasted the initial wait before the next packet step began; both exits and all saved results reconciled PASS, no state loss.
+Audit correction: F/G comparison now follows exact active compile input hashes; the initial historical-envelope comparison was retained as scratch history.
 Next bounded work: sections05 lane use/turning and06 right-of-way, fourteen existing-fact corrections; no new packet emitted.
 Dossier sections09–15 and downstream03/04/06/05.sessions/05.card_scripts remain owed; no audio/publishing.
 Read-only ledger: actual $0.000; outstanding unknown $0.000; reserved $0.000; uncertain provider amount $0.000.

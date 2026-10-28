@@ -9,3 +9,13 @@ Seeded 2026-10-28T09:07:39.535Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T09:46:44.773Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:4 for 02.dossier_sections (sec01-your-drivers-license) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-your-drivers-license__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T09:46:47.129Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:5 for 02.dossier_sections (sec01-your-drivers-license) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-your-drivers-license__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:30:53.433Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:6 for 02.dossier_sections (sec02-state-laws-and-rules) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-state-laws-and-rules__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:31:20.378Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:7 for 02.dossier_sections (sec02-state-laws-and-rules) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-state-laws-and-rules__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:31:26.384Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:8 for 02.dossier_sections (sec02-state-laws-and-rules) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-state-laws-and-rules__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:31:33.227Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:9 for 02.dossier_sections (sec02-state-laws-and-rules) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-state-laws-and-rules__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:31:39.608Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:10 for 02.dossier_sections (sec03-ready-to-drive) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-ready-to-drive__C__n0 (lineage attempts exhausted)

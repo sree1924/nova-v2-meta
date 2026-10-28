@@ -141,3 +141,5 @@ Seeded 2026-10-28T00:58:10.604Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:14:44.010Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:65 for 03.combined_kg (sec12-traffic-crash) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec12-traffic-crash__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:20:16.700Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:66 for 04.cards (sec09-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 04.cards__sec09-alcohol-and-other-drugs__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:30:32.929Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:67 for 04.cards (sec11-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 04.cards__sec11-sharing-the-road__-__n0 (lineage attempts exhausted)

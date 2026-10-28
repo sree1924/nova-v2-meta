@@ -39,3 +39,9 @@ Seeded 2026-10-28T07:07:07.574Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:27:38.123Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:19 for 02.dossier_sections (sec05-right-of-way-when-to-yield) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-right-of-way-when-to-yield__C__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:29:08.714Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:20 for 02.dossier_sections (sec05-right-of-way-when-to-yield) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-right-of-way-when-to-yield__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:29:57.364Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:21 for 02.dossier_sections (sec05-right-of-way-when-to-yield) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-right-of-way-when-to-yield__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:30:45.794Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:22 for 02.dossier_sections (sec05-right-of-way-when-to-yield) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-right-of-way-when-to-yield__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:31:36.048Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:23 for 02.dossier_sections (sec05-right-of-way-when-to-yield) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-right-of-way-when-to-yield__G__n0 (lineage attempts exhausted)
