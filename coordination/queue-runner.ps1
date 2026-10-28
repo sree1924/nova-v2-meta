@@ -20,7 +20,7 @@ $stateFile = Join-Path $lane "coordination\QUEUE-RUNNER.state.json"
 $skip = @("UT")
 $script:pauseUntil = Get-Date "2000-01-01"
 $relaunches = @{}
-if (Test-Path $stateFile) { try { $saved = Get-Content -Raw $stateFile | ConvertFrom-Json; foreach ($p in $saved.relaunches.PSObject.Properties) { $relaunches[$p.Name] = [int]$p.Value } } catch {} }
+if (Test-Path $stateFile) { try { $saved = Get-Content -Raw $stateFile | ConvertFrom-Json; foreach ($p in $saved.relaunches.PSObject.Properties) { $relaunches[$p.Name] = [int]$p.Value }; if ($saved.pause_until) { $script:pauseUntil = [DateTime]::Parse($saved.pause_until) } } catch {} }
 
 function Log($msg) { $line = "[{0}] {1}" -f (Get-Date -Format "yyyy-MM-dd HH:mm:ss"), $msg; Write-Host $line; Add-Content -Path $stateLog -Value $line -Encoding utf8 }
 function SaveState() { @{ relaunches = $relaunches; pause_until = $script:pauseUntil.ToString("o"); saved_at = (Get-Date).ToString("o") } | ConvertTo-Json | Set-Content -Path $stateFile -Encoding utf8 }
