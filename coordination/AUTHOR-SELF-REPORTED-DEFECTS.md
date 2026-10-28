@@ -30,3 +30,7 @@ claim. Workers are told to report what they know is off. Fix pass = re-author th
 | 2026-10-28 | WA | sec14 R01, sec12 R10, sec13 F34 | added comparison / "left turn" paraphrase / "stomping" paraphrase not in the guide's words | claude-opus-5-5 worker |
 | 2026-10-28 | WA | sec12, sec10 memory aids | mnemonic invented; line-rule aid simplifies (center-turn-lane crossing covered by F15) | claude-opus-5-5 worker |
 | 2026-10-28 | WA | sec10 C n0 | 02.LINEAGE hold caused by the exam_facts config migration mid-run (expected rebind); n1 accepted | runner |
+| 2026-10-28 | NJ | sec04 C (p44) | youngest-child car-seat rule kept in the manual's own ambiguous wording ("under age two and those...") — debt NJ-BELT-D-UNDERTWO | claude-opus-5-5 worker |
+| 2026-10-28 | NJ | sec05 (p55) | deceleration "about 14 feet per second" repeated as printed (not a deceleration unit) — NJ-CTRL-D-DECEL | claude-opus-5-5 worker |
+| 2026-10-28 | NJ | sec06 (p64) | speed-limit graphic extracted as alternating lines; road-type pairing needs a rendered-page check — NJ-ROAD-D-LIMITS | claude-opus-5-5 worker |
+| 2026-10-28 | NJ | sec04 C / sec08 C2 | idling fact repeated from two pages (52, 101) in different words | claude-opus-5-5 worker |
