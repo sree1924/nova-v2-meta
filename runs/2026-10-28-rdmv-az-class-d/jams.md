@@ -217,3 +217,5 @@ Seeded 2026-10-28T05:16:54.777Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:46:23.008Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:107 for 03.combined_kg (sec13-curbs-lanes-turning-rules) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-curbs-lanes-turning-rules__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:55:19.494Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:108 for 03.combined_kg (sec15-sharing-road-bicycles-motorcycles-trucks) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec15-sharing-road-bicycles-motorcycles-trucks__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:09:39.957Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:109 for 03.combined_kg (sec17-floods-fog-snow-night-wrong-way) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec17-floods-fog-snow-night-wrong-way__-__n0 (lineage attempts exhausted)

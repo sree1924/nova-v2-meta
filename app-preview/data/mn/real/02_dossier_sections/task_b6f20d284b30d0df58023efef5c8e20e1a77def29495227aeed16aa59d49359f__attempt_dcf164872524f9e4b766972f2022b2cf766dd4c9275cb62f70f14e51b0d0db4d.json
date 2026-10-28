@@ -1,0 +1,136 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-mn-d",
+  "lineage": {
+    "input_manifest_sha256": "e14459c59d529d8be34ad6180608908efd1eb14c7942f7a1a1bc25dba93738a1",
+    "candidate_lineage_id": "2026-10-28-rdmv-mn-class-d:lineage:61",
+    "source_registry_sha256": "960e2daa314aff60b32f5124e42324d79615ce2a3ea953a336216b4593c0c910",
+    "source_liveness_sha256": "0b70283fc58b1f8ea1822994a92e3ce7ff4b722004376a9cd819180969b6fe1e"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy notes and source flags: alcohol and drug impairment, DWI limits, implied consent, penalties and cannabis rules",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy notes and source flags: alcohol and drug impairment, DWI limits, implied consent, penalties and cannabis rules\nEvery C and C2 fact cites exactly one physical manual page from the selected range; nothing relies on outside knowledge.\nThe chapter opens with statewide alcohol crash statistics; they are changing yearly figures and were left out of the fact blocks rather than taught as fixed facts [A01].\nThe offense penalty lists print jail terms and fines without saying whether they are maximums; the dossier keeps the list wording (a penalty listed as) and does not add up to or minimum (verify MN-IMPAIRED-D-PENALTY) [A04].\nCommercial license alcohol rules are kept as continuation facts in part C2 because they are printed in this chapter, although the Class D written test centres on the regular license.\nThe cannabis rules list several product names exactly as the manual groups them; the dossier does not define those product categories beyond the page text [A06].\nFees, fines and penalty periods are isolated as dynamic facts in part C.\n",
+      "char_count": 1060,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-mn-d:minnesota-department-of-public-safety-dr:handbook:pdf-0094"
+        },
+        {
+          "anchor_id": "A04",
+          "source_page": "src:rdmv-mn-d:minnesota-department-of-public-safety-dr:handbook:pdf-0097"
+        },
+        {
+          "anchor_id": "A06",
+          "source_page": "src:rdmv-mn-d:minnesota-department-of-public-safety-dr:handbook:pdf-0099"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Minnesota Driver’s Manual prints a single edition line (June 2026) on its front cover and opens with a New laws and information chapter that collects recent changes in one place, with no sign of more than one rewrite per year in the selected pages."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "MN-IMPAIRED-D-PENALTY",
+      "claim_text": "On physical page 97 the Minnesota Driver's Manual (June 2026) lists first, second and third DWI offense penalties as 90 days in jail, a $1,000 fine or both, and one year in jail, a $3,000 fine or both, without stating whether these are maximum penalties; confirm against an official DPS source before learner items describe them as maximums.",
+      "blocker_kind": "exam_policy_unclear",
+      "source_tier_required": "official",
+      "owner_worker": "HallucinationAuditor",
+      "ship_blocking": false,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

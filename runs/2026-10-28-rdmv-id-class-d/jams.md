@@ -85,3 +85,5 @@ Seeded 2026-10-28T07:24:05.831Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:43:39.713Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:39 for 02.dossier_sections (sec08-traffic-laws) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-traffic-laws__E__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:43:54.610Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:40 for 02.dossier_sections (sec08-traffic-laws) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-traffic-laws__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:10:33.119Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:41 for 02.dossier_sections (sec09-passing-and-spacing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-passing-and-spacing__C__n0 (lineage attempts exhausted)

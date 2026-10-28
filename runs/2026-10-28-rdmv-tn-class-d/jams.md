@@ -181,3 +181,7 @@ Seeded 2026-10-28T05:03:22.057Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:41:21.842Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:86 for 04.cards (sec10-interstate-driving) under standing authority; cause: proactive reset before authoring packet 04.cards__sec10-interstate-driving__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:49:07.102Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:87 for 04.cards (sec12-alcohol-other-drugs-and-driving) under standing authority; cause: proactive reset before authoring packet 04.cards__sec12-alcohol-other-drugs-and-driving__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:59:28.499Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:88 for 04.cards (sec14-defensive-driving-and-road-rage) under standing authority; cause: proactive reset before authoring packet 04.cards__sec14-defensive-driving-and-road-rage__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:06:39.464Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:89 for 04.cards (sec16-sharing-the-road-safely) under standing authority; cause: proactive reset before authoring packet 04.cards__sec16-sharing-the-road-safely__-__n0 (lineage attempts exhausted)

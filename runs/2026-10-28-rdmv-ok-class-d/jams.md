@@ -101,3 +101,21 @@ Seeded 2026-10-28T07:07:07.574Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:58:20.608Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:49 for 02.dossier_sections (sec11-driving-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-driving-tips__E__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:59:06.674Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:50 for 02.dossier_sections (sec11-driving-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-driving-tips__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:59:41.258Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:51 for 02.dossier_sections (sec12-alcohol-drugs-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-alcohol-drugs-and-driving__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:00:43.182Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:52 for 02.dossier_sections (sec12-alcohol-drugs-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-alcohol-drugs-and-driving__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:01:21.909Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:53 for 02.dossier_sections (sec12-alcohol-drugs-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-alcohol-drugs-and-driving__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:01:52.749Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:54 for 02.dossier_sections (sec12-alcohol-drugs-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-alcohol-drugs-and-driving__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:02:23.272Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:55 for 02.dossier_sections (sec12-alcohol-drugs-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-alcohol-drugs-and-driving__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:03:14.280Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:56 for 02.dossier_sections (sec13-violations-and-penalties) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-violations-and-penalties__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:03:53.015Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:57 for 02.dossier_sections (sec13-violations-and-penalties) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-violations-and-penalties__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:04:23.362Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:58 for 02.dossier_sections (sec13-violations-and-penalties) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-violations-and-penalties__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:04:53.033Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:59 for 02.dossier_sections (sec13-violations-and-penalties) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-violations-and-penalties__F__n0 (lineage attempts exhausted)
