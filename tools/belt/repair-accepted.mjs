@@ -11,7 +11,7 @@ import {sha256,canonicalJson,inside} from './atomic-file.mjs';
 import {acquireExecutorLock} from './executor-lock.mjs';
 import {assertDispatchAllowed} from './execution-policy.mjs';
 import {PROJECT_ROOT,loadRun,compileAcceptedDossier} from './controller.mjs';
-import {readNativeSnapshot,acceptedRuntimeRefs,taskSectionIds,inspectAccepted02Replacement,prepareDispatch,
+import {readNativeSnapshot,acceptedRuntimeRefs,taskSectionIds,inspectAccepted02Replacement,prepareDispatch,applyFileTransportPreflight,
   retryNonceKey,authoringKey,authoringPaths,emitAuthoringPacket,emitThinPacket,
   readAuthoringOutbox,museFileTransport,dispatchStage} from './dispatch.mjs';
 
@@ -19,6 +19,10 @@ const STAGE='02.dossier_sections';
 const DOWNSTREAM=new Set(['03.combined_kg','04.cards','06.exam_bank','05.sessions','05.card_scripts']);
 const sameIds=(a,b)=>Array.isArray(a)&&Array.isArray(b)&&canonicalJson([...a].sort())===canonicalJson([...b].sort());
 const hold=(reason,detail={})=>({status:'HOLD',reason,...detail,model_api_called:false});
+export function downstreamReconciliationTasks(snapshot,sectionIds){
+  return snapshot.tasks.filter(task=>task.status==='accepted'&&DOWNSTREAM.has(task.stage_id)&&(!taskSectionIds(task).length||taskSectionIds(task).some(id=>sectionIds.includes(id))))
+    .map(task=>({task_id:task.task_id,stage_id:task.stage_id}));
+}
 
 function inspect({projectRoot,loaded,sectionIds,partIds,replacementRef,nowUtc}){
   const snapshot=readNativeSnapshot(loaded.runDir,loaded.config);
@@ -80,9 +84,7 @@ export async function repairAcceptedPart({projectRoot=PROJECT_ROOT,runConfigPath
   if(!replacementRef?.path||!/^[a-f0-9]{64}$/.test(replacementRef.sha256??''))throw Error('Hash-bound --replacement and --replacement-sha256 are required.');
   const loaded=loadRun({projectRoot,runConfigPath});
   if(!Object.hasOwn(loaded.config.scope?.section_page_ranges??{},sectionIds[0]))throw Error('Requested section is not bound in this run.');
-  const downstream=readNativeSnapshot(loaded.runDir,loaded.config).tasks
-    .filter(task=>task.status==='accepted'&&DOWNSTREAM.has(task.stage_id)&&sameIds(taskSectionIds(task),sectionIds))
-    .map(task=>({task_id:task.task_id,stage_id:task.stage_id}));
+  const downstream=downstreamReconciliationTasks(readNativeSnapshot(loaded.runDir,loaded.config),sectionIds);
   // Same-ID wording corrections can invalidate learner artifacts even when their fact-ID set stays unchanged.
   // This narrow path cannot revoke those acceptances; stop before emitting or ingesting anything.
   if(downstream.length)return hold('DOWNSTREAM_RECONCILIATION_REQUIRED',{section_ids:sectionIds,downstream_tasks:downstream});
@@ -91,13 +93,15 @@ export async function repairAcceptedPart({projectRoot=PROJECT_ROOT,runConfigPath
   // This validates the ordinary GO even when this invocation only emits or reuses a packet.
   const policy=assertDispatchAllowed({projectRoot,config:loaded.config,runDir:loaded.runDir,go:true,mode:'live',
     stageId:STAGE,sectionIds,approvalRef,nowUtc,maxUsd:loaded.config.limits.max_call_usd});
+  const nonce=loaded.config.execution?.retry_nonces?.[retryNonceKey(STAGE,partIds,sectionIds)]??0;
+  const key=authoringKey(STAGE,sectionIds,partIds,nonce,replacement.ref.sha256);
+  const transport=museFileTransport({runDir:loaded.runDir,key});
   const options={projectRoot,runConfigPath:loaded.configPath,executorId,stageId:STAGE,sectionIds,partIds,
-    replacementRef,approvalRef:policy.approval_ref,nowUtc};
-  const prepared=prepareDispatch({...options,go:false});
+    replacementRef,approvalRef:policy.approval_ref,nowUtc,transport};
+  const prepared=applyFileTransportPreflight(prepareDispatch({...options,go:false}),transport);
   if(prepared.preflight.status!=='PASS')return hold('native_preflight',{blockers:prepared.preflight.blockers});
   if(replacement.acceptedReplacement)return compileReplacement({projectRoot,loaded,executorId,sectionIds,approvalRef:policy.approval_ref,replacement});
-  const nonce=loaded.config.execution?.retry_nonces?.[retryNonceKey(STAGE,partIds,sectionIds)]??0;
-  const key=authoringKey(STAGE,sectionIds,partIds,nonce,replacement.ref.sha256),files=authoringPaths(loaded.runDir,key);
+  const files=authoringPaths(loaded.runDir,key);
   const got=readAuthoringOutbox(loaded.runDir,key);
   if(!fs.existsSync(files.inbox)){
     if(got.reason!=='outbox_absent')return hold('outbox_without_packet',{key,outbox:files.outbox});
@@ -123,7 +127,7 @@ export async function repairAcceptedPart({projectRoot=PROJECT_ROOT,runConfigPath
   if(artifact.stage_id!==STAGE||!sameIds(artifact.envelope_scope?.assigned_section_ids,partIds)||
     !Array.isArray(artifact.sections)||artifact.sections.some(section=>!partIds.includes(section.section_id)))return hold('outbox_candidate_scope_mismatch',{key});
   let dispatched;
-  try{dispatched=await dispatchStage({...options,go:true,transport:museFileTransport({runDir:loaded.runDir,key})});}
+  try{dispatched=await dispatchStage({...options,go:true,transport});}
   catch(error){return hold('native_dispatch_error',{message:error.message,key});}
   const authoredRef=archiveOutbox({runDir:loaded.runDir,runId:loaded.config.run_id,executorId,key,status:dispatched.status});
   if(dispatched.status!=='accepted'&&!dispatched.reused)return hold('native_dispatch_not_accepted',{dispatch:dispatched,authored_ref:authoredRef,key});

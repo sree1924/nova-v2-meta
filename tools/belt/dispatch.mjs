@@ -3,6 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {sha256,canonicalJson,inside,verifyRef,writeImmutable} from './atomic-file.mjs';
 import {assembleContext,inspectAccepted02Replacement} from './context.mjs';
+import {validateSourceGroupCandidate,groupBookkeeping} from './source-groups.mjs';
 export {inspectAccepted02Replacement} from './context.mjs';
 import {createMetaClient} from './meta-client.mjs';
 import {inspectExecutionPolicy,assertDispatchAllowed} from './execution-policy.mjs';
@@ -19,6 +20,16 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const pin=p=>({path:p,sha256:sha256(fs.readFileSync(p)),bytes:fs.statSync(p).size});
 const ref=({path,sha256,bytes})=>({path,sha256,bytes});
 const roleIdFor=id=>id.split('.')[0];
+// Only exact transports created by this module may use the zero-cost file exemption.
+const museFileTransports=new WeakSet();
+export function applyFileTransportPreflight(prepared,transport){
+  if(museFileTransports.has(transport)&&prepared.preflight.status!=='PASS'){
+    const waived=prepared.preflight.blockers.filter(b=>b==='request_byte_limit'||b==='call_cap_below_conservative_request_estimate');
+    const remaining=prepared.preflight.blockers.filter(b=>!waived.includes(b));
+    if(waived.length)prepared.preflight={status:remaining.length?'HOLD':'PASS',blockers:remaining,waived_for_file_transport:waived};
+  }
+  return prepared;
+}
 export function budgetFromConfig(config){const l=config.limits;return{currency:'USD',total_usd:l.max_total_usd,providers:Object.fromEntries(Object.entries(l.per_provider_usd_caps).map(([k,v])=>[k,{total_usd:v,per_call_usd:l.max_call_usd}])),roles:Object.fromEntries(Object.entries(l.per_role_usd_caps).map(([k,v])=>[k,{total_usd:v,per_call_usd:l.max_call_usd}]))};}
 
 export function readNativeSnapshot(runDir,config){
@@ -161,8 +172,12 @@ export function prepareDispatch({projectRoot,runConfigPath,executorId,stageId,se
   // output structure without supplying facts. Runner addition 2026-10-27 (founder full-run authority).
   let outputExample=null;try{const mp=read(path.join(projectRoot,stage.mapping));const pos=(mp.fixtures||[]).find(f=>f.expected_status==='PASS'&&/synthetic/.test(f.kind||''))||(mp.fixtures||[]).find(f=>f.expected_status==='PASS');if(pos){const ex=read(path.join(projectRoot,pos.path));delete ex._fixture;outputExample={note:'SHAPE EXAMPLE ONLY — synthetic placeholder content from a fixture; copy the STRUCTURE (keys, nesting, id styles, status enums), never the facts, names or numbers.',fixture:pos.path,example:ex};}}catch{}
   // Dossier parts per call (JAM-UT-03): the generator is asked for exactly these envelope section ids; role 16 merges later.
-  const inputData={kind:'bound_task_inputs',stage_id:stageId,section_ids:sectionIds,assigned_dossier_parts:partIds.length?partIds:null,chunk_plan:partIds.length?{chunk_index:1,chunk_total:1,kind:'partial_chunk'}:null,output_conventions:outputConventions,output_shape_example:outputExample,depth_floor:config.scope?.depth_floor??null,
+  const inputData={kind:'bound_task_inputs',stage_id:stageId,section_ids:sectionIds,assigned_dossier_parts:partIds.length?partIds:null,chunk_plan:partIds.length?{chunk_index:1,chunk_total:1,kind:assembled.replacement?.group?'complete_dossier':'partial_chunk'}:null,output_conventions:outputConventions,output_shape_example:outputExample,depth_floor:config.scope?.depth_floor??null,
     ...(assembled.context.accepted_replacement?{accepted_replacement:assembled.context.accepted_replacement}:{}),
+    ...(assembled.replacement?.group?{complete_section_submission:{kind:assembled.replacement.receipt.kind,proof:assembled.replacement.receipt,
+      accepted_targets:assembled.replacement.targets.map(r=>({ref:{path:r.path,sha256:r.sha256},artifact:read(r.path)})),
+      metadata_projection:assembled.replacement.receipt.kind==='dependent_metadata_reconciliation'?groupBookkeeping(assembled.replacement):null,
+      instructions:'Submit one complete_dossier containing all nine assigned parts. Keep preserved part payloads exact; only normalize merge_seq to the complete envelope. Follow the explicit proof, retain typed debt, and use the projected F/G content for dependency-only reconciliation. Registration and metadata receipts grant no factual audit acceptance.'}}:{}),
     // The ONE lineage block the output must echo (03 attempt 17:44Z copied the accepted dossier's own manifest hash instead).
     lineage_to_copy:{candidate_lineage_id:config.candidate_lineage_id,input_manifest_sha256:assembled.context.input_manifest_sha256,note:'copy these two values verbatim into your lineage / input_manifest_sha256 / candidate_lineage_id fields; hashes inside accepted_inputs belong to THOSE artifacts, not to this task'},
     // Flat {fact_id: accepted statement} for stages whose learner text must BYTE-EQUAL accepted wording (04 backs, 05 answers).
@@ -209,6 +224,7 @@ export function authoringKey(stageId,sectionIds=[],partIds=[],nonce=0,replacemen
 export function authoringPaths(runDir,key){const base=path.join(runDir,'sources','private','muse-authoring');return{base,inbox:path.join(base,'inbox',key+'.json'),outbox:path.join(base,'outbox',key+'.json'),done:path.join(base,'done'),next:path.join(base,'inbox','NEXT.json')};}
 export function emitAuthoringPacket({previousNonPass=[],...options}){
   const p=prepareDispatch({...options,go:false});
+  applyFileTransportPreflight(p,options.transport);
   if(options.replacementRef&&p.replacement?.status!=='PASS')return{status:'HOLD',key:null,inbox:null,outbox:null,blockers:p.preflight.blockers};
   const nonce=retryNonce(p).retry_nonce??0;
   const key=authoringKey(p.stageId,p.sectionIds,p.partIds,nonce,p.replacementRef?.sha256??null);
@@ -245,6 +261,7 @@ function writeLayerIfChanged(file, value) {
 }
 export function emitThinPacket({ previousNonPass = [], ...options }) {
   const p = prepareDispatch({ ...options, go: false });
+  applyFileTransportPreflight(p, options.transport);
   if (options.replacementRef && p.replacement?.status !== 'PASS') return {status: 'HOLD', key: null, inbox: null, outbox: null, blockers: p.preflight.blockers};
   const nonce = retryNonce(p).retry_nonce ?? 0;
   const key = authoringKey(p.stageId, p.sectionIds, p.partIds, nonce, p.replacementRef?.sha256 ?? null);
@@ -296,7 +313,7 @@ export function readAuthoringOutbox(runDir,key){
 // fetch-compatible transport answering the bound request from the outbox (Model API response shape; usage 0 → ledger actual $0).
 // Never throws (a throw = "may have reached the provider"); a bad outbox answers 422 with zero usage → HOLD http_status_not_200.
 export function museFileTransport({runDir,key}){
-  return async function transport(_url,init){
+  const transport=async function transport(_url,init){
     const zero={prompt_tokens:0,completion_tokens:0,total_tokens:0};
     const got=readAuthoringOutbox(runDir,key);
     if(!got.ok){const text=JSON.stringify({error:{message:got.reason,type:'muse_outbox_unusable'},usage:zero,model:null});return{status:422,ok:false,headers:{get:()=>null},text:async()=>text};}
@@ -307,9 +324,17 @@ export function museFileTransport({runDir,key}){
     const text=JSON.stringify(body);
     return{status:200,ok:true,headers:{get:()=>null},text:async()=>text};
   };
+  museFileTransports.add(transport);
+  return transport;
 }
 
 export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandle,client,validator=validateArtifact}){
+  const validateBound=async artifact=>{
+    const validation=await validator({stage_id:p.stageId,artifact,context:p.context});
+    if(!p.replacement?.group)return validation;
+    const guard=validateSourceGroupCandidate({artifact,inspection:p.replacement});
+    return{...validation,status:guard.status==='PASS'?validation.status:'FAIL',checks:[...validation.checks,{check_id:'02.GROUP_SUPERSESSION',status:guard.status,evidence:guard.reason??'Complete section preserves exact proof scope and dependency constraints.'}]};
+  };
   if(p.preflight.status!=='PASS')throw new Error('Dispatch inputs remain HOLD: '+p.preflight.blockers.join(', '));
   for(const bound of [...(p.inputRefs||[]),p.contract,p.schema,p.mapping,p.registryRef,p.pricingRef,p.validatorRef,p.ownerReceiptRef,...(p.ownerFiles||[])].filter(r=>r?.path)){
     const bytes=fs.readFileSync(path.resolve(p.projectRoot,bound.path));
@@ -347,7 +372,7 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
     const proof={schema_version:'nova-attempt-recovery.v0.4.0',kind:'content',run_id:fence.runId,task_id:taskId,attempt_id:interrupted.attempt_id,logical_key_sha256:task.logical_key_sha256,from_generation:interrupted.generation,to_generation:fence.generation,recovered_by:fence.executorId,recorded_at:p.nowUtc,saved_artifact:pin(savedPath),model_call:{call_id:call.call_id,receipt_ref:pin(receiptPath),raw_response_ref:pin(rawPath),usage:call.usage_json,reservation_id:reservation.reservation_id,actual_usd:receipt.estimated_usd}};
     const proofRef=writeImmutable(p.runDir,priorDir+'/recovery-'+sha256(canonicalJson(proof))+'.json',proof,{lockHandle});
     ledger.recoverAttempt(fence,{attemptId:interrupted.attempt_id,recoveryReceipt:proofRef});
-    const result=await runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,produce:()=>{throw Error('Recovery cannot remint content.');},validate:artifact=>validator({stage_id:p.stageId,artifact,context:p.context}),requiredChecks:p.requiredChecks,accept:(_,{validation})=>p.stageId==='02.dossier_sections'?acceptDossier(validation,p.requiredChecks):{status:'HOLD'},validationRevision:'recovery-'+sha256(canonicalJson({generation:fence.generation,now:p.nowUtc})).slice(0,16)});
+    const result=await runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,produce:()=>{throw Error('Recovery cannot remint content.');},validate:validateBound,requiredChecks:p.requiredChecks,accept:(_,{validation})=>p.stageId==='02.dossier_sections'?acceptDossier(validation,p.requiredChecks):{status:'HOLD'},validationRevision:'recovery-'+sha256(canonicalJson({generation:fence.generation,now:p.nowUtc})).slice(0,16)});
     return{...result,new_model_calls:0,recovery_ref:proofRef};
   }
   const attempt=ledger.startAttempt(fence,{taskId,commandId:'dispatch:'+taskId+':'+(old.length+1)}),attemptId=attempt.attemptId??attempt.attempt_id;
@@ -403,7 +428,7 @@ export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandl
   try{value=JSON.parse(result.body.choices[0].message.content);}catch{ledger.failAttempt(fence,{attemptId,status:'failed',errorRef:callReceipt});return{status:'HOLD',reason:'invalid_artifact_json',raw_ref:raw};}
   try{
     const accepted=await runArtifactTask({ledger,fence,lockHandle,runDir:p.runDir,task,produce:()=>value,
-      validate:artifact=>validator({stage_id:p.stageId,artifact,context:p.context}),requiredChecks:p.requiredChecks,
+      validate:validateBound,requiredChecks:p.requiredChecks,
       // Pilot acceptance = deterministic validation only, every stage (auditors 07/08 pending — the pilot has no audit executor).
       // Before 2026-10-27 17:50Z only 02 could be accepted; 03+ were hard-held `acceptance_policy_pending` (03 attempt 19de30b5
       // passed 24/24 checks and was still blocked). Opened under the founder's standing authority for the full Utah run.
@@ -416,15 +441,9 @@ export async function dispatchStage(options){
   const prepared=prepareDispatch(options);
   if(!options.go)return{status:'DRY_DISPATCH_ENVELOPE',stage_id:prepared.stageId,section_ids:prepared.sectionIds,mode:prepared.rendered.header.mode,render_only:true,hashes:prepared.rendered.hashes,adapter_sha256:prepared.schema.sha256,request_sha256:prepared.request_sha256,max_completion_tokens:prepared.request.max_completion_tokens,reasoning_effort:prepared.request.reasoning_effort,proposed_reservation:prepared.proposed_reservation,preflight:prepared.preflight,approval_policy:prepared.policy,model_calls:0};
   assertDispatchAllowed({projectRoot:prepared.projectRoot,config:prepared.config,runDir:prepared.runDir,go:true,mode:'live',stageId:prepared.stageId,sectionIds:prepared.sectionIds,approvalRef:prepared.policy.approval_ref,nowUtc:prepared.nowUtc,maxUsd:prepared.config.limits.max_call_usd});
-  // File transport (subscription authoring, 2026-10-28): no provider request is sent and the ledger actual is $0, so the Model-API
-  // request-size and cost-estimate blockers are meaningless there (Tennessee sec08/sec16 card scripts at 840–900 KB sat on
-  // call_cap_below_conservative_request_estimate; NJ/MO/MN had to amend run-configs). Money caps, checks and every other
-  // blocker are unchanged; the waiver is recorded on the prepared envelope.
-  if(options.transport&&prepared.preflight.status!=='PASS'){
-    const waived=prepared.preflight.blockers.filter(b=>b==='request_byte_limit'||b==='call_cap_below_conservative_request_estimate');
-    const remaining=prepared.preflight.blockers.filter(b=>!waived.includes(b));
-    if(waived.length){prepared.preflight={status:remaining.length?'HOLD':'PASS',blockers:remaining,waived_for_file_transport:waived};}
-  }
+  // Capture once: an accessor must not swap transports after the identity check.
+  const transport=options.transport;
+  applyFileTransportPreflight(prepared,transport);
   if(prepared.preflight.status!=='PASS')throw new Error('Dispatch remains HOLD: '+prepared.preflight.blockers.join(', '));
   const lockHandle=acquireExecutorLock({runDir:prepared.runDir,runId:prepared.config.run_id,executorId:prepared.executorId});
   let ledger,fence;
@@ -437,7 +456,7 @@ export async function dispatchStage(options){
       const authRef=writeImmutable(prepared.runDir,'receipts/binding-'+sha256(canonicalJson(authorization))+'.json',authorization,{lockHandle});
       fence=ledger.rebindRun(fence,{bindingSha256:prepared.configRef.sha256,mode:'execute',budget:budgetFromConfig(prepared.config),authorizationReceipt:authRef});
     }
-    const client=createMetaClient({...options,projectRoot:prepared.projectRoot,config:prepared.config,runDir:prepared.runDir,go:true,mode:'live',stageId:prepared.stageId,sectionIds:prepared.sectionIds,approvalRef:prepared.policy.approval_ref,nowUtc:prepared.nowUtc,maxUsd:prepared.config.limits.max_call_usd});
+    const client=createMetaClient({...options,projectRoot:prepared.projectRoot,config:prepared.config,runDir:prepared.runDir,go:true,mode:'live',stageId:prepared.stageId,sectionIds:prepared.sectionIds,approvalRef:prepared.policy.approval_ref,nowUtc:prepared.nowUtc,maxUsd:prepared.config.limits.max_call_usd,transport});
     return await executePreparedDispatch({prepared,ledger,fence,lockHandle,client});
   }finally{if(fence&&ledger)ledger.releaseRun(fence);ledger?.close();lockHandle.release();}
 }

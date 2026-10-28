@@ -1,6 +1,7 @@
 // Role 16 pilot adapter: exact deterministic merge + located fact index.
 // No canonical Blueprint certification, enrichment, clock, writes or model calls.
 import fs from 'node:fs';
+import {resolveDossierSupersession,sourceGroupCompileEvidence} from './source-groups.mjs';
 import path from 'node:path';
 import {canonicalJson, sha256, jsonBytes, verifyRef, inside} from './atomic-file.mjs';
 import {mergeEnvelopes, mergeSections} from './checks/02-dossier-sections.mjs';
@@ -92,8 +93,14 @@ export function spokenize(text) {
   // Years 1900–1999 (New Jersey "since 1998" was "one thousand nine hundred ninety-eight"): "nineteen ninety-eight" unless a
   // measure follows (then it is a quantity). 20xx already reads naturally as "two thousand twenty-one".
   s = s.replace(/\b19(\d\d)\b(?!\s*(?:feet|ft|foot|pounds|lbs?|miles|mi|mph|dollars|yards|inches|cc|percent|%))/g, (_, yy) => `nineteen ${Number(yy) === 0 ? 'hundred' : Number(yy) < 10 ? 'oh ' + ONES[Number(yy)] : numberToWords(Number(yy))}`);
+  // Expand declared units before ranges and slash alternatives: "55-mph", "five mph", and "5 mi/h".
+  // Restrict word adjacency to cardinal-number endings; ordinary words (including the preposition "in") stay unchanged.
+  s = s.replace(/\b(\d+)(?:\s*[-–]\s*|\s*)(mph|mi\/h|kph|ft|yds?|mi|lbs?|oz|secs?|hrs?|mins?|mo|yrs?|dB|psi)\b\.?/gi, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()] ?? unit}`);
+  const cardinalEnd = [...ONES, ...TENS.filter(Boolean), 'hundred', 'thousand', 'million'].join('|');
+  const wordUnits = new RegExp(`\\b(${cardinalEnd})(?:\\s*[-–]\\s*|\\s+)(${Object.keys(UNIT_WORDS).map(escape).join('|')})\\b\\.?`, 'gi');
+  s = s.replace(wordUnits, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()]}`);
   // Numeric ranges before a measure ("3-6 feet" was "three-six feet", Wisconsin sec04): "three to six feet".
-  s = s.replace(/\b(\d+)\s*[-–]\s*(\d+)(?=\s*(?:feet|ft|foot|inches|in\.|yards|miles|mi|mph|pounds|lbs?|percent|%|seconds|secs?|minutes|mins?|hours|hrs?|days|weeks|months|years|yrs?|points|car lengths?|vehicle lengths?)\b)/gi, (_, a, b) => `${numberToWords(Number(a)) ?? a} to ${numberToWords(Number(b)) ?? b}`);
+  s = s.replace(/\b(\d+)\s*[-–]\s*(\d+)(?=\s*(?:feet|ft|foot|inches|in\.|yards|miles|mi|mph|kilometers|ounces|decibels|pounds|lbs?|percent|%|seconds|secs?|minutes|mins?|hours|hrs?|days|weeks|months|years|yrs?|points|car lengths?|vehicle lengths?)\b)/gi, (_, a, b) => `${numberToWords(Number(a)) ?? a} to ${numberToWords(Number(b)) ?? b}`);
   // Clock times and numeric fractions/ratios BEFORE the alternatives rule, which would otherwise read "/" and ":" literally.
   s = s.replace(/\b(1[0-2]|0?[1-9])[:.]([0-5]\d)(?=\s*(?:a\.?m\.?|p\.?m\.?|noon|midnight)\b)/gi, (_, h, m) => timeToWords(h, m));
   s = s.replace(/\b(\d{1,2}):([0-5]\d)\b(?!\s*:)/g, (_, h, m) => timeToWords(h, m));
@@ -114,7 +121,6 @@ export function spokenize(text) {
   });
   // Ordinals "18th", "21st", "3rd" (North Carolina sec03 kept the digits): spoken ordinal words.
   s = s.replace(/\b(\d{1,3})(st|nd|rd|th)\b/g, (m, n) => ordinalWords(Number(n)) ?? m);
-  s = s.replace(/\b(\d+)\s*(mph|mi\/h|kph|ft|yds?|mi|lbs?|oz|secs?|hrs?|mins?|mo|yrs?|dB|psi)\b\.?/gi, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()] ?? unit}`);
   // Leading-dot decimals (2026-10-28, Colorado ".08 / .02 / .04 BAC" came out "over.eight"): spoken "point zero eight".
   s = s.replace(/(^|[^\d.])\.(\d+)\b/g, (_, pre, frac) => `${pre}${pre && !/\s/.test(pre) ? ' ' : ''}point ${[...frac].map(d => ONES[Number(d)]).join(' ')}`);
   s = s.replace(/\b(\d+)\.(\d+)\b/g, (_, a, b) => `${numberToWords(Number(a)) ?? a} point ${[...b].map(d => ONES[Number(d)]).join(' ')}`);
@@ -203,11 +209,20 @@ function indexFact(id, section, pageMap) {
  * from file presence or PASS text inside an output. Relative paths use projectRoot.
  */
 export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: acceptedEnvelopesIn = [], sourceRegistryRef, pageMapRef, overlayRef, candidateLineageId = null, outputDir = 'root'} = {}) {
+  if (!projectRoot || !runRoot) throw new Error('projectRoot and isolated runRoot are required');
+  projectRoot = fs.realpathSync(projectRoot);
+  runRoot = inside(path.join(projectRoot, 'runs'), runRoot);
+  // This API already identifies its inputs as envelopes; older accepted references have no kind tag.
+  // Verify every supplied reference before supersession so an invalid historical input cannot disappear.
+  for (const r of acceptedEnvelopesIn) readRuntime(r, projectRoot, runRoot, 'dossier_envelope');
+  const typedRefs = acceptedEnvelopesIn.map(r => r.kind ? r : {...r, kind: 'dossier_envelope'});
+  const originalRefs = new Map(typedRefs.map((r, i) => [r, acceptedEnvelopesIn[i]]));
   // Per-part dispatch (JAM-UT-03) + lineage resets mean accepted parts legitimately come from several lineages, and a part may be
   // re-accepted under a new task identity (validator closure reseal). Rule: one envelope per assigned part set — the latest
   // accepted wins (ledger accepted_at, then task_id for determinism); lineages are recorded, not required to match.
   const byParts = new Map();
-  for (const r of acceptedEnvelopesIn) {
+  for (const typed of resolveDossierSupersession({projectRoot,runDir:runRoot,acceptedArtifacts:typedRefs}).unexcluded) {
+    const r = originalRefs.get(typed);
     const parts = (() => { try { return JSON.stringify(JSON.parse(r.identity ?? 'null')?.config?.dossier_parts ?? []); } catch { return '[]'; } })();
     const key = parts === '[]' ? 'whole:' + (r.task_id ?? r.sha256) : parts;
     const prev = byParts.get(key);
@@ -215,9 +230,6 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: accepte
   }
   const acceptedEnvelopes = [...byParts.values()];
   const supersededEnvelopes = acceptedEnvelopesIn.filter(r => !acceptedEnvelopes.includes(r)).map(r => ({path: r.path, sha256: r.sha256, task_id: r.task_id ?? null}));
-  if (!projectRoot || !runRoot) throw new Error('projectRoot and isolated runRoot are required');
-  projectRoot = fs.realpathSync(projectRoot);
-  runRoot = inside(path.join(projectRoot, 'runs'), runRoot);
   if (!acceptedEnvelopes.length) return {status: 'HOLD', errors: ['No accepted02 envelopes'], inputRefs: [], writePlan: [], blueprint: null, factRegistry: null, markdown: null};
   const loaded = acceptedEnvelopes.map(r => readRuntime(r, projectRoot, runRoot, 'dossier_envelope'));
   const sourceRegistry = readRuntime(sourceRegistryRef, projectRoot, runRoot, 'source_registry');
@@ -262,7 +274,7 @@ export function compileDossier({projectRoot, runRoot, acceptedEnvelopes: accepte
     else factEntries.push([id, indexed.fact]);
   }
   if (!factEntries.length) errors.push('No unambiguously located accepted fact spans were indexed');
-  const inputRefs = [...loaded.map(l => l.ref), sourceRegistry.ref, map.ref, overlayPin]
+  const inputRefs = [...loaded.map(l => l.ref), sourceRegistry.ref, map.ref, overlayPin,...sourceGroupCompileEvidence({projectRoot,runDir:runRoot,acceptedArtifacts:typedRefs})]
     .sort((a, b) => `${a.kind}:${a.path}`.localeCompare(`${b.kind}:${b.path}`));
   const inputManifestHash = sha256(canonicalJson(inputRefs));
   const stage17 = {status: 'n/a_pilot', reason: overlay.role_overrides['17'].reason,

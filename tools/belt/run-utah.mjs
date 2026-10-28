@@ -168,6 +168,7 @@ async function runStage(stageId, partIds) {
       const nonce = cfg0.execution?.retry_nonces?.[retryNonceKey(stageId, partIds, [section])] ?? 0;
       const key = authoringKey(stageId, [section], partIds, nonce);
       const ap = authoringPaths(path.join(ROOT, RUN), key);
+      const fileTransport = museFileTransport({ runDir: path.join(ROOT, RUN), key });
       const maxPerLineage = cfg0.limits?.max_automatic_attempts_per_logical_task ?? 2;
       let got = readAuthoringOutbox(path.join(ROOT, RUN), key);
       // The lineage attempt cap (C28: 2 attempts per lineage+stage) trips on every third task; in Model-API mode the runner
@@ -193,13 +194,13 @@ async function runStage(stageId, partIds) {
         }
         if (!['outbox_absent', 'stale_lineage'].includes(got.reason)) console.log(`  ${label}: outbox unusable (${got.reason}) — re-emitting packet`);
         const emit = packetMode === 'thin' ? emitThinPacket : emitAuthoringPacket;
-        const e = emit({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, previousNonPass });
+        const e = emit({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, previousNonPass, transport: fileTransport });
         const rel = (f) => path.relative(ROOT, f).replace(/\\/g, '/');
         console.log(`  ${label}: ${e.status} ${packetMode} packet ${key} (${Math.round(e.request_bytes / 1024)} KB${e.full_request_bytes ? ` vs ${Math.round(e.full_request_bytes / 1024)} KB full` : ''})${e.layers ? ` layers: state ${e.layers.state.rewritten ? 'written' : 'unchanged'}, section ${e.layers.section.rewritten ? 'written' : 'unchanged'}` : ''}${e.blockers.length ? ' blockers ' + e.blockers.join(',') : ''}`);
         console.log(`    → read ${rel(e.inbox)}, author the artifact under the Muse Code subscription, write ${rel(e.outbox)}, re-run this command`);
         return { status: 'WAITING', key, inbox: e.inbox, outbox: e.outbox };
       }
-      transport = museFileTransport({ runDir: path.join(ROOT, RUN), key }); outboxKey = key;
+      transport = fileTransport; outboxKey = key;
     }
     try { r = await dispatchStage({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, approvalRef, go: true, ...(transport ? { transport } : {}) }); }
     catch (e) {

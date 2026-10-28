@@ -1,5 +1,6 @@
 // Controller-owned context assembly. No execution, writes, clock or inferred acceptance.
 import fs from 'node:fs';
+import {isSourceGroupProof,inspectSourceGroup,resolveDossierSupersession} from './source-groups.mjs';
 import path from 'node:path';
 import {canonicalJson, sha256, verifyRef, inside} from './atomic-file.mjs';
 import {sanitizeModelInput} from '../sanitize-model-input.mjs';
@@ -109,6 +110,7 @@ export function inspectAccepted02Replacement({projectRoot, runDir, runId, stageI
   const held = message => ({status: 'HOLD', blockers: ['accepted02_replacement:' + message], ref: null, receipt: null, target: null, acceptedReplacement: null, siblingArtifacts: []});
   try {
     if (!replacementRef) return held('proof_missing');
+    if(isSourceGroupProof(JSON.parse(fs.readFileSync(inside(runDir,verifyRef(replacementRef,projectRoot)),'utf8'))))return inspectSourceGroup({projectRoot,runDir,runId,stageId,sectionIds,partIds,acceptedArtifacts,replacementRef,nowUtc});
     if (!projectRoot || !runDir || !runId) return held('run_scope_missing');
     runDir = inside(path.join(projectRoot, 'runs'), runDir);
     if (stageId !== '02.dossier_sections' || !validIds(sectionIds) || sectionIds.length !== 1 || !validIds(partIds) || partIds.length !== 1 || !['C', 'C2'].includes(partIds[0])) return held('scope_requires_one_section_and_one_C_or_C2_part');
@@ -134,9 +136,9 @@ export function inspectAccepted02Replacement({projectRoot, runDir, runId, stageI
     const superseded = receipt.supersedes[0];
     if (!superseded || Object.keys(superseded).some(k => !['artifact_id', 'task_id', 'path', 'sha256'].includes(k)) || !['artifact_id', 'task_id'].every(k => typeof superseded[k] === 'string' && superseded[k])) return held('superseded_identity_missing');
     inside(runDir, verifyRef(superseded, projectRoot));
-    const dossiers = acceptedArtifacts.filter(dossierRef);
+    const dossiers = resolveDossierSupersession({projectRoot,runDir,runId,acceptedArtifacts}).active;
     if (dossiers.some(r => r.accepted !== true && r.status !== 'accepted')) return held('runtime_reference_not_accepted');
-    const target = dossiers.find(r => r.task_id === superseded.task_id && r.artifact_id === superseded.artifact_id && exactRef(r, superseded, projectRoot));
+    const target = acceptedArtifacts.filter(dossierRef).find(r => r.task_id === superseded.task_id && r.artifact_id === superseded.artifact_id && exactRef(r, superseded, projectRoot));
     if (!target) return held('target_not_ledger_accepted');
     const scope = dossierScope(target);
     if (!validIds(scope.sections) || !validIds(scope.parts) || idsKey(scope.sections) !== idsKey(sectionIds) || idsKey(scope.parts) !== idsKey(partIds)) return held('target_scope_mismatch');
@@ -305,16 +307,19 @@ export function assembleContext({projectRoot, runRoot, stageId, acceptedArtifact
   }
   if (runtime.has('dossier_envelope')) {
     const siblings = runtime.get('dossier_envelope');
+    const active=resolveDossierSupersession({projectRoot,runDir:runRoot,runId:runId??path.basename(runRoot),acceptedArtifacts}).active;
     context.sibling_envelopes = replacement?.status === 'PASS'
       ? siblings.filter(e => replacement.siblingArtifacts.some(r => exactRef(e.pin, r, projectRoot))).map(e => e.data)
-      : siblings.map(e => e.data);
+      : siblings.filter(e=>active.some(r=>exactRef(e.pin,r,projectRoot))).map(e => e.data);
+    if(stageId==='02.dossier_sections'&&!replacement?.group&&active.some(r=>JSON.parse(fs.readFileSync(r.path,'utf8')).envelope_scope?.kind==='complete_dossier'&&identityOf(r).config?.replacement_ref))context.source_group_requires_explicit_submission=true;
   }
   if (replacement?.status === 'PASS') {
     const provenanceRefs = [{...replacement.ref, kind: 'accepted02_replacement_proof'},
       ...replacement.evidenceRefs.map(r => ({...r, kind: 'accepted02_replacement_source_evidence'})),
-      ...[['validation_ref', 'superseded_validation'], ['acceptance_ref', 'superseded_acceptance']].flatMap(([key, kind]) => replacement.target[key] ? [{...replacement.target[key], kind}] : [])];
+      ...(replacement.lineageTargets??replacement.targets??[replacement.target]).flatMap(target=>[['validation_ref', 'superseded_validation'], ['acceptance_ref', 'superseded_acceptance']].flatMap(([key, kind]) => target[key] ? [{...target[key], kind}] : []))];
+    if(replacement.group){const file=path.join(projectRoot,'tools/belt/source-groups.mjs');provenanceRefs.push({path:file,sha256:sha256(fs.readFileSync(file)),kind:'source_group_implementation'});}
     for (const r of provenanceRefs) {
-      const file = inside(runRoot, verifyRef(r, projectRoot));
+      const file = r.kind==='source_group_implementation'?verifyRef(r,projectRoot):inside(runRoot, verifyRef(r, projectRoot));
       inputRefs.push({kind: r.kind, path: slash(path.relative(projectRoot, file)), sha256: r.sha256});
     }
     context.accepted_replacement = {proof_ref: {...replacement.ref, path: slash(path.relative(projectRoot, replacement.ref.path))},
@@ -386,6 +391,7 @@ export function assembleContext({projectRoot, runRoot, stageId, acceptedArtifact
   context.input_manifest_sha256 = sha256(canonicalJson(inputRefs));
   const required = ['overlay', 'policy', 'media_disposition', ...NEEDS[stageId]];
   const missing = [...required.filter(k => get(context, k) === null || get(context, k) === undefined), ...(replacement?.blockers ?? []),
+    ...(context.source_group_requires_explicit_submission?['source_group:composite_requires_explicit_group']:[]),
     ...sourceReconciliationBlockers({stageId, context, runtime, projectRoot})];
   return {status: missing.length ? 'HOLD' : 'PASS', context, inputRefs, missing, replacement,
     acceptance_claim: 'context_assembly_only_not_artifact_validation_or_execution_authority'};
