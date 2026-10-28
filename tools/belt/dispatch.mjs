@@ -198,6 +198,58 @@ export function emitAuthoringPacket({previousNonPass=[],...options}){
   fs.writeFileSync(paths.next,JSON.stringify({key,inbox:rel(paths.inbox),outbox:rel(paths.outbox),packet_sha256:packetSha,candidate_lineage_id:p.config.candidate_lineage_id,input_manifest_sha256:p.context.input_manifest_sha256,stage_id:p.stageId,section_ids:p.sectionIds,part_ids:p.partIds,retry_nonce:nonce,previous_non_pass:previousNonPass,required_checks:p.requiredChecks,emitted_at:packet.emitted_at},null,2)+'\n');
   return{status:p.preflight.status==='PASS'?'EMITTED':'HOLD',key,inbox:paths.inbox,outbox:paths.outbox,packet_sha256:packetSha,request_bytes:packet.request_bytes,blockers:p.preflight.blockers};
 }
+// THIN packets (v2, 2026-10-28 02:00Z, founder: "pdf to packet... how better can you do?"). Measured on Florida: a full packet is
+// 232 KB of which source_registry (92 KB) + page_map (58 KB) + conventions/templates/example (32 KB) are IDENTICAL for every part
+// of every section of the state, selected_source_pages (35 KB) is identical for every part of a section, and the per-part delta is
+// ~3 KB. Muse is stateful within a launch, so: write the state layer once, the section layer once per section, and hand each part a
+// few-KB packet that names both layers. The ingest path is unchanged (the belt re-renders the full request itself).
+const STATE_LAYER_KEYS = ['source_registry', 'page_map', 'output_conventions', 'instruction_templates', 'pilot_overlay', 'output_shape_example', 'safe_run_config', 'source_policy'];
+const SECTION_LAYER_KEYS = ['selected_source_pages', 'depth_floor'];
+function writeLayerIfChanged(file, value) {
+  const body = JSON.stringify(value, null, 1) + '\n';
+  const next = sha256(Buffer.from(body));
+  if (fs.existsSync(file) && sha256(fs.readFileSync(file)) === next) return { path: file, sha256: next, rewritten: false };
+  fs.writeFileSync(file, body);
+  return { path: file, sha256: next, rewritten: true };
+}
+export function emitThinPacket({ previousNonPass = [], ...options }) {
+  const p = prepareDispatch({ ...options, go: false });
+  const nonce = retryNonce(p).retry_nonce ?? 0;
+  const key = authoringKey(p.stageId, p.sectionIds, p.partIds, nonce);
+  const paths = authoringPaths(p.runDir, key);
+  for (const d of [path.dirname(paths.inbox), path.dirname(paths.outbox), paths.done]) fs.mkdirSync(d, { recursive: true });
+  const rel = (f) => path.relative(p.projectRoot, f).replace(/\\/g, '/');
+  const inputData = p.renderingInputs.inputData;
+  const stateLayer = { schema_version: 'nova-muse-context-layer.v2', layer: 'state', run_id: p.config.run_id,
+    prompts: { [p.stageId]: p.rendered.messages[1].content }, response_formats: { [p.stageId]: p.request.response_format },
+    inputData: Object.fromEntries(Object.entries(inputData).filter(([k]) => STATE_LAYER_KEYS.includes(k))) };
+  const sectionLayer = { schema_version: 'nova-muse-context-layer.v2', layer: 'section', run_id: p.config.run_id, section_ids: p.sectionIds,
+    inputData: Object.fromEntries(Object.entries(inputData).filter(([k]) => SECTION_LAYER_KEYS.includes(k))) };
+  const delta = Object.fromEntries(Object.entries(inputData).filter(([k]) => !STATE_LAYER_KEYS.includes(k) && !SECTION_LAYER_KEYS.includes(k)));
+  const inboxDir = path.dirname(paths.inbox);
+  const stateRef = writeLayerIfChanged(path.join(inboxDir, 'CONTEXT-state.json'), stateLayer);
+  const secRef = writeLayerIfChanged(path.join(inboxDir, `CONTEXT-${[...p.sectionIds].sort().join('+') || 'run'}.json`), sectionLayer);
+  // Each stage's prompt/schema must be present in the state layer: merge on first sight of a new stage.
+  if (!stateRef.rewritten) {
+    const existing = JSON.parse(fs.readFileSync(stateRef.path, 'utf8'));
+    if (!existing.prompts?.[p.stageId]) { existing.prompts[p.stageId] = stateLayer.prompts[p.stageId]; existing.response_formats[p.stageId] = stateLayer.response_formats[p.stageId]; Object.assign(stateRef, writeLayerIfChanged(stateRef.path, existing)); }
+  }
+  const packet = { schema_version: 'nova-muse-authoring-packet.v2-thin', key, run_id: p.config.run_id, candidate_lineage_id: p.config.candidate_lineage_id, input_manifest_sha256: p.context.input_manifest_sha256,
+    stage_id: p.stageId, section_ids: p.sectionIds, part_ids: p.partIds, retry_nonce: nonce,
+    layers: { state: { path: rel(stateRef.path), sha256: stateRef.sha256 }, section: { path: rel(secRef.path), sha256: secRef.sha256 } },
+    assembly: 'full request = [system: delta.system_header] + [user: layers.state.prompts[stage_id]] + [user: canonical JSON of {...layers.state.inputData, ...layers.section.inputData, ...delta.inputData}]; response_format = layers.state.response_formats[stage_id]. Read the state layer once per launch and the section layer once per section; every part packet only changes delta.',
+    delta: { system_header: p.rendered.messages[0].content, inputData: delta },
+    authoring: { mode: 'muse_code_subscription', model: p.config.producer.model, billing: 'Muse Code subscription; no Model API call; ledger actual = $0',
+      instructions: 'You ARE the producer model. Assemble the request as described in `assembly`, obey the response_format schema STRICTLY (every required key — including verification_debt, market_signal, g_matrix, external_review_requests, needs_dedicated_surface — no extra keys), obey output_conventions, copy delta.inputData.lineage_to_copy verbatim. Every statement comes from the section pages in the section layer; never invent. If previous_non_pass lists check ids, fix exactly those. Write ONLY the artifact JSON as `artifact` in the outbox named below.',
+      write_outbox_to: rel(paths.outbox),
+      outbox_shape: { key, packet_sha256: '<sha256 of this inbox file>', authored_by: 'muse-code/' + p.config.producer.model + ' (subscription)', artifact: '<JSON matching the response_format schema>' } },
+    previous_non_pass: previousNonPass, required_checks: p.requiredChecks, request_sha256: sha256(canonicalJson(p.request)), full_request_bytes: Buffer.byteLength(canonicalJson(p.request)), preflight: p.preflight, emitted_at: new Date().toISOString() };
+  const body = JSON.stringify(packet, null, 2) + '\n';
+  fs.writeFileSync(paths.inbox, body);
+  const packetSha = sha256(Buffer.from(body));
+  fs.writeFileSync(paths.next, JSON.stringify({ packet_mode: 'thin', key, inbox: rel(paths.inbox), outbox: rel(paths.outbox), packet_sha256: packetSha, layers: packet.layers, candidate_lineage_id: p.config.candidate_lineage_id, input_manifest_sha256: p.context.input_manifest_sha256, stage_id: p.stageId, section_ids: p.sectionIds, part_ids: p.partIds, retry_nonce: nonce, previous_non_pass: previousNonPass, required_checks: p.requiredChecks, emitted_at: packet.emitted_at }, null, 2) + '\n');
+  return { status: p.preflight.status === 'PASS' ? 'EMITTED' : 'HOLD', key, inbox: paths.inbox, outbox: paths.outbox, packet_sha256: packetSha, request_bytes: Buffer.byteLength(body), full_request_bytes: packet.full_request_bytes, layers: { state: stateRef, section: secRef }, blockers: p.preflight.blockers };
+}
 // Reads Muse's outbox for a key without throwing: {ok, reason, outbox}. The runner calls this BEFORE dispatching so a missing or
 // malformed outbox never reaches the client (a transport throw would park the attempt as unknown_provider_result).
 export function readAuthoringOutbox(runDir,key){

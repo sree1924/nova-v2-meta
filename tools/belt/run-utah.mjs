@@ -24,6 +24,9 @@ const RUN = get('--run', 'runs/2026-10-26-rdmv-ut-class-d').replace(/\\/g, '/').
 const EXECUTOR = '2bdcad95-d4cc-467e-a88d-be4a6260cf03';
 const author = get('--author', null);
 const stepMode = author === 'muse';
+// --packet thin (v2): state/section context layers written once, few-KB part packets (dispatch.mjs emitThinPacket). Default = full.
+const packetMode = get('--packet', 'full');
+if (!['full', 'thin'].includes(packetMode)) { console.error(`unknown --packet ${packetMode}; supported: full, thin`); process.exit(2); }
 if (author && !stepMode) { console.error(`unknown --author ${author}; supported: muse`); process.exit(2); }
 const stages = get('--stages', '02,16,03,04,06,05.sessions,05.card_scripts').split(',');
 const parts = get('--parts', 'C,C2,A,B,D,E,E2,F,G').split(',');
@@ -42,7 +45,7 @@ const sha = (buf) => createHash('sha256').update(buf).digest('hex');
 const readJ = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const writeJ = (p, v) => fs.writeFileSync(path.join(ROOT, p), JSON.stringify(v, null, 2) + '\n');
 const standing = readJ(`${RUN}/approvals/STANDING-AUTHORITY-utah-full-run.json`);
-const { dispatchStage, retryNonceKey, emitAuthoringPacket, museFileTransport, readAuthoringOutbox, authoringKey, authoringPaths } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/dispatch.mjs')).href);
+const { dispatchStage, retryNonceKey, emitAuthoringPacket, emitThinPacket, museFileTransport, readAuthoringOutbox, authoringKey, authoringPaths } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/dispatch.mjs')).href);
 const { compileAcceptedDossier, reconcileAttempt } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/controller.mjs')).href);
 const { DatabaseSync } = await import('node:sqlite');
 
@@ -184,9 +187,10 @@ async function runStage(stageId, partIds) {
           console.log(`  lineage → ${to} (proactive, before authoring)`);
         }
         if (!['outbox_absent', 'stale_lineage'].includes(got.reason)) console.log(`  ${label}: outbox unusable (${got.reason}) — re-emitting packet`);
-        const e = emitAuthoringPacket({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, previousNonPass });
+        const emit = packetMode === 'thin' ? emitThinPacket : emitAuthoringPacket;
+        const e = emit({ projectRoot: ROOT, runConfigPath: `${RUN}/run-config.json`, executorId: EXECUTOR, stageId, sectionIds: [section], partIds, previousNonPass });
         const rel = (f) => path.relative(ROOT, f).replace(/\\/g, '/');
-        console.log(`  ${label}: ${e.status} packet ${key} (${Math.round(e.request_bytes / 1024)} KB)${e.blockers.length ? ' blockers ' + e.blockers.join(',') : ''}`);
+        console.log(`  ${label}: ${e.status} ${packetMode} packet ${key} (${Math.round(e.request_bytes / 1024)} KB${e.full_request_bytes ? ` vs ${Math.round(e.full_request_bytes / 1024)} KB full` : ''})${e.layers ? ` layers: state ${e.layers.state.rewritten ? 'written' : 'unchanged'}, section ${e.layers.section.rewritten ? 'written' : 'unchanged'}` : ''}${e.blockers.length ? ' blockers ' + e.blockers.join(',') : ''}`);
         console.log(`    → read ${rel(e.inbox)}, author the artifact under the Muse Code subscription, write ${rel(e.outbox)}, re-run this command`);
         return { status: 'WAITING', key, inbox: e.inbox, outbox: e.outbox };
       }

@@ -50,9 +50,12 @@ function Status($st) {
   }
   return "finished"
 }
+$briefV2 = Join-Path $lane "coordination\MUSE-STATE-INTAKE-BRIEF-v2.md"
 function Launch($st, $why) {
   $prompt = Join-Path $lane "coordination\intake\$st.prompt.md"
-  "STATE=$st`n`n" + (Get-Content -Raw -Path $brief) | Set-Content -Path $prompt -Encoding utf8
+  # New states run the v2 brief (thin packets + hints); relaunches of states started on v1 keep v1 so their loop stays consistent.
+  $useBrief = $brief; if ($why -eq "new" -and (Test-Path $briefV2)) { $useBrief = $briefV2 }
+  "STATE=$st`n`n" + (Get-Content -Raw -Path $useBrief) | Set-Content -Path $prompt -Encoding utf8
   $tag = "intake-$st"; if ($why -ne "new") { $tag = "intake-$st-r$($relaunches[$st])" }
   $p = Start-Process -FilePath "powershell" -ArgumentList @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $launcher, "-Brief", $prompt, "-Tag", $tag) -PassThru -WindowStyle Hidden
   Log "launched ($why): $st pid $($p.Id) → coordination\muse-launch-$tag.jsonl"
@@ -70,6 +73,8 @@ while ($true) {
     elseif ($s -eq "never") { $candidates += @{ st = $st; why = "new" } }
     elseif ($s -eq "finished") { if (-not $relaunches.ContainsKey($st)) { $relaunches[$st] = 0 }; if ($relaunches[$st] -lt 3) { $candidates += @{ st = $st; why = "relaunch" } } }
   }
+  # New states first (the v2 pilot gets a slot at the reset), then relaunches.
+  $candidates = @(@($candidates | Where-Object { $_.why -eq "new" }) + @($candidates | Where-Object { $_.why -ne "new" }))
   $slots = $MaxParallel - $running.Count
   if ((Get-Date) -lt $script:pauseUntil) { if ($candidates.Count -gt 0) { Log "paused until $($script:pauseUntil) (429); running: $($running -join ',')" } }
   elseif ($slots -gt 0 -and $candidates.Count -gt 0) {
