@@ -40,6 +40,11 @@ function Status($st) {
   # counted them complete and over-filled to 7 loops, 2026-10-28 01:21Z). Report counts only if newer than the newest launch log.
   $log = NewestLog $st
   $report = Get-Item -Path (Join-Path $lane "coordination\MUSE-INTAKE-$st-REPORT.md") -ErrorAction SilentlyContinue
+  # v3 (2026-10-28): a state is complete only when its report carries downstream counts; an SME-only report (v2 style, or a
+  # premature v3 report like Kentucky's at 11:53) is demoted to PROGRESS so the state is relaunched for downstream.
+  if ($report -and (Test-Path $briefV3) -and -not ((Get-Content -Raw $report.FullName) -match 'card_scripts|scripts')) {
+    Move-Item -Force $report.FullName (Join-Path $lane "coordination\MUSE-INTAKE-$st-PROGRESS.md"); Log "demoted SME-only report for $st to PROGRESS (no downstream counts)"; $report = $null
+  }
   if (-not $log) { if ($report) { return "complete" } else { return "never" } }
   $tail = ReadTail $log 400000
   $live = (-not ($tail -match '"payload_type":"run\.terminal')) -and ((Get-Date) - $log.LastWriteTime -lt [TimeSpan]::FromMinutes(20))
@@ -52,10 +57,12 @@ function Status($st) {
   return "finished"
 }
 $briefV2 = Join-Path $lane "coordination\MUSE-STATE-INTAKE-BRIEF-v2.md"
+$briefV3 = Join-Path $lane "coordination\MUSE-STATE-INTAKE-BRIEF-v3.md"  # 2026-10-28 founder: SME then downstream in ONE launch
 function Launch($st, $why) {
   $prompt = Join-Path $lane "coordination\intake\$st.prompt.md"
   # New states run the v2 brief (thin packets + hints); relaunches of states started on v1 keep v1 so their loop stays consistent.
-  $useBrief = $brief; if ($why -eq "new" -and (Test-Path $briefV2)) { $useBrief = $briefV2 }; if ((Test-Path $briefV3) -and -not (Test-Path (Join-Path $lane "coordinationMUSE-INTAKE-$st-REPORT.md"))) { $useBrief = $briefV3 }
+  $useBrief = $brief; if ($why -eq "new" -and (Test-Path $briefV2)) { $useBrief = $briefV2 }; if ((Test-Path $briefV3) -and -not (Test-Path (Join-Path $lane "coordination\MUSE-INTAKE-$st-REPORT.md"))) { $useBrief = $briefV3 }
+  Log "brief for ${st}: $(Split-Path -Leaf $useBrief)"
   "STATE=$st`n`n" + (Get-Content -Raw -Path $useBrief) | Set-Content -Path $prompt -Encoding utf8
   $tag = "intake-$st"; if ($why -ne "new") { $tag = "intake-$st-r$($relaunches[$st])" }
   $p = Start-Process -FilePath "powershell" -ArgumentList @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $launcher, "-Brief", $prompt, "-Tag", $tag) -PassThru -WindowStyle Hidden
