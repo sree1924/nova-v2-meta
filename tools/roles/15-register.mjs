@@ -37,9 +37,11 @@ with pdfplumber.open(source) as document:
         raise ValueError('PDF extractors disagree on physical page count')
     for index, (page, layout) in enumerate(zip(reader.pages, document.pages)):
         text = (page.extract_text() or '').replace('\r\n', '\n').replace('\r', '\n')
-        # The bottom 32pt captures actual isolated footer IDs in this handbook.
-        top = max(0, layout.height - 32)
-        footer = layout.crop((0, top, layout.width, layout.height)).extract_text() or ''
+        # The bottom 32pt captures actual isolated footer IDs in this handbook. Crop RELATIVE to the page box:
+        # some handbooks (New Jersey 2026) carry an offset box like (24,-24,402,516), and a (0,..) crop falls outside it.
+        bx0, by0, bx1, by1 = layout.bbox
+        top = max(by0, by1 - 32)
+        footer = layout.crop((bx0, top, bx1, by1)).extract_text() or ''
         lines = [line.strip() for line in footer.splitlines() if line.strip()]
         last = lines[-1] if lines else ''
         printed = last if last.isdigit() or (last and all(c in 'ivxlcdmIVXLCDM' for c in last)) else None
@@ -47,7 +49,7 @@ with pdfplumber.open(source) as document:
             'text': text, 'printed_page': printed,
             'printed_page_evidence': None if printed is None else {
                 'kind': 'isolated_last_footer_line', 'verbatim': last,
-                'crop_bbox_pt': [0, top, layout.width, layout.height]},
+                'crop_bbox_pt': [bx0, top, bx1, by1]},
             'width_pt': layout.width, 'height_pt': layout.height})
 print(json.dumps({'page_count': len(pages),
     'metadata': {str(k): str(v) for k,v in (reader.metadata or {}).items()},
@@ -77,8 +79,9 @@ function evidence(page, sourceRef, sourceHash, verbatim, kind) {
 /** Only local installed Python tooling is executed; no shell or provider SDK. */
 export async function extractLocalPdf(pdfPath, {pythonPath = DEFAULT_PYTHON} = {}) {
   const {stdout} = await execFileAsync(pythonPath, ['-c', EXTRACT_PYTHON, pdfPath], {
-    windowsHide: true, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
-    timeout: 120_000,
+    windowsHide: true, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+    // 120 s was tuned on Utah's 9 MB file; New Jersey's 46 MB manual needs longer (local CPU only, no network).
+    timeout: Number(process.env.PDF_EXTRACT_TIMEOUT_MS || 900_000),
   });
   const result = JSON.parse(stdout);
   if (!Number.isInteger(result.page_count) || result.page_count < 1 || result.pages?.length !== result.page_count) {
