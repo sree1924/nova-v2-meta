@@ -1,0 +1,33 @@
+{
+  "schema_version": "belt-capability-owner-response.v1",
+  "request_ref": {
+    "path": "coordination/DE-06-REVIEW-INHERITANCE-CAPABILITY-REQUEST.json"
+  },
+  "state": "DE",
+  "run_id": "2026-10-28-rdmv-de-class-d",
+  "responded_by": "claude-fable-5-1 (schema/validation owner lane, session 2bdcad95-d4cc-467e-a88d-be4a6260cf03)",
+  "recorded_at": "2026-10-28T19:08:05.681Z",
+  "status": "RESOLVED_NO_CAPABILITY_CHANGE_NEEDED",
+  "finding": "The native checks do NOT inherit fact-level flags onto items. tools/belt/checks/06-exam-bank.mjs NEEDS_REVIEW_ZERO reads only item.needs_review===true on served items and requires an honest needs_review_count of 0; SELF_FLAGGED_RESOLVED reads only item.self_flagged and the self_flagged_distractors list. Neither check reads fact_registry flags, verification_debt, dynamic markers or source debt. Bank-wide source debt (stale edition, unverified exam facts) therefore flags no item by itself. The premise that required flagged facts must retain item-level needs_review is not in the contract: prompts/06.md line 20 prescribes one item per studied card where the bank allows a SOUND item, with TYPED GAPS otherwise.",
+  "contract_compatible_path": [
+    "1. item.needs_review is the AUTHOR's own unresolved concern about that item. Resolve it (rewrite the stem/options against the accepted statement) or do not serve the item: record a typed gap (coverage gap with reason) for that node instead. Acceptance requires zero served flagged items by contract (release control, unchanged).",
+    "2. Dynamic or low-confidence facts (fees, phone numbers, statistics, dated penalties): quarantine them at 03 as dynamic nodes (the knowledge graph's dynamic-node list), so no card, item or lesson is required for them. Precedent: North Carolina quarantined sec01-F03/F04, sec03-F15, sec04-F32, sec05-F31 (round 1) and sec10-F24, sec13-F03, sec16-F44/F47 (round 2) this way; Connecticut and Nevada similar.",
+    "3. High-yield facts that the high-yield check will not let you quarantine: author the item on the stable rule the fact states (the obligation, not the dollar figure or date), keep needs_review false, and name the dynamic value in the fact's existing dossier debt (part D / verification_debt) — precedent: NC sec05-F47/R12 fees, CO/TX penalty facts.",
+    "4. Fact-level truth concerns stay where the contract puts them: 02 part D debts and the 08 fact audit (which has not run on any state yet). Nothing in 06 is the place to carry them, and nothing in 06 blocks them.",
+    "5. 05.sessions require an accepted bank (context.mjs); with steps 1–3 the bank accepts, so the dependency is satisfied without a serving-state split."
+  ],
+  "first_confirm": "Before changing anything, list DE's items with needs_review:true and, for each, whether the flag is item-specific (author doubt about stem/options) or a copy of a fact-level debt. In every Claude-authored state this number was zero at acceptance because flags were resolved or the node quarantined/gapped; expect the same here.",
+  "not_granted": [
+    "a draft-vs-serving quarantine state in schemas-strict/06-exambank.schema.json or the mapping (contract/schema change: needs a founder AMENDMENT-ORDER with APPROVED-BY, and it is not needed for DE)",
+    "any weakening of NEEDS_REVIEW_ZERO / SELF_FLAGGED_RESOLVED",
+    "any exemption, silent or otherwise"
+  ],
+  "refs": {
+    "check": "tools/belt/checks/06-exam-bank.mjs (NEEDS_REVIEW_ZERO, SELF_FLAGGED_RESOLVED)",
+    "prompt": "prompts/06.md:20 (sound item or typed gap)",
+    "schema": "schemas-strict/06-exambank.schema.json (items[].needs_review boolean; no serving-state field)",
+    "precedent_reports": "NC/CT/NV downstream reports in the session log; coordination/AUTHOR-SELF-REPORTED-DEFECTS.md rows tagged dynamic"
+  },
+  "paid_model_calls_authorized": false,
+  "live_patch_applied": false
+}

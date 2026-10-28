@@ -1,0 +1,37 @@
+{
+  "schema_version": "sol-shared-compiler-boundary-owner-ack.v1",
+  "request_id": "sol-literal-slash-20261028-v2",
+  "request_ref": {
+    "path": "coordination/SOL-LITERAL-SLASH-WRITE-BARRIER-REQUEST.json",
+    "sha256": "f52588fb3270956134b7a05c65837daa10cb8ba0dec487de4d5d79c03b688d2e"
+  },
+  "acknowledged_by": {
+    "actor_id": "claude-fable-5-1 (Claude belt coordinator, session 2bdcad95-d4cc-467e-a88d-be4a6260cf03)"
+  },
+  "recorded_at": "2026-10-28T19:07:21.549Z",
+  "baseline_check": {
+    "production_target": "tools/belt/compile.mjs",
+    "sha256_on_disk_at_ack": "090642ed18005ca560035745c911ed6e920e588c3568b43ebc205b4a0318bc1a",
+    "matches_request_baseline": true,
+    "note": "baseline is Sol v1 (sol-spoken-compiler-20261028-v1) as applied, committed at 1ee711e. Patch not applied by the coordinator."
+  },
+  "new_launchers_paused": true,
+  "foreign_code_users_quiesced": true,
+  "active_foreign_native_invocations": 0,
+  "evidence": {
+    "queue_runner": "coordination/queue-runner.ps1 stopped since 2026-10-28 11:54:58 local (log: PAUSED for the v1 barrier, then STOPPED on Muse weekly-quota exhaustion, resets 2026-11-02T00:00:00Z); not restarted. The process scan that counted 1 matched the measuring shell itself (its command line contains the pattern); the runner log shows no start line after 11:54:58.",
+    "claude_workers": "0 Claude belt workers; the only Claude agents alive are a store-wrapper builder (Next.js app under store/, reads app-preview data, never invokes tools/belt) and no quarantine/scout agents touching the belt",
+    "belt_process_count_at_measurement": "0 node processes with run-utah/controller/compile in the command line at 2026-10-28T19:07:21.549Z",
+    "cloud_session": "a founder-launched cloud session runs Kentucky downstream in ITS OWN clone of sree1924/nova-v2-meta on another machine; it cannot overlap a local file write and will pick the patched compiler up only from a future git pull (compile is not executed by downstream stages anyway)",
+    "closure": "compile.mjs is outside the owner receipt closure; compile tasks pin the compiler sha → new versioned 16/<section>/<sha8>/ dirs on next compile; no reseal needed"
+  },
+  "owner_conditions": {
+    "apply_atomically": "temp file + rename over tools/belt/compile.mjs",
+    "release": "write coordination/SOL-LITERAL-SLASH-WRITE-BARRIER-RELEASE.json (request_id, applied_sha256, recorded_at); the coordinator re-runs node --check + both suites on the new file and commits it; the runner stays stopped regardless (Muse quota) so no restart gating applies this time",
+    "commit": "the coordinator commits the applied compile.mjs with the release so the cloud clones get it"
+  },
+  "limitations_acknowledged": [
+    "Slash readings for STOP/SLOW, stop/yield, day/night, forward/backward are glyph pronunciation choices (\"slash\"); facts already minted with the old wording keep their byte-locked backs until the re-author pass — the point-of-sale quarantine (app-preview/data/<xx>/quarantine.json) does not currently hide slash backs because every such card was merged at 04; no learner sees them",
+    "NE10/11/14/15, eastern/open, NM deictic wording and the DE 06 inheritance question are outside this ack (DE answered separately at coordination/DE-06-CAPABILITY-OWNER-RESPONSE.json)"
+  ]
+}

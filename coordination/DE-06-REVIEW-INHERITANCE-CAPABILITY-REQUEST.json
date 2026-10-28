@@ -1,0 +1,40 @@
+{
+  "schema_version": "belt-capability-request.v1",
+  "status": "OWNER_RESOLUTION_REQUESTED_NO_LIVE_CHANGE",
+  "requested_by": "Sol head coordinator",
+  "state": "DE",
+  "run_id": "2026-10-28-rdmv-de-class-d",
+  "owner_lanes": [
+    "13 Schema Steward",
+    "controller/contract owner",
+    "14 validation owner"
+  ],
+  "factual_concerns_remain_owned_by": [
+    "02",
+    "08"
+  ],
+  "evidence": {
+    "worker_checkpoint": "scratch/sol-de/restore/checkpoint.json",
+    "pinned_role06_interface": "contracts/bot-contract-bindings.json:1756",
+    "prompt_inheritance": "prompts/06.md:20",
+    "native_zero_review_check": "tools/belt/checks/06-exam-bank.mjs:391",
+    "native_unresolved_flag_check": "tools/belt/checks/06-exam-bank.mjs:400",
+    "strict_schema": "schemas-strict/06-exambank.schema.json:39",
+    "mapping": "schemas-strict/06-exambank.mapping.json:329",
+    "session_dependency": "tools/belt/context.mjs:24"
+  },
+  "observed_capability_gap": "Required flagged/low-confidence or dynamic facts must retain item-level needs_review. Current native NEEDS_REVIEW_ZERO and SELF_FLAGGED_RESOLVED reject all flagged items regardless of quiz/form placement; strict schema has no quarantine/serving state. Sessions require an accepted exam bank. Role06 routes truth concerns to08 but also requires green validation before handoff.",
+  "requested_resolution": "First confirm exact item-specific inheritance against DE bound facts; unrelated bank-wide source debt must not automatically flag every item. If required items are genuinely flagged, document an existing contract-compatible authoring path, or return an owner-reviewed scoped capability/contract proposal that distinguishes draft authoring from serving while preserving flags. Do not silently implement an exemption.",
+  "prohibited_shortcuts": [
+    "clearing inherited flags to force acceptance",
+    "filtering mandatory facts/items",
+    "fabricating review or audit receipts",
+    "waiving zero-review release controls",
+    "Sol duplicating owner schema/mapping edits",
+    "parent factory/schema/manifest edits without the required authority"
+  ],
+  "all_existing_accepted_artifacts_and_debt_preserved": true,
+  "paid_model_calls_authorized": false,
+  "live_patch_authorized_by_this_request": false,
+  "owner_response_path": "coordination/DE-06-CAPABILITY-OWNER-RESPONSE.json"
+}
