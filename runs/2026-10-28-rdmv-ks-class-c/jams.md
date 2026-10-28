@@ -71,3 +71,21 @@ Seeded 2026-10-28T07:23:58.772Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:46:14.405Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:31 for 02.dossier_sections (sec06-rules-of-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-rules-of-road__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:46:26.758Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:32 for 02.dossier_sections (sec07-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-safe-driving__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:50:36.536Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:33 for 02.dossier_sections (sec07-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-safe-driving__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:50:48.174Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:34 for 02.dossier_sections (sec07-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-safe-driving__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:50:56.409Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:35 for 02.dossier_sections (sec07-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-safe-driving__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:51:04.860Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:36 for 02.dossier_sections (sec07-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-safe-driving__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:53:22.587Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:37 for 02.dossier_sections (sec08-emergencies) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-emergencies__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:53:27.110Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:38 for 02.dossier_sections (sec08-emergencies) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-emergencies__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:53:31.467Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:39 for 02.dossier_sections (sec08-emergencies) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-emergencies__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:53:36.778Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:40 for 02.dossier_sections (sec08-emergencies) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-emergencies__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:56:48.509Z Batch03 four new SME sections05-08 accepted through02/16:559 manually source-checked facts,43 explicit debts;new F/G inventories resolve. First-four F/G hold remains, independent QA pending. Own CURRENT hashes verified under executor lock. No downstream.

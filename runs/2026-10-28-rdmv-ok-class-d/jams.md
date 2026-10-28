@@ -75,3 +75,25 @@ Seeded 2026-10-28T07:07:07.574Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:45:26.384Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:37 for 02.dossier_sections (sec09-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-parking__C__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:46:37.769Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:38 for 02.dossier_sections (sec09-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-parking__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:47:24.180Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:39 for 02.dossier_sections (sec09-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-parking__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:48:15.592Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:40 for 02.dossier_sections (sec09-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-parking__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:48:55.749Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:41 for 02.dossier_sections (sec09-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-parking__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:50:28.787Z retry nonce 02.dossier_sections:C@sec10-sharing-the-road → 1 after HOLD (sec10-sharing-the-road); non-PASS: 02.LINEAGE=FAIL
+
+- 2026-10-28T10:50:28.806Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:42 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__C__n1 (lineage attempts exhausted)
+
+- 2026-10-28T10:53:45.361Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:43 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:54:10.178Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:44 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:54:42.059Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:45 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:55:16.624Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:46 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:56:20.523Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:47 for 02.dossier_sections (sec11-driving-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-driving-tips__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:57:06.902Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:48 for 02.dossier_sections (sec11-driving-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-driving-tips__B__n0 (lineage attempts exhausted)

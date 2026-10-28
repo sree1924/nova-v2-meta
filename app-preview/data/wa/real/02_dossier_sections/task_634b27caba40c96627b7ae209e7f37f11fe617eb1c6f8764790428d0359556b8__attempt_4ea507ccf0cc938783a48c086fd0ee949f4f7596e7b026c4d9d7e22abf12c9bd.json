@@ -1,0 +1,127 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-wa-s",
+  "lineage": {
+    "input_manifest_sha256": "548d73428299eae2fff4a573e368b78221673e0027b5d18c2f3d74e9e1564ae3",
+    "candidate_lineage_id": "2026-10-28-rdmv-wa-class-std:lineage:26",
+    "source_registry_sha256": "9f6e1cb1188348b60e3a496c6f0991207e113d4c5c50fdea6643147e46e0832e",
+    "source_liveness_sha256": "13f9e69569c91234713e9bc57e8dbd507c97dcbcafbf4df2d8e9ff3a33c56e92"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "E"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "E",
+      "chunk_id": "E.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "E — Market signal",
+      "learner_facing": false,
+      "markdown": "## E — Market signal\n\nStatus: no market research was performed for this section; the upstream competitive-intelligence pointer was not supplied for this run, so market size, pass rate, rooms, voice-of-customer quotes, persona, seasonality, price and success bar are recorded as typed debt (verify — WA-SEC-SIX-E-MARKET).\nKnown context only from the product frame: buyers are first-time Washington applicants and the parents of teen drivers preparing for the Driving Knowledge Exam.\nAd hooks, verbatim learner pain phrases and a named differentiation gap must come from sourced recon in a later pass, never invented here.\n",
+      "char_count": 621,
+      "fact_ids": [],
+      "source_anchors": []
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Washington Driver Guide is one published guide revision (form line 520-400 R/4/25 on physical p4); the guide itself notes it may lag recent legislative changes, and nothing on the selected pages indicates more than one rewrite per year."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "WA-SEC-SIX-E-MARKET",
+      "claim_text": "Market size, pass rate, rooms, voice-of-customer, persona, seasonality, pricing, success bar, ad hooks and named priced competitors for the Washington knowledge-exam prep market were not researched in this pass",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "reputable",
+      "owner_worker": "SMEResearchAgent",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "E",
+        "chunk_id": "E.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "no CompetitiveIntel pointer supplied for this run; market pack recorded as typed debt, never fictional research",
+    "disposition": "typed_debt",
+    "chunk_ids": [
+      "E.01"
+    ],
+    "debt_refs": [
+      "WA-SEC-SIX-E-MARKET"
+    ]
+  },
+  "g_matrix": []
+}

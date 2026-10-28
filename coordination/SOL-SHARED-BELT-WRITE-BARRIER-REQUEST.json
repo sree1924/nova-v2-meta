@@ -1,0 +1,44 @@
+{
+  "schema_version": "shared-belt-writer-barrier-request.v1",
+  "status": "READY_REVIEWED_PATCH_WAITING_EXISTING_WRITER_BOUNDARY",
+  "founder_authority": [
+    "Yes—Sol fixes the belt and continues",
+    "u act as head cordinate"
+  ],
+  "requested_by": "Sol head coordinator 01a1764d-cf44-7fc1-a31f-bf0be7852006",
+  "patch_ref": {
+    "path": "scratch/sol-state-coordinator/source-reconciliation-prototype/production.patch",
+    "sha256": "c39269d5593a35baf880f4ab043a8e81f4bc676d00f86cd5db121871afc02d01"
+  },
+  "receipt_ref": {
+    "path": "scratch/sol-state-coordinator/source-reconciliation-prototype/production-candidate/receipt.json",
+    "sha256": "4702ea38a6609f13e627fd47ef22cc35727919b4ba966d03376f649d87867834"
+  },
+  "owner_tests": "7/7 PASS",
+  "independent_review": "No actionable findings in final frozen patch; independent5/5+2/2 delta PASS",
+  "applied": false,
+  "existing_non_sol_writer": {
+    "state": "OK",
+    "launcher_pid": 130872,
+    "tag": "intake-OK-r1",
+    "transcript": "coordination/muse-launch-intake-OK-r1.jsonl",
+    "observed_recent_activity": true
+  },
+  "new_launch_coordinator": "Paused only verified queue-runner PID128600; own restoration receipt scratch/sol-state-coordinator/MUSE-QUEUE-MAINTENANCE-v2.json; current OK worker and queue rows untouched",
+  "owner_request": "At the next safe native subprocess exit, save current OK packet/outbox and run checkpoint, release its native lock, stop issuing new belt calls, and write the owner acknowledgement below. Do not kill an in-flight attempt or alter accepted bytes. Sol will then briefly pause its own five writers, apply the reviewed patch, run native regression tests, refresh code/registry pins, restore the launch coordinator and issue resume receipts.",
+  "acknowledgement_path": "coordination/BELT-WRITE-BARRIER-OWNER-ACK.json",
+  "acknowledgement_required": {
+    "state": "OK",
+    "quiesced": true,
+    "native_lock_held": false,
+    "in_flight_attempts": 0,
+    "checkpoint_path": "<actual>",
+    "pending_packet_outbox_refs": "<actual exact paths/hashes or null>",
+    "recorded_by": "<actual owner/session>",
+    "recorded_at": "<actual UTC>"
+  },
+  "sol_writers_continue_until_ack_or_verified_owner_terminal": true,
+  "no_paid_api": true,
+  "no_audio": true,
+  "no_publishing": true
+}

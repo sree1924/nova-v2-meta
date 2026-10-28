@@ -1,0 +1,63 @@
+{
+  "run_id": "2026-10-28-rdmv-nm-class-std",
+  "status": "SOURCE_SPAN_REPRESENTATION_ONLY_NOT_FACTUAL_ACCEPTANCE",
+  "compiler_ref": {
+    "path": "tools/belt/compile.mjs",
+    "sha256": "71cd2a51e0258bf21982e45cc3671e3ae08f83351abd3a94c535870c9e62b3b0"
+  },
+  "compiler_locator": "fact indexing: explicit block-lead page of record, further inline anchors retained as supporting_pages",
+  "source_pdf_ref": {
+    "path": "runs/2026-10-28-rdmv-nm-class-std/sources/private/English_20Drivers_20Manualver11.19.19.pdf",
+    "sha256": "3612b1745ada55d5e1cf18aadc6b9efe921f6b3da873c37753e5134331f95da9"
+  },
+  "page_map_ref": {
+    "path": "runs/2026-10-28-rdmv-nm-class-std/15-page-map.json",
+    "sha256": "79a20d761ce8d9ee38aa82910dc13e76a3fd7f4a07d885f32a7bd8dab139ac44"
+  },
+  "review_finding": {
+    "finding_id": "NM-COV-SLOWER-TRAFFIC-KEEP-RIGHT",
+    "section_id": "sec07-speed-and-parking",
+    "kind": "material_rule_retained_as_debt_but_not_in_registry",
+    "source_support": [
+      {
+        "physical_page": 15,
+        "page_text_sha256": "b34ea535cd83f896814818b429425496afeb8038396ef9df3032225ceb5ff74a",
+        "locator_or_reason": "Physical PDF page 15, registered extracted-text lines 42–43; read with the section context.",
+        "line_start": 42,
+        "line_end": 43,
+        "utf8_byte_start": 2124,
+        "utf8_byte_end_exclusive": 2318
+      },
+      {
+        "physical_page": 16,
+        "page_text_sha256": "e6b3582d4843655a6a866d2288aeb28766bc5f3114b35a6fc7fa13de6dd249a7",
+        "locator_or_reason": "Physical PDF page 16, registered extracted-text lines 3–4; read with the section context.",
+        "line_start": 3,
+        "line_end": 4,
+        "utf8_byte_start": 30,
+        "utf8_byte_end_exclusive": 209
+      }
+    ],
+    "related_fact_ids": [],
+    "finding": "The slower-traffic keep-right rule is readable across the physical-page boundary and already recorded in NM-SPEED-PAGE-BOUNDARY debt, but no accepted fact covers it.",
+    "proposed_additions": [
+      {
+        "physical_pages": [
+          15,
+          16
+        ],
+        "statement": "Drivers moving more slowly than other traffic should travel on the road’s right-hand side."
+      }
+    ],
+    "disposition": "Existing citation debt retained; needs a supported complete-span or suitable single-page citation route, not a fabricated page."
+  },
+  "proposed_fact_id": "sec07-R28",
+  "primary_physical_page": 15,
+  "supporting_physical_pages": [
+    16
+  ],
+  "neither_page_claimed_sufficient_alone": true,
+  "current_source_currency_verified": false,
+  "independent_07_08_acceptance": false,
+  "expected_native_index_assertion": "pdf_page === 15 AND supporting_pages includes pdf_page 16; verify after native compile"
+}

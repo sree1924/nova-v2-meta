@@ -141,3 +141,5 @@ Seeded 2026-10-28T05:04:23.825Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:14:24.709Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:67 for 05.card_scripts (sec07-sharing-the-road-part-1) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec07-sharing-the-road-part-1__-__n1 (lineage attempts exhausted)
 
 - 2026-10-28T10:33:20.591Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:68 for 05.card_scripts (sec09-signs-signals-part-1) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec09-signs-signals-part-1__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:51:29.028Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:69 for 05.card_scripts (sec11-driving-conditions-part-1) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec11-driving-conditions-part-1__-__n0 (lineage attempts exhausted)

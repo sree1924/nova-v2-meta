@@ -61,3 +61,25 @@ Seeded 2026-10-28T07:24:39.385Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:41:08.389Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:26 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:41:19.405Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:27 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:47:39.246Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:28 for 02.dossier_sections (sec06-impaired-distracted-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-impaired-distracted-driving__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:49:16.081Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:29 for 02.dossier_sections (sec06-impaired-distracted-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-impaired-distracted-driving__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:49:24.448Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:30 for 02.dossier_sections (sec06-impaired-distracted-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-impaired-distracted-driving__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:52:04.720Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:31 for 02.dossier_sections (sec06-impaired-distracted-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-impaired-distracted-driving__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:52:09.843Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:32 for 02.dossier_sections (sec07-equipment-registration) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-equipment-registration__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:55:37.098Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:33 for 02.dossier_sections (sec07-equipment-registration) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-equipment-registration__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:55:43.008Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:34 for 02.dossier_sections (sec07-equipment-registration) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-equipment-registration__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:55:47.797Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:35 for 02.dossier_sections (sec07-equipment-registration) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-equipment-registration__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:55:52.689Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:36 for 02.dossier_sections (sec07-equipment-registration) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-equipment-registration__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:57:26.183Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:37 for 02.dossier_sections (sec08-signals-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-signs__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:57:44.445Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:38 for 02.dossier_sections (sec08-signals-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-signs__B__n0 (lineage attempts exhausted)

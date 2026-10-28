@@ -1,0 +1,123 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-wa-s",
+  "lineage": {
+    "input_manifest_sha256": "66b848a7206744a802cddad12734b781ae2bea51cb2fb9ef39af857dd0ad2a0f",
+    "candidate_lineage_id": "2026-10-28-rdmv-wa-class-std:lineage:62",
+    "source_registry_sha256": "9f6e1cb1188348b60e3a496c6f0991207e113d4c5c50fdea6643147e46e0832e",
+    "source_liveness_sha256": "13f9e69569c91234713e9bc57e8dbd507c97dcbcafbf4df2d8e9ff3a33c56e92"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy and verification",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy and verification\n\nSource: every knowledge fact in parts C and C2 cites exactly one physical page of the private snapshot of the Washington Driver Guide, the issuer's own publication, read from extracted page text.\nConfidence: high for the failure, collision, power line and traffic stop facts, each restated from one explicit list item or numbered step; nothing was taken from memory or from a non-issuer source.\nPrecision rule: the flare placement range, the collision report deadline, the power line distance and the ticket response window are kept exactly as printed inside cited fact blocks in C and C2, with the wording paraphrased so that no learner line copies the guide.\nAccuracy flags: one fact in C places the court route and the supervisor request in a single sentence about disagreeing with an officer, but the guide ties the supervisor request to concerns about the officer's conduct; the confusable block in C2 states the distinction correctly and should be preferred (verify — sec14-D-FLAG).\nStability: the guide is a single published revision and states it may lag new legislation, so any rule that a future law changes must be re-read from the current edition before reuse.\nExternal review: none requested; the first aid, power line and police stop lines restate only the guide's own printed guidance for exam preparation and add no medical or legal advice beyond it.\n",
+      "char_count": 1401,
+      "fact_ids": [],
+      "source_anchors": []
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Washington Driver Guide is one published guide revision (form line 520-400 R/4/25 on physical p4); the guide itself notes it may lag recent legislative changes, and nothing on the selected pages indicates more than one rewrite per year."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "sec14-D-FLAG",
+      "claim_text": "sec14-F37 (physical p182) frames requesting a supervisor as a response to disagreement; the guide ties it to believing the officer acted inappropriately or questions about conduct. sec14-R09 states it correctly; F37 should be re-authored in a later pass",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}
