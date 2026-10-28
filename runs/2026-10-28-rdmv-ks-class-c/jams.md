@@ -99,3 +99,31 @@ Seeded 2026-10-28T07:23:58.772Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T11:14:21.235Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:44 for 02.dossier_sections (sec09-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T11:14:25.059Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:45 for 02.dossier_sections (sec09-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:22.670Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:46 for 02.dossier_sections (sec10-special-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-special-situations__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:26.964Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:47 for 02.dossier_sections (sec10-special-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-special-situations__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:31.536Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:48 for 02.dossier_sections (sec10-special-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-special-situations__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:35.856Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:49 for 02.dossier_sections (sec10-special-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-special-situations__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:39.803Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:50 for 02.dossier_sections (sec11-test-preparation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-test-preparation__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:21:06.280Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:51 for 02.dossier_sections (sec11-test-preparation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-test-preparation__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:21:09.835Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:52 for 02.dossier_sections (sec11-test-preparation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-test-preparation__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:21:13.464Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:53 for 02.dossier_sections (sec11-test-preparation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-test-preparation__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:21:17.842Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:54 for 02.dossier_sections (sec11-test-preparation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-test-preparation__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:23:37.783Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:55 for 02.dossier_sections (sec12-weather-trip-planning) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-weather-trip-planning__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:23:41.679Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:56 for 02.dossier_sections (sec12-weather-trip-planning) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-weather-trip-planning__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:23:45.687Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:57 for 02.dossier_sections (sec12-weather-trip-planning) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-weather-trip-planning__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:23:49.924Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:58 for 02.dossier_sections (sec12-weather-trip-planning) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-weather-trip-planning__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:27:38.976Z Batch04 last four registered SME sections09-12 accepted through02/16:316 source-checked facts,46 explicit debts;new F/G inventories resolve. All12 SME sections now compiled,1328 facts;original F/G hold and independent QA pending. All12 CURRENT hashes verified under executor lock. No downstream.

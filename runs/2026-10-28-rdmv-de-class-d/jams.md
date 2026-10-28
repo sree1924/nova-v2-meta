@@ -97,3 +97,29 @@ Seeded 2026-10-28T07:24:39.385Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T11:13:59.424Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:44 for 02.dossier_sections (sec09-traffic-laws) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-laws__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T11:14:03.637Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:45 for 02.dossier_sections (sec09-traffic-laws) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-laws__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:15:59.250Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:46 for 02.dossier_sections (sec10-parking-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-parking-speed__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:18.815Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:47 for 02.dossier_sections (sec10-parking-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-parking-speed__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:23.484Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:48 for 02.dossier_sections (sec10-parking-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-parking-speed__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:28.505Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:49 for 02.dossier_sections (sec10-parking-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-parking-speed__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:16:34.812Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:50 for 02.dossier_sections (sec11-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-road__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:19:41.029Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:51 for 02.dossier_sections (sec11-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-road__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:19:46.949Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:52 for 02.dossier_sections (sec11-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-road__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:19:51.238Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:53 for 02.dossier_sections (sec11-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-road__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:19:56.060Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:54 for 02.dossier_sections (sec11-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-road__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:23:00.813Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:55 for 02.dossier_sections (sec12-before-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-before-driving__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:24:18.764Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:56 for 02.dossier_sections (sec12-before-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-before-driving__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:24:23.120Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:57 for 02.dossier_sections (sec12-before-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-before-driving__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:24:27.580Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:58 for 02.dossier_sections (sec12-before-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-before-driving__F__n0 (lineage attempts exhausted)

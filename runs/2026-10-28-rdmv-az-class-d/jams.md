@@ -219,3 +219,11 @@ Seeded 2026-10-28T05:16:54.777Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:55:19.494Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:108 for 03.combined_kg (sec15-sharing-road-bicycles-motorcycles-trucks) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec15-sharing-road-bicycles-motorcycles-trucks__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T11:09:39.957Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:109 for 03.combined_kg (sec17-floods-fog-snow-night-wrong-way) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec17-floods-fog-snow-night-wrong-way__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:21:17.611Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:110 for 03.combined_kg (sec19-suspension-points-penalties) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec19-suspension-points-penalties__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:30:00.001Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:111 for 03.combined_kg (sec21-vehicle-emergencies-avoiding-crashes) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec21-vehicle-emergencies-avoiding-crashes__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:38:56.214Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:112 for 05.card_scripts (sec17-floods-fog-snow-night-wrong-way) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec17-floods-fog-snow-night-wrong-way__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T11:39:48Z retry nonce 04.cards:@sec17-floods-fog-snow-night-wrong-way 0→1 (coordinator decision): re-mint 04 to merge sec17-F34 onto R08; 05.STAGE_DIRECTIONS unreachable on locked wording 'fade in'

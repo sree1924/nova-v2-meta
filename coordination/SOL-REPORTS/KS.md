@@ -1,28 +1,30 @@
-KS — new sections05-08 accepted through02/16; first-four F/G hold remains. No downstream run.
-Run: 2026-10-28-rdmv-ks-class-c; actual gpt-6.1-sol, ChatGPT Pro subscription; batch03.
-New facts: sec05 C38/C2 41=79; sec06 C102/C2 109=211; sec07 C113/C2 85=198; sec08 C29/C2 42=71.
-This batch:36 accepted02 parts +4 compiles;559 facts;43 typed debts (27 source/visual/numeric,8 metadata,8 market/teardown).
-sec05-basic-driving: runs/2026-10-28-rdmv-ks-class-c/16/sec05-basic-driving/16-compiled-dossier.json @ 020d6a649ce3f91d8d360decc0ea88f66740116979221a743bae3a7204a0d4b6.
-sec06-rules-of-road: runs/2026-10-28-rdmv-ks-class-c/16/sec06-rules-of-road/16-compiled-dossier.json @ c7b60405a497f89b1e2435e9d12f31f3485dda07dc037753c7cc285f1d0bd92a.
-sec07-safe-driving: runs/2026-10-28-rdmv-ks-class-c/16/sec07-safe-driving/16-compiled-dossier.json @ 9a473cb6b2028c7e12df0366fb850710bee64bb2e36b529e3ac84ddcc2dd9f4a.
-sec08-emergencies: runs/2026-10-28-rdmv-ks-class-c/16/sec08-emergencies/16-compiled-dossier.json @ 16c61e8e65b22ce4de1f798b92d21ba7c68ff7b03a7799211c0475cf7950800a.
-Every new C/C2 claim was manually checked before its outbox; explicit physical-page line locators, page hashes and compiled-statement matches saved in evidence.
-New F indexes enumerate all559 native accepted fact IDs and exact43 debt IDs/types/owners/tiers/locations/texts;zero missing IDs or count mismatches.
-New G locations and debt refs resolve;G11 has accepted F evidence. sec06/07 G01 retains visual coverage debt. No new visual clearance.
-First four accepted corrected compiles and F/G bytes remain unchanged. Historical437-fact review and all replacement history preserved.
-First-four hold:13 added debt IDs still missing from accepted F indexes, and four G11 rows still overstate consolidation. Exact refs/IDs remain in batch02 inventory.
-Current total: eight compiled sections,1012 facts,83 compiled debt entries. Four SME sections remain unstarted.
-Native98 attempt records all accepted;58 pre-batch attempts retained plus40 new. No failed check or cap change.
-Ordinary native proactive lineage22→40;18 recorded advances after accepted work used capacity. Three-same-check threshold never reached.
-CURRENT refreshed only for this run under native executor lock;all eight registry hashes match native latest companions.
-Source PDF/registry/page-map pins unchanged;February2022 edition;effective date unknown. Quantitative/wording contradictions remain debt.
-Independent07/08 factual QA pending. Same-model source checks and deterministic native acceptance do not establish independent factual acceptance.
-No03/04/06/05 downstream, audio, publishing, commits, queue or shared usage-ledger edits. Native Muse wrapper labels disclosed;actual author Sol.
-Completion: runs/2026-10-28-rdmv-ks-class-c/receipts/sol-batch03-completion-1793185008509.json @ 36eab983f8de0bd0efbbc4a3806257deb97539c357667862a58bcd194ba8120c.
-Source/inventory proof: runs/2026-10-28-rdmv-ks-class-c/receipts/sol-batch03-source-and-inventory-1793185008492.json @ a088e8c946453dca6ef864f94339c7eb702ec2c30a0d08b75ceb16bbccfacebe.
-Exact accepted refs, debts, CURRENT checks and proposed shared rows: coordination/SOL-REPORTS/KS.checkpoint.json.
-Ledger actual $0.000;outstanding reserved $0.000;outstanding uncertain $0.000;paid API calls0.
-Client cumulative 27506650;cached input 26911744;uncached input 399922;output 194984;snapshot 2026-10-28T10:56:30.412Z.
-Delta since batch02: total 7577673;cached input 7400448;uncached input 123896;output 53329.
-Usage: scratch/sol-ks/batch03/usage.json;estimated55 external tool uses;final bookkeeping follows snapshot.
-Native lock released normally;no active or uncertain attempt. Head can aggregate this report without a worker message.
+KS — all12 registered SME sections accepted through02/16;original first-four F/G hold remains. No downstream run.
+Run: 2026-10-28-rdmv-ks-class-c;actual gpt-6.1-sol on ChatGPT Pro subscription;batch04.
+New facts: sec09 C59/C2 52=111;sec10 C28/C2 20=48;sec11 C51/C2 56=107;sec12 C18/C2 32=50.
+This batch:36 accepted02 parts +4 fresh compiles;316 manually source-checked facts;46 debts (30 source/visual/currentness/numeric,8 metadata,8 market/teardown).
+sec09-sharing-road: runs/2026-10-28-rdmv-ks-class-c/16/sec09-sharing-road/16-compiled-dossier.json @ dfebcc3ba8a73120234cf2a23eefb66861c79a57c5d39ef22c3d46500b18269d.
+sec10-special-situations: runs/2026-10-28-rdmv-ks-class-c/16/sec10-special-situations/16-compiled-dossier.json @ deb05b3b53af00e7e5ae0beabc3afbbc6e9a985a184ebf2c19b3dd72df175100.
+sec11-test-preparation: runs/2026-10-28-rdmv-ks-class-c/16/sec11-test-preparation/16-compiled-dossier.json @ 5cc939be0412d3d398db6e933926e4b3d42939bbd40fe5d1b8ab8147e76d0fce.
+sec12-weather-trip-planning: runs/2026-10-28-rdmv-ks-class-c/16/sec12-weather-trip-planning/16-compiled-dossier.json @ c386662abe5b1a8f8691fbd565b26ded98926944d038df1471126ca55fcc0760.
+New F indexes exactly enumerate316 native fact IDs and46 debts with type,owner,tier,location,text;zero missing/extra fact IDs,missing debts or count mismatches.
+New G11 rows point to accepted current F evidence;all G locations/debt refs resolve. sec09/11/12 G01 retains source/visual coverage debt.
+Every new C/C2 claim was checked before outbox;physical-page line locators,source hashes and exact compiled-statement matches saved in evidence. Not independent07/08.
+All earlier eight sections,all their accepted parts,compiles,registries and98 prior attempt records remain unchanged. Historical437-fact review and repairs preserved.
+Original hold unchanged:13 added debt IDs absent from first-four accepted F indexes;four G11 rows overstate consolidation. Head-reviewed group patch remains the dependency.
+Current total:12 compiled SME sections,1328 facts,129 compiled debt entries;zero unstarted SME sections.
+Native138 attempts all accepted;40 new;no native check failures or cap changes. Ordinary proactive lineage40→58;18 hash-pinned ancestry receipts.
+CURRENT refreshed only for this run under native executor lock;all12 registry hashes match latest native accepted companions.
+Source PDF/registry/page-map unchanged;February2022 edition;effective date unknown. Currentness,statistics,visuals and incomplete emergency procedures remain debt.
+Page85 now supports scoped500-foot emergency-passage guidance;earlier page63 jurisdiction debt remains unchanged for head review.
+Minor editorial follow-up:missing number spacing in sec09-F50 and sec11-F07/08/11/17/39/40/41;accepted bytes preserved;exact list in checkpoint.
+Independent07/08 factual QA pending. Structural acceptance and author source checks do not establish independent acceptance or downstream readiness.
+Next action:head-reviewed original F/G reconciliation,then required QA/debt dispositions. All SME sections are started and compiled;worker stops before downstream.
+No shared code/intake/queue/usage-ledger edits,paid API,audio,publishing or commits. Live native code only;Muse/Claude/Utah wrapper labels disclosed.
+Completion: runs/2026-10-28-rdmv-ks-class-c/receipts/sol-batch04-final-checkpoint-1793186932832.json @ 0881ba145d6c3214ab0cc50c7a30ca2be4b469c5b6ac222a2fbc66a0252e4ffe.
+Source/inventory proof: runs/2026-10-28-rdmv-ks-class-c/receipts/sol-batch04-source-and-inventory-1793186858964.json @ b13b13d0f268b96f9f0265dd03db53bd47b02f13729db999c890c44d85611bef.
+Exact refs,debts,defects,CURRENT checks and proposed shared rows: coordination/SOL-REPORTS/KS.checkpoint.json.
+Money actual/reserved/uncertain all $0.000;paid API calls0.
+Fixed cumulative usage 32297503;cached input 31623552;uncached input 451684;output 222267;snapshot 2026-10-28T11:25:29.329Z.
+Delta since batch03 snapshot:total 4790853;cached input 4711808;uncached input 51762;output 27283.
+Usage snapshot:scratch/sol-ks/batch04/usage.json. Actual client tool count unavailable;no fabricated estimate. Final bookkeeping follows snapshot.
+Native lock released normally;no active/uncertain attempts. Shared aggregation remains with head.

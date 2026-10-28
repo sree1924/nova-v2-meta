@@ -1,6 +1,6 @@
 # Muse token ledger (operator cost, subscription)
 
-Generated 2026-10-28T11:14:59.000Z. Source: `muse exec --json` transcripts; only numbers are kept here.
+Generated 2026-10-28T11:40:48.566Z. Source: `muse exec --json` transcripts; only numbers are kept here.
 
 | launch | started (UTC) | model | events | tool results | input | cached | output | reasoning |
 |---|---|---|---|---|---|---|---|---|

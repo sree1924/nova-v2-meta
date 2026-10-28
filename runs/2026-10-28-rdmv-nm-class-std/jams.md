@@ -118,3 +118,57 @@ Seeded 2026-10-28T07:24:47.965Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:52:46.153Z Sol source-repair candidate lineage 2026-10-28-rdmv-nm-class-std:lineage:43 → 2026-10-28-rdmv-nm-class-std:lineage:44; 2 prior stage attempts all ledger-accepted. Authority runs/2026-10-28-rdmv-nm-class-std/approvals/STANDING-AUTHORITY-utah-full-run.json@8b9251c183a14fcf53fe43a9ca01f57d9732651c48cd8010967edd8893792048; immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage44-sol-repair-v1.json. Every old task/attempt/counter and all caps preserved; bounded advance 2/2.
 
 - 2026-10-28T10:58:36.824Z native source repair batch4 complete:10 original corrections +2 coverage facts accepted; all49 original-review corrections implemented, current348 facts. sec07-R28 explicitly indexes record page15 plus supporting page16; citation representation resolution is narrowly evidenced, with current-source/downstream/independent review still pending. Five F/G metadata discrepancy groups remain for head group route; accepted F/G untouched. Owned CURRENT8 pointers match; counters/caps preserved; actual/outstanding/reserved$0.000; native lock absent.
+
+- 2026-10-28T11:19:01.873Z Sol bounded continuation sections09–12 authorized; 175 manually source-checked facts pinned in runs/2026-10-28-rdmv-nm-class-std/receipts/source-reviews/source-review-batch3a.json@1f28ca0530aab7a69d6e6f71d49d1d901fbf4f1c78dadfb80e691dd6af9b5a2e, runs/2026-10-28-rdmv-nm-class-std/receipts/source-reviews/source-review-batch3b.json@cafcbe9b9fb4031c9aa54f1d19008e13ee62ffe332f36af4e2837615655c84da. New F/G inventory generated from actual specs; old sec03/07/08 F/G left intact. One local evidence-excerpt mismatch from a PDF line-end hyphen was corrected before outbox (no factual statement or native check failed). A scratch startup guard initially treated queued/no-attempt planned tasks as active; read-only native ledger showed all114 existing attempts accepted, so guard was corrected to check actual attempt statuses. No native check failed or counter changed. No independent/current-source PASS.
+
+- 2026-10-28T11:20:29.152Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:44 → 2026-10-28-rdmv-nm-class-std:lineage:45; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage45-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:21:20.721Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:45 → 2026-10-28-rdmv-nm-class-std:lineage:46; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage46-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:21:24.514Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:46 → 2026-10-28-rdmv-nm-class-std:lineage:47; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage47-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:21:28.406Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:47 → 2026-10-28-rdmv-nm-class-std:lineage:48; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage48-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:21:32.388Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:48 → 2026-10-28-rdmv-nm-class-std:lineage:49; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage49-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:21:52.923Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:49 → 2026-10-28-rdmv-nm-class-std:lineage:50; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage50-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:21:56.456Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:50 → 2026-10-28-rdmv-nm-class-std:lineage:51; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage51-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:00.345Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:51 → 2026-10-28-rdmv-nm-class-std:lineage:52; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage52-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:04.532Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:52 → 2026-10-28-rdmv-nm-class-std:lineage:53; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage53-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:11.000Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:53 → 2026-10-28-rdmv-nm-class-std:lineage:54; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage54-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:15.093Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:54 → 2026-10-28-rdmv-nm-class-std:lineage:55; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage55-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:19.420Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:55 → 2026-10-28-rdmv-nm-class-std:lineage:56; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage56-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:24.133Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:56 → 2026-10-28-rdmv-nm-class-std:lineage:57; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage57-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:29.403Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:57 → 2026-10-28-rdmv-nm-class-std:lineage:58; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage58-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:38.612Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:58 → 2026-10-28-rdmv-nm-class-std:lineage:59; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage59-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:43.152Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:59 → 2026-10-28-rdmv-nm-class-std:lineage:60; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage60-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:47.371Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:60 → 2026-10-28-rdmv-nm-class-std:lineage:61; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage61-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T11:22:52.515Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:61 → 2026-10-28-rdmv-nm-class-std:lineage:62; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage62-sol-new-sme-v1.json. Caps/counters retained.
+
+## Sol sections09–12 checkpoint 2026-10-28T11:27:09.354Z
+- 175new source-checked facts /36nativeacceptedparts /4compiles;523totalfacts across12/15SMEsections. First8 current companions unchanged. NewF/G exact; five older metadata debt groups preserved for head group path.
+- Seven new cross-page facts represented natively. Exact author source fidelity evidence pinned; current-source/visual/legal/independent review still pending.
+- All four scratch-only issues disclosed/resolved in checkpoint; no native failed check/HOLD/retry or accepted-byte edits. Historical released reservations were not outstanding spend; final actual/outstanding/reserved/uncertain allzero.
+- 18 standing-authorized newcandidate advances after accepted capacity, lineage44→62, caps/counters retained; no paidAPI/audio/publishing/shared edits. All12CURRENT companions verified under native lock; lock released.
+- Usage fixed baseline22988112, snapshot2026-10-28T11:25:11.543Z, cumulative26674326, delta3686214, cached subset3535616, noncache input plus output150598. Unique semantic new-work tokens unavailable.
+- Nextsections13–15 and all downstream/independent/sourcecurrency work remain owed; no new packet emitted.
+
+## Sol sections09–12 checkpoint 2026-10-28T11:27:36.044Z
+- 175new source-checked facts /36nativeacceptedparts /4compiles;523totalfacts across12/15SMEsections. First8 current companions unchanged. NewF/G exact; five older metadata debt groups preserved for head group path.
+- Seven new cross-page facts represented natively. Exact author source fidelity evidence pinned; current-source/visual/legal/independent review still pending.
+- All four scratch-only issues disclosed/resolved in checkpoint; no native failed check/HOLD/retry or accepted-byte edits. Historical released reservations were not outstanding spend; final actual/outstanding/reserved/uncertain allzero.
+- 18 standing-authorized newcandidate advances after accepted capacity, lineage44→62, caps/counters retained; no paidAPI/audio/publishing/shared edits. All12CURRENT companions verified under native lock; lock released.
+- Usage fixed baseline22988112, snapshot2026-10-28T11:25:11.543Z, cumulative26674326, delta3686214, cached subset3535616, noncache input plus output150598. Unique semantic new-work tokens unavailable.
+- Nextsections13–15 and all downstream/independent/sourcecurrency work remain owed; no new packet emitted.

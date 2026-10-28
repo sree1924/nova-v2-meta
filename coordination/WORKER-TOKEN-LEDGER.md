@@ -1,10 +1,10 @@
-# Worker token ledger — generated 2026-10-28T11:14:59.033Z
+# Worker token ledger — generated 2026-10-28T11:40:48.609Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 26 | 1,034,631,802 | 3,278,728 | 1,037,910,530 | $0.00 | AZ CA CO CT FL IA KY MT NM NY OK TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 92 | 0 | 0 | 22,840,120 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
-| sol | ChatGPT Pro subscription | 31 | 0 | 0 | 128,167,879 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
+| claude | Anthropic subscription (Claude Code subagent) | 94 | 0 | 0 | 23,134,128 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
+| sol | ChatGPT Pro subscription | 36 | 0 | 0 | 162,075,548 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -158,4 +158,11 @@
 | claude | claude-opus-5-5 | MN | downstream worker: sec07 fix + sec08-14 — MINNESOTA DOWNSTREAM COMPLETE 14/14: 892 nodes/890 cards/892 items, 98 units/712 slides, 988 scripts — post-cut session counter | — | — | — | — | 327,821 | 151 | 59 min | $0.00 |
 | claude | claude-opus-5-5 | TN | downstream worker: sec05 remint + sec08-17 (sec08/sec16 card_scripts held on cost-estimate preflight): 1266 nodes/1261 cards/1266 items, 121 units/859 slides, 1163 scripts accepted + 219 held — post-cut counter | — | — | — | — | 263,446 | 176 | 69 min | $0.00 |
 | claude | claude-opus-5-5 | TN | downstream worker: sec08/sec16 card_scripts after the file-transport waiver — TENNESSEE DOWNSTREAM COMPLETE 17/17: 1266 nodes/1261 cards/1266 items, 121 units/859 slides, 1382 scripts — delta | — | — | — | — | 8,813 | 3 | 1 min | $0.00 |
+| sol | gpt-6.1-sol | ID | New SME sections05-08 main delta; cached replay included | — | — | — | — | 10,989,557 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KS | New SME sections05-08 main delta; cached replay included | — | — | — | — | 7,577,673 | — | — | $0.00 |
+| sol | gpt-6.1-sol | DE | New SME sections05-08 main delta; cached replay included | — | — | — | — | 8,826,877 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | Final original-review correction batch04 main delta; cached replay included | — | — | — | — | 2,969,179 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ME | Native sec01 C/C2 wording repair main delta; citation representation follow-up still pending; cached replay included | — | — | — | — | 3,544,383 | — | — | $0.00 |
+| claude | claude-opus-5-5 | AZ | downstream worker: sec16,18-22 complete; sec17 card_scripts held on 05.STAGE_DIRECTIONS (locked back contains "fade in") — delta | — | — | — | — | 288,980 | 266 | 95 min | $0.00 |
+| claude | claude-opus-5-5 | AZ | downstream worker: sec17 re-mint + card scripts — ARIZONA DOWNSTREAM COMPLETE 22/22: 1169 nodes/1162 cards/1169 items, 132 units/949 slides, 1294 scripts — delta | — | — | — | — | 5,028 | 6 | 1 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |
