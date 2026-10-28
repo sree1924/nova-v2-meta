@@ -1,0 +1,28 @@
+{
+  "name": "passlearnerspermit-store",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PassLearnersPermit by DataPig LLC: production store wrapper (Clerk + Stripe) around the app-preview multi-state learner shell.",
+  "scripts": {
+    "sync": "node ../tools/preview/sync-store.mjs",
+    "verify:shell": "node ../tools/preview/verify-learner.cjs --root=store/public/app",
+    "prebuild": "node scripts/check-sync.mjs",
+    "build": "next build",
+    "predev": "node scripts/check-sync.mjs",
+    "dev": "next dev -p 4320",
+    "start": "next start -p 4320"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "7.5.7",
+    "next": "15.5.19",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "stripe": "17.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}

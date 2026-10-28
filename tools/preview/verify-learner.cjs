@@ -22,21 +22,50 @@
 // tools/preview/serve.mjs instead.
 //
 // Usage: node tools/preview/verify-learner.cjs [--http=http://127.0.0.1:4311]
+//        node tools/preview/verify-learner.cjs --root=store/public/app
 // Exit 0 = all checks pass. No model calls, read-only. Default mode makes no
 // network requests; --http mode only talks to the given local server.
+//
+// Store edition (2026-10-28): --root=<dir> runs the same checks against a
+// mirrored copy of the shell (store/public/app, made by sync-store.mjs). Its
+// fetches are answered from that directory on disk; /api/me is mocked. When
+// <dir>/gate.js exists (STORE mode) the content run is signed in with a Utah
+// entitlement, expected decks exclude quarantined card ids, the reviewer-only
+// trace link must be absent, and a gate section asserts: signed out, chapter 1
+// is free and chapter 2 renders the buy panel (and its files are never
+// fetched); a quarantined card id never renders and the deck says so.
+// Expected content always comes from app-preview's embedded exports.
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..', '..');
-const APP = path.join(ROOT, 'app-preview');
+const APP = path.join(ROOT, 'app-preview');            // expected model source
+const ROOT_ARG = (process.argv.find((a) => a.startsWith('--root=')) || '').slice('--root='.length);
+const UNDER = ROOT_ARG ? path.resolve(ROOT, ROOT_ARG) : APP; // shell under test
+const STORE = !!ROOT_ARG && fs.existsSync(path.join(UNDER, 'gate.js'));
 const HTTP_BASE = ((process.argv.find((a) => a.startsWith('--http=')) || '').slice('--http='.length)).replace(/\/+$/, '');
+const FETCH_MODE = !!HTTP_BASE || !!ROOT_ARG;
 const fails = [];
 const ok = (name, cond, extra) => {
   if (cond) { console.log('PASS ' + name); }
   else { fails.push(name); console.log('FAIL ' + name + (extra ? ' :: ' + extra : '')); }
 };
-console.log('mode: ' + (HTTP_BASE ? 'http ' + HTTP_BASE : 'file:// fallback (embedded scripts injected by the app)'));
+console.log('mode: ' + (HTTP_BASE ? 'http ' + HTTP_BASE : ROOT_ARG ? 'disk fetch from ' + path.relative(ROOT, UNDER) + (STORE ? ' (STORE: gate.js present)' : '') : 'file:// fallback (embedded scripts injected by the app)'));
+// Disk-backed fetch for --root mode; /api/me answers from `me` (STORE gate).
+const fetchLog = [];
+const diskFetch = (getMe, override) => async (u) => {
+  const s = String(u);
+  fetchLog.push(s);
+  const res = (status, body) => ({ ok: status === 200, status, json: async () => JSON.parse(body) });
+  if (s === '/api/me') return res(200, JSON.stringify(getMe()));
+  if (override && Object.prototype.hasOwnProperty.call(override, s)) return res(200, JSON.stringify(override[s]));
+  const file = path.resolve(UNDER, s.split('?')[0]);
+  if (!file.startsWith(UNDER + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) return res(404, '{}');
+  return res(200, fs.readFileSync(file, 'utf8'));
+};
+const FUTURE = new Date(Date.now() + 300 * 864e5).toISOString();
+let ME = { signedIn: true, entitlements: { UT: FUTURE } };
 
 // ---- state registry ----
 const STATES = JSON.parse(fs.readFileSync(path.join(APP, 'data', 'states.json'), 'utf8'));
@@ -48,7 +77,7 @@ for (const s of STATES) {
   ok('states.json: ' + s.code + ' has every required field', missing.length === 0, missing.join(','));
 }
 const swin = {};
-vm.runInNewContext(fs.readFileSync(path.join(APP, 'states-embedded.js'), 'utf8'), { window: swin });
+vm.runInNewContext(fs.readFileSync(path.join(UNDER, 'states-embedded.js'), 'utf8'), { window: swin });
 ok('states-embedded.js matches states.json', JSON.stringify(swin.__STATES_EMBEDDED) === JSON.stringify(STATES), 'regenerate: node tools/preview/embed-states.mjs');
 const PFX = '#/ut/';
 
@@ -79,65 +108,8 @@ const AM_FILES = new Set(AM.entries.map((e) => e.file_ref));
 const AUDIO_TAG = 'pre-generated (OpenAI TTS, not a Meta model)';
 const countTag = (h) => h.split(AUDIO_TAG).length - 1;
 
-// ---- sandbox ----
-let lastHtml = '';
-let bannerClass = '', bannerText = '';
-const bannerEl = {
-  set className(v) { bannerClass = v; }, get className() { return bannerClass; },
-  set textContent(v) { bannerText = v; }, get textContent() { return bannerText; },
-};
-const viewEl = {
-  set innerHTML(v) { lastHtml = String(v); }, get innerHTML() { return lastHtml; },
-  querySelectorAll() { return []; },
-  querySelector() { return null; },
-  focus() {},
-};
-const memStore = {};
-const injected = []; // every <script src> the app injected (file:// fallback path)
-// Static <script defer> tags in index.html (synthetic sample + state registry)
-// are pre-run into the sandbox window the way a browser would; per-state
-// fallbacks are NOT pre-loaded — the app must inject them itself.
-const sandboxWindow = {
-  __PREVIEW_EMBEDDED: SYN, __STATES_EMBEDDED: swin.__STATES_EMBEDDED,
-  matchMedia: () => ({ matches: false }),
-  scrollTo: () => {}, addEventListener: () => {},
-};
-const sandbox = {
-  window: sandboxWindow,
-  document: {
-    getElementById: (id) => (id === 'banner' ? bannerEl : id === 'view' ? viewEl : null),
-    querySelectorAll: () => [],
-    querySelector: () => null,
-    createElement: (tag) => ({ tagName: String(tag).toUpperCase() }),
-    head: {
-      appendChild(el) {
-        injected.push(el.src);
-        setImmediate(() => {
-          const file = path.resolve(APP, String(el.src || ''));
-          if (!file.startsWith(APP) || !fs.existsSync(file)) { if (el.onerror) el.onerror(new Error('404 ' + el.src)); return; }
-          try { vm.runInNewContext(fs.readFileSync(file, 'utf8'), { window: sandboxWindow }); } catch (e) { if (el.onerror) el.onerror(e); return; }
-          if (el.onload) el.onload();
-        });
-        return el;
-      },
-    },
-  },
-  location: { hash: '#/' },
-  localStorage: {
-    getItem: (k) => (k in memStore ? memStore[k] : null),
-    setItem: (k, v) => { memStore[k] = String(v); },
-    removeItem: (k) => { delete memStore[k]; },
-  },
-  fetch: HTTP_BASE
-    ? async (u) => fetch(new URL(String(u), HTTP_BASE + '/'))
-    : async () => { throw new Error('no-http-in-harness'); },
-  console,
-  setTimeout, clearTimeout, setInterval, clearInterval,
-};
-sandbox.globalThis = sandbox;
-vm.createContext(sandbox);
-
-const html = fs.readFileSync(path.join(APP, 'index.html'), 'utf8');
+// ---- sandbox (factory: STORE mode builds a second, signed-out one) ----
+const html = fs.readFileSync(path.join(UNDER, 'index.html'), 'utf8');
 ok('index.html starts with a real doctype', html.startsWith('<!DOCTYPE html>'));
 ok('index.html no longer hard-loads Utah fallbacks', !/<script src="data-real-embedded\.js"/.test(html) && !/<script src="audio-manifest-embedded\.js"/.test(html));
 ok('index.html loads the states registry fallback', /<script src="states-embedded\.js"/.test(html));
@@ -149,7 +121,75 @@ const driver = m[1] + '\n;globalThis.__go = (hash) => { location.hash = hash; ro
   + '\nglobalThis.__ensure = (slug) => ensureState(stateBySlug(slug)); globalThis.__summaries = () => Promise.all((STATES || []).filter((s) => s.status === "complete").map((s) => ensureSummary(s)));'
   + '\nglobalThis.__summary = (code) => SUMMARY[code]; globalThis.__active = () => (ST ? ST.code : null);'
   + '\nglobalThis.__audio = () => ({ has: !!AUDIO_MANIFEST, files: AUDIO_FILES.size, pause_ms: AUDIO_PAUSE_MS, from: AUDIO_FROM, root: AUDIO_ROOT });';
-vm.runInContext(driver, sandbox);
+function makeSandbox(getMe, override) {
+  let lastHtml = '';
+  let bannerClass = '', bannerText = '';
+  const bannerEl = {
+    set className(v) { bannerClass = v; }, get className() { return bannerClass; },
+    set textContent(v) { bannerText = v; }, get textContent() { return bannerText; },
+  };
+  const viewEl = {
+    set innerHTML(v) { lastHtml = String(v); }, get innerHTML() { return lastHtml; },
+    querySelectorAll() { return []; },
+    querySelector() { return null; },
+    focus() {},
+  };
+  const memStore = {};
+  const injected = []; // every <script src> the app injected (file:// fallback path)
+  // Static <script defer> tags in index.html (synthetic sample + state registry)
+  // are pre-run into the sandbox window the way a browser would; per-state
+  // fallbacks are NOT pre-loaded — the app must inject them itself.
+  const sandboxWindow = {
+    __PREVIEW_EMBEDDED: SYN, __STATES_EMBEDDED: swin.__STATES_EMBEDDED,
+    matchMedia: () => ({ matches: false }),
+    scrollTo: () => {}, addEventListener: () => {},
+  };
+  const sandbox = {
+    window: sandboxWindow,
+    document: {
+      getElementById: (id) => (id === 'banner' ? bannerEl : id === 'view' ? viewEl : null),
+      querySelectorAll: () => [],
+      querySelector: () => null,
+      createElement: (tag) => ({ tagName: String(tag).toUpperCase() }),
+      head: {
+        appendChild(el) {
+          injected.push(el.src);
+          setImmediate(() => {
+            const file = path.resolve(UNDER, String(el.src || ''));
+            if (!file.startsWith(UNDER) || !fs.existsSync(file)) { if (el.onerror) el.onerror(new Error('404 ' + el.src)); return; }
+            try { vm.runInNewContext(fs.readFileSync(file, 'utf8'), { window: sandboxWindow }); } catch (e) { if (el.onerror) el.onerror(e); return; }
+            if (el.onload) el.onload();
+          });
+          return el;
+        },
+      },
+    },
+    location: { hash: '#/' },
+    localStorage: {
+      getItem: (k) => (k in memStore ? memStore[k] : null),
+      setItem: (k, v) => { memStore[k] = String(v); },
+      removeItem: (k) => { delete memStore[k]; },
+    },
+    fetch: HTTP_BASE
+      ? async (u) => fetch(new URL(String(u), HTTP_BASE + '/'))
+      : ROOT_ARG ? diskFetch(getMe, override)
+      : async () => { throw new Error('no-http-in-harness'); },
+    console,
+    setTimeout, clearTimeout, setInterval, clearInterval,
+  };
+  sandbox.globalThis = sandbox;
+  vm.createContext(sandbox);
+  // gate.js is a classic <script> that runs before the module (STORE mode only).
+  if (STORE) vm.runInContext(fs.readFileSync(path.join(UNDER, 'gate.js'), 'utf8'), sandbox);
+  vm.runInContext(driver, sandbox);
+  return { sandbox, injected, memStore, gate: sandboxWindow.NovaGate || null };
+}
+const MAIN = makeSandbox(() => ME);
+const sandbox = MAIN.sandbox, injected = MAIN.injected, memStore = MAIN.memStore;
+// Quarantined (held-back) card ids for Utah, as the store copy lists them.
+const QIDX = STORE && fs.existsSync(path.join(UNDER, 'quarantine-index.json')) ? JSON.parse(fs.readFileSync(path.join(UNDER, 'quarantine-index.json'), 'utf8')) : { states: {} };
+const Q_UT = new Set((((QIDX.states || {}).UT || {}).cards || []).map((c) => c.id));
+if (STORE) console.log('STORE: Utah quarantine ids = ' + Q_UT.size);
 
 const tick = () => new Promise((r) => setImmediate(r));
 const escS = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -188,6 +228,7 @@ function buildExpected() {
     for (const { doc } of cardsDocs) {
       for (const d of (doc.decks || [])) {
         for (const c of (d.cards || [])) {
+          if (Q_UT.has(c.card_id)) continue; // STORE: held back, never rendered
           if (c.unit_id === unitId || (moduleId && c.module_id === moduleId)) out.push(c);
         }
       }
@@ -208,6 +249,7 @@ function buildExpected() {
   const recaps = {};
   for (const { doc } of scriptDocs) {
     for (const s of (doc.audio_scripts || [])) {
+      if (Q_UT.has(s.card_id)) continue; // STORE: held back
       if (s.is_recap) recaps[s.module_id] = s;
       else scriptsByCard[s.card_id] = s;
     }
@@ -217,7 +259,7 @@ function buildExpected() {
     for (const f of (doc.practice_forms || [])) forms.push({ ...f, section_id: entry.section_id });
   }
   let totalCards = 0;
-  for (const { doc } of cardsDocs) for (const d of (doc.decks || [])) totalCards += (d.cards || []).length;
+  for (const { doc } of cardsDocs) for (const d of (doc.decks || [])) totalCards += (d.cards || []).filter((c) => !Q_UT.has(c.card_id)).length;
   let totalLessons = 0, totalSlides = 0;
   for (const { doc } of sessDocs) for (const u of (doc.units || [])) { totalLessons += 1; totalSlides += (u.slides || []).length; }
   return { sections, findUnit, findDeck, findQuiz, itemsById, scriptsByCard, recaps, forms, totalCards, totalLessons, totalSlides, totalItems: Object.keys(itemsById).length };
@@ -228,7 +270,7 @@ function buildExpected() {
   if (!go) { console.error('BOOTSTRAP-NEVER-RAN'); process.exit(2); }
   for (let i = 0; i < 200 && !sandbox.__states(); i++) await tick(); // registry + synthetic load
   ok('bootstrap loaded the state registry', Array.isArray(sandbox.__states()) && sandbox.__states().length === STATES.length, 'from=' + sandbox.__statesFrom());
-  ok('registry source matches mode', sandbox.__statesFrom() === (HTTP_BASE ? 'fetch' : 'embedded-fallback'), sandbox.__statesFrom());
+  ok('registry source matches mode', sandbox.__statesFrom() === (FETCH_MODE ? 'fetch' : 'embedded-fallback'), sandbox.__statesFrom());
 
   // ---- state picker at #/ ----
   await sandbox.__summaries();
@@ -248,7 +290,8 @@ function buildExpected() {
     const card = (r.html.split('data-state-card="UT"')[1] || '').split('data-state-card=')[0];
     const want = `${built} of ${(UT.chapters || []).length} chapters built · ${files.length} accepted artifacts · narration: ${AM.totals.cards} cards, ${AM.totals.slides} lesson slides, ${AM.totals.recaps} recaps (${AM.totals.clips} clips)`;
     ok('picker: Utah counts from its manifests', card.includes(want), want);
-    ok('picker: trace link for Utah', card.includes('href="trace.html"'));
+    if (STORE) ok('picker: STORE strips the reviewer-only trace link', !card.includes('href="trace.html"'));
+    else ok('picker: trace link for Utah', card.includes('href="trace.html"'));
   }
   ok('picker: no Nowhere/SYNTHETIC', !/Nowhere/.test(r.html) && !/SYNTHETIC/.test(r.html));
   // non-complete entries: inject a throwaway building state into the in-memory
@@ -274,16 +317,16 @@ function buildExpected() {
   await sandbox.__ensure('ut');
   r = go(PFX);
   ok('bootstrap loaded real + synthetic', !!(sandbox.__R() && sandbox.__R().manifest && sandbox.__D()));
-  ok('Utah content source matches mode', sandbox.__R().from === (HTTP_BASE ? 'fetch' : 'embedded-fallback'), sandbox.__R().from);
+  ok('Utah content source matches mode', sandbox.__R().from === (FETCH_MODE ? 'fetch' : 'embedded-fallback'), sandbox.__R().from);
   ok('Utah content: every manifest file loaded', Object.keys(sandbox.__R().files).length === REAL.manifest.files.length, Object.keys(sandbox.__R().files).length + '/' + REAL.manifest.files.length);
-  if (!HTTP_BASE) {
+  if (!FETCH_MODE) {
     ok('file:// path injected Utah fallbacks from states.json', injected.includes(UT.content_embedded) && injected.includes(UT.audio_embedded), injected.join(','));
   } else {
     ok('http path injected no fallback scripts', injected.length === 0, injected.join(','));
   }
   ok('active state is UT', sandbox.__active() === 'UT');
   ok('bootstrap loaded audio manifest', !!(sandbox.__audio() && sandbox.__audio().has && sandbox.__audio().files > 0), JSON.stringify(sandbox.__audio()));
-  ok('audio source matches mode', sandbox.__audio().from === (HTTP_BASE ? 'fetch' : 'embedded-fallback'), sandbox.__audio().from);
+  ok('audio source matches mode', sandbox.__audio().from === (FETCH_MODE ? 'fetch' : 'embedded-fallback'), sandbox.__audio().from);
   ok('audio root from states.json', sandbox.__audio().root === UT.audio_root, sandbox.__audio().root);
   ok('audio: pause_ms matches manifest', sandbox.__audio().pause_ms === AM.pause_ms, 'app=' + sandbox.__audio().pause_ms + ' manifest=' + AM.pause_ms);
   const X = buildExpected();
@@ -310,7 +353,8 @@ function buildExpected() {
   ok('home: Utah banner text unchanged', r.bannerText === 'REAL — Utah Driver Handbook, belt-validated, audit pending', r.bannerText);
   const expectCounts = `${secIds.length} of 16 chapters built · ${X.totalCards} flashcards · ${X.totalItems} quiz items · ${X.totalLessons} lessons (${X.totalSlides} slides)`;
   ok('home: aggregate counts from exports', r.html.includes(expectCounts), expectCounts);
-  ok('home: trace link', /href="trace\.html"/.test(r.html));
+  if (STORE) ok('home: STORE strips the trace link', !/href="trace\.html"/.test(r.html));
+  else ok('home: trace link', /href="trace\.html"/.test(r.html));
   ok('home: no Nowhere', !/Nowhere/.test(r.html));
   ok('home: no SYNTHETIC', !/SYNTHETIC/.test(r.html));
   for (const sec of secIds) {
@@ -481,7 +525,8 @@ function buildExpected() {
   r = go(PFX + 'settings');
   learnerRoutes.push(PFX + 'settings');
   ok('settings: links synthetic sample', /#\/synthetic-sample/.test(r.html));
-  ok('settings: trace link', /href="trace\.html"/.test(r.html));
+  if (STORE) ok('settings: STORE strips the trace link and the free-for-all claim', !/href="trace\.html"/.test(r.html) && !/Everything is free, with no account/.test(r.html));
+  else ok('settings: trace link', /href="trace\.html"/.test(r.html));
   ok('settings: no Nowhere', !/Nowhere/.test(r.html));
   r = go('#/synthetic-sample');
   ok('synthetic-sample: SYNTHETIC banner kept', r.bannerClass === 'sample-banner' && /SYNTHETIC/.test(r.bannerText));
@@ -560,6 +605,81 @@ function buildExpected() {
   }
   ok('shell: no unprefixed in-course links on any route', unprefixed.length === 0, unprefixed.slice(0, 5).join(' | '));
   ok('shell: Utah progress key unchanged (nova-preview:v1:ut-handbook)', Object.keys(memStore).length > 0 && Object.keys(memStore).every((k) => k === 'nova-preview:v1:ut-handbook'), Object.keys(memStore).join(','));
+
+  // ---- STORE gate + quarantine (store/public/app only) ----
+  if (STORE) {
+    ok('STORE: gate.js defined window.NovaGate', !!MAIN.gate);
+    ok('STORE: index.html carries the STORE PATCH + gate.js tag', /STORE PATCH/.test(html) && html.includes('<script src="gate.js"></script>'));
+    // (a) listed ids never render in the entitled run: no back text, no clip
+    const origCards = {};
+    for (const [rel, doc] of Object.entries(REAL.files)) {
+      if (!rel.startsWith('04_cards/')) continue;
+      for (const d of (doc.decks || [])) for (const c of (d.cards || [])) origCards[c.card_id] = c;
+    }
+    const leakedQ = [];
+    for (const id of Q_UT) {
+      const c = origCards[id];
+      if (!c) { leakedQ.push(id + '(not a Utah card)'); continue; }
+      const x = go(PFX + 'cards/' + c.unit_id);
+      if (x.html.includes(escS(c.back)) || x.html.includes('/' + id + '.q.mp3') || x.html.includes('/' + id + '.a.mp3')) leakedQ.push(id);
+    }
+    ok('STORE quarantine: no listed Utah card id renders on its deck (' + Q_UT.size + ' ids)', leakedQ.length === 0, leakedQ.join(','));
+    if (Q_UT.size) {
+      const c = origCards[[...Q_UT][0]];
+      const x = go(PFX + 'cards/' + (c ? c.unit_id : ''));
+      ok('STORE quarantine: deck shows "held back for a wording fix"', /data-gate-heldback="\d+"/.test(x.html) && /held back for a wording fix/.test(x.html));
+    }
+
+    // (b) signed out: chapter 1 free, chapter 2 gated, chapter 2 files never fetched;
+    //     plus one injected quarantine id on a chapter-1 deck.
+    const chs = [...UT.chapters].sort((a, b) => a.n - b.n);
+    const ch1 = chs[0].id, ch2 = chs[1].id;
+    const m1 = X.sections[ch1].modules[0], m2 = X.sections[ch2].modules[0];
+    const deck1 = X.findDeck(m1.unit_id, m1.module_id);
+    const pick = deck1[0];
+    const qOverride = JSON.parse(JSON.stringify(QIDX));
+    qOverride.states = qOverride.states || {};
+    qOverride.states.UT = qOverride.states.UT || { cards: [] };
+    qOverride.states.UT.cards = [...(qOverride.states.UT.cards || []), { id: pick.card_id, deck: m1.module_id, class: 'harness_injected' }];
+    fetchLog.length = 0;
+    const OUT = makeSandbox(() => ({ signedIn: false, entitlements: {} }), { 'quarantine-index.json': qOverride });
+    const S = OUT.sandbox;
+    for (let i = 0; i < 200 && !S.__states(); i++) await tick();
+    await S.__ensure('ut');
+    const g = S.__go;
+    const files = REAL.manifest.files;
+    const ch2plus = files.filter((e) => e.section_id !== ch1).map((e) => e.file);
+    const ch1files = files.filter((e) => e.section_id === ch1).map((e) => e.file);
+    ok('gate: signed out, no chapter 2+ Utah file is fetched', !fetchLog.some((u) => ch2plus.includes(u)), fetchLog.filter((u) => ch2plus.includes(u)).slice(0, 3).join(','));
+    ok('gate: signed out, every chapter 1 Utah file is fetched', ch1files.every((f) => fetchLog.includes(f)));
+    let r1 = g(PFX + 'chapter/' + ch1);
+    ok('gate: signed out, chapter 1 is free (modules, no buy panel)', !/data-gate-buy/.test(r1.html) && X.sections[ch1].modules.every((x) => r1.html.includes(escS(x.title))));
+    const u1 = X.findUnit(m1.unit_id);
+    r1 = g(PFX + 'lesson/' + m1.unit_id);
+    ok('gate: signed out, chapter 1 lesson renders with narration', !/data-gate-buy/.test(r1.html) && u1.slides.every((sl) => r1.html.includes(escS(sl.title.text))) && (r1.html.match(/data-slide-audio/g) || []).length === u1.slides.length);
+    r1 = g(PFX + 'quiz/' + m1.unit_id);
+    ok('gate: signed out, chapter 1 quiz renders', !/data-gate-buy/.test(r1.html) && /data-ritem/.test(r1.html));
+    r1 = g(PFX + 'cards/' + m1.unit_id);
+    ok('gate: signed out, chapter 1 flashcards render (minus held-back)', !/data-gate-buy/.test(r1.html) && (r1.html.match(/data-recall/g) || []).length === deck1.length - 1);
+    ok('gate: injected quarantine id does not render', !r1.html.includes(escS(pick.back)) && !r1.html.includes('/' + pick.card_id + '.q.mp3'), pick.card_id);
+    ok('gate: deck says "1 card held back for a wording fix"', r1.html.includes('1 card held back for a wording fix'));
+    for (const [label, hash] of [['chapter', 'chapter/' + ch2], ['module hub', 'module/' + m2.module_id], ['lesson', 'lesson/' + m2.unit_id], ['flashcards', 'cards/' + m2.unit_id], ['quiz', 'quiz/' + m2.unit_id]]) {
+      const x = g(PFX + hash);
+      ok('gate: signed out, chapter 2 ' + label + ' renders the buy panel', /data-gate-buy="UT"/.test(x.html) && x.html.includes('$9.99') && x.html.includes('Narration audio: Utah only for now') && x.html.includes('/sign-in?redirect_url=') && !x.html.includes('data-recall') && !x.html.includes('Teacher says'), x.html.slice(0, 160));
+    }
+    const f2 = X.forms.find((f) => f.section_id === ch2);
+    if (f2) ok('gate: signed out, chapter 2 practice form renders the buy panel', /data-gate-buy="UT"/.test(g(PFX + 'practice/' + f2.form_id).html));
+    const home = g(PFX);
+    ok('gate: signed out home marks chapter 1 free, chapter 2 locked', home.html.includes('data-gate-free="' + ch1 + '"') && home.html.includes('data-gate-locked="' + ch2 + '"'));
+    // Texas: same rule through its own registry entry
+    const TX = STATES.find((s) => s.code === 'TX');
+    if (TX) {
+      await S.__ensure('tx');
+      const t = [...TX.chapters].sort((a, b) => a.n - b.n);
+      const a = g('#/tx/chapter/' + t[0].id), b = g('#/tx/chapter/' + t[1].id);
+      ok('gate: Texas chapter 1 free, chapter 2 gated', !/data-gate-buy/.test(a.html) && /Open module hub/.test(a.html) && /data-gate-buy="TX"/.test(b.html));
+    }
+  }
 
   console.log(fails.length ? ('\nRESULT: ' + fails.length + ' FAILURES: ' + fails.join(' | ')) : '\nRESULT: ALL CHECKS PASSED');
   process.exit(fails.length ? 1 : 0);
