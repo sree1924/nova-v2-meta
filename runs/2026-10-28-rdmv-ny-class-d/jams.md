@@ -73,3 +73,49 @@ Seeded 2026-10-28T00:58:10.604Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T01:39:00.083Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:33 for 02.dossier_sections (sec07-parallel-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-parallel-parking__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:06:19.223Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
+
+- 2026-10-28T04:52:50.002Z retry nonce 02.dossier_sections:G@sec07-parallel-parking → 1 after HOLD (sec07-parallel-parking); non-PASS: 02.LINEAGE=FAIL
+
+- 2026-10-28T04:52:50.020Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:34 for 02.dossier_sections (sec07-parallel-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-parallel-parking__G__n1 (lineage attempts exhausted)
+
+- 2026-10-28T04:55:32.837Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:35 for 02.dossier_sections (sec08-defensive-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-defensive-driving__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:56:40.062Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:36 for 02.dossier_sections (sec08-defensive-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-defensive-driving__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:57:33.281Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:37 for 02.dossier_sections (sec08-defensive-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-defensive-driving__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:58:27.595Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:38 for 02.dossier_sections (sec08-defensive-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-defensive-driving__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:59:27.618Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:39 for 02.dossier_sections (sec09-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-other-drugs__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:01:13.270Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:40 for 02.dossier_sections (sec09-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-other-drugs__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:01:59.143Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:41 for 02.dossier_sections (sec09-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-other-drugs__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:02:51.761Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:42 for 02.dossier_sections (sec09-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-other-drugs__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:03:48.772Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:43 for 02.dossier_sections (sec09-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-other-drugs__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:06:03.407Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:44 for 02.dossier_sections (sec10-special-driving-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-special-driving-conditions__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:06:53.939Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:45 for 02.dossier_sections (sec10-special-driving-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-special-driving-conditions__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:07:44.809Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:46 for 02.dossier_sections (sec10-special-driving-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-special-driving-conditions__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:08:27.546Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:47 for 02.dossier_sections (sec10-special-driving-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-special-driving-conditions__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:09:12.856Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:48 for 02.dossier_sections (sec11-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:11:18.873Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:49 for 02.dossier_sections (sec11-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:12:03.793Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:50 for 02.dossier_sections (sec11-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:12:53.681Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:51 for 02.dossier_sections (sec11-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:13:53.157Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:52 for 02.dossier_sections (sec11-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:15:01.126Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:53 for 02.dossier_sections (sec12-traffic-crash) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-crash__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:15:56.383Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:54 for 02.dossier_sections (sec12-traffic-crash) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-crash__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:16:43.557Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:55 for 02.dossier_sections (sec12-traffic-crash) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-crash__E__n0 (lineage attempts exhausted)

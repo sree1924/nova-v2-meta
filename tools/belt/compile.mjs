@@ -46,6 +46,10 @@ export function numberToWords(n) {
 const UNIT_WORDS = {mph: 'miles per hour', 'mi/h': 'miles per hour', kph: 'kilometers per hour', ft: 'feet', yd: 'yards', yds: 'yards', mi: 'miles', lb: 'pounds', lbs: 'pounds', oz: 'ounces', sec: 'seconds', secs: 'seconds', hr: 'hours', hrs: 'hours', min: 'minutes', mins: 'minutes', mo: 'months', yr: 'years', yrs: 'years'};
 export function spokenize(text) {
   let s = String(text ?? '');
+  // URLs / web paths first (2026-10-28, Michigan "Michigan.gov/NewDrivers", "Michigan.gov/SOS"): a slash after a dotted host is
+  // spoken as "slash", never as "or"; without this the short-part rule below turned "Michigan.gov/SOS" into "Michigan.gov or SOS"
+  // and long paths got no spoken form at all (04.BACK_SPOKEN_FORM vs 04.BACK_FIDELITY could not both pass).
+  s = s.replace(/\b((?:https?:\/\/)?(?:www\.)?[A-Za-z0-9-]+(?:\.[A-Za-z]{2,})+)((?:\/[A-Za-z0-9._~%-]+)+)\/?/g, (_, host, pathPart) => host + pathPart.split('/').filter(Boolean).map((seg) => ' slash ' + seg).join(''));
   s = s.replace(/\b([A-Za-z0-9]{1,3})((?:\/[A-Za-z0-9]{1,3}\b)+)/g, (_, first, rest) => { const parts = [first, ...rest.split('/').filter(Boolean)]; return parts.length > 2 ? parts.slice(0, -1).join(', ') + ' or ' + parts.at(-1) : parts.join(' or '); });
   s = s.replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ');
   s = s.replace(/\$\s?(\d[\d,]*(?:\.\d+)?)/g, '$1 dollars');

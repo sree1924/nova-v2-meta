@@ -111,3 +111,23 @@ Seeded 2026-10-28T01:00:27.659Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T01:39:40.933Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:55 for 02.dossier_sections (sec13-bicycle-laws-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-bicycle-laws-safety__C__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:06:19.210Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
+
+- 2026-10-28T04:52:20.743Z retry nonce 02.dossier_sections:C@sec13-bicycle-laws-safety → 1 after HOLD (sec13-bicycle-laws-safety); non-PASS: 02.LINEAGE=FAIL
+
+- 2026-10-28T04:53:04.957Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:56 for 02.dossier_sections (sec13-bicycle-laws-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-bicycle-laws-safety__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:54:49.152Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:57 for 02.dossier_sections (sec13-bicycle-laws-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-bicycle-laws-safety__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:55:41.599Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:58 for 02.dossier_sections (sec13-bicycle-laws-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-bicycle-laws-safety__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:56:31.315Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:59 for 02.dossier_sections (sec13-bicycle-laws-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-bicycle-laws-safety__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:57:36.831Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:60 for 02.dossier_sections (sec14-additional-safety-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-additional-safety-tips__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:59:55.251Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:61 for 02.dossier_sections (sec14-additional-safety-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-additional-safety-tips__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:00:56.259Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:62 for 02.dossier_sections (sec14-additional-safety-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-additional-safety-tips__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:01:49.788Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:63 for 02.dossier_sections (sec14-additional-safety-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-additional-safety-tips__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:02:50.108Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:64 for 02.dossier_sections (sec14-additional-safety-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-additional-safety-tips__G__n0 (lineage attempts exhausted)

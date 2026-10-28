@@ -95,3 +95,23 @@ Seeded 2026-10-28T00:58:50.714Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T01:39:01.210Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:46 for 02.dossier_sections (sec10-sharing-the-road-bicycles-cmv) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road-bicycles-cmv__G__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:06:19.218Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
+
+- 2026-10-28T04:52:52.380Z retry nonce 02.dossier_sections:C@sec11-sharing-the-road-emergency-golf-carts → 1 after HOLD (sec11-sharing-the-road-emergency-golf-carts); non-PASS: 02.LINEAGE=FAIL
+
+- 2026-10-28T04:52:52.402Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:47 for 02.dossier_sections (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road-emergency-golf-carts__C__n1 (lineage attempts exhausted)
+
+- 2026-10-28T04:54:20.280Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:48 for 02.dossier_sections (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road-emergency-golf-carts__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:55:13.942Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:49 for 02.dossier_sections (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road-emergency-golf-carts__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:56:02.798Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:50 for 02.dossier_sections (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road-emergency-golf-carts__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:56:59.875Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:51 for 02.dossier_sections (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-sharing-the-road-emergency-golf-carts__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:58:41.598Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:52 for 02.dossier_sections (sec12-sharing-the-road-motorcycles-pedestrians-school-bus) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road-motorcycles-pedestrians-school-bus__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:00:01.695Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:53 for 02.dossier_sections (sec12-sharing-the-road-motorcycles-pedestrians-school-bus) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road-motorcycles-pedestrians-school-bus__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:01:05.187Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:54 for 02.dossier_sections (sec12-sharing-the-road-motorcycles-pedestrians-school-bus) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road-motorcycles-pedestrians-school-bus__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:02:12.113Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:55 for 02.dossier_sections (sec12-sharing-the-road-motorcycles-pedestrians-school-bus) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road-motorcycles-pedestrians-school-bus__F__n0 (lineage attempts exhausted)

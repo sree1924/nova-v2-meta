@@ -38,3 +38,11 @@ claim. Workers are told to report what they know is off. Fix pass = re-author th
 | 2026-10-28 | NJ | sec10 C glossary | defines "ignition interlock" before its own pages do (definition is p129 in sec11) | claude-opus-5-5 worker |
 | 2026-10-28 | NJ | sec12 | Notice of Scheduled Suspension "12 to 14 points within 24 months" kept as the manual's ambiguous wording — NJ-PTS-D-NOTICE | claude-opus-5-5 worker |
 | 2026-10-28 | NJ | pp116/117 | drink graphic says 86 proof, body text 80 proof — NJ-DUI-D-PROOF (nothing taught) | claude-opus-5-5 worker |
+| 2026-10-28 | IN | p15 vs p16 | manual contradicts itself on phone use (any device banned vs texting/email only unless hands-free) — IN-LICENSE-D-PHONE | claude-opus-5-5 worker |
+| 2026-10-28 | IN | p18 vs p10 | restriction code J means two different things — IN-RESTRICT-D-JCODE | claude-opus-5-5 worker |
+| 2026-10-28 | IN | intake | edition "Published July 2026" is on the back cover (p84); registrar accepted edition only from page 1 → liveness VERIFICATION_DEBT; registrar relaxed (front matter 1–12 or last 3 pages) for states registered after 05:35Z | claude-opus-5-5 worker (found), runner (fixed) |
+| 2026-10-28 | MI | sec04 F42, sec13 F04 (compiler) | accepted wording contains a URL slash ("Michigan.gov/NewDrivers"); compile.mjs spokenize emits no spoken form → 04.BACK_FIDELITY vs 04.BACK_SPOKEN_FORM cannot both pass; sec04 cards blocked until the compiler is fixed and the section recompiled | claude-opus-5-5 downstream worker |
+| 2026-10-28 | MI | sec02 F25, sec03 F37 | spokenize turned "Michigan.gov/SOS" into "Michigan.gov or SOS"; cards repeat it (accepted) — re-author after the compiler fix | claude-opus-5-5 downstream worker |
+| 2026-10-28 | MI | sec05 F25 vs F29/R06 | car-seat rule stated as "under 8 OR under 4'9\"" vs "until 8 or 4'9\", whichever first"; no exam item depends on it | claude-opus-5-5 downstream worker |
+| 2026-10-28 | MI | sec02 decks | module titles carry digits ("Level 1/2/3"); quizzes given digit-free titles | claude-opus-5-5 downstream worker |
+| 2026-10-28 | MI | card scripts | audience set to "Adult" by the author's choice (inputs did not specify) | claude-opus-5-5 downstream worker |

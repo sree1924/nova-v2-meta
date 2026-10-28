@@ -1,0 +1,175 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "62f1a975b1547527634d8de8c7ea5ac8339ba91e829774c1aad53712373b9ff4",
+    "bytes": 30396
+  },
+  "source": {
+    "source_ref": "src:rdmv-md-c:maryland-department-of-transportation-mo:handbook",
+    "path": "runs/2026-10-28-rdmv-md-class-c/sources/private/148.pdf",
+    "sha256": "8ff4eed753b4dcb8571bf93350d6a3444872e87523bb124aae3704be6233ccf2",
+    "bytes": 6842888,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-md-class-c/sources/private/input-snapshots/ec1c9447c5ad224de05b25e5d907f8eb1002a5b9b83bd062b59f610a670cfb03.json",
+      "sha256": "ec1c9447c5ad224de05b25e5d907f8eb1002a5b9b83bd062b59f610a670cfb03"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 56,
+    "printed_page_count": 0,
+    "page_map_sha256": "91ebc6b30b95033d67fe75f14351e102d580c3a783cb3a29fdf8700482c01fab",
+    "extracted_text_sha256": "0db511040d4fbf669ede1f378aabffee100acc3fdd3cba42d2d93a4083b0446e",
+    "recorded_retrieved_at": "2026-10-28T01:23:20Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": null,
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-md-class-c/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "35eae6fab7184d4dc666f30c951627751186b30890f60fa88ad2d7afb09a58d1"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-md-class-c/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "147d6050383e793804d0080d0d44141ad00c8ec543f71b61274a73d41d869ddd"
+      },
+      "observed_at_utc": "2026-10-28T05:01:00Z",
+      "official_page_url": "https://mva.maryland.gov/licenses-ids/driver-education-safety/maryland-drivers-manuals",
+      "observation_method": "Rendered page text excerpt (WebFetch/browser) with the exact visible handbook href; saved snapshot bytes are JSON, not the HTTP response body.",
+      "recorder": {
+        "actor": "claude-opus-5-5 (state worker) via curl + intake-state.mjs",
+        "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-md-class-c/receipts/issuer-page-snapshot.json",
+        "sha256": "25f51327cf7902abd367cf1a242801b2715139b2c82df4822210f343ad111385",
+        "bytes": 1119,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "issuer page states no effective date; edition recorded as debt per S4 order"
+      },
+      "disposition_acceptance": "not_granted_by_registration",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": false,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "edition_unconfirmed",
+      "field": "edition",
+      "reason": "No edition has been independently confirmed. Filename/year and law-section headings are not edition evidence.",
+      "evidence_refs": [
+        {
+          "source_ref": "src:rdmv-md-c:maryland-department-of-transportation-mo:handbook",
+          "source_document_sha256": "8ff4eed753b4dcb8571bf93350d6a3444872e87523bb124aae3704be6233ccf2",
+          "page_map_id": "src:rdmv-md-c:maryland-department-of-transportation-mo:handbook:pdf-0002",
+          "pdf_page": 2,
+          "printed_page": null,
+          "page_text_sha256": "1db7e84151d23f361e103f3cc6da659cab0391c4f32cbcd18f95fdf519807fe6",
+          "kind": "unresolved_edition_statement_candidate",
+          "verbatim": "October 2026 Edition"
+        }
+      ]
+    },
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "effective_date_disposition_unaccepted",
+      "field": "effective_date_disposition",
+      "reason": "The issuer receipt proposes an effective-date debt disposition. Registration records it but cannot grant acceptance or change the frozen liveness status contract.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-md-class-c/receipts/issuer-current-edition-confirmation.json",
+          "sha256": "147d6050383e793804d0080d0d44141ad00c8ec543f71b61274a73d41d869ddd"
+        }
+      ]
+    },
+    {
+      "code": "image_only_pages_need_review",
+      "field": "rights_and_frontmatter_review",
+      "reason": "Physical PDF pages 55 contain no extractable text. A scoped visual annotation, if bound, resolves only its stated observation; no OCR or complete visual clearance is claimed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": [
+        {
+          "source_ref": "src:rdmv-md-c:maryland-department-of-transportation-mo:handbook",
+          "source_document_sha256": "8ff4eed753b4dcb8571bf93350d6a3444872e87523bb124aae3704be6233ccf2",
+          "page_map_id": "src:rdmv-md-c:maryland-department-of-transportation-mo:handbook:pdf-0002",
+          "pdf_page": 2,
+          "printed_page": null,
+          "page_text_sha256": "1db7e84151d23f361e103f3cc6da659cab0391c4f32cbcd18f95fdf519807fe6",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "Copyright  © Maryland Motor Vehicle Administration, 2026  All rights reserved. The Maryland "
+        },
+        {
+          "source_ref": "src:rdmv-md-c:maryland-department-of-transportation-mo:handbook",
+          "source_document_sha256": "8ff4eed753b4dcb8571bf93350d6a3444872e87523bb124aae3704be6233ccf2",
+          "page_map_id": "src:rdmv-md-c:maryland-department-of-transportation-mo:handbook:pdf-0002",
+          "pdf_page": 2,
+          "printed_page": null,
+          "page_text_sha256": "1db7e84151d23f361e103f3cc6da659cab0391c4f32cbcd18f95fdf519807fe6",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "Department of Transportation, Motor Vehicle Administration (MDOT/MVA) owns the copyright to this "
+        }
+      ]
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-md-class-c/sources/private/input-snapshots/ec1c9447c5ad224de05b25e5d907f8eb1002a5b9b83bd062b59f610a670cfb03.json",
+          "sha256": "ec1c9447c5ad224de05b25e5d907f8eb1002a5b9b83bd062b59f610a670cfb03"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "fac6b4b22cda98085a5d7df11947d7cc05865e6c877c17be3df4d573863d1518",
+      "bytes": 30832,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "91ebc6b30b95033d67fe75f14351e102d580c3a783cb3a29fdf8700482c01fab",
+      "bytes": 36489,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "43fe3511474bec2a914f5cdb112291b78f4339942c4d6fb903d9e3bae34bb3fc",
+      "bytes": 708,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "0db511040d4fbf669ede1f378aabffee100acc3fdd3cba42d2d93a4083b0446e",
+      "bytes": 124530,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "a99fdb08f0e2fb680925696d959dde7ce2566290ed90e4de070312fe5fda9890",
+      "bytes": 732,
+      "kind": "private_source_evidence"
+    }
+  ],
+  "content_calls": 0
+}

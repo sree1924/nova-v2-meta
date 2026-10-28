@@ -1,0 +1,143 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "62f1a975b1547527634d8de8c7ea5ac8339ba91e829774c1aad53712373b9ff4",
+    "bytes": 30396
+  },
+  "source": {
+    "source_ref": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook",
+    "path": "runs/2026-10-28-rdmv-nv-class-c/sources/private/dlbook.pdf",
+    "sha256": "0119999c0e6469aaf2e6408db4fcc414f1a9fd0994bf29d1a1a6265fdd4dd899",
+    "bytes": 3445600,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-nv-class-c/sources/private/input-snapshots/708ee8f9287824a30d6333d08bc9e9b15fad944775c47e954d5c6b15350a41bb.json",
+      "sha256": "708ee8f9287824a30d6333d08bc9e9b15fad944775c47e954d5c6b15350a41bb"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 86,
+    "printed_page_count": 0,
+    "page_map_sha256": "84060c9825c0d62b8479021b624c46e7f4143ed4377457cd81793e3bff22b184",
+    "extracted_text_sha256": "a9773bdf5b8bdc155402580fe04cfd4927cf072f0cd97d7109bcae327e4ad8ca",
+    "recorded_retrieved_at": "2026-10-28T04:58:24Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": "DMV 700 March 2024",
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-nv-class-c/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "90b1bf4a3726fc3240ae10327b9eb5819ea9955d776a6da15ad1f3d66345b081"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-nv-class-c/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "a599c9471e7605d2fdb49e34d512dded70031b6cf55760f3b793d31c83fa9836"
+      },
+      "observed_at_utc": "2026-10-28T05:05:55Z",
+      "official_page_url": "https://dmv.nv.gov/dlhandbook.htm",
+      "observation_method": "Rendered page text excerpt (WebFetch/browser) with the exact visible handbook href; saved snapshot bytes are JSON, not the HTTP response body.",
+      "recorder": {
+        "actor": "claude-opus-5-5 (state worker) via curl + intake-state.mjs",
+        "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-nv-class-c/receipts/issuer-page-snapshot.json",
+        "sha256": "62f4ae94f77b03c56b8e92c7f6097aff8e927f8acdccf6bc6c483d24362c287f",
+        "bytes": 1421,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "issuer page states no effective date; edition recorded as debt per S4 order"
+      },
+      "disposition_acceptance": "recorded_dated_effective_date_debt_not_full_liveness_PASS",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": true,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "image_only_pages_need_review",
+      "field": "rights_and_frontmatter_review",
+      "reason": "Physical PDF pages 2 contain no extractable text. A scoped visual annotation, if bound, resolves only its stated observation; no OCR or complete visual clearance is claimed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": [
+        {
+          "source_ref": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook",
+          "source_document_sha256": "0119999c0e6469aaf2e6408db4fcc414f1a9fd0994bf29d1a1a6265fdd4dd899",
+          "page_map_id": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0003",
+          "pdf_page": 3,
+          "printed_page": null,
+          "page_text_sha256": "64d3e170411bad2c9e89046aacb4c3a835cad4b33c2807da500ae2024f5581cd",
+          "kind": "rights_or_attribution_text_match",
+          "verbatim": "© 2024 Nevada Department of Motor Vehicles "
+        }
+      ]
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-nv-class-c/sources/private/input-snapshots/708ee8f9287824a30d6333d08bc9e9b15fad944775c47e954d5c6b15350a41bb.json",
+          "sha256": "708ee8f9287824a30d6333d08bc9e9b15fad944775c47e954d5c6b15350a41bb"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "3e184808e042e052d0c78d0dff47c50b34a56560f428649c492afe10bc7ba712",
+      "bytes": 38724,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "84060c9825c0d62b8479021b624c46e7f4143ed4377457cd81793e3bff22b184",
+      "bytes": 54397,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "0dfbf3aa4b4798b88d69252e076642b5f0a38751c5010711fbce93c8a7d6e292",
+      "bytes": 964,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "a9773bdf5b8bdc155402580fe04cfd4927cf072f0cd97d7109bcae327e4ad8ca",
+      "bytes": 215872,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "0a44b9cc847e55707d5eeb3e4a0f5f12be6f744f80414226b2f6c9c49ba4362f",
+      "bytes": 731,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "15-effective-date-dispositions.json",
+      "sha256": "109a3b50f06ee27535bf3773c17f446b12ffebcb0ab3ade95e77cc73a21a1dbf",
+      "bytes": 542,
+      "kind": "accepted_dispositions"
+    }
+  ],
+  "content_calls": 0
+}

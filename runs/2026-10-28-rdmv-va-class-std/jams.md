@@ -86,3 +86,51 @@ intact; Phase 2 (02/16 authoring) not started. Ledger actual $0.000, 0 model cal
 - 2026-10-28T01:39:39.125Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:38 for 02.dossier_sections (sec09-sharing-road-blind-spots) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road-blind-spots__A__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:06:19.228Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
+
+- 2026-10-28T04:53:01.302Z retry nonce 02.dossier_sections:A@sec09-sharing-road-blind-spots → 1 after HOLD (sec09-sharing-road-blind-spots); non-PASS: 02.LINEAGE=FAIL
+
+- 2026-10-28T04:53:55.831Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:39 for 02.dossier_sections (sec09-sharing-road-blind-spots) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road-blind-spots__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:55:37.715Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:40 for 02.dossier_sections (sec09-sharing-road-blind-spots) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road-blind-spots__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:56:23.525Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:41 for 02.dossier_sections (sec09-sharing-road-blind-spots) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-sharing-road-blind-spots__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:57:54.656Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:42 for 02.dossier_sections (sec10-backing-parking-visibility-hazardous) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-backing-parking-visibility-hazardous__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:00:28.038Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:43 for 02.dossier_sections (sec10-backing-parking-visibility-hazardous) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-backing-parking-visibility-hazardous__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:01:12.250Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:44 for 02.dossier_sections (sec10-backing-parking-visibility-hazardous) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-backing-parking-visibility-hazardous__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:01:52.692Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:45 for 02.dossier_sections (sec10-backing-parking-visibility-hazardous) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-backing-parking-visibility-hazardous__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:02:39.361Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:46 for 02.dossier_sections (sec10-backing-parking-visibility-hazardous) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-backing-parking-visibility-hazardous__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:04:09.265Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:47 for 02.dossier_sections (sec11-dangerous-behaviors-crashes-deer) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-dangerous-behaviors-crashes-deer__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:05:04.045Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:48 for 02.dossier_sections (sec11-dangerous-behaviors-crashes-deer) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-dangerous-behaviors-crashes-deer__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:05:47.316Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:49 for 02.dossier_sections (sec11-dangerous-behaviors-crashes-deer) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-dangerous-behaviors-crashes-deer__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:06:25.270Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:50 for 02.dossier_sections (sec11-dangerous-behaviors-crashes-deer) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-dangerous-behaviors-crashes-deer__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:07:07.492Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:51 for 02.dossier_sections (sec12-traffic-stops-seat-belts-airbags-child-seats) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-stops-seat-belts-airbags-child-seats__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:08:43.274Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:52 for 02.dossier_sections (sec12-traffic-stops-seat-belts-airbags-child-seats) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-stops-seat-belts-airbags-child-seats__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:09:22.867Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:53 for 02.dossier_sections (sec12-traffic-stops-seat-belts-airbags-child-seats) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-stops-seat-belts-airbags-child-seats__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:10:11.069Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:54 for 02.dossier_sections (sec12-traffic-stops-seat-belts-airbags-child-seats) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-stops-seat-belts-airbags-child-seats__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:10:49.079Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:55 for 02.dossier_sections (sec12-traffic-stops-seat-belts-airbags-child-seats) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-stops-seat-belts-airbags-child-seats__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:12:13.089Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:56 for 02.dossier_sections (sec13-penalties-suspension-alcohol) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-penalties-suspension-alcohol__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:13:15.739Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:57 for 02.dossier_sections (sec13-penalties-suspension-alcohol) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-penalties-suspension-alcohol__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:13:58.563Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:58 for 02.dossier_sections (sec13-penalties-suspension-alcohol) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-penalties-suspension-alcohol__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:14:38.047Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:59 for 02.dossier_sections (sec13-penalties-suspension-alcohol) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-penalties-suspension-alcohol__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:15:25.201Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:60 for 02.dossier_sections (sec14-license-types-learner-permit) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-license-types-learner-permit__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:16:42.938Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:61 for 02.dossier_sections (sec14-license-types-learner-permit) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-license-types-learner-permit__A__n0 (lineage attempts exhausted)

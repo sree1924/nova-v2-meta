@@ -127,3 +127,9 @@ Seeded 2026-10-28T03:26:23.541Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T03:58:48.620Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:63 for 02.dossier_sections (sec14-stopping-night-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-stopping-night-emergencies-crashes__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:06:19.204Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
+
+- 2026-10-28T04:45:53.756Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:64 for 03.combined_kg (sec03-tests-permits-skills-renewal) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-tests-permits-skills-renewal__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:54:08.852Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:65 for 03.combined_kg (sec05-distracted-driving-seat-belts-children) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-distracted-driving-seat-belts-children__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:07:33.986Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:66 for 03.combined_kg (sec07-right-of-way-passing) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-right-of-way-passing__-__n0 (lineage attempts exhausted)

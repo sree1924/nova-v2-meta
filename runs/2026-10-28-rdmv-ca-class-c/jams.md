@@ -65,3 +65,37 @@ extracted handbook text and a fresh issuer-page fetch; seed adopted as-is. Phase
 - 2026-10-28T01:39:25.934Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:24 for 02.dossier_sections (sec06-navigating-the-roads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-navigating-the-roads__C2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:06:19.215Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
+
+- 2026-10-28T04:55:33.512Z retry nonce 02.dossier_sections:C2@sec06-navigating-the-roads → 1 after HOLD (sec06-navigating-the-roads); non-PASS: 02.LINEAGE=FAIL
+
+- 2026-10-28T04:56:09.576Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:25 for 02.dossier_sections (sec06-navigating-the-roads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-navigating-the-roads__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:57:14.418Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:26 for 02.dossier_sections (sec06-navigating-the-roads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-navigating-the-roads__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:58:17.740Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:27 for 02.dossier_sections (sec06-navigating-the-roads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-navigating-the-roads__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:59:15.577Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:28 for 02.dossier_sections (sec06-navigating-the-roads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-navigating-the-roads__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:05:54.300Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:29 for 02.dossier_sections (sec07-laws-and-rules-of-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-laws-and-rules-of-the-road__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:07:27.826Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:30 for 02.dossier_sections (sec07-laws-and-rules-of-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-laws-and-rules-of-the-road__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:08:16.148Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:31 for 02.dossier_sections (sec07-laws-and-rules-of-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-laws-and-rules-of-the-road__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:09:00.972Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:32 for 02.dossier_sections (sec07-laws-and-rules-of-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-laws-and-rules-of-the-road__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:09:50.376Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:33 for 02.dossier_sections (sec08-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-safe-driving__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:12:17.564Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:34 for 02.dossier_sections (sec08-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-safe-driving__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:13:11.051Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:35 for 02.dossier_sections (sec08-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-safe-driving__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:14:01.312Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:36 for 02.dossier_sections (sec08-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-safe-driving__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:14:46.323Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:37 for 02.dossier_sections (sec08-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-safe-driving__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:16:03.767Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:38 for 02.dossier_sections (sec09-alcohol-and-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-drugs__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:16:31.403Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:39 for 16.compile (sec03-testing-process) under standing authority; cause: compile attempt cap on shared lineage (sec03-testing-process)
+
+- 2026-10-28T05:16:32.437Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:40 for 16.compile (sec06-navigating-the-roads) under standing authority; cause: compile attempt cap on shared lineage (sec06-navigating-the-roads)

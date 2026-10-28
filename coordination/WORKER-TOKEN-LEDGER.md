@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T05:09:16.021Z
+# Worker token ledger — generated 2026-10-28T05:16:56.253Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
-| muse | Muse Code subscription | 11 | 390,087,743 | 1,138,963 | 391,226,706 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 18 | 0 | 0 | 3,750,776 | $0.00 | CO MI NC NJ UT WA |
+| muse | Muse Code subscription | 16 | 416,651,827 | 1,269,734 | 417,921,561 | $0.00 | AZ CA CO FL NY TX UT VA |
+| claude | Anthropic subscription (Claude Code subagent) | 21 | 0 | 0 | 4,843,805 | $0.00 | CO IN MI NC NJ UT WA WI |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -19,6 +19,11 @@
 | muse | muse-spark-1.3 | VA | intake-VA-2 | 73,526,226 | 72,788,828 | 187,348 | 42,239 | — | 296 | — | $0.00 |
 | muse | muse-spark-1.3 | AZ | intake-AZ | — | — | — | — | — | 7 | — | $0.00 |
 | muse | muse-spark-1.3 | CO | intake-CO | — | — | — | — | — | 6 | — | $0.00 |
+| muse | muse-spark-1.3 | CA | intake-CA-r1 | — | — | — | — | — | 155 | — | $0.00 |
+| muse | muse-spark-1.3 | FL | intake-FL-r1 | 13,975,514 | 13,794,785 | 66,590 | 17,943 | — | 121 | — | $0.00 |
+| muse | muse-spark-1.3 | NY | intake-NY-r1 | — | — | — | — | — | 186 | — | $0.00 |
+| muse | muse-spark-1.3 | TX | intake-TX-r1 | 12,588,570 | 12,253,890 | 64,181 | 20,885 | — | 107 | — | $0.00 |
+| muse | muse-spark-1.3 | VA | intake-VA-r1 | — | — | — | — | — | 160 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
 | claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | UT | multi-state shell: state picker, #/<st>/ routes, states.json, harness rewrite, Utah onboarded | — | — | — | — | 243,214 | 95 | 14 min | $0.00 |
@@ -37,4 +42,7 @@
 | claude | claude-opus-5-5 | NJ | state worker: sec09-15 (63 parts, 7 compiles, 0 holds) — NEW JERSEY SME COMPLETE 15/15 | — | — | — | — | 246,767 | 72 | 17 min | $0.00 |
 | claude | claude-opus-5-5 | — | scout round 2: OR NV SC AL staged (4 official PDFs) | — | — | — | — | 90,322 | 21 | 2 min | $0.00 |
 | claude | claude-opus-5-5 | UT | remove spoken recall from app; park transcribe proxy + browser recorder; harness ALL PASS | — | — | — | — | 120,914 | 31 | 5 min | $0.00 |
+| claude | claude-opus-5-5 | IN | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 258,177 | 90 | 17 min | $0.00 |
+| claude | claude-opus-5-5 | MI | downstream pilot sec01-07: 03x7 04x6 06x6 05s x6 05c x6 (31 packets, 0 holds; sec04 blocked on compiler spoken-form slash) | — | — | — | — | 596,224 | 153 | 49 min | $0.00 |
+| claude | claude-opus-5-5 | WI | state worker: intake (liveness CONFIRMED, 50/80 verified) + sec01-04 (36 parts, 0 holds) | — | — | — | — | 238,628 | 76 | 19 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

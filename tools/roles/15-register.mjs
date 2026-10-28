@@ -223,8 +223,13 @@ export async function buildRegistration({
     visualObservationRef = {path: slash(path.relative(projectRoot, observationFile)), sha256: sha256(bytes)};
   }
   const editionObservations = visualObservation?.observations.filter(o => o.kind === 'edition') ?? [];
-  if (editionObservations.length > 1 || editionObservations.some(o => o.value !== o.verbatim || o.pdf_page !== 1 || o.printed_page !== null)) {
-    throw new Error('Edition observation must be a single verbatim front-cover observation on physical page1, with no printed ID');
+  // Edition evidence: one verbatim observation on a front-matter page (cover, title, copyright, contents: physical pages 1–12)
+  // or a back-cover page (last three pages) — many handbooks print the edition only there (IN back cover, NC back cover,
+  // CO contents page). Multi-state intake 2026-10-28; Utah's page-1 case is unchanged.
+  const pageCount = extraction.pages.length;
+  const editionPageOk = (p) => Number.isInteger(p) && ((p >= 1 && p <= 12) || (p >= Math.max(1, pageCount - 2) && p <= pageCount));
+  if (editionObservations.length > 1 || editionObservations.some(o => o.value !== o.verbatim || !editionPageOk(o.pdf_page))) {
+    throw new Error('Edition observation must be a single verbatim observation on a front-matter page (physical 1–12) or a back-cover page (last 3), value identical to verbatim');
   }
   const edition = editionObservations[0]?.value ?? null;
   const effectiveDate = null;
