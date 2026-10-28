@@ -1,0 +1,3564 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-cloud-session",
+    "lane": "tool_assisted",
+    "pass": "03.combined_kg"
+  },
+  "probe": "rdmv-ia-c",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "b51cb8df2b07375284101efcaa361826e48e68b032029bc4d1072361675e8958",
+    "candidate_lineage_id": "2026-10-28-rdmv-ia-class-c:lineage:79"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-ia-class-c/D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-ia-class-c/16/sec06-intersections-emergency-school-bus/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-ia-class-c/D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-ia-class-c/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec06-F01",
+      "label": "Rapid-flashing beacons: push button, signal-free or mid-block crossings",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F01"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R01",
+          "why": "The beacon fact says rapid-flashing beacons switch on by button at signal-free or mid-block crossings, and the contrast fact pairs that strobing amber with the hybrid beacon's yellow-to-red ladder; learners merge the two devices.",
+          "fact_ids": [
+            "sec06-F01",
+            "sec06-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F02",
+      "label": "While amber strobes, halt for anyone in or about to enter the crosswalk",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F02"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R03",
+          "why": "Under strobing amber you halt and stay stopped for crosswalk users, and the contrast fact says under blinking twin reds you stop once and may roll on through an empty crossing; learners apply the stop-then-go rule to the amber beacon.",
+          "fact_ids": [
+            "sec06-F02",
+            "sec06-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F03",
+      "label": "Hybrid beacon: dark drive carefully, blinking yellow ease off, steady yellow ready to halt",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F03"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R02",
+          "why": "The hybrid beacon's dark lamps invite careful passage, and the contrast fact says its steady twin reds command a stop; learners treat the dark beacon as broken or as a stop.",
+          "fact_ids": [
+            "sec06-F03",
+            "sec06-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F04",
+      "label": "Steady twin reds: stop; blinking twin reds: stop once, then roll if empty",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F04"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R03",
+          "why": "Blinking twin reds let you stop once and roll on through an empty crossing, and the contrast fact says strobing amber keeps you stopped for crosswalk users; learners swap the two release rules.",
+          "fact_ids": [
+            "sec06-F04",
+            "sec06-R03"
+          ]
+        },
+        {
+          "other_id": "sec06-R02",
+          "why": "Steady twin reds command a stop for pedestrians, and the contrast fact says a dark hybrid beacon invites careful passage; learners confuse the two ends of the lamp ladder.",
+          "fact_ids": [
+            "sec06-F04",
+            "sec06-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R01",
+      "label": "Rapid-flashing beacon strobes amber; hybrid beacon climbs yellow to red",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R01"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F01",
+          "why": "The beacon fact says rapid-flashing beacons switch on by button at signal-free or mid-block crossings, and the contrast fact pairs that strobing amber with the hybrid beacon's yellow-to-red ladder; learners merge the two devices.",
+          "fact_ids": [
+            "sec06-R01",
+            "sec06-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R02",
+      "label": "Dark hybrid beacon invites passage, steady twin reds command a stop",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R02"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F03",
+          "why": "The hybrid beacon's dark lamps invite careful passage, and the contrast fact says its steady twin reds command a stop; learners treat the dark beacon as broken or as a stop.",
+          "fact_ids": [
+            "sec06-R02",
+            "sec06-F03"
+          ]
+        },
+        {
+          "other_id": "sec06-F04",
+          "why": "Steady twin reds command a stop for pedestrians, and the contrast fact says a dark hybrid beacon invites careful passage; learners confuse the two ends of the lamp ladder.",
+          "fact_ids": [
+            "sec06-R02",
+            "sec06-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R03",
+      "label": "Strobing amber keeps you stopped; blinking twin reds release through an empty crossing",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R03"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F02",
+          "why": "Under strobing amber you halt and stay stopped for crosswalk users, and the contrast fact says under blinking twin reds you stop once and may roll on through an empty crossing; learners apply the stop-then-go rule to the amber beacon.",
+          "fact_ids": [
+            "sec06-R03",
+            "sec06-F02"
+          ]
+        },
+        {
+          "other_id": "sec06-F04",
+          "why": "Blinking twin reds let you stop once and roll on through an empty crossing, and the contrast fact says strobing amber keeps you stopped for crosswalk users; learners swap the two release rules.",
+          "fact_ids": [
+            "sec06-R03",
+            "sec06-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F05",
+      "label": "A harnessed service dog or white cane signals a likely blind person",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F05"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "the only fact about blind pedestrians in this section; no sibling fact shares its subject"
+    },
+    {
+      "id": "sec06-F06",
+      "label": "Yield rules name who waits but grant the right-of-way to nobody",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F06"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R04",
+          "why": "The yield-rule fact says the law names who waits but awards the right-of-way to no one, and the contrast fact adds that the crash-avoidance duty binds even whoever holds it; learners treat the right-of-way as a possession.",
+          "fact_ids": [
+            "sec06-F06",
+            "sec06-R04"
+          ]
+        },
+        {
+          "other_id": "sec06-F09",
+          "why": "The yield-rule fact explains that the law names who waits, while the ranking fact says failing to yield is the top cause of deadly crashes in Iowa; learners miss how the two connect.",
+          "fact_ids": [
+            "sec06-F06",
+            "sec06-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F07",
+      "label": "Whoever holds the right-of-way must still avoid hitting anyone",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F07"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R04",
+          "why": "The duty fact says whoever holds the right-of-way must still avoid a crash, and the contrast fact pairs that duty with yield rules that award the right-of-way to no one; learners think the duty ends where the right-of-way begins.",
+          "fact_ids": [
+            "sec06-F07",
+            "sec06-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R04",
+      "label": "Yield rules award nothing; the crash-avoidance duty binds even the holder",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R04"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F06",
+          "why": "The yield-rule fact says the law names who waits but awards the right-of-way to no one, and the contrast fact adds that the crash-avoidance duty binds even whoever holds it; learners treat the right-of-way as a possession.",
+          "fact_ids": [
+            "sec06-R04",
+            "sec06-F06"
+          ]
+        },
+        {
+          "other_id": "sec06-F07",
+          "why": "The duty fact says whoever holds the right-of-way must still avoid a crash, and the contrast fact pairs that duty with yield rules that award the right-of-way to no one; learners think the duty ends where the right-of-way begins.",
+          "fact_ids": [
+            "sec06-R04",
+            "sec06-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F08",
+      "label": "Cyclists share road rights; yield to them even when they should yield",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F08"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R05",
+          "why": "The cyclist fact says yield to riders even when they should yield to you, and the contrast fact explains the extra yielding comes from riders crashing unprotected despite equal rights; learners read equal rights as equal yielding.",
+          "fact_ids": [
+            "sec06-F08",
+            "sec06-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R05",
+      "label": "Same rights as drivers, extra yielding because riders crash unprotected",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R05"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F08",
+          "why": "The cyclist fact says yield to riders even when they should yield to you, and the contrast fact explains the extra yielding comes from riders crashing unprotected despite equal rights; learners read equal rights as equal yielding.",
+          "fact_ids": [
+            "sec06-R05",
+            "sec06-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F09",
+      "label": "Failing to yield is the top cause of deadly crashes in Iowa",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F09"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0018"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F06",
+          "why": "The yield-rule fact explains that the law names who waits, while the ranking fact says failing to yield is the top cause of deadly crashes in Iowa; learners miss how the two connect.",
+          "fact_ids": [
+            "sec06-F09",
+            "sec06-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F10",
+      "label": "Right on red after a full stop unless a sign bans it, yielding",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F10"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R06",
+          "why": "Right on red needs a full stop and a yield unless a sign bans it, and the contrast fact says a left turn must instead wait out straight-bound oncoming cars; learners mix up what each turn yields to.",
+          "fact_ids": [
+            "sec06-F10",
+            "sec06-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F13",
+      "label": "A left-turning driver waits for oncoming cars bound straight ahead",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F13"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R06",
+          "why": "A left-turning driver waits for oncoming cars bound straight ahead, and the contrast fact pairs that with right on red that needs only a stop and a yield; learners give the left turn priority.",
+          "fact_ids": [
+            "sec06-F13",
+            "sec06-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R06",
+      "label": "Right on red needs stop and yield; left turn waits out oncoming traffic",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R06"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F10",
+          "why": "Right on red needs a full stop and a yield unless a sign bans it, and the contrast fact says a left turn must instead wait out straight-bound oncoming cars; learners mix up what each turn yields to.",
+          "fact_ids": [
+            "sec06-R06",
+            "sec06-F10"
+          ]
+        },
+        {
+          "other_id": "sec06-F13",
+          "why": "A left-turning driver waits for oncoming cars bound straight ahead, and the contrast fact pairs that with right on red that needs only a stop and a yield; learners give the left turn priority.",
+          "fact_ids": [
+            "sec06-R06",
+            "sec06-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F14",
+      "label": "All-way stop: first to arrive goes first; together, the car on the right",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F14"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R07",
+          "why": "The all-way stop fact gives the first arrival the first move and the rightmost car the tie, and the contrast fact restates the same order; learners send the leftmost car first on a tie.",
+          "fact_ids": [
+            "sec06-F14",
+            "sec06-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R07",
+      "label": "First to the stop leaves first; ties go to the rightmost car",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R07"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F14",
+          "why": "The all-way stop fact gives the first arrival the first move and the rightmost car the tie, and the contrast fact restates the same order; learners send the leftmost car first on a tie.",
+          "fact_ids": [
+            "sec06-R07",
+            "sec06-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F11",
+      "label": "Crossing a sidewalk, driveway, alley or lot, give way to people on foot",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F11"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R08",
+          "why": "Crossing a sidewalk you give way to people on foot, and the contrast fact pairs that with entering the road, where you yield to rolling traffic; learners swap who gets the yield.",
+          "fact_ids": [
+            "sec06-F11",
+            "sec06-R08"
+          ]
+        },
+        {
+          "other_id": "sec06-F12",
+          "why": "One fact says give way to pedestrians when crossing a sidewalk, and the other says wheels may cross a sidewalk but never travel along it; learners read the first as permission to drive on the sidewalk.",
+          "fact_ids": [
+            "sec06-F11",
+            "sec06-F12"
+          ]
+        },
+        {
+          "other_id": "sec06-F16",
+          "why": "The sidewalk fact covers giving way at driveways and lots, while the crossing fact says stop or yield for pedestrians in marked and unmarked crossings alike; learners think only painted crossings count.",
+          "fact_ids": [
+            "sec06-F11",
+            "sec06-F16"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F12",
+      "label": "Wheels may cross a sidewalk but never travel along it",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F12"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F11",
+          "why": "One fact says give way to pedestrians when crossing a sidewalk, and the other says wheels may cross a sidewalk but never travel along it; learners read the first as permission to drive on the sidewalk.",
+          "fact_ids": [
+            "sec06-F12",
+            "sec06-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F15",
+      "label": "Entering a road from a driveway, alley or shoulder, yield to traffic",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F15"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R08",
+          "why": "Entering the road you yield to rolling traffic, and the contrast fact pairs that with crossing the sidewalk, where you yield to people on foot; learners forget the second yield on the way out of a driveway.",
+          "fact_ids": [
+            "sec06-F15",
+            "sec06-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R08",
+      "label": "Entering the road yields to traffic; crossing the sidewalk yields to pedestrians",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R08"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F11",
+          "why": "Crossing a sidewalk you give way to people on foot, and the contrast fact pairs that with entering the road, where you yield to rolling traffic; learners swap who gets the yield.",
+          "fact_ids": [
+            "sec06-R08",
+            "sec06-F11"
+          ]
+        },
+        {
+          "other_id": "sec06-F15",
+          "why": "Entering the road you yield to rolling traffic, and the contrast fact pairs that with crossing the sidewalk, where you yield to people on foot; learners forget the second yield on the way out of a driveway.",
+          "fact_ids": [
+            "sec06-R08",
+            "sec06-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F16",
+      "label": "Stop or yield for pedestrians in marked and unmarked crossings alike",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F16"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F11",
+          "why": "The sidewalk fact covers giving way at driveways and lots, while the crossing fact says stop or yield for pedestrians in marked and unmarked crossings alike; learners think only painted crossings count.",
+          "fact_ids": [
+            "sec06-F16",
+            "sec06-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F21",
+      "label": "No stop sign or signal: slow, enter with care, same rules plus caution",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F21"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R11",
+          "why": "The unsigned fact says every driver slows and the controlled-intersection rules still bind, and the contrast fact says signed intersections spell the rules out while unsigned ones add caution; learners think no sign means no rule.",
+          "fact_ids": [
+            "sec06-F21",
+            "sec06-R11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R11",
+      "label": "Signed intersections spell out rules; unsigned bind the same plus caution",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R11"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F21",
+          "why": "The unsigned fact says every driver slows and the controlled-intersection rules still bind, and the contrast fact says signed intersections spell the rules out while unsigned ones add caution; learners think no sign means no rule.",
+          "fact_ids": [
+            "sec06-R11",
+            "sec06-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F17",
+      "label": "Give way to emergency rigs sounding a siren or flashing red or blue",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F17"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R09",
+          "why": "The give-way fact names the rigs that get the road, and the contrast fact says open road means ease right at once while inside an intersection you drive through first; learners stop wherever they are.",
+          "fact_ids": [
+            "sec06-F17",
+            "sec06-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F18",
+      "label": "Ease to the right road edge when a rig approaches from any side",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F18"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R09",
+          "why": "Easing right is the open-road response, and the contrast fact says inside an intersection you drive through before pulling aside; learners pull aside in the middle of the intersection.",
+          "fact_ids": [
+            "sec06-F18",
+            "sec06-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F19",
+      "label": "Inside an intersection, drive through first; across a median you need not stop",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F19"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R10",
+          "why": "The intersection fact includes the median exemption, and the contrast fact pairs that exemption with the five-hundred-foot trailing gap; learners stop across the median or trail too closely.",
+          "fact_ids": [
+            "sec06-F19",
+            "sec06-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R09",
+      "label": "Open road: ease right at once; inside an intersection: drive through first",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R09"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F17",
+          "why": "The give-way fact names the rigs that get the road, and the contrast fact says open road means ease right at once while inside an intersection you drive through first; learners stop wherever they are.",
+          "fact_ids": [
+            "sec06-R09",
+            "sec06-F17"
+          ]
+        },
+        {
+          "other_id": "sec06-F18",
+          "why": "Easing right is the open-road response, and the contrast fact says inside an intersection you drive through before pulling aside; learners pull aside in the middle of the intersection.",
+          "fact_ids": [
+            "sec06-R09",
+            "sec06-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F20",
+      "label": "Hang back at least five hundred feet behind a rig with lights and siren",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F20"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R10",
+          "why": "The trailing fact sets five hundred feet behind a rig, and the contrast fact pairs that with the median rule that needs no stop at all; learners apply the gap where the exemption applies and ignore it where it binds.",
+          "fact_ids": [
+            "sec06-F20",
+            "sec06-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R10",
+      "label": "Across a median no stop; trailing a rig keep five hundred feet back",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R10"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0019"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F19",
+          "why": "The intersection fact includes the median exemption, and the contrast fact pairs that exemption with the five-hundred-foot trailing gap; learners stop across the median or trail too closely.",
+          "fact_ids": [
+            "sec06-R10",
+            "sec06-F19"
+          ]
+        },
+        {
+          "other_id": "sec06-F20",
+          "why": "The trailing fact sets five hundred feet behind a rig, and the contrast fact pairs that with the median rule that needs no stop at all; learners apply the gap where the exemption applies and ignore it where it binds.",
+          "fact_ids": [
+            "sec06-R10",
+            "sec06-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F22",
+      "label": "Behind a bus on two or three lanes: flashing lamps forbid passing, be ready to stop",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F22"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R12",
+          "why": "From behind, flashing bus lamps forbid passing outright, and the contrast fact says from ahead amber lamps only slow you to no more than twenty miles per hour; learners apply the oncoming slowdown when trailing.",
+          "fact_ids": [
+            "sec06-F22",
+            "sec06-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F23",
+      "label": "Bus halted with arm out: stop no closer than fifteen feet, wait for arm and bus to move",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F23"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R15",
+          "why": "The stop fact sets fifteen feet of queue space behind the halted bus, and the contrast fact pairs that number with the up-to-one-hundred-eighty-day license loss for a violation; learners mix up the two numbers.",
+          "fact_ids": [
+            "sec06-F23",
+            "sec06-R15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F24",
+      "label": "Facing a bus with amber lamps: slow to twenty or less, prepare to stop",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F24"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R12",
+          "why": "Facing the bus with amber lamps you slow to no more than twenty miles per hour, and the contrast fact says from behind the same lamps forbid passing outright; learners confuse the oncoming and trailing duties.",
+          "fact_ids": [
+            "sec06-F24",
+            "sec06-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F25",
+      "label": "Oncoming bus stopped with arm out on a narrow road: halt ahead of it",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F25"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R13",
+          "why": "Facing the armed bus on a narrow road you halt ahead of it, and the contrast fact says across a wide road you may roll past; learners apply the wide-road release on narrow roads.",
+          "fact_ids": [
+            "sec06-F25",
+            "sec06-R13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R12",
+      "label": "From behind lamps forbid passing; from ahead amber only slows you",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R12"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F22",
+          "why": "From behind, flashing bus lamps forbid passing outright, and the contrast fact says from ahead amber lamps only slow you to no more than twenty miles per hour; learners apply the oncoming slowdown when trailing.",
+          "fact_ids": [
+            "sec06-R12",
+            "sec06-F22"
+          ]
+        },
+        {
+          "other_id": "sec06-F24",
+          "why": "Facing the bus with amber lamps you slow to no more than twenty miles per hour, and the contrast fact says from behind the same lamps forbid passing outright; learners confuse the oncoming and trailing duties.",
+          "fact_ids": [
+            "sec06-R12",
+            "sec06-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F26",
+      "label": "Breaking the school-bus stopping law can cost your license up to one hundred eighty days",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F26"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R15",
+          "why": "The penalty fact says a violation can suspend your license for up to one hundred eighty days, and the contrast fact pairs that with the fifteen feet of queue space behind the halted bus; learners attach the wrong number to each rule.",
+          "fact_ids": [
+            "sec06-F26",
+            "sec06-R15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R15",
+      "label": "Fifteen feet of queue space; up to one hundred eighty days of suspension",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R15"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F23",
+          "why": "The stop fact sets fifteen feet of queue space behind the halted bus, and the contrast fact pairs that number with the up-to-one-hundred-eighty-day license loss for a violation; learners mix up the two numbers.",
+          "fact_ids": [
+            "sec06-R15",
+            "sec06-F23"
+          ]
+        },
+        {
+          "other_id": "sec06-F26",
+          "why": "The penalty fact says a violation can suspend your license for up to one hundred eighty days, and the contrast fact pairs that with the fifteen feet of queue space behind the halted bus; learners attach the wrong number to each rule.",
+          "fact_ids": [
+            "sec06-R15",
+            "sec06-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F27",
+      "label": "Behind a bus on four-plus lanes: same drill, no passing, fifteen feet, wait",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F27"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R14",
+          "why": "Trailing the bus on a wide road you stop and wait as on a narrow one, and the contrast fact says facing it across the lanes you are released; learners treat the wide road as a release in both directions.",
+          "fact_ids": [
+            "sec06-F27",
+            "sec06-R14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-F28",
+      "label": "Facing a stopped, armed bus across a four-plus-lane road: roll past without stopping",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-F28"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-R13",
+          "why": "Across a wide road you may roll past the armed bus, and the contrast fact says on a narrow road you must halt ahead of it; learners carry the release onto narrow roads.",
+          "fact_ids": [
+            "sec06-F28",
+            "sec06-R13"
+          ]
+        },
+        {
+          "other_id": "sec06-R14",
+          "why": "Facing the armed bus across a wide road you are released, and the contrast fact says trailing it on the same wide road you still stop and wait; learners release themselves from behind too.",
+          "fact_ids": [
+            "sec06-F28",
+            "sec06-R14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R13",
+      "label": "Facing the armed bus: narrow road halts you, wide road releases you",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R13"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F25",
+          "why": "Facing the armed bus on a narrow road you halt ahead of it, and the contrast fact says across a wide road you may roll past; learners apply the wide-road release on narrow roads.",
+          "fact_ids": [
+            "sec06-R13",
+            "sec06-F25"
+          ]
+        },
+        {
+          "other_id": "sec06-F28",
+          "why": "Across a wide road you may roll past the armed bus, and the contrast fact says on a narrow road you must halt ahead of it; learners carry the release onto narrow roads.",
+          "fact_ids": [
+            "sec06-R13",
+            "sec06-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec06-R14",
+      "label": "On a wide road, behind the bus you stop and wait, across the lanes you are released",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "module_id": "sec06-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec06-R14"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec06-F27",
+          "why": "Trailing the bus on a wide road you stop and wait as on a narrow one, and the contrast fact says facing it across the lanes you are released; learners treat the wide road as a release in both directions.",
+          "fact_ids": [
+            "sec06-R14",
+            "sec06-F27"
+          ]
+        },
+        {
+          "other_id": "sec06-F28",
+          "why": "Facing the armed bus across a wide road you are released, and the contrast fact says trailing it on the same wide road you still stop and wait; learners release themselves from behind too.",
+          "fact_ids": [
+            "sec06-R14",
+            "sec06-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec06-F01",
+      "to": "sec06-F02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F01",
+      "to": "sec06-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F03",
+      "to": "sec06-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F03",
+      "to": "sec06-F04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F03",
+      "to": "sec06-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F04",
+      "to": "sec06-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F02",
+      "to": "sec06-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F04",
+      "to": "sec06-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F06",
+      "to": "sec06-F07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F06",
+      "to": "sec06-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F07",
+      "to": "sec06-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F08",
+      "to": "sec06-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F06",
+      "to": "sec06-F09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F10",
+      "to": "sec06-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F13",
+      "to": "sec06-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F14",
+      "to": "sec06-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F11",
+      "to": "sec06-F12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F11",
+      "to": "sec06-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F15",
+      "to": "sec06-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F11",
+      "to": "sec06-F16",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F06",
+      "to": "sec06-F21",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F21",
+      "to": "sec06-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F17",
+      "to": "sec06-F18",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F18",
+      "to": "sec06-F19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F18",
+      "to": "sec06-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F19",
+      "to": "sec06-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F19",
+      "to": "sec06-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F20",
+      "to": "sec06-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F17",
+      "to": "sec06-F22",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F22",
+      "to": "sec06-F23",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F22",
+      "to": "sec06-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F24",
+      "to": "sec06-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F23",
+      "to": "sec06-R15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F26",
+      "to": "sec06-R15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F23",
+      "to": "sec06-F27",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F25",
+      "to": "sec06-F28",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F25",
+      "to": "sec06-R13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F28",
+      "to": "sec06-R13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F27",
+      "to": "sec06-R14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F28",
+      "to": "sec06-R14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F01",
+      "to": "sec06-R01",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F02",
+      "to": "sec06-R03",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F03",
+      "to": "sec06-R02",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F04",
+      "to": "sec06-R03",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F04",
+      "to": "sec06-R02",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F06",
+      "to": "sec06-R04",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F06",
+      "to": "sec06-F09",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F07",
+      "to": "sec06-R04",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F08",
+      "to": "sec06-R05",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F10",
+      "to": "sec06-R06",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F13",
+      "to": "sec06-R06",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F14",
+      "to": "sec06-R07",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F11",
+      "to": "sec06-R08",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F11",
+      "to": "sec06-F12",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F11",
+      "to": "sec06-F16",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F15",
+      "to": "sec06-R08",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F21",
+      "to": "sec06-R11",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F17",
+      "to": "sec06-R09",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F18",
+      "to": "sec06-R09",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F19",
+      "to": "sec06-R10",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F20",
+      "to": "sec06-R10",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F22",
+      "to": "sec06-R12",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F23",
+      "to": "sec06-R15",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F24",
+      "to": "sec06-R12",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F25",
+      "to": "sec06-R13",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F26",
+      "to": "sec06-R15",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F27",
+      "to": "sec06-R14",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F28",
+      "to": "sec06-R13",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec06-F28",
+      "to": "sec06-R14",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec06-m01",
+      "title": "Pedestrian beacons and blind pedestrians",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 19.3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec06-F01",
+        "sec06-F02",
+        "sec06-F03",
+        "sec06-F04",
+        "sec06-R01",
+        "sec06-R02",
+        "sec06-R03",
+        "sec06-F05"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m02",
+      "title": "Right-of-way basics and cyclists",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14.8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec06-F06",
+        "sec06-F07",
+        "sec06-R04",
+        "sec06-F08",
+        "sec06-R05",
+        "sec06-F09"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m03",
+      "title": "Yielding at intersections and driveways",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 26.1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec06-F10",
+        "sec06-F13",
+        "sec06-R06",
+        "sec06-F14",
+        "sec06-R07",
+        "sec06-F11",
+        "sec06-F12",
+        "sec06-F15",
+        "sec06-R08",
+        "sec06-F16",
+        "sec06-F21",
+        "sec06-R11"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m04",
+      "title": "Emergency vehicles",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 13.6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec06-F17",
+        "sec06-F18",
+        "sec06-F19",
+        "sec06-R09",
+        "sec06-F20",
+        "sec06-R10"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m05",
+      "title": "School buses",
+      "domain": "Intersections, Emergency Vehicles, School Buses",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 26.1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec06-F22",
+        "sec06-F23",
+        "sec06-F24",
+        "sec06-F25",
+        "sec06-R12",
+        "sec06-F26",
+        "sec06-R15",
+        "sec06-F27",
+        "sec06-F28",
+        "sec06-R13",
+        "sec06-R14"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec06-m01",
+      "unit_id": "sec06-u01",
+      "node_ids": [
+        "sec06-F01",
+        "sec06-F02",
+        "sec06-F03",
+        "sec06-F04",
+        "sec06-R01",
+        "sec06-R02",
+        "sec06-R03",
+        "sec06-F05"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the rapid-flashing beacon, then the hybrid beacon's yellow and red phases, the three beacon contrasts, and the white-cane and service-dog rule",
+      "flashcard_strategy": "one-fact cards per beacon phase plus the three beacon contrasts and the blind-pedestrian card",
+      "quiz_strategy": "module quiz on what each beacon phase requires and how to treat a likely blind pedestrian",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m02",
+      "unit_id": "sec06-u02",
+      "node_ids": [
+        "sec06-F06",
+        "sec06-F07",
+        "sec06-R04",
+        "sec06-F08",
+        "sec06-R05",
+        "sec06-F09"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach that yield rules name who waits without granting the right-of-way, the crash-avoidance duty, the cyclist rule and why failure to yield matters",
+      "flashcard_strategy": "one-fact cards on yield rules, the avoidance duty, cyclists, and the two contrasts plus the deadly-crash ranking",
+      "quiz_strategy": "module quiz on what the right-of-way does and does not grant and how to treat cyclists",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m03",
+      "unit_id": "sec06-u03",
+      "node_ids": [
+        "sec06-F10",
+        "sec06-F13",
+        "sec06-R06",
+        "sec06-F14",
+        "sec06-R07",
+        "sec06-F11",
+        "sec06-F12",
+        "sec06-F15",
+        "sec06-R08",
+        "sec06-F16",
+        "sec06-F21",
+        "sec06-R11"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach right on red and left turns, all-way stops, sidewalks and driveways, entering the road, crossings marked or not, and unsigned intersections, with their four contrasts",
+      "flashcard_strategy": "one-fact cards per yielding rule plus the right-versus-left, all-way, road-versus-sidewalk and signed-versus-unsigned contrasts",
+      "quiz_strategy": "module quiz on who yields in each turning, stopping, driveway and crossing situation",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m04",
+      "unit_id": "sec06-u04",
+      "node_ids": [
+        "sec06-F17",
+        "sec06-F18",
+        "sec06-F19",
+        "sec06-R09",
+        "sec06-F20",
+        "sec06-R10"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach which vehicles get the road, easing right, clearing an intersection first, the median exemption and the five-hundred-foot trailing gap, with the two contrasts",
+      "flashcard_strategy": "one-fact cards on emergency rigs, easing right, intersections and medians, the trailing gap and the two contrasts",
+      "quiz_strategy": "module quiz on what to do when an emergency vehicle approaches from any position",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec06-m05",
+      "unit_id": "sec06-u05",
+      "node_ids": [
+        "sec06-F22",
+        "sec06-F23",
+        "sec06-F24",
+        "sec06-F25",
+        "sec06-R12",
+        "sec06-F26",
+        "sec06-R15",
+        "sec06-F27",
+        "sec06-F28",
+        "sec06-R13",
+        "sec06-R14"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the trailing rules on narrow roads, the fifteen-foot stop, the oncoming amber slowdown and arm stop, the penalty, then the wide-road rules and the single lawful pass",
+      "flashcard_strategy": "one-fact cards per bus rule plus the behind-versus-ahead, narrow-versus-wide and number contrasts",
+      "quiz_strategy": "module quiz on what to do behind or facing a school bus on narrow and wide roads",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec06-F01",
+    "sec06-F02",
+    "sec06-F03",
+    "sec06-F04",
+    "sec06-R01",
+    "sec06-R02",
+    "sec06-R03",
+    "sec06-F05",
+    "sec06-F06",
+    "sec06-F07",
+    "sec06-R04",
+    "sec06-F08",
+    "sec06-R05",
+    "sec06-F09",
+    "sec06-F10",
+    "sec06-F13",
+    "sec06-R06",
+    "sec06-F14",
+    "sec06-R07",
+    "sec06-F11",
+    "sec06-F12",
+    "sec06-F15",
+    "sec06-R08",
+    "sec06-F16",
+    "sec06-F21",
+    "sec06-R11",
+    "sec06-F17",
+    "sec06-F18",
+    "sec06-F19",
+    "sec06-R09",
+    "sec06-F20",
+    "sec06-R10",
+    "sec06-F22",
+    "sec06-F23",
+    "sec06-F24",
+    "sec06-F25",
+    "sec06-R12",
+    "sec06-F26",
+    "sec06-R15",
+    "sec06-F27",
+    "sec06-F28",
+    "sec06-R13",
+    "sec06-R14"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "topological prerequisite order; module order and handbook order break ties; dynamic nodes never on the path"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 43,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "rule",
+          "definition": "one accepted page-sourced handbook fact"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "learn the from-fact before the to-fact"
+        },
+        {
+          "type": "easily_confused",
+          "directed": false,
+          "acyclic": false,
+          "definition": "pair of facts learners commonly swap"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec06-F01",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "Pedestrian beacons and blind pedestrians"
+        },
+        {
+          "concept_id": "sec06-F02",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "Pedestrian beacons and blind pedestrians"
+        },
+        {
+          "concept_id": "sec06-F03",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "Pedestrian beacons and blind pedestrians"
+        },
+        {
+          "concept_id": "sec06-F04",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "Pedestrian beacons and blind pedestrians"
+        },
+        {
+          "concept_id": "sec06-R01",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "Pedestrian beacons and blind pedestrians"
+        },
+        {
+          "concept_id": "sec06-R02",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "Pedestrian beacons and blind pedestrians"
+        },
+        {
+          "concept_id": "sec06-R03",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "Pedestrian beacons and blind pedestrians"
+        },
+        {
+          "concept_id": "sec06-F05",
+          "module_id": "sec06-m01",
+          "ambiguous": false,
+          "resolution": "Pedestrian beacons and blind pedestrians"
+        },
+        {
+          "concept_id": "sec06-F06",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "Right-of-way basics and cyclists"
+        },
+        {
+          "concept_id": "sec06-F07",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "Right-of-way basics and cyclists"
+        },
+        {
+          "concept_id": "sec06-R04",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "Right-of-way basics and cyclists"
+        },
+        {
+          "concept_id": "sec06-F08",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "Right-of-way basics and cyclists"
+        },
+        {
+          "concept_id": "sec06-R05",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "Right-of-way basics and cyclists"
+        },
+        {
+          "concept_id": "sec06-F09",
+          "module_id": "sec06-m02",
+          "ambiguous": false,
+          "resolution": "Right-of-way basics and cyclists"
+        },
+        {
+          "concept_id": "sec06-F10",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-F13",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-R06",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-F14",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-R07",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-F11",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-F12",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-F15",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-R08",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-F16",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-F21",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-R11",
+          "module_id": "sec06-m03",
+          "ambiguous": false,
+          "resolution": "Yielding at intersections and driveways"
+        },
+        {
+          "concept_id": "sec06-F17",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "Emergency vehicles"
+        },
+        {
+          "concept_id": "sec06-F18",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "Emergency vehicles"
+        },
+        {
+          "concept_id": "sec06-F19",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "Emergency vehicles"
+        },
+        {
+          "concept_id": "sec06-R09",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "Emergency vehicles"
+        },
+        {
+          "concept_id": "sec06-F20",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "Emergency vehicles"
+        },
+        {
+          "concept_id": "sec06-R10",
+          "module_id": "sec06-m04",
+          "ambiguous": false,
+          "resolution": "Emergency vehicles"
+        },
+        {
+          "concept_id": "sec06-F22",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-F23",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-F24",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-F25",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-R12",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-F26",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-R15",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-F27",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-F28",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-R13",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        },
+        {
+          "concept_id": "sec06-R14",
+          "module_id": "sec06-m05",
+          "ambiguous": false,
+          "resolution": "School buses"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec06-F01",
+          "to": "sec06-F02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F01",
+          "to": "sec06-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F03",
+          "to": "sec06-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F03",
+          "to": "sec06-F04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F03",
+          "to": "sec06-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F04",
+          "to": "sec06-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F02",
+          "to": "sec06-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F04",
+          "to": "sec06-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F06",
+          "to": "sec06-F07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F06",
+          "to": "sec06-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F07",
+          "to": "sec06-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F08",
+          "to": "sec06-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F06",
+          "to": "sec06-F09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F10",
+          "to": "sec06-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F13",
+          "to": "sec06-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F14",
+          "to": "sec06-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F11",
+          "to": "sec06-F12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F11",
+          "to": "sec06-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F15",
+          "to": "sec06-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F11",
+          "to": "sec06-F16",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F06",
+          "to": "sec06-F21",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F21",
+          "to": "sec06-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F17",
+          "to": "sec06-F18",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F18",
+          "to": "sec06-F19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F18",
+          "to": "sec06-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F19",
+          "to": "sec06-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F19",
+          "to": "sec06-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F20",
+          "to": "sec06-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F17",
+          "to": "sec06-F22",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F22",
+          "to": "sec06-F23",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F22",
+          "to": "sec06-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F24",
+          "to": "sec06-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F23",
+          "to": "sec06-R15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F26",
+          "to": "sec06-R15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F23",
+          "to": "sec06-F27",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F25",
+          "to": "sec06-F28",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F25",
+          "to": "sec06-R13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F28",
+          "to": "sec06-R13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F27",
+          "to": "sec06-R14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F28",
+          "to": "sec06-R14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F01",
+          "to": "sec06-R01",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F02",
+          "to": "sec06-R03",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F03",
+          "to": "sec06-R02",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F04",
+          "to": "sec06-R03",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F04",
+          "to": "sec06-R02",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F06",
+          "to": "sec06-R04",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F06",
+          "to": "sec06-F09",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F07",
+          "to": "sec06-R04",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F08",
+          "to": "sec06-R05",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F10",
+          "to": "sec06-R06",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F13",
+          "to": "sec06-R06",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F14",
+          "to": "sec06-R07",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F11",
+          "to": "sec06-R08",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F11",
+          "to": "sec06-F12",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F11",
+          "to": "sec06-F16",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F15",
+          "to": "sec06-R08",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F21",
+          "to": "sec06-R11",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F17",
+          "to": "sec06-R09",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F18",
+          "to": "sec06-R09",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F19",
+          "to": "sec06-R10",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F20",
+          "to": "sec06-R10",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F22",
+          "to": "sec06-R12",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F23",
+          "to": "sec06-R15",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F24",
+          "to": "sec06-R12",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F25",
+          "to": "sec06-R13",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F26",
+          "to": "sec06-R15",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F27",
+          "to": "sec06-R14",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F28",
+          "to": "sec06-R13",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec06-F28",
+          "to": "sec06-R14",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Intersections, Emergency Vehicles, School Buses",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "topological prerequisite order, then module order and handbook order; dynamic excluded",
+        "module_order": [
+          "sec06-m01",
+          "sec06-m02",
+          "sec06-m03",
+          "sec06-m04",
+          "sec06-m05"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

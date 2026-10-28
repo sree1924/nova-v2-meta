@@ -1,0 +1,2721 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-cloud-session",
+    "lane": "tool_assisted",
+    "pass": "03.combined_kg"
+  },
+  "probe": "rdmv-ia-c",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "1562efbb7feaac5b1a351e67690d1f9446db8a48e7572e0fcd026a9094af184a",
+    "candidate_lineage_id": "2026-10-28-rdmv-ia-class-c:lineage:77"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-ia-class-c/D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-ia-class-c/16/sec01-drivers-license/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-ia-class-c/D:/nova/fb-ai-hackathon/runs/2026-10-28-rdmv-ia-class-c/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec01-F01",
+      "label": "Permit or license required to drive on Iowa public roads",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F01"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F22",
+          "why": "The threshold rule says any moped driver on public roads needs a permit or license, while the separate fact says moped licenses are their own license type with their own requirements; the two are easy to swap because both mention mopeds.",
+          "fact_ids": [
+            "sec01-F01",
+            "sec01-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F09",
+      "label": "Military vehicles driven on duty need no Iowa license",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F09"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R03",
+          "why": "One fact grants the exemption to service members driving military vehicles while on duty, and the contrast fact narrows it: the same person driving a personal car needs an Iowa credential.",
+          "fact_ids": [
+            "sec01-F09",
+            "sec01-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F10",
+      "label": "Farm machinery exempt within two miles of the home farm",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F10"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R04",
+          "why": "One fact grants the exemption for farm machinery moving between the home farm and nearby land within two miles, and the contrast fact limits it: other farm driving on public roads needs a license.",
+          "fact_ids": [
+            "sec01-F10",
+            "sec01-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F11",
+      "label": "Visitors and students drive on a valid home license",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F11"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R01",
+          "why": "The visitor fact lets visitors and students drive on a valid home license, while the contrast fact says thirty continuous days in Iowa turns that same newcomer into a resident; learners swap the visitor status with the residency clock.",
+          "fact_ids": [
+            "sec01-F11",
+            "sec01-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R03",
+      "label": "Service members in personal cars still need an Iowa credential",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R03"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F09",
+          "why": "One fact grants the exemption to service members driving military vehicles while on duty, and the contrast fact narrows it: the same person driving a personal car needs an Iowa credential.",
+          "fact_ids": [
+            "sec01-R03",
+            "sec01-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R04",
+      "label": "Farm driving beyond the two-mile exemption needs a license",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R04"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F10",
+          "why": "One fact grants the exemption for farm machinery moving between the home farm and nearby land within two miles, and the contrast fact limits it: other farm driving on public roads needs a license.",
+          "fact_ids": [
+            "sec01-R04",
+            "sec01-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F02",
+      "label": "Registering to vote makes you a resident for licensing",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F02"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F08",
+          "why": "Registering to vote is one trigger that makes you a resident, and the companion fact says any single trigger is enough; learners sometimes think voting must be combined with another trigger.",
+          "fact_ids": [
+            "sec01-F02",
+            "sec01-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F03",
+      "label": "Enrolling a child in an Iowa public school makes you a resident",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F03"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F08",
+          "why": "Enrolling a child in an Iowa public school is one residency trigger, and the companion fact says meeting any single trigger is enough; the two are swapped when learners look for extra conditions.",
+          "fact_ids": [
+            "sec01-F03",
+            "sec01-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F04",
+      "label": "A permanent job in Iowa makes you a resident",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F04"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R02",
+          "why": "A permanent job counts you as a resident, and the contrast fact says such a trigger can make you a resident on day one without the thirty-day clock; learners wrongly add a waiting period.",
+          "fact_ids": [
+            "sec01-F04",
+            "sec01-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F05",
+      "label": "Thirty continuous days in Iowa makes you a resident",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F05"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R02",
+          "why": "Living in Iowa without a break for thirty days is one trigger, while the contrast fact says the thirty-day clock is only one of the triggers; learners treat it as the only way to become a resident.",
+          "fact_ids": [
+            "sec01-F05",
+            "sec01-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F06",
+      "label": "Claiming a homestead or military tax exemption makes you a resident",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F06"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R05",
+          "why": "The trigger fact names both the homestead and the military tax exemption, and the contrast fact says they are alternative triggers so claiming either one alone is enough; learners think both are needed.",
+          "fact_ids": [
+            "sec01-F06",
+            "sec01-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F07",
+      "label": "Receiving state public assistance makes you a resident",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F07"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F08",
+          "why": "Getting public assistance from the state is one residency trigger, and the companion fact says any single trigger is enough; learners sometimes expect aid to need another trigger alongside it.",
+          "fact_ids": [
+            "sec01-F07",
+            "sec01-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F08",
+      "label": "Any single residency trigger is enough",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F08"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F02",
+          "why": "Registering to vote is one trigger that makes you a resident, and the companion fact says any single trigger is enough; learners sometimes think voting must be combined with another trigger.",
+          "fact_ids": [
+            "sec01-F08",
+            "sec01-F02"
+          ]
+        },
+        {
+          "other_id": "sec01-F03",
+          "why": "Enrolling a child in an Iowa public school is one residency trigger, and the companion fact says meeting any single trigger is enough; the two are swapped when learners look for extra conditions.",
+          "fact_ids": [
+            "sec01-F08",
+            "sec01-F03"
+          ]
+        },
+        {
+          "other_id": "sec01-F07",
+          "why": "Getting public assistance from the state is one residency trigger, and the companion fact says any single trigger is enough; learners sometimes expect aid to need another trigger alongside it.",
+          "fact_ids": [
+            "sec01-F08",
+            "sec01-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R01",
+      "label": "Newcomer is a visitor until thirty continuous days make a resident",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R01"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F11",
+          "why": "The visitor fact lets visitors and students drive on a valid home license, while the contrast fact says thirty continuous days in Iowa turns that same newcomer into a resident; learners swap the visitor status with the residency clock.",
+          "fact_ids": [
+            "sec01-R01",
+            "sec01-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R02",
+      "label": "Other triggers make you a resident on day one",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R02"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F04",
+          "why": "A permanent job counts you as a resident, and the contrast fact says such a trigger can make you a resident on day one without the thirty-day clock; learners wrongly add a waiting period.",
+          "fact_ids": [
+            "sec01-R02",
+            "sec01-F04"
+          ]
+        },
+        {
+          "other_id": "sec01-F05",
+          "why": "Living in Iowa without a break for thirty days is one trigger, while the contrast fact says the thirty-day clock is only one of the triggers; learners treat it as the only way to become a resident.",
+          "fact_ids": [
+            "sec01-R02",
+            "sec01-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R05",
+      "label": "Either tax exemption alone is enough for residency",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R05"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0004"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F06",
+          "why": "The trigger fact names both the homestead and the military tax exemption, and the contrast fact says they are alternative triggers so claiming either one alone is enough; learners think both are needed.",
+          "fact_ids": [
+            "sec01-R05",
+            "sec01-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F12",
+      "label": "Keep your license or permit with you whenever you drive",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F12"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R08",
+          "why": "The license fact says to keep the license or permit with you every time you drive, and the contrast fact explains the license proves you may drive while registration and insurance prove the vehicle is legal and covered; learners merge the three documents into one.",
+          "fact_ids": [
+            "sec01-F12",
+            "sec01-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F13",
+      "label": "Carry registration proof and a paper or electronic insurance card",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F13"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F14",
+          "why": "One fact lists the registration proof and insurance card that must be kept, and the other states the consequence of missing paperwork, fines and possible impoundment; learners confuse the requirement with the penalty.",
+          "fact_ids": [
+            "sec01-F13",
+            "sec01-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F14",
+      "label": "Missing paperwork can mean fines and impoundment",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F14"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F13",
+          "why": "One fact lists the registration proof and insurance card that must be kept, and the other states the consequence of missing paperwork, fines and possible impoundment; learners confuse the requirement with the penalty.",
+          "fact_ids": [
+            "sec01-F14",
+            "sec01-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R08",
+      "label": "License proves the driver, registration and insurance prove the vehicle",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R08"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F12",
+          "why": "The license fact says to keep the license or permit with you every time you drive, and the contrast fact explains the license proves you may drive while registration and insurance prove the vehicle is legal and covered; learners merge the three documents into one.",
+          "fact_ids": [
+            "sec01-R08",
+            "sec01-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F15",
+      "label": "Every applicant completes a vision screening",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F15"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R07",
+          "why": "The vision fact requires a vision screening at application, and the contrast fact explains the screening is a check completed at application while the knowledge test is an exam that must be passed; learners treat both as exams.",
+          "fact_ids": [
+            "sec01-F15",
+            "sec01-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F16",
+      "label": "Every applicant passes the knowledge test",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F16"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R06",
+          "why": "The knowledge-test fact says every applicant must pass it, and the contrast fact adds that it can never be waived while the driving test drops away once driver education is met; learners think driver education waives both.",
+          "fact_ids": [
+            "sec01-F16",
+            "sec01-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F17",
+      "label": "Drivers under eighteen show a state-approved driver education course",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F17"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R10",
+          "why": "The course fact says drivers younger than eighteen must finish state-approved driver education, and the contrast fact separates that course from the Graduated Driver's License Program named on the same page; learners treat them as one thing.",
+          "fact_ids": [
+            "sec01-F17",
+            "sec01-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F18",
+      "label": "Driving test required unless driver education requirement is satisfied",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F18"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R06",
+          "why": "The driving-test fact says the test is required unless the driver education course requirement is satisfied, and the contrast fact says the knowledge test can never be waived in the same way; learners apply the waiver to the wrong test.",
+          "fact_ids": [
+            "sec01-F18",
+            "sec01-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F20",
+      "label": "Graduated Driver's License Program covers drivers under eighteen",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F20"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R10",
+          "why": "The program fact says drivers under eighteen are covered by the Graduated Driver's License Program, and the contrast fact says driver education is a separate course drivers under eighteen must finish; the two under-eighteen items are easy to swap.",
+          "fact_ids": [
+            "sec01-F20",
+            "sec01-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R06",
+      "label": "Knowledge test never waived, driving test drops with driver education",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R06"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F16",
+          "why": "The knowledge-test fact says every applicant must pass it, and the contrast fact adds that it can never be waived while the driving test drops away once driver education is met; learners think driver education waives both.",
+          "fact_ids": [
+            "sec01-R06",
+            "sec01-F16"
+          ]
+        },
+        {
+          "other_id": "sec01-F18",
+          "why": "The driving-test fact says the test is required unless the driver education course requirement is satisfied, and the contrast fact says the knowledge test can never be waived in the same way; learners apply the waiver to the wrong test.",
+          "fact_ids": [
+            "sec01-R06",
+            "sec01-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R07",
+      "label": "Vision screening is a check, knowledge test is an exam",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R07"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F15",
+          "why": "The vision fact requires a vision screening at application, and the contrast fact explains the screening is a check completed at application while the knowledge test is an exam that must be passed; learners treat both as exams.",
+          "fact_ids": [
+            "sec01-R07",
+            "sec01-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R10",
+      "label": "Driver education course differs from the Graduated Driver's License Program",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R10"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F17",
+          "why": "The course fact says drivers younger than eighteen must finish state-approved driver education, and the contrast fact separates that course from the Graduated Driver's License Program named on the same page; learners treat them as one thing.",
+          "fact_ids": [
+            "sec01-R10",
+            "sec01-F17"
+          ]
+        },
+        {
+          "other_id": "sec01-F20",
+          "why": "The program fact says drivers under eighteen are covered by the Graduated Driver's License Program, and the contrast fact says driver education is a separate course drivers under eighteen must finish; the two under-eighteen items are easy to swap.",
+          "fact_ids": [
+            "sec01-R10",
+            "sec01-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F19",
+      "label": "Iowa DOT publishes an online practice test for the knowledge test",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F19"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R09",
+          "why": "The practice-test fact says the online practice test helps you study, and the contrast fact says it only prepares you while Skip the Trip is a way to sit the knowledge test at home or school; learners think the practice test counts as the test.",
+          "fact_ids": [
+            "sec01-F19",
+            "sec01-R09"
+          ]
+        },
+        {
+          "other_id": "sec01-F23",
+          "why": "Both facts point to the DOT website, but one is about the online practice test for studying and the other is about when and how to renew a license; learners mix up which website item does what.",
+          "fact_ids": [
+            "sec01-F19",
+            "sec01-F23"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F21",
+      "label": "Skip the Trip lets you take the knowledge test at home or school",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F21"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-R09",
+          "why": "The Skip the Trip fact says you can take the knowledge test at home or school, and the contrast fact separates that from the online practice test that only prepares you; the two online options are easy to swap.",
+          "fact_ids": [
+            "sec01-F21",
+            "sec01-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F22",
+      "label": "Moped and commercial licenses are separate license types",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F22"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F01",
+          "why": "The threshold rule says any moped driver on public roads needs a permit or license, while the separate fact says moped licenses are their own license type with their own requirements; the two are easy to swap because both mention mopeds.",
+          "fact_ids": [
+            "sec01-F22",
+            "sec01-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-F23",
+      "label": "Renewal timing and steps are on the DOT website",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-F23"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F19",
+          "why": "Both facts point to the DOT website, but one is about the online practice test for studying and the other is about when and how to renew a license; learners mix up which website item does what.",
+          "fact_ids": [
+            "sec01-F23",
+            "sec01-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec01-R09",
+      "label": "Practice test prepares you, Skip the Trip sits the test",
+      "domain": "Your Driver's License",
+      "module_id": "sec01-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec01-R09"
+      ],
+      "source_ref": {
+        "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0005"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec01-F19",
+          "why": "The practice-test fact says the online practice test helps you study, and the contrast fact says it only prepares you while Skip the Trip is a way to sit the knowledge test at home or school; learners think the practice test counts as the test.",
+          "fact_ids": [
+            "sec01-R09",
+            "sec01-F19"
+          ]
+        },
+        {
+          "other_id": "sec01-F21",
+          "why": "The Skip the Trip fact says you can take the knowledge test at home or school, and the contrast fact separates that from the online practice test that only prepares you; the two online options are easy to swap.",
+          "fact_ids": [
+            "sec01-R09",
+            "sec01-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec01-F01",
+      "to": "sec01-F09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F01",
+      "to": "sec01-F10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F01",
+      "to": "sec01-F11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F09",
+      "to": "sec01-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F10",
+      "to": "sec01-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F11",
+      "to": "sec01-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F02",
+      "to": "sec01-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F03",
+      "to": "sec01-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F04",
+      "to": "sec01-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F05",
+      "to": "sec01-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F06",
+      "to": "sec01-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F07",
+      "to": "sec01-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F05",
+      "to": "sec01-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F08",
+      "to": "sec01-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F06",
+      "to": "sec01-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F12",
+      "to": "sec01-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F13",
+      "to": "sec01-F14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F13",
+      "to": "sec01-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F15",
+      "to": "sec01-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F16",
+      "to": "sec01-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F16",
+      "to": "sec01-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F17",
+      "to": "sec01-F18",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F18",
+      "to": "sec01-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F17",
+      "to": "sec01-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F20",
+      "to": "sec01-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F16",
+      "to": "sec01-F19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F19",
+      "to": "sec01-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F21",
+      "to": "sec01-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F01",
+      "to": "sec01-F22",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F01",
+      "to": "sec01-F22",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F09",
+      "to": "sec01-R03",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F10",
+      "to": "sec01-R04",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F11",
+      "to": "sec01-R01",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F02",
+      "to": "sec01-F08",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F03",
+      "to": "sec01-F08",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F04",
+      "to": "sec01-R02",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F05",
+      "to": "sec01-R02",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F06",
+      "to": "sec01-R05",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F07",
+      "to": "sec01-F08",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F12",
+      "to": "sec01-R08",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F13",
+      "to": "sec01-F14",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F15",
+      "to": "sec01-R07",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F16",
+      "to": "sec01-R06",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F17",
+      "to": "sec01-R10",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F18",
+      "to": "sec01-R06",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F20",
+      "to": "sec01-R10",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F19",
+      "to": "sec01-R09",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F19",
+      "to": "sec01-F23",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec01-F21",
+      "to": "sec01-R09",
+      "type": "easily_confused",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec01-m01",
+      "title": "Who needs an Iowa license",
+      "domain": "Your Driver's License",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 20,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec01-F01",
+        "sec01-F09",
+        "sec01-F10",
+        "sec01-F11",
+        "sec01-R03",
+        "sec01-R04"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m02",
+      "title": "Residency triggers for licensing",
+      "domain": "Your Driver's License",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 32.3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec01-F02",
+        "sec01-F03",
+        "sec01-F04",
+        "sec01-F05",
+        "sec01-F06",
+        "sec01-F07",
+        "sec01-F08",
+        "sec01-R01",
+        "sec01-R02",
+        "sec01-R05"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m03",
+      "title": "Carry license, registration and insurance",
+      "domain": "Your Driver's License",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 13.8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec01-F12",
+        "sec01-F13",
+        "sec01-F14",
+        "sec01-R08"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m04",
+      "title": "Screenings and tests to get licensed",
+      "domain": "Your Driver's License",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 21.5,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec01-F15",
+        "sec01-F16",
+        "sec01-F17",
+        "sec01-F18",
+        "sec01-F20",
+        "sec01-R06",
+        "sec01-R07",
+        "sec01-R10"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m05",
+      "title": "Practice test, Skip the Trip and website help",
+      "domain": "Your Driver's License",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 12.3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "sec01-F19",
+        "sec01-F21",
+        "sec01-F22",
+        "sec01-F23",
+        "sec01-R09"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec01-m01",
+      "unit_id": "sec01-u01",
+      "node_ids": [
+        "sec01-F01",
+        "sec01-F09",
+        "sec01-F10",
+        "sec01-F11",
+        "sec01-R03",
+        "sec01-R04"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "start with the threshold rule that every driver on public roads needs a permit or license, then walk the three exemptions and their limits",
+      "flashcard_strategy": "one-fact cards on the threshold rule, each exemption, and the limit of each exemption",
+      "quiz_strategy": "module quiz on who needs a license and exactly when the military, farm and visitor exemptions apply",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m02",
+      "unit_id": "sec01-u02",
+      "node_ids": [
+        "sec01-F02",
+        "sec01-F03",
+        "sec01-F04",
+        "sec01-F05",
+        "sec01-F06",
+        "sec01-F07",
+        "sec01-F08",
+        "sec01-R01",
+        "sec01-R02",
+        "sec01-R05"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the six residency triggers one at a time, then the rule that any single trigger is enough, then the visitor-versus-resident contrast",
+      "flashcard_strategy": "one-fact cards per trigger plus cards on the any-one-trigger rule and the thirty-day contrast",
+      "quiz_strategy": "module quiz on which actions make you a resident and whether the thirty-day clock must run first",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m03",
+      "unit_id": "sec01-u03",
+      "node_ids": [
+        "sec01-F12",
+        "sec01-F13",
+        "sec01-F14",
+        "sec01-R08"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the three documents that ride along, what each proves, and the fines and impoundment risk when one is missing",
+      "flashcard_strategy": "one-fact cards on carrying the license, carrying registration and insurance proof, the penalty, and what each document proves",
+      "quiz_strategy": "module quiz on which documents must be in the vehicle and what missing paperwork can cost",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m04",
+      "unit_id": "sec01-u04",
+      "node_ids": [
+        "sec01-F15",
+        "sec01-F16",
+        "sec01-F17",
+        "sec01-F18",
+        "sec01-F20",
+        "sec01-R06",
+        "sec01-R07",
+        "sec01-R10"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the vision screening and knowledge test every applicant faces, then the under-eighteen driver education rule, then when the driving test drops away",
+      "flashcard_strategy": "one-fact cards on each screening or test, the under-eighteen course rule, the Graduated Driver's License Program, and the contrasts between them",
+      "quiz_strategy": "module quiz on which screening and tests are required and which one is waived by driver education",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec01-m05",
+      "unit_id": "sec01-u05",
+      "node_ids": [
+        "sec01-F19",
+        "sec01-F21",
+        "sec01-F22",
+        "sec01-F23",
+        "sec01-R09"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the study and testing options the DOT website offers, then the other license types and renewal pointers it holds",
+      "flashcard_strategy": "one-fact cards on the practice test, Skip the Trip, separate license types, renewal, and the practice-versus-real-sitting contrast",
+      "quiz_strategy": "module quiz on what each website option does and which one actually counts as taking the knowledge test",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec01-F01",
+    "sec01-F09",
+    "sec01-F10",
+    "sec01-F11",
+    "sec01-R03",
+    "sec01-R04",
+    "sec01-F02",
+    "sec01-F03",
+    "sec01-F04",
+    "sec01-F05",
+    "sec01-F06",
+    "sec01-F07",
+    "sec01-F08",
+    "sec01-R01",
+    "sec01-R02",
+    "sec01-R05",
+    "sec01-F12",
+    "sec01-F13",
+    "sec01-F14",
+    "sec01-R08",
+    "sec01-F15",
+    "sec01-F16",
+    "sec01-F17",
+    "sec01-F18",
+    "sec01-F20",
+    "sec01-R06",
+    "sec01-R07",
+    "sec01-R10",
+    "sec01-F19",
+    "sec01-F21",
+    "sec01-F22",
+    "sec01-F23",
+    "sec01-R09"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "topological prerequisite order; module order and handbook order break ties; dynamic nodes never on the path"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 33,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "rule",
+          "definition": "one accepted page-sourced handbook fact"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "learn the from-fact before the to-fact"
+        },
+        {
+          "type": "easily_confused",
+          "directed": false,
+          "acyclic": false,
+          "definition": "pair of facts learners commonly swap"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec01-F01",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "Who needs an Iowa license"
+        },
+        {
+          "concept_id": "sec01-F09",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "Who needs an Iowa license"
+        },
+        {
+          "concept_id": "sec01-F10",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "Who needs an Iowa license"
+        },
+        {
+          "concept_id": "sec01-F11",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "Who needs an Iowa license"
+        },
+        {
+          "concept_id": "sec01-R03",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "Who needs an Iowa license"
+        },
+        {
+          "concept_id": "sec01-R04",
+          "module_id": "sec01-m01",
+          "ambiguous": false,
+          "resolution": "Who needs an Iowa license"
+        },
+        {
+          "concept_id": "sec01-F02",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-F03",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-F04",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-F05",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-F06",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-F07",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-F08",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-R01",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-R02",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-R05",
+          "module_id": "sec01-m02",
+          "ambiguous": false,
+          "resolution": "Residency triggers for licensing"
+        },
+        {
+          "concept_id": "sec01-F12",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "Carry license, registration and insurance"
+        },
+        {
+          "concept_id": "sec01-F13",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "Carry license, registration and insurance"
+        },
+        {
+          "concept_id": "sec01-F14",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "Carry license, registration and insurance"
+        },
+        {
+          "concept_id": "sec01-R08",
+          "module_id": "sec01-m03",
+          "ambiguous": false,
+          "resolution": "Carry license, registration and insurance"
+        },
+        {
+          "concept_id": "sec01-F15",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "Screenings and tests to get licensed"
+        },
+        {
+          "concept_id": "sec01-F16",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "Screenings and tests to get licensed"
+        },
+        {
+          "concept_id": "sec01-F17",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "Screenings and tests to get licensed"
+        },
+        {
+          "concept_id": "sec01-F18",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "Screenings and tests to get licensed"
+        },
+        {
+          "concept_id": "sec01-F20",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "Screenings and tests to get licensed"
+        },
+        {
+          "concept_id": "sec01-R06",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "Screenings and tests to get licensed"
+        },
+        {
+          "concept_id": "sec01-R07",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "Screenings and tests to get licensed"
+        },
+        {
+          "concept_id": "sec01-R10",
+          "module_id": "sec01-m04",
+          "ambiguous": false,
+          "resolution": "Screenings and tests to get licensed"
+        },
+        {
+          "concept_id": "sec01-F19",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "Practice test, Skip the Trip and website help"
+        },
+        {
+          "concept_id": "sec01-F21",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "Practice test, Skip the Trip and website help"
+        },
+        {
+          "concept_id": "sec01-F22",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "Practice test, Skip the Trip and website help"
+        },
+        {
+          "concept_id": "sec01-F23",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "Practice test, Skip the Trip and website help"
+        },
+        {
+          "concept_id": "sec01-R09",
+          "module_id": "sec01-m05",
+          "ambiguous": false,
+          "resolution": "Practice test, Skip the Trip and website help"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec01-F01",
+          "to": "sec01-F09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F01",
+          "to": "sec01-F10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F01",
+          "to": "sec01-F11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F09",
+          "to": "sec01-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F10",
+          "to": "sec01-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F11",
+          "to": "sec01-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F02",
+          "to": "sec01-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F03",
+          "to": "sec01-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F04",
+          "to": "sec01-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F05",
+          "to": "sec01-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F06",
+          "to": "sec01-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F07",
+          "to": "sec01-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F05",
+          "to": "sec01-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F08",
+          "to": "sec01-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F06",
+          "to": "sec01-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F12",
+          "to": "sec01-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F13",
+          "to": "sec01-F14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F13",
+          "to": "sec01-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F15",
+          "to": "sec01-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F16",
+          "to": "sec01-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F16",
+          "to": "sec01-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F17",
+          "to": "sec01-F18",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F18",
+          "to": "sec01-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F17",
+          "to": "sec01-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F20",
+          "to": "sec01-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F16",
+          "to": "sec01-F19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F19",
+          "to": "sec01-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F21",
+          "to": "sec01-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F01",
+          "to": "sec01-F22",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F01",
+          "to": "sec01-F22",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F09",
+          "to": "sec01-R03",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F10",
+          "to": "sec01-R04",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F11",
+          "to": "sec01-R01",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F02",
+          "to": "sec01-F08",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F03",
+          "to": "sec01-F08",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F04",
+          "to": "sec01-R02",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F05",
+          "to": "sec01-R02",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F06",
+          "to": "sec01-R05",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F07",
+          "to": "sec01-F08",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F12",
+          "to": "sec01-R08",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F13",
+          "to": "sec01-F14",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F15",
+          "to": "sec01-R07",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F16",
+          "to": "sec01-R06",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F17",
+          "to": "sec01-R10",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F18",
+          "to": "sec01-R06",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F20",
+          "to": "sec01-R10",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F19",
+          "to": "sec01-R09",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F19",
+          "to": "sec01-F23",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec01-F21",
+          "to": "sec01-R09",
+          "type": "easily_confused",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Your Driver's License",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "topological prerequisite order, then module order and handbook order; dynamic excluded",
+        "module_order": [
+          "sec01-m01",
+          "sec01-m02",
+          "sec01-m03",
+          "sec01-m04",
+          "sec01-m05"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

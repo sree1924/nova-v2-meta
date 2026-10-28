@@ -155,3 +155,21 @@ Seeded 2026-10-28T07:01:29.980Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:38:32.836Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:76 for 02.dossier_sections (sec17-emergencies-crashes-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-emergencies-crashes-law-enforcement__E__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:39:24.500Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:77 for 02.dossier_sections (sec17-emergencies-crashes-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-emergencies-crashes-law-enforcement__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T20:40:16.789Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:78 for 03.combined_kg (sec03-regulatory-warning-signs) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-regulatory-warning-signs__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T20:52:03.735Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:79 for 03.combined_kg (sec05-lane-use-markings) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-lane-use-markings__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T21:03:12.164Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:80 for 03.combined_kg (sec07-parking-move-over-clear-it) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-parking-move-over-clear-it__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T21:10:52.761Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:81 for 03.combined_kg (sec09-driver-assistance-systems) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-driver-assistance-systems__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T21:20:30.805Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:82 for 03.combined_kg (sec11-impairment-trip-planning) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-impairment-trip-planning__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T21:20:47.883Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:83 for 03.combined_kg (sec13-turning-lanes-passing) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-turning-lanes-passing__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T21:28:01.843Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:84 for 03.combined_kg (sec15-highways-interchanges-roundabouts) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec15-highways-interchanges-roundabouts__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T21:32:59.884Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:85 for 03.combined_kg (sec17-emergencies-crashes-law-enforcement) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec17-emergencies-crashes-law-enforcement__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T21:36:00Z cloud session note (Claude, downstream 03/04/06/05.sessions/05.card_scripts, file transport, $0): the belt and extractor expect Windows paths (`D:\nova\fb-ai-hackathon\...`, `C:\Users\varad\...\python.exe`); this session satisfied them with local-only symlinks listed in .git/info/exclude (never committed). Private sources were rebuilt byte-exact only after pinning pypdf 6.10.0 and pdfplumber 0.11.9 (pypdf 6.17 mismatched 3 of 68 page-text hashes). Scratch generators and section specs lived in /tmp/ia-ds, outside the repo.
