@@ -1,0 +1,247 @@
+{
+  "status": "PASS",
+  "stage_id": "04.cards",
+  "checks": [
+    {
+      "check_id": "04.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/04-carddeck.schema.json"
+    },
+    {
+      "check_id": "04.STRING_BOUNDS",
+      "status": "PASS",
+      "evidence": "probe slug, hashes, non-empty strings, intro_order>=0, exam_weight>=0, recap_hooks>=1 hold over 61 cards / 8 recaps",
+      "metrics": {
+        "violations": 0
+      }
+    },
+    {
+      "check_id": "04.CARD_IDS",
+      "status": "PASS",
+      "evidence": "61 unique card_ids; intro_order unique within each of 8 decks",
+      "metrics": {
+        "duplicate_card_ids": 0,
+        "duplicate_intro_orders": 0
+      }
+    },
+    {
+      "check_id": "04.MERGES",
+      "status": "PASS",
+      "evidence": "1 recorded merge(s) well-formed",
+      "metrics": {
+        "merges": 1
+      }
+    },
+    {
+      "check_id": "04.EXAM_WEIGHT_STATUS",
+      "status": "PASS",
+      "evidence": "official exam_weight honest on 8 decks (verified 0, unknown 8); 8 authored emphasis value(s) labelled product policy, never promoted to official",
+      "metrics": {
+        "verified": 0,
+        "unknown": 8,
+        "emphasis_values": 8
+      }
+    },
+    {
+      "check_id": "04.SRS_POLICY",
+      "status": "PASS",
+      "evidence": "61/61 cards tier == f(difficulty, high_yield); 25 high-yield cards tightened | learning_loop_ref null: tiers follow the adapter-bound product policy only",
+      "metrics": {
+        "mismatches": 0,
+        "high_yield_tightened": 25
+      }
+    },
+    {
+      "check_id": "04.BACK_SPOKEN_FORM",
+      "status": "PASS",
+      "evidence": "138 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+      "metrics": {
+        "violating_fields": 0,
+        "fields_checked": 138
+      }
+    },
+    {
+      "check_id": "04.HOOK_LENGTH",
+      "status": "PASS",
+      "evidence": "61 hooks within 1..6 words (max 5)",
+      "metrics": {
+        "over_limit": 0,
+        "max_words": 5
+      }
+    },
+    {
+      "check_id": "04.HOOK_ORIGIN",
+      "status": "PASS",
+      "evidence": "hook_origin consistent with Blueprint mnemonics on 61 cards",
+      "metrics": {
+        "sme-carried": 0,
+        "sme-adapted": 0,
+        "minted": 61
+      }
+    },
+    {
+      "check_id": "04.FACT_IDS",
+      "status": "PASS",
+      "evidence": "every card/recap hook carries >=1 unique fact id; all resolve in context.fact_registry",
+      "metrics": {
+        "defects": 0,
+        "unresolved_in_registry": 0
+      }
+    },
+    {
+      "check_id": "04.BACK_FIDELITY",
+      "status": "PASS",
+      "evidence": "61/61 backs byte-equal to accepted (spoken_)statement or accepted component",
+      "metrics": {
+        "exact": 61,
+        "drift": 0
+      }
+    },
+    {
+      "check_id": "04.ATOMIC_CLUSTER",
+      "status": "PASS",
+      "evidence": "0 cluster(s) valid (one umbrella, atomics share node+source_ref, atomic backs verbatim)",
+      "metrics": {
+        "clusters": 0,
+        "defects": 0,
+        "unverified_atomics": 0
+      }
+    },
+    {
+      "check_id": "04.DUPLICATE_BACKS",
+      "status": "PASS",
+      "evidence": "61 backs distinct after NFKC/lowercase/punctuation normalization",
+      "metrics": {
+        "duplicate_groups": 0,
+        "cards_in_duplicates": 0
+      }
+    },
+    {
+      "check_id": "04.PAGE_CITATIONS",
+      "status": "PASS",
+      "evidence": "61/61 cards cite a pdf_page or printed_page",
+      "metrics": {
+        "cited": 61,
+        "open_debt": 0,
+        "uncited": 0
+      }
+    },
+    {
+      "check_id": "04.PAGE_RESOLUTION",
+      "status": "PASS",
+      "evidence": "61 cited page(s) resolve in context.page_map",
+      "metrics": {
+        "resolved": 61,
+        "unresolved": 0
+      }
+    },
+    {
+      "check_id": "04.LEARNER_SCAFFOLD",
+      "status": "PASS",
+      "evidence": "no \"(verify\", needs_review, flag-as, MOD- code, bare module id, Q:/A: label or doubled article in front/back/hook/recap fields",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "04.MEDIA_DISPOSITION",
+      "status": "PASS",
+      "evidence": "sentinel deferred:not_applicable_pilot bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (image_cards_enabled false, image-scout non-applicability listed); no deictic visual references",
+      "metrics": {
+        "deictic_cards": 0
+      }
+    },
+    {
+      "check_id": "04.RECAP_PER_DECK",
+      "status": "PASS",
+      "evidence": "8 decks, one recap each",
+      "metrics": {
+        "decks": 8,
+        "recaps": 8
+      }
+    },
+    {
+      "check_id": "04.DECKS_MIRROR_KG",
+      "status": "PASS",
+      "evidence": "8 decks mirror KG modules in order; 62 nodes carded or merged; dynamic flags match KG",
+      "metrics": {
+        "kg_nodes": 62,
+        "dropped": 0
+      }
+    },
+    {
+      "check_id": "04.ORIGINALITY",
+      "status": "PASS",
+      "evidence": "138 learner fields; longest contiguous source overlap 9 words (<= 12) at sec01-card-sec01-F17.front",
+      "metrics": {
+        "longest_overlap_words": 9,
+        "longest_at": "sec01-card-sec01-F17.front",
+        "source_tokens": 63334
+      }
+    },
+    {
+      "check_id": "04.INPUT_BINDING",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 equals scoped manifest 268e872406951fdc97163b0ee3af2648b93af89be6aefefdc8a5a287bec42046"
+    },
+    {
+      "check_id": "04.VERIFICATION_DEBT",
+      "status": "PASS",
+      "evidence": "no open verification debt",
+      "metrics": {
+        "open_debt": 0
+      }
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d",
+    "04.STRING_BOUNDS.violations": 0,
+    "04.CARD_IDS.duplicate_card_ids": 0,
+    "04.CARD_IDS.duplicate_intro_orders": 0,
+    "04.MERGES.merges": 1,
+    "04.EXAM_WEIGHT_STATUS.verified": 0,
+    "04.EXAM_WEIGHT_STATUS.unknown": 8,
+    "04.EXAM_WEIGHT_STATUS.emphasis_values": 8,
+    "04.SRS_POLICY.mismatches": 0,
+    "04.SRS_POLICY.high_yield_tightened": 25,
+    "04.BACK_SPOKEN_FORM.violating_fields": 0,
+    "04.BACK_SPOKEN_FORM.fields_checked": 138,
+    "04.HOOK_LENGTH.over_limit": 0,
+    "04.HOOK_LENGTH.max_words": 5,
+    "04.HOOK_ORIGIN.sme-carried": 0,
+    "04.HOOK_ORIGIN.sme-adapted": 0,
+    "04.HOOK_ORIGIN.minted": 61,
+    "04.FACT_IDS.defects": 0,
+    "04.FACT_IDS.unresolved_in_registry": 0,
+    "04.BACK_FIDELITY.exact": 61,
+    "04.BACK_FIDELITY.drift": 0,
+    "04.ATOMIC_CLUSTER.clusters": 0,
+    "04.ATOMIC_CLUSTER.defects": 0,
+    "04.ATOMIC_CLUSTER.unverified_atomics": 0,
+    "04.DUPLICATE_BACKS.duplicate_groups": 0,
+    "04.DUPLICATE_BACKS.cards_in_duplicates": 0,
+    "04.PAGE_CITATIONS.cited": 61,
+    "04.PAGE_CITATIONS.open_debt": 0,
+    "04.PAGE_CITATIONS.uncited": 0,
+    "04.PAGE_RESOLUTION.resolved": 61,
+    "04.PAGE_RESOLUTION.unresolved": 0,
+    "04.LEARNER_SCAFFOLD.hits": 0,
+    "04.MEDIA_DISPOSITION.deictic_cards": 0,
+    "04.RECAP_PER_DECK.decks": 8,
+    "04.RECAP_PER_DECK.recaps": 8,
+    "04.DECKS_MIRROR_KG.kg_nodes": 62,
+    "04.DECKS_MIRROR_KG.dropped": 0,
+    "04.ORIGINALITY.longest_overlap_words": 9,
+    "04.ORIGINALITY.longest_at": "sec01-card-sec01-F17.front",
+    "04.ORIGINALITY.source_tokens": 63334,
+    "04.VERIFICATION_DEBT.open_debt": 0,
+    "required_checks": 22,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "05ea2cda73ec1945f07eb00d9a250a09c420abb12a4796d293b84ecb4fb352a1",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

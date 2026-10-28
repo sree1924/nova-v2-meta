@@ -133,3 +133,9 @@ Seeded 2026-10-28T03:26:23.541Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T04:54:08.852Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:65 for 03.combined_kg (sec05-distracted-driving-seat-belts-children) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-distracted-driving-seat-belts-children__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T05:07:33.986Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:66 for 03.combined_kg (sec07-right-of-way-passing) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-right-of-way-passing__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:28:37.803Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:67 for 04.cards (sec08-lanes-turning-roundabouts) under standing authority; cause: proactive reset before authoring packet 04.cards__sec08-lanes-turning-roundabouts__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:43:46.347Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:68 for 04.cards (sec10-traffic-signs) under standing authority; cause: proactive reset before authoring packet 04.cards__sec10-traffic-signs__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:00:30.019Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:69 for 04.cards (sec12-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 04.cards__sec12-sharing-the-road__-__n0 (lineage attempts exhausted)

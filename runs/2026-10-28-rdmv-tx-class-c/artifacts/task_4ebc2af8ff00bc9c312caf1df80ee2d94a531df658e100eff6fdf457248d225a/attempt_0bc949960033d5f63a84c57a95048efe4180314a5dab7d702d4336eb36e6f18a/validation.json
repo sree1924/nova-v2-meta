@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "stage_id": "05.sessions",
+  "checks": [
+    {
+      "check_id": "05.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/05b-session-scripts.schema.json"
+    },
+    {
+      "check_id": "05.ROOT_BOUNDS",
+      "status": "PASS",
+      "evidence": "root hashes are 64-hex, lineage id present, 4 unit(s)",
+      "metrics": {
+        "violations": 0,
+        "units": 4
+      }
+    },
+    {
+      "check_id": "05.INPUT_BINDING",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 and source_registry_sha256 equal the scoped context hashes"
+    },
+    {
+      "check_id": "05.STRING_BOUNDS",
+      "status": "PASS",
+      "evidence": "175 spans and all ids non-empty",
+      "metrics": {
+        "violations": 0,
+        "spans": 175
+      }
+    },
+    {
+      "check_id": "05.UNIQUE_ITEMS",
+      "status": "PASS",
+      "evidence": "objective_ids and every span's fact_ids are non-empty and unique; 4 unit ids, 27 slide ids unique",
+      "metrics": {
+        "violations": 0
+      }
+    },
+    {
+      "check_id": "05.FACT_RESOLUTION",
+      "status": "PASS",
+      "evidence": "453/453 span fact references resolve to accepted publishable facts (ratio 1); source entailment is NOT checked here",
+      "metrics": {
+        "references": 453,
+        "resolved": 453,
+        "ratio": 1
+      }
+    },
+    {
+      "check_id": "05.SLIDE_COUNT",
+      "status": "PASS",
+      "evidence": "slide counts 7,7,7,6 within 6..8",
+      "metrics": {
+        "failing_units": 0
+      }
+    },
+    {
+      "check_id": "05.SLIDE_ARC",
+      "status": "PASS",
+      "evidence": "4 unit(s): opening first, close last, >=1 trap/bridge and >=1 self_check each",
+      "metrics": {
+        "trap_or_bridge_slides": 4,
+        "self_check_slides": 4
+      }
+    },
+    {
+      "check_id": "05.SLIDE_LINES",
+      "status": "PASS",
+      "evidence": "every slide has 1..4 lines; every concept slide 2..4",
+      "metrics": {
+        "violations": 0
+      }
+    },
+    {
+      "check_id": "05.WORD_LIMITS",
+      "status": "PASS",
+      "evidence": "titles <= 6 words (max 5); lines <= 15 words (max 8)",
+      "metrics": {
+        "max_title_words": 5,
+        "max_line_words": 8
+      }
+    },
+    {
+      "check_id": "05.NARRATION_DEPTH",
+      "status": "PASS",
+      "evidence": "per-unit average narration 547.9,549.9,545.4,559.2 chars (>= 400)",
+      "metrics": {
+        "min_unit_avg_chars": 545.4
+      }
+    },
+    {
+      "check_id": "05.NARRATION_SECONDS",
+      "status": "PASS",
+      "evidence": "every estimated_narration_seconds in 30..60 (text-cadence estimate; no audio or playback claim)",
+      "metrics": {
+        "violations": 0
+      }
+    },
+    {
+      "check_id": "05.UNIFORM_VECTOR",
+      "status": "PASS",
+      "evidence": "slide-count vector [7,7,7,6] is not uniform",
+      "metrics": {
+        "comparison": "varied",
+        "vector": "7,7,7,6"
+      }
+    },
+    {
+      "check_id": "05.DECOMPRESSION_FIELDS",
+      "status": "PASS",
+      "evidence": "every unit populates why_how (8), worked example (4), misconception/correction (4), memory support (4), self-check (4)",
+      "metrics": {
+        "why_how": 8,
+        "worked_examples": 4,
+        "misconception_corrections": 4,
+        "memory_supports": 4,
+        "self_checks": 4
+      }
+    },
+    {
+      "check_id": "05.SELF_CHECK_ALIGNED",
+      "status": "PASS",
+      "evidence": "each self_check answer shares facts with its prompt, tests taught facts and is carried by a self_check slide",
+      "metrics": {
+        "misaligned_units": 0
+      }
+    },
+    {
+      "check_id": "05.SELF_CHECK_ORIGINALITY",
+      "status": "PASS",
+      "evidence": "no self-check prompt/line equals any of 21 accepted exam stems (normalized)",
+      "metrics": {
+        "verbatim_hits": 0
+      }
+    },
+    {
+      "check_id": "05.MISCONCEPTION_LABELLED",
+      "status": "PASS",
+      "evidence": "every misconception claim carries an explicit label (\\b(misconception|myth|common mistake|mistaken|wrong|incorrec…); correction fact ids covered by 05.FACT_RESOLUTION",
+      "metrics": {
+        "unlabelled": 0
+      }
+    },
+    {
+      "check_id": "05.LEARNER_TRACE_LEAK",
+      "status": "PASS",
+      "evidence": "175 learner spans free of \"(verify\", QA scaffold, doubled article, trace metadata and internal ids",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "05.STAGE_DIRECTIONS",
+      "status": "PASS",
+      "evidence": "no narrated pause/beat/timed-silence/ellipsis direction and no request to speak",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "05.TITLED_PROMISE",
+      "status": "PASS",
+      "evidence": "no countable promise (\"Top N\", \"All N\", \"N rules…\") in any title",
+      "metrics": {
+        "promises": 0
+      }
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "2457854f6f129e80be4465ac7a132295fd34e83425378365a4f491704aa88e41",
+    "05.ROOT_BOUNDS.violations": 0,
+    "05.ROOT_BOUNDS.units": 4,
+    "05.STRING_BOUNDS.violations": 0,
+    "05.STRING_BOUNDS.spans": 175,
+    "05.UNIQUE_ITEMS.violations": 0,
+    "05.FACT_RESOLUTION.references": 453,
+    "05.FACT_RESOLUTION.resolved": 453,
+    "05.FACT_RESOLUTION.ratio": 1,
+    "05.SLIDE_COUNT.failing_units": 0,
+    "05.SLIDE_ARC.trap_or_bridge_slides": 4,
+    "05.SLIDE_ARC.self_check_slides": 4,
+    "05.SLIDE_LINES.violations": 0,
+    "05.WORD_LIMITS.max_title_words": 5,
+    "05.WORD_LIMITS.max_line_words": 8,
+    "05.NARRATION_DEPTH.min_unit_avg_chars": 545.4,
+    "05.NARRATION_SECONDS.violations": 0,
+    "05.UNIFORM_VECTOR.comparison": "varied",
+    "05.UNIFORM_VECTOR.vector": "7,7,7,6",
+    "05.DECOMPRESSION_FIELDS.why_how": 8,
+    "05.DECOMPRESSION_FIELDS.worked_examples": 4,
+    "05.DECOMPRESSION_FIELDS.misconception_corrections": 4,
+    "05.DECOMPRESSION_FIELDS.memory_supports": 4,
+    "05.DECOMPRESSION_FIELDS.self_checks": 4,
+    "05.SELF_CHECK_ALIGNED.misaligned_units": 0,
+    "05.SELF_CHECK_ORIGINALITY.verbatim_hits": 0,
+    "05.MISCONCEPTION_LABELLED.unlabelled": 0,
+    "05.LEARNER_TRACE_LEAK.hits": 0,
+    "05.STAGE_DIRECTIONS.hits": 0,
+    "05.TITLED_PROMISE.promises": 0,
+    "required_checks": 20,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "7fec77d5f663920788e41debc0105313142c0cac854390934a9c6a5821684366",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

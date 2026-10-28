@@ -1,0 +1,3159 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-co-class-std",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "a707f8af48ec0c7ad3489392172dd0f44371766bccf7d641bf3552c5002365c7",
+    "candidate_lineage_id": "2026-10-28-rdmv-co-class-std:lineage:68"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-co-class-std/16/sec02-license-loss-seat-belts-impaired-driving/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-co-class-std/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec02-F01",
+      "label": "Unpaid child support",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F01"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F02",
+          "why": "Both are non-driving-behavior grounds for losing the privilege: sec02-F01 is unpaid court-ordered child support, sec02-F02 is failing to show proof of insurance when an officer asks.",
+          "fact_ids": [
+            "sec02-F01",
+            "sec02-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F02",
+      "label": "Proof of insurance",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F02"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F01",
+          "why": "Both are non-driving-behavior grounds for losing the privilege: sec02-F01 is unpaid court-ordered child support, sec02-F02 is failing to show proof of insurance when an officer asks.",
+          "fact_ids": [
+            "sec02-F02",
+            "sec02-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F03",
+      "label": "Under-twenty-one alcohol conviction",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F03"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F28",
+          "why": "sec02-F03 says an under-twenty-one alcohol purchase or possession conviction can cost the privilege; sec02-F28 adds that this applies even when no driving was involved.",
+          "fact_ids": [
+            "sec02-F03",
+            "sec02-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F04",
+      "label": "Who must wear a seat belt",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F04"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F12",
+          "why": "sec02-F04 requires belts for the driver, front-seat riders and children under sixteen; sec02-F12 extends it to every passenger when the driver is under eighteen.",
+          "fact_ids": [
+            "sec02-F04",
+            "sec02-F12"
+          ]
+        },
+        {
+          "other_id": "sec02-F05",
+          "why": "sec02-R03 contrasts sec02-F04 with sec02-F05: Seat belts are required for the driver, front-seat passengers and children under 16, but delivery-van drivers are exempt only while on the job.",
+          "fact_ids": [
+            "sec02-F04",
+            "sec02-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F05",
+      "label": "Seat belt exceptions",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F05"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F04",
+          "why": "sec02-R03 contrasts sec02-F05 with sec02-F04: Seat belts are required for the driver, front-seat passengers and children under 16, but delivery-van drivers are exempt only while on the job.",
+          "fact_ids": [
+            "sec02-F05",
+            "sec02-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F06",
+      "label": "Driver secures children",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F06"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F12",
+          "why": "sec02-F06 makes the driver responsible for children when no parent is present; sec02-F12 sets the belt and passenger-count rule when the driver is under eighteen.",
+          "fact_ids": [
+            "sec02-F06",
+            "sec02-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F07",
+      "label": "Under two and under forty pounds",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F07"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F08",
+          "why": "sec02-R04 contrasts sec02-F07 with sec02-F08: The rear-facing rule for a child under 2 turns on weight: under 40 pounds means rear-facing in the back seat, while 40 pounds or more allows rear-facing or forward-facing.",
+          "fact_ids": [
+            "sec02-F07",
+            "sec02-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F08",
+      "label": "Under two and forty pounds or more",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F08"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F07",
+          "why": "sec02-R04 contrasts sec02-F08 with sec02-F07: The rear-facing rule for a child under 2 turns on weight: under 40 pounds means rear-facing in the back seat, while 40 pounds or more allows rear-facing or forward-facing.",
+          "fact_ids": [
+            "sec02-F08",
+            "sec02-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F09",
+      "label": "Ages two to under four",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F09"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F10",
+          "why": "sec02-R05 contrasts sec02-F09 with sec02-F10: The 20-pound minimum belongs to the age 2 to under 4 band, while the 40-pound minimum belongs to the age 4 to under 9 band that allows a booster seat.",
+          "fact_ids": [
+            "sec02-F09",
+            "sec02-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F10",
+      "label": "Ages four to under nine",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F10"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F11",
+          "why": "sec02-F10 covers ages four to under nine with a booster seat; sec02-F11 covers ages nine to eighteen with a seat belt or child restraint.",
+          "fact_ids": [
+            "sec02-F10",
+            "sec02-F11"
+          ]
+        },
+        {
+          "other_id": "sec02-F09",
+          "why": "sec02-R05 contrasts sec02-F10 with sec02-F09: The 20-pound minimum belongs to the age 2 to under 4 band, while the 40-pound minimum belongs to the age 4 to under 9 band that allows a booster seat.",
+          "fact_ids": [
+            "sec02-F10",
+            "sec02-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F11",
+      "label": "Ages nine to eighteen",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F11"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F10",
+          "why": "sec02-F10 covers ages four to under nine with a booster seat; sec02-F11 covers ages nine to eighteen with a seat belt or child restraint.",
+          "fact_ids": [
+            "sec02-F11",
+            "sec02-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F12",
+      "label": "Under-eighteen driver passenger rule",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F12"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F06",
+          "why": "sec02-F06 makes the driver responsible for children when no parent is present; sec02-F12 sets the belt and passenger-count rule when the driver is under eighteen.",
+          "fact_ids": [
+            "sec02-F12",
+            "sec02-F06"
+          ]
+        },
+        {
+          "other_id": "sec02-F04",
+          "why": "sec02-F04 requires belts for the driver, front-seat riders and children under sixteen; sec02-F12 extends it to every passenger when the driver is under eighteen.",
+          "fact_ids": [
+            "sec02-F12",
+            "sec02-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F13",
+      "label": "Impairment causes crashes",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F13"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F14",
+          "why": "sec02-F13 says impairment is a leading cause of crashes; sec02-F14 explains how alcohol as a depressant slows reactions and judgment.",
+          "fact_ids": [
+            "sec02-F13",
+            "sec02-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F14",
+      "label": "Alcohol is a depressant",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F14"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F13",
+          "why": "sec02-F13 says impairment is a leading cause of crashes; sec02-F14 explains how alcohol as a depressant slows reactions and judgment.",
+          "fact_ids": [
+            "sec02-F14",
+            "sec02-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F15",
+      "label": "Open container rule",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F15"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F29",
+          "why": "sec02-F15 bans open containers of alcohol or marijuana in the passenger area; sec02-F29 makes driving impaired by marijuana or any drug illegal.",
+          "fact_ids": [
+            "sec02-F15",
+            "sec02-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F16",
+      "label": "DWAI versus DUI",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F16"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F18",
+          "why": "sec02-R01 contrasts sec02-F16 with sec02-F18: DWAI and DUI are different charges: DWAI means impaired even slightly, DUI means substantially unable to drive safely, and DUI per se is based on BAC above 0.08%.",
+          "fact_ids": [
+            "sec02-F16",
+            "sec02-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F17",
+      "label": "Proof beyond BAC",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F17"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F18",
+          "why": "sec02-F18 is DUI per se based on BAC above the line; sec02-F17 says a conviction can also rest on driving behavior, officer observations and field sobriety tests.",
+          "fact_ids": [
+            "sec02-F17",
+            "sec02-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F18",
+      "label": "DUI per se",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F18"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F17",
+          "why": "sec02-F18 is DUI per se based on BAC above the line; sec02-F17 says a conviction can also rest on driving behavior, officer observations and field sobriety tests.",
+          "fact_ids": [
+            "sec02-F18",
+            "sec02-F17"
+          ]
+        },
+        {
+          "other_id": "sec02-F16",
+          "why": "sec02-R01 contrasts sec02-F18 with sec02-F16: DWAI and DUI are different charges: DWAI means impaired even slightly, DUI means substantially unable to drive safely, and DUI per se is based on BAC above 0.08%.",
+          "fact_ids": [
+            "sec02-F18",
+            "sec02-F16"
+          ]
+        },
+        {
+          "other_id": "sec02-F19",
+          "why": "sec02-R02 contrasts sec02-F18 with sec02-F19: The revocation BAC level depends on the driver: over.08 for most adults, over.02 for drivers under 21, and over.04 for CDL drivers.",
+          "fact_ids": [
+            "sec02-F18",
+            "sec02-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F19",
+      "label": "Revocation BAC levels",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F19"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F18",
+          "why": "sec02-R02 contrasts sec02-F19 with sec02-F18: The revocation BAC level depends on the driver: over.08 for most adults, over.02 for drivers under 21, and over.04 for CDL drivers.",
+          "fact_ids": [
+            "sec02-F19",
+            "sec02-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F20",
+      "label": "What affects BAC",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F20"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F21",
+          "why": "sec02-F20 lists what changes BAC from person to person; sec02-F21 says each standard drink of beer, wine or spirits holds about the same alcohol.",
+          "fact_ids": [
+            "sec02-F20",
+            "sec02-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F21",
+      "label": "Standard drinks are equal",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F21"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F20",
+          "why": "sec02-F20 lists what changes BAC from person to person; sec02-F21 says each standard drink of beer, wine or spirits holds about the same alcohol.",
+          "fact_ids": [
+            "sec02-F21",
+            "sec02-F20"
+          ]
+        },
+        {
+          "other_id": "sec02-R06",
+          "why": "sec02-R06 draws the lesson from sec02-F21: since standard drinks hold the same alcohol, switching drink types does not make you safer.",
+          "fact_ids": [
+            "sec02-F21",
+            "sec02-R06"
+          ]
+        },
+        {
+          "other_id": "sec02-F22",
+          "why": "sec02-R07 contrasts sec02-F21 with sec02-F22: BAC drops only with time, at about 0.015% per hour on average; nothing else speeds it up.",
+          "fact_ids": [
+            "sec02-F21",
+            "sec02-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F22",
+      "label": "Only time lowers BAC",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F22"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F21",
+          "why": "sec02-R07 contrasts sec02-F22 with sec02-F21: BAC drops only with time, at about 0.015% per hour on average; nothing else speeds it up.",
+          "fact_ids": [
+            "sec02-F22",
+            "sec02-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F23",
+      "label": "First DWAI penalties",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F23"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F24",
+          "why": "sec02-R08 contrasts sec02-F23 with sec02-F24: The first DWAI is the only listed impaired-driving conviction measured in points, 8 of them, while a first DUI brings a 9-month revocation instead.",
+          "fact_ids": [
+            "sec02-F23",
+            "sec02-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F24",
+      "label": "First DUI penalties",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F24"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F23",
+          "why": "sec02-R08 contrasts sec02-F24 with sec02-F23: The first DWAI is the only listed impaired-driving conviction measured in points, 8 of them, while a first DUI brings a 9-month revocation instead.",
+          "fact_ids": [
+            "sec02-F24",
+            "sec02-F23"
+          ]
+        },
+        {
+          "other_id": "sec02-F25",
+          "why": "sec02-R09 contrasts sec02-F24 with sec02-F25: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-F24",
+            "sec02-F25"
+          ]
+        },
+        {
+          "other_id": "sec02-F26",
+          "why": "sec02-R09 contrasts sec02-F24 with sec02-F26: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-F24",
+            "sec02-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F25",
+      "label": "Second conviction penalties",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F25"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F24",
+          "why": "sec02-R09 contrasts sec02-F25 with sec02-F24: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-F25",
+            "sec02-F24"
+          ]
+        },
+        {
+          "other_id": "sec02-F26",
+          "why": "sec02-R09 contrasts sec02-F25 with sec02-F26: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-F25",
+            "sec02-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F26",
+      "label": "Third conviction penalties",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F26"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F24",
+          "why": "sec02-R09 contrasts sec02-F26 with sec02-F24: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-F26",
+            "sec02-F24"
+          ]
+        },
+        {
+          "other_id": "sec02-F25",
+          "why": "sec02-R09 contrasts sec02-F26 with sec02-F25: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-F26",
+            "sec02-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F27",
+      "label": "Under-twenty-one impaired conviction",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F27"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F28",
+          "why": "sec02-R10 contrasts sec02-F27 with sec02-F28: For drivers under 21, a first DUI or DWAI leads to revocation only if the court-ordered evaluation or program is not completed, but a second or third is always revoked.",
+          "fact_ids": [
+            "sec02-F27",
+            "sec02-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F28",
+      "label": "Under-twenty-one alcohol possession",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F28"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F03",
+          "why": "sec02-F03 says an under-twenty-one alcohol purchase or possession conviction can cost the privilege; sec02-F28 adds that this applies even when no driving was involved.",
+          "fact_ids": [
+            "sec02-F28",
+            "sec02-F03"
+          ]
+        },
+        {
+          "other_id": "sec02-F27",
+          "why": "sec02-R10 contrasts sec02-F28 with sec02-F27: For drivers under 21, a first DUI or DWAI leads to revocation only if the court-ordered evaluation or program is not completed, but a second or third is always revoked.",
+          "fact_ids": [
+            "sec02-F28",
+            "sec02-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F29",
+      "label": "Drug-impaired driving",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F29"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F15",
+          "why": "sec02-F15 bans open containers of alcohol or marijuana in the passenger area; sec02-F29 makes driving impaired by marijuana or any drug illegal.",
+          "fact_ids": [
+            "sec02-F29",
+            "sec02-F15"
+          ]
+        },
+        {
+          "other_id": "sec02-F30",
+          "why": "sec02-R11 contrasts sec02-F29 with sec02-F30: Legal or medical use of a drug does not excuse impaired driving; prescription, over-the-counter and medical marijuana impairment are all penalized like alcohol.",
+          "fact_ids": [
+            "sec02-F29",
+            "sec02-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F30",
+      "label": "Medical use is no defense",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F30"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F29",
+          "why": "sec02-R11 contrasts sec02-F30 with sec02-F29: Legal or medical use of a drug does not excuse impaired driving; prescription, over-the-counter and medical marijuana impairment are all penalized like alcohol.",
+          "fact_ids": [
+            "sec02-F30",
+            "sec02-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F31",
+      "label": "Medicines that impair",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F31"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F32",
+          "why": "sec02-F31 names medicines that can impair; sec02-F32 says to read labels and ask a doctor or pharmacist before driving.",
+          "fact_ids": [
+            "sec02-F31",
+            "sec02-F32"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F32",
+      "label": "Read medication labels",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F32"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F31",
+          "why": "sec02-F31 names medicines that can impair; sec02-F32 says to read labels and ask a doctor or pharmacist before driving.",
+          "fact_ids": [
+            "sec02-F32",
+            "sec02-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R01",
+      "label": "Three impaired driving charges",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R01"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F16",
+          "why": "sec02-R01 is the contrast built on sec02-F16; learners who keep only one side of it misapply sec02-F16: DWAI and DUI are different charges: DWAI means impaired even slightly, DUI means substantially unable to drive safely, and DUI per se is based on BAC above 0.08%.",
+          "fact_ids": [
+            "sec02-R01",
+            "sec02-F16"
+          ]
+        },
+        {
+          "other_id": "sec02-F18",
+          "why": "sec02-R01 is the contrast built on sec02-F18; learners who keep only one side of it misapply sec02-F18: DWAI and DUI are different charges: DWAI means impaired even slightly, DUI means substantially unable to drive safely, and DUI per se is based on BAC above 0.08%.",
+          "fact_ids": [
+            "sec02-R01",
+            "sec02-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R02",
+      "label": "BAC line by driver type",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R02"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F19",
+          "why": "sec02-R02 is the contrast built on sec02-F19; learners who keep only one side of it misapply sec02-F19: The revocation BAC level depends on the driver: over.08 for most adults, over.02 for drivers under 21, and over.04 for CDL drivers.",
+          "fact_ids": [
+            "sec02-R02",
+            "sec02-F19"
+          ]
+        },
+        {
+          "other_id": "sec02-F18",
+          "why": "sec02-R02 is the contrast built on sec02-F18; learners who keep only one side of it misapply sec02-F18: The revocation BAC level depends on the driver: over.08 for most adults, over.02 for drivers under 21, and over.04 for CDL drivers.",
+          "fact_ids": [
+            "sec02-R02",
+            "sec02-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R03",
+      "label": "Delivery-van exemption only on the job",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R03"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F04",
+          "why": "sec02-R03 is the contrast built on sec02-F04; learners who keep only one side of it misapply sec02-F04: Seat belts are required for the driver, front-seat passengers and children under 16, but delivery-van drivers are exempt only while on the job.",
+          "fact_ids": [
+            "sec02-R03",
+            "sec02-F04"
+          ]
+        },
+        {
+          "other_id": "sec02-F05",
+          "why": "sec02-R03 is the contrast built on sec02-F05; learners who keep only one side of it misapply sec02-F05: Seat belts are required for the driver, front-seat passengers and children under 16, but delivery-van drivers are exempt only while on the job.",
+          "fact_ids": [
+            "sec02-R03",
+            "sec02-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R04",
+      "label": "Weight decides the under-two seat",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R04"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F07",
+          "why": "sec02-R04 is the contrast built on sec02-F07; learners who keep only one side of it misapply sec02-F07: The rear-facing rule for a child under 2 turns on weight: under 40 pounds means rear-facing in the back seat, while 40 pounds or more allows rear-facing or forward-facing.",
+          "fact_ids": [
+            "sec02-R04",
+            "sec02-F07"
+          ]
+        },
+        {
+          "other_id": "sec02-F08",
+          "why": "sec02-R04 is the contrast built on sec02-F08; learners who keep only one side of it misapply sec02-F08: The rear-facing rule for a child under 2 turns on weight: under 40 pounds means rear-facing in the back seat, while 40 pounds or more allows rear-facing or forward-facing.",
+          "fact_ids": [
+            "sec02-R04",
+            "sec02-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R05",
+      "label": "Twenty versus forty pound minimums",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R05"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F09",
+          "why": "sec02-R05 is the contrast built on sec02-F09; learners who keep only one side of it misapply sec02-F09: The 20-pound minimum belongs to the age 2 to under 4 band, while the 40-pound minimum belongs to the age 4 to under 9 band that allows a booster seat.",
+          "fact_ids": [
+            "sec02-R05",
+            "sec02-F09"
+          ]
+        },
+        {
+          "other_id": "sec02-F10",
+          "why": "sec02-R05 is the contrast built on sec02-F10; learners who keep only one side of it misapply sec02-F10: The 20-pound minimum belongs to the age 2 to under 4 band, while the 40-pound minimum belongs to the age 4 to under 9 band that allows a booster seat.",
+          "fact_ids": [
+            "sec02-R05",
+            "sec02-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R06",
+      "label": "Switching drinks does not help",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R06"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F21",
+          "why": "sec02-R06 draws the lesson from sec02-F21: since standard drinks hold the same alcohol, switching drink types does not make you safer.",
+          "fact_ids": [
+            "sec02-R06",
+            "sec02-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R07",
+      "label": "Nothing speeds sobering",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R07"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.6",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0006"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F22",
+          "why": "sec02-R07 is the contrast built on sec02-F22; learners who keep only one side of it misapply sec02-F22: BAC drops only with time, at about 0.015% per hour on average; nothing else speeds it up.",
+          "fact_ids": [
+            "sec02-R07",
+            "sec02-F22"
+          ]
+        },
+        {
+          "other_id": "sec02-F21",
+          "why": "sec02-R07 is the contrast built on sec02-F21; learners who keep only one side of it misapply sec02-F21: BAC drops only with time, at about 0.015% per hour on average; nothing else speeds it up.",
+          "fact_ids": [
+            "sec02-R07",
+            "sec02-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R08",
+      "label": "Points versus revocation",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R08"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F23",
+          "why": "sec02-R08 is the contrast built on sec02-F23; learners who keep only one side of it misapply sec02-F23: The first DWAI is the only listed impaired-driving conviction measured in points, 8 of them, while a first DUI brings a 9-month revocation instead.",
+          "fact_ids": [
+            "sec02-R08",
+            "sec02-F23"
+          ]
+        },
+        {
+          "other_id": "sec02-F24",
+          "why": "sec02-R08 is the contrast built on sec02-F24; learners who keep only one side of it misapply sec02-F24: The first DWAI is the only listed impaired-driving conviction measured in points, 8 of them, while a first DUI brings a 9-month revocation instead.",
+          "fact_ids": [
+            "sec02-R08",
+            "sec02-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R09",
+      "label": "Revocation ladder",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R09"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F24",
+          "why": "sec02-R09 is the contrast built on sec02-F24; learners who keep only one side of it misapply sec02-F24: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-R09",
+            "sec02-F24"
+          ]
+        },
+        {
+          "other_id": "sec02-F25",
+          "why": "sec02-R09 is the contrast built on sec02-F25; learners who keep only one side of it misapply sec02-F25: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-R09",
+            "sec02-F25"
+          ]
+        },
+        {
+          "other_id": "sec02-F26",
+          "why": "sec02-R09 is the contrast built on sec02-F26; learners who keep only one side of it misapply sec02-F26: Revocation length climbs with repeat convictions: 9 months for a first DUI, 1 year for a second DWAI or DUI, and 2 years for a third or later.",
+          "fact_ids": [
+            "sec02-R09",
+            "sec02-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R10",
+      "label": "First versus repeat under twenty-one",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R10"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F27",
+          "why": "sec02-R10 is the contrast built on sec02-F27; learners who keep only one side of it misapply sec02-F27: For drivers under 21, a first DUI or DWAI leads to revocation only if the court-ordered evaluation or program is not completed, but a second or third is always revoked.",
+          "fact_ids": [
+            "sec02-R10",
+            "sec02-F27"
+          ]
+        },
+        {
+          "other_id": "sec02-F28",
+          "why": "sec02-R10 is the contrast built on sec02-F28; learners who keep only one side of it misapply sec02-F28: For drivers under 21, a first DUI or DWAI leads to revocation only if the court-ordered evaluation or program is not completed, but a second or third is always revoked.",
+          "fact_ids": [
+            "sec02-R10",
+            "sec02-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R11",
+      "label": "Legal use does not excuse impairment",
+      "domain": "License loss, seat belts and impaired driving",
+      "module_id": "sec02-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R11"
+      ],
+      "source_ref": {
+        "ref": "Colorado Driver Handbook DR 2337 (12/05/24), PDF p.7",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-co-s:colorado-department-of-revenue-division-:handbook:pdf-0007"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F29",
+          "why": "sec02-R11 is the contrast built on sec02-F29; learners who keep only one side of it misapply sec02-F29: Legal or medical use of a drug does not excuse impaired driving; prescription, over-the-counter and medical marijuana impairment are all penalized like alcohol.",
+          "fact_ids": [
+            "sec02-R11",
+            "sec02-F29"
+          ]
+        },
+        {
+          "other_id": "sec02-F30",
+          "why": "sec02-R11 is the contrast built on sec02-F30; learners who keep only one side of it misapply sec02-F30: Legal or medical use of a drug does not excuse impaired driving; prescription, over-the-counter and medical marijuana impairment are all penalized like alcohol.",
+          "fact_ids": [
+            "sec02-R11",
+            "sec02-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec02-F16",
+      "to": "sec02-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F18",
+      "to": "sec02-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F19",
+      "to": "sec02-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F18",
+      "to": "sec02-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F04",
+      "to": "sec02-R03",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F05",
+      "to": "sec02-R03",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F07",
+      "to": "sec02-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F08",
+      "to": "sec02-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F09",
+      "to": "sec02-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F10",
+      "to": "sec02-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F20",
+      "to": "sec02-R06",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F22",
+      "to": "sec02-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F21",
+      "to": "sec02-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F23",
+      "to": "sec02-R08",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F24",
+      "to": "sec02-R08",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F24",
+      "to": "sec02-R09",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F25",
+      "to": "sec02-R09",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F26",
+      "to": "sec02-R09",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F27",
+      "to": "sec02-R10",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F28",
+      "to": "sec02-R10",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F29",
+      "to": "sec02-R11",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F30",
+      "to": "sec02-R11",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F04",
+      "to": "sec02-F12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F13",
+      "to": "sec02-F14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F06",
+      "to": "sec02-F07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F29",
+      "to": "sec02-F31",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec02-m01",
+      "title": "More ways to lose your license",
+      "domain": "License loss, seat belts and impaired driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F01",
+        "sec02-F02",
+        "sec02-F03"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m02",
+      "title": "Seat belt rules",
+      "domain": "License loss, seat belts and impaired driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F04",
+        "sec02-F05",
+        "sec02-R03",
+        "sec02-F12"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m03",
+      "title": "Child restraints by age and weight",
+      "domain": "License loss, seat belts and impaired driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 16,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F06",
+        "sec02-F07",
+        "sec02-F08",
+        "sec02-R04",
+        "sec02-F09",
+        "sec02-F10",
+        "sec02-R05",
+        "sec02-F11"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m04",
+      "title": "How alcohol affects you",
+      "domain": "License loss, seat belts and impaired driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 16,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F13",
+        "sec02-F14",
+        "sec02-F15",
+        "sec02-F20",
+        "sec02-F21",
+        "sec02-R06",
+        "sec02-F22",
+        "sec02-R07"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m05",
+      "title": "DWAI, DUI and BAC limits",
+      "domain": "License loss, seat belts and impaired driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 12,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F16",
+        "sec02-F18",
+        "sec02-R01",
+        "sec02-F17",
+        "sec02-F19",
+        "sec02-R02"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m06",
+      "title": "Impaired driving penalties",
+      "domain": "License loss, seat belts and impaired driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 12,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F23",
+        "sec02-F24",
+        "sec02-R08",
+        "sec02-F25",
+        "sec02-F26",
+        "sec02-R09"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m07",
+      "title": "Drivers under twenty-one",
+      "domain": "License loss, seat belts and impaired driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F27",
+        "sec02-F28",
+        "sec02-R10"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m08",
+      "title": "Drugs and driving",
+      "domain": "License loss, seat belts and impaired driving",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F29",
+        "sec02-F30",
+        "sec02-R11",
+        "sec02-F31",
+        "sec02-F32"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec02-m01",
+      "unit_id": "sec02-u01",
+      "node_ids": [
+        "sec02-F01",
+        "sec02-F02",
+        "sec02-F03"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Add three more grounds for losing the privilege: unpaid child support, no proof of insurance, and an under-twenty-one alcohol purchase or possession conviction.",
+      "flashcard_strategy": "One card per ground; contrast the insurance duty with the child support ground.",
+      "quiz_strategy": "Hub-chosen quiz on whether a described situation can cost a license.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m02",
+      "unit_id": "sec02-u02",
+      "node_ids": [
+        "sec02-F04",
+        "sec02-F05",
+        "sec02-R03",
+        "sec02-F12"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach who must buckle, the short list of exceptions, and the passenger rule when the driver is under eighteen.",
+      "flashcard_strategy": "Cards for who must buckle and each exception; contrast card for the delivery-van on-the-job limit.",
+      "quiz_strategy": "Hub-chosen quiz on who must be belted in a described car.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m03",
+      "unit_id": "sec02-u03",
+      "node_ids": [
+        "sec02-F06",
+        "sec02-F07",
+        "sec02-F08",
+        "sec02-R04",
+        "sec02-F09",
+        "sec02-F10",
+        "sec02-R05",
+        "sec02-F11"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Start with the driver's responsibility, then walk the age and weight bands from under two up to eighteen.",
+      "flashcard_strategy": "One card per band; contrast cards for the weight lines inside the under-two band and the twenty versus forty pound minimums.",
+      "quiz_strategy": "Hub-chosen quiz that describes a child and asks for the correct restraint.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m04",
+      "unit_id": "sec02-u04",
+      "node_ids": [
+        "sec02-F13",
+        "sec02-F14",
+        "sec02-F15",
+        "sec02-F20",
+        "sec02-F21",
+        "sec02-R06",
+        "sec02-F22",
+        "sec02-R07"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain why impairment causes crashes, how alcohol acts as a depressant, the open container rule, what drives BAC, the standard drink, and why only time sobers you.",
+      "flashcard_strategy": "Cards for each effect and rule; contrast cards for drink types and for time as the only fix.",
+      "quiz_strategy": "Hub-chosen quiz on BAC myths and the open container rule.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m05",
+      "unit_id": "sec02-u05",
+      "node_ids": [
+        "sec02-F16",
+        "sec02-F18",
+        "sec02-R01",
+        "sec02-F17",
+        "sec02-F19",
+        "sec02-R02"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Define DWAI and DUI, then DUI per se, how impairment is proven, and the BAC revocation levels by driver type.",
+      "flashcard_strategy": "Definition cards for each charge; contrast cards for the BAC lines by driver type.",
+      "quiz_strategy": "Hub-chosen quiz that matches a described driver to the charge or BAC line.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m06",
+      "unit_id": "sec02-u06",
+      "node_ids": [
+        "sec02-F23",
+        "sec02-F24",
+        "sec02-R08",
+        "sec02-F25",
+        "sec02-F26",
+        "sec02-R09"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Lay out first DWAI, first DUI, second and third convictions, showing how the revocation length climbs.",
+      "flashcard_strategy": "One card per conviction level; contrast cards for points versus revocation and the revocation ladder.",
+      "quiz_strategy": "Hub-chosen quiz on which penalty goes with which conviction.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m07",
+      "unit_id": "sec02-u07",
+      "node_ids": [
+        "sec02-F27",
+        "sec02-F28",
+        "sec02-R10"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover revocation rules for under-twenty-one impaired driving convictions and for buying or possessing alcohol without driving.",
+      "flashcard_strategy": "Cards for each rule; contrast card for first versus repeat convictions.",
+      "quiz_strategy": "Hub-chosen quiz on when an under-twenty-one driver is revoked.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m08",
+      "unit_id": "sec02-u08",
+      "node_ids": [
+        "sec02-F29",
+        "sec02-F30",
+        "sec02-R11",
+        "sec02-F31",
+        "sec02-F32"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach that any drug impairment is penalized like alcohol, that medical use is no defense, which medicines can impair, and how to check labels.",
+      "flashcard_strategy": "Cards for each rule; contrast card for legal use versus legal driving.",
+      "quiz_strategy": "Hub-chosen quiz on drug impairment scenarios.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec02-F01",
+    "sec02-F02",
+    "sec02-F03",
+    "sec02-F04",
+    "sec02-F05",
+    "sec02-R03",
+    "sec02-F12",
+    "sec02-F06",
+    "sec02-F07",
+    "sec02-F08",
+    "sec02-R04",
+    "sec02-F09",
+    "sec02-F10",
+    "sec02-R05",
+    "sec02-F11",
+    "sec02-F13",
+    "sec02-F14",
+    "sec02-F15",
+    "sec02-F20",
+    "sec02-F21",
+    "sec02-R06",
+    "sec02-F22",
+    "sec02-R07",
+    "sec02-F16",
+    "sec02-F18",
+    "sec02-R01",
+    "sec02-F17",
+    "sec02-F19",
+    "sec02-R02",
+    "sec02-F23",
+    "sec02-F24",
+    "sec02-R08",
+    "sec02-F25",
+    "sec02-F26",
+    "sec02-R09",
+    "sec02-F27",
+    "sec02-F28",
+    "sec02-R10",
+    "sec02-F29",
+    "sec02-F30",
+    "sec02-R11",
+    "sec02-F31",
+    "sec02-F32"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec02-m01..sec02-m08; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 43,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec02-F01",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F02",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F03",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F04",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F05",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F06",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F07",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F08",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F09",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F10",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F11",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F12",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F13",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F14",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F15",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F16",
+          "module_id": "sec02-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F17",
+          "module_id": "sec02-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F18",
+          "module_id": "sec02-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F19",
+          "module_id": "sec02-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F20",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F21",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F22",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F23",
+          "module_id": "sec02-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F24",
+          "module_id": "sec02-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F25",
+          "module_id": "sec02-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F26",
+          "module_id": "sec02-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F27",
+          "module_id": "sec02-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F28",
+          "module_id": "sec02-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F29",
+          "module_id": "sec02-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F30",
+          "module_id": "sec02-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F31",
+          "module_id": "sec02-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F32",
+          "module_id": "sec02-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R01",
+          "module_id": "sec02-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R02",
+          "module_id": "sec02-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R03",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R04",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R05",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R06",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R07",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R08",
+          "module_id": "sec02-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R09",
+          "module_id": "sec02-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R10",
+          "module_id": "sec02-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R11",
+          "module_id": "sec02-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec02-F16",
+          "to": "sec02-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F18",
+          "to": "sec02-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F19",
+          "to": "sec02-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F18",
+          "to": "sec02-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F04",
+          "to": "sec02-R03",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F05",
+          "to": "sec02-R03",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F07",
+          "to": "sec02-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F08",
+          "to": "sec02-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F09",
+          "to": "sec02-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F10",
+          "to": "sec02-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F20",
+          "to": "sec02-R06",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F22",
+          "to": "sec02-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F21",
+          "to": "sec02-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F23",
+          "to": "sec02-R08",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F24",
+          "to": "sec02-R08",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F24",
+          "to": "sec02-R09",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F25",
+          "to": "sec02-R09",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F26",
+          "to": "sec02-R09",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F27",
+          "to": "sec02-R10",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F28",
+          "to": "sec02-R10",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F29",
+          "to": "sec02-R11",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F30",
+          "to": "sec02-R11",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F04",
+          "to": "sec02-F12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F13",
+          "to": "sec02-F14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F06",
+          "to": "sec02-F07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F29",
+          "to": "sec02-F31",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "License loss, seat belts and impaired driving",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec02-m01",
+          "sec02-m02",
+          "sec02-m03",
+          "sec02-m04",
+          "sec02-m05",
+          "sec02-m06",
+          "sec02-m07",
+          "sec02-m08"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

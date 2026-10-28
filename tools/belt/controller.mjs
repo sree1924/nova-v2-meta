@@ -92,7 +92,7 @@ export function buildDryPlan({projectRoot = PROJECT_ROOT, runConfigPath, executo
     observed_model_calls:0,note:'Plans and review headers do not dispatch or establish stage acceptance.'};
 }
 
-async function registerSource({projectRoot,loaded,ledger,fence,lockHandle}) {
+export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle}) {
   const {buildRegistration} = await import('../roles/15-register.mjs');
   const configEvidenceRef=writeImmutable(loaded.runDir,'sources/private/input-snapshots/'+loaded.configRef.sha256+'.json',fs.readFileSync(loaded.configPath),{lockHandle,bytes:true});
   // A sibling run (same handbook, different authoring mode) carries its own copy of the role-15 visual observation whose

@@ -110,14 +110,23 @@ export async function buildRegistration({
     throw new Error('run_id and run-config.json directory must identify the same isolated run');
   }
   // Multi-state intake (2026-10-28): any founder-confirmed US jurisdiction registers through this same offline profile.
-  if (!/^US-[A-Z]{2}$/.test(config.scope?.jurisdiction ?? '') || config.state_selection?.status !== 'confirmed') {
+  // The Utah pilot contract (role15 fixtures) carries only scope.jurisdiction = US-UT; every later state records the founder's
+  // confirmation in state_selection. A config that declares state_selection must have it confirmed.
+  const founderConfirmed = config.state_selection ? config.state_selection.status === 'confirmed' : config.scope?.jurisdiction === 'US-UT';
+  if (!/^US-[A-Z]{2}$/.test(config.scope?.jurisdiction ?? '') || !founderConfirmed) {
     throw new Error('This offline registration profile requires a founder-confirmed US-XX jurisdiction (scope.jurisdiction + state_selection.status=confirmed)');
   }
   const stateCode = config.scope.jurisdiction.slice(3).toLowerCase();
   const issuerSlug = String(config.scope.issuing_authority ?? 'issuer').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
   const productId = config.working_product_id || ('rdmv-' + stateCode);
   const handbookTitle = String(config.scope.handbook_edition ?? '').split(/\s+(?:20\d\d|revised|rev\.|edition)/i)[0].trim();
-  const titleRe = new RegExp([handbookTitle, config.scope.issuing_authority].filter(s => s && s.length > 6).map(s => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).concat(['Driver Handbook', "Driver'?s Handbook", "Driver'?s Manual", 'Driver License Handbook', 'Driver License Division', 'Driver License \\(Class [A-Z]\\)']).join('|'), 'i');
+  // Curly apostrophes (U+2018/U+2019) in printed titles ("DRIVER’S MANUAL", "Motorists’ Handbook") never matched the straight
+  // apostrophe in these patterns, so MN/WI registered is_official:false and their verified exam facts fell out of the accepted
+  // source projection (multi-state intake 2026-10-28). Patterns and the scanned line are both normalized to a straight apostrophe,
+  // and the issuing authority's first comma segment counts as issuer text ("Wisconsin Department of Transportation").
+  const straight = (t) => String(t).replace(/[‘’ʼ]/g, "'");
+  const authorityHead = String(config.scope.issuing_authority ?? '').split(',')[0].trim();
+  const titleRe = new RegExp([handbookTitle, config.scope.issuing_authority, authorityHead].filter(s => s && s.length > 6).map(s => straight(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).concat(['Driver Handbook', "Driver'?s Handbook", "Driver'?s Manual", 'Driver Manual', "Driver'?s Guide", "Motorists'? Handbook", 'Driver License Handbook', 'Driver License Division', 'Driver License \\(Class [A-Z]\\)']).join('|'), 'i');
   const issuerDomains = Array.isArray(config.scope?.issuer_page_domains) && config.scope.issuer_page_domains.length ? config.scope.issuer_page_domains : ['dld.utah.gov'];
   const onIssuerDomain = (u) => issuerDomains.some(d => new RegExp('^https://(?:[a-z0-9-]+\\.)*' + String(d).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '/').test(u ?? ''));
   const privateRoot = contained(runRoot, path.join(runRoot, 'sources', 'private'), 'Private source directory');
@@ -189,7 +198,7 @@ export async function buildRegistration({
       if (p.pdf_page <= 10 && /\bedition\b|\brevised\b|\brevision\b/i.test(line)) {
         editionCandidates.push(evidence(p, sourceRef, sourceHash, line, 'unresolved_edition_statement_candidate'));
       }
-      if (p.pdf_page <= 10 && (stateCode === 'ut' ? /UTAH DRIVER HANDBOOK|Utah Driver License Division|Driver License \(Class D\)/.test(line) : titleRe.test(line))) {
+      if (p.pdf_page <= 10 && (stateCode === 'ut' ? /UTAH DRIVER HANDBOOK|Utah Driver License Division|Driver License \(Class D\)/.test(line) : titleRe.test(straight(line)))) {
         issuerEvidence.push(evidence(p, sourceRef, sourceHash, line, 'issuer_or_title_text'));
       }
     }

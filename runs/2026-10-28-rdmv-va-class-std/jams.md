@@ -134,3 +134,23 @@ intact; Phase 2 (02/16 authoring) not started. Ledger actual $0.000, 0 model cal
 - 2026-10-28T05:15:25.201Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:60 for 02.dossier_sections (sec14-license-types-learner-permit) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-license-types-learner-permit__C__n0 (lineage attempts exhausted)
 
 - 2026-10-28T05:16:42.938Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:61 for 02.dossier_sections (sec14-license-types-learner-permit) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-license-types-learner-permit__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:17:37.062Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:62 for 02.dossier_sections (sec14-license-types-learner-permit) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-license-types-learner-permit__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:18:29.122Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:63 for 02.dossier_sections (sec14-license-types-learner-permit) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-license-types-learner-permit__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:19:14.290Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:64 for 02.dossier_sections (sec14-license-types-learner-permit) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-license-types-learner-permit__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:20:32.047Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:65 for 02.dossier_sections (sec15-registration-insurance-other-info) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-registration-insurance-other-info__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:21:34.576Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:66 for 02.dossier_sections (sec15-registration-insurance-other-info) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-registration-insurance-other-info__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:22:20.532Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:67 for 02.dossier_sections (sec15-registration-insurance-other-info) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-registration-insurance-other-info__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:23:08.040Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:68 for 02.dossier_sections (sec15-registration-insurance-other-info) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-registration-insurance-other-info__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:17:09.967Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:69 for 16.compile (sec04-railroad-work-zone-signs) under standing authority; cause: compile attempt cap on shared lineage (sec04-railroad-work-zone-signs)
+
+- 2026-10-28T06:17:18.549Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:70 for 16.compile (sec11-dangerous-behaviors-crashes-deer) under standing authority; cause: compile attempt cap on shared lineage (sec11-dangerous-behaviors-crashes-deer)
+
+- 2026-10-28T06:17:22.744Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:71 for 16.compile (sec14-license-types-learner-permit) under standing authority; cause: compile attempt cap on shared lineage (sec14-license-types-learner-permit)

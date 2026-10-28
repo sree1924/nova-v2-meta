@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T05:16:56.253Z
+# Worker token ledger — generated 2026-10-28T06:17:15.778Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
-| muse | Muse Code subscription | 16 | 416,651,827 | 1,269,734 | 417,921,561 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 21 | 0 | 0 | 4,843,805 | $0.00 | CO IN MI NC NJ UT WA WI |
+| muse | Muse Code subscription | 16 | 571,600,494 | 1,828,254 | 573,428,748 | $0.00 | AZ CA CO FL NY TX UT VA |
+| claude | Anthropic subscription (Claude Code subagent) | 48 | 0 | 0 | 11,629,312 | $0.00 | AL AZ CO IN MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -19,11 +19,11 @@
 | muse | muse-spark-1.3 | VA | intake-VA-2 | 73,526,226 | 72,788,828 | 187,348 | 42,239 | — | 296 | — | $0.00 |
 | muse | muse-spark-1.3 | AZ | intake-AZ | — | — | — | — | — | 7 | — | $0.00 |
 | muse | muse-spark-1.3 | CO | intake-CO | — | — | — | — | — | 6 | — | $0.00 |
-| muse | muse-spark-1.3 | CA | intake-CA-r1 | — | — | — | — | — | 155 | — | $0.00 |
+| muse | muse-spark-1.3 | CA | intake-CA-r1 | 73,660,410 | 72,964,338 | 237,908 | 83,052 | — | 297 | — | $0.00 |
 | muse | muse-spark-1.3 | FL | intake-FL-r1 | 13,975,514 | 13,794,785 | 66,590 | 17,943 | — | 121 | — | $0.00 |
-| muse | muse-spark-1.3 | NY | intake-NY-r1 | — | — | — | — | — | 186 | — | $0.00 |
+| muse | muse-spark-1.3 | NY | intake-NY-r1 | 46,970,894 | 46,634,494 | 152,083 | 39,025 | — | 232 | — | $0.00 |
 | muse | muse-spark-1.3 | TX | intake-TX-r1 | 12,588,570 | 12,253,890 | 64,181 | 20,885 | — | 107 | — | $0.00 |
-| muse | muse-spark-1.3 | VA | intake-VA-r1 | — | — | — | — | — | 160 | — | $0.00 |
+| muse | muse-spark-1.3 | VA | intake-VA-r1 | 34,317,363 | 33,990,975 | 168,529 | 52,132 | — | 197 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
 | claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | UT | multi-state shell: state picker, #/<st>/ routes, states.json, harness rewrite, Utah onboarded | — | — | — | — | 243,214 | 95 | 14 min | $0.00 |
@@ -45,4 +45,31 @@
 | claude | claude-opus-5-5 | IN | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 258,177 | 90 | 17 min | $0.00 |
 | claude | claude-opus-5-5 | MI | downstream pilot sec01-07: 03x7 04x6 06x6 05s x6 05c x6 (31 packets, 0 holds; sec04 blocked on compiler spoken-form slash) | — | — | — | — | 596,224 | 153 | 49 min | $0.00 |
 | claude | claude-opus-5-5 | WI | state worker: intake (liveness CONFIRMED, 50/80 verified) + sec01-04 (36 parts, 0 holds) | — | — | — | — | 238,628 | 76 | 19 min | $0.00 |
+| claude | claude-opus-5-5 | MD | state worker: intake + sec01-04 (36 parts, 0 holds) | — | — | — | — | 291,615 | 117 | 20 min | $0.00 |
+| claude | claude-opus-5-5 | MO | state worker: intake (liveness CONFIRMED, 25 q / 20 correct verified) + sec01-04 (36 parts, 0 holds) | — | — | — | — | 271,949 | 81 | 20 min | $0.00 |
+| claude | claude-opus-5-5 | TN | state worker: intake + sec01-04 (36 parts, 0 holds) | — | — | — | — | 301,540 | 92 | 21 min | $0.00 |
+| claude | claude-opus-5-5 | SC | state worker: intake (liveness CONFIRMED) + sec01-04 (36 parts, 0 holds) | — | — | — | — | 236,062 | 71 | 17 min | $0.00 |
+| claude | claude-opus-5-5 | MN | state worker: intake (liveness CONFIRMED, 80% verified) + sec01-04 (36 parts, 0 holds) | — | — | — | — | 255,408 | 98 | 23 min | $0.00 |
+| claude | claude-opus-5-5 | NV | state worker: intake (liveness CONFIRMED, edition March 2024, FRESH debt) + sec01-04 (36 parts, 0 holds) | — | — | — | — | 266,872 | 83 | 20 min | $0.00 |
+| claude | claude-opus-5-5 | AL | state worker: intake (liveness CONFIRMED, edition November 2024) + sec01-04 (36 parts, 0 holds) | — | — | — | — | 282,691 | 116 | 25 min | $0.00 |
+| claude | claude-opus-5-5 | OR | state worker: intake (liveness CONFIRMED, edition 2026-2027; 35q/28 verified) + sec01-04 (36 parts, 0 holds) | — | — | — | — | 249,773 | 86 | 26 min | $0.00 |
+| claude | claude-opus-5-5 | IN | state worker continuation: sec05-10 (54 parts, 0 holds) — INDIANA SME COMPLETE 10/10 | — | — | — | — | 229,266 | 58 | 19 min | $0.00 |
+| claude | claude-opus-5-5 | AZ | state worker resume: intake (p3 edition, issuer page 403 fallback) + sec05-11 (63 parts, 1 hold 02.SCHEMA blocker_kind) | — | — | — | — | 221,899 | 73 | 22 min | $0.00 |
+| claude | claude-opus-5-5 | MO | state worker continuation: sec05-11 (63 parts, 0 holds, first-try) | — | — | — | — | 212,467 | 60 | 19 min | $0.00 |
+| claude | claude-opus-5-5 | WI | state worker continuation: sec05-12 (72 parts, 0 holds) — WISCONSIN SME COMPLETE 12/12 | — | — | — | — | 233,830 | 64 | 22 min | $0.00 |
+| claude | claude-opus-5-5 | TN | state worker continuation: sec05-10 (54 parts, 0 holds, first-try) | — | — | — | — | 292,198 | 86 | 23 min | $0.00 |
+| claude | claude-opus-5-5 | SC | state worker continuation: sec05-10 (54 parts, 0 holds; 1 pre-check catch) | — | — | — | — | 235,907 | 68 | 22 min | $0.00 |
+| claude | claude-opus-5-5 | MD | state worker continuation: sec05-12 (72 parts, 1 hold 02.SCHEMA needs_dedicated_surface.status) — MARYLAND SME COMPLETE 12/12 | — | — | — | — | 257,885 | 108 | 26 min | $0.00 |
+| claude | claude-opus-5-5 | MN | state worker continuation: sec05-10 (54 parts, 0 holds; 3 Windows file-lock re-runs) | — | — | — | — | 248,884 | 81 | 25 min | $0.00 |
+| claude | claude-opus-5-5 | NV | state worker continuation: sec05-12 (72 parts, 0 holds) — NEVADA SME COMPLETE 12/12 | — | — | — | — | 252,257 | 103 | 25 min | $0.00 |
+| claude | claude-opus-5-5 | OR | state worker continuation: sec05-11 (63 parts, 0 holds) — OREGON SME COMPLETE 11/11 | — | — | — | — | 231,883 | 92 | 23 min | $0.00 |
+| claude | claude-opus-5-5 | AZ | state worker continuation: sec12-17 (54 parts, 0 holds, first-try) | — | — | — | — | 201,079 | 73 | 14 min | $0.00 |
+| claude | claude-opus-5-5 | MO | state worker continuation: sec12-17 (54 parts, 0 holds) — MISSOURI SME COMPLETE 17/17 | — | — | — | — | 220,945 | 66 | 27 min | $0.00 |
+| claude | claude-opus-5-5 | MN | state worker continuation: sec11-14 (36 parts, 0 holds) — MINNESOTA SME COMPLETE 14/14 (cumulative resumed-agent usage) | — | — | — | — | 101,798 | 45 | 21 min | $0.00 |
+| claude | claude-opus-5-5 | SC | state worker continuation: sec11-15 (45 parts, 0 holds) — SOUTH CAROLINA SME COMPLETE 15/15 (delta of resumed agent) | — | — | — | — | 99,201 | 42 | 23 min | $0.00 |
+| claude | claude-opus-5-5 | NJ | downstream worker: sec01-08 through 03/04/06/05.sessions/05.card_scripts (40/40 accepted; 533 nodes, 530 cards, 533 items, 64 units/457 slides, 594 scripts); drafted sec02/04-08 via nested subagents | — | — | — | — | 322,055 | 127 | 34 min | $0.00 |
+| claude | claude-opus-5-5 | AL | state worker continuation: sec05-13 (81 parts, 0 holds) — ALABAMA SME COMPLETE 13/13 | — | — | — | — | 302,375 | 134 | 40 min | $0.00 |
+| claude | claude-opus-5-5 | CO | downstream worker: sec01-08 through 03/04/06/05.sessions/05.card_scripts (40/40 first-try; 322 nodes/cards/items, 57 units/409 slides, 379 scripts) | — | — | — | — | 502,587 | 139 | 54 min | $0.00 |
+| claude | claude-opus-5-5 | TX | downstream worker: sec01-07 through 03/04/06/05.sessions/05.card_scripts (35/35 first-try; 178 nodes/cards/items, 37 units/243 slides, 215 scripts; official_mirror 70% verified) | — | — | — | — | 373,502 | 133 | 44 min | $0.00 |
+| claude | claude-opus-5-5 | AZ | state worker continuation: sec18-22 (45 parts, 0 holds) — ARIZONA SME COMPLETE 22/22 (delta of resumed agent) | — | — | — | — | 89,579 | 75 | 24 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

@@ -1,0 +1,151 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-tn",
+  "lineage": {
+    "input_manifest_sha256": "0a1191dfb84e428322cec1e6b1f763d8c7752e9ec185eb55a766e928a5f61bb4",
+    "candidate_lineage_id": "2026-10-28-rdmv-tn-class-d:lineage:65",
+    "source_registry_sha256": "8b0b6a068a0aa720d419171b5007a2610ed6c5012eeff522b57713cf9226eb71",
+    "source_liveness_sha256": "d27b9a94f03ec29d960b8eea38966606a7d3fdb703ad30b19ecd93f9bc70d0c7"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "A"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "A",
+      "chunk_id": "A.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "A — Exam authority for the special driving conditions and your vehicle section (Tennessee Class D knowledge test)",
+      "learner_facing": true,
+      "markdown": "## A — Exam authority for the special driving conditions and your vehicle section (Tennessee Class D knowledge test)\nIssuer: the Tennessee Department of Safety and Homeland Security, Driver Services Division, publishes the Tennessee Comprehensive Driver License Manual and takes written comments on it [A01].\nEdition statement: the manual says its information was current as of July 1, 2022, and later law, rule or policy changes override anything outdated in it [A01].\nFreshness: that content date is old and no issuer page confirms it as the current edition, so every fact here is held under freshness debt until rechecked (verify TN-SPEC-A-FRESH).\nKnowledge test: a multiple-choice exam drawn from Sections B and C of the manual, split roughly equally across traffic signs and signals, safe driving principles, rules of the road, and drugs and alcohol [A02].\nFormat: given on computerized testing machines at Driver Service Centers, with Spanish, Korean and Japanese versions where computerized testing is offered, and oral tests by appointment for applicants who cannot read [A02].\nVision: a screening of at least 20/40 in each eye and in both eyes together, with or without corrective lenses, comes before any license or permit [A02].\nRetake rule: after failing any knowledge test you must wait at least one day before trying again [A03].\nQuestion count, passing score and time limit: the manual states none of them, so all three stay unknown and are never shown to learners (verify TN-SPEC-A-EXAM).\nThis section feeds the knowledge test: this chapter sits in Section C of the manual, which the exam page names alongside Section B as the source of the knowledge test, and most closely matches the safe driving principles area; it covers collision avoidance by stopping, turning or speeding up, braking with and without antilock brakes, evasive steering, animal and deer crashes, the causes of crashes, driver fitness, vehicle maintenance checks and road and traffic conditions; no chapter sample questions are printed in these pages.\nPractice quizzes follow the product mastery policy from the learning loop, which is not an official exam threshold.\n",
+      "char_count": 2155,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-tn-d:tennessee-department-of-safety-and-homel:handbook:pdf-0003"
+        },
+        {
+          "anchor_id": "A02",
+          "source_page": "src:rdmv-tn-d:tennessee-department-of-safety-and-homel:handbook:pdf-0035"
+        },
+        {
+          "anchor_id": "A03",
+          "source_page": "src:rdmv-tn-d:tennessee-department-of-safety-and-homel:handbook:pdf-0036"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": "Tennessee Class D driver license knowledge test",
+      "status": "authored",
+      "source_page": "src:rdmv-tn-d:tennessee-department-of-safety-and-homel:handbook:pdf-0035"
+    },
+    "issuing_body": {
+      "value": "Tennessee Department of Safety and Homeland Security, Driver Services Division",
+      "status": "authored",
+      "source_page": "src:rdmv-tn-d:tennessee-department-of-safety-and-homel:handbook:pdf-0003"
+    },
+    "edition": {
+      "value": "Tennessee Comprehensive Driver License Manual, information current as of July 1, 2022 (publication note)",
+      "status": "authored",
+      "source_page": "src:rdmv-tn-d:tennessee-department-of-safety-and-homel:handbook:pdf-0003"
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": "Computerized multiple-choice knowledge test drawn from manual Sections B and C, roughly equal weight on signs and signals, safe driving principles, rules of the road, and drugs and alcohol; Spanish, Korean and Japanese versions; oral test by appointment; separate vision screening and road test",
+      "status": "authored",
+      "source_page": "src:rdmv-tn-d:tennessee-department-of-safety-and-homel:handbook:pdf-0035"
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Tennessee Comprehensive Driver License Manual says its content is current as of July 1, 2022 and its back cover carries one March 2025 print authorization; nothing in the selected pages suggests more than one rewrite per year, but the content date is old, so freshness is held as debt rather than assumed."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "TN-SPEC-A-EXAM",
+      "claim_text": "The Tennessee Comprehensive Driver License Manual states no question count, passing score or time limit for the Class D knowledge test; an official Department of Safety source is required before any value is shown.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "TN-SPEC-A-FRESH",
+      "claim_text": "The manual dates its content to July 1, 2022 (physical page 3) and prints a March 2025 authorization on the back cover; no issuer page confirms this as the current edition, so source liveness is unconfirmed and every fact needs a freshness recheck.",
+      "blocker_kind": "source_stale",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

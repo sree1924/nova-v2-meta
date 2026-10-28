@@ -115,3 +115,7 @@ Seeded 2026-10-28T00:58:50.714Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T05:01:05.187Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:54 for 02.dossier_sections (sec12-sharing-the-road-motorcycles-pedestrians-school-bus) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road-motorcycles-pedestrians-school-bus__E__n0 (lineage attempts exhausted)
 
 - 2026-10-28T05:02:12.113Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:55 for 02.dossier_sections (sec12-sharing-the-road-motorcycles-pedestrians-school-bus) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road-motorcycles-pedestrians-school-bus__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:16:44.375Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:56 for 16.compile (sec02-driving-schools-test-providers) under standing authority; cause: compile attempt cap on shared lineage (sec02-driving-schools-test-providers)
+
+- 2026-10-28T06:16:47.025Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:57 for 16.compile (sec05-your-vehicle) under standing authority; cause: compile attempt cap on shared lineage (sec05-your-vehicle)

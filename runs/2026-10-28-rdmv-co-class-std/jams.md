@@ -137,3 +137,11 @@ Seeded 2026-10-28T03:23:58.751Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T03:59:35.822Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:68 for 02.dossier_sections (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-aggressive-driving-emergencies-crashes__G__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:06:19.198Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
+
+- 2026-10-28T05:35:08.075Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:69 for 03.combined_kg (sec03-impairment-effects-before-you-drive) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-impairment-effects-before-you-drive__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:44:23.256Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:70 for 03.combined_kg (sec05-traffic-signals-signs) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-traffic-signals-signs__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:57:24.657Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:71 for 03.combined_kg (sec07-right-of-way) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-right-of-way__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:12:46.693Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:72 for 03.combined_kg (sec09-freeway-changing-lanes-passing) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-freeway-changing-lanes-passing__-__n0 (lineage attempts exhausted)

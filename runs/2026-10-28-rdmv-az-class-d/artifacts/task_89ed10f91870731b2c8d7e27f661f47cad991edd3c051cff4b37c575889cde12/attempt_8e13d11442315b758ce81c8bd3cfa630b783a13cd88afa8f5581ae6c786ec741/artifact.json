@@ -1,0 +1,216 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-az-d",
+  "lineage": {
+    "input_manifest_sha256": "fdddfde72dff43a7d6eda7bd86ee2f3d13339753e5267fd486b3be237091c8cd",
+    "candidate_lineage_id": "2026-10-28-rdmv-az-class-d:lineage:92",
+    "source_registry_sha256": "6dbbc2d22fea619728bdb90038a4aedf3afc07eab652b3f97027c9c69aaadaf4",
+    "source_liveness_sha256": "1c5753487760cbe2044d84b5696121c7181af61815b598d89d5ce158abf5fe43"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "C2"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "C2",
+      "chunk_id": "C2.01",
+      "merge_seq": 1,
+      "domain": "Vehicle emergency and crash-avoidance confusables",
+      "heading": "C2 — Confusable pairs and knowledge-graph hints: when to brake and when not to, anti-lock versus ordinary brakes, rear-end versus head-on crashes, fire suppression, skid steering and animals",
+      "learner_facing": false,
+      "markdown": "## C2 — Confusable pairs and knowledge-graph hints: when to brake and when not to, anti-lock versus ordinary brakes, rear-end versus head-on crashes, fire suppression, skid steering and animals\nLook-alike emergency responses from the vehicle emergency and crash-avoidance pages, each tied to one handbook page; hint metadata sits only in the trailing line of a block.\n\nFACT_ID: sec21-R01 | anchor: A01\nDuring a blowout you do not brake until the car is almost stopped, and only then do you signal, pull off and apply the brakes. [A01]\nWhy it matters: group blowouts; difficulty two; confusable sec21-F06 versus sec21-F07.\nSource: [A01 -> pdf-0068]\n\nFACT_ID: sec21-R02 | anchor: A01\nA vehicle fire calls for an ABC dry chemical extinguisher, or a heavy blanket, coat or sand, but never water on burning gasoline. [A01]\nWhy it matters: group fires; difficulty two; confusable sec21-F10 versus sec21-F11 versus sec21-F12.\nSource: [A01 -> pdf-0068]\n\nFACT_ID: sec21-R03 | anchor: A01\nWith an overheated engine you raise the hood but keep the radiator cap on, and you add water only once the engine has cooled. [A01]\nWhy it matters: group overheating; difficulty two; confusable sec21-F16 versus sec21-F17.\nSource: [A01 -> pdf-0068]\n\nFACT_ID: sec21-R04 | anchor: A02\nAnti-lock brakes should not be pumped, while failed ordinary brakes should be pumped rapidly to build pressure. [A02]\nWhy it matters: group brake failure; difficulty three; confusable sec21-F23 versus sec21-F24.\nSource: [A02 -> pdf-0069]\n\nFACT_ID: sec21-R05 | anchor: A02\nBefore a rear-end hit you release the brake an instant before impact, while before a head-on crash you slow down and head for the shoulder. [A02]\nWhy it matters: group crash avoidance; difficulty three; confusable sec21-F28 versus sec21-F30.\nSource: [A02 -> pdf-0069]\n\nFACT_ID: sec21-R06 | anchor: A02\nWhen the engine dies in a turn, the steering response is to grip with both hands and finish the turn, while the braking response is to press extra hard if the car has power brakes. [A02]\nWhy it matters: group power steering; difficulty two; prereq sec21-F18.\nSource: [A02 -> pdf-0069]\n\nFACT_ID: sec21-R07 | anchor: A02\nWhen the parking brake is used for a brake failure, you hold the release so you can let off if the rear wheels lock. [A02]\nWhy it matters: group brake failure; difficulty three; prereq sec21-F25.\nSource: [A02 -> pdf-0069]\n\nFACT_ID: sec21-R08 | anchor: A03\nIn a skid you steer toward where you want to go, which is the direction of the skid, and then steer back as the car straightens. [A03]\nWhy it matters: group skids; difficulty three; confusable sec21-F37 versus sec21-F38.\nSource: [A03 -> pdf-0070]\n\nFACT_ID: sec21-R09 | anchor: A03\nWhen two hazards cannot be separated, the extra room goes to the most likely danger, such as a child on a bike rather than oncoming cars. [A03]\nWhy it matters: group compromise; difficulty two; prereq sec21-F34.\nSource: [A03 -> pdf-0070]\n\nFACT_ID: sec21-R10 | anchor: A03\nAn animal already on the road calls for slowing and steering around it without losing control, while an animal beside the road calls for not honking. [A03]\nWhy it matters: group animals; difficulty two; confusable sec21-F43 versus sec21-F44.\nSource: [A03 -> pdf-0070]\n\nFACT_ID: sec21-R11 | anchor: A03\nSwerving hard to miss road debris is a common cause of run-off-road crashes, and sometimes driving over the debris is the less severe choice. [A03]\nWhy it matters: group debris; difficulty two; prereq sec21-F40.\nSource: [A03 -> pdf-0070]\n",
+      "char_count": 3503,
+      "fact_ids": [
+        "sec21-R01",
+        "sec21-R02",
+        "sec21-R03",
+        "sec21-R04",
+        "sec21-R05",
+        "sec21-R06",
+        "sec21-R07",
+        "sec21-R08",
+        "sec21-R09",
+        "sec21-R10",
+        "sec21-R11"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-az-d:arizona-department-of-transportation-mot:handbook:pdf-0068"
+        },
+        {
+          "anchor_id": "A02",
+          "source_page": "src:rdmv-az-d:arizona-department-of-transportation-mot:handbook:pdf-0069"
+        },
+        {
+          "anchor_id": "A03",
+          "source_page": "src:rdmv-az-d:arizona-department-of-transportation-mot:handbook:pdf-0070"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [
+    {
+      "domain": "Vehicle emergency and crash-avoidance confusables",
+      "chunk_id": "C2.01",
+      "ranked": [
+        {
+          "rank": 1,
+          "item_refs": [
+            "sec21-R04"
+          ],
+          "label": "anti-lock versus ordinary brakes"
+        },
+        {
+          "rank": 2,
+          "item_refs": [
+            "sec21-R08"
+          ],
+          "label": "skid steering"
+        },
+        {
+          "rank": 3,
+          "item_refs": [
+            "sec21-R01"
+          ],
+          "label": "no brakes during a blowout"
+        },
+        {
+          "rank": 4,
+          "item_refs": [
+            "sec21-R05"
+          ],
+          "label": "rear-end versus head-on crash response"
+        },
+        {
+          "rank": 5,
+          "item_refs": [
+            "sec21-R02"
+          ],
+          "label": "how to fight a vehicle fire"
+        },
+        {
+          "rank": 6,
+          "item_refs": [
+            "sec21-R03"
+          ],
+          "label": "radiator cap and cooling"
+        },
+        {
+          "rank": 7,
+          "item_refs": [
+            "sec21-R09"
+          ],
+          "label": "compromise between two hazards"
+        },
+        {
+          "rank": 8,
+          "item_refs": [
+            "sec21-R11"
+          ],
+          "label": "swerving versus driving over debris"
+        },
+        {
+          "rank": 9,
+          "item_refs": [
+            "sec21-R10"
+          ],
+          "label": "animal on versus beside the road"
+        },
+        {
+          "rank": 10,
+          "item_refs": [
+            "sec21-R07"
+          ],
+          "label": "parking brake technique"
+        },
+        {
+          "rank": 11,
+          "item_refs": [
+            "sec21-R06"
+          ],
+          "label": "power steering failure"
+        }
+      ]
+    }
+  ],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Arizona Driver License Manual carries one revision line on its contents page (Revised September 2026) and points to Arizona Revised Statutes Title 28 for current law; nothing in the selected pages signals more than one rewrite per year."
+  },
+  "verification_debt": [],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

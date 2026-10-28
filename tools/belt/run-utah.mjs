@@ -257,6 +257,9 @@ sectionLoop: for (section of sections) {
       if (!c) continue sectionLoop;
       console.log(`  16.compile: ${c.status}${c.reused ? ' (reused ' + (c.reused_from ?? 'accepted compile') + ')' : ''}${c.reason ? ' — ' + c.reason : ''}${c.errors ? ' — ' + JSON.stringify(c.errors).slice(0, 300) : ''}`);
       if (c.status !== 'PASS') { console.log(`STOP ${section}: compile not PASS`); outcomes[section] = 'HOLD 16.compile'; continue sectionLoop; }
+      // Point 16/<section>/CURRENT.json at the ledger's latest accepted compile (founder 2026-10-28: "keep new version only";
+      // older versions stay as immutable history, this is what gets read).
+      try { const { markCurrentCompiles } = await import(pathToFileURL(path.join(ROOT, 'tools/belt/mark-current-compiles.mjs')).href); const m = markCurrentCompiles(RUN).find((x) => x.section === section); if (m && m.version !== '.') console.log(`  16.compile: CURRENT → ${m.version}`); } catch (e) { console.log(`  (current-compile pointer not written: ${e.message.slice(0, 120)})`); }
       continue;
     }
     const stageId = STAGE_IDS[st] ?? st;

@@ -131,3 +131,9 @@ Seeded 2026-10-28T01:00:27.659Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T05:01:49.788Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:63 for 02.dossier_sections (sec14-additional-safety-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-additional-safety-tips__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T05:02:50.108Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:64 for 02.dossier_sections (sec14-additional-safety-tips) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-additional-safety-tips__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:49:31.743Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:65 for 03.combined_kg (sec03-safety-responsibility) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-safety-responsibility__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:58:30.723Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:66 for 03.combined_kg (sec05-signals-signs-markers) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-signals-signs-markers__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:11:38.324Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:67 for 03.combined_kg (sec07-parking-stopping-standing) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-parking-stopping-standing__-__n0 (lineage attempts exhausted)

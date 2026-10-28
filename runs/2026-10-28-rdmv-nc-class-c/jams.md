@@ -145,3 +145,7 @@ Seeded 2026-10-28T03:24:15.997Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T04:07:08.469Z lineage reset → 2026-10-28-rdmv-nc-class-c:lineage:72 for 02.dossier_sections (sec16-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-sharing-the-road__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:08:46.176Z exam_facts migrated to the verified object shape (question_count/passing_percent/time_limit/format bound to the registered source); provenance in scope.exam_facts_provenance
+
+- 2026-10-28T05:52:49.499Z lineage reset → 2026-10-28-rdmv-nc-class-c:lineage:73 for 03.combined_kg (sec03-insurance-real-id-renewal) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-insurance-real-id-renewal__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:07:22.904Z lineage reset → 2026-10-28-rdmv-nc-class-c:lineage:74 for 03.combined_kg (sec05-points-suspensions-restoration) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-points-suspensions-restoration__-__n0 (lineage attempts exhausted)

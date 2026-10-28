@@ -131,3 +131,5 @@ Seeded 2026-10-28T03:24:01.059Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T04:21:48.907Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:63 for 02.dossier_sections (sec14-failures-collisions-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-failures-collisions-law-enforcement__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:21:58.359Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:64 for 02.dossier_sections (sec14-failures-collisions-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-failures-collisions-law-enforcement__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:16:34.268Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:65 for 16.compile (sec04-occupant-protection-and-vehicle-control) under standing authority; cause: compile attempt cap on shared lineage (sec04-occupant-protection-and-vehicle-control)

@@ -37,23 +37,52 @@ function findPage(sourcePage, pageMap) {
 const ONES = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
 const TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
 export function numberToWords(n) {
-  if (!Number.isInteger(n) || n < 0 || n > 9999) return null;
+  // Range raised 9,999 → 999,999,999 (2026-10-28): "26,001 pounds" / "10,000" stayed as digits on byte-locked card backs.
+  if (!Number.isInteger(n) || n < 0 || n > 999_999_999) return null;
   if (n < 20) return ONES[n];
   if (n < 100) return TENS[Math.floor(n / 10)] + (n % 10 ? '-' + ONES[n % 10] : '');
   if (n < 1000) return ONES[Math.floor(n / 100)] + ' hundred' + (n % 100 ? ' ' + numberToWords(n % 100) : '');
-  return numberToWords(Math.floor(n / 1000)) + ' thousand' + (n % 1000 ? ' ' + numberToWords(n % 1000) : '');
+  if (n < 1_000_000) return numberToWords(Math.floor(n / 1000)) + ' thousand' + (n % 1000 ? ' ' + numberToWords(n % 1000) : '');
+  return numberToWords(Math.floor(n / 1_000_000)) + ' million' + (n % 1_000_000 ? ' ' + numberToWords(n % 1_000_000) : '');
 }
-const UNIT_WORDS = {mph: 'miles per hour', 'mi/h': 'miles per hour', kph: 'kilometers per hour', ft: 'feet', yd: 'yards', yds: 'yards', mi: 'miles', lb: 'pounds', lbs: 'pounds', oz: 'ounces', sec: 'seconds', secs: 'seconds', hr: 'hours', hrs: 'hours', min: 'minutes', mins: 'minutes', mo: 'months', yr: 'years', yrs: 'years'};
+const UNIT_WORDS = {mph: 'miles per hour', 'mi/h': 'miles per hour', kph: 'kilometers per hour', ft: 'feet', yd: 'yards', yds: 'yards', mi: 'miles', lb: 'pounds', lbs: 'pounds', oz: 'ounces', sec: 'seconds', secs: 'seconds', hr: 'hours', hrs: 'hours', min: 'minutes', mins: 'minutes', mo: 'months', yr: 'years', yrs: 'years', db: 'decibels'};
+// Spoken fractions (2026-10-28): "1/16 inch" was spoken "one or sixteen inch" by the alternatives rule; "20/50" vision as
+// "twenty or fifty". Numeric a/b is a fraction or a ratio, never an alternative.
+const FRACTION_WORDS = {2: ['half', 'halves'], 3: ['third', 'thirds'], 4: ['quarter', 'quarters'], 5: ['fifth', 'fifths'], 6: ['sixth', 'sixths'], 8: ['eighth', 'eighths'], 10: ['tenth', 'tenths'], 12: ['twelfth', 'twelfths'], 16: ['sixteenth', 'sixteenths'], 32: ['thirty-second', 'thirty-seconds']};
+function fractionToWords(a, b) {
+  const num = Number(a), den = Number(b);
+  if (FRACTION_WORDS[den] && num >= 1 && num < den) return `${numberToWords(num)} ${FRACTION_WORDS[den][num === 1 ? 0 : 1]}`;
+  // Ratios such as visual acuity ("20/50", "20/200") and anything else numeric read as "<a> over <b>".
+  return `${numberToWords(num) ?? a} over ${numberToWords(den) ?? b}`;
+}
+// Clock times (2026-10-28): "11:01 p.m." was spoken "eleven:one p.m."; "5:00 a.m." as "five:zero a.m.".
+function timeToWords(h, m) {
+  const hour = numberToWords(Number(h)) ?? h;
+  const mins = Number(m);
+  if (mins === 0) return hour;
+  if (mins < 10) return `${hour} oh ${ONES[mins]}`;
+  return `${hour} ${numberToWords(mins)}`;
+}
 export function spokenize(text) {
   let s = String(text ?? '');
   // URLs / web paths first (2026-10-28, Michigan "Michigan.gov/NewDrivers", "Michigan.gov/SOS"): a slash after a dotted host is
   // spoken as "slash", never as "or"; without this the short-part rule below turned "Michigan.gov/SOS" into "Michigan.gov or SOS"
   // and long paths got no spoken form at all (04.BACK_SPOKEN_FORM vs 04.BACK_FIDELITY could not both pass).
   s = s.replace(/\b((?:https?:\/\/)?(?:www\.)?[A-Za-z0-9-]+(?:\.[A-Za-z]{2,})+)((?:\/[A-Za-z0-9._~%-]+)+)\/?/g, (_, host, pathPart) => host + pathPart.split('/').filter(Boolean).map((seg) => ' slash ' + seg).join(''));
+  // Clock times and numeric fractions/ratios BEFORE the alternatives rule, which would otherwise read "/" and ":" literally.
+  s = s.replace(/\b(1[0-2]|0?[1-9])[:.]([0-5]\d)(?=\s*(?:a\.?m\.?|p\.?m\.?|noon|midnight)\b)/gi, (_, h, m) => timeToWords(h, m));
+  s = s.replace(/\b(\d{1,2}):([0-5]\d)\b(?!\s*:)/g, (_, h, m) => timeToWords(h, m));
+  s = s.replace(/\b(\d{1,2})\/(\d{1,3})\b(?!\/)/g, (_, a, b) => fractionToWords(a, b));
   s = s.replace(/\b([A-Za-z0-9]{1,3})((?:\/[A-Za-z0-9]{1,3}\b)+)/g, (_, first, rest) => { const parts = [first, ...rest.split('/').filter(Boolean)]; return parts.length > 2 ? parts.slice(0, -1).join(', ') + ' or ' + parts.at(-1) : parts.join(' or '); });
   s = s.replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ');
-  s = s.replace(/\$\s?(\d[\d,]*(?:\.\d+)?)/g, '$1 dollars');
-  s = s.replace(/\b(\d+)\s*(mph|mi\/h|kph|ft|yds?|mi|lbs?|oz|secs?|hrs?|mins?|mo|yrs?)\b\.?/gi, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()] ?? unit}`);
+  // Money: the amount group must not swallow a trailing list comma ("$1,000, plus costs" was "one thousand, dollars plus costs").
+  s = s.replace(/\$\s?(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d{2}))?\b/g, (_, whole, cents) => {
+    const w = numberToWords(Number(whole.replace(/,/g, ''))) ?? whole;
+    return cents && Number(cents) ? `${w} dollars and ${numberToWords(Number(cents))} cents` : `${w} dollars`;
+  });
+  s = s.replace(/\b(\d+)\s*(mph|mi\/h|kph|ft|yds?|mi|lbs?|oz|secs?|hrs?|mins?|mo|yrs?|dB)\b\.?/gi, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()] ?? unit}`);
+  // Leading-dot decimals (2026-10-28, Colorado ".08 / .02 / .04 BAC" came out "over.eight"): spoken "point zero eight".
+  s = s.replace(/(^|[^\d.])\.(\d+)\b/g, (_, pre, frac) => `${pre}${pre && !/\s/.test(pre) ? ' ' : ''}point ${[...frac].map(d => ONES[Number(d)]).join(' ')}`);
   s = s.replace(/\b(\d+)\.(\d+)\b/g, (_, a, b) => `${numberToWords(Number(a)) ?? a} point ${[...b].map(d => ONES[Number(d)]).join(' ')}`);
   s = s.replace(/\b(\d{1,3}(?:,\d{3})+|\d+)\b/g, (m) => { const n = Number(m.replace(/,/g, '')); const w = numberToWords(n); return w ?? m; });
   return s.replace(/[ \t]{2,}/g, ' ');

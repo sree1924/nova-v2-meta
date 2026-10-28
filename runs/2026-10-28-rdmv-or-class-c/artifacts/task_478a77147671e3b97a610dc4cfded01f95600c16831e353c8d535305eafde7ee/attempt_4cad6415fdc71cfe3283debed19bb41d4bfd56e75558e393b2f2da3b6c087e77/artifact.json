@@ -1,0 +1,136 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-or-c",
+  "lineage": {
+    "input_manifest_sha256": "6a39c6aea87cf27b483a33f635e0a1041958689b06c245a28e7259ff778cc281",
+    "candidate_lineage_id": "2026-10-28-rdmv-or-class-c:lineage:16",
+    "source_registry_sha256": "ce8335c1d96ff7ed209bf236ba9a56fe92dfebd915bc0e2fa7fb830ee03f0f09",
+    "source_liveness_sha256": "c4da479589e7933e4eef7366086dfcc48a420303d0089cb0ea19ad9137abec1d"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy notes and source flags: curves, lane changes, passing, freeways and towing",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy notes and source flags: curves, lane changes, passing, freeways and towing\nEvery C and C2 fact cites exactly one physical manual page from the selected range; nothing relies on outside knowledge.\nThe towing page prints a fines box with escalating amounts and a jail term next to the towing rule, but the extracted text does not say which offense the box belongs to or whether the jail term goes with every level, so no fine or jail value is taught [A07] (verify OR-PASS-D-FINES).\nThe wrong-way freeway steps and the merge rules come from the freeway page text; the ramp diagrams are not in the extracted text and are not relied on [A05].\nThe sample test questions page (physical page forty-five) is official question text and is not reproduced or paraphrased into facts.\nNo dynamic values appear in these pages apart from the hours when ramp meters run, which the manual leaves unstated.\n",
+      "char_count": 904,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A07",
+          "source_page": "src:rdmv-or-c:oregon-department-of-transportation-driv:handbook:pdf-0044"
+        },
+        {
+          "anchor_id": "A05",
+          "source_page": "src:rdmv-or-c:oregon-department-of-transportation-driv:handbook:pdf-0042"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Oregon Driver Manual is a two-year edition (the front cover names a two-year span and the back cover carries a single form revision code); fees and office details are sent to the DMV website rather than printed, and nothing in the selected pages suggests more than one rewrite per year."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "OR-PASS-D-FINES",
+      "claim_text": "Physical page 44 prints a FINES box (first, second and third offense amounts plus a jail term) beside the trailer passenger and towing rules; the extracted text does not tie the box to a specific offense or show whether the jail term applies to every level. Confirm against the rendered page or the Oregon statute before any amount is taught.",
+      "blocker_kind": "exam_policy_unclear",
+      "source_tier_required": "official",
+      "owner_worker": "HallucinationAuditor",
+      "ship_blocking": false,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": [
+        "$1,000",
+        "$2,000",
+        "$2,500"
+      ]
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

@@ -119,3 +119,15 @@ Seeded 2026-10-28T00:58:10.604Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T05:15:56.383Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:54 for 02.dossier_sections (sec12-traffic-crash) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-crash__B__n0 (lineage attempts exhausted)
 
 - 2026-10-28T05:16:43.557Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:55 for 02.dossier_sections (sec12-traffic-crash) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-crash__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:17:44.377Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:56 for 02.dossier_sections (sec12-traffic-crash) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-traffic-crash__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:18:50.342Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:57 for 02.dossier_sections (sec13-adas) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-adas__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:20:09.427Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:58 for 02.dossier_sections (sec13-adas) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-adas__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:21:06.500Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:59 for 02.dossier_sections (sec13-adas) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-adas__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:21:56.831Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:60 for 02.dossier_sections (sec13-adas) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-adas__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:22:50.351Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:61 for 02.dossier_sections (sec13-adas) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-adas__G__n0 (lineage attempts exhausted)

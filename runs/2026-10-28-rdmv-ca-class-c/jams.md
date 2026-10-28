@@ -99,3 +99,47 @@ extracted handbook text and a fresh issuer-page fetch; seed adopted as-is. Phase
 - 2026-10-28T05:16:31.403Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:39 for 16.compile (sec03-testing-process) under standing authority; cause: compile attempt cap on shared lineage (sec03-testing-process)
 
 - 2026-10-28T05:16:32.437Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:40 for 16.compile (sec06-navigating-the-roads) under standing authority; cause: compile attempt cap on shared lineage (sec06-navigating-the-roads)
+
+- 2026-10-28T05:17:47.200Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:41 for 02.dossier_sections (sec09-alcohol-and-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-drugs__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:18:40.888Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:42 for 02.dossier_sections (sec09-alcohol-and-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-drugs__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:19:35.794Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:43 for 02.dossier_sections (sec09-alcohol-and-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-alcohol-and-drugs__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:20:25.437Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:44 for 02.dossier_sections (sec10-financial-responsibility-insurance-collisions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-financial-responsibility-insurance-collisions__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:21:51.066Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:45 for 02.dossier_sections (sec10-financial-responsibility-insurance-collisions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-financial-responsibility-insurance-collisions__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:22:38.956Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:46 for 02.dossier_sections (sec10-financial-responsibility-insurance-collisions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-financial-responsibility-insurance-collisions__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:23:36.595Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:47 for 02.dossier_sections (sec10-financial-responsibility-insurance-collisions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-financial-responsibility-insurance-collisions__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:24:41.336Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:48 for 02.dossier_sections (sec10-financial-responsibility-insurance-collisions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-financial-responsibility-insurance-collisions__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:25:59.557Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:49 for 02.dossier_sections (sec11-vehicle-registration-requirements) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-vehicle-registration-requirements__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:27:07.633Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:50 for 02.dossier_sections (sec11-vehicle-registration-requirements) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-vehicle-registration-requirements__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:27:58.473Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:51 for 02.dossier_sections (sec11-vehicle-registration-requirements) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-vehicle-registration-requirements__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:28:43.123Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:52 for 02.dossier_sections (sec11-vehicle-registration-requirements) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-vehicle-registration-requirements__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:29:38.020Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:53 for 02.dossier_sections (sec12-driver-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-driver-safety__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:30:48.049Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:54 for 02.dossier_sections (sec12-driver-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-driver-safety__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:31:41.546Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:55 for 02.dossier_sections (sec12-driver-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-driver-safety__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:32:35.940Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:56 for 02.dossier_sections (sec12-driver-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-driver-safety__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:33:31.114Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:57 for 02.dossier_sections (sec12-driver-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-driver-safety__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:34:42.722Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:58 for 02.dossier_sections (sec13-seniors-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-seniors-and-driving__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:35:35.914Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:59 for 02.dossier_sections (sec13-seniors-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-seniors-and-driving__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:36:34.740Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:60 for 02.dossier_sections (sec13-seniors-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-seniors-and-driving__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T05:37:29.799Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:61 for 02.dossier_sections (sec13-seniors-and-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-seniors-and-driving__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:17:34.859Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:62 for 16.compile (sec12-driver-safety) under standing authority; cause: compile attempt cap on shared lineage (sec12-driver-safety)
