@@ -1,0 +1,136 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-nj-d",
+  "lineage": {
+    "input_manifest_sha256": "56a64621663f967122acee79f523ca04a411e19b2c1c711226302b4e1e0f6548",
+    "candidate_lineage_id": "2026-10-28-rdmv-nj-class-d:lineage:30",
+    "source_registry_sha256": "057b72c7c679c997f56ae00ef97a6b14dbe264551f4121b9bf67b0457d9cf7c1",
+    "source_liveness_sha256": "1ca7bfbb9e3c0a6b19e5e808ecab6fe8329f3b4799e394abc260d65c1d6513e7"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy notes and source flags: stopping rules, special vehicles, headlights, parking and phones",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy notes and source flags: stopping rules, special vehicles, headlights, parking and phones\nEvery C and C2 fact cites exactly one physical manual page from the selected range; nothing relies on outside knowledge.\nPhysical pages eighty-one and eighty-two extracted only their printed page numbers, so whatever they show as images was not used (verify NJ-STOP-D-BLANK).\nThe police stop guidance is printed as a message from the Attorney General; only the document requirement is stated as a legal duty, and the rest is reported as guidance [A06].\nThe manual heads one lighting item Interim (overhead) lights while describing lights inside the vehicle; the dossier calls them interior overhead lights from that description [A09].\nThe phone fine ladder and the named vehicular homicide law are reported as printed, with statute citations summarized rather than copied [A11].\n",
+      "char_count": 884,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A06",
+          "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0083"
+        },
+        {
+          "anchor_id": "A09",
+          "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0086"
+        },
+        {
+          "anchor_id": "A11",
+          "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0088"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The New Jersey Driver Manual prints 2026 on its front cover and a single back-cover code; the identification charts carry one revision note (Revised 4/2026) and the manual says fees are subject to change, with no sign of more than one rewrite per year in the selected pages."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "NJ-STOP-D-BLANK",
+      "claim_text": "Physical pages 81 and 82 of the manual extracted no text beyond page numbers; confirm whether they carry image-only content (for example a graphic on emergency vehicles or police stops) that the dossier should cover.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

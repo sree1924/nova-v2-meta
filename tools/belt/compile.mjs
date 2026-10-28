@@ -56,6 +56,7 @@ function fractionToWords(a, b) {
   return `${numberToWords(num) ?? a} over ${numberToWords(den) ?? b}`;
 }
 // Clock times (2026-10-28): "11:01 p.m." was spoken "eleven:one p.m."; "5:00 a.m." as "five:zero a.m.".
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const spokenizeDecimal = (n) => { const [a, b] = String(n).split('.'); return (numberToWords(Number(a)) ?? a) + (b ? ' point ' + [...b].map((d) => ONES[Number(d)]).join(' ') : ''); };
 function timeToWords(h, m) {
   const hour = numberToWords(Number(h)) ?? h;
@@ -75,9 +76,16 @@ export function spokenize(text) {
   s = s.replace(/\b911\b/g, 'nine one one');
   s = s.replace(/\$\s?(\d+(?:\.\d+)?)\s*(million|billion|trillion)\b/gi, (_, n, scale) => `${spokenizeDecimal(n)} ${scale.toLowerCase()} dollars`);
   s = s.replace(/\b(\d+)\s*cc\b/g, (_, n) => `${numberToWords(Number(n)) ?? n} cubic centimeters`);
+  // Years 1900–1999 (New Jersey "since 1998" was "one thousand nine hundred ninety-eight"): "nineteen ninety-eight" unless a
+  // measure follows (then it is a quantity). 20xx already reads naturally as "two thousand twenty-one".
+  s = s.replace(/\b19(\d\d)\b(?!\s*(?:feet|ft|foot|pounds|lbs?|miles|mi|mph|dollars|yards|inches|cc|percent|%))/g, (_, yy) => `nineteen ${Number(yy) === 0 ? 'hundred' : Number(yy) < 10 ? 'oh ' + ONES[Number(yy)] : numberToWords(Number(yy))}`);
   // Clock times and numeric fractions/ratios BEFORE the alternatives rule, which would otherwise read "/" and ":" literally.
   s = s.replace(/\b(1[0-2]|0?[1-9])[:.]([0-5]\d)(?=\s*(?:a\.?m\.?|p\.?m\.?|noon|midnight)\b)/gi, (_, h, m) => timeToWords(h, m));
   s = s.replace(/\b(\d{1,2}):([0-5]\d)\b(?!\s*:)/g, (_, h, m) => timeToWords(h, m));
+  // Dates "12/31/2021" (Indiana sec05-F23 was "twelve or thirty-one/two thousand twenty-one") and numeric triples such as
+  // insurance minimums "25/50/25" ("twenty-five, fifty, twenty-five"), both before the two-part fraction/ratio rule.
+  s = s.replace(/\b(1[0-2]|0?[1-9])\/(3[01]|[12]\d|0?[1-9])\/((?:19|20)\d\d)\b/g, (_, m, d, y) => `${MONTHS[Number(m) - 1]} ${numberToWords(Number(d))}, ${numberToWords(Number(y))}`);
+  s = s.replace(/\b(\d{1,3})((?:\/\d{1,3}){2,})\b/g, (_, first, rest) => [first, ...rest.split('/').filter(Boolean)].map((n) => numberToWords(Number(n)) ?? n).join(', '));
   s = s.replace(/\b(\d{1,2})\/(\d{1,3})\b(?!\/)/g, (_, a, b) => fractionToWords(a, b));
   s = s.replace(/\b([A-Za-z0-9]{1,3})((?:\/[A-Za-z0-9]{1,3}\b)+)/g, (_, first, rest) => { const parts = [first, ...rest.split('/').filter(Boolean)]; return parts.length > 2 ? parts.slice(0, -1).join(', ') + ' or ' + parts.at(-1) : parts.join(' or '); });
   s = s.replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ');

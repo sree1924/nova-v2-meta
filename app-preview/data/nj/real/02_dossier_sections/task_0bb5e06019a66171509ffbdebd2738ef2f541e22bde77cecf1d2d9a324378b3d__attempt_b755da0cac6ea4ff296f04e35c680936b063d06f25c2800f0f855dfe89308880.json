@@ -1,0 +1,136 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-nj-d",
+  "lineage": {
+    "input_manifest_sha256": "25a128b386c813c18428eb27f0cfe0878214bb6a2781c2ed9733baa3f4f23a58",
+    "candidate_lineage_id": "2026-10-28-rdmv-nj-class-d:lineage:25",
+    "source_registry_sha256": "057b72c7c679c997f56ae00ef97a6b14dbe264551f4121b9bf67b0457d9cf7c1",
+    "source_liveness_sha256": "1ca7bfbb9e3c0a6b19e5e808ecab6fe8329f3b4799e394abc260d65c1d6513e7"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy notes and source flags: speed, passing, right-of-way, intersections, highways and turns",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy notes and source flags: speed, passing, right-of-way, intersections, highways and turns\nEvery C and C2 fact cites exactly one physical manual page from the selected range; nothing relies on outside knowledge.\nThe default speed limit table is a graphic whose limits and road types extracted as text in reading order; each fact pairs a limit with the road type printed directly after it, and the table's unless-otherwise-posted heading appears on the following page [A01] (verify NJ-ROAD-D-LIMITS).\nThe lane marking and highway ramp drawings are images; only their short captions extracted, and no fact relies on the drawings themselves [A03].\nThe statement that New Jersey has more pedestrian injury crashes than the national average gives no figure, so it is not used as a fact [A05].\nStatute citations printed after each rule were summarized, not copied; fines, penalties and the Safe Corridor list are isolated as dynamic.\n",
+      "char_count": 941,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0064"
+        },
+        {
+          "anchor_id": "A03",
+          "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0066"
+        },
+        {
+          "anchor_id": "A05",
+          "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0068"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The New Jersey Driver Manual prints 2026 on its front cover and a single back-cover code; the identification charts carry one revision note (Revised 4/2026) and the manual says fees are subject to change, with no sign of more than one rewrite per year in the selected pages."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "NJ-ROAD-D-LIMITS",
+      "claim_text": "The default speed limit graphic (physical page 64) extracted as alternating limit and road-type lines; the dossier pairs each limit with the road type printed after it; confirm the pairing against the rendered page or N.J.S.A. 39:4-98.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

@@ -155,3 +155,5 @@ Seeded 2026-10-28T05:02:02.619Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:04:22.759Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:77 for 02.dossier_sections (sec17-distracted-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-distracted-driving__G__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:27:14.323Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:78 for 03.combined_kg (sec01-driver-license-part-1) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec01-driver-license-part-1__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:35:51.508Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:79 for 03.combined_kg (sec02-driver-license-part-2) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec02-driver-license-part-2__-__n0 (lineage attempts exhausted)

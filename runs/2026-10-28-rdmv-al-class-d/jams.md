@@ -119,3 +119,5 @@ Seeded 2026-10-28T05:08:44.916Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:07:56.943Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:59 for 02.dossier_sections (sec13-graduated-driver-license-summary) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-graduated-driver-license-summary__G__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:27:19.843Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:60 for 03.combined_kg (sec03-losing-your-license-and-points) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-losing-your-license-and-points__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:36:02.193Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:61 for 03.combined_kg (sec05-large-vehicles-parking-and-restraints) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-large-vehicles-parking-and-restraints__-__n0 (lineage attempts exhausted)

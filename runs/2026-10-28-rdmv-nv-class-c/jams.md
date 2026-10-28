@@ -113,3 +113,5 @@ Seeded 2026-10-28T05:06:50.392Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T05:48:46.680Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:54 for 02.dossier_sections (sec12-dui-suspensions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-dui-suspensions__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:14:11.077Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:55 for 03.combined_kg (sec03-buckle-up) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-buckle-up__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:29:38.798Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:56 for 03.combined_kg (sec05-right-of-way-speed-freeways) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-right-of-way-speed-freeways__-__n0 (lineage attempts exhausted)
