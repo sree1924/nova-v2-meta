@@ -223,7 +223,10 @@ export async function buildRegistration({
     const value = JSON.parse(bytes.toString('utf8'));
     if (value.artifact_type !== 'IssuerCurrentEditionConfirmation' || value.run_id !== config.run_id ||
         value.handbook_snapshot_sha256 !== sourceHash || value.links_exact_handbook_url !== config.scope.handbook_url ||
-        !/^https:\/\/dld\.utah\.gov\//.test(value.page_url ?? '') || !isDateTime(value.observed_at_utc) ||
+        // Issuer page must be on the run's declared issuer domain(s) (scope.issuer_page_domains, https only); Utah's DLD
+        // remains the default so the first run's receipts still verify. Multi-state intake, 2026-10-28.
+        !(Array.isArray(config.scope?.issuer_page_domains) && config.scope.issuer_page_domains.length ? config.scope.issuer_page_domains : ['dld.utah.gov'])
+          .some(d => new RegExp('^https://(?:[a-z0-9-]+\\.)*' + String(d).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '/').test(value.page_url ?? '')) || !isDateTime(value.observed_at_utc) ||
         !value.recorded_by?.actor || !value.recorded_by?.session_id ||
         value.effective_date_disposition?.value !== null) {
       throw new Error('Issuer confirmation does not bind this run, source hash, exact handbook URL, dated official page, and recorder');
