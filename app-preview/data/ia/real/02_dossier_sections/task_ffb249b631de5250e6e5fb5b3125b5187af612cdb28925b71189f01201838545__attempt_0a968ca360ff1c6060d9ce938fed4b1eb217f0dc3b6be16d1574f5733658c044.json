@@ -1,0 +1,170 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Iowa Driver's License Manual is a periodically revised reference (observed form MM1170 dated 07/23/2026); parking, move-over, and crash-clearing rules are stable conventions that change less than once per year, so no BlockedProbe."
+  },
+  "envelope_scope": {
+    "assigned_section_ids": [
+      "C2"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1,
+    "kind": "partial_chunk"
+  },
+  "exam_facts": {
+    "edition": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    },
+    "effective_date": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    },
+    "exam_name": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    },
+    "format": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    },
+    "issuing_body": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    },
+    "n_questions": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    },
+    "passing_standard": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    },
+    "question_bank_size": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    },
+    "time_limit": {
+      "source_page": null,
+      "status": "unknown",
+      "value": null
+    }
+  },
+  "external_review_requests": [],
+  "g_matrix": [],
+  "high_yield_ranked": [
+    {
+      "chunk_id": "C2.01",
+      "domain": "Parking, Move Over, Steer It-Clear It",
+      "ranked": [
+        {
+          "item_refs": [
+            "sec07-R01",
+            "sec07-R04",
+            "sec07-R05"
+          ],
+          "label": "Parking distances",
+          "rank": 1
+        },
+        {
+          "item_refs": [
+            "sec07-R02",
+            "sec07-R03",
+            "sec07-R06",
+            "sec07-R07"
+          ],
+          "label": "Banned places",
+          "rank": 2
+        },
+        {
+          "item_refs": [
+            "sec07-R08",
+            "sec07-R09",
+            "sec07-R10"
+          ],
+          "label": "Move-over pairs",
+          "rank": 3
+        },
+        {
+          "item_refs": [
+            "sec07-R11"
+          ],
+          "label": "Clear-it pair",
+          "rank": 4
+        }
+      ]
+    }
+  ],
+  "lineage": {
+    "candidate_lineage_id": "2026-10-28-rdmv-ia-class-c:lineage:28",
+    "input_manifest_sha256": "36b210bdc004f38a8c3488578315e8c9c2a1dddd4de3dfa8c096e6accde13d3e",
+    "source_liveness_sha256": "2b4d6af9508bf2357594d0634ef2253a201612625477fc8b07a01ea3eef70eb3",
+    "source_registry_sha256": "2424f09bf62442c011636a37f7c7c5736444aa03094ad0f5a137cb9e38c702eb"
+  },
+  "market_signal": {
+    "chunk_ids": [],
+    "debt_refs": [],
+    "disposition": "scoped_out",
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E"
+  },
+  "merge": {
+    "expected_merged_sha256": null,
+    "joiner": "concat_no_separator",
+    "order_rule": "merge_seq_ascending"
+  },
+  "needs_dedicated_surface": {
+    "items": [],
+    "status": "unknown"
+  },
+  "probe": "rdmv-ia-c",
+  "schema_version": "0.4.0",
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "char_count": 3936,
+      "chunk_id": "C2.01",
+      "domain": "Parking, Move Over, Steer It-Clear It",
+      "fact_ids": [
+        "sec07-R01",
+        "sec07-R02",
+        "sec07-R03",
+        "sec07-R04",
+        "sec07-R05",
+        "sec07-R06",
+        "sec07-R07",
+        "sec07-R08",
+        "sec07-R09",
+        "sec07-R10",
+        "sec07-R11"
+      ],
+      "heading": "C2 — KG hints for Parking, Move Over, Steer It-Clear It",
+      "learner_facing": false,
+      "markdown": "## C2 — KG hints for Parking, Move Over, Steer It-Clear It\n\nFACT_ID: sec07-R01 | anchor: A01\nA marked stall is the first parking choice, while roadway parking demands hugging within 18 inches of the curb [A01].\nWhy it matters: group_hint park-basics; prereq_hint none; difficulty_hint one; confusable_with sec07-F02.\nSource: [A01 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0021]\n\nFACT_ID: sec07-R02 | anchor: A01\nCrosswalks and driveway fronts ban parking for access, while out-of-town bridges and tunnels ban it for clearance [A01].\nWhy it matters: group_hint banned-places; prereq_hint none; difficulty_hint one; confusable_with sec07-F06 and sec07-F07.\nSource: [A01 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0021]\n\nFACT_ID: sec07-R03 | anchor: A01\nDouble parking beside another car is banned, while single-file parking belongs tight to the curb [A01].\nWhy it matters: group_hint park-basics; prereq_hint sec07-F02; difficulty_hint one; confusable_with sec07-F02 and sec07-F08.\nSource: [A01 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0021]\n\nFACT_ID: sec07-R04 | anchor: A01\nThe hydrant needs five feet of clearance, while the stop sign needs 10 feet [A01].\nWhy it matters: group_hint park-distances; prereq_hint none; difficulty_hint two; confusable_with sec07-F09 and sec07-F10.\nSource: [A01 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0021]\n\nFACT_ID: sec07-R05 | anchor: A01\nA firehouse mouth needs 20 feet of clearance, while a railroad crossing needs 50 feet [A01].\nWhy it matters: group_hint park-distances; prereq_hint sec07-F09; difficulty_hint two; confusable_with sec07-F11 and sec07-F12.\nSource: [A01 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0021]\n\nFACT_ID: sec07-R06 | anchor: A01\nPosted zones and intersections ban parking by sign, while sidewalks and interstates ban it by kind [A01].\nWhy it matters: group_hint banned-places; prereq_hint none; difficulty_hint one; confusable_with sec07-F13 and sec07-F14.\nSource: [A01 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0021]\n\nFACT_ID: sec07-R07 | anchor: A01\nOnly a disability permit opens a reserved space, while every other listed place stays closed to all [A01].\nWhy it matters: group_hint banned-places; prereq_hint none; difficulty_hint one; confusable_with sec07-F15.\nSource: [A01 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0021]\n\nFACT_ID: sec07-R08 | anchor: A02\nFlashing stopped rigs demand a lane change first, while an impossible shift drops you to a slow, stop-ready crawl [A02].\nWhy it matters: group_hint move-over; prereq_hint none; difficulty_hint two; confusable_with sec07-F16 and sec07-F17.\nSource: [A02 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0022]\n\nFACT_ID: sec07-R09 | anchor: A02\nTow and work rigs with flashers trigger move-over, and so does an ordinary car blinking its hazards [A02].\nWhy it matters: group_hint move-over; prereq_hint sec07-F16; difficulty_hint two; confusable_with sec07-F16.\nSource: [A02 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0022]\n\nFACT_ID: sec07-R10 | anchor: A02\nThe slowdown sets no number, only reasonable and proper, while the penalty sets a full year off the road [A02].\nWhy it matters: group_hint move-over; prereq_hint none; difficulty_hint one; confusable_with sec07-F17 and sec07-F18.\nSource: [A02 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0022]\n\nFACT_ID: sec07-R11 | anchor: A02\nOperable cars must clear the lanes after a no-injury crash, because each blocked minute lifts secondary-crash odds by roughly 2.8 percent [A02].\nWhy it matters: group_hint clear-it; prereq_hint none; difficulty_hint one; confusable_with sec07-F19 and sec07-F20.\nSource: [A02 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0022]\n",
+      "merge_seq": 1,
+      "section_id": "C2",
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0021"
+        },
+        {
+          "anchor_id": "A02",
+          "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0022"
+        }
+      ]
+    }
+  ],
+  "stage_id": "02.dossier_sections",
+  "verification_debt": []
+}
