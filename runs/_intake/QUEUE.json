@@ -235,6 +235,70 @@
       "worker": "claude",
       "local_path": "runs/_intake/sources/private/AL.pdf",
       "note": "link text: Driver License Manual; older Feb 2021 / May 2019 editions also hosted on alea.gov - not used"
+    },
+    {
+      "state": "KY",
+      "jurisdiction": "US-KY",
+      "issuing_authority": "Kentucky State Police (KSP), Driver Testing Branch",
+      "license_class": "Class D (operator license)",
+      "handbook_title": "Kentucky Driver Manual (Updated 7-23-26)",
+      "handbook_url": "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2026/07/Kentucky-Driver-Manual_Updated_7-23-26.pdf",
+      "issuer_page_url": "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+      "bytes": 4661828,
+      "sha256": "fa511c13651ede502d8d77cd71c192e5b72e4002ad2564d0544f7afe82658064",
+      "retrieved_at_utc": "2026-10-28T06:49:04Z",
+      "note": "issuer page HTTP 200 links this exact URL (same page also still links the older 2023/11 Kentucky-Driver-Manual-10-11-2023.pdf and a 09-08-2023 Spanish edition - not used). Edition only in filename (Updated 7-23-26); front pages 1-4 are image-only (no printed edition line). drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf (KYTC) returned 404. License issuance is KYTC; KSP administers testing and publishes the manual; 81 pages extracted by handbook-text.mjs",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/KY.pdf"
+    },
+    {
+      "state": "OK",
+      "jurisdiction": "US-OK",
+      "issuing_authority": "Service Oklahoma (SOK)",
+      "license_class": "Class D",
+      "handbook_title": "Oklahoma Driver Manual",
+      "handbook_url": "https://oklahoma.gov/content/dam/service-oklahoma/Documents/OklahomaDriverManual.pdf",
+      "issuer_page_url": "https://oklahoma.gov/service/all-pages/driver-study-hub.html",
+      "bytes": 35524221,
+      "sha256": "b6daad726b99e64f9a0956a7e6cde6657cf9b553777ad735e4d0ba7d1a957569",
+      "retrieved_at_utc": "2026-10-28T06:49:08Z",
+      "note": "issuer page HTTP 200 links this exact URL (also linked from /service/all-pages/driver-education.html). No printed edition/revision line in front matter (verify edition); a Service Oklahoma help article calls it the 2023 manual. Mentions REAL ID enforcement from May 7, 2025, so content is post-2023; 74 pages extracted by handbook-text.mjs",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/OK.pdf"
+    },
+    {
+      "state": "CT",
+      "jurisdiction": "US-CT",
+      "issuing_authority": "Connecticut Department of Motor Vehicles (CT DMV)",
+      "license_class": "Class D",
+      "handbook_title": "Connecticut Driver's Manual (Revised March 2023)",
+      "handbook_url": "https://portal.ct.gov/dmv/-/media/dmv/dmv-pdfs/drivers-manual-english.pdf?rev=ef19ff753d5642378c6371a379d5b95b",
+      "issuer_page_url": "https://portal.ct.gov/dmv/licenses-permits-ids/ct-drivers-manuals",
+      "bytes": 3309348,
+      "sha256": "7f79ea70ac8771fa40d7df35641fdcabd4952b7175205e2245ba392853c3581c",
+      "retrieved_at_utc": "2026-10-28T06:49:17Z",
+      "note": "issuer page HTTP 200 links this exact URL incl. ?rev= token; front matter prints Revised March 2023. Older portal.ct.gov/DMV/Drivers-Manuals page (12/19 edition) not used; 60 pages extracted by handbook-text.mjs",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/CT.pdf"
+    },
+    {
+      "state": "IA",
+      "jurisdiction": "US-IA",
+      "issuing_authority": "Iowa Department of Transportation (Iowa DOT), Motor Vehicle Division",
+      "license_class": "Class C (non-commercial)",
+      "handbook_title": "Iowa Driver's License Manual (MM1170, Complete Book)",
+      "handbook_url": "https://iowadot.gov/media/7308/download?inline",
+      "issuer_page_url": "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/drivers-manual",
+      "bytes": 9007383,
+      "sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80",
+      "retrieved_at_utc": "2026-10-28T06:53:22Z",
+      "note": "issuer page HTTP 200 links href=/media/7308/download?inline as Complete Book (8.59 MB) beside per-chapter PDFs (not used); served as attachment MM1170-IowaDriversLicenseManual.pdf. iowadot.gov/driversmanual redirects to the same PDF. No printed edition line in front matter (verify edition); 68 pages extracted by handbook-text.mjs",
+      "status": "staged",
+      "worker": "muse",
+      "local_path": "runs/_intake/sources/private/IA.pdf"
     }
   ],
   "refused": [
@@ -249,17 +313,28 @@
       "bytes": 0,
       "retrieved_at_utc": "2026-10-28T01:21:11Z",
       "status": "refused: mass.gov returned HTTP 403 with an HTML body to scripted curl (issuer page also 403)"
+    },
+    {
+      "state": "LA",
+      "jurisdiction": "US-LA",
+      "issuing_authority": "Louisiana Office of Motor Vehicles (OMV), Department of Public Safety",
+      "license_class": "Class D/E",
+      "handbook_title": "Class D & E Driver's Guide",
+      "handbook_url": "https://public.powerdms.com/LADPSC/documents/347039",
+      "issuer_page_url": "https://expresslane.la.gov/omv/resources/driver-manuals/",
+      "bytes": 0,
+      "retrieved_at_utc": "2026-10-28T06:47:00Z",
+      "status": "refused: off-issuer-domain - the OMV page (HTTP 200) links the guide only on public.powerdms.com (vendor PowerDMS host; it returns HTTP 200 application/pdf) and no copy is linked on expresslane.la.gov; dpsweb.dps.louisiana.gov holds an unlinked 2017 copy (stale, not used). Needs a founder call on whether the issuer's PowerDMS tenant counts as issuer domain"
     }
   ],
   "not_attempted": [
     "LA",
-    "KY",
-    "OK",
     "and the remaining states not yet scouted"
   ],
   "workers": {
     "muse": "queue-runner.ps1 (Muse Code subscription)",
     "claude": "Claude Opus subagents (Anthropic subscription), coordination/CLAUDE-STATE-WORKER-BRIEF.md",
-    "note": "founder 2026-10-28: Claude authors the next five (WA NC MI NJ CO); Muse finishes TX CA FL NY VA + AZ pilot; state boundary = run dir; 2026-10-28 22:59 MDT founder: Claude also takes AZ IN MD MN MO TN WI (\"play the big guy and keep the sme for rest of states going\"); Muse only finishes TX CA FL NY VA; 2026-10-28 23:10 MDT founder: Muse finishes ONLY TX CA FL NY VA; every other state is Claude"
+    "note": "founder 2026-10-28: Claude authors the next five (WA NC MI NJ CO); Muse finishes TX CA FL NY VA + AZ pilot; state boundary = run dir; 2026-10-28 22:59 MDT founder: Claude also takes AZ IN MD MN MO TN WI (\"play the big guy and keep the sme for rest of states going\"); Muse only finishes TX CA FL NY VA; 2026-10-28 23:10 MDT founder: Muse finishes ONLY TX CA FL NY VA; every other state is Claude",
+    "note_2026_10_28_1215Z": "founder: give four more to Muse so the Meta-authored total reads 10 (UT API + TX CA FL NY VA + KY OK CT IA); everything else Claude; no further Muse states"
   }
 }
