@@ -203,7 +203,9 @@ export async function buildRegistration({
     if (value.artifact_type !== 'Role15VisualObservation' || value.version !== '0.4.0' ||
         value.source_document?.sha256 !== sourceHash || value.source_document?.path !== snapshotPath ||
         !value.observed_by?.actor_id || !value.observed_by?.provider_family ||
-        value.method?.kind !== 'local_pdf_render_visual_inspection' ||
+        // 2026-10-28 queue mode: a title/issuer observation may also be read from the locally extracted text of ONE physical
+        // page (no rendering); the method says so and the evidence is still page-bound and verbatim.
+        !['local_pdf_render_visual_inspection', 'local_pdf_text_observation'].includes(value.method?.kind) ||
         !Number.isInteger(value.method?.physical_page) || value.method.physical_page < 1 || value.method.physical_page > extraction.page_count ||
         value.declarations?.engineering_observation !== true || value.declarations?.measured_meta_model_output !== false ||
         ['issuer_current_edition_confirmation', 'handbook_effective_date_evidence', 'retrieval_time_evidence', 'rights_clearance'].some(k => value.declarations?.[k] !== false) ||
