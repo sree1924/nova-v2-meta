@@ -1,5 +1,9 @@
 # OK downstream — cloud session report (Claude, 2026-10-28)
 
+> **WARNING — not fact-audited.** These artifacts passed the belt's deterministic checks only. No statement has been
+> verified against the Oklahoma Driver Manual; the 07/08 audits are pending and ten Muse-authored facts are flagged
+> below as suspect. Do not publish or deploy from this run until those audits pass. See runs/2026-10-28-rdmv-ok-class-d/WARNING.md.
+
 Run `2026-10-28-rdmv-ok-class-d`, branch `cloud/ok-downstream`. All 13 sections DONE through 03 → 04 → 06 → 05.sessions → 05.card_scripts; belt exit 0; every one of the 65 downstream tasks accepted on its first dispatch (65 attempts for 65 tasks, 0 belt HOLDs, 0 retry nonces; the only lineage moves were the belt's proactive pre-authoring resets, lineage:59 → 65).
 
 **Counts (ledger-accepted artifacts):** 358 KG nodes / 474 edges / 61 modules; 358 cards + 61 recaps (0 merges); 358 exam items, 26 practice forms (2 per section, disjoint), 61 module quizzes; 61 teaching units / 396 slides; 419 card scripts (358 card + 61 recap). Facts per section: sec01 44, sec02 23, sec03 20, sec04 29, sec05 25, sec06 36, sec07 21, sec08 22, sec09 22, sec10 36, sec11 28, sec12 28, sec13 24.
