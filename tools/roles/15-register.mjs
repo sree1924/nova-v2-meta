@@ -106,7 +106,17 @@ export async function buildRegistration({
   if (path.basename(configPath) !== 'run-config.json' || config.run_id !== path.basename(runRoot)) {
     throw new Error('run_id and run-config.json directory must identify the same isolated run');
   }
-  if (config.scope?.jurisdiction !== 'US-UT') throw new Error('This offline registration profile is restricted to the selected Utah run');
+  // Multi-state intake (2026-10-28): any founder-confirmed US jurisdiction registers through this same offline profile.
+  if (!/^US-[A-Z]{2}$/.test(config.scope?.jurisdiction ?? '') || config.state_selection?.status !== 'confirmed') {
+    throw new Error('This offline registration profile requires a founder-confirmed US-XX jurisdiction (scope.jurisdiction + state_selection.status=confirmed)');
+  }
+  const stateCode = config.scope.jurisdiction.slice(3).toLowerCase();
+  const issuerSlug = String(config.scope.issuing_authority ?? 'issuer').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+  const productId = config.working_product_id || ('rdmv-' + stateCode);
+  const handbookTitle = String(config.scope.handbook_edition ?? '').split(/\s+(?:20\d\d|revised|rev\.|edition)/i)[0].trim();
+  const titleRe = new RegExp([handbookTitle, config.scope.issuing_authority].filter(s => s && s.length > 6).map(s => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).concat(['Driver Handbook', "Driver'?s Handbook", "Driver'?s Manual", 'Driver License Handbook', 'Driver License Division', 'Driver License \\(Class [A-Z]\\)']).join('|'), 'i');
+  const issuerDomains = Array.isArray(config.scope?.issuer_page_domains) && config.scope.issuer_page_domains.length ? config.scope.issuer_page_domains : ['dld.utah.gov'];
+  const onIssuerDomain = (u) => issuerDomains.some(d => new RegExp('^https://(?:[a-z0-9-]+\\.)*' + String(d).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '/').test(u ?? ''));
   const privateRoot = contained(runRoot, path.join(runRoot, 'sources', 'private'), 'Private source directory');
   const declaredPath = config.scope?.handbook_local_snapshot;
   if (typeof declaredPath !== 'string' || !declaredPath) throw new Error('Run config has no private handbook snapshot');
@@ -143,7 +153,7 @@ export async function buildRegistration({
       sha256(fs.readFileSync(configEvidencePath)) !== configRef.sha256) {
     throw new Error('Source PDF or run config changed during extraction; retry from stable input bytes');
   }
-  const sourceRef = 'src:rdmv-ut-class-d:utah-dld:handbook';
+  const sourceRef = stateCode === 'ut' ? 'src:rdmv-ut-class-d:utah-dld:handbook' : `src:${productId}:${issuerSlug}:handbook`;
   const emptyPages = extraction.pages.filter(p => !p.text.trim()).map(p => p.pdf_page);
   const pageMap = {
     schema_version: 'nova.local.page-map.v0.4.0', role_id: '15', run_id: config.run_id,
@@ -176,7 +186,7 @@ export async function buildRegistration({
       if (p.pdf_page <= 10 && /\bedition\b|\brevised\b|\brevision\b/i.test(line)) {
         editionCandidates.push(evidence(p, sourceRef, sourceHash, line, 'unresolved_edition_statement_candidate'));
       }
-      if (p.pdf_page <= 10 && /UTAH DRIVER HANDBOOK|Utah Driver License Division|Driver License \(Class D\)/.test(line)) {
+      if (p.pdf_page <= 10 && (stateCode === 'ut' ? /UTAH DRIVER HANDBOOK|Utah Driver License Division|Driver License \(Class D\)/.test(line) : titleRe.test(line))) {
         issuerEvidence.push(evidence(p, sourceRef, sourceHash, line, 'issuer_or_title_text'));
       }
     }
@@ -274,8 +284,8 @@ export async function buildRegistration({
   addDebt(retrievedAt ? 'retrieval_assertion_not_independently_verified' : 'retrieval_time_unknown', 'retrieved_at',
     retrievedAt ? 'Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.' : 'No valid recorded download timestamp exists. Local mtime and current registration time are not retrieval evidence.', [configRef]);
   const officialUrl = typeof config.scope.handbook_url === 'string' ? config.scope.handbook_url : null;
-  const officialLocator = officialUrl !== null && /^https:\/\/dld\.utah\.gov\//.test(officialUrl);
-  if (!officialLocator) addDebt('official_locator_unverified', 'official_url', 'Configured locator is not the expected HTTPS Utah DLD host.', [configRef]);
+  const officialLocator = officialUrl !== null && onIssuerDomain(officialUrl);
+  if (!officialLocator) addDebt('official_locator_unverified', 'official_url', `Configured locator is not on the declared HTTPS issuer domain(s): ${issuerDomains.join(', ')}.`, [configRef]);
   const liveness = retrievedAt && officialLocator ? {
     source_ref: sourceRef, snapshot_sha256: sourceHash, official_url: officialUrl,
     source_tier: 'issuer', retrieved_at: retrievedAt, edition,
@@ -303,11 +313,11 @@ export async function buildRegistration({
   const registry = {
     schema_version: '1.0.0', registry_version: '0.4.0.offline-registration',
     minted_by: {model: 'deterministic-script:no-model', lane: 'tool_assisted', pass: 'registration-plan'},
-    probe: 'rdmv-ut-class-d', run_id: config.run_id, status: 'HOLD',
+    probe: stateCode === 'ut' ? 'rdmv-ut-class-d' : productId, run_id: config.run_id, status: 'HOLD',
     registration_authority: 'local deterministic registration only; no content acceptance or execution grant',
     input_config: configRef, source_liveness_status: liveness?.status ?? 'VERIFICATION_DEBT',
     sources: [{
-      source_ref: sourceRef, publisher: 'Utah Driver License Division',
+      source_ref: sourceRef, publisher: stateCode === 'ut' ? 'Utah Driver License Division' : String(config.scope.issuing_authority ?? 'issuer'),
       title: extraction.metadata['/Title'] ?? null, locator: officialUrl,
       snapshot_ref: snapshotPath, snapshot_hash: sourceHash, snapshot_bytes: sourceBytes.length,
       trust_tier: officialLocator && issuerEvidence.length ? 'official_body' : 'unverified',
