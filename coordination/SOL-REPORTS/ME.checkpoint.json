@@ -4,9 +4,9 @@
   "run_created": true,
   "model_id": "gpt-6.1-sol",
   "authored_by": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
-  "status": "QUIESCED_SLOT_ROTATION",
-  "checkpoint_kind": "first-four bounded assignment stopped before registration on required evidence HOLD",
-  "captured_at_utc": "2026-10-28T09:51:18.726Z",
+  "status": "FIRST_FOUR_02_16_CHECKPOINT_COMPLETE",
+  "checkpoint_kind": "First-four bounded assignment complete; whole-state end-to-end assignment remains active",
+  "captured_at_utc": "2026-10-28T10:43:53.386Z",
   "source": {
     "pdf": "D:/nova/fb-ai-hackathon/runs/_intake/sources/private/ME-direct-20261028T090542Z.pdf",
     "sha256": "34b9f5adc87622c5e43fd0d24144307fa0148d578936005c13861da2420b92e3",
@@ -99,19 +99,27 @@
     "sec04-before-you-drive"
   ],
   "completed_sections": [
-    "sec01-your-drivers-license"
+    "sec01-your-drivers-license",
+    "sec02-state-laws-and-rules",
+    "sec03-ready-to-drive",
+    "sec04-before-you-drive"
   ],
   "completed_stages": [
     "intake",
-    "02.dossier_sections/sec01",
-    "16.compile/sec01"
+    "02.dossier_sections/first-four",
+    "16.compile/first-four"
   ],
   "counts": {
-    "sections_done_02_16": 1,
-    "accepted_dossier_parts": 9,
-    "accepted_facts": 112,
-    "compiled_facts": 112,
-    "prepared_unaccepted_facts": 44
+    "sections_done_02_16": 4,
+    "accepted_dossier_parts": 36,
+    "accepted_facts": 362,
+    "compiled_facts": 362,
+    "nodes": 0,
+    "cards": 0,
+    "items": 0,
+    "units": 0,
+    "slides": 0,
+    "scripts": 0
   },
   "exam_facts": {
     "question_count": {
@@ -136,38 +144,70 @@
       "scratch/sol-me/build.mjs",
       "scratch/sol-me/formula.mjs",
       "scratch/sol-me/section-data.mjs",
-      "scratch/sol-me/step.mjs"
+      "scratch/sol-me/step.mjs",
+      "scratch/sol-me/finish-section.mjs"
     ],
-    "generated_parts": [],
-    "note": "Formula and builder structure prepared; only manually authored section-one C was submitted."
+    "generated_parts": [
+      "A",
+      "B",
+      "D",
+      "E",
+      "E2",
+      "F",
+      "G"
+    ],
+    "manual_parts": [
+      "C",
+      "C2"
+    ],
+    "copy_note": "Only parameterized helper structure was reused from read-only NV references; all Maine facts, sources and state paths were authored for this run."
   },
-  "next_section": "sec02-state-laws-and-rules",
-  "next_packet": {
-    "key": "02.dossier_sections__sec02-state-laws-and-rules__C__n0",
-    "part": "C",
-    "section": "sec02-state-laws-and-rules",
-    "packet_sha256": "dea199028ca0a4f860a4a2da2e03575a7f44dbc8f463ae96ac080f32e513a1fd",
-    "inbox": "runs/2026-10-28-rdmv-me-class-c/sources/private/muse-authoring/inbox/02.dossier_sections__sec02-state-laws-and-rules__C__n0.json",
-    "outbox": "runs/2026-10-28-rdmv-me-class-c/sources/private/muse-authoring/outbox/02.dossier_sections__sec02-state-laws-and-rules__C__n0.json",
-    "outbox_exists": true,
-    "outbox_sha256": "1ed2676a52b8476ca5d53fb41e21e2f81418d22ca4a646c02a65932996a59c07",
-    "layers": {
-      "state": {
-        "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/muse-authoring/inbox/CONTEXT-state.json",
-        "sha256": "fd19bcd2c368dbac680c9258bbbb544af7d6d90efcbabf8ceb5a5d78c56c08e8"
-      },
-      "section": {
-        "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/muse-authoring/inbox/CONTEXT-sec02-state-laws-and-rules.json",
-        "sha256": "7e6e7e7568758dc109a9243f404642f139045fcca3f5462bfb527b7dbb6fb397"
-      }
-    }
-  },
+  "next_section": "sec05-getting-started",
+  "next_packet": null,
   "next_command_after_hold_resolution": "node D:/nova/fb-ai-hackathon/tools/belt/intake-state.mjs --spec coordination/intake/ME.spec.json",
   "belt_command_after_successful_intake": "node D:/nova/fb-ai-hackathon/tools/belt/run-utah.mjs --run runs/2026-10-28-rdmv-me-class-c --author muse --packet thin --sections sec01-your-drivers-license,sec02-state-laws-and-rules,sec03-ready-to-drive,sec04-before-you-drive --stages 02,16",
   "holds": [
     {
-      "id": "SLOT-ROTATION",
-      "cause": "first-five-correction-priority"
+      "id": "ME-READY-PASSENGER-PENALTY",
+      "section": "sec03-ready-to-drive",
+      "cause": "Resolve additional passenger-under-twenty-one suspension: physical page twenty-eight states one hundred eighty days and physical page thirty-three states two hundred seventy-five days. Both numeric enhancement claims are withheld.",
+      "status": "open_source_verification_debt; does not invalidate deterministic02/16 completion"
+    },
+    {
+      "id": "ME-READY-IMPLIED-CONSENT",
+      "section": "sec03-ready-to-drive",
+      "cause": "Verify current legal predicates for a demanded alcohol test rather than teaching the handbook’s unrestricted-at-any-time wording.",
+      "status": "open_source_verification_debt; does not invalidate deterministic02/16 completion"
+    },
+    {
+      "id": "ME-READY-DRUG-CLASSIFICATION",
+      "section": "sec03-ready-to-drive",
+      "cause": "Correct the cocaine/narcotic grouping and verify severe generalized drug-interaction mechanisms using a current authoritative source.",
+      "status": "open_source_verification_debt; does not invalidate deterministic02/16 completion"
+    },
+    {
+      "id": "ME-BEFORE-SHOULDER-FIT",
+      "section": "sec04-before-you-drive",
+      "cause": "Confirm current shoulder-belt fitting guidance before teaching the source’s fist-gap instruction.",
+      "status": "open_source_verification_debt; does not invalidate deterministic02/16 completion"
+    },
+    {
+      "id": "ME-BEFORE-REAR-SEAT-LAW",
+      "section": "sec04-before-you-drive",
+      "cause": "Resolve broad rear-seat age instruction versus the later conditional age-and-weight rule using current authoritative Maine law.",
+      "status": "open_source_verification_debt; does not invalidate deterministic02/16 completion"
+    },
+    {
+      "id": "ME-BEFORE-FORWARD-FACING",
+      "section": "sec04-before-you-drive",
+      "cause": "Verify age-two forward-facing transition against current child-restraint safety instructions and manufacturer limits.",
+      "status": "open_source_verification_debt; does not invalidate deterministic02/16 completion"
+    },
+    {
+      "id": "ME-BEFORE-AGE-EIGHT-BOUNDARY",
+      "section": "sec04-before-you-drive",
+      "cause": "Resolve the exact-age-eight gap between the printed less-than-eight booster condition and more-than-eight belt condition.",
+      "status": "open_source_verification_debt; does not invalidate deterministic02/16 completion"
     }
   ],
   "self_reported_defects": [
@@ -189,69 +229,113 @@
   "intake_attempts": 1,
   "acceptance_attempts": 1,
   "preaccept_fact_check_receipts": [
-    "scratch/sol-me/sec01-C-preaccept-fact-check.json",
-    "scratch/sol-me/sec01-C2-preaccept-fact-check.json",
-    "scratch/sol-me/sec02-C-preaccept-fact-check.json"
+    {
+      "path": "scratch/sol-me/sec01-C-preaccept-fact-check.json",
+      "sha256": "9b73d6a4f1051f69f4b054b0f2eb7c40269df8729ecb113bb625d697c55e3625",
+      "facts": 52
+    },
+    {
+      "path": "scratch/sol-me/sec01-C2-preaccept-fact-check.json",
+      "sha256": "0defdae3339ca9c9967fa340f7ec7c076a818e4b0088803716221375df9b49a1",
+      "facts": 60
+    },
+    {
+      "path": "scratch/sol-me/sec02-C-preaccept-fact-check.json",
+      "sha256": "62e7567928a9f6754ff2dfc2d9ae0205f3ee099f766bc1ac617a04130adb1664",
+      "facts": 44
+    },
+    {
+      "path": "scratch/sol-me/sec02-C2-preaccept-fact-check.json",
+      "sha256": "0c08cb438879feecc1332fb3546323c673d535e3fe8783158f76ddcc6abcfecd",
+      "facts": 46
+    },
+    {
+      "path": "scratch/sol-me/sec03-C-preaccept-fact-check.json",
+      "sha256": "d83b11fed27a95e8212d2c54834585e9c3e534ae9775dba0d947f7e8d30b53f0",
+      "facts": 64
+    },
+    {
+      "path": "scratch/sol-me/sec03-C2-preaccept-fact-check.json",
+      "sha256": "4078cb16b3efacff1e4f665e3813d405be48c3ed47a5d8ba6b058dc5de42a94e",
+      "facts": 55
+    },
+    {
+      "path": "scratch/sol-me/sec04-C-preaccept-fact-check.json",
+      "sha256": "9236fe4e5a7d3bd5d23035560462af5ad83338c7a4767e680bbea6b540e51867",
+      "facts": 24
+    },
+    {
+      "path": "scratch/sol-me/sec04-C2-preaccept-fact-check.json",
+      "sha256": "14baade72e8edaed89c331653f9b97f062cf55efdb458f1f353c9d16b14d41af",
+      "facts": 17
+    }
   ],
-  "independent_07_08_qa": "not run",
+  "independent_07_08_qa": "not run; same-model per-fact receipts are not independent factual acceptance",
   "wrapper_metadata": "Emitted intake receipts and header retain inherited Muse/Claude authoring/executor wording, hard-coded muse-spark-1.3 observed_by.model, and Utah executor ID. Own actor fields and authored_by truthfully identify gpt-6.1-sol. Shared tools preserved.",
   "usage": {
     "platform": "ChatGPT Pro subscription",
-    "token_snapshot_at_utc": "2026-10-28T09:49:48.311Z",
+    "source": "Own session token_count metadata only",
+    "token_snapshot_at_utc": "2026-10-28T10:42:35.114Z",
     "total_token_usage": {
-      "input_tokens": 6131682,
-      "cached_input_tokens": 5988608,
+      "input_tokens": 10491744,
+      "cached_input_tokens": 10321408,
       "cache_write_input_tokens": 0,
-      "output_tokens": 40479,
-      "reasoning_output_tokens": 10768,
-      "total_tokens": 6172161
+      "output_tokens": 67954,
+      "reasoning_output_tokens": 20407,
+      "total_tokens": 10559698
     },
+    "previous_rotation_total_tokens": 6172161,
+    "tokens_since_rotation_snapshot": 4387537,
     "tool_uses": null,
-    "tool_use_note": "Unavailable from permitted metadata; not invented.",
-    "duration_ms": 3269594,
-    "duration_basis": "Actual session timestamp through rotation checkpoint; includes requested coordinator quiescence."
+    "tool_use_note": "Not exposed in permitted client metadata; not invented.",
+    "duration_ms": 6424254,
+    "duration_basis": "Actual session start through checkpoint; includes all requested coordinator wait intervals."
   },
   "ledger": {
     "actual_usd": 0,
-    "actual_usd_formatted": "$0.000",
     "uncertain_usd": 0,
     "outstanding_unknown_usd": 0,
     "reserved_active_usd": 0,
     "reservation_states": [
       {
         "state": "reported",
-        "count": 9,
-        "reserved_microusd": 9000000,
+        "count": 36,
+        "reserved_microusd": 36000000,
         "actual_microusd": 0
       }
     ],
     "model_call_ledger_rows": [
       {
         "status": "completed",
-        "count": 9
+        "count": 36
       }
     ],
     "paid_model_api_calls": 0,
-    "note": "All reported reservations are settled history, not active reserved money. Synthetic file-transport call rows have zero usage/billing; no paid provider request occurred."
+    "note": "Reported reservations are settled history. All authoring used the required muse file transport; synthetic model-call rows are not paid API calls.",
+    "actual_usd_formatted": "$0.000"
   },
   "proposed_queue_update": {
     "state": "ME",
-    "status": "quiesced_slot_rotation",
+    "status": "first_four_sme_compiled_checkpoint",
     "run_id": "2026-10-28-rdmv-me-class-c",
     "completed_sections": [
-      "sec01-your-drivers-license"
+      "sec01-your-drivers-license",
+      "sec02-state-laws-and-rules",
+      "sec03-ready-to-drive",
+      "sec04-before-you-drive"
     ],
-    "accepted_facts": 112,
-    "prepared_unaccepted_facts": 44
+    "compiled_facts": 362,
+    "next_section": "sec05-getting-started"
   },
   "proposed_token_ledger_row": {
     "worker": "sol",
     "model": "gpt-6.1-sol",
     "state": "ME",
-    "task": "Intake + first section02/16; second section C prepared; slot rotation",
-    "tokens": 6172161,
+    "task": "Intake and first four SME sections02/16; cumulative session total, avoid double-counting prior rotation snapshots",
+    "tokens": 10559698,
+    "tokens_since_rotation_snapshot": 4387537,
     "tool_uses": null,
-    "duration_ms": 3269594
+    "duration_ms": 6424254
   },
   "proposed_defect_rows": [
     {
@@ -267,12 +351,61 @@
       "what": "Mandatory-suspension no-exceptions/no-work-license wording is not yet represented as a separate accepted fact; check completeness in independent07 QA.",
       "reported_by": "gpt-6.1-sol (Sol state worker)",
       "status": "coverage_debt"
+    },
+    {
+      "state": "ME",
+      "where": "sec03-ready-to-drive",
+      "what": "Resolve additional passenger-under-twenty-one suspension: physical page twenty-eight states one hundred eighty days and physical page thirty-three states two hundred seventy-five days. Both numeric enhancement claims are withheld.",
+      "reported_by": "gpt-6.1-sol (Sol state worker)",
+      "kind": "source verification debt"
+    },
+    {
+      "state": "ME",
+      "where": "sec03-ready-to-drive",
+      "what": "Verify current legal predicates for a demanded alcohol test rather than teaching the handbook’s unrestricted-at-any-time wording.",
+      "reported_by": "gpt-6.1-sol (Sol state worker)",
+      "kind": "source verification debt"
+    },
+    {
+      "state": "ME",
+      "where": "sec03-ready-to-drive",
+      "what": "Correct the cocaine/narcotic grouping and verify severe generalized drug-interaction mechanisms using a current authoritative source.",
+      "reported_by": "gpt-6.1-sol (Sol state worker)",
+      "kind": "source verification debt"
+    },
+    {
+      "state": "ME",
+      "where": "sec04-before-you-drive",
+      "what": "Confirm current shoulder-belt fitting guidance before teaching the source’s fist-gap instruction.",
+      "reported_by": "gpt-6.1-sol (Sol state worker)",
+      "kind": "source verification debt"
+    },
+    {
+      "state": "ME",
+      "where": "sec04-before-you-drive",
+      "what": "Resolve broad rear-seat age instruction versus the later conditional age-and-weight rule using current authoritative Maine law.",
+      "reported_by": "gpt-6.1-sol (Sol state worker)",
+      "kind": "source verification debt"
+    },
+    {
+      "state": "ME",
+      "where": "sec04-before-you-drive",
+      "what": "Verify age-two forward-facing transition against current child-restraint safety instructions and manufacturer limits.",
+      "reported_by": "gpt-6.1-sol (Sol state worker)",
+      "kind": "source verification debt"
+    },
+    {
+      "state": "ME",
+      "where": "sec04-before-you-drive",
+      "what": "Resolve the exact-age-eight gap between the printed less-than-eight booster condition and more-than-eight belt condition.",
+      "reported_by": "gpt-6.1-sol (Sol state worker)",
+      "kind": "source verification debt"
     }
   ],
   "shared_files_changed": [],
   "locks_acquired": [],
-  "lock_release": "No subprocess active; native runner previously exited normally. No lock file exists and no force-release occurred.",
-  "accepted_parts": 9,
+  "lock_release": "Final runner subprocess exited0 normally; no native lock files remain. No force-release or direct CURRENT edit performed.",
+  "accepted_parts": 36,
   "resolved_holds": [
     {
       "id": "ME-INTAKE-EXACT-HREF-RETRIEVAL-MISMATCH",
@@ -282,6 +415,9 @@
   ],
   "accepted16_refs": [
     {
+      "section_id": "sec01-your-drivers-license",
+      "accepted_at": "2026-10-28T09:46:48.508Z",
+      "task_id": "task_3f8e6292861fb31ac723eb8b55a82a78de612a56a4a526f8ca68e44de030ff25",
       "current": {
         "path": "runs/2026-10-28-rdmv-me-class-c/16/sec01-your-drivers-license/CURRENT.json",
         "sha256": "6205333dfaf0851218eb1c2134f3dfea1db4f5b15d0097ff91389a031ca434e2"
@@ -294,9 +430,247 @@
         "path": "runs/2026-10-28-rdmv-me-class-c/16/sec01-your-drivers-license/16-fact-registry.json",
         "sha256": "12a9fb05153bdd5c2a5e65d6f729dd3c3c135d169bba3c8ae1fcfbef01855ded"
       },
-      "accepted_at": "2026-10-28T09:46:48.508Z",
-      "task_id": "task_3f8e6292861fb31ac723eb8b55a82a78de612a56a4a526f8ca68e44de030ff25",
-      "facts": 112
+      "ledger_status": "accepted",
+      "fact_count": 112
+    },
+    {
+      "section_id": "sec02-state-laws-and-rules",
+      "accepted_at": "2026-10-28T10:31:39.560Z",
+      "task_id": "task_ff10aacc3935233e1c9c78dc700729e18a69039583b3a8d730cca7375c2e033c",
+      "current": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec02-state-laws-and-rules/CURRENT.json",
+        "sha256": "b2b16c95639738e06c86f375216b0d011a537d5656614ad7e6759e302fbdcb43"
+      },
+      "compiled_dossier": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec02-state-laws-and-rules/16-compiled-dossier.json",
+        "sha256": "6618efbe41b1de705a51416a998752c8f47148fc097838a10bb93cfdfe5b42a9"
+      },
+      "fact_registry": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec02-state-laws-and-rules/16-fact-registry.json",
+        "sha256": "72bd1e89426ce9ac170476d537d59a393d72962c653f0e978b587722c69853b2"
+      },
+      "ledger_status": "accepted",
+      "fact_count": 90
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "accepted_at": "2026-10-28T10:38:44.477Z",
+      "task_id": "task_25077fb97da84b4f98e56b442528c74484a4c789cefd9bcc4d0dcfe22fa5722b",
+      "current": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec03-ready-to-drive/CURRENT.json",
+        "sha256": "cc49c7335126f8719d008d134c02ea27c598e08aa3215c020809819dc5991a38"
+      },
+      "compiled_dossier": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec03-ready-to-drive/16-compiled-dossier.json",
+        "sha256": "b79a8010b42ba8b9ff2d4715807255a8d541ac23a4c178594e47053f307aba40"
+      },
+      "fact_registry": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec03-ready-to-drive/16-fact-registry.json",
+        "sha256": "a75108f28f78ca9fb233373b6594fbf7a72f86199ddc8edfd7e5b3f17a3ad453"
+      },
+      "ledger_status": "accepted",
+      "fact_count": 119
+    },
+    {
+      "section_id": "sec04-before-you-drive",
+      "accepted_at": "2026-10-28T10:42:26.649Z",
+      "task_id": "task_9d81e17d4404284aebbf17cf0986ce4f24c6dbd03c337a536506fef43123aea3",
+      "current": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec04-before-you-drive/CURRENT.json",
+        "sha256": "66954f5324d3b32e12262694cd49dc69a9144a16506fb9ca283b89c1b71f536d"
+      },
+      "compiled_dossier": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec04-before-you-drive/16-compiled-dossier.json",
+        "sha256": "1f212a6a14a0d22332c61a860cc0648d3e311221fe78ee588cbda6c41bba55b1"
+      },
+      "fact_registry": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec04-before-you-drive/16-fact-registry.json",
+        "sha256": "14a74e00c115794c639d184e3a0ae92ff5851997c226920dad2c8adb990584e9"
+      },
+      "ledger_status": "accepted",
+      "fact_count": 41
     }
-  ]
+  ],
+  "per_section_counts": [
+    {
+      "section_id": "sec01-your-drivers-license",
+      "C": 52,
+      "C2": 60,
+      "compiled_facts": 112,
+      "stages": [
+        "02.dossier_sections",
+        "16.compile"
+      ],
+      "mapped_physical_pages": [
+        6,
+        16
+      ]
+    },
+    {
+      "section_id": "sec02-state-laws-and-rules",
+      "C": 44,
+      "C2": 46,
+      "compiled_facts": 90,
+      "stages": [
+        "02.dossier_sections",
+        "16.compile"
+      ],
+      "mapped_physical_pages": [
+        17,
+        22
+      ]
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "C": 64,
+      "C2": 55,
+      "compiled_facts": 119,
+      "stages": [
+        "02.dossier_sections",
+        "16.compile"
+      ],
+      "mapped_physical_pages": [
+        23,
+        38
+      ]
+    },
+    {
+      "section_id": "sec04-before-you-drive",
+      "C": 24,
+      "C2": 17,
+      "compiled_facts": 41,
+      "stages": [
+        "02.dossier_sections",
+        "16.compile"
+      ],
+      "mapped_physical_pages": [
+        39,
+        43
+      ]
+    }
+  ],
+  "last_consumed_packet": {
+    "key": "02.dossier_sections__sec04-before-you-drive__G__n0",
+    "packet_sha256": "907a658095d33c449341c50e7fea09b279ce9f1735980e965d6b5465e651fd66",
+    "note": "NEXT still references the accepted final G packet; it is not pending work."
+  },
+  "next_command_after_resume": "node D:/nova/fb-ai-hackathon/tools/belt/run-utah.mjs --run runs/2026-10-28-rdmv-me-class-c --author muse --packet thin --sections sec05-getting-started --stages 02,16",
+  "all_source_accuracy_debts": [
+    {
+      "section_id": "sec01-your-drivers-license",
+      "id": "ME-LICENSE-CROSSPAGE",
+      "text": "Resolve the practice-driving timing condition spanning physical pages eight and nine before asserting it from one registered page.",
+      "kind": "source_missing"
+    },
+    {
+      "section_id": "sec01-your-drivers-license",
+      "id": "ME-LICENSE-TRANSFER",
+      "text": "Verify the categorical passenger-car transfer written-test waiver against current issuer policy; first-time examination requirements are kept separate.",
+      "kind": "exam_policy_unclear"
+    },
+    {
+      "section_id": "sec01-your-drivers-license",
+      "id": "ME-LICENSE-POINTS",
+      "text": "Confirm current administrative warning and suspension point levels before stable learner display.",
+      "kind": "source_stale"
+    },
+    {
+      "section_id": "sec01-your-drivers-license",
+      "id": "ME-LICENSE-REVOCATION",
+      "text": "Resolve indefinite revocation wording and the nearby class-specific durations before learner display.",
+      "kind": "source_missing"
+    },
+    {
+      "section_id": "sec02-state-laws-and-rules",
+      "id": "ME-VEHICLE-INSPECTION-POINTS",
+      "text": "Confirm the precise point consequence described as loss of points for inspection-sticker noncompliance.",
+      "kind": "source_missing"
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "id": "ME-READY-PASSENGER-PENALTY",
+      "text": "Resolve additional passenger-under-twenty-one suspension: physical page twenty-eight states one hundred eighty days and physical page thirty-three states two hundred seventy-five days. Both numeric enhancement claims are withheld.",
+      "kind": "exam_policy_unclear",
+      "ship_blocking": true
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "id": "ME-READY-STATISTICS",
+      "text": "Source/date and verify survey prevalence, distraction/crash multipliers, alcohol-related fatality and social-statistic estimates before current learner use.",
+      "kind": "source_stale"
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "id": "ME-READY-ILLUSTRATIVE-COST",
+      "text": "Verify the illustrative OUI cost breakdown and distinguish it from actual statutory penalties before displaying any estimate.",
+      "kind": "source_stale"
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "id": "ME-READY-PHYSIOLOGY",
+      "text": "Verify universal low-BAC vision effects, glare-recovery timing and nighttime vision percentage before learner assertion.",
+      "kind": "source_missing"
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "id": "ME-READY-IMPLIED-CONSENT",
+      "text": "Verify current legal predicates for a demanded alcohol test rather than teaching the handbook’s unrestricted-at-any-time wording.",
+      "kind": "exam_policy_unclear",
+      "ship_blocking": true
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "id": "ME-READY-BRAC-WORDING",
+      "text": "Resolve percentage-versus-mass-per-breath-volume wording in the BrAC definition before using its percentage terminology.",
+      "kind": "source_missing"
+    },
+    {
+      "section_id": "sec03-ready-to-drive",
+      "id": "ME-READY-DRUG-CLASSIFICATION",
+      "text": "Correct the cocaine/narcotic grouping and verify severe generalized drug-interaction mechanisms using a current authoritative source.",
+      "kind": "source_missing",
+      "ship_blocking": true
+    },
+    {
+      "section_id": "sec04-before-you-drive",
+      "id": "ME-BEFORE-STATISTICS",
+      "text": "Verify dates and study context for survival multipliers, injury percentages, population fatality figures and belt-use prevalence before learner display.",
+      "kind": "source_stale"
+    },
+    {
+      "section_id": "sec04-before-you-drive",
+      "id": "ME-BEFORE-COLLISION-ILLUSTRATION",
+      "text": "Verify assumptions behind the collision-speed/building-height illustration before presenting any equivalence.",
+      "kind": "source_missing"
+    },
+    {
+      "section_id": "sec04-before-you-drive",
+      "id": "ME-BEFORE-SHOULDER-FIT",
+      "text": "Confirm current shoulder-belt fitting guidance before teaching the source’s fist-gap instruction.",
+      "kind": "source_missing",
+      "ship_blocking": true
+    },
+    {
+      "section_id": "sec04-before-you-drive",
+      "id": "ME-BEFORE-REAR-SEAT-LAW",
+      "text": "Resolve broad rear-seat age instruction versus the later conditional age-and-weight rule using current authoritative Maine law.",
+      "kind": "exam_policy_unclear",
+      "ship_blocking": true
+    },
+    {
+      "section_id": "sec04-before-you-drive",
+      "id": "ME-BEFORE-FORWARD-FACING",
+      "text": "Verify age-two forward-facing transition against current child-restraint safety instructions and manufacturer limits.",
+      "kind": "source_missing",
+      "ship_blocking": true
+    },
+    {
+      "section_id": "sec04-before-you-drive",
+      "id": "ME-BEFORE-AGE-EIGHT-BOUNDARY",
+      "text": "Resolve the exact-age-eight gap between the printed less-than-eight booster condition and more-than-eight belt condition.",
+      "kind": "exam_policy_unclear",
+      "ship_blocking": true
+    }
+  ],
+  "corpus_stability_limit": "Assessment is an inference about the fixed pinned snapshot, not a measured annual publication cadence."
 }

@@ -61,3 +61,13 @@ Seeded 2026-10-28T07:23:58.772Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:36:26.973Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:26 for 02.dossier_sections (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-basic-driving__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:36:37.641Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:27 for 02.dossier_sections (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-basic-driving__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:45:47.588Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:28 for 02.dossier_sections (sec06-rules-of-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-rules-of-road__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:45:55.079Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:29 for 02.dossier_sections (sec06-rules-of-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-rules-of-road__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:46:03.558Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:30 for 02.dossier_sections (sec06-rules-of-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-rules-of-road__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:46:14.405Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:31 for 02.dossier_sections (sec06-rules-of-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-rules-of-road__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:46:26.758Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:32 for 02.dossier_sections (sec07-safe-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-safe-driving__C__n0 (lineage attempts exhausted)

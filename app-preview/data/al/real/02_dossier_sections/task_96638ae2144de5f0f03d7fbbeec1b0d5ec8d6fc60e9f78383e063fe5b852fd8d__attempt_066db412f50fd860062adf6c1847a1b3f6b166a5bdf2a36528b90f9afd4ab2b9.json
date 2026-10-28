@@ -1,0 +1,170 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-al-d",
+  "lineage": {
+    "input_manifest_sha256": "cd4ff987bc2dbfcb29800381c29b9c5a54dfca5bdabacd2cae3f4fabdbe9b361",
+    "candidate_lineage_id": "2026-10-28-rdmv-al-class-d:lineage:33",
+    "source_registry_sha256": "ea8231e949706ecda9f2a398d6eaf9ab30e224ac7defb0e6291b764b84ed0d95",
+    "source_liveness_sha256": "e524456f547beacfeca0647b02ef401523e58aa5b835501e7cbdd821b6546315"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "A"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "A",
+      "chunk_id": "A.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "A — Exam authority for the Alabama driver license knowledge test",
+      "learner_facing": true,
+      "markdown": "## A — Exam authority for the Alabama driver license knowledge test\n\nIssuer: the Alabama Law Enforcement Agency, Driver License Division, issues Alabama driver licenses [A07] and publishes the Alabama Driver Manual.\nEdition: the front cover of the manual prints the edition line \"November 2024\" under the Driver License Division name [A01]; no effective date is printed, so the effective date stays unconfirmed (verify — sec08-A-EFFECTIVE-DATE).\nExam path: the manual describes a vision screening, a knowledge test with questions on Alabama traffic laws, road signs and safe-driving rules taken from this manual, and a road test given by a driver license examiner [A13].\nLearner path: a fifteen-year-old who passes the required exam receives a Class D learner license with the Y restriction [A11].\nDelivery: automated testing is available to every applicant taking the knowledge test [A13], and oral and foreign-language versions exist [A11].\nScoring: the manual states no question count, no passing score or percent, and no time limit for the knowledge test; all three stay unknown and no number is asserted here (verify — sec08-A-SCORING).\nQuestion format: beyond automated delivery, the manual does not describe the item format of the knowledge test (verify — sec08-A-FORMAT).\nSection link: this dossier section covers the three sign types and their shape and color coding, regulatory signs including the four-way stop, yield, wrong-way, turn, lane-use, parking and speed signs, and warning signs for road conditions, crossings, cyclists and work zones, all drawn from the manual the test is built on [A13].\nPractice mastery targets in this product are product policy from the accepted learning loop, never an official passing line.\nDynamic facts (updatable): the knowledge test fee, office locations, appointments and online services are set by ALEA and can change between editions, so they are kept out of stable knowledge [A13]; why_dynamic: administrative details outside the printed rules of the road.\n",
+      "char_count": 2010,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-al-d:alabama-law-enforcement-agency-alea-driv:handbook:pdf-0001"
+        },
+        {
+          "anchor_id": "A07",
+          "source_page": "src:rdmv-al-d:alabama-law-enforcement-agency-alea-driv:handbook:pdf-0007"
+        },
+        {
+          "anchor_id": "A11",
+          "source_page": "src:rdmv-al-d:alabama-law-enforcement-agency-alea-driv:handbook:pdf-0011"
+        },
+        {
+          "anchor_id": "A13",
+          "source_page": "src:rdmv-al-d:alabama-law-enforcement-agency-alea-driv:handbook:pdf-0013"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": "Knowledge Test",
+      "status": "verified",
+      "source_page": "src:rdmv-al-d:alabama-law-enforcement-agency-alea-driv:handbook:pdf-0013"
+    },
+    "issuing_body": {
+      "value": "Alabama Law Enforcement Agency, Driver License Division",
+      "status": "verified",
+      "source_page": "src:rdmv-al-d:alabama-law-enforcement-agency-alea-driv:handbook:pdf-0007"
+    },
+    "edition": {
+      "value": "November 2024",
+      "status": "verified",
+      "source_page": "src:rdmv-al-d:alabama-law-enforcement-agency-alea-driv:handbook:pdf-0001"
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Alabama Driver Manual is one dated edition (front cover, physical p1, prints November 2024); nothing on the selected pages indicates more than one rewrite per year."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "sec08-A-EFFECTIVE-DATE",
+      "claim_text": "Effective date of the Alabama Driver Manual: the front cover prints the edition November 2024 but no effective date is printed and the issuer page states none",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "sec08-A-SCORING",
+      "claim_text": "Knowledge test question count, passing score/percent and time limit are not stated in the manual (knowledge test paragraph, physical p13)",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "sec08-A-FORMAT",
+      "claim_text": "Knowledge test item format (e.g. multiple choice) is not described; the manual states only that automated testing is available",
+      "blocker_kind": "exam_policy_unclear",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

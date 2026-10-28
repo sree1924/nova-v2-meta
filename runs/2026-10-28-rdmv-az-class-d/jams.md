@@ -213,3 +213,5 @@ Seeded 2026-10-28T05:16:54.777Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:23:49.718Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:105 for 03.combined_kg (sec09-signal-lights-intersections-right-of-way) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-signal-lights-intersections-right-of-way__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:35:53.785Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:106 for 03.combined_kg (sec11-speed-adjustment-traffic-signs) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-speed-adjustment-traffic-signs__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:46:23.008Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:107 for 03.combined_kg (sec13-curbs-lanes-turning-rules) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-curbs-lanes-turning-rules__-__n0 (lineage attempts exhausted)

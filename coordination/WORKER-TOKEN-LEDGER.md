@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T10:41:37.432Z
+# Worker token ledger — generated 2026-10-28T10:47:03.952Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 26 | 945,779,099 | 3,051,948 | 948,831,047 | $0.00 | AZ CA CO CT FL IA KY MT NM NY OK TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 83 | 0 | 0 | 21,498,182 | $0.00 | AL AZ CA CO FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
+| claude | Anthropic subscription (Claude Code subagent) | 85 | 0 | 0 | 21,681,137 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
 | sol | ChatGPT Pro subscription | 29 | 0 | 0 | 119,265,934 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
@@ -34,7 +34,7 @@
 | muse | muse-spark-1.3 | KY | intake-KY-r1 | 55,840,461 | 55,243,905 | 202,544 | 49,580 | — | 294 | — | $0.00 |
 | muse | muse-spark-1.3 | MT | intake-MT | — | — | — | — | — | 147 | — | $0.00 |
 | muse | muse-spark-1.3 | NM | intake-NM | — | — | — | — | — | 19 | — | $0.00 |
-| muse | muse-spark-1.3 | OK | intake-OK-r1 | — | — | — | — | — | 194 | — | $0.00 |
+| muse | muse-spark-1.3 | OK | intake-OK-r1 | — | — | — | — | — | 223 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
 | claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | UT | multi-state shell: state picker, #/<st>/ routes, states.json, harness rewrite, Utah onboarded | — | — | — | — | 243,214 | 95 | 14 min | $0.00 |
@@ -147,4 +147,6 @@
 | claude | claude-opus-5-5 | NC | downstream worker: sec09-16 — NORTH CAROLINA DOWNSTREAM COMPLETE 16/16: 811 nodes/cards/items, 113 units/801 slides, 942 scripts; 4 more dynamic quarantines — post-cut session counter | — | — | — | — | 210,003 | 77 | 34 min | $0.00 |
 | claude | claude-opus-5-5 | VA | downstream worker: sec09-15 — VIRGINIA DOWNSTREAM COMPLETE 15/15: 449 nodes/446 cards/449 items, 58 units/388 slides, 504 scripts — delta of resumed agent | — | — | — | — | 198,277 | 101 | 30 min | $0.00 |
 | claude | claude-opus-5-5 | NY | downstream worker: sec08-13 — NEW YORK DOWNSTREAM COMPLETE 13/13: 386 nodes/384 cards/386 items, 72 units/533 slides, 456 scripts — delta of resumed agent | — | — | — | — | 184,798 | 76 | 36 min | $0.00 |
+| claude | claude-opus-5-5 | CT | downstream worker: sec01-06 through 03/04/06/05 (30/30; 234 nodes/cards/items, 37 units/259 slides, 271 scripts; official_mirror 25q/80% verified) — delta of resumed agent | — | — | — | — | 97,060 | 12 | 6 min | $0.00 |
+| claude | claude-opus-5-5 | AL | downstream worker: sec08-13 — ALABAMA DOWNSTREAM COMPLETE 13/13: 686 nodes/681 cards/686 items, 79 units/551 slides, 760 scripts — post-cut session counter | — | — | — | — | 85,895 | 86 | 42 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

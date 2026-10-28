@@ -27,3 +27,11 @@ Seeded 2026-10-28T09:07:39.535Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:38:33.469Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:13 for 02.dossier_sections (sec03-ready-to-drive) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-ready-to-drive__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:38:40.270Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:14 for 02.dossier_sections (sec03-ready-to-drive) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-ready-to-drive__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:41:55.141Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:15 for 02.dossier_sections (sec04-before-you-drive) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-before-you-drive__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:42:05.342Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:16 for 02.dossier_sections (sec04-before-you-drive) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-before-you-drive__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:42:11.544Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:17 for 02.dossier_sections (sec04-before-you-drive) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-before-you-drive__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:42:18.880Z lineage reset → 2026-10-28-rdmv-me-class-c:lineage:18 for 02.dossier_sections (sec04-before-you-drive) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-before-you-drive__F__n0 (lineage attempts exhausted)

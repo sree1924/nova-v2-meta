@@ -63,3 +63,15 @@ Seeded 2026-10-28T07:07:07.574Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:39:53.718Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:31 for 02.dossier_sections (sec07-basic-speed-rule) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-basic-speed-rule__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:40:40.358Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:32 for 02.dossier_sections (sec07-basic-speed-rule) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-basic-speed-rule__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:41:57.998Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:33 for 02.dossier_sections (sec08-stopping-and-following) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-stopping-and-following__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:43:02.290Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:34 for 02.dossier_sections (sec08-stopping-and-following) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-stopping-and-following__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:43:46.109Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:35 for 02.dossier_sections (sec08-stopping-and-following) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-stopping-and-following__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:44:39.705Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:36 for 02.dossier_sections (sec08-stopping-and-following) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-stopping-and-following__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:45:26.384Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:37 for 02.dossier_sections (sec09-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-parking__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:46:37.769Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:38 for 02.dossier_sections (sec09-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-parking__A__n0 (lineage attempts exhausted)
