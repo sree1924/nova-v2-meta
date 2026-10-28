@@ -1,0 +1,206 @@
+{
+  "status": "PASS",
+  "stage_id": "06.exam_bank",
+  "checks": [
+    {
+      "check_id": "06.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/06-exambank.schema.json"
+    },
+    {
+      "check_id": "06.ENVELOPE",
+      "status": "PASS",
+      "evidence": "probe slug, input_manifest_sha256 format and stamp/ref strings valid"
+    },
+    {
+      "check_id": "06.INPUT_MANIFEST",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 equals bound manifest e4faa52913ab…"
+    },
+    {
+      "check_id": "06.ID_INTEGRITY",
+      "status": "PASS",
+      "evidence": "19 unique items; all 19 form refs and 19 quiz refs resolve",
+      "metrics": {
+        "items": 19,
+        "unresolved": 0
+      }
+    },
+    {
+      "check_id": "06.ITEM_BINDING",
+      "status": "PASS",
+      "evidence": "all 19 items bound; every fact_id resolves in fact_registry",
+      "metrics": {
+        "unresolved_fact_ids": 0
+      }
+    },
+    {
+      "check_id": "06.PAGE_OR_DEBT",
+      "status": "PASS",
+      "evidence": "all 19 items cite a pdf/printed page",
+      "metrics": {
+        "paged": 19,
+        "page_debt": 0
+      }
+    },
+    {
+      "check_id": "06.OPTIONS_SHAPE",
+      "status": "PASS",
+      "evidence": "all 19 items have 4 keyed options (3 distractors) with per-option rationales",
+      "metrics": {
+        "bad_items": 0
+      }
+    },
+    {
+      "check_id": "06.DISTRACTOR_SOURCE",
+      "status": "PASS",
+      "evidence": "every item records 3 distractor sources (54 labelled synthesized near-miss)",
+      "metrics": {
+        "synthesized": 54
+      }
+    },
+    {
+      "check_id": "06.ANSWER_RATIONALE_AGREEMENT",
+      "status": "PASS",
+      "evidence": "all 19 correct rationales name the keyed answer; no rationale endorses another option",
+      "metrics": {
+        "disagreements": 0
+      }
+    },
+    {
+      "check_id": "06.BANNED_CLAIMS",
+      "status": "PASS",
+      "evidence": "no actual/real/leaked/official-question, prediction or unverified full-length claims in learner strings",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "06.PRACTICE_LABEL",
+      "status": "PASS",
+      "evidence": "all 2 form titles carry a practice label"
+    },
+    {
+      "check_id": "06.FORM_NUMERALS",
+      "status": "PASS",
+      "evidence": "no form-level numeral asserts an unverified official fact (2 forms)",
+      "metrics": {
+        "leaks": 0
+      }
+    },
+    {
+      "check_id": "06.ITEM_NUMERALS",
+      "status": "PASS",
+      "evidence": "no numerals in item/quiz learner strings"
+    },
+    {
+      "check_id": "06.OFFICIAL_MIRROR",
+      "status": "PASS",
+      "evidence": "official mirror records consistent on 2 forms (0 verified, 2 practice-only)"
+    },
+    {
+      "check_id": "06.SCORING_POLICY",
+      "status": "PASS",
+      "evidence": "all forms score by product policy runs/2026-10-28-rdmv-va-class-std/19-learning-loop.json",
+      "metrics": {
+        "distinct_refs": 1
+      }
+    },
+    {
+      "check_id": "06.DECLARED_COUNT",
+      "status": "PASS",
+      "evidence": "declared_count equals served item ids on all 2 forms"
+    },
+    {
+      "check_id": "06.TITLED_PROMISE",
+      "status": "PASS",
+      "evidence": "every countable title promise equals served content"
+    },
+    {
+      "check_id": "06.FORM_OVERLAP",
+      "status": "PASS",
+      "evidence": "pairwise overlap sec14-form-a×sec14-form-b=0(0%); disclosures present where >20%",
+      "metrics": {
+        "pairs": 1,
+        "max_overlap_pct": 0
+      }
+    },
+    {
+      "check_id": "06.DUPLICATE_STEM",
+      "status": "PASS",
+      "evidence": "no duplicate stem+answer pairs (0 shared instruction stem(s) with distinct answers)",
+      "metrics": {
+        "duplicates": 0,
+        "shared_instruction_stems": 0
+      }
+    },
+    {
+      "check_id": "06.ITEM_CLONE",
+      "status": "PASS",
+      "evidence": "no clones among 19 items",
+      "metrics": {
+        "clone_groups": 0
+      }
+    },
+    {
+      "check_id": "06.NEEDS_REVIEW_ZERO",
+      "status": "PASS",
+      "evidence": "needs_review_count 0 and no served item flagged",
+      "metrics": {
+        "needs_review": 0
+      }
+    },
+    {
+      "check_id": "06.SELF_FLAGGED_RESOLVED",
+      "status": "PASS",
+      "evidence": "no unresolved self-flagged distractors",
+      "metrics": {
+        "unresolved": 0
+      }
+    },
+    {
+      "check_id": "06.DERIVED_PLACEMENT",
+      "status": "PASS",
+      "evidence": "no derived items in practice forms (0 derived items total)"
+    },
+    {
+      "check_id": "06.FORM_COUNT",
+      "status": "PASS",
+      "evidence": "2 practice form(s) (need >= 2)"
+    },
+    {
+      "check_id": "06.MODULE_QUIZ_COVERAGE",
+      "status": "PASS",
+      "evidence": "3 quizzes = one per 3 declared modules; all quiz items in-module"
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22",
+    "06.ID_INTEGRITY.items": 19,
+    "06.ID_INTEGRITY.unresolved": 0,
+    "06.ITEM_BINDING.unresolved_fact_ids": 0,
+    "06.PAGE_OR_DEBT.paged": 19,
+    "06.PAGE_OR_DEBT.page_debt": 0,
+    "06.OPTIONS_SHAPE.bad_items": 0,
+    "06.DISTRACTOR_SOURCE.synthesized": 54,
+    "06.ANSWER_RATIONALE_AGREEMENT.disagreements": 0,
+    "06.BANNED_CLAIMS.hits": 0,
+    "06.FORM_NUMERALS.leaks": 0,
+    "06.SCORING_POLICY.distinct_refs": 1,
+    "06.FORM_OVERLAP.pairs": 1,
+    "06.FORM_OVERLAP.max_overlap_pct": 0,
+    "06.DUPLICATE_STEM.duplicates": 0,
+    "06.DUPLICATE_STEM.shared_instruction_stems": 0,
+    "06.ITEM_CLONE.clone_groups": 0,
+    "06.NEEDS_REVIEW_ZERO.needs_review": 0,
+    "06.SELF_FLAGGED_RESOLVED.unresolved": 0,
+    "required_checks": 25,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "f2faa1f91f4e01ab655a19ab371ae73ff5594adb731aff44f012b45c1c95809f",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

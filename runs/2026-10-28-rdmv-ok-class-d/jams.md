@@ -45,3 +45,9 @@ Seeded 2026-10-28T07:07:07.574Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:30:45.794Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:22 for 02.dossier_sections (sec05-right-of-way-when-to-yield) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-right-of-way-when-to-yield__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:31:36.048Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:23 for 02.dossier_sections (sec05-right-of-way-when-to-yield) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-right-of-way-when-to-yield__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:33:17.946Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:24 for 02.dossier_sections (sec06-lane-usage-and-maneuvers) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-lane-usage-and-maneuvers__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:34:35.198Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:25 for 02.dossier_sections (sec06-lane-usage-and-maneuvers) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-lane-usage-and-maneuvers__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:35:26.069Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:26 for 02.dossier_sections (sec06-lane-usage-and-maneuvers) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-lane-usage-and-maneuvers__E__n0 (lineage attempts exhausted)

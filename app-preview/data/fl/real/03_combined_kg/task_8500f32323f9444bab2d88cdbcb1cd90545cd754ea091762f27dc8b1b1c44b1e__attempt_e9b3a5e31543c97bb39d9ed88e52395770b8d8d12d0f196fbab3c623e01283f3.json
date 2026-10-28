@@ -1,0 +1,2036 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-fl-e",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "7589520a99eb475fc2f4fd7d02e30782f5afe6fe69b2e1526942b30873b7dfbd",
+    "candidate_lineage_id": "2026-10-28-rdmv-fl-class-e:lineage:57"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-fl-class-e/16/sec02-driving-schools-test-providers/11257518/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-fl-class-e/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec02-F01",
+      "label": "Substance course before first application",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F01"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.25",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0025"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F02",
+          "why": "sec02-R01 contrasts sec02-F01 with sec02-F02: The substance course gates every never-licensed applicant yet also gates under-21 hardship return after low-BAL suspension.",
+          "fact_ids": [
+            "sec02-F01",
+            "sec02-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F02",
+      "label": "Course for under-twenty-one hardship return",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F02"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.25",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0025"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F01",
+          "why": "sec02-R01 contrasts sec02-F02 with sec02-F01: The substance course gates every never-licensed applicant yet also gates under-21 hardship return after low-BAL suspension.",
+          "fact_ids": [
+            "sec02-F02",
+            "sec02-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F03",
+      "label": "When improvement school is mandatory",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F03"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.25",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0025"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F04",
+          "why": "sec02-R02 contrasts sec02-F03 with sec02-F04: Improvement school is forced by crashes and convictions but elected for plain moving violations to dodge points.",
+          "fact_ids": [
+            "sec02-F03",
+            "sec02-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F04",
+      "label": "Electing school instead of points",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F04"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.25",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0025"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F03",
+          "why": "sec02-R02 contrasts sec02-F04 with sec02-F03: Improvement school is forced by crashes and convictions but elected for plain moving violations to dodge points.",
+          "fact_ids": [
+            "sec02-F04",
+            "sec02-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F05",
+      "label": "Insurance protection from electing school",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec02-F05"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F06",
+      "label": "Election frequency and clerk notice",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F06"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-R05",
+          "why": "sec02-R05 sharpens sec02-F06: Elections space 12 months apart with five per lifetime, and the clerk needs notice plus a fee inside 30 days.",
+          "fact_ids": [
+            "sec02-F06",
+            "sec02-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F07",
+      "label": "Advanced courses that restore licenses",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec02-F07"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F08",
+          "why": "sec02-R06 contrasts sec02-F07 with sec02-F08: Advanced courses cure suspensions, DUI programs answer intoxication cases, and senior courses refresh drivers past 65.",
+          "fact_ids": [
+            "sec02-F07",
+            "sec02-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F08",
+      "label": "DUI programs and senior courses",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec02-F08"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F07",
+          "why": "sec02-R06 contrasts sec02-F08 with sec02-F07: Advanced courses cure suspensions, DUI programs answer intoxication cases, and senior courses refresh drivers past 65.",
+          "fact_ids": [
+            "sec02-F08",
+            "sec02-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F09",
+      "label": "What the examinations confirm",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec02-F09"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F10",
+      "label": "Fifth exam purpose and test venues",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F10"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F11",
+          "why": "sec02-R07 contrasts sec02-F10 with sec02-F11: Service centers, school programs with random retests, and third parties all test, with minors online for knowledge only.",
+          "fact_ids": [
+            "sec02-F10",
+            "sec02-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F11",
+      "label": "School, third-party and online testing",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F11"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F10",
+          "why": "sec02-R07 contrasts sec02-F11 with sec02-F10: Service centers, school programs with random retests, and third parties all test, with minors online for knowledge only.",
+          "fact_ids": [
+            "sec02-F11",
+            "sec02-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F12",
+      "label": "Exams for original applicants",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec02-F12"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F13",
+      "label": "Vision exam standards",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F13"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-R08",
+          "why": "sec02-R08 sharpens sec02-F13: Vision clears at 20/40, detours at 20/50, conditions 20/70 on the weaker eye, and always spans 130 degrees.",
+          "fact_ids": [
+            "sec02-F13",
+            "sec02-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F14",
+      "label": "Knowledge exam format and topics",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F14"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-R09",
+          "why": "sec02-R09 sharpens sec02-F14: The knowledge test spans 50 items across laws, safe practices, and control identification.",
+          "fact_ids": [
+            "sec02-F14",
+            "sec02-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F15",
+      "label": "Skills test vehicle requirements",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F15"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-R10",
+          "why": "sec02-R10 sharpens sec02-F15: The skills car must be plated, insured, and sound, failing on equipment, glass, tags, doors, seats, signals, or bumpers.",
+          "fact_ids": [
+            "sec02-F15",
+            "sec02-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F16",
+      "label": "First set of tested maneuvers",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F16"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F17",
+          "why": "sec02-R11 contrasts sec02-F16 with sec02-F17: Maneuver numbers fix 50-foot backing, three-to-four-second gaps, and 100-foot signaled turns.",
+          "fact_ids": [
+            "sec02-F16",
+            "sec02-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F17",
+      "label": "More tested maneuvers",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F17"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F16",
+          "why": "sec02-R11 contrasts sec02-F17 with sec02-F16: Maneuver numbers fix 50-foot backing, three-to-four-second gaps, and 100-foot signaled turns.",
+          "fact_ids": [
+            "sec02-F17",
+            "sec02-F16"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-F18",
+      "label": "Final maneuvers and results",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-F18"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-R12",
+          "why": "sec02-R12 sharpens sec02-F18: The three-point turn fits a 20-to-40-foot space with posture held throughout, and passing earns the license.",
+          "fact_ids": [
+            "sec02-F18",
+            "sec02-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R01",
+      "label": "Two groups the substance course gates",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R01"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.25",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0025"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F01",
+          "why": "sec02-R01 is the contrast built on sec02-F01; learners who keep only one side of it misapply sec02-F01: The substance course gates every never-licensed applicant yet also gates under-21 hardship return after low-BAL suspension.",
+          "fact_ids": [
+            "sec02-R01",
+            "sec02-F01"
+          ]
+        },
+        {
+          "other_id": "sec02-F02",
+          "why": "sec02-R01 is the contrast built on sec02-F02; learners who keep only one side of it misapply sec02-F02: The substance course gates every never-licensed applicant yet also gates under-21 hardship return after low-BAL suspension.",
+          "fact_ids": [
+            "sec02-R01",
+            "sec02-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R02",
+      "label": "Forced versus elected improvement school",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R02"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.25",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0025"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F03",
+          "why": "sec02-R02 is the contrast built on sec02-F03; learners who keep only one side of it misapply sec02-F03: Improvement school is forced by crashes and convictions but elected for plain moving violations to dodge points.",
+          "fact_ids": [
+            "sec02-R02",
+            "sec02-F03"
+          ]
+        },
+        {
+          "other_id": "sec02-F04",
+          "why": "sec02-R02 is the contrast built on sec02-F04; learners who keep only one side of it misapply sec02-F04: Improvement school is forced by crashes and convictions but elected for plain moving violations to dodge points.",
+          "fact_ids": [
+            "sec02-R02",
+            "sec02-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R03",
+      "label": "Election conditions and penalty cut",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R03"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.25",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0025"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F04",
+          "why": "sec02-R03 is the contrast built on sec02-F04; learners who keep only one side of it misapply sec02-F04: Election needs a non-criminal, non-commercial ticket below 30 MPH over, and pays an 18 percent penalty cut.",
+          "fact_ids": [
+            "sec02-R03",
+            "sec02-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R04",
+      "label": "When premium protection collapses",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R04"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F05",
+          "why": "sec02-R04 is the contrast built on sec02-F05; learners who keep only one side of it misapply sec02-F05: Premium shelter covers one infraction but collapses on a second strike in 18 months, a third in 36, or 15 MPH over.",
+          "fact_ids": [
+            "sec02-R04",
+            "sec02-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R05",
+      "label": "Election spacing and lifetime cap",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R05"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F06",
+          "why": "sec02-R05 is the contrast built on sec02-F06; learners who keep only one side of it misapply sec02-F06: Elections space 12 months apart with five per lifetime, and the clerk needs notice plus a fee inside 30 days.",
+          "fact_ids": [
+            "sec02-R05",
+            "sec02-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R06",
+      "label": "Advanced, DUI and senior tracks",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R06"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F07",
+          "why": "sec02-R06 is the contrast built on sec02-F07; learners who keep only one side of it misapply sec02-F07: Advanced courses cure suspensions, DUI programs answer intoxication cases, and senior courses refresh drivers past 65.",
+          "fact_ids": [
+            "sec02-R06",
+            "sec02-F07"
+          ]
+        },
+        {
+          "other_id": "sec02-F08",
+          "why": "sec02-R06 is the contrast built on sec02-F08; learners who keep only one side of it misapply sec02-F08: Advanced courses cure suspensions, DUI programs answer intoxication cases, and senior courses refresh drivers past 65.",
+          "fact_ids": [
+            "sec02-R06",
+            "sec02-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R07",
+      "label": "Where each kind of testing happens",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R07"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F10",
+          "why": "sec02-R07 is the contrast built on sec02-F10; learners who keep only one side of it misapply sec02-F10: Service centers, school programs with random retests, and third parties all test, with minors online for knowledge only.",
+          "fact_ids": [
+            "sec02-R07",
+            "sec02-F10"
+          ]
+        },
+        {
+          "other_id": "sec02-F11",
+          "why": "sec02-R07 is the contrast built on sec02-F11; learners who keep only one side of it misapply sec02-F11: Service centers, school programs with random retests, and third parties all test, with minors online for knowledge only.",
+          "fact_ids": [
+            "sec02-R07",
+            "sec02-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R08",
+      "label": "Vision pass, referral and condition lines",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R08"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F13",
+          "why": "sec02-R08 is the contrast built on sec02-F13; learners who keep only one side of it misapply sec02-F13: Vision clears at 20/40, detours at 20/50, conditions 20/70 on the weaker eye, and always spans 130 degrees.",
+          "fact_ids": [
+            "sec02-R08",
+            "sec02-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R09",
+      "label": "Knowledge exam coverage",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec02-R09"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F14",
+          "why": "sec02-R09 is the contrast built on sec02-F14; learners who keep only one side of it misapply sec02-F14: The knowledge test spans 50 items across laws, safe practices, and control identification.",
+          "fact_ids": [
+            "sec02-R09",
+            "sec02-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R10",
+      "label": "Why a test car is rejected",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec02-R10"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F15",
+          "why": "sec02-R10 is the contrast built on sec02-F15; learners who keep only one side of it misapply sec02-F15: The skills car must be plated, insured, and sound, failing on equipment, glass, tags, doors, seats, signals, or bumpers.",
+          "fact_ids": [
+            "sec02-R10",
+            "sec02-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R11",
+      "label": "Maneuver distances and gaps",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R11"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F16",
+          "why": "sec02-R11 is the contrast built on sec02-F16; learners who keep only one side of it misapply sec02-F16: Maneuver numbers fix 50-foot backing, three-to-four-second gaps, and 100-foot signaled turns.",
+          "fact_ids": [
+            "sec02-R11",
+            "sec02-F16"
+          ]
+        },
+        {
+          "other_id": "sec02-F17",
+          "why": "sec02-R11 is the contrast built on sec02-F17; learners who keep only one side of it misapply sec02-F17: Maneuver numbers fix 50-foot backing, three-to-four-second gaps, and 100-foot signaled turns.",
+          "fact_ids": [
+            "sec02-R11",
+            "sec02-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec02-R12",
+      "label": "Three-point turn space and passing",
+      "domain": "Driving Schools and Test Providers",
+      "module_id": "sec02-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec02-R12"
+      ],
+      "source_ref": {
+        "ref": "Official Florida Driver License Handbook, rev. 08/2023 (Florida Department of Highway Safety and Motor Vehicles), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-fl-e:florida-department-of-highway-safety-and:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec02-F18",
+          "why": "sec02-R12 is the contrast built on sec02-F18; learners who keep only one side of it misapply sec02-F18: The three-point turn fits a 20-to-40-foot space with posture held throughout, and passing earns the license.",
+          "fact_ids": [
+            "sec02-R12",
+            "sec02-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec02-F01",
+      "to": "sec02-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F02",
+      "to": "sec02-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F03",
+      "to": "sec02-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F04",
+      "to": "sec02-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F04",
+      "to": "sec02-R03",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F05",
+      "to": "sec02-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F06",
+      "to": "sec02-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F07",
+      "to": "sec02-R06",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F08",
+      "to": "sec02-R06",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F10",
+      "to": "sec02-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F11",
+      "to": "sec02-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F13",
+      "to": "sec02-R08",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F14",
+      "to": "sec02-R09",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F15",
+      "to": "sec02-R10",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F16",
+      "to": "sec02-R11",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F17",
+      "to": "sec02-R11",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec02-F18",
+      "to": "sec02-R12",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec02-m01",
+      "title": "Substance course and improvement school",
+      "domain": "Driving Schools and Test Providers",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F01",
+        "sec02-F02",
+        "sec02-R01",
+        "sec02-F03",
+        "sec02-F04",
+        "sec02-R02",
+        "sec02-R03"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m02",
+      "title": "Election benefits, limits and course tracks",
+      "domain": "Driving Schools and Test Providers",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F05",
+        "sec02-F06",
+        "sec02-F07",
+        "sec02-F08",
+        "sec02-R04",
+        "sec02-R05",
+        "sec02-R06"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m03",
+      "title": "Exam purposes, venues and vision",
+      "domain": "Driving Schools and Test Providers",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 12,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F09",
+        "sec02-F10",
+        "sec02-F11",
+        "sec02-F12",
+        "sec02-F13",
+        "sec02-R07",
+        "sec02-R08"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m04",
+      "title": "Knowledge exam and skills test",
+      "domain": "Driving Schools and Test Providers",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 16,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec02-F14",
+        "sec02-R09",
+        "sec02-F15",
+        "sec02-R10",
+        "sec02-F16",
+        "sec02-F17",
+        "sec02-R11",
+        "sec02-F18",
+        "sec02-R12"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec02-m01",
+      "unit_id": "sec02-u01",
+      "node_ids": [
+        "sec02-F01",
+        "sec02-F02",
+        "sec02-R01",
+        "sec02-F03",
+        "sec02-F04",
+        "sec02-R02",
+        "sec02-R03"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach who must take the substance course, when improvement school is forced, and when a driver may elect it.",
+      "flashcard_strategy": "One card per rule with contrasts between forced and elected improvement school.",
+      "quiz_strategy": "Scenario questions on whether a course is required or optional.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m02",
+      "unit_id": "sec02-u02",
+      "node_ids": [
+        "sec02-F05",
+        "sec02-F06",
+        "sec02-F07",
+        "sec02-F08",
+        "sec02-R04",
+        "sec02-R05",
+        "sec02-R06"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain what electing school protects, how often it can be elected, and the advanced, DUI and senior course tracks.",
+      "flashcard_strategy": "Cards for each benefit and limit, with contrasts between course tracks.",
+      "quiz_strategy": "Questions on when election protection fails and which course fits a case.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m03",
+      "unit_id": "sec02-u03",
+      "node_ids": [
+        "sec02-F09",
+        "sec02-F10",
+        "sec02-F11",
+        "sec02-F12",
+        "sec02-F13",
+        "sec02-R07",
+        "sec02-R08"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover what the exams check, where they are given, which exams new applicants take and the vision standards.",
+      "flashcard_strategy": "Cards for exam purposes, venues and each vision threshold.",
+      "quiz_strategy": "Questions on venues, original-applicant exams and vision outcomes.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec02-m04",
+      "unit_id": "sec02-u04",
+      "node_ids": [
+        "sec02-F14",
+        "sec02-R09",
+        "sec02-F15",
+        "sec02-R10",
+        "sec02-F16",
+        "sec02-F17",
+        "sec02-R11",
+        "sec02-F18",
+        "sec02-R12"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Describe the knowledge exam topics, the skills test vehicle, and each tested maneuver with its distances and gaps.",
+      "flashcard_strategy": "Cards for vehicle requirements and maneuver numbers, with contrasts on distances.",
+      "quiz_strategy": "Questions on vehicle rejection reasons and maneuver distances.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec02-F01",
+    "sec02-F02",
+    "sec02-R01",
+    "sec02-F03",
+    "sec02-F04",
+    "sec02-R02",
+    "sec02-R03",
+    "sec02-F05",
+    "sec02-F06",
+    "sec02-F07",
+    "sec02-F08",
+    "sec02-R04",
+    "sec02-R05",
+    "sec02-R06",
+    "sec02-F09",
+    "sec02-F10",
+    "sec02-F11",
+    "sec02-F12",
+    "sec02-F13",
+    "sec02-R07",
+    "sec02-R08",
+    "sec02-F14",
+    "sec02-R09",
+    "sec02-F15",
+    "sec02-R10",
+    "sec02-F16",
+    "sec02-F17",
+    "sec02-R11",
+    "sec02-F18",
+    "sec02-R12"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec02-m01..sec02-m04; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 30,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec02-F01",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F02",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F03",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F04",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F05",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F06",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F07",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F08",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F09",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F10",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F11",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F12",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F13",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F14",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F15",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F16",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F17",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-F18",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R01",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R02",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R03",
+          "module_id": "sec02-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R04",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R05",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R06",
+          "module_id": "sec02-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R07",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R08",
+          "module_id": "sec02-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R09",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R10",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R11",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec02-R12",
+          "module_id": "sec02-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec02-F01",
+          "to": "sec02-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F02",
+          "to": "sec02-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F03",
+          "to": "sec02-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F04",
+          "to": "sec02-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F04",
+          "to": "sec02-R03",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F05",
+          "to": "sec02-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F06",
+          "to": "sec02-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F07",
+          "to": "sec02-R06",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F08",
+          "to": "sec02-R06",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F10",
+          "to": "sec02-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F11",
+          "to": "sec02-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F13",
+          "to": "sec02-R08",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F14",
+          "to": "sec02-R09",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F15",
+          "to": "sec02-R10",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F16",
+          "to": "sec02-R11",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F17",
+          "to": "sec02-R11",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec02-F18",
+          "to": "sec02-R12",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Driving Schools and Test Providers",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec02-m01",
+          "sec02-m02",
+          "sec02-m03",
+          "sec02-m04"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

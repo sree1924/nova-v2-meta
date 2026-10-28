@@ -23,3 +23,9 @@ MI NJ TX MD CO OR (+ UT by hand)
 3. Muse's 4 new states (scout agent ad57e1b585ace6d6f staging KY/LA/OK/CT or fallbacks): QUEUE rows worker=muse → restart
    coordination/queue-runner.ps1 -MaxParallel 4 (no -NoNew) → Claude downstream after.
 4. Audio only on founder "audio go" (~$7.50/state).
+
+## 11:25Z 2026-10-28 budget note
+Weekly Claude 76% (jumped 9 pts in 75 min: resumed workers re-read large contexts). Live now: MO NC AL SC FL VA WA NY MN TN AZ CT.
+Done + onboarded: MI NJ TX MD CO OR IN WI NV CA (+UT). HOLD Claude downstream for Muse's KY/IA/OK (and AZ sec16–22 if budget
+< 15 pts remain when it comes up) until Saturday's reset (2026-10-31 13:00Z) unless the founder says otherwise. Sol's 10 states =
+her downstream. Re-author pass (wrong-meaning BAC backs first: AL sec06, NV sec12, IN sec05, CO sec02) after the reset.
