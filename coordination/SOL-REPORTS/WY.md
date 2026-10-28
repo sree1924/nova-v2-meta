@@ -1,21 +1,23 @@
-# Wyoming — first two sections corrected
-Run 2026-10-28-rdmv-wy-class-c; gpt-6.1-sol, ChatGPT Pro subscription.
-Completed native append-only repairs: sec01/C2, sec02/C and sec02/C2. Each passed all twenty mapped checks and native acceptance.
-Sec01/C2: two rank labels corrected; all twenty-seven facts and ranked memberships unchanged.
-Sec02/C: two mixed-group labels corrected; all thirty-two facts and ranked memberships unchanged.
-Sec02/R06: applicant pays the required fee; parent or legal guardian signs the minor's release. No amount or modality changed.
-Source proof: exact registered spans on physical pages eight through eleven, thirteen and fourteen; source registry, map and text hashes unchanged.
-Original accepted files retained with exact supersession pins; each new acceptance has immutable source evidence, proof, candidate, review and native receipts.
-sec01-licensing-and-tests current compile: D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-wy-class-c\16\sec01-licensing-and-tests\eeaf4694\16-compiled-dossier.json @ 6041b19740976c02d84421dedfb7f996df66ea72e04f08b152aec9c2707b8cb4.
-sec02-permits-and-graduated-licenses current compile: D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-wy-class-c\16\sec02-permits-and-graduated-licenses\12cff05a\16-compiled-dossier.json @ d0a1f2725048a02cbcf09ca61ca9812aa259ae22187105d436a731a980dd4d1a.
-Compile companions hash-verified; corrected acceptances are current inputs; superseded targets appear only in history.
-F/G audit: counts, IDs, debts and locations remain valid; no bounded correction to F/G required. Independent QA remains pending.
-Active SME baseline unchanged: five sections, 294 facts; accepted history now forty-eight part envelopes, including three superseded parts.
-All typed debts and exam null/unknown values retained. No source re-registration, new growth or downstream work.
-Accepted-capacity advancement only: lineage twenty-three to twenty-four; old tasks, counters and caps retained; no failed-candidate reset or nonce change.
-Sec03 C/C2 concerns remain for later. Sec06 draft, pending packet and old layers preserved; no sec06 outbox submitted.
-Ledger: actual $0.000, uncertain $0.000, reserved $0.000. Three authentic file-transport calls; paid API false.
-Cumulative actual client tokens 9201222; cache 8716928; as of 2026-10-28T15:47:17.443Z.
-Root baseline tokens 4230033/cache 4049792; aggregate DELTA ONLY 4971189/cache 4667136.
-Native executor lock released. STOP at requested correction checkpoint; shared queue, usage and defects untouched.
-Full pins: D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-wy-class-c\receipts\sol-wy-first-two-corrections-v1\FINAL-CHECKPOINT.json @ 2add9232ef74d18673d613e3f80b00f1ef1b33ebbb4e4ec5fb720099e0667d49.
+# Wyoming — content stages accepted; independent QA pending
+Run 2026-10-28-rdmv-wy-class-c; gpt-6.1-sol, ChatGPT Pro subscription; session 01a181b9-ed09-7311-aec7-c6b46222c9b8.
+Independent 07/08 QA has not run. Deterministic native acceptance does not establish source truth, current legal applicability or teaching quality.
+Inherited role-19 LearningLoop still names Utah and claims a verified Wyoming passing score; exact artifact preserved and review debt recorded. No such threshold, test count or timing is asserted in generated learner content.
+Completed all sixteen sections: active 02 parts 144; accepted 02 history 149; five accepted append-only corrections; sixteen current compiled dossiers.
+Facts 976; modules/decks 85; cards 975; justified card merges 1.
+Exam items 976; module quizzes 85; practice forms 32, disjoint within each section.
+Teaching units 85; slides 606; card scripts 975; recap scripts 85.
+Native acceptance: 03,04,06,05.sessions,05.card_scripts each sixteen of sixteen; 80 downstream acceptances, all validation and acceptance companion hashes verified.
+Bank uses explicit two-claim comparison questions; independent review must assess instructional quality and format variety. It does not claim exam realism or predictive readiness.
+All 976 fact IDs retained in KG, card-or-merge coverage, focal exam items and teaching why_how spans; exact card back and script parity reconciled.
+Source SHA 708b7f50fad23370574598ffa04674f1cc592891bec1f2439b5806b8323aee7a; 98 physical pages; 2021 edition; issuer-linked edition and effective-date/current-applicability debt retained.
+Official exam count, passing, timing and format values remain unknown/null; physical-page-nine skills-test ambiguity not promoted to a written-test threshold.
+All section-level typed source, currency, market and competitor debts retained in the compiled dossiers and checkpoint. No source re-registration.
+Five corrections: sec01 C2 labels; sec02 C labels and R06 fee actor; sec03 F03 restriction obligation and R01 placard duration, plus C labels. Accepted originals preserved.
+Compiler barrier released; preserved first KG packet still matched fresh native request/manifest/config/lineage. No replay of an accepted submission.
+Accepted-capacity advancement only; unchanged caps, old tasks/counters retained; no nonce workaround or failed-candidate reset.
+Native attempts accepted 252; nonaccepted 0; actual $0.000, reserved $0.000, uncertain $0.000.
+Actual cumulative client tokens 35415105; cached input 33535616; as of 2026-10-28T18:31:34.060Z.
+ROOT DELTA ONLY since recorded baseline 9201222/cache 8716928: total 26213883, cached input 24818688.
+Native executor lock released; no pending outbox, active native invocation, paid API, audio, publication, commit, shared code or shared accounting write.
+Historical Muse/Claude/Meta labels remain in unchanged wrappers; own authorship is Sol/gpt-6.1-sol truthfully.
+Full artifact, validation and acceptance pins: D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-wy-class-c\receipts\sol-wy-content-completion-v1.json @ 3966b9ba7574cdfaf60b36fe3f41d9001bd1ef9ce498d8c6ba19a0cd29b580ae.

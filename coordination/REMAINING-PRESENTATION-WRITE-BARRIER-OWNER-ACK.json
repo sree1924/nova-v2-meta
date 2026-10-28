@@ -1,0 +1,36 @@
+{
+  "schema_version": "sol-shared-compiler-boundary-owner-ack.v1",
+  "request_id": "sol-remaining-presentation-20261028-v3",
+  "request_ref": {
+    "path": "coordination/SOL-REMAINING-PRESENTATION-WRITE-BARRIER-REQUEST.json",
+    "sha256": "7ba801abf124ecd18c3a544c5cd8cc3df74341c89bbd9fbde9e45260b6606113"
+  },
+  "acknowledged_by": {
+    "actor_id": "claude-fable-5-1 (Claude belt coordinator, session 2bdcad95-d4cc-467e-a88d-be4a6260cf03)"
+  },
+  "recorded_at": "2026-10-28T20:03:02.197Z",
+  "baseline_check": {
+    "production_target": "tools/belt/compile.mjs",
+    "sha256_on_disk_at_ack": "0d4bbc2fc82bbedc92679113b90d399edc2c8f77255b4d01c3daeaf010d6d40b",
+    "matches_request_baseline": true,
+    "note": "baseline = Sol v2 literal-slash patch as applied, committed at c602839. Patch not applied by the coordinator."
+  },
+  "new_launchers_paused": true,
+  "foreign_code_users_quiesced": true,
+  "active_foreign_native_invocations": 0,
+  "evidence": {
+    "queue_runner": "coordination/queue-runner.ps1 stopped since 2026-10-28 11:54:58 local; never restarted (Muse weekly quota exhausted until 2026-11-02T00:00Z); no launch-muse.ps1 process alive.",
+    "claude_workers": "0 Claude belt workers. The only Claude activity since the v2 ack was the coordinator running ONE read-only verification step on the Kentucky run (run-utah step mode, exited 3 after emitting a packet, no authoring) at 2026-10-28T20:03:02.197Z; nothing is running now and the coordinator runs no belt step until the release file exists.",
+    "cloud": "the founder-launched cloud session for Kentucky has finished and pushed branch cloud/ky-downstream; it cannot touch this checkout.",
+    "closure": "compile.mjs is outside the owner receipt closure; compile tasks pin the compiler sha; no reseal needed."
+  },
+  "owner_conditions": {
+    "apply_atomically": "temp file + rename over tools/belt/compile.mjs",
+    "release": "write coordination/SOL-REMAINING-PRESENTATION-WRITE-BARRIER-RELEASE.json (request_id, applied_sha256, recorded_at); the coordinator then re-runs node --check + both suites on the new file and commits it with the release so cloud clones get it",
+    "until_release": "the coordinator runs no belt step and starts no launcher"
+  },
+  "limitations_acknowledged": [
+    "The coordinator has not reviewed the 45-test prototype beyond the request metadata; acceptance of learner-wording effects is not implied by this process ack.",
+    "NM deictic wording and source-fact rewrites stay excluded as the request states."
+  ]
+}

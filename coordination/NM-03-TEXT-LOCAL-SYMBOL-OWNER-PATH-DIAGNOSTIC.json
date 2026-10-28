@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "EXACT_CONSUMER_CONFLICT_RECORDED_NO_BYPASS",
+  "state": "NM",
+  "fact_id": "sec03-F24",
+  "accepted_statement": "A red circle crossed by a red slash over a symbol forbids the action represented by that symbol.",
+  "accepted_evidence_path": "scratch/sol-nm/CARDS-REQUIRED-BINDING-HOLD.json",
+  "consumer_refs": [
+    {
+      "path": "tools/belt/checks/04-cards.mjs",
+      "line": 349,
+      "behavior": "Tests both front and back with DEICTIC_VISUAL_RE; any match fails before disposition binding. Only text-first sentinel accepted."
+    },
+    {
+      "path": "tools/belt/lib/cards-sessions-common.mjs",
+      "line": 150,
+      "behavior": "Regex matches 'that symbol' without considering the preceding 'a symbol' antecedent."
+    },
+    {
+      "path": "tools/belt/checks/05-card-scripts.mjs",
+      "line": 253,
+      "behavior": "Question-only deictic check has media-disposition guard; does not resolve the blocking04 back-text test."
+    }
+  ],
+  "root_assessment": "The statement describes the red circle/slash/symbol and refers back to its text-local symbol antecedent. The exact04 regex nevertheless marks it as an unbound visual reference. This is a concrete representation/predicate conflict, not proof of missing factual content.",
+  "excluded_paths": [
+    "Source wording substitution merely to evade regex",
+    "Omitting required fact or arbitrary quarantine",
+    "Adding an image asset when04 requires the image-disabled sentinel",
+    "Validator waiver or silent shared-code change"
+  ],
+  "next": "Request validation owner's existing supported path or explicit scoped remedy using this exact consumer evidence; no blanket guard weakening.",
+  "no_live_or_worker_run_edits": true,
+  "recorded_at": "2026-10-28T20:01:38.408Z"
+}

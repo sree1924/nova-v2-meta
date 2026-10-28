@@ -127,3 +127,95 @@ Seeded 2026-10-28T07:23:58.772Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T11:23:49.924Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:58 for 02.dossier_sections (sec12-weather-trip-planning) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-weather-trip-planning__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T11:27:38.976Z Batch04 last four registered SME sections09-12 accepted through02/16:316 source-checked facts,46 explicit debts;new F/G inventories resolve. All12 SME sections now compiled,1328 facts;original F/G hold and independent QA pending. All12 CURRENT hashes verified under executor lock. No downstream.
+
+- 2026-10-28T13:07:06.486Z Native sec01 metadata-reconciliation candidate58→59 after two accepted sec12 F/G tasks;all138 old attempts and caps retained. Exact all9-target proof a18bb3d66c8974926ee4096f5c066397b312687416a71fb70e041b34261d828c;no fact-wording changes authorized.
+
+- 2026-10-28T13:11:43.327Z First real sec01 metadata-group proof inspection PASS and explicit-GO native emission WAITING. Candidate guard FAIL: source_group:conflicting_metadata:domain:Driver licensing for preserved C.01/C.02/C2.01/C2.02 rows. All130 facts and8 debts unchanged;no outbox/ingest/compile;all138 native attempts retained;money0. Packet/proof/candidate preserved;root verification required.
+
+- 2026-10-28T13:24:01.749Z Sec01 native complete metadata group and compile PASS after reviewed ranking guard fix and recorded code-input refresh in lineage59.130 facts,4 rankings,8 unresolved debts unchanged;one semantic group and11 superseded ancestors;all138 prior attempts retained,140 now accepted;money0. Root verification checkpoint saved;no other group/downstream.
+
+- 2026-10-28T13:31:39.190Z Original sec02 complete native metadata group and versioned compile PASS. Facts114,ranking rows4,unresolved debts15 preserved;one semantic group+11 transitive ancestors;money0;no downstream.
+
+- 2026-10-28T13:34:36.094Z Original sec03 complete native metadata group and versioned compile PASS. Facts139,ranking rows4,unresolved debts8 preserved;one semantic group+11 transitive ancestors;money0;no downstream.
+
+- 2026-10-28T13:41:27.552Z Original sec04 complete native metadata group and versioned compile PASS. Facts70,ranking rows2,unresolved debts9 preserved;one semantic group+11 transitive ancestors;money0;no downstream.
+
+### SOL-KS-03-ONE-SHOT-GO-FILENAME — 2026-10-28T14:29:04.512Z
+
+Sec01 KG candidate passed 25/25 local checks (130 nodes, 43 comparison edges, 9 modules), but the single native dispatch call threw CONTENT_DISPATCH_BLOCKED before any attempt, call or reservation. Helper filename GO-03-SOL-sec01 failed the required GO-03.combined_kg- prefix. Error and policy diagnostics are pinned in runs/2026-10-28-rdmv-ks-class-c/receipts/sol-kg-one-shot-hold-1793197744524.json. Ledger remains 150 accepted attempts; actual/reserved/uncertain spend $0. Pending outbox and all exact candidate/packet/context/source bytes preserved. Sec02 untouched. STOP: no retry, GO rename/remint, rebind, nonce or lineage change.
+
+### SOL-KS-03-CORRECTED-CALL-ENV — 2026-10-28T14:57:12.241Z
+
+Head authorized exactly one GO filename correction and one further native call. Correct ordinary GO passed live approval policy; original packet/outbox/layers/NEXT archived with exact pins; unchanged graph passed25 checks again. Corrected dispatch then threw Dispatch remains HOLD: model_api_key_env_absent before lock/attempt/model-call/reservation. No additional call, env mutation, nonce, lineage or rebind. Sec02 untouched. Evidence: runs/2026-10-28-rdmv-ks-class-c/receipts/sol-kg-corrected-caller-hold-1793199432252.json. Native remains150 accepted attempts; actual/reserved/uncertain $0.
+
+### SOL-KS-03-CALLER-BOOTSTRAP-RESOLVED — 2026-10-28T15:22:33.417Z
+
+Head explicitly authorized loading the existing project .env without printing or changing credentials. Exact preserved sec01 packet/config/lineage/nonce/layer pins verified. Sec01 candidate unchanged, native file transport explicitly supplied; one accepted attempt. Sec02 then completed through one ordinary GO, native packet, full114 facts and one accepted attempt. No provider fallback or shared code change. Native ledger150→152, all accepted; new calls2 at actual0, reservations settled0, no uncertainty. Both earlier pre-ledger HOLD records and exact transport archives retained. Completed bounded scope only: runs/2026-10-28-rdmv-ks-class-c/receipts/sol-kg-first2-completion-1793200953431.json.
+
+- 2026-10-28T16:54:42.373Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:61 → 2026-10-28-rdmv-ks-class-c:lineage:62 for 03.combined_kg under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793206482336.json.
+
+- 2026-10-28T16:57:32.535Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:62 → 2026-10-28-rdmv-ks-class-c:lineage:63 for 03.combined_kg under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793206652499.json.
+
+- 2026-10-28T16:57:52.007Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:63 → 2026-10-28-rdmv-ks-class-c:lineage:64 for 03.combined_kg under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793206671968.json.
+
+- 2026-10-28T16:58:08.446Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:64 → 2026-10-28-rdmv-ks-class-c:lineage:65 for 03.combined_kg under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793206688396.json.
+
+- 2026-10-28T16:59:33.903Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:65 → 2026-10-28-rdmv-ks-class-c:lineage:66 for 03.combined_kg under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793206773851.json.
+
+- 2026-10-28T17:03:51.929Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:66 → 2026-10-28-rdmv-ks-class-c:lineage:67 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793207031889.json.
+
+- 2026-10-28T17:04:48.564Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:67 → 2026-10-28-rdmv-ks-class-c:lineage:68 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793207088513.json.
+
+- 2026-10-28T17:05:06.042Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:68 → 2026-10-28-rdmv-ks-class-c:lineage:69 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793207105997.json.
+
+- 2026-10-28T17:06:25.146Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:69 → 2026-10-28-rdmv-ks-class-c:lineage:70 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793207185107.json.
+
+- 2026-10-28T17:09:38.721Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:70 → 2026-10-28-rdmv-ks-class-c:lineage:71 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793207378645.json.
+
+### SOL-KS-04-SEC07-SPOKEN-UNIT-DOWNSTREAM-HOLD — 2026-10-28T17:14:51.420Z
+
+Continuous authoring self-continued on native PASS. All12KGs accepted, all1328 facts; 11card sections accepted,1130 exact spoken backs. Sec07 first draft fails04.BACK_SPOKEN_FORM on F11/F12/F41/F43/F45/F46/F88: accepted spoken text retains hyphenated mph. Native replacement proof inspected PASS for equivalent-unit spelling only; repairAcceptedPart --author muse --packet thin returned DOWNSTREAM_RECONCILIATION_REQUIRED because accepted03 task task_d87b8f70eb030e3f8cc4e645d63ca88d2ae1954b9a73a4007c3eb80861cbfb15 exists. No source/graph/card replacement submitted, guard not bypassed. STOP. Ledger152→173, all accepted;21zero-cost file calls; no uncertainty. Full checkpoint runs/2026-10-28-rdmv-ks-class-c/receipts/sol-continuous-authoring-hold-1793207691429.json.
+
+- 2026-10-28T18:28:52.828Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:71 → 2026-10-28-rdmv-ks-class-c:lineage:72 for 06.exam_bank under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212132781.json.
+
+- 2026-10-28T18:32:51.429Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:72 → 2026-10-28-rdmv-ks-class-c:lineage:73 for 06.exam_bank under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212371394.json.
+
+- 2026-10-28T18:33:08.497Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:73 → 2026-10-28-rdmv-ks-class-c:lineage:74 for 06.exam_bank under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212388464.json.
+
+- 2026-10-28T18:33:48.933Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:74 → 2026-10-28-rdmv-ks-class-c:lineage:75 for 06.exam_bank under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212428898.json.
+
+- 2026-10-28T18:36:29.675Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:75 → 2026-10-28-rdmv-ks-class-c:lineage:76 for 06.exam_bank under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212589639.json.
+
+- 2026-10-28T18:39:18.924Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:76 → 2026-10-28-rdmv-ks-class-c:lineage:77 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212758882.json.
+
+- 2026-10-28T18:40:01.119Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:77 → 2026-10-28-rdmv-ks-class-c:lineage:78 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212801088.json.
+
+- 2026-10-28T18:40:16.808Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:78 → 2026-10-28-rdmv-ks-class-c:lineage:79 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212816767.json.
+
+- 2026-10-28T18:40:37.101Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:79 → 2026-10-28-rdmv-ks-class-c:lineage:80 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212837066.json.
+
+- 2026-10-28T18:40:48.759Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:80 → 2026-10-28-rdmv-ks-class-c:lineage:81 for 04.cards under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212848725.json.
+
+- 2026-10-28T18:43:10.413Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:81 → 2026-10-28-rdmv-ks-class-c:lineage:82 for 05.sessions under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793212990372.json.
+
+- 2026-10-28T18:44:50.819Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:82 → 2026-10-28-rdmv-ks-class-c:lineage:83 for 05.sessions under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793213090731.json.
+
+- 2026-10-28T18:45:10.386Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:83 → 2026-10-28-rdmv-ks-class-c:lineage:84 for 05.sessions under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793213110309.json.
+
+- 2026-10-28T18:47:43.878Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:84 → 2026-10-28-rdmv-ks-class-c:lineage:85 for 05.sessions under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793213263842.json.
+
+- 2026-10-28T18:50:21.006Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:85 → 2026-10-28-rdmv-ks-class-c:lineage:86 for 05.sessions under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793213420969.json.
+
+- 2026-10-28T18:53:53.099Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:86 → 2026-10-28-rdmv-ks-class-c:lineage:87 for 05.card_scripts under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793213633039.json.
+
+- 2026-10-28T18:56:01.244Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:87 → 2026-10-28-rdmv-ks-class-c:lineage:88 for 05.card_scripts under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793213761203.json.
+
+- 2026-10-28T18:58:18.685Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:88 → 2026-10-28-rdmv-ks-class-c:lineage:89 for 05.card_scripts under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793213898647.json.
+
+- 2026-10-28T18:58:29.605Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:89 → 2026-10-28-rdmv-ks-class-c:lineage:90 for 05.card_scripts under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793213909568.json.
+
+- 2026-10-28T19:01:11.809Z accepted-work capacity advance 2026-10-28-rdmv-ks-class-c:lineage:90 → 2026-10-28-rdmv-ks-class-c:lineage:91 for 05.card_scripts under standing authority; two prior tasks accepted; caps/nonces/counters/history retained; explicit native binding receipt runs/2026-10-28-rdmv-ks-class-c/receipts/sol-accepted-capacity-binding-1793214071774.json.
+
+### SOL-KS-AUTHORING-COMPLETE — 2026-10-28T19:01:54.005Z
+
+All requested03/04/06/05.sessions/05.card_scripts authoring complete for12sections. Source guard HOLD resolved by released compiler over unchanged02 inputs: seven derived spoken strings only, one versioned16, semantic-copy fresh03 and fresh affected04. Native05C preflight exposed ellipsis/front parity incompatibility; owner04 front-only repair accepted for all1328 cards, preserving backs/hooks/IDs/source/SRS and old accepted history. Local post-accept refresh archive collision resolved with content-hash archive; native accepted call not repeated. Final native173→224, all accepted,50newzero-cost content calls plus1deterministiccompile.129source debts and independent07/08 remain pending. Final evidence runs/2026-10-28-rdmv-ks-class-c/receipts/sol-authoring-completion-1793214114017.json.

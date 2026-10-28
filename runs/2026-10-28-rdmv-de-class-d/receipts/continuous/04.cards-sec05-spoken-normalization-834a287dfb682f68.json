@@ -1,0 +1,414 @@
+{
+  "artifact_type": "AuthoringInputNormalizationHold",
+  "status": "HOLD_ACCEPTED_SPOKEN_WORDING_CONFLICT",
+  "run_id": "2026-10-28-rdmv-de-class-d",
+  "stage_id": "04.cards",
+  "section_id": "sec05-driving-privileges",
+  "fact_id": "sec05-R13",
+  "recorded_at_utc": "2026-10-28T17:14:28.641Z",
+  "actor": {
+    "actor_id": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
+    "session_id": "01a18161-e17a-7b03-85c6-98a1eafdba88"
+  },
+  "reason": "The native accepted spoken_statement retains bare mph after the written number five. Exact BACK_FIDELITY passes only with that unchanged wording; mandatory BACK_SPOKEN_FORM rejects mph. Expanding the unit passes spoken lint but fails exact fidelity. A worker-owned author cannot fix both without changing a bound upstream/context input or shared normalizer.",
+  "accepted_spoken_wording": "A conviction for driving twenty-five miles per hour above the limit brings an initial one-month suspension, with another month added for each further five mph above that threshold.",
+  "readonly_expanded_wording_example": "A conviction for driving twenty-five miles per hour above the limit brings an initial one-month suspension, with another month added for each further five miles per hour above that threshold.",
+  "diagnostic_only_not_candidate": true,
+  "exact_wording_checks": [
+    {
+      "check_id": "04.BACK_SPOKEN_FORM",
+      "status": "FAIL",
+      "evidence": "1/2 field(s) not spoken form: sec05-R13-diagnostic.back: bare_unit_abbreviation'mph'",
+      "metrics": {
+        "violating_fields": 1,
+        "fields_checked": 2
+      }
+    },
+    {
+      "check_id": "04.BACK_FIDELITY",
+      "status": "PASS",
+      "evidence": "1/1 backs byte-equal to accepted (spoken_)statement or accepted component",
+      "metrics": {
+        "exact": 1,
+        "drift": 0
+      }
+    }
+  ],
+  "expanded_wording_checks": [
+    {
+      "check_id": "04.BACK_SPOKEN_FORM",
+      "status": "PASS",
+      "evidence": "2 back/hook/recap fields spoken-form clean (no | / % & symbols, bare unit abbreviations or unspelled decimals)",
+      "metrics": {
+        "violating_fields": 0,
+        "fields_checked": 2
+      }
+    },
+    {
+      "check_id": "04.BACK_FIDELITY",
+      "status": "FAIL",
+      "evidence": "1/1 back(s) not equal to accepted fact wording: sec05-R13-diagnostic: back \"A conviction for driving twenty-five miles per hour above th\" != accepted wording of sec05-R13",
+      "metrics": {
+        "exact": 0,
+        "drift": 1
+      }
+    }
+  ],
+  "spoken_violations": [
+    {
+      "kind": "bare_unit_abbreviation",
+      "token": "mph"
+    }
+  ],
+  "context_ref": {
+    "path": "runs/2026-10-28-rdmv-de-class-d/sources/private/sol-cards-sec05-validation-context.json",
+    "sha256": "ac2e45c8abcd294fbdcfffc84f0e3c95250ff9423d6611bef510db4ea193c7fa"
+  },
+  "compiled_dossier_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-de-class-d\\16\\sec05-driving-privileges\\16-compiled-dossier.json",
+    "sha256": "415f442d054bc7ab0e4d3a3df47ec305e4c78e3c36f8fdfc5d24553c10fd1e81",
+    "task_id": "task_81f4b4c8121231e0c6e1a06f0b3492798c3a1414773130369f087a062fa1c3e1",
+    "artifact_id": "accepted_421330a266bb0ecfd6060d0ef7fa0a9d792a853ca699404a755e3cbd83a81483",
+    "validation_ref": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-de-class-d\\receipts\\16-validation-415f442d054bc7ab0e4d3a3df47ec305e4c78e3c36f8fdfc5d24553c10fd1e81.json",
+      "sha256": "f4cda96c3b60f974160fb7f5d7f8be8a752c54ca869968069dbd508e2778adbf",
+      "bytes": 1454
+    },
+    "acceptance_ref": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-de-class-d\\receipts\\16-acceptance-415f442d054bc7ab0e4d3a3df47ec305e4c78e3c36f8fdfc5d24553c10fd1e81.json",
+      "sha256": "e92a56d31f1b21c866275fe5d00a65a0af97c5ce28eb20449947d276ac8303b3",
+      "bytes": 180
+    }
+  },
+  "fact_registry_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-de-class-d\\16\\sec05-driving-privileges\\16-fact-registry.json",
+    "sha256": "000f126d1df3a54e9f8545a961e740352c494bc55cafc44aebdbd60cbd3a609b",
+    "task_id": "task_81f4b4c8121231e0c6e1a06f0b3492798c3a1414773130369f087a062fa1c3e1",
+    "artifact_id": "accepted_421330a266bb0ecfd6060d0ef7fa0a9d792a853ca699404a755e3cbd83a81483",
+    "validation_ref": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-de-class-d\\receipts\\16-validation-415f442d054bc7ab0e4d3a3df47ec305e4c78e3c36f8fdfc5d24553c10fd1e81.json",
+      "sha256": "f4cda96c3b60f974160fb7f5d7f8be8a752c54ca869968069dbd508e2778adbf",
+      "bytes": 1454
+    },
+    "acceptance_ref": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-de-class-d\\receipts\\16-acceptance-415f442d054bc7ab0e4d3a3df47ec305e4c78e3c36f8fdfc5d24553c10fd1e81.json",
+      "sha256": "e92a56d31f1b21c866275fe5d00a65a0af97c5ce28eb20449947d276ac8303b3",
+      "bytes": 180
+    }
+  },
+  "config_ref": {
+    "path": "runs/2026-10-28-rdmv-de-class-d/sources/private/sol-cards-sec05-config-aa3ff4ac238f7cc74aae70d7a5a173751eb8af4f877b424442e9526f0988fca5.json",
+    "sha256": "aa3ff4ac238f7cc74aae70d7a5a173751eb8af4f877b424442e9526f0988fca5"
+  },
+  "approval_ref": {
+    "path": "runs/2026-10-28-rdmv-de-class-d/approvals/GO-04.cards-1793207469973.json",
+    "sha256": "ef416ece4c454ed098465d551abd3097c57e4547ebe0f4c1c1ef0d0856975336"
+  },
+  "packet_ref": {
+    "path": "runs/2026-10-28-rdmv-de-class-d/sources/private/muse-authoring/inbox/04.cards__sec05-driving-privileges__-__n0.json",
+    "sha256": "d6be0f672de1e2a3a6b4c8556fc2158b3dc8dafda82805756660732a44550444"
+  },
+  "layer_archive_ref": {
+    "path": "scratch/sol-de/cards-sec05/layer-archive.json",
+    "sha256": "0eae39becb04bdd86b65c2594b218ea5873e03a0247980ae7535877dd4900500"
+  },
+  "candidate_lineage_id": "2026-10-28-rdmv-de-class-d:lineage:97",
+  "capacity_advance_ref": {
+    "path": "runs/2026-10-28-rdmv-de-class-d/receipts/continuous-04.cards-sec05-capacity-97.json",
+    "sha256": "eb6023c470358e5f7e1ccce3dbcb81845c340e52f6580c621c8f5d344ed6de8c",
+    "binding_authorization_ref": {
+      "path": "runs/2026-10-28-rdmv-de-class-d/receipts/binding-18965338a195174fe8288028552354741e6d3cdbe3192f74d912e79d86e55a9d.json",
+      "sha256": "8d6b456e75516e696fd16333c977b0346d8b91542d2e78d41b4377e483f67d8e"
+    }
+  },
+  "source_pins": [
+    {
+      "section_id": "sec01-definitions",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec01-definitions/5617ad92/16-fact-registry.json",
+        "sha256": "5617ad9232c7534d7f9db0fa5197b73baf1623ab66bce1dc109b26180251903b",
+        "task_id": "task_1b8e43d1f05a939c5acfe1f60ed4240e56f4ace3cebff6c777ae9423fe4c8d64",
+        "artifact_id": "accepted_b3753866f8112613cec4dc4d6004ae62b568ce90a71f938a95d4f6224fd8055e"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec01-definitions/5617ad92/16-compiled-dossier.json",
+        "sha256": "9d38c8c6d7e9e4b481dc30c6f38fb7ce8cf4d46e5fdcf5ae78e2a9b0dfe6e877",
+        "task_id": "task_1b8e43d1f05a939c5acfe1f60ed4240e56f4ace3cebff6c777ae9423fe4c8d64",
+        "artifact_id": "accepted_b3753866f8112613cec4dc4d6004ae62b568ce90a71f938a95d4f6224fd8055e"
+      }
+    },
+    {
+      "section_id": "sec02-license-identity",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec02-license-identity/54d3e400/16-fact-registry.json",
+        "sha256": "54d3e400a8f3c3db7a5d8f99d7e6e3479b0b3fb7c1a0e9966abe6a35acbb078a",
+        "task_id": "task_9b6a877e5301b6f03c89fbd0b6d7b944ee5b87f9ffb922d23376ab7640b91d21",
+        "artifact_id": "accepted_19d81bb977f27299d8d30b2cf9cf2ae3feabc21cbad0076efe7fee5931d0125c"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec02-license-identity/54d3e400/16-compiled-dossier.json",
+        "sha256": "eb806c5d5ba2ac3a129ef96e8dbd84d27cad4dca0c768c6f28c8e17024f33c1d",
+        "task_id": "task_9b6a877e5301b6f03c89fbd0b6d7b944ee5b87f9ffb922d23376ab7640b91d21",
+        "artifact_id": "accepted_19d81bb977f27299d8d30b2cf9cf2ae3feabc21cbad0076efe7fee5931d0125c"
+      }
+    },
+    {
+      "section_id": "sec03-graduated-licensing",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec03-graduated-licensing/7fdcc6c4/16-fact-registry.json",
+        "sha256": "7fdcc6c4a7857271621e1945c1863c19bd827a8cec7c353ad6830b6fe46c031c",
+        "task_id": "task_74cf61061be7fb2e97e1e314745e6eab219cf7f5909fc62496cb06949ac87c64",
+        "artifact_id": "accepted_42a6694d651dcf872ef236274480209e6737929af1b47be74d0e377b041b48cb"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec03-graduated-licensing/7fdcc6c4/16-compiled-dossier.json",
+        "sha256": "bc12da350c47a994b8c1db77d0773acc0a44f521b936072f4916c4f1330d3c0c",
+        "task_id": "task_74cf61061be7fb2e97e1e314745e6eab219cf7f5909fc62496cb06949ac87c64",
+        "artifact_id": "accepted_42a6694d651dcf872ef236274480209e6737929af1b47be74d0e377b041b48cb"
+      }
+    },
+    {
+      "section_id": "sec04-class-d-examination",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec04-class-d-examination/cbd44e7b/16-fact-registry.json",
+        "sha256": "cbd44e7b6fd269dd0045f17ce46d24751193cd874570df76189112b12afedaf1",
+        "task_id": "task_a6934ebaf4d93bfa6f2b66c3338c74dd83469eab3c21106da8778877f5e93dfe",
+        "artifact_id": "accepted_022d3516657e374a778b378a119a0dc7500595a484e8f3a3d3131105a3c80fab"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec04-class-d-examination/cbd44e7b/16-compiled-dossier.json",
+        "sha256": "a42a49a78fcb87f61de333855c2bec16aec93ee9f45da2cbf3053046b7d39b6b",
+        "task_id": "task_a6934ebaf4d93bfa6f2b66c3338c74dd83469eab3c21106da8778877f5e93dfe",
+        "artifact_id": "accepted_022d3516657e374a778b378a119a0dc7500595a484e8f3a3d3131105a3c80fab"
+      }
+    },
+    {
+      "section_id": "sec05-driving-privileges",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec05-driving-privileges/16-fact-registry.json",
+        "sha256": "000f126d1df3a54e9f8545a961e740352c494bc55cafc44aebdbd60cbd3a609b",
+        "artifact_id": "accepted_421330a266bb0ecfd6060d0ef7fa0a9d792a853ca699404a755e3cbd83a81483",
+        "task_id": "task_81f4b4c8121231e0c6e1a06f0b3492798c3a1414773130369f087a062fa1c3e1"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec05-driving-privileges/16-compiled-dossier.json",
+        "sha256": "415f442d054bc7ab0e4d3a3df47ec305e4c78e3c36f8fdfc5d24553c10fd1e81",
+        "artifact_id": "accepted_421330a266bb0ecfd6060d0ef7fa0a9d792a853ca699404a755e3cbd83a81483",
+        "task_id": "task_81f4b4c8121231e0c6e1a06f0b3492798c3a1414773130369f087a062fa1c3e1"
+      }
+    },
+    {
+      "section_id": "sec06-impaired-distracted-driving",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec06-impaired-distracted-driving/16-fact-registry.json",
+        "sha256": "8f81c91759af685033e3bee0c8c772ab05da25808073996697fa749e9d71529e",
+        "artifact_id": "accepted_98bf12dec82dc8b3af17c916de9ecaec0e8bd6b0a8d75dcf8a6ea06dde3ab53b",
+        "task_id": "task_21cd583f94bb9e2535fb2de1154860c3242cd21e42fe768bc45e9e6338074810"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec06-impaired-distracted-driving/16-compiled-dossier.json",
+        "sha256": "b653e9f2b478f1a2dee2f5429cd0431225e140f40160e9d488080043da26d06b",
+        "artifact_id": "accepted_98bf12dec82dc8b3af17c916de9ecaec0e8bd6b0a8d75dcf8a6ea06dde3ab53b",
+        "task_id": "task_21cd583f94bb9e2535fb2de1154860c3242cd21e42fe768bc45e9e6338074810"
+      }
+    },
+    {
+      "section_id": "sec07-equipment-registration",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec07-equipment-registration/16-fact-registry.json",
+        "sha256": "f8b2b4da3360f1ee59b03dc5200ced71110953e7cf0d3f7b2d575d88735a3df2",
+        "artifact_id": "accepted_28b25c325fc7601cea38d8b0950afb10fdde4db98500eabdbb6ec8983c6c53b2",
+        "task_id": "task_642dbe7aa54685a4ffbdd664234197ea276cf7ff9f0085d12083b152b9936f4b"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec07-equipment-registration/16-compiled-dossier.json",
+        "sha256": "ec68e88aa893efd97d2c4938191f71d23e91e826302d95cae93d48f20351df4f",
+        "artifact_id": "accepted_28b25c325fc7601cea38d8b0950afb10fdde4db98500eabdbb6ec8983c6c53b2",
+        "task_id": "task_642dbe7aa54685a4ffbdd664234197ea276cf7ff9f0085d12083b152b9936f4b"
+      }
+    },
+    {
+      "section_id": "sec08-signals-signs",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec08-signals-signs/16-fact-registry.json",
+        "sha256": "ac48d01f685404df13a099d7de2865745612bfad21bf6a8316bb6cda730ff014",
+        "artifact_id": "accepted_f0e46073411b7313e4bc563ed85f8a76ef1b37da22f0a63531f92f6ef8bdd346",
+        "task_id": "task_97fbb199cedf964b8980a46e4982f91bc2a12f417918e78d9d7610192a867088"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec08-signals-signs/16-compiled-dossier.json",
+        "sha256": "6157861901276e35383270204ec6d808830a158bb51c4c9422f5915de7fd498b",
+        "artifact_id": "accepted_f0e46073411b7313e4bc563ed85f8a76ef1b37da22f0a63531f92f6ef8bdd346",
+        "task_id": "task_97fbb199cedf964b8980a46e4982f91bc2a12f417918e78d9d7610192a867088"
+      }
+    },
+    {
+      "section_id": "sec09-traffic-laws",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec09-traffic-laws/16-fact-registry.json",
+        "sha256": "e317478b13a7099da4179aaabd9617638ceda4b4c548ab0c51488535d04b95d9",
+        "artifact_id": "accepted_50199af4d3ab6c5f569dbcd96666169623df82653d2a28d9d1c8d2691bfa71db",
+        "task_id": "task_a4b724eee42f950686ac4dfd6a971326bf3703c11ed7ed4a418494d22920d450"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec09-traffic-laws/16-compiled-dossier.json",
+        "sha256": "cdc930a9d88a70b883752473c76b0f06f82f6294ac51250ab7fb8fd64b035bc7",
+        "artifact_id": "accepted_50199af4d3ab6c5f569dbcd96666169623df82653d2a28d9d1c8d2691bfa71db",
+        "task_id": "task_a4b724eee42f950686ac4dfd6a971326bf3703c11ed7ed4a418494d22920d450"
+      }
+    },
+    {
+      "section_id": "sec10-parking-speed",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec10-parking-speed/16-fact-registry.json",
+        "sha256": "6b1a7b4c058086d886943bf56660f4ffa4608df619f3da11d739bf39bbe94d49",
+        "artifact_id": "accepted_2cde431050a14e5c6fca3ed0071e1290a9e72184376b94ca41f7064f4417a7d5",
+        "task_id": "task_1100ccd00854502122c8f5b624069bf80148e2884cab6feb9b00e799c795f5e3"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec10-parking-speed/16-compiled-dossier.json",
+        "sha256": "24b0b724afffd9cecc8c8920611d293bdb58322c3e3b1f9ac04f6c82c83dd6fd",
+        "artifact_id": "accepted_2cde431050a14e5c6fca3ed0071e1290a9e72184376b94ca41f7064f4417a7d5",
+        "task_id": "task_1100ccd00854502122c8f5b624069bf80148e2884cab6feb9b00e799c795f5e3"
+      }
+    },
+    {
+      "section_id": "sec11-sharing-road",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec11-sharing-road/16-fact-registry.json",
+        "sha256": "e0096b9b34896d5667d08e7cfc8fe261cb41ededf442d13ecb2ff0a301248779",
+        "artifact_id": "accepted_e1e94f61d6769212e32f8e5d3f9b6a4f17946b6a8df0361b0afa0aae11e1b449",
+        "task_id": "task_831b51de2dc340792d2be064d93b6bb462acd5d073ab3e64c8d1e82cea6ff40a"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec11-sharing-road/16-compiled-dossier.json",
+        "sha256": "5dc2106a040a3e0d33335ffaba5c528f2960700746c7a6ca55cbe04e7abf61e9",
+        "artifact_id": "accepted_e1e94f61d6769212e32f8e5d3f9b6a4f17946b6a8df0361b0afa0aae11e1b449",
+        "task_id": "task_831b51de2dc340792d2be064d93b6bb462acd5d073ab3e64c8d1e82cea6ff40a"
+      }
+    },
+    {
+      "section_id": "sec12-before-driving",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec12-before-driving/16-fact-registry.json",
+        "sha256": "ee4941371b1a2701e2fb1d277e10838251eb6a72e49cc8b2f1e3ab55ae932a68",
+        "artifact_id": "accepted_42cb4520f6284fb0418f9255be2a735253032f51be5070c73cd84a6a82969b5a",
+        "task_id": "task_cc3b668930e7855fb47697d405121b844f3ac4405534c4aa024cbb04106c6a45"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec12-before-driving/16-compiled-dossier.json",
+        "sha256": "1bdae5e6cea7978064b8c33fb7c545274331fc5a4625cda48b289abaccbff5ab",
+        "artifact_id": "accepted_42cb4520f6284fb0418f9255be2a735253032f51be5070c73cd84a6a82969b5a",
+        "task_id": "task_cc3b668930e7855fb47697d405121b844f3ac4405534c4aa024cbb04106c6a45"
+      }
+    },
+    {
+      "section_id": "sec13-basic-driving",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec13-basic-driving/16-fact-registry.json",
+        "sha256": "3da92cbd3bb16fb40b7a92227a98c0675c0c1f46b04729be8e957a27af106235",
+        "artifact_id": "accepted_49f652929df85c085fdc9b0f2d224fd702bd08e82099d814c8a6405263436b94",
+        "task_id": "task_4dbb8ca8052aa8f128e840ab0ac2a3efdc4b45386c47c0d1abd478cc2fbfb92f"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec13-basic-driving/16-compiled-dossier.json",
+        "sha256": "a19253c0fb9a09b6c085719b276d0396e289721f739143f956ef442c0ad3790e",
+        "artifact_id": "accepted_49f652929df85c085fdc9b0f2d224fd702bd08e82099d814c8a6405263436b94",
+        "task_id": "task_4dbb8ca8052aa8f128e840ab0ac2a3efdc4b45386c47c0d1abd478cc2fbfb92f"
+      }
+    },
+    {
+      "section_id": "sec14-communication-speed",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec14-communication-speed/16-fact-registry.json",
+        "sha256": "db6349268d94a065fdf334327b9fadad9d5901190b704b7152ee71218588e7d3",
+        "artifact_id": "accepted_2878b805957672f44b871be5d857a7ea3b88a85c058097bd5f86027934918109",
+        "task_id": "task_68644b7dd1b82769274c325ce88d9630645498b225e332b41f4bfd04827a0e9f"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec14-communication-speed/16-compiled-dossier.json",
+        "sha256": "dcf22da02a6f099355a8d0da9f602b28e234db6acea69fe60a0ff9cfd28d481b",
+        "artifact_id": "accepted_2878b805957672f44b871be5d857a7ea3b88a85c058097bd5f86027934918109",
+        "task_id": "task_68644b7dd1b82769274c325ce88d9630645498b225e332b41f4bfd04827a0e9f"
+      }
+    },
+    {
+      "section_id": "sec15-night-visibility",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec15-night-visibility/16-fact-registry.json",
+        "sha256": "083f21fcc3ca43949f0651341f74e2a5ee6293ae68eadaae58571547c764625b",
+        "artifact_id": "accepted_21325e9a82ea10544f87742e46280a2c3e0579419875191a3b874f17265087dd",
+        "task_id": "task_26c4f992ebc39426de712a74ef37769bb4185260a5e1b88e9070dfc72054ea56"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec15-night-visibility/16-compiled-dossier.json",
+        "sha256": "57f42a6b742a5a173917b468cdb29c8252f982779b6388a2e59baa07eba79607",
+        "artifact_id": "accepted_21325e9a82ea10544f87742e46280a2c3e0579419875191a3b874f17265087dd",
+        "task_id": "task_26c4f992ebc39426de712a74ef37769bb4185260a5e1b88e9070dfc72054ea56"
+      }
+    },
+    {
+      "section_id": "sec16-sharing-space",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec16-sharing-space/16-fact-registry.json",
+        "sha256": "b9aa3bb22bec5a23f0efb2cd41b08a238c25ff85d5838e099c4c907be1a666c0",
+        "artifact_id": "accepted_742fb59ef5821afa8e1f0118612e33c215d8dfd6f1047d53cbb6b3acd35cd56b",
+        "task_id": "task_83555eb444428d3c72172881add2b93e5d2fe7fe4bf4e3e37e139f9798ac73a1"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec16-sharing-space/16-compiled-dossier.json",
+        "sha256": "d387cd55525063cbf02bdfa0d642baf626a3a3b8f5cfb0e9219950e798e13709",
+        "artifact_id": "accepted_742fb59ef5821afa8e1f0118612e33c215d8dfd6f1047d53cbb6b3acd35cd56b",
+        "task_id": "task_83555eb444428d3c72172881add2b93e5d2fe7fe4bf4e3e37e139f9798ac73a1"
+      }
+    },
+    {
+      "section_id": "sec17-driver-fitness",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec17-driver-fitness/16-fact-registry.json",
+        "sha256": "85a01cee2cfd5e34082b571c8e2ba5e17415a677e39cf933853e79c7070454ec",
+        "artifact_id": "accepted_e0fb70b68d727dd3b88e637f1b94dad32027df8fb9c6f14261ed1a38a8bbdedc",
+        "task_id": "task_7de7974b2a38ff5438260839480a1ef5ae76a332064317c89778e9c3095a97e3"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec17-driver-fitness/16-compiled-dossier.json",
+        "sha256": "259dc32ea66f0fdfc299a75cc179d08b71a6db34549f375cb5012e897e6370d8",
+        "artifact_id": "accepted_e0fb70b68d727dd3b88e637f1b94dad32027df8fb9c6f14261ed1a38a8bbdedc",
+        "task_id": "task_7de7974b2a38ff5438260839480a1ef5ae76a332064317c89778e9c3095a97e3"
+      }
+    },
+    {
+      "section_id": "sec18-emergencies-collisions",
+      "registry_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec18-emergencies-collisions/16-fact-registry.json",
+        "sha256": "3128b93514c50c4bb4157b78a82e82c710efddf55d23a62065a1abc4757c2d78",
+        "artifact_id": "accepted_db8d25fd176ace6b9cc22ced1becab2395af7e4a367ad50032a55fa0a0b9544d",
+        "task_id": "task_865b2f2ceca489aa1c6126c10d521b18c6f8ad326b65bf2698801cc50f126cfa"
+      },
+      "compiled_dossier_ref": {
+        "path": "runs/2026-10-28-rdmv-de-class-d/16/sec18-emergencies-collisions/16-compiled-dossier.json",
+        "sha256": "844fb716ba9dc04b05cc01ff4429658c25406d0c73cbf66be72903ca79c654c1",
+        "artifact_id": "accepted_db8d25fd176ace6b9cc22ced1becab2395af7e4a367ad50032a55fa0a0b9544d",
+        "task_id": "task_865b2f2ceca489aa1c6126c10d521b18c6f8ad326b65bf2698801cc50f126cfa"
+      }
+    }
+  ],
+  "candidate_written": false,
+  "outbox_written": false,
+  "section05_dispatches": 0,
+  "new_attempts_since_section05_emit": 0,
+  "new_model_calls_since_section05_emit": 0,
+  "new_reservations_since_section05_emit": 0,
+  "native_dispatch_HOLDs": 0,
+  "local_card01_prevalidation_debt_slot_HOLD_resolved_ref": {
+    "path": "scratch/sol-de/cards-sec01/local-draft-correction.json",
+    "sha256": "440c9f4be655cfa4591ab3411b41cb876bdb4002233e062b7521d8cb281170b8"
+  },
+  "no_retry_or_recovery": true,
+  "shared_code_or_schema_edited": false,
+  "upstream_fact_or_status_edited": false,
+  "upstream_debts_resolved": 0,
+  "source_tier_unchanged": "unverified",
+  "independent07_08": "pending",
+  "next_action": "STOP continuous authoring. Head/schema owner must resolve the accepted spoken-normalization conflict before an explicitly authorized resume; preserve this packet and all accepted work. No silent context patch, edited accepted registry, filtered node set, retry nonce or failed-candidate lineage reset."
+}

@@ -1,0 +1,376 @@
+{
+  "schema_version": "sol-native-kg-hold-checkpoint.v1",
+  "status": "HOLD_03_PREVALIDATION_SCHEMA",
+  "recorded_at_utc": "2026-10-28T14:56:07.034Z",
+  "run_id": "2026-10-28-rdmv-id-class-d",
+  "section_id": "sec01-licensing-basics",
+  "stage_id": "03.combined_kg",
+  "model_id": "gpt-6.1-sol",
+  "authored_by": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
+  "quiesced": true,
+  "native_lock_held": false,
+  "stop_reason": "Explicit stop-on-any-non-PASS instruction: one prevalidation failed. No second validation, native ingest, nonce change or candidate-lineage recovery was attempted.",
+  "failed_check": [
+    {
+      "check_id": "03.SCHEMA",
+      "status": "FAIL",
+      "evidence": "60 schema error(s): /nodes/0/source_ref/tier must be equal to one of the allowed values; /nodes/1/source_ref/tier must be equal to one of the allowed values; /nodes/2/source_ref/tier must be equal to one of the allowed values; /nodes/3/source_ref/tier must be equal to one of the allowed values; /nodes/4/source_ref/tier must be equal to one of the allowed values; /nodes/5/source_ref/tier must be equal to one of the allowed values; /nodes/6/source_ref/tier must be equal to one of the allowed values; /nodes/7/source_ref/tier must be equal to one of the allowed values",
+      "metrics": {
+        "error_count": 60
+      }
+    }
+  ],
+  "diagnosis": {
+    "field": "nodes[].source_ref.tier",
+    "actual_values": [
+      "official_body"
+    ],
+    "registry_trust_tier": "official_body",
+    "allowed_schema_values": [
+      "official",
+      "regulator",
+      "exam_owner",
+      "standards_body",
+      "reputable",
+      "unverified"
+    ],
+    "cause": "Composer passed the registry policy tier through directly instead of projecting it into the graph adapter source_ref.tier enum. This is an adapter encoding mismatch; no factual statements were changed."
+  },
+  "plan_ref": {
+    "path": "scratch/sol-id/kg-sec01/plan.json",
+    "sha256": "23dfce36adb59c05c4476d2582c98fa6c5727d1130e58671294090e935149951"
+  },
+  "approval_ref": {
+    "path": "runs/2026-10-28-rdmv-id-class-d/approvals/GO-03.combined_kg-SOL-sec01-1793198930387.json",
+    "sha256": "2ef4e68a30b40aa6f11fee02ab51504442b7f6c2ad57e0560d885e9b97bff65c"
+  },
+  "config_ref": {
+    "path": "runs/2026-10-28-rdmv-id-class-d/run-config.json",
+    "sha256": "ce856a9fb6a94759e7fd8ecebcf771dcc363cfa7cb8bfafe7b6695470ec55043"
+  },
+  "candidate_lineage_id": "2026-10-28-rdmv-id-class-d:lineage:78",
+  "retry_nonces_unchanged": true,
+  "packet_ref": {
+    "path": "runs/2026-10-28-rdmv-id-class-d/sources/private/muse-authoring/inbox/03.combined_kg__sec01-licensing-basics__-__n0.json",
+    "sha256": "cd76c69cf29a16014d95461ff6b356fbb6b1744305aa882ad18b54e3c73c69f3"
+  },
+  "layers": {
+    "state": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-id-class-d\\sources\\private\\muse-authoring\\inbox\\CONTEXT-state.json",
+      "sha256": "02399bb925835e99542e8a9bb2e1612c69e896434e5184d2a239ff9163e4c0f0",
+      "rewritten": true
+    },
+    "section": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-id-class-d\\sources\\private\\muse-authoring\\inbox\\CONTEXT-sec01-licensing-basics.json",
+      "sha256": "461dcd1cbb4ff215c265c1368ffb1db83b60fa12aa9e2f6c9327d10ac23e7dec",
+      "rewritten": false
+    }
+  },
+  "pending_packet": {
+    "path": "runs/2026-10-28-rdmv-id-class-d/sources/private/muse-authoring/inbox/03.combined_kg__sec01-licensing-basics__-__n0.json",
+    "sha256": "cd76c69cf29a16014d95461ff6b356fbb6b1744305aa882ad18b54e3c73c69f3"
+  },
+  "pending_outbox": null,
+  "candidate_ref": {
+    "path": "scratch/sol-id/kg-sec01/candidate.json",
+    "sha256": "cfd6f051b8be57297f4fffaa8589c66edc88f3de2a1907e3d073cbf8af5bc15f"
+  },
+  "composition_audit_ref": {
+    "path": "scratch/sol-id/kg-sec01/composition-audit.json",
+    "sha256": "1f853ca73896a2684cc10fe313524794332e8e176e2cce364417671986bb0fa5"
+  },
+  "prevalidation_ref": {
+    "path": "scratch/sol-id/kg-sec01/prevalidation-1.json",
+    "sha256": "b98afba53f16f7cb96ec88da960cea80d8cdc175ea210946e09ece8436e9477e"
+  },
+  "context_ref": {
+    "path": "runs/2026-10-28-rdmv-id-class-d/sources/private/sol-kg-sec01-validation-context.json",
+    "sha256": "c1daa56a80ea08a9012106b7e6a14d4241b137925f2622fc668fe162e309e6ac"
+  },
+  "input_manifest_ref": {
+    "path": "runs/2026-10-28-rdmv-id-class-d/sources/private/sol-kg-sec01-input-manifest.json",
+    "sha256": "ec7cad3e70783a35dcb6996d6b38b28cc6e0f92945d3523a8c7775a1f05127aa"
+  },
+  "compiled_upstream_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-id-class-d\\16\\sec01-licensing-basics\\82e7d27f\\16-compiled-dossier.json",
+    "sha256": "48b5e2cfde294184eef6a1ff8e161f3274b5f8b3f0bd73b180b7a37a7ed3745a",
+    "task_id": "task_4f1920b26f605a8ba4342cfd16680a29b731438dff92bdc5eae5e6317b924aab",
+    "artifact_id": "accepted_a798206c9c2090be5fdb0260f39015e841623beb88b7ed8cfe3963e5a915ea9b",
+    "validation_ref": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-id-class-d\\receipts\\16-validation-48b5e2cfde294184eef6a1ff8e161f3274b5f8b3f0bd73b180b7a37a7ed3745a.json",
+      "sha256": "66c476b06ecd2e6fed21f05dcb34827f8c7299450411dd1cd2a037def74d8a25",
+      "bytes": 1486
+    },
+    "acceptance_ref": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-id-class-d\\receipts\\16-acceptance-48b5e2cfde294184eef6a1ff8e161f3274b5f8b3f0bd73b180b7a37a7ed3745a.json",
+      "sha256": "69de6854925ed0eb1c18264bfeb67f35fe2dc9623805d20a49413f272f584278",
+      "bytes": 180
+    }
+  },
+  "fact_registry_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-id-class-d\\16\\sec01-licensing-basics\\82e7d27f\\16-fact-registry.json",
+    "sha256": "82e7d27f3f3bae8b34a82105a7f9c627c064927ccda40ead2b26e48d061c2362",
+    "task_id": "task_4f1920b26f605a8ba4342cfd16680a29b731438dff92bdc5eae5e6317b924aab",
+    "artifact_id": "accepted_a798206c9c2090be5fdb0260f39015e841623beb88b7ed8cfe3963e5a915ea9b",
+    "validation_ref": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-id-class-d\\receipts\\16-validation-48b5e2cfde294184eef6a1ff8e161f3274b5f8b3f0bd73b180b7a37a7ed3745a.json",
+      "sha256": "66c476b06ecd2e6fed21f05dcb34827f8c7299450411dd1cd2a037def74d8a25",
+      "bytes": 1486
+    },
+    "acceptance_ref": {
+      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-id-class-d\\receipts\\16-acceptance-48b5e2cfde294184eef6a1ff8e161f3274b5f8b3f0bd73b180b7a37a7ed3745a.json",
+      "sha256": "69de6854925ed0eb1c18264bfeb67f35fe2dc9623805d20a49413f272f584278",
+      "bytes": 180
+    }
+  },
+  "draft_counts": {
+    "nodes": 60,
+    "edges": 28,
+    "modules": 4,
+    "facts_covered": 60,
+    "retained_typed_debts": 13
+  },
+  "retained_typed_debts": [
+    {
+      "claim_id": "ID-BASICS-PERCENT",
+      "claim_text": "The handbook states a missed-question allowance but no passing percentage; any numerical percentage needs exact official evidence.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-TIME",
+      "claim_text": "No official knowledge-test time limit was located; retain null until page-bound official evidence exists.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-EFFECTIVE",
+      "claim_text": "The July edition is observed; a separate handbook effective date is not established.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-REPAIR-TRAINING-CONTINUATION",
+      "claim_text": "The final factual review found passenger-car driver-training material on the excluded mixed physical page twenty. The current selected-section page binding omits it; the cross-page permit-purchase sentence also needs a policy-compliant source disposition. This material coverage gap remains unresolved.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": true,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "C",
+        "chunk_id": "C.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-REPAIR-RECORD-CHECK-SPAN",
+      "claim_text": "The driving-record examination sentence continues between physical pages thirteen and fourteen. The source-supported process omission requires a multi-page evidence disposition or an official single-page statement before a one-page fact can be added.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": true,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "C",
+        "chunk_id": "C.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-DYNAMIC",
+      "claim_text": "Federal facility and airline access rules, international licensing reciprocity and current office contact details require a fresh official check before learner display.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-DT-AGE",
+      "claim_text": "Physical page fifteen describes the driver training permit for applicants below seventeen, then gives an expiration rule for people seventeen and a half or older; the older-age pathway needs issuer clarification.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-TERRITORY",
+      "claim_text": "Physical page fifteen’s no-skills-test territory wording must be reconciled with the expired-license qualification on physical page twelve before teaching the exception.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-EXPIRY",
+      "claim_text": "Physical page seventeen’s opening under-eighteen and under-twenty-one expiration wording overlaps; clarify the applicable age groups before using it as a precise expiration rule.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-MARKET",
+      "claim_text": "Market evidence for Idaho Licensing basics and graduated licensing is absent from this handbook-only authoring pass.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "reputable",
+      "owner_worker": "SMEResearchAgent",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "E",
+        "chunk_id": "E.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-COMPETITORS",
+      "claim_text": "No sourced competitive teardown exists for Idaho Licensing basics and graduated licensing.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "reputable",
+      "owner_worker": "SMEResearchAgent",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "E2",
+        "chunk_id": "E2.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-MARKET::location:3f70d3cd9f26bd46238aff0b8dc32691d850958454cfa6ac8ea7894b38c546f3",
+      "claim_text": "Demand evidence for Licensing basics and graduated licensing remains unresolved.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "reputable",
+      "owner_worker": "SMEResearchAgent",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "G",
+        "chunk_id": "G.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-BASICS-COMPETITORS::location:109a22d689aa40b529dbe6d4f110959600e96c5db55e7f29d6ecc8792cf9cba1",
+      "claim_text": "Competitor evidence for Licensing basics and graduated licensing remains unresolved.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "reputable",
+      "owner_worker": "SMEResearchAgent",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "G",
+        "chunk_id": "G.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "independent_07_08": "pending",
+  "native_attempts_started": 0,
+  "native_ingest_calls": 0,
+  "provider_calls": 0,
+  "in_flight_attempts": 0,
+  "money": {
+    "actual_usd": 0,
+    "reserved_usd": 0,
+    "uncertain_usd": 0
+  },
+  "ledger_binding": {
+    "mode": "execute",
+    "binding_sha256": "ce856a9fb6a94759e7fd8ecebcf771dcc363cfa7cb8bfafe7b6695470ec55043",
+    "current_config_sha256": "ce856a9fb6a94759e7fd8ecebcf771dcc363cfa7cb8bfafe7b6695470ec55043",
+    "ownership_state": "released"
+  },
+  "section02": "not_emitted",
+  "downstream_04_06_05": "unstarted",
+  "fixed_actual_cumulative_usage": {
+    "sampled_at_utc": "2026-10-28T14:54:49.463Z",
+    "total_tokens": 46601337,
+    "input_tokens": 46324778,
+    "cached_input_tokens": 45517312,
+    "uncached_input_tokens": 807466,
+    "output_tokens": 276559,
+    "reasoning_output_tokens": 96694
+  },
+  "usage_delta_for_root": {
+    "baseline_ref": {
+      "path": "scratch/sol-id/GROUP-SEC04-CHECKPOINT.json",
+      "sha256": "a0e634a201fe68ee9b8c3b16edf3ab9f1fce9ffb2e2545be9278974d0c741749"
+    },
+    "baseline_total_tokens": 42162656,
+    "baseline_cached_input_tokens": 41180800,
+    "delta": {
+      "total_tokens": 4438681,
+      "input_tokens": 4417198,
+      "cached_input_tokens": 4336512,
+      "uncached_input_tokens": 80686,
+      "output_tokens": 21483,
+      "reasoning_output_tokens": 8806
+    },
+    "shared_usage_written": false,
+    "reasoning_is_subset_of_output": true
+  },
+  "next_action": "STOP for head review of this schema-only draft mismatch. Preserve the current packet and draft; no native retry or section02 emission is authorized in this turn."
+}

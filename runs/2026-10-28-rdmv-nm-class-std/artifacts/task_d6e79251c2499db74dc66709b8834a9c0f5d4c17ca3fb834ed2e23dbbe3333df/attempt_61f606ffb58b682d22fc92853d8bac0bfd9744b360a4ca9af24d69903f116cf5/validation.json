@@ -1,0 +1,206 @@
+{
+  "status": "PASS",
+  "stage_id": "02.dossier_sections",
+  "checks": [
+    {
+      "check_id": "02.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/02-sme-dossier-envelope.schema.json"
+    },
+    {
+      "check_id": "02.PROBE_SLUG",
+      "status": "PASS",
+      "evidence": "probe \"rdmv-nm-x\" matches ^[a-z0-9][a-z0-9-]*$"
+    },
+    {
+      "check_id": "02.LINEAGE",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 matches context; candidate_lineage_id=2026-10-28-rdmv-nm-class-std:lineage:77"
+    },
+    {
+      "check_id": "02.CHUNK_IDENTITY",
+      "status": "PASS",
+      "evidence": "9 chunks, merge_seq 1..9 contiguous, ids unique"
+    },
+    {
+      "check_id": "02.SCOPE_COMPLETENESS",
+      "status": "PASS",
+      "evidence": "complete_dossier: sections present A,B,C,C2,D,E,E2,F,G"
+    },
+    {
+      "check_id": "02.SECTION_BOUNDS",
+      "status": "PASS",
+      "evidence": "all 9 chunks < 12000 code points (computed); char_count exact",
+      "metrics": {
+        "effective_limit": 12000,
+        "max_chunk_chars": 10267,
+        "self_count_mismatches": 0
+      }
+    },
+    {
+      "check_id": "02.TRUNCATION_GUARD",
+      "status": "PASS",
+      "evidence": "9 chunks balanced (fences, **, brackets) and end cleanly"
+    },
+    {
+      "check_id": "02.MERGE_DETERMINISTIC",
+      "status": "PASS",
+      "evidence": "merge order [A.01; B.01; C.01; C2.01; … (+5 more)] -> sha256 1df9d116f792a556bf697e65db830ef3cc36919a827f3d8b794c83f84c12d73b (no expected hash declared)",
+      "metrics": {
+        "merged_sha256": "1df9d116f792a556bf697e65db830ef3cc36919a827f3d8b794c83f84c12d73b",
+        "merged_code_points": 27992
+      }
+    },
+    {
+      "check_id": "02.ANCHORS_REGISTERED",
+      "status": "PASS",
+      "evidence": "8/8 anchors resolve to registered sources (44 registry codes)"
+    },
+    {
+      "check_id": "02.FACT_LINES_CITED",
+      "status": "PASS",
+      "evidence": "0/0 fact-bearing lines cite a declared anchor or (verify)+open debt",
+      "metrics": {
+        "fact_lines": 0,
+        "uncited": 0
+      }
+    },
+    {
+      "check_id": "02.EXAM_FACT_STATUS",
+      "status": "PASS",
+      "evidence": "exam_facts consistent: {\"unknown\":9}",
+      "metrics": {
+        "unknown": 9
+      }
+    },
+    {
+      "check_id": "02.NUMERAL_LEAK",
+      "status": "PASS",
+      "evidence": "0 withheld/unverified value(s) absent from 2 learner-facing chunks",
+      "metrics": {
+        "forbidden_values": 0,
+        "leaks": 0
+      }
+    },
+    {
+      "check_id": "02.HIGH_YIELD_PER_DOMAIN",
+      "status": "PASS",
+      "evidence": "1/1 knowledge domains carry a contiguous ranked high_yield list",
+      "metrics": {
+        "domains": 1
+      }
+    },
+    {
+      "check_id": "02.DEDICATED_SURFACE",
+      "status": "PASS",
+      "evidence": "needs_dedicated_surface declared with 4 item(s)"
+    },
+    {
+      "check_id": "02.CORPUS_STABILITY",
+      "status": "PASS",
+      "evidence": "assessment unknown, blocked_probe true"
+    },
+    {
+      "check_id": "02.DEBT_TYPED",
+      "status": "PASS",
+      "evidence": "12 debt record(s) typed + located",
+      "metrics": {
+        "debts": 12,
+        "ship_blocking": 5
+      }
+    },
+    {
+      "check_id": "02.EXTERNAL_REVIEW",
+      "status": "PASS",
+      "evidence": "0 request(s); every legal/clinical debt covered"
+    },
+    {
+      "check_id": "02.MARKET_SIGNAL",
+      "status": "PASS",
+      "evidence": "origin sme, disposition typed_debt, 1 chunk(s), 1 debt ref(s)"
+    },
+    {
+      "check_id": "02.DEPTH_FLOOR",
+      "status": "PASS",
+      "evidence": "bound depth floor met; A:0f/863cp B:0f/612cp C:39f/8745cp C2:45f/10267cp D:0f/705cp E:0f/445cp E2:0f/480cp F:0f/2076cp G:0f/3799cp",
+      "metrics": {
+        "A_cp": 863,
+        "B_cp": 612,
+        "C_cp": 8745,
+        "C2_cp": 10267,
+        "D_cp": 705,
+        "E_cp": 445,
+        "E2_cp": 480,
+        "F_cp": 2076,
+        "G_cp": 3799,
+        "A_fact_blocks": 0,
+        "B_fact_blocks": 0,
+        "C_fact_blocks": 39,
+        "C2_fact_blocks": 45,
+        "D_fact_blocks": 0,
+        "E_fact_blocks": 0,
+        "E2_fact_blocks": 0,
+        "F_fact_blocks": 0,
+        "G_fact_blocks": 0
+      }
+    },
+    {
+      "check_id": "02.G_MATRIX",
+      "status": "PASS",
+      "evidence": "11/11 G boxes located: {\"completed\":3,\"debt\":8}",
+      "metrics": {
+        "completed": 3,
+        "debt": 8
+      }
+    },
+    {
+      "check_id": "02.GROUP_SUPERSESSION",
+      "status": "PASS",
+      "evidence": "Complete section preserves exact proof scope and dependency constraints."
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111",
+    "02.SECTION_BOUNDS.effective_limit": 12000,
+    "02.SECTION_BOUNDS.max_chunk_chars": 10267,
+    "02.SECTION_BOUNDS.self_count_mismatches": 0,
+    "02.MERGE_DETERMINISTIC.merged_sha256": "1df9d116f792a556bf697e65db830ef3cc36919a827f3d8b794c83f84c12d73b",
+    "02.MERGE_DETERMINISTIC.merged_code_points": 27992,
+    "02.FACT_LINES_CITED.fact_lines": 0,
+    "02.FACT_LINES_CITED.uncited": 0,
+    "02.EXAM_FACT_STATUS.unknown": 9,
+    "02.NUMERAL_LEAK.forbidden_values": 0,
+    "02.NUMERAL_LEAK.leaks": 0,
+    "02.HIGH_YIELD_PER_DOMAIN.domains": 1,
+    "02.DEBT_TYPED.debts": 12,
+    "02.DEBT_TYPED.ship_blocking": 5,
+    "02.DEPTH_FLOOR.A_cp": 863,
+    "02.DEPTH_FLOOR.B_cp": 612,
+    "02.DEPTH_FLOOR.C_cp": 8745,
+    "02.DEPTH_FLOOR.C2_cp": 10267,
+    "02.DEPTH_FLOOR.D_cp": 705,
+    "02.DEPTH_FLOOR.E_cp": 445,
+    "02.DEPTH_FLOOR.E2_cp": 480,
+    "02.DEPTH_FLOOR.F_cp": 2076,
+    "02.DEPTH_FLOOR.G_cp": 3799,
+    "02.DEPTH_FLOOR.A_fact_blocks": 0,
+    "02.DEPTH_FLOOR.B_fact_blocks": 0,
+    "02.DEPTH_FLOOR.C_fact_blocks": 39,
+    "02.DEPTH_FLOOR.C2_fact_blocks": 45,
+    "02.DEPTH_FLOOR.D_fact_blocks": 0,
+    "02.DEPTH_FLOOR.E_fact_blocks": 0,
+    "02.DEPTH_FLOOR.E2_fact_blocks": 0,
+    "02.DEPTH_FLOOR.F_fact_blocks": 0,
+    "02.DEPTH_FLOOR.G_fact_blocks": 0,
+    "02.G_MATRIX.completed": 3,
+    "02.G_MATRIX.debt": 8,
+    "required_checks": 20,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "59e24a4efe4a49881c81378713c43b41aec827499b271ce7e2723db9da117634",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

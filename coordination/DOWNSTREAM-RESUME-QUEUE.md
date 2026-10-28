@@ -41,3 +41,6 @@ Owners available: Claude after the Saturday reset (2026-10-31 13:00Z); a cloud s
 repo (it refused once: project folder D:\nova is not a git checkout — open a session in D:\nova\fb-ai-hackathon or name a cloud
 environment); Sol (busy, founder says fumbling). Model API credit ($83) would cost ~$40/state — not the plan.
 Sol's compile.mjs write barrier: ACK written (BELT-WRITE-BARRIER-OWNER-ACK.json); runner stays stopped; await her RELEASE file.
+
+## 18:40Z store pivot
+Store build (Opus worker) → D:/nova/fb-ai-hackathon/store/ ; founder gates in store/README.md; quarantine filter for garbled backs; Sol = re-author pass; cloud = KY/IA/OK downstream (founder-launched sessions, prompt in coordination/CLOUD-KY-DOWNSTREAM-PROMPT.md).

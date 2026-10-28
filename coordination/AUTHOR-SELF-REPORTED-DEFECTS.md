@@ -312,3 +312,30 @@ Source: scratch/sol-pa/DOWNSTREAM-STOP-CHECKPOINT.json. sec01 card-script prefli
 
 Source: scratch/sol-mt/CONTINUOUS-HOLD-CHECKPOINT.json. Current run-config SHA differs from native ledger binding; emission stopped before any attempt or call. All90 prior attempts accepted, accounting settled, lock released. Head assigned proof of exact config change and recovery only via existing ordinary-GO-authorized native claimRun/rebindRun, with prior caps/counters/history intact. No direct ledger edits or failed-candidate reset allowed.
 
+
+### SOL-SPOKEN-UNIT-COMPILER-FIX-20261028
+
+Applied compile.mjs SHA090642ed18005ca560035745c911ed6e920e588c3568b43ebc205b4a0318bc1a atomically under founder GO, Fable owner acknowledgement and five own native-boundary acknowledgements. Numeric/hyphenated/spelled units now normalize mechanically; source fact text/IDs/citations and accepted history untouched. Only generated role16/17 compiler hash+bytes pins refreshed. Live checks:173controller,215belt,41receipt,24predicate PASS; global bindingPASS. Evidence: scratch/sol-state-coordinator/spoken-compiler-prototype/integration/application.json and validation.json; release coordination/SOL-SPOKEN-COMPILER-WRITE-BARRIER-RELEASE.json. KS/DE assigned append-only native16 recompilation then fresh03/affected04/05. Long slash/deictic media cases remain separate. No paid API or source owner reseal.
+
+
+### SOL-NE-FEASIBLE-SCOPES-HELD-20261028
+
+Source: scratch/sol-ne/disjoint-final-checkpoint.json. All feasible independent scopes completed; cards08/10/11/14/15 remain held on spoken slash bindings and sec02 exam on numeral binding. No required input/fact was dropped and all234 native attempts remain accepted; held drafts/packets preserved, ledger settled and lock released. SD fills the lane. Literal-label compiler prototype remains isolated; no validator weakening or implicit held-candidate retry.
+
+
+### SOL-DE-06-INHERITANCE-CAPABILITY-20261028
+
+Source: scratch/sol-de/restore/checkpoint.json and coordination/DE-06-REVIEW-INHERITANCE-CAPABILITY-REQUEST.json. Required inherited item review flags conflict with native all-items NEEDS_REVIEW_ZERO/SELF_FLAGGED_RESOLVED; schema has no quarantine/serving mode. Session preparation needs accepted exam stems. No flags cleared or required facts filtered. Owner13/14/controller resolution requested; factual concerns remain02/08. NM fills the released lane while DE's existing artifacts/177debts/20blockers are preserved.
+
+
+
+<!-- SOL-LITERAL-LABEL-COMPILER-FIX-20261028 -->
+Literal-label compiler fix applied and released. Exact release: coordination/SOL-LITERAL-SLASH-WRITE-BARRIER-RELEASE.json. Production controller177/belt215/receipt41/predicate24 PASS; binding PASS. Only four declared labels pronounced literally. Unknown slash cases and deictic text are not covered. Accepted02 history is unchanged.
+
+
+<!-- SOL-DE-06-OWNER-PREMISE-CORRECTION-20261028 -->
+Owner response coordination/DE-06-CAPABILITY-OWNER-RESPONSE.json corrects the inferred automatic fact-to-item review inheritance premise. Worker classification scratch/sol-de/OWNER-06-FLAG-CLASSIFICATION.json has zero authored exam items and zero flagged item candidates. Existing item-specific doubt/typed-gap/dynamic-quarantine path applies; no schema change, waiver, or fact/debt flag clearance.
+
+
+<!-- SOL-MT-SELF-REPORTED-AUTHORING-GAPS-20261028 -->
+Worker reports 820 card nodes without exam items or typed gaps, 418 repeated-statement narrations, incomplete card fronts, implausible distractors, and three classifier omissions. Fixed evidence: scratch/sol-state-coordinator/usage-evidence/MT-4363cab4492b5bf2c8730c70b9fb565a061546e6987a3c59bafb210c8c089454.json. MT remains incomplete and is assigned own native coverage and teaching repair; section02 form-title binding remains held. Accepted drafts are preserved, not declared complete.

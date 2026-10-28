@@ -1,17 +1,22 @@
-Delaware HOLD: accepted spoken wording for sec05-R13 contains five mph; exact fidelity and spoken-form lint conflict.
-Both alternatives are proved with the native read-only checks: unchanged wording passes04.BACK_FIDELITY/fails04.BACK_SPOKEN_FORM; expanded miles per hour reverses those results.
-No section05 candidate,outbox,dispatch,attempt,model call or reservation was created. Exact packet/context/config/GO/layers remain pinned for owner review.
-Accepted03 KG:18/18 sections,1398 nodes,94 comparison edges,172 modules;25 required checks passed per section.
-Accepted04 cards:4/18 sections (sec01–04),264 cards across38 decks;22 required checks passed per accepted section.
-06.exam_bank,05.sessions and05.card_scripts have not started. Continuous authoring stopped on the bound-input conflict.
-All18 upstream dossier/registry pins are unchanged;1398 facts,177 typed debts,20 blocking source/review holds and final27 typed/eight blocking SME batch retained.
-All four original F/G reconciliations remain complete. Source tier stays unverified; independent07/08 and all clinical/legal/source/visual/currentness reviews remain pending.
-First card draft incorrectly projected upstream market/exam-policy debt into the card-defect slot; corrected locally before dispatch with original draft and prevalidation preserved. No source debt was resolved.
-Native ledger has196 file-transport model_calls (baseline176),all paid API calls0. Actual/reserved/uncertain$0.000; ownership released,lock absent,all existing reservations reported.
-Lineage87 to97 advances were accepted-capacity only. Every old counter,cap,nonce and historical accepted artifact remains; latest97 has no section05 attempt.
-No shared tool/schema/contract edits,credentials printed/edited,provider probes,audio,publishing,nested authors or shared queue/usage writes.
-Fixed cumulative usage 2026-10-28T17:12:50.174Z:total=61387016,cached=59891712,output=372413.
-DELTA ONLY vs root baseline53886626:total=7500390,cached=7391744,uncached input plus output=108646;excludes later writing.
-HOLD proof:scratch/sol-de/continuous/HOLD-spoken-normalization.json. Exact native completion receipts and stage/section refs are in the checkpoint.
-Checkpoint:scratch/sol-de/continuous/checkpoint.json and coordination/SOL-REPORTS/DE.checkpoint.json.
-STOP pending a head/schema-owner resolution and explicit resume. No silent context patch,accepted-input edit,filtered fact set or automatic retry.
+Delaware authoring complete; independent07/08 and release remain pending. Whole state is not complete.
+03.combined_kg:18/18 native-accepted sections.
+04.cards:18/18 native-accepted sections.
+06.exam_bank:18/18 native-accepted sections.
+05.sessions:18/18 native-accepted sections.
+05.card_scripts:18/18 native-accepted sections.
+Current03:1398 nodes,94 comparison edges,172 modules. Current04:1398 cards in172 decks.
+Current06:1398 items,172 module quizzes,36 practice forms. Official count/pass/time remain unknown/null.
+Current05.sessions:172 teaching units,1192 slides,1398 objectives. Current05.card_scripts:1398 card scripts+172 recaps=1570 records; no audio rendered.
+All90 current stage-section outputs accepted;2016 required native checks PASS; current artifact/receipt/packet/context/layer archive hashes verified.
+Upstream18 sections,1398 facts,177 typed debts and20 blocking holds unchanged. Final SME27 typed/eight blocking exact. All four original F/G groups complete.
+Source tier unverified,graph needs_review:true and independent07/08 pending retained; no source,visual,clinical,legal,currentness or audit debt resolved.
+Released compiler changes only six spoken fields in05/09/08/12. All raw wording,IDs,locators,status,rankings and debts identical. Prior accepted artifacts/packets/outboxes preserved.
+Owner06 clarification applied: actual item determinacy checked; zero item-specific uncertain choices; flags cleared0. Earlier inherited-review diagnostic was not an authored item.
+Native model_calls226 to268 (+42 file transport); two deterministic compiles.304 native attempts all accepted,all reservations reported; actual/reserved/uncertain$0.
+Current lineage 2026-10-28-rdmv-de-class-d:lineage:126; accepted-capacity advances preserve old counters,caps,nonces/history. Ownership released,lock absent,no pending outbox or in-flight attempt.
+Fixed actual cumulative 2026-10-28T19:57:09.427Z:total=91102782,cached=89291904,output=484283.
+DELTA ONLY vs root-recorded72956578:total=18146204,cached=17940608,uncached input plus output=205596; excludes subsequent writing.
+Checkpoint:scratch/sol-de/completion/checkpoint.json and coordination/SOL-REPORTS/DE.checkpoint.json.
+Verification:scratch/sol-de/completion/final-verification.json; immutable run receipt included. Usage:scratch/sol-de/completion/client-usage.json.
+No shared code/schema/contract/queue/usage edits,nested agents,paid API,audio,publishing,failed-candidate reset or accepted-submission replay.
+STOP authoring complete; root batch review and independent factual/debt work are next.

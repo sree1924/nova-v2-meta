@@ -1,0 +1,166 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-wy-c",
+  "lineage": {
+    "input_manifest_sha256": "79c6012e86c358ff3ece42af6152828fc1a12f2f963ae1c4f02b77b410b70a9f",
+    "candidate_lineage_id": "2026-10-28-rdmv-wy-class-c:lineage:63",
+    "source_registry_sha256": "f2806994ac56e29c3588fb4e8e2cc870c5f64d0616933994765d31d7841ccbe9",
+    "source_liveness_sha256": "e9e98c5695424e30c400f1e14b2593178d09ca723f8f00581c9655dcae32ca6c"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "A"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "A",
+      "chunk_id": "A.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "A — Hazards, work zones and driver attention",
+      "learner_facing": true,
+      "markdown": "## A — Hazards, work zones and driver attention\nThe cover identifies this Wyoming driver manual as the 2021 edition [A01].\nThe Wyoming Department of Transportation Driver Services Program issues the state's driver licenses [A02].\nThis dossier covers hazards, work zones and driver attention for the noncommercial passenger-car applicant path.\nThe handbook says its written test draws on the manual and covers sign recognition, signals, markings, driving laws, safety, crash prevention and vehicle equipment [A03].\nNo unambiguous written-test question count, passing threshold, bank size or time limit has been verified; these official exam fields remain unknown (verify WY-SEC14-EXAM, WY-SEC14-PASS).\nThe current issuer page links this edition but warns that print-date information may be outdated; effective date and present applicability need confirmation (verify WY-SEC14-FRESH).\nPractice mastery is product policy from the pinned learning loop; it does not establish an official test threshold.\n",
+      "char_count": 999,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-wy-c:wyoming-department-of-transportation-dri:handbook:pdf-0001"
+        },
+        {
+          "anchor_id": "A02",
+          "source_page": "src:rdmv-wy-c:wyoming-department-of-transportation-dri:handbook:pdf-0005"
+        },
+        {
+          "anchor_id": "A03",
+          "source_page": "src:rdmv-wy-c:wyoming-department-of-transportation-dri:handbook:pdf-0009"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": "Wyoming Department of Transportation, Driver Services Program",
+      "status": "verified",
+      "source_page": "src:rdmv-wy-c:wyoming-department-of-transportation-dri:handbook:pdf-0005"
+    },
+    "edition": {
+      "value": "2021",
+      "status": "verified",
+      "source_page": "src:rdmv-wy-c:wyoming-department-of-transportation-dri:handbook:pdf-0001"
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "Single issuer-linked edition is staged; this is an operational corpus classification, not a verified update frequency or present legal currency. The current issuer warning is retained as source freshness debt in A and D."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "WY-SEC14-EXAM",
+      "claim_text": "Written-test question count, bank size, format details and time limit are not unambiguously verified from this source.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "WY-SEC14-PASS",
+      "claim_text": "No unambiguous written-test passing standard was found; do not infer a score from the skills-test paragraph.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "WY-SEC14-FRESH",
+      "claim_text": "Current WYDOT page links the staged edition but warns of potentially outdated printed information; verify current applicability and effective date.",
+      "blocker_kind": "source_stale",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

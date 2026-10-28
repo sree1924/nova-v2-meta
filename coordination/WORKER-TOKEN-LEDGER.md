@@ -1,10 +1,10 @@
-# Worker token ledger — generated 2026-10-28T17:57:28.670Z
+# Worker token ledger — generated 2026-10-28T19:53:23.997Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 29 | 1,035,088,192 | 3,283,625 | 1,038,371,817 | $0.00 | AK AZ CA CO CT FL HI IA KY MT NM NY OK TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 95 | 0 | 0 | 23,250,037 | $0.00 | AL AZ CA CO CT FL IN KY/OK/CT/IA MD MI MN MO MS/WV/HI/RI/VT/AK/ND NC NJ NV NY OR SC TN TX UT VA WA WI |
-| sol | ChatGPT Pro subscription | 86 | 0 | 0 | 400,934,159 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
+| claude | Anthropic subscription (Claude Code subagent) | 100 | 0 | 0 | 23,929,458 | $0.00 | AL AR AZ CA CO CT DC FL FLEET IN KY/OK/CT/IA MD MI MN MO MS/WV/HI/RI/VT/AK/ND NC NJ NV NY OH OR SC STORE TN TX UT VA WA WI |
+| sol | ChatGPT Pro subscription | 97 | 0 | 0 | 578,397,952 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -219,4 +219,20 @@
 | sol | gpt-6.1-sol | PA | undefined | — | — | — | — | 15,739,011 | — | — | $0.00 |
 | sol | gpt-6.1-sol | MT | undefined | — | — | — | — | 5,834,541 | — | — | $0.00 |
 | claude | claude-opus-5-5 | MS/WV/HI/RI/VT/AK/ND | scout round 5: staged 7 handbooks for Muse (NH 403; AR off-domain pending ruling) | — | — | — | — | 115,909 | 30 | 8 min | $0.00 |
+| claude | claude-opus-5-5 | AR | scout round 5b: AR staged via media.ark.org (state portal ruling); NH refused 403 | — | — | — | — | 4,396 | 3 | 1 min | $0.00 |
+| sol | gpt-6.1-sol | PA | undefined | — | — | — | — | 10,627,615 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | undefined | — | — | — | — | 24,165,050 | — | — | $0.00 |
+| sol | gpt-6.1-sol | WY | undefined | — | — | — | — | 26,213,883 | — | — | $0.00 |
+| claude | claude-opus-5-5 | FLEET | quarantine scan: 330/15427 cards hidden (148 meaning-changing, 130 digits, 52 cosmetic); per-state quarantine.json + summary + report | — | — | — | — | 165,376 | 46 | 10 min | $0.00 |
+| claude | claude-opus-5-5 | DC | scout: DC manual published only via issuu (issuer page links it) → refused pending vendor-host ruling / manual drop | — | — | — | — | 82,709 | 17 | 3 min | $0.00 |
+| sol | gpt-6.1-sol | DE | undefined | — | — | — | — | 11,569,562 | — | — | $0.00 |
+| claude | claude-opus-5-5 | STORE | store wrapper build: Next.js + Clerk + Stripe at store/, sync-store.mjs, gate.js, server-side paywall, 23 state pages, legal pages, harness --root mode (2744 checks) | — | — | — | — | 310,491 | 115 | 24 min | $0.00 |
+| sol | gpt-6.1-sol | KS | undefined | — | — | — | — | 11,902,653 | — | — | $0.00 |
+| sol | gpt-6.1-sol | MT | undefined | — | — | — | — | 21,643,279 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ME | undefined | — | — | — | — | 9,280,372 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ME | undefined | — | — | — | — | 5,042,374 | — | — | $0.00 |
+| claude | claude-opus-5-5 | OH | scout: Ohio digest PDF assembled from 14 issuer web chapters (headless Edge print + pypdf), 94 pages, staged; exam fact 40 questions / 75% | — | — | — | — | 116,449 | 34 | 8 min | $0.00 |
+| sol | gpt-6.1-sol | SD | undefined | — | — | — | — | 38,570,830 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | undefined | — | — | — | — | 3,189,476 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NM | undefined | — | — | — | — | 15,258,699 | — | — | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

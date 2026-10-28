@@ -81,3 +81,109 @@ Seeded 2026-10-28T09:00:16.730Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:10:26.175Z lineage reset → 2026-10-28-rdmv-mt-class-d:lineage:40 for 02.dossier_sections (sec09-basic-driving-and-observation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-basic-driving-and-observation__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:11:07.354Z lineage reset → 2026-10-28-rdmv-mt-class-d:lineage:41 for 02.dossier_sections (sec09-basic-driving-and-observation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-basic-driving-and-observation__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T17:59:12.580Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:41 to 2026-10-28-rdmv-mt-class-d:lineage:42 for 02.dossier_sections/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-42-accepted-capacity.json
+
+- 2026-10-28T17:59:21.326Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:42 to 2026-10-28-rdmv-mt-class-d:lineage:43 for 02.dossier_sections/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-43-accepted-capacity.json
+
+- 2026-10-28T17:59:30.513Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:43 to 2026-10-28-rdmv-mt-class-d:lineage:44 for 02.dossier_sections/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-44-accepted-capacity.json
+
+- 2026-10-28T17:59:36.797Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:44 to 2026-10-28-rdmv-mt-class-d:lineage:45 for 02.dossier_sections/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-45-accepted-capacity.json
+
+- 2026-10-28T17:59:50.781Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:45 to 2026-10-28-rdmv-mt-class-d:lineage:46 for 02.dossier_sections/sec11-sharing-space; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-46-accepted-capacity.json
+
+- 2026-10-28T18:14:05.053Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:46 to 2026-10-28-rdmv-mt-class-d:lineage:47 for 02.dossier_sections/sec11-sharing-space; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-47-accepted-capacity.json
+
+- 2026-10-28T18:14:11.224Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:47 to 2026-10-28-rdmv-mt-class-d:lineage:48 for 02.dossier_sections/sec11-sharing-space; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-48-accepted-capacity.json
+
+- 2026-10-28T18:14:17.356Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:48 to 2026-10-28-rdmv-mt-class-d:lineage:49 for 02.dossier_sections/sec11-sharing-space; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-49-accepted-capacity.json
+
+- 2026-10-28T18:14:23.392Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:49 to 2026-10-28-rdmv-mt-class-d:lineage:50 for 02.dossier_sections/sec11-sharing-space; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-50-accepted-capacity.json
+
+- 2026-10-28T18:17:44.329Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:50 to 2026-10-28-rdmv-mt-class-d:lineage:51 for 02.dossier_sections/sec12-driver-fitness; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-51-accepted-capacity.json
+
+- 2026-10-28T18:17:49.840Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:51 to 2026-10-28-rdmv-mt-class-d:lineage:52 for 02.dossier_sections/sec12-driver-fitness; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-52-accepted-capacity.json
+
+- 2026-10-28T18:17:55.614Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:52 to 2026-10-28-rdmv-mt-class-d:lineage:53 for 02.dossier_sections/sec12-driver-fitness; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-53-accepted-capacity.json
+
+- 2026-10-28T18:18:02.605Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:53 to 2026-10-28-rdmv-mt-class-d:lineage:54 for 02.dossier_sections/sec12-driver-fitness; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-54-accepted-capacity.json
+
+- 2026-10-28T18:18:16.698Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:54 to 2026-10-28-rdmv-mt-class-d:lineage:55 for 02.dossier_sections/sec13-emergencies-and-crashes; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-55-accepted-capacity.json
+
+- 2026-10-28T18:21:13.780Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:55 to 2026-10-28-rdmv-mt-class-d:lineage:56 for 02.dossier_sections/sec13-emergencies-and-crashes; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-56-accepted-capacity.json
+
+- 2026-10-28T18:21:20.127Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:56 to 2026-10-28-rdmv-mt-class-d:lineage:57 for 02.dossier_sections/sec13-emergencies-and-crashes; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-57-accepted-capacity.json
+
+- 2026-10-28T18:21:26.539Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:57 to 2026-10-28-rdmv-mt-class-d:lineage:58 for 02.dossier_sections/sec13-emergencies-and-crashes; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-58-accepted-capacity.json
+
+- 2026-10-28T18:21:32.551Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:58 to 2026-10-28-rdmv-mt-class-d:lineage:59 for 02.dossier_sections/sec13-emergencies-and-crashes; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-59-accepted-capacity.json
+
+- 2026-10-28T18:23:04.693Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:59 to 2026-10-28-rdmv-mt-class-d:lineage:60 for 02.dossier_sections/sec14-penalties-and-records; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-60-accepted-capacity.json
+
+- 2026-10-28T18:23:14.242Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:60 to 2026-10-28-rdmv-mt-class-d:lineage:61 for 02.dossier_sections/sec14-penalties-and-records; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-61-accepted-capacity.json
+
+- 2026-10-28T18:23:23.680Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:61 to 2026-10-28-rdmv-mt-class-d:lineage:62 for 02.dossier_sections/sec14-penalties-and-records; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-62-accepted-capacity.json
+
+- 2026-10-28T18:23:31.016Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:62 to 2026-10-28-rdmv-mt-class-d:lineage:63 for 02.dossier_sections/sec14-penalties-and-records; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-02-dossier_sections-63-accepted-capacity.json
+
+- 2026-10-28T18:29:37.730Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:63 to 2026-10-28-rdmv-mt-class-d:lineage:64 for 03.combined_kg/sec03-vehicle-equipment; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-03-combined_kg-64-accepted-capacity.json
+
+- 2026-10-28T18:30:07.624Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:64 to 2026-10-28-rdmv-mt-class-d:lineage:65 for 03.combined_kg/sec05-signs-and-school-zones; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-03-combined_kg-65-accepted-capacity.json
+
+- 2026-10-28T18:30:15.845Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:65 to 2026-10-28-rdmv-mt-class-d:lineage:66 for 03.combined_kg/sec07-driving-and-sharing-rules; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-03-combined_kg-66-accepted-capacity.json
+
+- 2026-10-28T18:30:40.931Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:66 to 2026-10-28-rdmv-mt-class-d:lineage:67 for 03.combined_kg/sec09-basic-driving-and-observation; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-03-combined_kg-67-accepted-capacity.json
+
+- 2026-10-28T18:30:49.621Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:67 to 2026-10-28-rdmv-mt-class-d:lineage:68 for 03.combined_kg/sec11-sharing-space; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-03-combined_kg-68-accepted-capacity.json
+
+- 2026-10-28T18:31:05.929Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:68 to 2026-10-28-rdmv-mt-class-d:lineage:69 for 03.combined_kg/sec13-emergencies-and-crashes; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-03-combined_kg-69-accepted-capacity.json
+
+- 2026-10-28T18:50:57.748Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:69 to 2026-10-28-rdmv-mt-class-d:lineage:70 for 04.cards/sec04-occupant-protection; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-04-cards-70-accepted-capacity.json
+
+- 2026-10-28T18:51:10.768Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:70 to 2026-10-28-rdmv-mt-class-d:lineage:71 for 04.cards/sec06-signals-and-markings; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-04-cards-71-accepted-capacity.json
+
+- 2026-10-28T18:52:34.388Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:71 to 2026-10-28-rdmv-mt-class-d:lineage:72 for 04.cards/sec08-parking-and-insurance; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-04-cards-72-accepted-capacity.json
+
+- 2026-10-28T18:52:45.041Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:72 to 2026-10-28-rdmv-mt-class-d:lineage:73 for 04.cards/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-04-cards-73-accepted-capacity.json
+
+- 2026-10-28T18:53:58.653Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:73 to 2026-10-28-rdmv-mt-class-d:lineage:74 for 04.cards/sec12-driver-fitness; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-04-cards-74-accepted-capacity.json
+
+- 2026-10-28T18:54:09.597Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:74 to 2026-10-28-rdmv-mt-class-d:lineage:75 for 04.cards/sec14-penalties-and-records; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-04-cards-75-accepted-capacity.json
+
+- 2026-10-28T19:01:24.653Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:75 to 2026-10-28-rdmv-mt-class-d:lineage:76 for 06.exam_bank/sec04-occupant-protection; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-06-exam_bank-76-accepted-capacity.json
+
+- 2026-10-28T19:01:32.803Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:76 to 2026-10-28-rdmv-mt-class-d:lineage:77 for 06.exam_bank/sec06-signals-and-markings; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-06-exam_bank-77-accepted-capacity.json
+
+- 2026-10-28T19:02:01.069Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:77 to 2026-10-28-rdmv-mt-class-d:lineage:78 for 06.exam_bank/sec08-parking-and-insurance; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-06-exam_bank-78-accepted-capacity.json
+
+- 2026-10-28T19:02:10.123Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:78 to 2026-10-28-rdmv-mt-class-d:lineage:79 for 06.exam_bank/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-06-exam_bank-79-accepted-capacity.json
+
+- 2026-10-28T19:02:24.865Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:79 to 2026-10-28-rdmv-mt-class-d:lineage:80 for 06.exam_bank/sec12-driver-fitness; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-06-exam_bank-80-accepted-capacity.json
+
+- 2026-10-28T19:02:33.246Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:80 to 2026-10-28-rdmv-mt-class-d:lineage:81 for 06.exam_bank/sec14-penalties-and-records; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-06-exam_bank-81-accepted-capacity.json
+
+- 2026-10-28T19:06:26.692Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:81 to 2026-10-28-rdmv-mt-class-d:lineage:82 for 05.sessions/sec04-occupant-protection; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-sessions-82-accepted-capacity.json
+
+- 2026-10-28T19:06:38.549Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:82 to 2026-10-28-rdmv-mt-class-d:lineage:83 for 05.sessions/sec06-signals-and-markings; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-sessions-83-accepted-capacity.json
+
+- 2026-10-28T19:07:03.378Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:83 to 2026-10-28-rdmv-mt-class-d:lineage:84 for 05.sessions/sec08-parking-and-insurance; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-sessions-84-accepted-capacity.json
+
+- 2026-10-28T19:07:11.150Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:84 to 2026-10-28-rdmv-mt-class-d:lineage:85 for 05.sessions/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-sessions-85-accepted-capacity.json
+
+- 2026-10-28T19:07:53.302Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:85 to 2026-10-28-rdmv-mt-class-d:lineage:86 for 05.sessions/sec12-driver-fitness; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-sessions-86-accepted-capacity.json
+
+- 2026-10-28T19:08:01.645Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:86 to 2026-10-28-rdmv-mt-class-d:lineage:87 for 05.sessions/sec14-penalties-and-records; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-sessions-87-accepted-capacity.json
+
+- 2026-10-28T19:11:44.062Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:87 to 2026-10-28-rdmv-mt-class-d:lineage:88 for 05.card_scripts/sec04-occupant-protection; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-88-accepted-capacity.json
+
+- 2026-10-28T19:11:48.989Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:88 to 2026-10-28-rdmv-mt-class-d:lineage:89 for 05.card_scripts/sec06-signals-and-markings; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-89-accepted-capacity.json
+
+- 2026-10-28T19:12:03.817Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:89 to 2026-10-28-rdmv-mt-class-d:lineage:90 for 05.card_scripts/sec08-parking-and-insurance; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-90-accepted-capacity.json
+
+- 2026-10-28T19:12:09.416Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:90 to 2026-10-28-rdmv-mt-class-d:lineage:91 for 05.card_scripts/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-91-accepted-capacity.json
+
+- 2026-10-28T19:12:22.978Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:91 to 2026-10-28-rdmv-mt-class-d:lineage:92 for 05.card_scripts/sec12-driver-fitness; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-92-accepted-capacity.json
+
+- 2026-10-28T19:12:28.412Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:92 to 2026-10-28-rdmv-mt-class-d:lineage:93 for 05.card_scripts/sec14-penalties-and-records; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-93-accepted-capacity.json
+
+- 2026-10-28T19:42:24.490Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:93 to 2026-10-28-rdmv-mt-class-d:lineage:94 for 05.card_scripts/sec04-occupant-protection; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-94-accepted-capacity.json

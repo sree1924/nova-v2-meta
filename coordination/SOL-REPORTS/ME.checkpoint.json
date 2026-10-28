@@ -4,9 +4,9 @@
   "run_created": true,
   "model_id": "gpt-6.1-sol",
   "authored_by": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
-  "status": "STOPPED_SOURCE_OWNER_NORMALIZATION_REQUIRED",
-  "checkpoint_kind": "Continuous authoring stopped for source-owner spoken normalization; authoring incomplete",
-  "captured_at_utc": "2026-10-28T17:19:39.162Z",
+  "status": "ALL11_AUTHORING_COMPLETE_PENDING_INDEPENDENT_QA",
+  "checkpoint_kind": "All11 current native authoring stages complete; independent QA and source release debts remain pending",
+  "captured_at_utc": "2026-10-28T19:34:06.701Z",
   "source": {
     "pdf": "D:/nova/fb-ai-hackathon/runs/_intake/sources/private/ME-direct-20261028T090542Z.pdf",
     "sha256": "34b9f5adc87622c5e43fd0d24144307fa0148d578936005c13861da2420b92e3",
@@ -116,7 +116,10 @@
     "02.dossier_sections/all11",
     "16.compile/all11",
     "03.combined_kg/all11",
-    "04.cards/sections01-10"
+    "04.cards/all11",
+    "06.exam_bank/all11",
+    "05.sessions/all11",
+    "05.card_scripts/all11"
   ],
   "counts": {
     "sections_done_02_16": 11,
@@ -124,11 +127,11 @@
     "accepted_facts": 1056,
     "compiled_facts": 1056,
     "nodes": 1056,
-    "cards": 985,
-    "items": 0,
-    "units": 0,
-    "slides": 0,
-    "scripts": 0
+    "cards": 1056,
+    "items": 1056,
+    "units": 42,
+    "slides": 316,
+    "scripts": 1098
   },
   "exam_facts": {
     "question_count": {
@@ -171,7 +174,7 @@
     ],
     "copy_note": "Only parameterized helper structure was reused from read-only NV references; all Maine facts, sources and state paths were authored for this run."
   },
-  "next_section": "sec11-special-driving-challenges",
+  "next_section": null,
   "next_packet": null,
   "next_command_after_hold_resolution": null,
   "belt_command_after_successful_intake": null,
@@ -456,66 +459,76 @@
   "usage": {
     "model_id": "gpt-6.1-sol",
     "platform": "ChatGPT Pro subscription",
-    "token_snapshot_at_utc": "2026-10-28T17:15:51.756Z",
+    "source": "Own turn_context/token_count metadata only; fixed actual cumulative sample",
+    "token_snapshot_at_utc": "2026-10-28T19:30:41.844Z",
     "total_token_usage": {
-      "input_tokens": 39796463,
-      "cached_input_tokens": 38987136,
+      "input_tokens": 54060832,
+      "cached_input_tokens": 53186944,
       "cache_write_input_tokens": 0,
-      "output_tokens": 228672,
-      "reasoning_output_tokens": 83021,
-      "total_tokens": 40025135
+      "output_tokens": 287049,
+      "reasoning_output_tokens": 110868,
+      "total_tokens": 54347881
     },
-    "root_recorded_baseline": {
-      "total_tokens": 31503618,
-      "cached_input_tokens": 30634752
+    "previous_delivered_sample": {
+      "checkpoint": {
+        "path": "scratch/sol-me/DISJOINT-FINAL-CHECKPOINT.json",
+        "sha256": "96a6537badd7a891fd1f2e86b7d1c5a34a26d0e668948326966bb48240bfafca"
+      },
+      "total_tokens": 49305507,
+      "cached_input_tokens": 48172160
     },
-    "delta_for_root_only": {
-      "total_tokens": 8521517,
-      "cached_input_tokens": 8352384
+    "delta_since_previous_delivered_sample": {
+      "total_tokens": 5042374,
+      "cached_input_tokens": 5014784
     },
-    "tool_uses": null
+    "tool_uses": null,
+    "tool_use_note": "Not exposed in permitted metadata; unavailable, not invented.",
+    "note": "Fixed sample excludes later delivery overhead; aggregate deltas against the last sample actually recorded."
   },
   "ledger": {
     "actual_usd": 0,
+    "reserved_active_usd": 0,
     "uncertain_usd": 0,
     "outstanding_unknown_usd": 0,
-    "reserved_active_usd": 0,
-    "reservation_states": [
-      {
-        "state": "reported",
-        "count": 124,
-        "actual_microusd": 0
-      }
-    ],
-    "model_call_ledger_rows": [
-      {
-        "status": "completed",
-        "count": 124
-      }
-    ],
-    "paid_model_api_calls": 0
+    "paid_model_api_calls": 0,
+    "native_file_transport_calls": 169,
+    "reported_reservations": 169,
+    "new_native_compile_attempts": 1,
+    "new_native_authoring_attempts": 5,
+    "new_native_attempts": 6
   },
   "proposed_queue_update": {
     "state": "ME",
-    "status": "authoring_source_normalization_hold",
+    "status": "authoring_complete_pending07_08",
     "run_id": "2026-10-28-rdmv-me-class-c",
-    "compiled_facts": 1056,
+    "facts": 1056,
     "nodes": 1056,
-    "cards": 985,
-    "blocker": "ME-SEC11-F27-SPOKEN-NORMALIZATION"
+    "cards": 1056,
+    "items": 1056,
+    "units": 42,
+    "slides": 316,
+    "scripts": 1098,
+    "card_scripts": 1056,
+    "recap_scripts": 42,
+    "module_quizzes": 42,
+    "forms": 22
   },
   "proposed_token_ledger_row": {
     "worker": "sol",
     "model": "gpt-6.1-sol",
     "state": "ME",
-    "task": "Remaining SME plus all KG and cards01-10; stopped at sec11 source normalization; add delta only",
-    "tokens_delta": 8521517,
-    "cached_tokens_delta": 8352384,
-    "cumulative_tokens": 40025135,
-    "cumulative_cached_tokens": 38987136,
+    "task": "Final section11 native compile and03/04/06/05 completion; delta since last delivered sample",
+    "tokens_delta": 5042374,
+    "cached_tokens_delta": 5014784,
+    "cumulative_tokens": 54347881,
+    "cumulative_cached_tokens": 53186944,
     "baseline": {
-      "total_tokens": 31503618,
-      "cached_input_tokens": 30634752
+      "checkpoint": {
+        "path": "scratch/sol-me/DISJOINT-FINAL-CHECKPOINT.json",
+        "sha256": "96a6537badd7a891fd1f2e86b7d1c5a34a26d0e668948326966bb48240bfafca"
+      },
+      "total_tokens": 49305507,
+      "cached_input_tokens": 48172160
     },
     "tool_uses": null
   },
@@ -643,13 +656,13 @@
     },
     {
       "id": "ME-SEC11-F27-SPOKEN-NORMALIZATION",
-      "status": "OPEN_SOURCE_OWNER_NORMALIZATION_REQUIRED",
+      "status": "RESOLVED_BY_RELEASED_NATIVE_COMPILER_PRONUNCIATION",
       "stage": "04.cards",
       "section": "sec11-special-driving-challenges",
       "fact_id": "sec11-F27",
       "primary_pdf_page": 114,
       "source_statement": "At a rural intersection without signals or stop/yield signs, approach slowly and be ready for crossing traffic or an oncoming turn.",
-      "accepted_spoken_statement": null,
+      "accepted_spoken_statement": "At a rural intersection without signals or stop slash yield signs, approach slowly and be ready for crossing traffic or an oncoming turn.",
       "accepted_wording": "At a rural intersection without signals or stop/yield signs, approach slowly and be ready for crossing traffic or an oncoming turn.",
       "native_spoken_form_violations": [
         {
@@ -735,12 +748,50 @@
       "native_dispatch_failed": false,
       "native_attempt_created": false,
       "automatic_retry_performed": false,
-      "recorded_at": "2026-10-28T17:19:39.162Z"
+      "recorded_at": "2026-10-28T17:19:39.162Z",
+      "source_statement_unchanged": true,
+      "compile": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-compiled-dossier.json",
+        "sha256": "9c257fb4db1b97ec0094f27a7e2e3f4f3e00945e20e7f9c3c2b68ffae2984d97"
+      },
+      "registry": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-fact-registry.json",
+        "sha256": "425dbb065669ab6329f533b920464030e545a0c79a53e3fa5658caf6a2ce736d"
+      },
+      "fresh_KG": {
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\artifacts\\task_93e86622425ba52fac52075103308f6223db9f52dcc1e72024d1c8e280e27236\\attempt_939a21c524c81acbb7a6dcb4f2d240b0b4cf8e2d56e6b782565ca524aeb86ed9\\artifact.json",
+        "sha256": "4644a0205e584464957829ac90429691791584ce1182d83ab993987cfed69403",
+        "bytes": 162386,
+        "kind": "03.combined_kg",
+        "stage_id": "03.combined_kg",
+        "accepted": true,
+        "accepted_at": "2026-10-28T19:26:50.990Z",
+        "task_id": "task_93e86622425ba52fac52075103308f6223db9f52dcc1e72024d1c8e280e27236",
+        "artifact_id": "accepted_083e3289094580a386321edc51a8d0f2aae3dd09336080aa6a9feb970bce7d6a",
+        "identity": "{\"config\":{\"dossier_parts\":[],\"generation\":{\"max_completion_tokens\":30000,\"reasoning_effort\":\"low\"},\"section_ids\":[\"sec11-special-driving-challenges\"]},\"inputs\":[{\"kind\":\"17-disposition.json\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/17-disposition.json\",\"sha256\":\"b2d5a6609e46158e3768453bd2c820aff374cbe222e37b7d00f46426f2c232d7\"},{\"kind\":\"accepted_dispositions\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-effective-date-dispositions.json\",\"sha256\":\"f8f881c3f1b296dc56f58f275e6345820669cbc3784a6e5fc4a8dabc6063ad24\"},{\"kind\":\"compiled_dossier\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-compiled-dossier.json\",\"sha256\":\"9c257fb4db1b97ec0094f27a7e2e3f4f3e00945e20e7f9c3c2b68ffae2984d97\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_229d333425dbc770922f5da61f01fe658d6a88a03bdbf0b8feff729ea6e61ea1/attempt_e7931e92ffd03ff59c391c9c315099b82ff5e2f318180064b2a4d6c9151de9f6/artifact.json\",\"sha256\":\"fd75aafc8bf25c4f734a093b86022a08ec38203bb97ea24502332e73ca6489f3\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_4c42c63430273022e3db34e640c78e597898a400e197afc8cdbbb5d24770269a/attempt_6900d0ccd60875235487742bfe041bbc63987a5792a970178f05d9cc9cd6e8a8/artifact.json\",\"sha256\":\"d8fcf4db2ed41cbd30fd31444a708b92c819e06abb09285d21776d5f5b644c7e\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_5eca5ca64b270011d59e53b585b76c959692eb4f176e63b4acd6cee82d57cadb/attempt_095c908fc67050cbd251feaae2c0c397a0f1741941bb6adf2f1021fde85fd313/artifact.json\",\"sha256\":\"b9fcdaee44cd3ea4ac0673dbba8875b81bc747f49614a3a905184047ad74a129\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_6bfa331069b5c35ca7cc8116ea5c562b0585c7ae6d3e84333bd5f96392e967cc/attempt_51fc0b62aa0f8f18dc7a322de4b7503f0e17839b377897dfaf05b04ccf19efbd/artifact.json\",\"sha256\":\"809916c4f2dc8d192c29d83dff133c3ffd3db9ab572744c74502b3dbb28aa785\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_8911b7ecb472aa6f2aac3c355fad1be2fd2ed0264cb86ec12c7e7fd6bd2385a5/attempt_0cd60c88a045a7b79222c27fb0013c6cd334ea0ab1c1a70124623159ae9f79a0/artifact.json\",\"sha256\":\"355050f5807995cbc1f82dafd00fa159036583a66bc72479506f63e46be6d5af\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_a3a2ea8322de7d98a46a1298a5e6ca0ee406367d455806fae5b05eec20390de7/attempt_d415f56f4f893c918bc7bd378ec0d36b9216d4fcb61e43fd0858b280e2280a2a/artifact.json\",\"sha256\":\"9825b7b0f653434f536d270db7bfb685179957a30239bff873f8e827b33a2679\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_af4a8cd62e5f95e1c081f86a2a08a1ce43d71ba855c1b8262dee018ac6b0ccf1/attempt_54f9f88d5ba6bc6a2f74f0649d2221c0c54e1c5599f7d71260d116f9dda84f18/artifact.json\",\"sha256\":\"4462a7b9871912751c5c1fed64933183ba9d71ac3dc7d224947b49949db165a6\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_e5e32204926950632cab802384924f016509f9f3d6827a8c68b7f1932860a6f3/attempt_57d6edb80a9e8c32a907e95024c279118e61d37499a27b5261e200b23f4927fa/artifact.json\",\"sha256\":\"4f8ef5b52ddaba7cfd4fb76dd672873228977331911ce4b1ec56140ede7bd6ce\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_feb8fe3c148b34617bf1c87d360f081bb3db2af15427ffb41f0c5140c8e41473/attempt_7b259e00ca06b43365cad497767df32f1d85f88455433972db75fab2eff08a39/artifact.json\",\"sha256\":\"3aa63137e9ee2a2ca7366e4ff133a7da6fa520bcbd7d62769218d90412740303\"},{\"kind\":\"fact_registry\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-fact-registry.json\",\"sha256\":\"425dbb065669ab6329f533b920464030e545a0c79a53e3fa5658caf6a2ce736d\"},{\"kind\":\"finish_criteria\",\"path\":\"contracts/pilot-finish-criteria.json\",\"sha256\":\"5434ac38e675ab6a05435e95c355d9ca825033fa13650bd26413aa11940261c5\"},{\"kind\":\"knowledge_graph\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_86977b9319ea3078276e7ac90f55d13048f5357e5fea8d73e0e6725e1f61b6db/attempt_05276b4fbc5a7aa6203ca77e6994e45c88a018afa1e1922fedbc19119f1d4d9b/artifact.json\",\"sha256\":\"d7012004d8009a2907cc8e4797308fc05d5c3505d369c49a777d2d8190b52082\"},{\"kind\":\"learning_loop\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/19-learning-loop.json\",\"sha256\":\"5fb6092bd3aa514bce4e018a2d9c9d77e92d345ce7a8e6ef16a5477fb5ef5545\"},{\"kind\":\"media_disposition\",\"path\":\"contracts/media-disposition.json\",\"sha256\":\"d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd\"},{\"kind\":\"overlay\",\"path\":\"contracts/pilot-overrides-v0.4.0.json\",\"sha256\":\"c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3\"},{\"kind\":\"page_map\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-page-map.json\",\"sha256\":\"861ca61083a2c813dd62d908f887951da109663615ca45984934e5c398e05537\"},{\"kind\":\"policy\",\"path\":\"contracts/source-fact-policy.json\",\"sha256\":\"525934833394b1b37cc5ce8eb58939ae78aff0fb0c814e70df7718253795d05d\"},{\"kind\":\"prompt_authorship\",\"path\":\"contracts/prompt-authorship.json\",\"sha256\":\"2e937c9e639bf94f876c5fa32b707f2209935b450c04e6bca398450470c38742\"},{\"kind\":\"run_config\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/run-config.json\",\"sha256\":\"f1f3968b797102fce8b8fcbd2ca3212cff6272f23cf15ebc0e33dda81a96987e\"},{\"kind\":\"source_liveness\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-source-liveness.json\",\"sha256\":\"e742bf2373c9a6bebd7774b2b45ae2a58ba395947586ea942f331e99a0744f40\"},{\"kind\":\"source_registry\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-source-registry.json\",\"sha256\":\"c2e42c38f9f4644827a2fdadadd6340aab123a85c208ecc4839848339c6c9a98\"},{\"kind\":\"source_text_extraction\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/sources/private/15-extraction-receipt.json\",\"sha256\":\"aec76f110e9d7591136a65257cb7913cae8c5eecd615f8551281dbde0855ab8e\"},{\"kind\":\"source_text\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/sources/private/15-source-text.txt\",\"sha256\":\"3facedf51d3577408571277d70b2526447155471e170798e383a597f52dbb49a\"}],\"lineage_id\":\"2026-10-28-rdmv-me-class-c:lineage:78\",\"model\":\"muse-spark-1.3\",\"role_id\":\"03\",\"run_id\":\"2026-10-28-rdmv-me-class-c\",\"stage_id\":\"03.combined_kg\",\"versions\":{\"contract\":\"8c66430a518d32320cdbd3ce379d17bd1fc8eee832dd3ea0ae3aff93c06a06a7\",\"header\":\"dddf9efff85c066a9058642033d9aa9ec4099baefaa9a6e142b38d93ef1214c0\",\"mapping\":\"a3f46a4b9bb21c0e7c56e34584fed44a4c97adae5f62ec03a832a5a2bf681aca\",\"prompt\":\"e20709faceb049787c1296e9d8c7579c24162ede081972c39858c6651cb15230\",\"registry\":\"5152cdbcdc752397619411ac8d8a87a3d50c0d5d0df981d053846bb693944268\",\"schema\":\"789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8\",\"validator\":\"68c6cfeca5105a4aab499ca91d92d4e867dd9c9e36c37c2c854f8706344b34b9\",\"validator_closure\":\"91e0e7ee15bceaaefde0e3c6987a50f4ab6261d557c3fef75865935336cdd3d7\"}}",
+        "section_ids": [
+          "sec11-special-driving-challenges"
+        ],
+        "validation_ref": {
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\artifacts\\task_93e86622425ba52fac52075103308f6223db9f52dcc1e72024d1c8e280e27236\\attempt_939a21c524c81acbb7a6dcb4f2d240b0b4cf8e2d56e6b782565ca524aeb86ed9\\validation.json",
+          "sha256": "64b0811064eb31c3e4a690526a3f81ffbcce8e36da5b3665f24ed542cc924a14",
+          "bytes": 5387
+        },
+        "acceptance_ref": {
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\artifacts\\task_93e86622425ba52fac52075103308f6223db9f52dcc1e72024d1c8e280e27236\\attempt_939a21c524c81acbb7a6dcb4f2d240b0b4cf8e2d56e6b782565ca524aeb86ed9\\acceptance.json",
+          "sha256": "2c6f46aa79f5d56e577f292d541d0477f7f1395a4435b23687734a9ad97abc9d",
+          "bytes": 184
+        }
+      },
+      "card_id": "sec11-card-f27",
+      "script_parity": true,
+      "source_rewrite": false,
+      "independent_fact_audit": "pending; this resolution changes pronunciation only"
     }
   ],
   "shared_files_changed": [],
   "locks_acquired": [],
-  "lock_release": "All native and metadata locks released normally. No active or uncertain provider result. Source-owner normalization stop; no retry or nonce mutation after it.",
+  "lock_release": "All native and metadata locks released normally; no failed/indeterminate attempt or unsettled reservation. Authoring complete.",
   "accepted_parts": 99,
   "resolved_holds": [
     {
@@ -2392,166 +2443,60 @@
     },
     {
       "section_id": "sec11-special-driving-challenges",
-      "facts": 71,
-      "effective_parts": 9,
-      "compiled_dossier": {
-        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/16-compiled-dossier.json",
-        "sha256": "5a6f7d6b0721fa1b3d0ebff3a325c73516e7a4eb21a74f3e9f37eaa407a340f6"
-      },
-      "fact_registry": {
-        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/16-fact-registry.json",
-        "sha256": "ca3a0f7689223088343f3db9d8d5416551bb3da15782480a4c974ee08b6b8a33"
-      },
-      "acceptance": {
-        "path": "runs/2026-10-28-rdmv-me-class-c/receipts/16-acceptance-5a6f7d6b0721fa1b3d0ebff3a325c73516e7a4eb21a74f3e9f37eaa407a340f6.json",
-        "sha256": "81208fe2dafc9f22c8fd551b66554d6020a28b100df388a99fc4422f8f2f6168"
-      },
-      "validation": {
-        "path": "runs/2026-10-28-rdmv-me-class-c/receipts/16-validation-5a6f7d6b0721fa1b3d0ebff3a325c73516e7a4eb21a74f3e9f37eaa407a340f6.json",
-        "sha256": "4b78221f29819a776fc15d431919b40a9790a08ee6fb3dc8f3f1dad82dbd461c"
-      },
-      "parts": [
-        {
-          "part": "C",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_6bfa331069b5c35ca7cc8116ea5c562b0585c7ae6d3e84333bd5f96392e967cc/attempt_51fc0b62aa0f8f18dc7a322de4b7503f0e17839b377897dfaf05b04ccf19efbd/artifact.json",
-            "sha256": "809916c4f2dc8d192c29d83dff133c3ffd3db9ab572744c74502b3dbb28aa785"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_6bfa331069b5c35ca7cc8116ea5c562b0585c7ae6d3e84333bd5f96392e967cc/attempt_51fc0b62aa0f8f18dc7a322de4b7503f0e17839b377897dfaf05b04ccf19efbd/validation.json",
-            "sha256": "81e217cd2803f6a7f53f5e139280c4926f8a45eb0860bcd461e64329adbe58a6"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_6bfa331069b5c35ca7cc8116ea5c562b0585c7ae6d3e84333bd5f96392e967cc/attempt_51fc0b62aa0f8f18dc7a322de4b7503f0e17839b377897dfaf05b04ccf19efbd/acceptance.json",
-            "sha256": "1e6272068c1c8cf431f4d8c601f5ee8c091adf415d235ac0248785ab554c6ea3"
-          }
-        },
-        {
-          "part": "C2",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_4c42c63430273022e3db34e640c78e597898a400e197afc8cdbbb5d24770269a/attempt_6900d0ccd60875235487742bfe041bbc63987a5792a970178f05d9cc9cd6e8a8/artifact.json",
-            "sha256": "d8fcf4db2ed41cbd30fd31444a708b92c819e06abb09285d21776d5f5b644c7e"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_4c42c63430273022e3db34e640c78e597898a400e197afc8cdbbb5d24770269a/attempt_6900d0ccd60875235487742bfe041bbc63987a5792a970178f05d9cc9cd6e8a8/validation.json",
-            "sha256": "60aed29e507fd3dfe3857709e5454d1dd3aad1c4822ecc24f7c9967778e6ef4d"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_4c42c63430273022e3db34e640c78e597898a400e197afc8cdbbb5d24770269a/attempt_6900d0ccd60875235487742bfe041bbc63987a5792a970178f05d9cc9cd6e8a8/acceptance.json",
-            "sha256": "6d3871d775b4ad20b3d87ab549e511acfd2d4e9dc7cad2b999d1dbda10671c0a"
-          }
-        },
-        {
-          "part": "A",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_8911b7ecb472aa6f2aac3c355fad1be2fd2ed0264cb86ec12c7e7fd6bd2385a5/attempt_0cd60c88a045a7b79222c27fb0013c6cd334ea0ab1c1a70124623159ae9f79a0/artifact.json",
-            "sha256": "355050f5807995cbc1f82dafd00fa159036583a66bc72479506f63e46be6d5af"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_8911b7ecb472aa6f2aac3c355fad1be2fd2ed0264cb86ec12c7e7fd6bd2385a5/attempt_0cd60c88a045a7b79222c27fb0013c6cd334ea0ab1c1a70124623159ae9f79a0/validation.json",
-            "sha256": "ea23b1cbf33088d802c2b06af5e20257961e03ad1cfdbff027430d4f8c40d540"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_8911b7ecb472aa6f2aac3c355fad1be2fd2ed0264cb86ec12c7e7fd6bd2385a5/attempt_0cd60c88a045a7b79222c27fb0013c6cd334ea0ab1c1a70124623159ae9f79a0/acceptance.json",
-            "sha256": "beaf58a0b49ceb97a75cd045da257999b994665f1da7675d447719fa705296b2"
-          }
-        },
-        {
-          "part": "B",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_e5e32204926950632cab802384924f016509f9f3d6827a8c68b7f1932860a6f3/attempt_57d6edb80a9e8c32a907e95024c279118e61d37499a27b5261e200b23f4927fa/artifact.json",
-            "sha256": "4f8ef5b52ddaba7cfd4fb76dd672873228977331911ce4b1ec56140ede7bd6ce"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_e5e32204926950632cab802384924f016509f9f3d6827a8c68b7f1932860a6f3/attempt_57d6edb80a9e8c32a907e95024c279118e61d37499a27b5261e200b23f4927fa/validation.json",
-            "sha256": "79943b92639828ef9524c3c724fa0c9a467ea632f5c18aafb877c6f487f6bf5c"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_e5e32204926950632cab802384924f016509f9f3d6827a8c68b7f1932860a6f3/attempt_57d6edb80a9e8c32a907e95024c279118e61d37499a27b5261e200b23f4927fa/acceptance.json",
-            "sha256": "b643cb356fb4985d30c69a2b0d1d2afafbb0249066ed93359948bc11ff5a7d86"
-          }
-        },
-        {
-          "part": "D",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_5eca5ca64b270011d59e53b585b76c959692eb4f176e63b4acd6cee82d57cadb/attempt_095c908fc67050cbd251feaae2c0c397a0f1741941bb6adf2f1021fde85fd313/artifact.json",
-            "sha256": "b9fcdaee44cd3ea4ac0673dbba8875b81bc747f49614a3a905184047ad74a129"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_5eca5ca64b270011d59e53b585b76c959692eb4f176e63b4acd6cee82d57cadb/attempt_095c908fc67050cbd251feaae2c0c397a0f1741941bb6adf2f1021fde85fd313/validation.json",
-            "sha256": "e14d895a4d7208020129aa3ec9ed59e1b5156170416415b6182692544a0c9328"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_5eca5ca64b270011d59e53b585b76c959692eb4f176e63b4acd6cee82d57cadb/attempt_095c908fc67050cbd251feaae2c0c397a0f1741941bb6adf2f1021fde85fd313/acceptance.json",
-            "sha256": "1f51b2d69549e3badffcc076b5b0988194019bf01d0dba558580797876057310"
-          }
-        },
-        {
-          "part": "E",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_a3a2ea8322de7d98a46a1298a5e6ca0ee406367d455806fae5b05eec20390de7/attempt_d415f56f4f893c918bc7bd378ec0d36b9216d4fcb61e43fd0858b280e2280a2a/artifact.json",
-            "sha256": "9825b7b0f653434f536d270db7bfb685179957a30239bff873f8e827b33a2679"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_a3a2ea8322de7d98a46a1298a5e6ca0ee406367d455806fae5b05eec20390de7/attempt_d415f56f4f893c918bc7bd378ec0d36b9216d4fcb61e43fd0858b280e2280a2a/validation.json",
-            "sha256": "76be2ed55c2cb503db98a8bf1a88c9dfba7fc5cc11fd95b5230f638236ea60da"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_a3a2ea8322de7d98a46a1298a5e6ca0ee406367d455806fae5b05eec20390de7/attempt_d415f56f4f893c918bc7bd378ec0d36b9216d4fcb61e43fd0858b280e2280a2a/acceptance.json",
-            "sha256": "18ed5e46d004f7dfcb1d2288c005d84f9d451ecf9afb2746beb26390c2f14262"
-          }
-        },
-        {
-          "part": "E2",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_feb8fe3c148b34617bf1c87d360f081bb3db2af15427ffb41f0c5140c8e41473/attempt_7b259e00ca06b43365cad497767df32f1d85f88455433972db75fab2eff08a39/artifact.json",
-            "sha256": "3aa63137e9ee2a2ca7366e4ff133a7da6fa520bcbd7d62769218d90412740303"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_feb8fe3c148b34617bf1c87d360f081bb3db2af15427ffb41f0c5140c8e41473/attempt_7b259e00ca06b43365cad497767df32f1d85f88455433972db75fab2eff08a39/validation.json",
-            "sha256": "405038412975da9ef544129c185aef9b76e6f5c9d74ffab7b7444a7a9883d334"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_feb8fe3c148b34617bf1c87d360f081bb3db2af15427ffb41f0c5140c8e41473/attempt_7b259e00ca06b43365cad497767df32f1d85f88455433972db75fab2eff08a39/acceptance.json",
-            "sha256": "2acc6e8a7cd55c9087030703a56ef5c26db5edde290e2cf4cc656f7045c720c9"
-          }
-        },
-        {
-          "part": "F",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_af4a8cd62e5f95e1c081f86a2a08a1ce43d71ba855c1b8262dee018ac6b0ccf1/attempt_54f9f88d5ba6bc6a2f74f0649d2221c0c54e1c5599f7d71260d116f9dda84f18/artifact.json",
-            "sha256": "4462a7b9871912751c5c1fed64933183ba9d71ac3dc7d224947b49949db165a6"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_af4a8cd62e5f95e1c081f86a2a08a1ce43d71ba855c1b8262dee018ac6b0ccf1/attempt_54f9f88d5ba6bc6a2f74f0649d2221c0c54e1c5599f7d71260d116f9dda84f18/validation.json",
-            "sha256": "2ba44861c788703b44af20adf389d8e85e41a4f8531992a22c6cf70cb24d9a4a"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_af4a8cd62e5f95e1c081f86a2a08a1ce43d71ba855c1b8262dee018ac6b0ccf1/attempt_54f9f88d5ba6bc6a2f74f0649d2221c0c54e1c5599f7d71260d116f9dda84f18/acceptance.json",
-            "sha256": "100478b0ac697ac1cfe90aa4a545e2b838a688b062b5acc34a54a5b35cae6d32"
-          }
-        },
-        {
-          "part": "G",
-          "artifact": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_229d333425dbc770922f5da61f01fe658d6a88a03bdbf0b8feff729ea6e61ea1/attempt_e7931e92ffd03ff59c391c9c315099b82ff5e2f318180064b2a4d6c9151de9f6/artifact.json",
-            "sha256": "fd75aafc8bf25c4f734a093b86022a08ec38203bb97ea24502332e73ca6489f3"
-          },
-          "validation": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_229d333425dbc770922f5da61f01fe658d6a88a03bdbf0b8feff729ea6e61ea1/attempt_e7931e92ffd03ff59c391c9c315099b82ff5e2f318180064b2a4d6c9151de9f6/validation.json",
-            "sha256": "c4018b218c46e134b8c435bdc6f91f66170f8976f551622fcf761d8b0a2899fb"
-          },
-          "acceptance": {
-            "path": "runs/2026-10-28-rdmv-me-class-c/artifacts/task_229d333425dbc770922f5da61f01fe658d6a88a03bdbf0b8feff729ea6e61ea1/attempt_e7931e92ffd03ff59c391c9c315099b82ff5e2f318180064b2a4d6c9151de9f6/acceptance.json",
-            "sha256": "71d0d7b2163b5620f9580ab1b31ef7784bd461c361276c1af9bd6500d4a9e4df"
-          }
-        }
-      ],
+      "accepted_at": "2026-10-28T19:24:50.542Z",
+      "task_id": "task_52dd7fcaec881f5de7d51d85e0c9545fe1a12e807bb2bf7eebc209dde34f9193",
       "current": {
         "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/CURRENT.json",
-        "sha256": "23421aabc452363f792e99ddbc1b69a1f44b4da664abefffc03826d072a71301"
+        "sha256": "2235a8ca79ea84acbb27362da2a4e76a342713104ba922ed95df01b7dd5723f8"
       },
+      "compiled_dossier": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-compiled-dossier.json",
+        "sha256": "9c257fb4db1b97ec0094f27a7e2e3f4f3e00945e20e7f9c3c2b68ffae2984d97"
+      },
+      "fact_registry": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-fact-registry.json",
+        "sha256": "425dbb065669ab6329f533b920464030e545a0c79a53e3fa5658caf6a2ce736d"
+      },
+      "acceptance": {
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\receipts\\16-acceptance-9c257fb4db1b97ec0094f27a7e2e3f4f3e00945e20e7f9c3c2b68ffae2984d97.json",
+        "sha256": "dba2b8ffb8811bf5d137af150a2af5fc93c3959fb9d0018d595248fb322e677f",
+        "bytes": 180
+      },
+      "validation": {
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\receipts\\16-validation-9c257fb4db1b97ec0094f27a7e2e3f4f3e00945e20e7f9c3c2b68ffae2984d97.json",
+        "sha256": "2ed4ea9f92bbd9c53a65159c45513f55d16b407f8ef08cdcb8b58e222fd1dcdc",
+        "bytes": 1526
+      },
+      "companions": [
+        {
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\16\\sec11-special-driving-challenges\\425dbb06\\16-compiled-dossier.json",
+          "sha256": "9c257fb4db1b97ec0094f27a7e2e3f4f3e00945e20e7f9c3c2b68ffae2984d97",
+          "bytes": 58442,
+          "kind": "16-compiled-dossier.json"
+        },
+        {
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\16\\sec11-special-driving-challenges\\425dbb06\\16-fact-registry.json",
+          "sha256": "425dbb065669ab6329f533b920464030e545a0c79a53e3fa5658caf6a2ce736d",
+          "bytes": 120501,
+          "kind": "16-fact-registry.json"
+        },
+        {
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\16\\sec11-special-driving-challenges\\425dbb06\\17-disposition.json",
+          "sha256": "b2d5a6609e46158e3768453bd2c820aff374cbe222e37b7d00f46426f2c232d7",
+          "bytes": 453,
+          "kind": "17-disposition.json"
+        }
+      ],
+      "supporting_files": [
+        {
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\16\\sec11-special-driving-challenges\\425dbb06\\02-blueprint.md",
+          "sha256": "439520f707b4d9d3fcccac87d0cd0a4ae82cfdd25ebd33a2d63754e94bc151eb",
+          "bytes": 19072
+        }
+      ],
+      "facts": 71,
       "fact_count": 71,
+      "effective_parts": 9,
       "ledger_status": "accepted"
     }
   ],
@@ -3652,24 +3597,17 @@
       "facts": 52
     }
   ],
-  "accepted_history_counts": [
-    {
-      "stage_id": "02.dossier_sections",
-      "count": 76
-    },
-    {
-      "stage_id": "15.sources",
-      "count": 1
-    },
-    {
-      "stage_id": "16.compile",
-      "count": 12
-    },
-    {
-      "stage_id": "19.learning_inputs",
-      "count": 1
-    }
-  ],
+  "accepted_history_counts": {
+    "15.sources": 1,
+    "19.learning_inputs": 1,
+    "02.dossier_sections": 103,
+    "16.compile": 16,
+    "03.combined_kg": 12,
+    "04.cards": 21,
+    "06.exam_bank": 11,
+    "05.sessions": 11,
+    "05.card_scripts": 11
+  },
   "repair_checkpoint": "scratch/sol-me/REPAIR-CHECKPOINT.json",
   "repair_summary": {
     "changed_fact_ids": [
@@ -3778,8 +3716,8 @@
     "sha256": "45dcd8793abe41443eeb4686e452731431618d0784a0c57a15445313e6165ef5"
   },
   "previous_checkpoint": {
-    "path": "scratch/sol-me/ME-checkpoint-before-continuous.json",
-    "sha256": "17eeeacd04913c42689ac739551a7a7ea4364bcd28553cd8cbba6c2a9ec7a283"
+    "path": "scratch/sol-me/ME-checkpoint-before-all11-completion.json",
+    "sha256": "022b9d5f69a089b61d884d637a06eea657de8ec6bceb5eef48ee3b7f08c3af18"
   },
   "previous_checkpoint_copy": {
     "path": "scratch/sol-me/ME-checkpoint-before-sections05-08.json",
@@ -3794,131 +3732,42 @@
   "accepted_stage_coverage": {
     "02.dossier_sections": {
       "sections": 11,
-      "effective_parts": 99
+      "effective_parts": 99,
+      "facts": 1056
     },
     "16.compile": {
-      "sections": 11,
+      "current_sections": 11,
       "facts": 1056
     },
     "03.combined_kg": {
-      "sections": 11,
-      "nodes": 1056,
-      "modules": 42
+      "current_sections": 11,
+      "nodes": 1056
     },
     "04.cards": {
-      "sections": 10,
-      "cards": 985
+      "sections": 11,
+      "cards": 1056
     },
     "06.exam_bank": {
-      "sections": 0,
-      "items": 0
+      "sections": 11,
+      "items": 1056,
+      "forms": 22,
+      "module_quizzes": 42
     },
     "05.sessions": {
-      "sections": 0,
-      "units": 0
+      "sections": 11,
+      "units": 42,
+      "slides": 316
     },
     "05.card_scripts": {
-      "sections": 0,
-      "scripts": 0
+      "sections": 11,
+      "scripts": 1098,
+      "card_scripts": 1056,
+      "recaps": 42,
+      "audio_rendered": 0
     }
   },
-  "authoring_complete": false,
-  "authoring_blocker": {
-    "id": "ME-SEC11-F27-SPOKEN-NORMALIZATION",
-    "status": "OPEN_SOURCE_OWNER_NORMALIZATION_REQUIRED",
-    "stage": "04.cards",
-    "section": "sec11-special-driving-challenges",
-    "fact_id": "sec11-F27",
-    "primary_pdf_page": 114,
-    "source_statement": "At a rural intersection without signals or stop/yield signs, approach slowly and be ready for crossing traffic or an oncoming turn.",
-    "accepted_spoken_statement": null,
-    "accepted_wording": "At a rural intersection without signals or stop/yield signs, approach slowly and be ready for crossing traffic or an oncoming turn.",
-    "native_spoken_form_violations": [
-      {
-        "kind": "symbol",
-        "token": "/"
-      }
-    ],
-    "context_ref": {
-      "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-04-cards-sec11/context.json",
-      "sha256": "7bfac1b13f5e1b7f80464d152965872034040d2dfb32f70ed2550ccb18dd9e7b"
-    },
-    "fact_registry_ref": {
-      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\16\\sec11-special-driving-challenges\\16-fact-registry.json",
-      "sha256": "ca3a0f7689223088343f3db9d8d5416551bb3da15782480a4c974ee08b6b8a33",
-      "bytes": 120334,
-      "kind": "16-fact-registry.json",
-      "stage_id": "16.compile",
-      "accepted": true,
-      "accepted_at": "2026-10-28T17:05:00.417Z",
-      "task_id": "task_4369cfea0d18ac2fd987b5f785b9f6a3df124b4f1098ffa17c5e926f56582f6f",
-      "artifact_id": "accepted_93b6ed779524e94a0336539753f7124b83e4f825b3f1b3ffa768307ae5dcb194",
-      "identity": "{\"config\":{\"section_ids\":[\"sec11-special-driving-challenges\"],\"stage17\":\"n/a_pilot\"},\"inputs\":[{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_229d333425dbc770922f5da61f01fe658d6a88a03bdbf0b8feff729ea6e61ea1/attempt_e7931e92ffd03ff59c391c9c315099b82ff5e2f318180064b2a4d6c9151de9f6/artifact.json\",\"sha256\":\"fd75aafc8bf25c4f734a093b86022a08ec38203bb97ea24502332e73ca6489f3\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_4c42c63430273022e3db34e640c78e597898a400e197afc8cdbbb5d24770269a/attempt_6900d0ccd60875235487742bfe041bbc63987a5792a970178f05d9cc9cd6e8a8/artifact.json\",\"sha256\":\"d8fcf4db2ed41cbd30fd31444a708b92c819e06abb09285d21776d5f5b644c7e\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_5eca5ca64b270011d59e53b585b76c959692eb4f176e63b4acd6cee82d57cadb/attempt_095c908fc67050cbd251feaae2c0c397a0f1741941bb6adf2f1021fde85fd313/artifact.json\",\"sha256\":\"b9fcdaee44cd3ea4ac0673dbba8875b81bc747f49614a3a905184047ad74a129\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_6bfa331069b5c35ca7cc8116ea5c562b0585c7ae6d3e84333bd5f96392e967cc/attempt_51fc0b62aa0f8f18dc7a322de4b7503f0e17839b377897dfaf05b04ccf19efbd/artifact.json\",\"sha256\":\"809916c4f2dc8d192c29d83dff133c3ffd3db9ab572744c74502b3dbb28aa785\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_8911b7ecb472aa6f2aac3c355fad1be2fd2ed0264cb86ec12c7e7fd6bd2385a5/attempt_0cd60c88a045a7b79222c27fb0013c6cd334ea0ab1c1a70124623159ae9f79a0/artifact.json\",\"sha256\":\"355050f5807995cbc1f82dafd00fa159036583a66bc72479506f63e46be6d5af\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_a3a2ea8322de7d98a46a1298a5e6ca0ee406367d455806fae5b05eec20390de7/attempt_d415f56f4f893c918bc7bd378ec0d36b9216d4fcb61e43fd0858b280e2280a2a/artifact.json\",\"sha256\":\"9825b7b0f653434f536d270db7bfb685179957a30239bff873f8e827b33a2679\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_af4a8cd62e5f95e1c081f86a2a08a1ce43d71ba855c1b8262dee018ac6b0ccf1/attempt_54f9f88d5ba6bc6a2f74f0649d2221c0c54e1c5599f7d71260d116f9dda84f18/artifact.json\",\"sha256\":\"4462a7b9871912751c5c1fed64933183ba9d71ac3dc7d224947b49949db165a6\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_e5e32204926950632cab802384924f016509f9f3d6827a8c68b7f1932860a6f3/attempt_57d6edb80a9e8c32a907e95024c279118e61d37499a27b5261e200b23f4927fa/artifact.json\",\"sha256\":\"4f8ef5b52ddaba7cfd4fb76dd672873228977331911ce4b1ec56140ede7bd6ce\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_feb8fe3c148b34617bf1c87d360f081bb3db2af15427ffb41f0c5140c8e41473/attempt_7b259e00ca06b43365cad497767df32f1d85f88455433972db75fab2eff08a39/artifact.json\",\"sha256\":\"3aa63137e9ee2a2ca7366e4ff133a7da6fa520bcbd7d62769218d90412740303\"},{\"kind\":\"page_map\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-page-map.json\",\"sha256\":\"861ca61083a2c813dd62d908f887951da109663615ca45984934e5c398e05537\"},{\"kind\":\"pilot_overlay\",\"path\":\"contracts/pilot-overrides-v0.4.0.json\",\"sha256\":\"c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3\"},{\"kind\":\"source_registry\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-source-registry.json\",\"sha256\":\"c2e42c38f9f4644827a2fdadadd6340aab123a85c208ecc4839848339c6c9a98\"}],\"lineage_id\":\"2026-10-28-rdmv-me-class-c:lineage:52\",\"model\":null,\"role_id\":\"16\",\"run_id\":\"2026-10-28-rdmv-me-class-c\",\"stage_id\":\"16.compile\",\"versions\":{\"overlay\":\"c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3\",\"script\":\"acfda132a50760f863693f2757e4803a40c7a23da98ba47ecf43fe744209980d\"}}",
-      "section_ids": [
-        "sec11-special-driving-challenges"
-      ],
-      "validation_ref": {
-        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\receipts\\16-validation-5a6f7d6b0721fa1b3d0ebff3a325c73516e7a4eb21a74f3e9f37eaa407a340f6.json",
-        "sha256": "4b78221f29819a776fc15d431919b40a9790a08ee6fb3dc8f3f1dad82dbd461c",
-        "bytes": 1486
-      },
-      "acceptance_ref": {
-        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\receipts\\16-acceptance-5a6f7d6b0721fa1b3d0ebff3a325c73516e7a4eb21a74f3e9f37eaa407a340f6.json",
-        "sha256": "81208fe2dafc9f22c8fd551b66554d6020a28b100df388a99fc4422f8f2f6168",
-        "bytes": 180
-      }
-    },
-    "compiled_ref": {
-      "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\16\\sec11-special-driving-challenges\\16-compiled-dossier.json",
-      "sha256": "5a6f7d6b0721fa1b3d0ebff3a325c73516e7a4eb21a74f3e9f37eaa407a340f6",
-      "bytes": 58442,
-      "kind": "16-compiled-dossier.json",
-      "stage_id": "16.compile",
-      "accepted": true,
-      "accepted_at": "2026-10-28T17:05:00.417Z",
-      "task_id": "task_4369cfea0d18ac2fd987b5f785b9f6a3df124b4f1098ffa17c5e926f56582f6f",
-      "artifact_id": "accepted_93b6ed779524e94a0336539753f7124b83e4f825b3f1b3ffa768307ae5dcb194",
-      "identity": "{\"config\":{\"section_ids\":[\"sec11-special-driving-challenges\"],\"stage17\":\"n/a_pilot\"},\"inputs\":[{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_229d333425dbc770922f5da61f01fe658d6a88a03bdbf0b8feff729ea6e61ea1/attempt_e7931e92ffd03ff59c391c9c315099b82ff5e2f318180064b2a4d6c9151de9f6/artifact.json\",\"sha256\":\"fd75aafc8bf25c4f734a093b86022a08ec38203bb97ea24502332e73ca6489f3\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_4c42c63430273022e3db34e640c78e597898a400e197afc8cdbbb5d24770269a/attempt_6900d0ccd60875235487742bfe041bbc63987a5792a970178f05d9cc9cd6e8a8/artifact.json\",\"sha256\":\"d8fcf4db2ed41cbd30fd31444a708b92c819e06abb09285d21776d5f5b644c7e\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_5eca5ca64b270011d59e53b585b76c959692eb4f176e63b4acd6cee82d57cadb/attempt_095c908fc67050cbd251feaae2c0c397a0f1741941bb6adf2f1021fde85fd313/artifact.json\",\"sha256\":\"b9fcdaee44cd3ea4ac0673dbba8875b81bc747f49614a3a905184047ad74a129\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_6bfa331069b5c35ca7cc8116ea5c562b0585c7ae6d3e84333bd5f96392e967cc/attempt_51fc0b62aa0f8f18dc7a322de4b7503f0e17839b377897dfaf05b04ccf19efbd/artifact.json\",\"sha256\":\"809916c4f2dc8d192c29d83dff133c3ffd3db9ab572744c74502b3dbb28aa785\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_8911b7ecb472aa6f2aac3c355fad1be2fd2ed0264cb86ec12c7e7fd6bd2385a5/attempt_0cd60c88a045a7b79222c27fb0013c6cd334ea0ab1c1a70124623159ae9f79a0/artifact.json\",\"sha256\":\"355050f5807995cbc1f82dafd00fa159036583a66bc72479506f63e46be6d5af\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_a3a2ea8322de7d98a46a1298a5e6ca0ee406367d455806fae5b05eec20390de7/attempt_d415f56f4f893c918bc7bd378ec0d36b9216d4fcb61e43fd0858b280e2280a2a/artifact.json\",\"sha256\":\"9825b7b0f653434f536d270db7bfb685179957a30239bff873f8e827b33a2679\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_af4a8cd62e5f95e1c081f86a2a08a1ce43d71ba855c1b8262dee018ac6b0ccf1/attempt_54f9f88d5ba6bc6a2f74f0649d2221c0c54e1c5599f7d71260d116f9dda84f18/artifact.json\",\"sha256\":\"4462a7b9871912751c5c1fed64933183ba9d71ac3dc7d224947b49949db165a6\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_e5e32204926950632cab802384924f016509f9f3d6827a8c68b7f1932860a6f3/attempt_57d6edb80a9e8c32a907e95024c279118e61d37499a27b5261e200b23f4927fa/artifact.json\",\"sha256\":\"4f8ef5b52ddaba7cfd4fb76dd672873228977331911ce4b1ec56140ede7bd6ce\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_feb8fe3c148b34617bf1c87d360f081bb3db2af15427ffb41f0c5140c8e41473/attempt_7b259e00ca06b43365cad497767df32f1d85f88455433972db75fab2eff08a39/artifact.json\",\"sha256\":\"3aa63137e9ee2a2ca7366e4ff133a7da6fa520bcbd7d62769218d90412740303\"},{\"kind\":\"page_map\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-page-map.json\",\"sha256\":\"861ca61083a2c813dd62d908f887951da109663615ca45984934e5c398e05537\"},{\"kind\":\"pilot_overlay\",\"path\":\"contracts/pilot-overrides-v0.4.0.json\",\"sha256\":\"c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3\"},{\"kind\":\"source_registry\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-source-registry.json\",\"sha256\":\"c2e42c38f9f4644827a2fdadadd6340aab123a85c208ecc4839848339c6c9a98\"}],\"lineage_id\":\"2026-10-28-rdmv-me-class-c:lineage:52\",\"model\":null,\"role_id\":\"16\",\"run_id\":\"2026-10-28-rdmv-me-class-c\",\"stage_id\":\"16.compile\",\"versions\":{\"overlay\":\"c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3\",\"script\":\"acfda132a50760f863693f2757e4803a40c7a23da98ba47ecf43fe744209980d\"}}",
-      "section_ids": [
-        "sec11-special-driving-challenges"
-      ],
-      "validation_ref": {
-        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\receipts\\16-validation-5a6f7d6b0721fa1b3d0ebff3a325c73516e7a4eb21a74f3e9f37eaa407a340f6.json",
-        "sha256": "4b78221f29819a776fc15d431919b40a9790a08ee6fb3dc8f3f1dad82dbd461c",
-        "bytes": 1486
-      },
-      "acceptance_ref": {
-        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\receipts\\16-acceptance-5a6f7d6b0721fa1b3d0ebff3a325c73516e7a4eb21a74f3e9f37eaa407a340f6.json",
-        "sha256": "81208fe2dafc9f22c8fd551b66554d6020a28b100df388a99fc4422f8f2f6168",
-        "bytes": 180
-      }
-    },
-    "source_support_quote": "traffic lights, stop or yield signs",
-    "source_context_ref": {
-      "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/muse-authoring/inbox/CONTEXT-sec11-special-driving-challenges.json",
-      "sha256": "b801fb5d81ec60c312a7e322498b7c5cb36326f7aefde10f3d092d078e2ccece"
-    },
-    "binding_rule_refs": [
-      {
-        "path": "prompts/04.md",
-        "sha256": "402044a44ad763490f1e6bca1e323ca6807f5b2bbc601dfc47858f4131cfd9bc"
-      },
-      {
-        "path": "tools/belt/lib/cards-sessions-common.mjs",
-        "sha256": "20421533cae4d26af4e4c5c31431dfbd84c579d306fc1b0022ae4de22a88457d"
-      },
-      {
-        "path": "tools/belt/checks/04-cards.mjs",
-        "sha256": "bf7e0c201faaa458b311e10b942f2e509eb9dc762c5868da724eef2cb86722da"
-      }
-    ],
-    "reason": "Accepted wording contains stop/yield; no accepted spoken_statement or component supplies a safe slash-free equality target. The card contract requires byte-equal accepted wording and forbids slash shorthand. Converter may not silently paraphrase it.",
-    "required_owner_action": "Provide a source-supported accepted spoken normalization, with append-only ancestry and fresh native bindings, before resuming the unsubmitted section-eleven card candidate.",
-    "native_dispatch_failed": false,
-    "native_attempt_created": false,
-    "automatic_retry_performed": false,
-    "recorded_at": "2026-10-28T17:19:39.162Z"
-  },
+  "authoring_complete": true,
+  "authoring_blocker": null,
   "authoring_hold_checkpoint": {
     "path": "scratch/sol-me/AUTHORING-HOLD-CHECKPOINT.json",
     "sha256": "2b9ff5ba0549bd08302d902244954368929f0bc8a07a6cbc9a6441cbdb90f7bc"
@@ -3931,65 +3780,101 @@
     "path": "scratch/sol-me/sec09-11-visual-review.json",
     "sha256": "b6cb02ea50a55c31da89d913d1c3ae9c8990ed022e364588c32b8e5ae6233c66"
   },
-  "pending_unsubmitted_packets": [
-    {
-      "stage": "04.cards",
-      "section": "sec11-special-driving-challenges",
-      "plan": {
-        "path": "scratch/sol-me/04-cards-sec11/plan.json",
-        "sha256": "354ed64900936a8c352a59d67b65888ade753ada9412ebccd5c5776132f6d742"
-      },
-      "emission": {
-        "path": "scratch/sol-me/04-cards-sec11/emission.json",
-        "sha256": "836dda36775cc25b3a6c0f95d869841f51a9d0869b39ae42c5bd246c0864fa1b"
-      },
-      "archived_packet": {
-        "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-04-cards-sec11/transport-packet.json",
-        "sha256": "662b2226f42846b1d8caaa66489e7f80a1d4b9e7a3cf7016fd1a7d4dec5143f4"
-      },
-      "archived_layers": {
-        "state": {
-          "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-04-cards-sec11/transport-state.json",
-          "sha256": "20784b03dbcb9baa79b28734798c45572bb17907d0c69454319e5e346705e67f"
-        },
-        "section": {
-          "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-04-cards-sec11/transport-section.json",
-          "sha256": "b801fb5d81ec60c312a7e322498b7c5cb36326f7aefde10f3d092d078e2ccece"
-        }
-      },
-      "ingest_started": false,
-      "outbox_written": false,
-      "note": "Candidate composition stopped on the accepted slash shorthand before a candidate or outbox was written. Native packet archives are preserved."
+  "pending_unsubmitted_packets": [],
+  "next_stage": null,
+  "authorized_disjoint_scope_complete": true,
+  "held_scopes": [],
+  "disjoint_final_checkpoint": {
+    "path": "scratch/sol-me/DISJOINT-FINAL-CHECKPOINT.json",
+    "sha256": "96a6537badd7a891fd1f2e86b7d1c5a34a26d0e668948326966bb48240bfafca"
+  },
+  "native_completion_receipt": {
+    "path": "runs/2026-10-28-rdmv-me-class-c/receipts/sol-ME-all11-authoring-completion.json",
+    "sha256": "2ce432d57008e3110b155c5c2b3b569146327f7f71ec1afa49b07a378b73cd34"
+  },
+  "historical_unsubmitted_exam_packet": {
+    "stage": "06.exam_bank",
+    "section": "sec01-your-drivers-license",
+    "plan": {
+      "path": "scratch/sol-me/06-exam_bank-sec01/plan.json",
+      "sha256": "824be72327b76d0874597c03f6b25de1dbebc9a95f6a4cbf6197c90970de42d3"
     },
+    "emission": {
+      "path": "scratch/sol-me/06-exam_bank-sec01/emission.json",
+      "sha256": "e0d46b3be37dba41677b33c5a17a4d8a18fb2f85b595f1dab896543b66b30a1d"
+    },
+    "archived_packet": {
+      "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-06-exam_bank-sec01/transport-packet.json",
+      "sha256": "4d53f69b7ad2e38afd381a48a1c5a3a9d870cab76f8463ceeffb0beae27b9358"
+    },
+    "archived_layers": {
+      "state": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-06-exam_bank-sec01/transport-state.json",
+        "sha256": "7e087cbcb011f0dfca6619de9971f98e9525c290372b125bbee2dc211c6d9808"
+      },
+      "section": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-06-exam_bank-sec01/transport-section.json",
+        "sha256": "4f6e287b043e33e368f52f4ef2b2f799442fd501954400ffa03d8816e8b620e8"
+      }
+    },
+    "ingest_started": false,
+    "outbox_written": false,
+    "note": "Packet emitted after section-eleven composer process had already exited with an exception; no candidate, native submission, charge or source flag change. Preserve and rebind only after the stop is resolved."
+  },
+  "historical_pending_packet_evidence": {
+    "path": "scratch/sol-me/LITERAL-SLASH-BARRIER-ACK.json",
+    "sha256": "2ef626ee276c81b05aa843613bc1edd78272ab7ffc4ffe1eb1e82058844a8023"
+  },
+  "resolved_authoring_holds": [
     {
-      "stage": "06.exam_bank",
-      "section": "sec01-your-drivers-license",
-      "plan": {
-        "path": "scratch/sol-me/06-exam_bank-sec01/plan.json",
-        "sha256": "824be72327b76d0874597c03f6b25de1dbebc9a95f6a4cbf6197c90970de42d3"
+      "id": "ME-SEC11-F27-SPOKEN-NORMALIZATION",
+      "status": "RESOLVED_BY_RELEASED_NATIVE_COMPILER_PRONUNCIATION",
+      "fact_id": "sec11-F27",
+      "source_statement_unchanged": true,
+      "source_statement": "At a rural intersection without signals or stop/yield signs, approach slowly and be ready for crossing traffic or an oncoming turn.",
+      "accepted_spoken_statement": "At a rural intersection without signals or stop slash yield signs, approach slowly and be ready for crossing traffic or an oncoming turn.",
+      "compile": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-compiled-dossier.json",
+        "sha256": "9c257fb4db1b97ec0094f27a7e2e3f4f3e00945e20e7f9c3c2b68ffae2984d97"
       },
-      "emission": {
-        "path": "scratch/sol-me/06-exam_bank-sec01/emission.json",
-        "sha256": "e0d46b3be37dba41677b33c5a17a4d8a18fb2f85b595f1dab896543b66b30a1d"
+      "registry": {
+        "path": "runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-fact-registry.json",
+        "sha256": "425dbb065669ab6329f533b920464030e545a0c79a53e3fa5658caf6a2ce736d"
       },
-      "archived_packet": {
-        "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-06-exam_bank-sec01/transport-packet.json",
-        "sha256": "4d53f69b7ad2e38afd381a48a1c5a3a9d870cab76f8463ceeffb0beae27b9358"
-      },
-      "archived_layers": {
-        "state": {
-          "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-06-exam_bank-sec01/transport-state.json",
-          "sha256": "7e087cbcb011f0dfca6619de9971f98e9525c290372b125bbee2dc211c6d9808"
+      "fresh_KG": {
+        "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\artifacts\\task_93e86622425ba52fac52075103308f6223db9f52dcc1e72024d1c8e280e27236\\attempt_939a21c524c81acbb7a6dcb4f2d240b0b4cf8e2d56e6b782565ca524aeb86ed9\\artifact.json",
+        "sha256": "4644a0205e584464957829ac90429691791584ce1182d83ab993987cfed69403",
+        "bytes": 162386,
+        "kind": "03.combined_kg",
+        "stage_id": "03.combined_kg",
+        "accepted": true,
+        "accepted_at": "2026-10-28T19:26:50.990Z",
+        "task_id": "task_93e86622425ba52fac52075103308f6223db9f52dcc1e72024d1c8e280e27236",
+        "artifact_id": "accepted_083e3289094580a386321edc51a8d0f2aae3dd09336080aa6a9feb970bce7d6a",
+        "identity": "{\"config\":{\"dossier_parts\":[],\"generation\":{\"max_completion_tokens\":30000,\"reasoning_effort\":\"low\"},\"section_ids\":[\"sec11-special-driving-challenges\"]},\"inputs\":[{\"kind\":\"17-disposition.json\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/17-disposition.json\",\"sha256\":\"b2d5a6609e46158e3768453bd2c820aff374cbe222e37b7d00f46426f2c232d7\"},{\"kind\":\"accepted_dispositions\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-effective-date-dispositions.json\",\"sha256\":\"f8f881c3f1b296dc56f58f275e6345820669cbc3784a6e5fc4a8dabc6063ad24\"},{\"kind\":\"compiled_dossier\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-compiled-dossier.json\",\"sha256\":\"9c257fb4db1b97ec0094f27a7e2e3f4f3e00945e20e7f9c3c2b68ffae2984d97\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_229d333425dbc770922f5da61f01fe658d6a88a03bdbf0b8feff729ea6e61ea1/attempt_e7931e92ffd03ff59c391c9c315099b82ff5e2f318180064b2a4d6c9151de9f6/artifact.json\",\"sha256\":\"fd75aafc8bf25c4f734a093b86022a08ec38203bb97ea24502332e73ca6489f3\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_4c42c63430273022e3db34e640c78e597898a400e197afc8cdbbb5d24770269a/attempt_6900d0ccd60875235487742bfe041bbc63987a5792a970178f05d9cc9cd6e8a8/artifact.json\",\"sha256\":\"d8fcf4db2ed41cbd30fd31444a708b92c819e06abb09285d21776d5f5b644c7e\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_5eca5ca64b270011d59e53b585b76c959692eb4f176e63b4acd6cee82d57cadb/attempt_095c908fc67050cbd251feaae2c0c397a0f1741941bb6adf2f1021fde85fd313/artifact.json\",\"sha256\":\"b9fcdaee44cd3ea4ac0673dbba8875b81bc747f49614a3a905184047ad74a129\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_6bfa331069b5c35ca7cc8116ea5c562b0585c7ae6d3e84333bd5f96392e967cc/attempt_51fc0b62aa0f8f18dc7a322de4b7503f0e17839b377897dfaf05b04ccf19efbd/artifact.json\",\"sha256\":\"809916c4f2dc8d192c29d83dff133c3ffd3db9ab572744c74502b3dbb28aa785\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_8911b7ecb472aa6f2aac3c355fad1be2fd2ed0264cb86ec12c7e7fd6bd2385a5/attempt_0cd60c88a045a7b79222c27fb0013c6cd334ea0ab1c1a70124623159ae9f79a0/artifact.json\",\"sha256\":\"355050f5807995cbc1f82dafd00fa159036583a66bc72479506f63e46be6d5af\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_a3a2ea8322de7d98a46a1298a5e6ca0ee406367d455806fae5b05eec20390de7/attempt_d415f56f4f893c918bc7bd378ec0d36b9216d4fcb61e43fd0858b280e2280a2a/artifact.json\",\"sha256\":\"9825b7b0f653434f536d270db7bfb685179957a30239bff873f8e827b33a2679\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_af4a8cd62e5f95e1c081f86a2a08a1ce43d71ba855c1b8262dee018ac6b0ccf1/attempt_54f9f88d5ba6bc6a2f74f0649d2221c0c54e1c5599f7d71260d116f9dda84f18/artifact.json\",\"sha256\":\"4462a7b9871912751c5c1fed64933183ba9d71ac3dc7d224947b49949db165a6\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_e5e32204926950632cab802384924f016509f9f3d6827a8c68b7f1932860a6f3/attempt_57d6edb80a9e8c32a907e95024c279118e61d37499a27b5261e200b23f4927fa/artifact.json\",\"sha256\":\"4f8ef5b52ddaba7cfd4fb76dd672873228977331911ce4b1ec56140ede7bd6ce\"},{\"kind\":\"dossier_envelope\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_feb8fe3c148b34617bf1c87d360f081bb3db2af15427ffb41f0c5140c8e41473/attempt_7b259e00ca06b43365cad497767df32f1d85f88455433972db75fab2eff08a39/artifact.json\",\"sha256\":\"3aa63137e9ee2a2ca7366e4ff133a7da6fa520bcbd7d62769218d90412740303\"},{\"kind\":\"fact_registry\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/16/sec11-special-driving-challenges/425dbb06/16-fact-registry.json\",\"sha256\":\"425dbb065669ab6329f533b920464030e545a0c79a53e3fa5658caf6a2ce736d\"},{\"kind\":\"finish_criteria\",\"path\":\"contracts/pilot-finish-criteria.json\",\"sha256\":\"5434ac38e675ab6a05435e95c355d9ca825033fa13650bd26413aa11940261c5\"},{\"kind\":\"knowledge_graph\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/artifacts/task_86977b9319ea3078276e7ac90f55d13048f5357e5fea8d73e0e6725e1f61b6db/attempt_05276b4fbc5a7aa6203ca77e6994e45c88a018afa1e1922fedbc19119f1d4d9b/artifact.json\",\"sha256\":\"d7012004d8009a2907cc8e4797308fc05d5c3505d369c49a777d2d8190b52082\"},{\"kind\":\"learning_loop\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/19-learning-loop.json\",\"sha256\":\"5fb6092bd3aa514bce4e018a2d9c9d77e92d345ce7a8e6ef16a5477fb5ef5545\"},{\"kind\":\"media_disposition\",\"path\":\"contracts/media-disposition.json\",\"sha256\":\"d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd\"},{\"kind\":\"overlay\",\"path\":\"contracts/pilot-overrides-v0.4.0.json\",\"sha256\":\"c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3\"},{\"kind\":\"page_map\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-page-map.json\",\"sha256\":\"861ca61083a2c813dd62d908f887951da109663615ca45984934e5c398e05537\"},{\"kind\":\"policy\",\"path\":\"contracts/source-fact-policy.json\",\"sha256\":\"525934833394b1b37cc5ce8eb58939ae78aff0fb0c814e70df7718253795d05d\"},{\"kind\":\"prompt_authorship\",\"path\":\"contracts/prompt-authorship.json\",\"sha256\":\"2e937c9e639bf94f876c5fa32b707f2209935b450c04e6bca398450470c38742\"},{\"kind\":\"run_config\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/run-config.json\",\"sha256\":\"f1f3968b797102fce8b8fcbd2ca3212cff6272f23cf15ebc0e33dda81a96987e\"},{\"kind\":\"source_liveness\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-source-liveness.json\",\"sha256\":\"e742bf2373c9a6bebd7774b2b45ae2a58ba395947586ea942f331e99a0744f40\"},{\"kind\":\"source_registry\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/15-source-registry.json\",\"sha256\":\"c2e42c38f9f4644827a2fdadadd6340aab123a85c208ecc4839848339c6c9a98\"},{\"kind\":\"source_text_extraction\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/sources/private/15-extraction-receipt.json\",\"sha256\":\"aec76f110e9d7591136a65257cb7913cae8c5eecd615f8551281dbde0855ab8e\"},{\"kind\":\"source_text\",\"path\":\"runs/2026-10-28-rdmv-me-class-c/sources/private/15-source-text.txt\",\"sha256\":\"3facedf51d3577408571277d70b2526447155471e170798e383a597f52dbb49a\"}],\"lineage_id\":\"2026-10-28-rdmv-me-class-c:lineage:78\",\"model\":\"muse-spark-1.3\",\"role_id\":\"03\",\"run_id\":\"2026-10-28-rdmv-me-class-c\",\"stage_id\":\"03.combined_kg\",\"versions\":{\"contract\":\"8c66430a518d32320cdbd3ce379d17bd1fc8eee832dd3ea0ae3aff93c06a06a7\",\"header\":\"dddf9efff85c066a9058642033d9aa9ec4099baefaa9a6e142b38d93ef1214c0\",\"mapping\":\"a3f46a4b9bb21c0e7c56e34584fed44a4c97adae5f62ec03a832a5a2bf681aca\",\"prompt\":\"e20709faceb049787c1296e9d8c7579c24162ede081972c39858c6651cb15230\",\"registry\":\"5152cdbcdc752397619411ac8d8a87a3d50c0d5d0df981d053846bb693944268\",\"schema\":\"789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8\",\"validator\":\"68c6cfeca5105a4aab499ca91d92d4e867dd9c9e36c37c2c854f8706344b34b9\",\"validator_closure\":\"91e0e7ee15bceaaefde0e3c6987a50f4ab6261d557c3fef75865935336cdd3d7\"}}",
+        "section_ids": [
+          "sec11-special-driving-challenges"
+        ],
+        "validation_ref": {
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\artifacts\\task_93e86622425ba52fac52075103308f6223db9f52dcc1e72024d1c8e280e27236\\attempt_939a21c524c81acbb7a6dcb4f2d240b0b4cf8e2d56e6b782565ca524aeb86ed9\\validation.json",
+          "sha256": "64b0811064eb31c3e4a690526a3f81ffbcce8e36da5b3665f24ed542cc924a14",
+          "bytes": 5387
         },
-        "section": {
-          "path": "runs/2026-10-28-rdmv-me-class-c/sources/private/sol-06-exam_bank-sec01/transport-section.json",
-          "sha256": "4f6e287b043e33e368f52f4ef2b2f799442fd501954400ffa03d8816e8b620e8"
+        "acceptance_ref": {
+          "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-me-class-c\\artifacts\\task_93e86622425ba52fac52075103308f6223db9f52dcc1e72024d1c8e280e27236\\attempt_939a21c524c81acbb7a6dcb4f2d240b0b4cf8e2d56e6b782565ca524aeb86ed9\\acceptance.json",
+          "sha256": "2c6f46aa79f5d56e577f292d541d0477f7f1395a4435b23687734a9ad97abc9d",
+          "bytes": 184
         }
       },
-      "ingest_started": false,
-      "outbox_written": false,
-      "note": "Packet emitted after section-eleven composer process had already exited with an exception; no candidate, native submission, charge or source flag change. Preserve and rebind only after the stop is resolved."
+      "card_id": "sec11-card-f27",
+      "script_parity": true,
+      "source_rewrite": false,
+      "independent_fact_audit": "pending; this resolution changes pronunciation only"
     }
   ],
-  "next_stage": "04.cards"
+  "remaining_authoring_holds": [],
+  "final_authoring_checkpoint": {
+    "path": "scratch/sol-me/AUTHORING-COMPLETE-CHECKPOINT.json",
+    "sha256": "ac9125a77c06b8af7b79a7fc5bbb94d487bed2e12351f69c384ba79bbe18ee8a"
+  }
 }

@@ -172,3 +172,148 @@ Seeded 2026-10-28T07:24:47.965Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 18 standing-authorized newcandidate advances after accepted capacity, lineage44→62, caps/counters retained; no paidAPI/audio/publishing/shared edits. All12CURRENT companions verified under native lock; lock released.
 - Usage fixed baseline22988112, snapshot2026-10-28T11:25:11.543Z, cumulative26674326, delta3686214, cached subset3535616, noncache input plus output150598. Unique semantic new-work tokens unavailable.
 - Nextsections13–15 and all downstream/independent/sourcecurrency work remain owed; no new packet emitted.
+
+- 2026-10-28T13:31:51.977Z Head released Sol same run after shared-code integration. Last SMEsections13–15:131 source-checked facts pinned in runs/2026-10-28-rdmv-nm-class-std/receipts/source-reviews/source-review-batch4a.json@040c511220d473aae2a4c508aa9f229a8a7460114f500b2f40758e5764b9e76f, runs/2026-10-28-rdmv-nm-class-std/receipts/source-reviews/source-review-batch4b.json@8c9cf38c52183bd2728c7ca17be4b2d765ea1dd1696a9cc53849675c78b5afe6, runs/2026-10-28-rdmv-nm-class-std/receipts/source-reviews/source-review-batch4c.json@aff8370040efe39f641b082363222a308d35cf92bb2791e43339f84c294664c2;27parts02/16 only, then stop. Old12 current companions pinned. Current-part count corrected108 before growth; source-evidence tuple corrected before any outbox. Clinical/legal/current-source/independent debts retained, no motorcycle content at/after page38 heading. No shared edits or paid provider.
+
+- 2026-10-28T13:32:09.167Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:62 → 2026-10-28-rdmv-nm-class-std:lineage:63; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage63-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:12.725Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:63 → 2026-10-28-rdmv-nm-class-std:lineage:64; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage64-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:16.870Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:64 → 2026-10-28-rdmv-nm-class-std:lineage:65; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage65-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:21.139Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:65 → 2026-10-28-rdmv-nm-class-std:lineage:66; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage66-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:26.010Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:66 → 2026-10-28-rdmv-nm-class-std:lineage:67; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage67-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:32.158Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:67 → 2026-10-28-rdmv-nm-class-std:lineage:68; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage68-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:36.184Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:68 → 2026-10-28-rdmv-nm-class-std:lineage:69; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage69-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:40.798Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:69 → 2026-10-28-rdmv-nm-class-std:lineage:70; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage70-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:45.100Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:70 → 2026-10-28-rdmv-nm-class-std:lineage:71; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage71-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:32:59.677Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:71 → 2026-10-28-rdmv-nm-class-std:lineage:72; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage72-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:33:03.816Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:72 → 2026-10-28-rdmv-nm-class-std:lineage:73; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage73-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:33:08.525Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:73 → 2026-10-28-rdmv-nm-class-std:lineage:74; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage74-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:33:13.456Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:74 → 2026-10-28-rdmv-nm-class-std:lineage:75; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage75-sol-new-sme-v1.json. Caps/counters retained.
+
+- 2026-10-28T13:33:20.429Z Sol new-SME candidate 2026-10-28-rdmv-nm-class-std:lineage:75 → 2026-10-28-rdmv-nm-class-std:lineage:76; stage 02.dossier_sections, all2 old attempts accepted, immutable receipt runs/2026-10-28-rdmv-nm-class-std/receipts/lineage-reset-02dossiersections-lineage76-sol-new-sme-v1.json. Caps/counters retained.
+
+## Sol final SME checkpoint 2026-10-28T13:36:52.045Z
+- Last3 SMEsections13–15 accepted02/16:131newfacts,27parts,3compiles,540mappedchecksPASS. All15mapped SMEsections now654facts135currentparts15currentcompiles;151historicalparts31historicalcompiles. Original49corrections and first12 current companions unchanged.
+- Fixed current_dossier_parts stale72→108 before batch, now135 from native bindings; prior backups retained. Native two-page support for stuck-pedal34/35 and insuranceproof37/38 retained. NewF/G exact; older five metadata groups remain head-owned.
+- All source/clinical/legal/visual/currency/independent debts remain open; current-law/medical/airbag/firstaid guarantees not claimed. Page38 motorcycle heading and later content excluded.
+- One scratch evidence tuple failed exact-source matching before outbox and was corrected; no native failed check/HOLD/retry.14cause-recorded standing-authorized newcandidate advances after accepted capacity, lineage62→76; oldcaps/counters preserved. All15CURRENT pairs verified under native lock and released.
+- Money actual/outstanding/reserved/uncertain allzero; no shared edits, nestedauthors, provider/probe/audio/publish/downstream. STOP after last3SME per head; NEXT consumedsec15G, no pendingoutbox.
+- Root already recorded barrier27089170/cache26490752; snapshot2026-10-28T13:34:27.878Z cumulative29371920, DELTAonly2282750, cachedsubset2240128, noncacheinputplusoutput42622. No unique semantic new-work counter invented.
+
+- 2026-10-28T13:50:42.268Z NMsec03 native full9part dependent-metadata group and versioned compile PASS; facts50, ranks2, debts11 exact, one semantic group,11 superseded original/corrected ancestors. All old attempts/source debt flags preserved. Money0, no downstream; CURRENT refreshed under native lock.
+
+- 2026-10-28T13:51:14.929Z NMsec07 group new-candidate 2026-10-28-rdmv-nm-class-std:lineage:76 → 2026-10-28-rdmv-nm-class-std:lineage:77 after two accepted stage02 attempts; receiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-group-sec07-accepted-capacity-lineage.json; old history/caps/nonces preserved.
+
+- 2026-10-28T13:51:30.880Z NMsec07 native full9part dependent-metadata group and versioned compile PASS; facts53, ranks2, debts13 exact, one semantic group,11 superseded original/corrected ancestors. All old attempts/source debt flags preserved. Money0, no downstream; CURRENT refreshed under native lock.
+
+## NMsec03/sec07 group checkpoint 2026-10-28T13:55:53.024Z
+- Both authorized full9part dependent-metadata groups and nativecompilesPASS;42mappedchecks127genericpins.103targetfactobjects,4rankingrows,24debtrows all exact; all654statefactobjects unchanged. Eachcompile onecomposite with11superseded ancestors. No source/clinical/legal/independent QA clearance.
+- Current15sections654facts135parts119activeenvelopes15compiles; historical153dossier envelopes169partoccurrences33compiles188acceptedattempts. Oldhistory/caps/nonces preserved. Onlysec08F/G administrative discrepancies remain, nosec08/downstreampacket.
+- Diagnostic identity and overstrict compiled-debt ordering preconditions corrected before native submission; all row flags/multiplicity retained, ranking full order exact; no nativefailure/HOLD/retry.
+- CURRENT native locks released; no pendingoutbox/inflight; moneyactual/reserved/outstanding/uncertain allzero; no shared edits/provider/audio/publish/nestedauthors.
+- Usage snapshot2026-10-28T13:55:19.431Z cumulative32716871; cached31995776; headbaseline29371920/cache28730880; DELTAonly3344951, cachedsubset3264896, noncacheplusoutput80055. STOP.
+
+## NMsec03/sec07 group checkpoint 2026-10-28T13:57:22.094Z
+- Both authorized full9part dependent-metadata groups and nativecompilesPASS;42mappedchecks127genericpins.103targetfactobjects,4rankingrows,24debtrows all exact; all654statefactobjects unchanged. Eachcompile onecomposite with11superseded ancestors. No source/clinical/legal/independent QA clearance.
+- Current15sections654facts135parts119activeenvelopes15compiles; historical153dossier envelopes169partoccurrences33compiles188acceptedattempts. Oldhistory/caps/nonces preserved. Onlysec08F/G administrative discrepancies remain, nosec08/downstreampacket.
+- Diagnostic identity/debt-order preconditions and an aggregate parsed-identity counter corrected; all row flags/multiplicity retained, ranking full order exact; no nativefailure/HOLD/retry.
+- CURRENT native locks released; no pendingoutbox/inflight; moneyactual/reserved/outstanding/uncertain allzero; no shared edits/provider/audio/publish/nestedauthors.
+- Usage snapshot2026-10-28T13:55:53.186Z cumulative32974353; cached32251904; headbaseline29371920/cache28730880; DELTAonly3602433, cachedsubset3521024, noncacheplusoutput81409. STOP.
+
+- 2026-10-28T14:04:25.561Z NMsec08 native full9part dependent-metadata group and versioned compile PASS; facts84, ranks2, debts12 exact, one semantic group,11 superseded original/corrected ancestors. All old attempts/source debt flags preserved. Money0, no downstream; CURRENT refreshed under native lock.
+
+## NM finalflaggedsec08 metadata checkpoint 2026-10-28T14:08:19.284Z
+- Sec08full9part nativegroup+compilePASS,21mappedchecks63genericpins.84factobjects2rankingrows12debtrows and allnon-F/G payloads exact. Onecomposite+11supersededancestors; no source or independentreview clearance. All3flaggedmetadata groups nowreconciled, source/clinical/legal/visual/currencydebtretained.
+- All654factobjects/rankings/debtrows unchanged; current135parts111envelopes15compiles; history154dossier envelopes178part occurrences34compiles190acceptedattempts. Other14companion pairsunchanged. Lineage77capacity fit; no caps/nonces/counters/oldhistory changes.
+- Legitimate nativefiletransport1modelcalls row; rawbillingmodel_api_calledfalse/credit0, callestimated/tokens0. Moneyallzero; no HOLD/retry/repeatsubmission; no provider/audio/publish/shared edits/nestedauthors. All15CURRENT match; locksreleased, no pendingoutbox/inflight. STOP before03 awaitingheadboundedassignment.
+- Fixedsnapshot2026-10-28T14:06:01.121Z, cumulative34295037, cached33558272; rootbaseline32974353/cache32251904; DELTAonly1320684, cachedsubset1306368, noncacheplusoutput14316.
+
+## NM firstKG native preflight HOLD 2026-10-28T15:08:48.553Z
+- Sec01candidate57facts(56stable1dynamic),8edges4modules;25localowner/schema/mappingchecksPASS. One dispatchStage call threw model_api_key_env_absent at preflight before lock/ledger/transport; zero nativeattempts/calls/reservations. No native graph accepted, sec02notstarted.
+- Cause:worker helper omitted dotenv/config loader used by native CLIs. Proposed patch stored unexecuted; nativeexception STOP honored. Exact packet/outbox/candidate/GO/lineage77/nonce0 and190oldattempts preserved. No counters/caps/rebind/recovery.
+- Structured-source projection and dependent-command local diagnostics preserved with exactdiff; no failed native mappedcheck. Bound conventions contain legacy scope/enum wording; strictowneradapter/nativecontext followed.
+- Allsource/clinical/legal/currentness/independent07/08 debt retained; sourceSME654facts135parts unchanged. Moneyallzero, ownership/locksreleased, no provider/audio/probe/publish/shared edits/nestedauthors.
+- Usage snapshot2026-10-28T15:05:37.056Z, cumulative39560356, cached38732288; assignmentsbaseline34295037/cache33558272; DELTAonly5265319, cachedsubset5174016, noncacheplusoutput91303. STOP awaitinghead.
+
+## NM firsttwoKG native completion 2026-10-28T15:29:46.407Z
+- Sec01andsec02 eachnativeaccepted25mappedchecks;79factscovered(78stable1dynamic),13edges7modules21exactupstreamdebts retained. Labels/citations/actors/conditions/exception/number/form text exact; no source/independent QA clearance.
+- Bootstrapstop preserved and explicitly released byhead; explicitquietprojectdotenv loader, samefirstpacket/candidate/outbox/GO unchanged; oneactualacceptedattempt persection, no failedattempt/capnonce/lineage/rebindrecovery. All190priorattempts preserved;192allacceptednow. Layerbytearchives exact.
+- Twoauthenticfiletransportcalls model_api_calledfalse/credit0, legitimate2modelcallsrows2reportedreservations; moneyallzero. All15SMEcompanionsunchanged. Noother03/04/06/05/provider/audio/publish/sharededits/nestedauthors; locksreleased/pendingnone. STOP.
+- Fixedusage2026-10-28T15:24:50.578Z cumulative43394610,cached42535168; assignmentsbaseline34295037/cache33558272; DELTA9099573,cached8976896. EarlierHOLDsample39560356 retained; afterHOLDdelta3834254,cached3802880. Rootrecords onlylatestbaseline delta.
+
+- 2026-10-28T16:13:19.324Z KGsec03 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:77→2026-10-28-rdmv-nm-class-std:lineage:78; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; bounded advance1/2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-KG-sec03-accepted-capacity.json.
+
+- 2026-10-28T16:14:52.556Z KGsec05 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:78→2026-10-28-rdmv-nm-class-std:lineage:79; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; bounded advance2/2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-KG-sec05-accepted-capacity.json.
+
+- 2026-10-28T16:18:38.495Z KG03–06 nativePASS:4graphs132facts26edges14modules100checks;42debtrowsretained. Capacity77→78→79 afteracceptedallowancesonly;192priorattempts preserved,196allaccepted. Money0/nootherstages;STOP. Usage47607004/cache46704896, rootdelta4212394/cache4169728.
+
+- 2026-10-28T16:42:39.737Z KGsec07 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:79→2026-10-28-rdmv-nm-class-std:lineage:80; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; bounded advance1/2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-KG-sec07-accepted-capacity.json.
+
+- 2026-10-28T16:43:16.267Z KGsec09 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:80→2026-10-28-rdmv-nm-class-std:lineage:81; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; bounded advance2/2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-KG-sec09-accepted-capacity.json.
+
+- 2026-10-28T16:53:12.133Z KGsec11 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:81→2026-10-28-rdmv-nm-class-std:lineage:82; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; bounded advance1/2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-KG-sec11-accepted-capacity.json.
+
+- 2026-10-28T16:53:33.592Z KGsec13 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:82→2026-10-28-rdmv-nm-class-std:lineage:83; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; bounded advance2/2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-KG-sec13-accepted-capacity.json.
+
+- 2026-10-28T16:55:23.694Z KGsec15 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:83→2026-10-28-rdmv-nm-class-std:lineage:84; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; bounded advance1/2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-KG-sec15-accepted-capacity.json.
+
+- 2026-10-28T17:04:09.067Z HOLD_REQUIRED_CARD_BINDINGS: sec03-F24 exact accepted verbal anaphora matches strict text-first visual lint (BACK_FIDELITY PASS, MEDIA_DISPOSITION FAIL in read-only component proof); no card03 packet or native attempt. Also sec10-R03 slash and sec12-R02 mph lack accepted safe spoken binding. Source facts/contracts/validators unchanged;207 accepted attempts, all money0. Receipt D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-cards-required-binding-hold.json.
+
+- 2026-10-28T19:04:07.168Z CARDSsec04 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:84→2026-10-28-rdmv-nm-class-std:lineage:85; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance1. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-CARDS-sec04-accepted-capacity.json.
+
+- 2026-10-28T19:04:22.936Z CARDSsec06 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:85→2026-10-28-rdmv-nm-class-std:lineage:86; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-CARDS-sec06-accepted-capacity.json.
+
+- 2026-10-28T19:05:29.622Z CARDSsec08 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:86→2026-10-28-rdmv-nm-class-std:lineage:87; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance3. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-CARDS-sec08-accepted-capacity.json.
+
+- 2026-10-28T19:07:15.676Z CARDSsec11 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:87→2026-10-28-rdmv-nm-class-std:lineage:88; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance4. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-CARDS-sec11-accepted-capacity.json.
+
+- 2026-10-28T19:08:11.912Z CARDSsec13 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:88→2026-10-28-rdmv-nm-class-std:lineage:89; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance5. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-CARDS-sec13-accepted-capacity.json.
+
+- 2026-10-28T19:08:28.051Z CARDSsec15 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:89→2026-10-28-rdmv-nm-class-std:lineage:90; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance6. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-CARDS-sec15-accepted-capacity.json.
+
+- 2026-10-28T19:11:13.204Z SCRIPTSsec04 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:90→2026-10-28-rdmv-nm-class-std:lineage:91; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance1. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SCRIPTS-sec04-accepted-capacity.json.
+
+- 2026-10-28T19:11:28.807Z SCRIPTSsec06 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:91→2026-10-28-rdmv-nm-class-std:lineage:92; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SCRIPTS-sec06-accepted-capacity.json.
+
+- 2026-10-28T19:12:05.770Z SCRIPTSsec08 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:92→2026-10-28-rdmv-nm-class-std:lineage:93; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance3. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SCRIPTS-sec08-accepted-capacity.json.
+
+- 2026-10-28T19:12:32.892Z SCRIPTSsec11 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:93→2026-10-28-rdmv-nm-class-std:lineage:94; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance4. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SCRIPTS-sec11-accepted-capacity.json.
+
+- 2026-10-28T19:12:58.094Z SCRIPTSsec13 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:94→2026-10-28-rdmv-nm-class-std:lineage:95; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance5. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SCRIPTS-sec13-accepted-capacity.json.
+
+- 2026-10-28T19:13:14.445Z SCRIPTSsec15 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:95→2026-10-28-rdmv-nm-class-std:lineage:96; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance6. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SCRIPTS-sec15-accepted-capacity.json.
+
+- 2026-10-28T19:28:22.909Z EXAMsec04 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:96→2026-10-28-rdmv-nm-class-std:lineage:97; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance1. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-EXAM-sec04-accepted-capacity.json.
+
+- 2026-10-28T19:28:42.005Z EXAMsec06 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:97→2026-10-28-rdmv-nm-class-std:lineage:98; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-EXAM-sec06-accepted-capacity.json.
+
+- 2026-10-28T19:29:20.000Z EXAMsec08 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:98→2026-10-28-rdmv-nm-class-std:lineage:99; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance3. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-EXAM-sec08-accepted-capacity.json.
+
+- 2026-10-28T19:29:40.992Z EXAMsec11 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:99→2026-10-28-rdmv-nm-class-std:lineage:100; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance4. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-EXAM-sec11-accepted-capacity.json.
+
+- 2026-10-28T19:30:06.335Z EXAMsec13 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:100→2026-10-28-rdmv-nm-class-std:lineage:101; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance5. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-EXAM-sec13-accepted-capacity.json.
+
+- 2026-10-28T19:30:24.836Z EXAMsec15 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:101→2026-10-28-rdmv-nm-class-std:lineage:102; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance6. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-EXAM-sec15-accepted-capacity.json.
+
+- 2026-10-28T19:36:40.431Z SESSIONSsec04 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:102→2026-10-28-rdmv-nm-class-std:lineage:103; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance1. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SESSIONS-sec04-accepted-capacity.json.
+
+- 2026-10-28T19:36:57.182Z SESSIONSsec06 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:103→2026-10-28-rdmv-nm-class-std:lineage:104; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance2. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SESSIONS-sec06-accepted-capacity.json.
+
+- 2026-10-28T19:37:39.052Z SESSIONSsec08 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:104→2026-10-28-rdmv-nm-class-std:lineage:105; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance3. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SESSIONS-sec08-accepted-capacity.json.
+
+- 2026-10-28T19:38:07.863Z SESSIONSsec11 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:105→2026-10-28-rdmv-nm-class-std:lineage:106; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance4. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SESSIONS-sec11-accepted-capacity.json.
+
+- 2026-10-28T19:39:28.136Z SESSIONSsec13 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:106→2026-10-28-rdmv-nm-class-std:lineage:107; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance5. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SESSIONS-sec13-accepted-capacity.json.
+
+- 2026-10-28T19:39:55.014Z SESSIONSsec15 accepted-capacity 2026-10-28-rdmv-nm-class-std:lineage:107→2026-10-28-rdmv-nm-class-std:lineage:108; two accepted stage03 attempts, no failed attempt. Native rebind derives ordinary GO; caps/nonces/history retained; continuous accepted-capacity advance6. ReceiptD:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-nm-class-std\receipts\sol-SESSIONS-sec15-accepted-capacity.json.

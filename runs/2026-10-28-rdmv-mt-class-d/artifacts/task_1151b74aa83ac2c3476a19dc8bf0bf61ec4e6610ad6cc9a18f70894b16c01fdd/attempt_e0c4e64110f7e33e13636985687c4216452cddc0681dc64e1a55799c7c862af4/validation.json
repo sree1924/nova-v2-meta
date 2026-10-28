@@ -1,0 +1,177 @@
+{
+  "status": "PASS",
+  "stage_id": "05.card_scripts",
+  "checks": [
+    {
+      "check_id": "05.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/05-voicescripts.schema.json"
+    },
+    {
+      "check_id": "05.STRING_BOUNDS",
+      "status": "PASS",
+      "evidence": "slug, hashes, non-empty ids/segments, repeat_count>=1, pause_after_ms>=0 over 83 scripts",
+      "metrics": {
+        "violations": 0
+      }
+    },
+    {
+      "check_id": "05.SCRIPT_IDS",
+      "status": "PASS",
+      "evidence": "83 unique script ids; 78 card scripts, 5 recap scripts",
+      "metrics": {
+        "card_scripts": 78,
+        "recap_scripts": 5
+      }
+    },
+    {
+      "check_id": "05.NARRATED_FIELDS",
+      "status": "PASS",
+      "evidence": "every narrated script sets tone, pacing, repeat_count and pause_after_ms (parent if/then restored)"
+    },
+    {
+      "check_id": "05.SCRIPT_SHAPE",
+      "status": "PASS",
+      "evidence": "card scripts carry segments + both equality targets; recaps carry is_recap and no back; figural scripts route to tap_ui"
+    },
+    {
+      "check_id": "05.SEGMENT_ORDER",
+      "status": "PASS",
+      "evidence": "segments ordered question -> think_ref -> recall_pause_ms -> answer -> teaching on every segmented script"
+    },
+    {
+      "check_id": "05.RECALL_PAUSE",
+      "status": "PASS",
+      "evidence": "recall_pause_ms == 3000 on every segmented script (silent data, not spoken words)"
+    },
+    {
+      "check_id": "05.THINK_REF",
+      "status": "PASS",
+      "evidence": "every think_ref resolves to the one shared cue sec05-think; cue text has no direction or speak request"
+    },
+    {
+      "check_id": "05.SELF_EQUALITY",
+      "status": "PASS",
+      "evidence": "78 scripts: answer == must_match_card_back and teaching contains must_match_memory_hook verbatim",
+      "metrics": {
+        "defects": 0
+      }
+    },
+    {
+      "check_id": "05.CARD_COVERAGE",
+      "status": "PASS",
+      "evidence": "78/78 accepted cards scripted exactly once",
+      "metrics": {
+        "accepted_cards": 78,
+        "missing": 0,
+        "extra": 0
+      }
+    },
+    {
+      "check_id": "05.CARD_PARITY",
+      "status": "PASS",
+      "evidence": "question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, module/unit/source_ref/fact_ids carried through",
+      "metrics": {
+        "question": 0,
+        "answer": 0,
+        "back_target": 0,
+        "hook_target": 0,
+        "teaching_hook": 0,
+        "carry": 0
+      }
+    },
+    {
+      "check_id": "05.RECAP_PARITY",
+      "status": "PASS",
+      "evidence": "5 accepted recaps each scripted with hooks spoken verbatim"
+    },
+    {
+      "check_id": "05.TEACHING_FACT_IDS",
+      "status": "PASS",
+      "evidence": "every teaching segment binds >=1 unique accepted fact id",
+      "metrics": {
+        "defects": 0
+      }
+    },
+    {
+      "check_id": "05.STAGE_DIRECTIONS",
+      "status": "PASS",
+      "evidence": "no \"[beat]\", pause, timed-silence, ellipsis timing marker or speak request in any narrated span",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "05.PRACTICE_ONLY",
+      "status": "PASS",
+      "evidence": "no \"official answer\", \"actual test\", \"real question\" (or variants) in any narrated span",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "05.LEARNER_SCAFFOLD",
+      "status": "PASS",
+      "evidence": "no \"(verify\", needs_review, QA label or doubled article in narrated content",
+      "metrics": {
+        "hits": 0
+      }
+    },
+    {
+      "check_id": "05.DEICTIC_VISUAL",
+      "status": "PASS",
+      "evidence": "no deictic visual question without a bound image asset; no image asset bound while image cards are disabled"
+    },
+    {
+      "check_id": "05.PRONUNCIATION",
+      "status": "PASS",
+      "evidence": "0 hint(s): token-equal or flagged proper-noun respelling (0)",
+      "metrics": {
+        "hints": 0,
+        "proper_noun_respellings": 0,
+        "violations": 0
+      }
+    },
+    {
+      "check_id": "05.AUDIO_RENDER",
+      "status": "PASS",
+      "evidence": "audio_render sentinel bound to media disposition d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd (no rendered audio, no live TTS, role 20 inactive)"
+    },
+    {
+      "check_id": "05.INPUT_BINDING",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 equals scoped manifest b0b2ac641aad7b8bc908d4815c6a68e2c2c79253683c9a12fc465c7e3e794863"
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "7c02cb21865097a56362b1b8f474afb1d2ec798ec54b206e155c47e7777db409",
+    "05.STRING_BOUNDS.violations": 0,
+    "05.SCRIPT_IDS.card_scripts": 78,
+    "05.SCRIPT_IDS.recap_scripts": 5,
+    "05.SELF_EQUALITY.defects": 0,
+    "05.CARD_COVERAGE.accepted_cards": 78,
+    "05.CARD_COVERAGE.missing": 0,
+    "05.CARD_COVERAGE.extra": 0,
+    "05.CARD_PARITY.question": 0,
+    "05.CARD_PARITY.answer": 0,
+    "05.CARD_PARITY.back_target": 0,
+    "05.CARD_PARITY.hook_target": 0,
+    "05.CARD_PARITY.teaching_hook": 0,
+    "05.CARD_PARITY.carry": 0,
+    "05.TEACHING_FACT_IDS.defects": 0,
+    "05.STAGE_DIRECTIONS.hits": 0,
+    "05.PRACTICE_ONLY.hits": 0,
+    "05.LEARNER_SCAFFOLD.hits": 0,
+    "05.PRONUNCIATION.hints": 0,
+    "05.PRONUNCIATION.proper_noun_respellings": 0,
+    "05.PRONUNCIATION.violations": 0,
+    "required_checks": 20,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "5eb367ff6d730b7807dc14637d5525234c6d8e32af31599957b0acedf00d32e0",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}

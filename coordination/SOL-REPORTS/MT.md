@@ -1,14 +1,11 @@
-MT — HOLD before emission; no submission/retry/lineage reset this continuation.
-Run 2026-10-28-rdmv-mt-class-d; model gpt-6.1-sol; ChatGPT Pro subscription.
-Native HOLD: Error: NATIVE_BINDING_ATTEMPT_OR_ACCOUNTING_HOLD.
-Mode execute; ownership released; config binding matches false.
-Attempt states {"accepted":90}; reservation states {"reported":80}.
-Disk-native boundary: 8 sections compiled; sec09 has accepted C/C2/A/B/D/E/E2 and pending G; no accepted work repeated.
-Original rotation checkpoint had only four compiled sections; later Muse-authored work was discovered and preserved.
-Source/edition/unknown exam values and all typed history retained; no intake repeated.
-Next preserved packet 02.dossier_sections__sec09-basic-driving-and-observation__G__n0; packet SHA dc8e338eaff8f2b6c8951f84f9dbb821d812b7ad9324722c1a649c9e3e0030fe.
-No active subprocess or native lock; no paid API, audio, publishing, nested agents or shared edits.
-Actual $0.000; outstanding reserved $0.000; uncertain $0.000.
-Latest cumulative sample 12180140 total tokens, 11683968 cached input at 2026-10-28T17:47:51.266Z.
-Fixed root baseline 6,345,599 total / 6,147,456 cached; exact delta and accepted16 refs in CONTINUOUS-HOLD-CHECKPOINT.json.
-State is not complete. All remaining SME and downstream work awaits resolution of this native-state HOLD.
+MT — corrective authoring active; incomplete.
+Completed corrected scopes: sec04-occupant-protection, sec12-driver-fitness, sec14-penalties-and-records.
+Three classifier omissions restored through native accepted-part replacement, new 16 indexes, fresh 03 graphs and 04 cards; old acceptance ancestry preserved.
+Current 883 studied cards / 170 accepted items; 713 card nodes still need items or justified typed gaps.
+Current 415 lesson slides; 327 still repeat a complete accepted source statement.
+Missing lesson fact coverage 1; missing script cards 1 (affected 03/12 descendants must be refreshed).
+Section 02 official form title remains held. All source/fact debt remains; independent 07/08 pending.
+225 native accepted attempts. Actual/reserved/uncertain $0/$0/$0. No active native invocation or lock.
+Actual cumulative usage 40412545 total / 39509504 cached at 2026-10-28T19:52:20.066Z. Root baseline 12,180,140 total / 11,683,968 cached; root aggregates shared usage.
+Current exact refs and uncovered IDs: scratch/sol-mt/REVISION-CHECKPOINT.json @ 792b60b493b7bcfe620d0429aed44e98f5f0c138fccfac1c02fa153cb6328922.
+No paid API, audio rendering, publication, nested authors, shared code/cap changes or failed-candidate resets. Continuing authorized ready scopes.
