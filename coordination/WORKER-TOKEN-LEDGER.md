@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T03:54:16.038Z
+# Worker token ledger — generated 2026-10-28T03:59:56.694Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 11 | 390,087,743 | 1,138,963 | 391,226,706 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 8 | 0 | 0 | 1,684,745 | $0.00 | CO MI NC NJ UT WA |
+| claude | Anthropic subscription (Claude Code subagent) | 9 | 0 | 0 | 1,929,000 | $0.00 | CO MI NC NJ UT WA |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -27,4 +27,5 @@
 | claude | claude-opus-5-5 | NJ | state worker: intake prep (spec, section map, exam facts); blocked by registrar footer-crop bug + 120s timeout | — | — | — | — | 115,360 | 28 | 18 min | $0.00 |
 | claude | claude-opus-5-5 | WA | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 279,203 | 79 | 19 min | $0.00 |
 | claude | claude-opus-5-5 | NC | state worker: sec05-10 (54 parts, 6 compiles, 0 holds) | — | — | — | — | 215,026 | 61 | 15 min | $0.00 |
+| claude | claude-opus-5-5 | MI | state worker: sec05-14 (90 parts, 10 compiles, 0 holds) — MICHIGAN SME COMPLETE 14/14 | — | — | — | — | 244,255 | 98 | 21 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

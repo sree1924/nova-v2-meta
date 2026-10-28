@@ -99,3 +99,29 @@ Seeded 2026-10-28T03:26:23.541Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T03:53:18.234Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:49 for 02.dossier_sections (sec11-pavement-markings-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-pavement-markings-signals__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T03:53:25.238Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:50 for 02.dossier_sections (sec11-pavement-markings-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-pavement-markings-signals__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:54:45.638Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:51 for 02.dossier_sections (sec12-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:54:55.352Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:52 for 02.dossier_sections (sec12-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:55:04.349Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:53 for 02.dossier_sections (sec12-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:55:15.714Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:54 for 02.dossier_sections (sec12-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:55:24.919Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:55 for 02.dossier_sections (sec13-safe-driving-freeways-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-safe-driving-freeways-weather__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:56:37.525Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:56 for 02.dossier_sections (sec13-safe-driving-freeways-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-safe-driving-freeways-weather__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:56:46.365Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:57 for 02.dossier_sections (sec13-safe-driving-freeways-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-safe-driving-freeways-weather__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:56:55.742Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:58 for 02.dossier_sections (sec13-safe-driving-freeways-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-safe-driving-freeways-weather__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:57:05.746Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:59 for 02.dossier_sections (sec13-safe-driving-freeways-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-safe-driving-freeways-weather__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:58:21.597Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:60 for 02.dossier_sections (sec14-stopping-night-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-stopping-night-emergencies-crashes__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:58:33.423Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:61 for 02.dossier_sections (sec14-stopping-night-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-stopping-night-emergencies-crashes__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:58:40.359Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:62 for 02.dossier_sections (sec14-stopping-night-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-stopping-night-emergencies-crashes__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T03:58:48.620Z lineage reset → 2026-10-28-rdmv-mi-class-std:lineage:63 for 02.dossier_sections (sec14-stopping-night-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-stopping-night-emergencies-crashes__F__n0 (lineage attempts exhausted)

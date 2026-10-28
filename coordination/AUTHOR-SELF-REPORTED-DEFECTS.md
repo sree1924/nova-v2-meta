@@ -15,3 +15,7 @@ claim. Workers are told to report what they know is off. Fix pass = re-author th
 | 2026-10-28 | NC | sec07 title | section title mentions funerals; funeral-procession rules (p54) are authored in sec08 | claude-opus-5-5 worker |
 | 2026-10-28 | NC | sec09 part D | note claims p58 material "is printed on p59" from extracted text only, page not seen | claude-opus-5-5 worker |
 | 2026-10-28 | NC | sec10 / sec11 boundary | p67 headlight/taillight/plate-light rules authored in sec10; sec11 must not re-author them | claude-opus-5-5 worker |
+| 2026-10-28 | MI | sec13 part G | domain label "Safe driving, freeways, weather and braking" vs C/C2 label "Safe driving, intersections and freeways" (content right, label inconsistent) | claude-opus-5-5 worker |
+| 2026-10-28 | MI | sec10, sec11 needs_dedicated_surface | picture sign drill / diagram drill are the author's product judgement, not handbook statements | claude-opus-5-5 worker |
+| 2026-10-28 | MI | sec09 C2 | a few comparison lines lean on mild inference (e.g. "not simply to whoever parked it") | claude-opus-5-5 worker |
+| 2026-10-28 | MI | sec10 | sign meanings taken from answer text; sign pictures are not in extracted text | claude-opus-5-5 worker |
