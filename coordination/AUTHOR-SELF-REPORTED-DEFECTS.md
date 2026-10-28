@@ -347,3 +347,7 @@ V3 exact-label and declared-identifier speech fix applied after fresh foreign an
 
 <!-- SOL-NM03-EXISTING-MERGE-OWNER-RESOLUTION-20261028 -->
 Owner response coordination/NM-03-TEXT-LOCAL-SYMBOL-OWNER-RESPONSE.json (87ad14a) supplies existing04 merges[] path for sec03-F24, with unchanged source fact/node and full exam/lesson coverage. Root earlier diagnosed the exact back-text regex conflict but missed the existing merge route. No schema/validator/compiler change or source/debt flag clearance is needed. Root explicitly authorized the worker to use a justified same-module host card, keep the host back exact, and preserve F24 teaching/exam coverage without a standalone merged-card script.
+
+
+<!-- SOL-COMPLETED-NINE-CLOSEOUT-20261028 -->
+Read-only closeout report coordination/SOL-REPORTS/CLOSEOUT-COMPLETED-NINE-20261028.md confirms prompt06 coverage omissions: ID922 and PA857 served cards without exam items; accepted banks have no typed gap/page-debt entries. Native06 acceptance lacks a per-studied-card enforcement check. All current native artifact/source/companion/receipt bindings and script parity verified using transitive source supersession; no run or validator was changed. NE legacy delta sums exceed its fixed main sample by2335217 total /2249856cached, pending attribution/overlap reconciliation. Narration/cloze/speech diagnostics are qualified separately. Re-authoring and Fable re-onboarding were not performed.
