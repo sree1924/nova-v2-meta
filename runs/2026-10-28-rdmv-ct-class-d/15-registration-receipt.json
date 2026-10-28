@@ -1,0 +1,132 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "3732cfe940ca042b7ebd89479190753382c4f167a752172ccbc6326f42d129ad",
+    "bytes": 32041
+  },
+  "source": {
+    "source_ref": "src:rdmv-ct-d:connecticut-department-of-motor-vehicles:handbook",
+    "path": "runs/2026-10-28-rdmv-ct-class-d/sources/private/drivers-manual-english.pdf",
+    "sha256": "7f79ea70ac8771fa40d7df35641fdcabd4952b7175205e2245ba392853c3581c",
+    "bytes": 3309348,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-ct-class-d/sources/private/input-snapshots/bf35ae36da378004356008b9429b59eddf771715f6d8ccb0e8ded893477047e0.json",
+      "sha256": "bf35ae36da378004356008b9429b59eddf771715f6d8ccb0e8ded893477047e0"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 60,
+    "printed_page_count": 54,
+    "page_map_sha256": "abb242abf928ab40ba5cfa19582598aa2853630d15193e17b108f1557d15ad06",
+    "extracted_text_sha256": "f67162731f2bc2d96e85a29f412fdea4e6bd6b9246b96f7eea877e6f6f4aba6e",
+    "recorded_retrieved_at": "2026-10-28T06:49:17Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": "Revised March 2023",
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-ct-class-d/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "5570cfe56fc37b6e6c84fce8b40dc5361d2d7156da4932b9b47b65612a5279e9"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-ct-class-d/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "11320496b6562628aca59683077b284f6be9b3ce59b1bdc4cb957094dcf53545"
+      },
+      "observed_at_utc": "2026-10-28T06:59:35Z",
+      "official_page_url": "https://portal.ct.gov/dmv/licenses-permits-ids/ct-drivers-manuals",
+      "observation_method": "Rendered page text excerpt (WebFetch/browser) with the exact visible handbook href; saved snapshot bytes are JSON, not the HTTP response body.",
+      "recorder": {
+        "actor": "Muse Code (subscription) via node fetch + intake-state.mjs",
+        "session_id": "2bdcad95-d4cc-467e-a88d-be4a6260cf03"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-ct-class-d/receipts/issuer-page-snapshot.json",
+        "sha256": "fe2be8ba3d58e9d47fe4c6e42128d8461ec7e3cc52600690b08d9f8384052f47",
+        "bytes": 1055,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "issuer page states no effective date; edition recorded as debt per S4 order"
+      },
+      "disposition_acceptance": "recorded_dated_effective_date_debt_not_full_liveness_PASS",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": true,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "image_only_pages_need_review",
+      "field": "rights_and_frontmatter_review",
+      "reason": "Physical PDF pages 58, 59 contain no extractable text. A scoped visual annotation, if bound, resolves only its stated observation; no OCR or complete visual clearance is claimed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-ct-class-d/sources/private/input-snapshots/bf35ae36da378004356008b9429b59eddf771715f6d8ccb0e8ded893477047e0.json",
+          "sha256": "bf35ae36da378004356008b9429b59eddf771715f6d8ccb0e8ded893477047e0"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "07bbe76598f0084cdb2ee450c7050097675dacd13ccc4c40045c307297557e80",
+      "bytes": 30018,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "abb242abf928ab40ba5cfa19582598aa2853630d15193e17b108f1557d15ad06",
+      "bytes": 48180,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "8fea57e2daef73f0a94408791d2027c4fc2c9799e8d48060efecbf84d96aedf5",
+      "bytes": 1041,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "f67162731f2bc2d96e85a29f412fdea4e6bd6b9246b96f7eea877e6f6f4aba6e",
+      "bytes": 206145,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "06f88b5d8addf91f83051a6deb501467dfb4df8366238bcc2f61f80700ab9da0",
+      "bytes": 740,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "15-effective-date-dispositions.json",
+      "sha256": "411b51d2ee5aee7b75336ab1d7ff85da1287aba3734ceb5c9e350b82a8ec72a1",
+      "bytes": 547,
+      "kind": "accepted_dispositions"
+    }
+  ],
+  "content_calls": 0
+}

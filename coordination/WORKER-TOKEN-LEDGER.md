@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T06:55:56.012Z
+# Worker token ledger — generated 2026-10-28T07:00:18.878Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
-| muse | Muse Code subscription | 16 | 571,600,494 | 1,828,254 | 573,428,748 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 63 | 0 | 0 | 16,432,528 | $0.00 | AL AZ CO IN KY/OK/CT/IA MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
+| muse | Muse Code subscription | 20 | 571,600,494 | 1,828,254 | 573,428,748 | $0.00 | AZ CA CO CT FL IA KY NY OK TX UT VA |
+| claude | Anthropic subscription (Claude Code subagent) | 64 | 0 | 0 | 16,669,467 | $0.00 | AL AZ CO IN KY/OK/CT/IA MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -24,6 +24,10 @@
 | muse | muse-spark-1.3 | NY | intake-NY-r1 | 46,970,894 | 46,634,494 | 152,083 | 39,025 | — | 232 | — | $0.00 |
 | muse | muse-spark-1.3 | TX | intake-TX-r1 | 12,588,570 | 12,253,890 | 64,181 | 20,885 | — | 107 | — | $0.00 |
 | muse | muse-spark-1.3 | VA | intake-VA-r1 | 34,317,363 | 33,990,975 | 168,529 | 52,132 | — | 197 | — | $0.00 |
+| muse | muse-spark-1.3 | CT | intake-CT | — | — | — | — | — | 40 | — | $0.00 |
+| muse | muse-spark-1.3 | IA | intake-IA | — | — | — | — | — | 30 | — | $0.00 |
+| muse | muse-spark-1.3 | KY | intake-KY | — | — | — | — | — | 29 | — | $0.00 |
+| muse | muse-spark-1.3 | OK | intake-OK | — | — | — | — | — | 20 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
 | claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | UT | multi-state shell: state picker, #/<st>/ routes, states.json, harness rewrite, Utah onboarded | — | — | — | — | 243,214 | 95 | 14 min | $0.00 |
@@ -87,4 +91,5 @@
 | claude | claude-opus-5-5 | MO | downstream worker: sec01-06 through 03/04/06/05 (30/30; 352 nodes/348 cards/352 items, 44 units/317 slides, 392 scripts; official_mirror 25q/80% VERIFIED; 4 merges) — delta of resumed agent | — | — | — | — | 361,205 | 187 | 74 min | $0.00 |
 | claude | claude-opus-5-5 | AL | downstream worker: sec01-07 through 03/04/06/05 (35/35 first-try; 342 nodes/339 cards/342 items, 40 units/286 slides, 379 scripts; 3 merges) — delta of resumed agent | — | — | — | — | 415,055 | 276 | 86 min | $0.00 |
 | claude | claude-opus-5-5 | KY/OK/CT/IA | scout round 3: staged 4 handbooks for Muse (LA refused: PowerDMS third-party host) | — | — | — | — | 109,300 | 29 | 10 min | $0.00 |
+| claude | claude-opus-5-5 | OR | downstream worker: sec07-11 — OREGON DOWNSTREAM COMPLETE 11/11 (8 merges; official_mirror 35q/80% verified) — delta of resumed agent | — | — | — | — | 236,939 | 91 | 32 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |
