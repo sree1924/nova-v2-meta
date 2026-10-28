@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T06:17:15.778Z
+# Worker token ledger — generated 2026-10-28T06:27:28.960Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 16 | 571,600,494 | 1,828,254 | 573,428,748 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 48 | 0 | 0 | 11,629,312 | $0.00 | AL AZ CO IN MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
+| claude | Anthropic subscription (Claude Code subagent) | 51 | 0 | 0 | 12,702,772 | $0.00 | AL AZ CO IN MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -72,4 +72,7 @@
 | claude | claude-opus-5-5 | CO | downstream worker: sec01-08 through 03/04/06/05.sessions/05.card_scripts (40/40 first-try; 322 nodes/cards/items, 57 units/409 slides, 379 scripts) | — | — | — | — | 502,587 | 139 | 54 min | $0.00 |
 | claude | claude-opus-5-5 | TX | downstream worker: sec01-07 through 03/04/06/05.sessions/05.card_scripts (35/35 first-try; 178 nodes/cards/items, 37 units/243 slides, 215 scripts; official_mirror 70% verified) | — | — | — | — | 373,502 | 133 | 44 min | $0.00 |
 | claude | claude-opus-5-5 | AZ | state worker continuation: sec18-22 (45 parts, 0 holds) — ARIZONA SME COMPLETE 22/22 (delta of resumed agent) | — | — | — | — | 89,579 | 75 | 24 min | $0.00 |
+| claude | claude-opus-5-5 | TN | state worker continuation: sec11-17 (63 parts, 0 content holds; 2 LINEAGE_RESET resubmits) — TENNESSEE SME COMPLETE 17/17 — ALL 22 STATES SME-COMPLETE | — | — | — | — | 312,619 | 93 | 41 min | $0.00 |
+| claude | claude-opus-5-5 | MI | downstream worker 2: sec04 + sec08-14 through 03/04/06/05 (39/39 first-try; 432 nodes/cards/items, 60 units/429 slides, 492 scripts) — MICHIGAN DOWNSTREAM COMPLETE 14/14 | — | — | — | — | 573,462 | 158 | 68 min | $0.00 |
+| claude | claude-opus-5-5 | OR | downstream worker: sec01-06 through 03/04/06/05 (30/30 first-try; 388 nodes/387 cards/388 items, 38 units/270 slides, 425 scripts; official_mirror 35q/80% VERIFIED) — delta of resumed agent | — | — | — | — | 187,379 | 106 | 58 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

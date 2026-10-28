@@ -113,3 +113,5 @@ Seeded 2026-10-28T05:02:30.219Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T05:44:08Z WI re-registration attempt (registrar curly-apostrophe patch) crashed on immutable root 15-source-registry.json; reconciled crashed_no_provider, $0; re-registration PARKED — WI exam facts stay unknown in the safe view until a non-destructive re-registration path exists (see tools/belt/reregister-source.mjs header).
 
 - 2026-10-28T06:05:25.562Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:55 for 03.combined_kg (sec03-the-basics-part-1) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-the-basics-part-1__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:22:23.028Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:56 for 03.combined_kg (sec05-signs) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-signs__-__n0 (lineage attempts exhausted)

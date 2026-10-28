@@ -149,3 +149,5 @@ Seeded 2026-10-28T03:24:15.997Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T05:52:49.499Z lineage reset → 2026-10-28-rdmv-nc-class-c:lineage:73 for 03.combined_kg (sec03-insurance-real-id-renewal) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-insurance-real-id-renewal__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:07:22.904Z lineage reset → 2026-10-28-rdmv-nc-class-c:lineage:74 for 03.combined_kg (sec05-points-suspensions-restoration) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-points-suspensions-restoration__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:23:40.154Z lineage reset → 2026-10-28-rdmv-nc-class-c:lineage:75 for 03.combined_kg (sec07-pedestrians-school-buses-emergency-vehicles) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-pedestrians-school-buses-emergency-vehicles__-__n0 (lineage attempts exhausted)

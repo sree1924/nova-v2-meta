@@ -153,3 +153,11 @@ Seeded 2026-10-28T05:03:22.057Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:16:55.989Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:76 for 02.dossier_sections (sec16-sharing-the-road-safely) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-sharing-the-road-safely__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:17:42.517Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:77 for 02.dossier_sections (sec16-sharing-the-road-safely) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-sharing-the-road-safely__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:19:19.059Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:78 for 02.dossier_sections (sec17-helping-new-drivers-learn) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-helping-new-drivers-learn__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:20:34.133Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:79 for 02.dossier_sections (sec17-helping-new-drivers-learn) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-helping-new-drivers-learn__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:21:09.053Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:80 for 02.dossier_sections (sec17-helping-new-drivers-learn) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-helping-new-drivers-learn__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:21:47.349Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:81 for 02.dossier_sections (sec17-helping-new-drivers-learn) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-helping-new-drivers-learn__F__n0 (lineage attempts exhausted)

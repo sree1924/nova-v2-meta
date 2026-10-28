@@ -1,0 +1,3238 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-in-s",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "d3507eefff3598b69398e1b285026bb8b185d452a4cca48b654fab52f6463171",
+    "candidate_lineage_id": "2026-10-28-rdmv-in-class-std:lineage:47"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-in-class-std/16/sec05-points-suspensions-insurance/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-in-class-std/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec05-F01",
+      "label": "How violations get point values",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F01"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F02",
+      "label": "One to fifteen over: two points",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F02"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F03",
+          "why": "One to fifteen over is two points, sixteen to twenty-five over is four points; learners shift the band edges.",
+          "fact_ids": [
+            "sec05-F02",
+            "sec05-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F03",
+      "label": "Sixteen to twenty-five over: four points",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F03"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F04",
+          "why": "Sixteen to twenty-five over is four points while twenty-six or more is six points.",
+          "fact_ids": [
+            "sec05-F03",
+            "sec05-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F04",
+      "label": "Twenty-six or more over: six points",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F04"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F03",
+          "why": "The six-point band starts at twenty-six over, not at twenty-five.",
+          "fact_ids": [
+            "sec05-F04",
+            "sec05-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F05",
+      "label": "Lights violations: two points",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F05"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F06",
+      "label": "Device, lane and sign violations: four points",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F06"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F07",
+      "label": "Yield to emergency and tailgating: six points",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F07"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F08",
+      "label": "Driving suspended and speed contests: eight points",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F08"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F09",
+      "label": "Points stay active two years",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F09"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F10",
+          "why": "Points stay active for two years, while the safety course credit can be earned only once in three years; the two time spans get swapped.",
+          "fact_ids": [
+            "sec05-F09",
+            "sec05-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F10",
+      "label": "Four-point safety course credit",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F10"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F09",
+          "why": "The four-point credit has a three-year limit, unlike the two-year active life of points.",
+          "fact_ids": [
+            "sec05-F10",
+            "sec05-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F11",
+      "label": "Ninety days to finish a required course",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F11"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F20",
+          "why": "A required safety course and a requested Certificate of Compliance both have ninety-day deadlines, but they are different obligations.",
+          "fact_ids": [
+            "sec05-F11",
+            "sec05-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F12",
+      "label": "Course required for repeat adult offenders",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F12"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F13",
+      "label": "Missing the course deadline suspends",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F13"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F11",
+          "why": "Missing the ninety-day course deadline brings a suspension that lasts until the course is completed and processed.",
+          "fact_ids": [
+            "sec05-F13",
+            "sec05-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F14",
+      "label": "Court-ordered courses and the credit",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F14"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F15",
+      "label": "Processing time for course results",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F15"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F16",
+      "label": "Insurance required to drive",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F16"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F17",
+      "label": "Minimum liability limits",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F17"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F25",
+          "why": "The twenty-five thousand and fifty thousand dollar coverage limits are confused with the reinstatement fee amounts.",
+          "fact_ids": [
+            "sec05-F17",
+            "sec05-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F18",
+      "label": "Proving insurance with a COC",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F18"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F19",
+      "label": "What triggers an insurance check",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F19"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F20",
+      "label": "Ninety days to file the COC",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F20"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F11",
+          "why": "The insurance proof deadline is counted from the BMV's mailed request, while the course deadline is counted from the notice date.",
+          "fact_ids": [
+            "sec05-F20",
+            "sec05-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F21",
+      "label": "SR22 lifts uninsured conviction suspensions",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F21"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F22",
+      "label": "What an SR22 does",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F22"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F23",
+      "label": "Indefinite no-insurance suspensions",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F23"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F26",
+          "why": "Keeping an SR22 for one hundred eighty days ends an indefinite suspension, and keeping it for one hundred eighty days also waives the reinstatement fee.",
+          "fact_ids": [
+            "sec05-F23",
+            "sec05-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F24",
+      "label": "SR26 cancellation suspends",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F24"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F25",
+      "label": "Reinstatement fees after twenty fifteen",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F25"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R02",
+          "why": "Fees for suspensions after the start of twenty fifteen are higher than the older fees for suspensions before it.",
+          "fact_ids": [
+            "sec05-F25",
+            "sec05-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F26",
+      "label": "Skipping the fee with an SR22",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F26"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F25",
+          "why": "The SR22 route avoids the fee tiers entirely if the SR22 stays in force without a break for one hundred eighty days.",
+          "fact_ids": [
+            "sec05-F26",
+            "sec05-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F27",
+      "label": "Missed court or unpaid tickets",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F27"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F28",
+      "label": "Driving while suspended is serious",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F28"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F29",
+      "label": "Legal BAC limit",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F29"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F30",
+          "why": "The legal limit is a fixed BAC number, while how much someone reaches depends on how much and how fast they drink and their weight.",
+          "fact_ids": [
+            "sec05-F29",
+            "sec05-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F30",
+      "label": "What sets a person's BAC",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F30"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F31",
+      "label": "Chemical test suspension lengths",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F31"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R03",
+          "why": "Failing a chemical test brings one hundred eighty days, refusing brings one year, and refusing with a prior conviction brings two years.",
+          "fact_ids": [
+            "sec05-F31",
+            "sec05-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F32",
+      "label": "Ignition interlock devices",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F32"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F33",
+      "label": "Intoxicated boating convictions",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F33"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F34",
+      "label": "Bad payments to the BMV",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F34"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F35",
+      "label": "Viewing your driver record free",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F35"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F36",
+      "label": "Two injury or death judgments",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F36"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.30",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0030"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R05",
+          "why": "Two injury-or-death judgments in ten years bring a ten-year suspension, but two intoxicated or point-zero-eight driving deaths bring a life suspension.",
+          "fact_ids": [
+            "sec05-F36",
+            "sec05-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F37",
+      "label": "Ten violations in ten years",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F37"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.31",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0031"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R08",
+          "why": "Section C needs ten or more violations in ten years with at least one major offense, and the manual's example is nine speeding tickets plus one reckless driving conviction.",
+          "fact_ids": [
+            "sec05-F37",
+            "sec05-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F38",
+      "label": "Restriction five for special privileges",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F38"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.31",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0031"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R01",
+      "label": "Adult versus under-twenty-one course triggers",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R01"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F12",
+          "why": "Drivers twenty-one or older can be required to take the course after two convictions within twelve months, while under twenty-one there is no stated time window.",
+          "fact_ids": [
+            "sec05-R01",
+            "sec05-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R02",
+      "label": "Fees before twenty fifteen",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R02"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F25",
+          "why": "The older fee tier is mistaken for the current one.",
+          "fact_ids": [
+            "sec05-R02",
+            "sec05-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R03",
+      "label": "Failing versus refusing a chemical test",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R03"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F31",
+          "why": "Learners think failing is punished more than refusing, when refusing carries the longer suspension.",
+          "fact_ids": [
+            "sec05-R03",
+            "sec05-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R04",
+      "label": "Viewable versus official driver record",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R04"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.30",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0030"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F35",
+          "why": "The free viewable record cannot be printed and is not official, while the official record is purchased and printable.",
+          "fact_ids": [
+            "sec05-R04",
+            "sec05-F35"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R05",
+      "label": "Ten-year versus life suspension",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R05"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.30",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0030"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F36",
+          "why": "The life suspension applies only when both judgments are intoxicated or point-zero-eight driving causing death.",
+          "fact_ids": [
+            "sec05-R05",
+            "sec05-F36"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R06",
+      "label": "Three major offenses in ten years",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R06"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.30",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0030"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F36",
+          "why": "Section B needs three major-offense judgments in ten years, while Section A needs two judgments causing injury or death.",
+          "fact_ids": [
+            "sec05-R06",
+            "sec05-F36"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R07",
+      "label": "Other Section B offenses",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R07"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.31",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0031"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R06",
+          "why": "The Section B offense list includes reckless driving and leaving the scene as well as intoxicated driving.",
+          "fact_ids": [
+            "sec05-R07",
+            "sec05-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R08",
+      "label": "Section C worked example",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R08"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.31",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0031"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F37",
+          "why": "The worked example shows that one major offense among ten violations is enough for a five-year suspension.",
+          "fact_ids": [
+            "sec05-R08",
+            "sec05-F37"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R09",
+      "label": "Never-licensed driving counts toward Section C",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R09"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.31",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0031"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R10",
+      "label": "Conditions for specialized privileges",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R10"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.31",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0031"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F38",
+          "why": "Restriction five marks court-granted privileges, and those privileges come with SR22, court order and credential conditions.",
+          "fact_ids": [
+            "sec05-R10",
+            "sec05-F38"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R11",
+      "label": "Restriction two no longer added",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R11"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.31",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0031"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R12",
+      "label": "SR26 during the stay",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R12"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F24",
+          "why": "An SR26 during the stay reactivates the suspension and stayed fees, while an SR26 during an SR22 requirement suspends privileges until a new SR22 is filed.",
+          "fact_ids": [
+            "sec05-R12",
+            "sec05-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R13",
+      "label": "SR22 stays court-related suspensions",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R13"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R14",
+      "label": "Ways to pay reinstatement fees",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R14"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.28",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0028"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R15",
+      "label": "Company or rental vehicle affidavit",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R15"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R16",
+      "label": "Repeat insurance checks after suspension",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R16"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R17",
+      "label": "Court convictions for driving uninsured",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R17"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.27",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0027"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R18",
+      "label": "Safety course formats",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R18"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.26",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0026"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R19",
+      "label": "Juvenile Court and teen intoxication",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R19"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R20",
+      "label": "Other watercraft offenses on the record",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R20"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R21",
+      "label": "Court-ordered child support suspensions",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R21"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R22",
+      "label": "Agency child support suspensions",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R22"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.29",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0029"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R23",
+      "label": "Court reinstatement processing",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R23"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.30",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0030"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R24",
+      "label": "Reinstatement Requirements box",
+      "domain": "Points, insurance, suspension and habitual violator confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-R24"
+      ],
+      "source_ref": {
+        "ref": "Indiana Driver's Manual (Indiana BMV, published July 2026), PDF p.30",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-in-s:indiana-bureau-of-motor-vehicles:handbook:pdf-0030"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec05-F01",
+      "to": "sec05-F02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F02",
+      "to": "sec05-F03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F03",
+      "to": "sec05-F04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F11",
+      "to": "sec05-F13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F18",
+      "to": "sec05-F20",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F22",
+      "to": "sec05-F23",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F23",
+      "to": "sec05-F24",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F29",
+      "to": "sec05-F31",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F36",
+      "to": "sec05-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec05-m01",
+      "title": "Points and the Driver Safety Program",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 25,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F01",
+        "sec05-F02",
+        "sec05-F03",
+        "sec05-F04",
+        "sec05-F05",
+        "sec05-F06",
+        "sec05-F07",
+        "sec05-F08",
+        "sec05-F09",
+        "sec05-R18",
+        "sec05-F10",
+        "sec05-F11",
+        "sec05-F12",
+        "sec05-R01",
+        "sec05-F13",
+        "sec05-F14",
+        "sec05-F15"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m02",
+      "title": "Insurance and proof of coverage",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F16",
+        "sec05-F17",
+        "sec05-F18",
+        "sec05-F19",
+        "sec05-R16",
+        "sec05-F20",
+        "sec05-R15",
+        "sec05-R17",
+        "sec05-F21"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m03",
+      "title": "Insurance filings and reinstatement",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 16,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F22",
+        "sec05-F23",
+        "sec05-R12",
+        "sec05-F24",
+        "sec05-F25",
+        "sec05-R02",
+        "sec05-F26",
+        "sec05-R14",
+        "sec05-F27",
+        "sec05-R13",
+        "sec05-F28"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m04",
+      "title": "Impaired driving and other suspensions",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 19,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F29",
+        "sec05-F30",
+        "sec05-F31",
+        "sec05-R03",
+        "sec05-F32",
+        "sec05-R19",
+        "sec05-F33",
+        "sec05-R20",
+        "sec05-R21",
+        "sec05-R22",
+        "sec05-F34",
+        "sec05-F35",
+        "sec05-R04",
+        "sec05-R23",
+        "sec05-R24"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m05",
+      "title": "Habitual traffic violators",
+      "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 17,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F36",
+        "sec05-R05",
+        "sec05-R06",
+        "sec05-R07",
+        "sec05-F37",
+        "sec05-R08",
+        "sec05-R09",
+        "sec05-F38",
+        "sec05-R10",
+        "sec05-R11"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec05-m01",
+      "unit_id": "sec05-u01",
+      "node_ids": [
+        "sec05-F01",
+        "sec05-F02",
+        "sec05-F03",
+        "sec05-F04",
+        "sec05-F05",
+        "sec05-F06",
+        "sec05-F07",
+        "sec05-F08",
+        "sec05-F09",
+        "sec05-R18",
+        "sec05-F10",
+        "sec05-F11",
+        "sec05-F12",
+        "sec05-R01",
+        "sec05-F13",
+        "sec05-F14",
+        "sec05-F15"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach how violations earn points, the speeding bands and other point examples, the two-year active window, then the Driver Safety Program credit, required courses and the ninety-day deadline.",
+      "flashcard_strategy": "Point-value cards by violation; contrast cards for the speeding bands and for adult versus under-twenty-one course triggers.",
+      "quiz_strategy": "Hub-chosen quiz on point values, the active window and safety course rules.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m02",
+      "unit_id": "sec05-u02",
+      "node_ids": [
+        "sec05-F16",
+        "sec05-F17",
+        "sec05-F18",
+        "sec05-F19",
+        "sec05-R16",
+        "sec05-F20",
+        "sec05-R15",
+        "sec05-R17",
+        "sec05-F21"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain the insurance requirement and the minimum limits, what triggers a request for proof, how the Certificate of Compliance works and its deadline, and court convictions for driving uninsured.",
+      "flashcard_strategy": "Cards for the minimum limits, triggers and deadline; contrast card for the BMV request versus a court conviction.",
+      "quiz_strategy": "Hub-chosen quiz on insurance minimums and proving coverage.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m03",
+      "unit_id": "sec05-u03",
+      "node_ids": [
+        "sec05-F22",
+        "sec05-F23",
+        "sec05-R12",
+        "sec05-F24",
+        "sec05-F25",
+        "sec05-R02",
+        "sec05-F26",
+        "sec05-R14",
+        "sec05-F27",
+        "sec05-R13",
+        "sec05-F28"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach what an SR22 does, how indefinite no-insurance suspensions are stayed and ended, what an SR26 does, the reinstatement fee tiers and the SR22 alternative, then court-related suspensions and driving while suspended.",
+      "flashcard_strategy": "Cards for each SR22 and fee rule; contrast cards for the fee eras and the stay versus termination.",
+      "quiz_strategy": "Hub-chosen quiz on how a described suspended driver gets back on the road.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m04",
+      "unit_id": "sec05-u04",
+      "node_ids": [
+        "sec05-F29",
+        "sec05-F30",
+        "sec05-F31",
+        "sec05-R03",
+        "sec05-F32",
+        "sec05-R19",
+        "sec05-F33",
+        "sec05-R20",
+        "sec05-R21",
+        "sec05-R22",
+        "sec05-F34",
+        "sec05-F35",
+        "sec05-R04",
+        "sec05-R23",
+        "sec05-R24"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover the legal BAC limit and its factors, chemical test penalties, interlock devices and teen citations, watercraft offenses, child support and bad-payment suspensions, then checking your record and reinstatement.",
+      "flashcard_strategy": "Penalty cards for chemical tests and other suspensions; contrast cards for fail versus refuse and viewable versus official records.",
+      "quiz_strategy": "Hub-chosen quiz on suspension lengths and how to check and clear a record.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m05",
+      "unit_id": "sec05-u05",
+      "node_ids": [
+        "sec05-F36",
+        "sec05-R05",
+        "sec05-R06",
+        "sec05-R07",
+        "sec05-F37",
+        "sec05-R08",
+        "sec05-R09",
+        "sec05-F38",
+        "sec05-R10",
+        "sec05-R11"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the three habitual violator tiers and their suspensions, the worked example, then Restriction five and the conditions for specialized driving privileges.",
+      "flashcard_strategy": "Tier cards with their suspension lengths; contrast cards for two, three and ten offenses.",
+      "quiz_strategy": "Hub-chosen quiz on which tier a described record falls into.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec05-F01",
+    "sec05-F02",
+    "sec05-F03",
+    "sec05-F04",
+    "sec05-F05",
+    "sec05-F06",
+    "sec05-F07",
+    "sec05-F08",
+    "sec05-F09",
+    "sec05-R18",
+    "sec05-F10",
+    "sec05-F11",
+    "sec05-F12",
+    "sec05-R01",
+    "sec05-F13",
+    "sec05-F14",
+    "sec05-F15",
+    "sec05-F16",
+    "sec05-F17",
+    "sec05-F18",
+    "sec05-F19",
+    "sec05-R16",
+    "sec05-F20",
+    "sec05-R15",
+    "sec05-R17",
+    "sec05-F21",
+    "sec05-F22",
+    "sec05-F23",
+    "sec05-R12",
+    "sec05-F24",
+    "sec05-F25",
+    "sec05-R02",
+    "sec05-F26",
+    "sec05-R14",
+    "sec05-F27",
+    "sec05-R13",
+    "sec05-F28",
+    "sec05-F29",
+    "sec05-F30",
+    "sec05-F31",
+    "sec05-R03",
+    "sec05-F32",
+    "sec05-R19",
+    "sec05-F33",
+    "sec05-R20",
+    "sec05-R21",
+    "sec05-R22",
+    "sec05-F34",
+    "sec05-F35",
+    "sec05-R04",
+    "sec05-R23",
+    "sec05-R24",
+    "sec05-F36",
+    "sec05-R05",
+    "sec05-R06",
+    "sec05-R07",
+    "sec05-F37",
+    "sec05-R08",
+    "sec05-R09",
+    "sec05-F38",
+    "sec05-R10",
+    "sec05-R11"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec05-m01..sec05-m05; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 62,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec05-F01",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F02",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F03",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F04",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F05",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F06",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F07",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F08",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F09",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F10",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F11",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F12",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F13",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F14",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F15",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F16",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F17",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F18",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F19",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F20",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F21",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F22",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F23",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F24",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F25",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F26",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F27",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F28",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F29",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F30",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F31",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F32",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F33",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F34",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F35",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F36",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F37",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F38",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R01",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R02",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R03",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R04",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R05",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R06",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R07",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R08",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R09",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R10",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R11",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R12",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R13",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R14",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R15",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R16",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R17",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R18",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R19",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R20",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R21",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R22",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R23",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R24",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec05-F01",
+          "to": "sec05-F02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F02",
+          "to": "sec05-F03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F03",
+          "to": "sec05-F04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F11",
+          "to": "sec05-F13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F18",
+          "to": "sec05-F20",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F22",
+          "to": "sec05-F23",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F23",
+          "to": "sec05-F24",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F29",
+          "to": "sec05-F31",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F36",
+          "to": "sec05-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Driver record points, the Driver Safety Program, insurance requirements, suspensions and habitual traffic violators",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 61.4,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Points, insurance, suspension and habitual violator confusables",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 38.6,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec05-m01",
+          "sec05-m02",
+          "sec05-m03",
+          "sec05-m04",
+          "sec05-m05"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

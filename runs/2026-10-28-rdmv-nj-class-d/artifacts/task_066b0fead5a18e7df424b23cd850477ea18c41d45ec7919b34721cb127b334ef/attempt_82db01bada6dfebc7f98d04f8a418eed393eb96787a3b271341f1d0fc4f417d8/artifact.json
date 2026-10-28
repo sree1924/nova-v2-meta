@@ -1,0 +1,3084 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-nj-class-d",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "93918db2349b2853fb82e1e8a68fbbe0445af1d11d67796197cc02c544400ce8",
+    "candidate_lineage_id": "2026-10-28-rdmv-nj-class-d:lineage:73"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-nj-class-d/16/sec10-drinking-drugs-health/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-nj-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec10-F01",
+      "label": "Alcohol and overconfidence",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F01"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.116",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0116"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F02",
+          "why": "sec10-F01 says even a small amount of alcohol raises the chance of a crash, while sec10-F02 says reaction time, coordination and balance start to be impaired after two, three or four drinks.",
+          "fact_ids": [
+            "sec10-F01",
+            "sec10-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F02",
+      "label": "Skills that fail after a few drinks",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F02"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.116",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0116"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R14",
+          "why": "sec10-F02 says alcohol dulls the ability to judge distance, and sec10-R14 says poor distance judgment is a frequent cause of crashes.",
+          "fact_ids": [
+            "sec10-F02",
+            "sec10-R14"
+          ]
+        },
+        {
+          "other_id": "sec10-F01",
+          "why": "sec10-F01 says even a small amount of alcohol raises the chance of a crash, while sec10-F02 says reaction time, coordination and balance start to be impaired after two, three or four drinks.",
+          "fact_ids": [
+            "sec10-F02",
+            "sec10-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F03",
+      "label": "Only time sobers you up",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F03"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.116",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0116"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F15",
+          "why": "sec10-F03 says only time sobers a person up, and sec10-F15 agrees that food slows how fast alcohol enters the blood but does not make anyone sober.",
+          "fact_ids": [
+            "sec10-F03",
+            "sec10-F15"
+          ]
+        },
+        {
+          "other_id": "sec10-F13",
+          "why": "sec10-F03 says only time sobers a person up, and sec10-F13 shows that whiskey, beer and wine servings each hold about the same half ounce of alcohol.",
+          "fact_ids": [
+            "sec10-F03",
+            "sec10-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F04",
+      "label": "Single-vehicle crashes, many victims",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F04"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.116",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0116"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F05",
+      "label": "BAC and the breath test",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F05"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F11",
+          "why": "sec10-F05 says a simple breath test reveals BAC, and sec10-F11 makes refusing that breath test illegal in New Jersey.",
+          "fact_ids": [
+            "sec10-F05",
+            "sec10-F11"
+          ]
+        },
+        {
+          "other_id": "sec10-F06",
+          "why": "sec10-F05 says BAC is the only scientific measure of how much is too much, while sec10-F06 names the four factors that BAC depends on.",
+          "fact_ids": [
+            "sec10-F05",
+            "sec10-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F06",
+      "label": "Four factors that set BAC",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F06"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F15",
+          "why": "sec10-F06 lists what food was eaten as one of the four factors behind BAC, while sec10-F15 says food slows absorption but cannot prevent a high BAC during steady heavy drinking.",
+          "fact_ids": [
+            "sec10-F06",
+            "sec10-F15"
+          ]
+        },
+        {
+          "other_id": "sec10-R03",
+          "why": "sec10-F06 counts food among the four BAC factors, and sec10-R03 warns that eating only slows absorption and never prevents a high BAC from heavy drinking.",
+          "fact_ids": [
+            "sec10-F06",
+            "sec10-R03"
+          ]
+        },
+        {
+          "other_id": "sec10-F05",
+          "why": "sec10-F05 says BAC is the only scientific measure of how much is too much, while sec10-F06 names the four factors that BAC depends on.",
+          "fact_ids": [
+            "sec10-F06",
+            "sec10-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F07",
+      "label": "New Jersey impaired driving law",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F07"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F08",
+          "why": "sec10-F07 makes it illegal in New Jersey to drive with a BAC at or above zero point zero eight percent, while sec10-F08 makes zero point zero one percent or higher illegal for a driver younger than twenty-one.",
+          "fact_ids": [
+            "sec10-F07",
+            "sec10-F08"
+          ]
+        },
+        {
+          "other_id": "sec10-R01",
+          "why": "sec10-R01 restates the sec10-F07 adult limit of a BAC of zero point zero eight percent and sets it against the under-twenty-one limit.",
+          "fact_ids": [
+            "sec10-F07",
+            "sec10-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F08",
+      "label": "Under twenty-one limit",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F08"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F07",
+          "why": "sec10-F07 makes it illegal in New Jersey to drive with a BAC at or above zero point zero eight percent, while sec10-F08 makes zero point zero one percent or higher illegal for a driver younger than twenty-one.",
+          "fact_ids": [
+            "sec10-F08",
+            "sec10-F07"
+          ]
+        },
+        {
+          "other_id": "sec10-R01",
+          "why": "sec10-R01 restates the sec10-F08 rule that a driver under twenty-one breaks the law at just zero point zero one percent, against the adult zero point zero eight percent.",
+          "fact_ids": [
+            "sec10-F08",
+            "sec10-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F09",
+      "label": "Crash risk doubles",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F09"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F10",
+          "why": "sec10-F09 says crash risk doubles at a BAC slightly above zero point zero five percent, while sec10-F10 says it is six times as great at zero point one zero percent and twenty-five times as great at zero point one five percent.",
+          "fact_ids": [
+            "sec10-F09",
+            "sec10-F10"
+          ]
+        },
+        {
+          "other_id": "sec10-R02",
+          "why": "sec10-R02 restates the sec10-F09 doubling of crash risk just above zero point zero five percent and adds the higher multiples.",
+          "fact_ids": [
+            "sec10-F09",
+            "sec10-R02"
+          ]
+        },
+        {
+          "other_id": "sec10-R01",
+          "why": "sec10-R01 gives the legal limits of zero point zero eight percent for adults and zero point zero one percent under twenty-one, while sec10-F09 says crash risk already doubles slightly above zero point zero five percent.",
+          "fact_ids": [
+            "sec10-F09",
+            "sec10-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F10",
+      "label": "Six times and twenty-five times the risk",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F10"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F09",
+          "why": "sec10-F09 says crash risk doubles at a BAC slightly above zero point zero five percent, while sec10-F10 says it is six times as great at zero point one zero percent and twenty-five times as great at zero point one five percent.",
+          "fact_ids": [
+            "sec10-F10",
+            "sec10-F09"
+          ]
+        },
+        {
+          "other_id": "sec10-R02",
+          "why": "sec10-R02 restates the sec10-F10 multiples, six times at zero point one zero percent and twenty-five times at zero point one five percent, after the doubling above zero point zero five.",
+          "fact_ids": [
+            "sec10-F10",
+            "sec10-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F11",
+      "label": "Refusing a breath test",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F11"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F12",
+          "why": "sec10-F11 lists the penalties for refusing a breath test, losing driving privileges, IDRC referral, fines and an ignition interlock device, while sec10-F12 adds a violation surcharge that suspends privileges indefinitely if unpaid.",
+          "fact_ids": [
+            "sec10-F11",
+            "sec10-F12"
+          ]
+        },
+        {
+          "other_id": "sec10-F05",
+          "why": "sec10-F05 says a simple breath test reveals BAC, and sec10-F11 makes refusing that breath test illegal in New Jersey.",
+          "fact_ids": [
+            "sec10-F11",
+            "sec10-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F12",
+      "label": "Refusal violation surcharge",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F12"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F11",
+          "why": "sec10-F11 lists the penalties for refusing a breath test, losing driving privileges, IDRC referral, fines and an ignition interlock device, while sec10-F12 adds a violation surcharge that suspends privileges indefinitely if unpaid.",
+          "fact_ids": [
+            "sec10-F12",
+            "sec10-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F13",
+      "label": "Same alcohol in each drink",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F13"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F14",
+          "why": "sec10-F13 says whiskey, beer and wine servings each hold about the same half ounce of alcohol, while sec10-F14 says beer is what most drivers arrested for drunk driving had been drinking.",
+          "fact_ids": [
+            "sec10-F13",
+            "sec10-F14"
+          ]
+        },
+        {
+          "other_id": "sec10-F03",
+          "why": "sec10-F03 says only time sobers a person up, and sec10-F13 shows that whiskey, beer and wine servings each hold about the same half ounce of alcohol.",
+          "fact_ids": [
+            "sec10-F13",
+            "sec10-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F14",
+      "label": "Beer and drunk-driving arrests",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F14"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F13",
+          "why": "sec10-F13 says whiskey, beer and wine servings each hold about the same half ounce of alcohol, while sec10-F14 says beer is what most drivers arrested for drunk driving had been drinking.",
+          "fact_ids": [
+            "sec10-F14",
+            "sec10-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F15",
+      "label": "What food can and cannot do",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F15"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F03",
+          "why": "sec10-F03 says only time sobers a person up, and sec10-F15 agrees that food slows how fast alcohol enters the blood but does not make anyone sober.",
+          "fact_ids": [
+            "sec10-F15",
+            "sec10-F03"
+          ]
+        },
+        {
+          "other_id": "sec10-F06",
+          "why": "sec10-F06 lists what food was eaten as one of the four factors behind BAC, while sec10-F15 says food slows absorption but cannot prevent a high BAC during steady heavy drinking.",
+          "fact_ids": [
+            "sec10-F15",
+            "sec10-F06"
+          ]
+        },
+        {
+          "other_id": "sec10-R03",
+          "why": "sec10-R03 restates sec10-F15: eating slows alcohol absorption, but heavy drinking still produces a high BAC whatever was eaten.",
+          "fact_ids": [
+            "sec10-F15",
+            "sec10-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F16",
+      "label": "Five signs of a drinking driver",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F16"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.118",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0118"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R04",
+          "why": "sec10-F16 lists unusually slow driving among the five telltale signs, and sec10-R04 explains why: an intoxicated driver may be overly cautious and fall below the normal flow of traffic.",
+          "fact_ids": [
+            "sec10-F16",
+            "sec10-R04"
+          ]
+        },
+        {
+          "other_id": "sec10-R05",
+          "why": "sec10-F16 lists weaving among the five telltale signs, and sec10-R05 adds that weaving can show up even when the driver stays inside the correct lane.",
+          "fact_ids": [
+            "sec10-F16",
+            "sec10-R05"
+          ]
+        },
+        {
+          "other_id": "sec10-R06",
+          "why": "sec10-F16 lists jerky changes of speed and abrupt stops among the five signs, and sec10-R06 explains what each one looks like.",
+          "fact_ids": [
+            "sec10-F16",
+            "sec10-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F17",
+      "label": "Being a good host",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F17"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.118",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0118"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F18",
+          "why": "sec10-F17 covers running the party: alcohol-free drinks, food, no pushed refills and stopping alcohol early, while sec10-F18 covers the guest who has had too much: do not let them drive.",
+          "fact_ids": [
+            "sec10-F17",
+            "sec10-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F18",
+      "label": "When a guest has had too much",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F18"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.118",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0118"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R07",
+          "why": "sec10-R07 lists a designated driver, public transportation or a cab instead of driving after drinking, while sec10-F18 tells a host to suggest a nap or an overnight stay to a guest who has had too much.",
+          "fact_ids": [
+            "sec10-F18",
+            "sec10-R07"
+          ]
+        },
+        {
+          "other_id": "sec10-F17",
+          "why": "sec10-F17 covers running the party: alcohol-free drinks, food, no pushed refills and stopping alcohol early, while sec10-F18 covers the guest who has had too much: do not let them drive.",
+          "fact_ids": [
+            "sec10-F18",
+            "sec10-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F19",
+      "label": "The Hero Campaign",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F19"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R09",
+          "why": "sec10-R09 describes a designated driver getting friends or family home safely, and sec10-F19 notes New Jersey was the first state to officially launch the Hero Campaign for designated drivers.",
+          "fact_ids": [
+            "sec10-F19",
+            "sec10-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F20",
+      "label": "Drugs and driving are illegal",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F20"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F22",
+          "why": "sec10-F20 makes it illegal to carry any drug without a valid prescription, and sec10-F22 adds that drivers must show proof of the prescription to police when asked.",
+          "fact_ids": [
+            "sec10-F20",
+            "sec10-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F21",
+      "label": "Medicine labels and driving",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F21"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R10",
+          "why": "sec10-F21 warns against a medicine labeled as possibly causing drowsiness or dizziness before driving, and sec10-R10 adds never to mix alcohol with any drug or medication.",
+          "fact_ids": [
+            "sec10-F21",
+            "sec10-R10"
+          ]
+        },
+        {
+          "other_id": "sec10-R11",
+          "why": "sec10-F21 names cold pills, tranquilizers and some prescription drugs as able to affect driving skills, and sec10-R11 adds that legal medicines can still impair.",
+          "fact_ids": [
+            "sec10-F21",
+            "sec10-R11"
+          ]
+        },
+        {
+          "other_id": "sec10-R12",
+          "why": "sec10-R12 says any health problem, even a stiff neck, a cough or a sore leg, can interfere with driving, while sec10-F21 says not to take a medicine labeled as possibly causing drowsiness or dizziness before driving.",
+          "fact_ids": [
+            "sec10-F21",
+            "sec10-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F22",
+      "label": "Proof of prescription",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F22"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F20",
+          "why": "sec10-F20 makes it illegal to carry any drug without a valid prescription, and sec10-F22 adds that drivers must show proof of the prescription to police when asked.",
+          "fact_ids": [
+            "sec10-F22",
+            "sec10-F20"
+          ]
+        },
+        {
+          "other_id": "sec10-R11",
+          "why": "sec10-F22 covers prescription drugs and proof of the prescription, while sec10-R11 covers over-the-counter drugs: ask a professional, because legal medicines can still impair.",
+          "fact_ids": [
+            "sec10-F22",
+            "sec10-R11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F23",
+      "label": "Marijuana in crash drivers",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F23"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F24",
+          "why": "sec10-F23 says marijuana is the drug most often found in crash-involved drivers after alcohol, while sec10-F24 lists the skills it can weaken: tracking, distance judgment, vigilance and divided attention.",
+          "fact_ids": [
+            "sec10-F23",
+            "sec10-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F24",
+      "label": "How marijuana weakens driving",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-F24"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F23",
+          "why": "sec10-F23 says marijuana is the drug most often found in crash-involved drivers after alcohol, while sec10-F24 lists the skills it can weaken: tracking, distance judgment, vigilance and divided attention.",
+          "fact_ids": [
+            "sec10-F24",
+            "sec10-F23"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-F25",
+      "label": "How often to test your eyes",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "module_id": "sec10-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-F25"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.120",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0120"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R16",
+          "why": "sec10-F25 says to have your eyes tested every year or two, and every year over age forty, while sec10-R16 says state law allows the MVC to retest the driving population.",
+          "fact_ids": [
+            "sec10-F25",
+            "sec10-R16"
+          ]
+        },
+        {
+          "other_id": "sec10-R13",
+          "why": "sec10-F25 sets how often to have your eyes tested, while sec10-R13 describes the side, or peripheral, vision that lets a driver notice things out of the corners of the eyes.",
+          "fact_ids": [
+            "sec10-F25",
+            "sec10-R13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R01",
+      "label": "Adult limit versus under twenty-one",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R01"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F07",
+          "why": "sec10-R01 restates the sec10-F07 adult limit of a BAC of zero point zero eight percent and sets it against the under-twenty-one limit.",
+          "fact_ids": [
+            "sec10-R01",
+            "sec10-F07"
+          ]
+        },
+        {
+          "other_id": "sec10-F08",
+          "why": "sec10-R01 restates the sec10-F08 rule that a driver under twenty-one breaks the law at just zero point zero one percent, against the adult zero point zero eight percent.",
+          "fact_ids": [
+            "sec10-R01",
+            "sec10-F08"
+          ]
+        },
+        {
+          "other_id": "sec10-F09",
+          "why": "sec10-R01 gives the legal limits of zero point zero eight percent for adults and zero point zero one percent under twenty-one, while sec10-F09 says crash risk already doubles slightly above zero point zero five percent.",
+          "fact_ids": [
+            "sec10-R01",
+            "sec10-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R02",
+      "label": "The three crash-risk levels",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R02"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F09",
+          "why": "sec10-R02 restates the sec10-F09 doubling of crash risk just above zero point zero five percent and adds the higher multiples.",
+          "fact_ids": [
+            "sec10-R02",
+            "sec10-F09"
+          ]
+        },
+        {
+          "other_id": "sec10-F10",
+          "why": "sec10-R02 restates the sec10-F10 multiples, six times at zero point one zero percent and twenty-five times at zero point one five percent, after the doubling above zero point zero five.",
+          "fact_ids": [
+            "sec10-R02",
+            "sec10-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R03",
+      "label": "Food does not prevent a high BAC",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R03"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F15",
+          "why": "sec10-R03 restates sec10-F15: eating slows alcohol absorption, but heavy drinking still produces a high BAC whatever was eaten.",
+          "fact_ids": [
+            "sec10-R03",
+            "sec10-F15"
+          ]
+        },
+        {
+          "other_id": "sec10-F06",
+          "why": "sec10-F06 counts food among the four BAC factors, and sec10-R03 warns that eating only slows absorption and never prevents a high BAC from heavy drinking.",
+          "fact_ids": [
+            "sec10-R03",
+            "sec10-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R04",
+      "label": "Slow driving as a warning sign",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R04"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.118",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0118"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F16",
+          "why": "sec10-F16 lists unusually slow driving among the five telltale signs, and sec10-R04 explains why: an intoxicated driver may be overly cautious and fall below the normal flow of traffic.",
+          "fact_ids": [
+            "sec10-R04",
+            "sec10-F16"
+          ]
+        },
+        {
+          "other_id": "sec10-R06",
+          "why": "sec10-R04 says an intoxicated driver may drive overly cautiously below the flow of traffic, while sec10-R06 says short mental lapses keep the driver from holding a steady speed.",
+          "fact_ids": [
+            "sec10-R04",
+            "sec10-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R05",
+      "label": "Weaving inside the lane",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-R05"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.118",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0118"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F16",
+          "why": "sec10-F16 lists weaving among the five telltale signs, and sec10-R05 adds that weaving can show up even when the driver stays inside the correct lane.",
+          "fact_ids": [
+            "sec10-R05",
+            "sec10-F16"
+          ]
+        },
+        {
+          "other_id": "sec10-R06",
+          "why": "sec10-R06 describes jerky driving as failing to hold a steady speed and quick stops as sudden braking, while sec10-R05 describes weaving as failing to hold a straight line.",
+          "fact_ids": [
+            "sec10-R05",
+            "sec10-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R06",
+      "label": "Jerky driving versus quick stops",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R06"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.118",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0118"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F16",
+          "why": "sec10-F16 lists jerky changes of speed and abrupt stops among the five signs, and sec10-R06 explains what each one looks like.",
+          "fact_ids": [
+            "sec10-R06",
+            "sec10-F16"
+          ]
+        },
+        {
+          "other_id": "sec10-R05",
+          "why": "sec10-R06 describes jerky driving as failing to hold a steady speed and quick stops as sudden braking, while sec10-R05 describes weaving as failing to hold a straight line.",
+          "fact_ids": [
+            "sec10-R06",
+            "sec10-R05"
+          ]
+        },
+        {
+          "other_id": "sec10-R04",
+          "why": "sec10-R04 says an intoxicated driver may drive overly cautiously below the flow of traffic, while sec10-R06 says short mental lapses keep the driver from holding a steady speed.",
+          "fact_ids": [
+            "sec10-R06",
+            "sec10-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R07",
+      "label": "Do not drive after drinking",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R07"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.117",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0117"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R09",
+          "why": "sec10-R07 says the surest way to avoid a drinking-and-driving crash is not to drive after drinking and suggests a designated driver, while sec10-R09 explains what a designated driver does.",
+          "fact_ids": [
+            "sec10-R07",
+            "sec10-R09"
+          ]
+        },
+        {
+          "other_id": "sec10-F18",
+          "why": "sec10-R07 lists a designated driver, public transportation or a cab instead of driving after drinking, while sec10-F18 tells a host to suggest a nap or an overnight stay to a guest who has had too much.",
+          "fact_ids": [
+            "sec10-R07",
+            "sec10-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R08",
+      "label": "Alcohol and anger",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-R08"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.116",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0116"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R09",
+      "label": "What a designated driver does",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-R09"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R07",
+          "why": "sec10-R07 says the surest way to avoid a drinking-and-driving crash is not to drive after drinking and suggests a designated driver, while sec10-R09 explains what a designated driver does.",
+          "fact_ids": [
+            "sec10-R09",
+            "sec10-R07"
+          ]
+        },
+        {
+          "other_id": "sec10-F19",
+          "why": "sec10-R09 describes a designated driver getting friends or family home safely, and sec10-F19 notes New Jersey was the first state to officially launch the Hero Campaign for designated drivers.",
+          "fact_ids": [
+            "sec10-R09",
+            "sec10-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R10",
+      "label": "Never mix alcohol and drugs",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R10"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R11",
+          "why": "sec10-R10 says never combine drugs without asking a medical professional and never mix alcohol with any drug, while sec10-R11 says to ask a professional how an over-the-counter drug may affect driving.",
+          "fact_ids": [
+            "sec10-R10",
+            "sec10-R11"
+          ]
+        },
+        {
+          "other_id": "sec10-F21",
+          "why": "sec10-F21 warns against a medicine labeled as possibly causing drowsiness or dizziness before driving, and sec10-R10 adds never to mix alcohol with any drug or medication.",
+          "fact_ids": [
+            "sec10-R10",
+            "sec10-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R11",
+      "label": "Legal medicines can still impair",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-R11"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.119",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0119"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F22",
+          "why": "sec10-F22 covers prescription drugs and proof of the prescription, while sec10-R11 covers over-the-counter drugs: ask a professional, because legal medicines can still impair.",
+          "fact_ids": [
+            "sec10-R11",
+            "sec10-F22"
+          ]
+        },
+        {
+          "other_id": "sec10-R10",
+          "why": "sec10-R10 says never combine drugs without asking a medical professional and never mix alcohol with any drug, while sec10-R11 says to ask a professional how an over-the-counter drug may affect driving.",
+          "fact_ids": [
+            "sec10-R11",
+            "sec10-R10"
+          ]
+        },
+        {
+          "other_id": "sec10-F21",
+          "why": "sec10-F21 names cold pills, tranquilizers and some prescription drugs as able to affect driving skills, and sec10-R11 adds that legal medicines can still impair.",
+          "fact_ids": [
+            "sec10-R11",
+            "sec10-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R12",
+      "label": "Any health problem matters",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R12"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.120",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0120"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F21",
+          "why": "sec10-R12 says any health problem, even a stiff neck, a cough or a sore leg, can interfere with driving, while sec10-F21 says not to take a medicine labeled as possibly causing drowsiness or dizziness before driving.",
+          "fact_ids": [
+            "sec10-R12",
+            "sec10-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R13",
+      "label": "Side vision",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R13"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.120",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0120"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F25",
+          "why": "sec10-F25 sets how often to have your eyes tested, while sec10-R13 describes the side, or peripheral, vision that lets a driver notice things out of the corners of the eyes.",
+          "fact_ids": [
+            "sec10-R13",
+            "sec10-F25"
+          ]
+        },
+        {
+          "other_id": "sec10-R14",
+          "why": "sec10-R13 covers side vision for noticing things while looking straight ahead, while sec10-R14 covers distance judgment, a frequent cause of crashes when it is poor.",
+          "fact_ids": [
+            "sec10-R13",
+            "sec10-R14"
+          ]
+        },
+        {
+          "other_id": "sec10-R15",
+          "why": "sec10-R15 covers hearing, where horns, sirens and screeching tires give warnings, while sec10-R13 covers side vision for noticing things out of the corners of the eyes.",
+          "fact_ids": [
+            "sec10-R13",
+            "sec10-R15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R14",
+      "label": "Distance judgment",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-R14"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.120",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0120"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R13",
+          "why": "sec10-R13 covers side vision for noticing things while looking straight ahead, while sec10-R14 covers distance judgment, a frequent cause of crashes when it is poor.",
+          "fact_ids": [
+            "sec10-R14",
+            "sec10-R13"
+          ]
+        },
+        {
+          "other_id": "sec10-F02",
+          "why": "sec10-F02 says alcohol dulls the ability to judge distance, and sec10-R14 says poor distance judgment is a frequent cause of crashes.",
+          "fact_ids": [
+            "sec10-R14",
+            "sec10-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R15",
+      "label": "Why hearing matters",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec10-R15"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.120",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0120"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-R13",
+          "why": "sec10-R15 covers hearing, where horns, sirens and screeching tires give warnings, while sec10-R13 covers side vision for noticing things out of the corners of the eyes.",
+          "fact_ids": [
+            "sec10-R15",
+            "sec10-R13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec10-R16",
+      "label": "MVC can retest drivers",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "module_id": "sec10-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec10-R16"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.120",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0120"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec10-F25",
+          "why": "sec10-F25 says to have your eyes tested every year or two, and every year over age forty, while sec10-R16 says state law allows the MVC to retest the driving population.",
+          "fact_ids": [
+            "sec10-R16",
+            "sec10-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec10-F01",
+      "to": "sec10-F02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F01",
+      "to": "sec10-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F13",
+      "to": "sec10-F14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F05",
+      "to": "sec10-F06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F06",
+      "to": "sec10-F15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F15",
+      "to": "sec10-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F03",
+      "to": "sec10-F15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F07",
+      "to": "sec10-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F07",
+      "to": "sec10-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F08",
+      "to": "sec10-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F09",
+      "to": "sec10-F10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F09",
+      "to": "sec10-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F10",
+      "to": "sec10-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F05",
+      "to": "sec10-F11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F11",
+      "to": "sec10-F12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F16",
+      "to": "sec10-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F16",
+      "to": "sec10-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F16",
+      "to": "sec10-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-R07",
+      "to": "sec10-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-R09",
+      "to": "sec10-F19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F17",
+      "to": "sec10-F18",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F20",
+      "to": "sec10-F22",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F21",
+      "to": "sec10-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F21",
+      "to": "sec10-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F23",
+      "to": "sec10-F24",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-F25",
+      "to": "sec10-R16",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec10-R13",
+      "to": "sec10-R14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec10-m01",
+      "title": "How alcohol affects a driver",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec10-F01",
+        "sec10-F02",
+        "sec10-R08",
+        "sec10-F04",
+        "sec10-F03",
+        "sec10-F13",
+        "sec10-F14"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m02",
+      "title": "BAC, legal limits and crash risk",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 18,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec10-F05",
+        "sec10-F06",
+        "sec10-F15",
+        "sec10-R03",
+        "sec10-F07",
+        "sec10-F08",
+        "sec10-R01",
+        "sec10-F09",
+        "sec10-F10",
+        "sec10-R02"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m03",
+      "title": "Breath tests and impaired-driver signs",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec10-F11",
+        "sec10-F12",
+        "sec10-F16",
+        "sec10-R04",
+        "sec10-R05",
+        "sec10-R06"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m04",
+      "title": "Hosts and designated drivers",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec10-R07",
+        "sec10-R09",
+        "sec10-F19",
+        "sec10-F17",
+        "sec10-F18"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m05",
+      "title": "Drugs, medicine and driving",
+      "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec10-F20",
+        "sec10-F22",
+        "sec10-F21",
+        "sec10-R10",
+        "sec10-R11",
+        "sec10-F23",
+        "sec10-F24"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m06",
+      "title": "Health, vision and hearing",
+      "domain": "Drinking, drugs and health confusables and continuation details",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec10-R12",
+        "sec10-F25",
+        "sec10-R16",
+        "sec10-R13",
+        "sec10-R14",
+        "sec10-R15"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec10-m01",
+      "unit_id": "sec10-u01",
+      "node_ids": [
+        "sec10-F01",
+        "sec10-F02",
+        "sec10-R08",
+        "sec10-F04",
+        "sec10-F03",
+        "sec10-F13",
+        "sec10-F14"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Open with what alcohol does to judgment and confidence, the skills that start to fail after two, three or four drinks, alcohol paired with anger, why most alcohol crashes involve one vehicle yet hurt several people, why only time sobers a person up, and how whiskey, beer and wine compare.",
+      "flashcard_strategy": "One card per rule; contrast cards for the three standard drinks versus beer as the usual drink of arrested drivers, and for time versus quick sober-up tricks.",
+      "quiz_strategy": "Hub-chosen quiz on alcohol effects, sobering up and drink equivalents.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m02",
+      "unit_id": "sec10-u02",
+      "node_ids": [
+        "sec10-F05",
+        "sec10-F06",
+        "sec10-F15",
+        "sec10-R03",
+        "sec10-F07",
+        "sec10-F08",
+        "sec10-R01",
+        "sec10-F09",
+        "sec10-F10",
+        "sec10-R02"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Define BAC and the breath test, the four factors that set BAC, what food can and cannot do, then the New Jersey limits for adults and for drivers under twenty-one, and how crash risk climbs from double to six times to twenty-five times.",
+      "flashcard_strategy": "One card per rule; contrast cards for the adult limit versus the under-twenty-one limit and for the three crash-risk multiples.",
+      "quiz_strategy": "Hub-chosen quiz that swaps the BAC limits, the BAC factors and the crash-risk levels.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m03",
+      "unit_id": "sec10-u03",
+      "node_ids": [
+        "sec10-F11",
+        "sec10-F12",
+        "sec10-F16",
+        "sec10-R04",
+        "sec10-R05",
+        "sec10-R06"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover why refusing a breath test is illegal and what it costs, including the violation surcharge, then the five telltale signs police watch for and what slow driving, weaving, jerky driving and quick stops look like.",
+      "flashcard_strategy": "One card per rule; contrast cards for refusal penalties versus the surcharge and for jerky driving versus quick stops.",
+      "quiz_strategy": "Hub-chosen quiz on refusal penalties and the five signs of a drinking driver.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m04",
+      "unit_id": "sec10-u04",
+      "node_ids": [
+        "sec10-R07",
+        "sec10-R09",
+        "sec10-F19",
+        "sec10-F17",
+        "sec10-F18"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the surest way to avoid a drinking-and-driving crash, what a designated driver does, the Hero Campaign, then how a good host runs a party and what to do when a guest has had too much.",
+      "flashcard_strategy": "One card per rule; contrast cards for hosting the party versus handling a guest who has had too much.",
+      "quiz_strategy": "Hub-chosen quiz on alternatives to drinking and driving, designated drivers and hosting.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m05",
+      "unit_id": "sec10-u05",
+      "node_ids": [
+        "sec10-F20",
+        "sec10-F22",
+        "sec10-F21",
+        "sec10-R10",
+        "sec10-R11",
+        "sec10-F23",
+        "sec10-F24"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain the New Jersey drug and driving laws, prescription proof, medicines that warn of drowsiness or dizziness, never mixing alcohol with drugs, asking about over-the-counter drugs, and how marijuana affects driving skills.",
+      "flashcard_strategy": "One card per rule; contrast cards for prescription drugs versus over-the-counter drugs and for the marijuana crash finding versus its effects.",
+      "quiz_strategy": "Hub-chosen quiz on drug laws, medicine labels and marijuana effects.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec10-m06",
+      "unit_id": "sec10-u06",
+      "node_ids": [
+        "sec10-R12",
+        "sec10-F25",
+        "sec10-R16",
+        "sec10-R13",
+        "sec10-R14",
+        "sec10-R15"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Close with how any health problem can interfere with driving, how often to have your eyes tested, the MVC power to retest drivers, side vision, distance judgment and why hearing matters.",
+      "flashcard_strategy": "One card per rule; contrast cards for eye tests versus MVC retesting and for side vision versus hearing.",
+      "quiz_strategy": "Hub-chosen quiz on health, eye tests, vision and hearing.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec10-F01",
+    "sec10-F02",
+    "sec10-R08",
+    "sec10-F04",
+    "sec10-F03",
+    "sec10-F13",
+    "sec10-F14",
+    "sec10-F05",
+    "sec10-F06",
+    "sec10-F15",
+    "sec10-R03",
+    "sec10-F07",
+    "sec10-F08",
+    "sec10-R01",
+    "sec10-F09",
+    "sec10-F10",
+    "sec10-R02",
+    "sec10-F11",
+    "sec10-F12",
+    "sec10-F16",
+    "sec10-R04",
+    "sec10-R05",
+    "sec10-R06",
+    "sec10-R07",
+    "sec10-R09",
+    "sec10-F19",
+    "sec10-F17",
+    "sec10-F18",
+    "sec10-F20",
+    "sec10-F22",
+    "sec10-F21",
+    "sec10-R10",
+    "sec10-R11",
+    "sec10-F23",
+    "sec10-F24",
+    "sec10-R12",
+    "sec10-F25",
+    "sec10-R16",
+    "sec10-R13",
+    "sec10-R14",
+    "sec10-R15"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec10-m01..sec10-m06; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 41,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec10-F01",
+          "module_id": "sec10-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F02",
+          "module_id": "sec10-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F03",
+          "module_id": "sec10-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F04",
+          "module_id": "sec10-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F05",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F06",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F07",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F08",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F09",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F10",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F11",
+          "module_id": "sec10-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F12",
+          "module_id": "sec10-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F13",
+          "module_id": "sec10-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F14",
+          "module_id": "sec10-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F15",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F16",
+          "module_id": "sec10-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F17",
+          "module_id": "sec10-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F18",
+          "module_id": "sec10-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F19",
+          "module_id": "sec10-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F20",
+          "module_id": "sec10-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F21",
+          "module_id": "sec10-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F22",
+          "module_id": "sec10-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F23",
+          "module_id": "sec10-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F24",
+          "module_id": "sec10-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-F25",
+          "module_id": "sec10-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R01",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R02",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R03",
+          "module_id": "sec10-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R04",
+          "module_id": "sec10-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R05",
+          "module_id": "sec10-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R06",
+          "module_id": "sec10-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R07",
+          "module_id": "sec10-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R08",
+          "module_id": "sec10-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R09",
+          "module_id": "sec10-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R10",
+          "module_id": "sec10-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R11",
+          "module_id": "sec10-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R12",
+          "module_id": "sec10-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R13",
+          "module_id": "sec10-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R14",
+          "module_id": "sec10-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R15",
+          "module_id": "sec10-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec10-R16",
+          "module_id": "sec10-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec10-F01",
+          "to": "sec10-F02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F01",
+          "to": "sec10-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F13",
+          "to": "sec10-F14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F05",
+          "to": "sec10-F06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F06",
+          "to": "sec10-F15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F15",
+          "to": "sec10-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F03",
+          "to": "sec10-F15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F07",
+          "to": "sec10-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F07",
+          "to": "sec10-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F08",
+          "to": "sec10-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F09",
+          "to": "sec10-F10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F09",
+          "to": "sec10-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F10",
+          "to": "sec10-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F05",
+          "to": "sec10-F11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F11",
+          "to": "sec10-F12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F16",
+          "to": "sec10-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F16",
+          "to": "sec10-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F16",
+          "to": "sec10-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-R07",
+          "to": "sec10-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-R09",
+          "to": "sec10-F19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F17",
+          "to": "sec10-F18",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F20",
+          "to": "sec10-F22",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F21",
+          "to": "sec10-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F21",
+          "to": "sec10-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F23",
+          "to": "sec10-F24",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-F25",
+          "to": "sec10-R16",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec10-R13",
+          "to": "sec10-R14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Drinking, drugs and health: alcohol effects, BAC limits, breath-test refusal, impaired-driver signs, drugs and fitness to drive",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 58.1,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Drinking, drugs and health confusables and continuation details",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 41.9,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec10-m01",
+          "sec10-m02",
+          "sec10-m03",
+          "sec10-m04",
+          "sec10-m05",
+          "sec10-m06"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

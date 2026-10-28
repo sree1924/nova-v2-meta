@@ -56,6 +56,7 @@ function fractionToWords(a, b) {
   return `${numberToWords(num) ?? a} over ${numberToWords(den) ?? b}`;
 }
 // Clock times (2026-10-28): "11:01 p.m." was spoken "eleven:one p.m."; "5:00 a.m." as "five:zero a.m.".
+const spokenizeDecimal = (n) => { const [a, b] = String(n).split('.'); return (numberToWords(Number(a)) ?? a) + (b ? ' point ' + [...b].map((d) => ONES[Number(d)]).join(' ') : ''); };
 function timeToWords(h, m) {
   const hour = numberToWords(Number(h)) ?? h;
   const mins = Number(m);
@@ -69,6 +70,11 @@ export function spokenize(text) {
   // spoken as "slash", never as "or"; without this the short-part rule below turned "Michigan.gov/SOS" into "Michigan.gov or SOS"
   // and long paths got no spoken form at all (04.BACK_SPOKEN_FORM vs 04.BACK_FIDELITY could not both pass).
   s = s.replace(/\b((?:https?:\/\/)?(?:www\.)?[A-Za-z0-9-]+(?:\.[A-Za-z]{2,})+)((?:\/[A-Za-z0-9._~%-]+)+)\/?/g, (_, host, pathPart) => host + pathPart.split('/').filter(Boolean).map((seg) => ' slash ' + seg).join(''));
+  // Emergency number and money in millions/billions (2026-10-28, Michigan "911" → "nine hundred eleven", "$130 million" →
+  // "one hundred thirty dollars million"); engine displacement "125cc".
+  s = s.replace(/\b911\b/g, 'nine one one');
+  s = s.replace(/\$\s?(\d+(?:\.\d+)?)\s*(million|billion|trillion)\b/gi, (_, n, scale) => `${spokenizeDecimal(n)} ${scale.toLowerCase()} dollars`);
+  s = s.replace(/\b(\d+)\s*cc\b/g, (_, n) => `${numberToWords(Number(n)) ?? n} cubic centimeters`);
   // Clock times and numeric fractions/ratios BEFORE the alternatives rule, which would otherwise read "/" and ":" literally.
   s = s.replace(/\b(1[0-2]|0?[1-9])[:.]([0-5]\d)(?=\s*(?:a\.?m\.?|p\.?m\.?|noon|midnight)\b)/gi, (_, h, m) => timeToWords(h, m));
   s = s.replace(/\b(\d{1,2}):([0-5]\d)\b(?!\s*:)/g, (_, h, m) => timeToWords(h, m));
