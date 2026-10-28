@@ -6,7 +6,12 @@
 // fetch("audio/audio-manifest.json") first and falls back to this copy.
 // Read-only w.r.t. the belt: the manifest itself is an input, never edited.
 //
-// Usage: node tools/preview/embed-audio-manifest.mjs
+// Usage: node tools/preview/embed-audio-manifest.mjs [--manifest <json>] [--out <js>]
+// Defaults = Utah (app-preview/audio/audio-manifest.json ->
+// app-preview/audio-manifest-embedded.js). Another state in the multi-state
+// shell: --manifest app-preview/audio/<xx>/audio-manifest.json
+//        --out app-preview/audio/<xx>/audio-manifest-embedded.js
+// (paths relative to the lane root; must match the states.json entry).
 // No network, no model calls.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,8 +19,13 @@ import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const laneRoot = path.resolve(here, '..', '..');
-const src = path.join(laneRoot, 'app-preview', 'audio', 'audio-manifest.json');
-const dst = path.join(laneRoot, 'app-preview', 'audio-manifest-embedded.js');
+const args = process.argv.slice(2);
+const opt = (name, dflt) => {
+  const i = args.indexOf(name);
+  return i >= 0 && args[i + 1] ? args[i + 1] : dflt;
+};
+const src = path.resolve(laneRoot, opt('--manifest', 'app-preview/audio/audio-manifest.json'));
+const dst = path.resolve(laneRoot, opt('--out', 'app-preview/audio-manifest-embedded.js'));
 
 const raw = fs.readFileSync(src, 'utf8');
 const m = JSON.parse(raw);

@@ -1,24 +1,27 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Utah Driver Handbook — Written-Test Prep</title>
+<title>Driver Handbook — Written-Test Prep</title>
 <link rel="stylesheet" href="styles.css">
 <script src="data-embedded.js" defer></script>
-<script src="data-real-embedded.js" defer></script>
-<script src="audio-manifest-embedded.js" defer></script>
+<!-- State registry fallback for file:// opens. Per-state content and audio
+     fallbacks (data-real-embedded.js, audio-manifest-embedded.js, …) are
+     loaded on demand from each states.json entry, only when fetch fails. -->
+<script src="states-embedded.js" defer></script>
 </head>
 <body>
-<div class="real-banner" id="banner" role="note">REAL — Utah Driver Handbook, belt-validated, audit pending</div>
+<div class="real-banner" id="banner" role="note">REAL — driver handbook courses, belt-validated, audit pending</div>
 <header class="site">
   <div class="wrap">
-    <span class="brand">Utah Driver Handbook — Written-Test Prep</span>
+    <span class="brand" id="brand">Driver Handbook — Written-Test Prep</span>
     <nav class="main" aria-label="Learner">
-      <a href="#/" data-nav="home">Home</a>
-      <a href="#/chapters" data-nav="chapters">Chapters</a>
-      <a href="#/practice" data-nav="practice">Practice tests</a>
-      <a href="#/settings" data-nav="settings">Settings</a>
+      <a href="#/" data-nav="states">All states</a>
+      <a href="#/ut/" data-nav="home">Home</a>
+      <a href="#/ut/chapters" data-nav="chapters">Chapters</a>
+      <a href="#/ut/practice" data-nav="practice">Practice tests</a>
+      <a href="#/ut/settings" data-nav="settings">Settings</a>
     </nav>
   </div>
 </header>
@@ -26,30 +29,95 @@
 <footer class="site">dev preview — no production claims · narration: pre-generated files only (OpenAI TTS, not a Meta model)</footer>
 <script type="module">
 const SYNTHETIC_NOTE = "SYNTHETIC SAMPLE — not Utah content.";
-const REAL_NOTE = "REAL — Utah Driver Handbook, belt-validated, audit pending";
-// Handbook chapters in handbook order (sec01 … sec16). Titles humanize the
-// belt section slugs; only chapters with accepted belt artifacts are built.
-const SECTIONS = [
-  { id: "sec01-definitions", n: 1, title: "Definitions" },
-  { id: "sec02-licensing-requirements", n: 2, title: "Licensing Requirements" },
-  { id: "sec03-driver-education-permits", n: 3, title: "Driver Education and Permits" },
-  { id: "sec04-license-types-id-documents", n: 4, title: "License Types and ID Documents" },
-  { id: "sec05-vision-health", n: 5, title: "Vision and Health" },
-  { id: "sec06-examinations", n: 6, title: "Examinations" },
-  { id: "sec07-preparing-vehicle", n: 7, title: "Preparing Your Vehicle" },
-  { id: "sec08-basic-driving", n: 8, title: "Basic Driving" },
-  { id: "sec09-rules-of-the-road", n: 9, title: "Rules of the Road" },
-  { id: "sec10-alcohol-drugs", n: 10, title: "Alcohol and Drugs" },
-  { id: "sec11-distractions-challenges", n: 11, title: "Distractions and Challenges" },
-  { id: "sec12-crashes-insurance", n: 12, title: "Crashes and Insurance" },
-  { id: "sec13-suspensions-record", n: 13, title: "Suspensions and Your Record" },
-  { id: "sec14-sharing-the-road", n: 14, title: "Sharing the Road" },
-  { id: "sec15-vehicle-equipment", n: 15, title: "Vehicle Equipment" },
-  { id: "sec16-towing", n: 16, title: "Towing" }
-];
+const PICKER_NOTE = "REAL — driver handbook courses, belt-validated, audit pending";
+
+// ---- Multi-state shell ----
+// The state registry lives in data/states.json (file:// fallback:
+// states-embedded.js). Every state-specific path resolves through its entry:
+// data_root (content manifest + accepted exports), audio_root (clips),
+// audio_manifest, and the optional content_embedded / audio_embedded
+// fallbacks. A new state = one entry + its export folders; no code changes.
+// Routes: #/ = state picker; #/<xx>/… = that state's course (xx = lowercase code).
+// Legacy unprefixed routes (#/chapter/…, #/lesson/…, …) redirect to Utah for
+// one release so nothing already linked breaks.
+const LEGACY_STATE = "ut";
+const LEGACY_ROUTES = new Set(["chapters", "chapter", "module", "lesson", "cards", "quiz", "practice", "results", "settings", "dossier", "modules", "real-cards", "real-quiz", "real-lesson"]);
+let STATES = null;          // registry array once loaded
+let STATES_FROM = "none";
+let ST = null;              // active state entry
+const STATE_CACHE = {};     // code -> { R, audio: { manifest, from } }
+const SUMMARY = {};         // code -> picker counts from its manifests
+const pendingState = {}, pendingSummary = {};
+const slugOf = (s) => String(s.code || "").toLowerCase();
+const stateBySlug = (slug) => (STATES || []).find((s) => slugOf(s) === String(slug || "").toLowerCase()) || null;
+const P = () => "#/" + (ST ? slugOf(ST) : LEGACY_STATE) + "/";
+const HB = () => (ST ? (ST.short_title || `${ST.name} Driver Handbook`) : "Driver Handbook");
+const trimSlash = (p) => String(p || "").replace(/\/+$/, "");
+const contentEmbeddedSrc = (s) => s.content_embedded || (trimSlash(s.data_root) + "-embedded.js");
+const audioEmbeddedSrc = (s) => s.audio_embedded || String(s.audio_manifest || "").replace(/\.json$/, "-embedded.js");
+// Manifest file path -> key relative to the state's data_root.
+function relKey(dataRoot, file) {
+  const pre = trimSlash(dataRoot) + "/";
+  const f = String(file || "");
+  return f.startsWith(pre) ? f.slice(pre.length) : f.replace(/^data\/real\//, "");
+}
+async function fetchJson(p) {
+  const r = await fetch(p, {cache: "no-store"});
+  if (!r.ok) throw new Error("HTTP " + r.status + " " + p);
+  return r.json();
+}
+// file:// fallback: inject one generated *-embedded.js and capture its global.
+// Loads are serialized because several states' fallbacks share a global name.
+function loadScript(src) {
+  return new Promise((resolve) => {
+    try {
+      const el = document.createElement("script");
+      el.onload = () => resolve(true);
+      el.onerror = () => resolve(false);
+      el.src = src;
+      (document.head || document.body).appendChild(el);
+    } catch { resolve(false); }
+  });
+}
+let embedChain = Promise.resolve();
+function loadEmbedded(src, globalName) {
+  const run = async () => {
+    if (!src) return null;
+    try { window[globalName] = undefined; } catch { /* no-op */ }
+    const ok = await loadScript(src);
+    const v = ok ? window[globalName] : null;
+    try { window[globalName] = undefined; } catch { /* no-op */ }
+    return v || null;
+  };
+  const p = embedChain.then(run, run);
+  embedChain = p.catch(() => null);
+  return p;
+}
+async function loadStates() {
+  try {
+    const list = await fetchJson("data/states.json");
+    if (Array.isArray(list)) return { list, from: "fetch" };
+  } catch { /* fall through to the embedded copy */ }
+  const emb = window.__STATES_EMBEDDED;
+  if (Array.isArray(emb)) return { list: emb, from: "embedded-fallback" };
+  return { list: [], from: "none" };
+}
+
+// Handbook chapters in handbook order come from the state's entry
+// (chapters: [{id, n, title}]); without one, the accepted KG sections are
+// listed in slug order with humanized titles. Only chapters with accepted
+// belt artifacts are built.
+let SECTIONS = [];
+let REAL_NOTE = PICKER_NOTE;
+let REVIEWER_EMPTY_NOTE = "REVIEWER VIEW — no accepted content yet";
 const sectionMeta = (id) => SECTIONS.find((s) => s.id === id) || null;
-const shortSection = (id) => { const m = sectionMeta(id); return m ? `Chapter ${m.n} — ${m.title}` : "Utah Driver Handbook"; };
-const REVIEWER_EMPTY_NOTE = "REVIEWER VIEW — no accepted Utah content yet";
+const shortSection = (id) => { const m = sectionMeta(id); return m ? `Chapter ${m.n} — ${m.title}` : HB(); };
+const humanize = (slug) => String(slug || "").replace(/^sec\d+-?/, "").split("-").filter(Boolean).map((w) => w[0].toUpperCase() + w.slice(1)).join(" ") || String(slug || "");
+function sectionsFor(s, r) {
+  if (Array.isArray(s.chapters) && s.chapters.length) return s.chapters.map((c, i) => ({ id: c.id, n: c.n || i + 1, title: c.title || humanize(c.id) }));
+  const ids = [...new Set(((r && r.manifest && r.manifest.files) || []).filter((e) => e.stage_id === "03.combined_kg").map((e) => e.section_id))].sort();
+  return ids.map((id, i) => ({ id, n: i + 1, title: humanize(id) }));
+}
 
 function setBanner(kind, text) {
   const b = document.getElementById("banner");
@@ -58,19 +126,70 @@ function setBanner(kind, text) {
 }
 
 let R = null;
-async function loadReal() {
+async function loadReal(s) {
+  const root = trimSlash(s.data_root);
   try {
-    const manifest = await (await fetch("data/real/manifest.json", {cache: "no-store"})).json();
+    const manifest = await fetchJson(root + "/manifest.json");
+    if (manifest.run_id && manifest.run_id !== s.run_id) return { manifest: null, files: {}, from: "run-mismatch" };
     const files = {};
     for (const e of manifest.files || []) {
-      files[e.file.replace(/^data\/real\//, "")] = await (await fetch(e.file, {cache: "no-store"})).json();
+      const rel = relKey(root, e.file);
+      files[rel] = await fetchJson(root + "/" + rel);
     }
     return { manifest, files, from: "fetch" };
   } catch (e) {
-    const emb = window.__REAL_EMBEDDED;
-    if (emb) return { manifest: emb.manifest, files: emb.files, from: "embedded-fallback" };
+    const emb = await loadEmbedded(contentEmbeddedSrc(s), "__REAL_EMBEDDED");
+    if (emb && emb.manifest && (!emb.manifest.run_id || emb.manifest.run_id === s.run_id)) return { manifest: emb.manifest, files: emb.files || {}, from: "embedded-fallback" };
     return { manifest: null, files: {}, from: "none" };
   }
+}
+function ensureState(s) {
+  if (STATE_CACHE[s.code]) return Promise.resolve(STATE_CACHE[s.code]);
+  if (!pendingState[s.code]) {
+    pendingState[s.code] = Promise.all([loadReal(s), loadAudio(s)])
+      .then(([r, a]) => (STATE_CACHE[s.code] = { R: r, audio: a }));
+  }
+  return pendingState[s.code];
+}
+// Picker counts straight from a state's manifests (content + audio).
+function summarize(s, manifest, audio) {
+  if (!manifest) return { ok: false };
+  const files = manifest.files || [];
+  const kgSecs = new Set(files.filter((e) => e.stage_id === "03.combined_kg").map((e) => e.section_id));
+  const t = (audio && audio.totals) || null;
+  return { ok: true, files: files.length, chaptersBuilt: kgSecs.size, chaptersTotal: (s.chapters || []).length || kgSecs.size,
+    audio: t ? { clips: t.clips, cards: t.cards, slides: t.slides, recaps: t.recaps } : null };
+}
+function ensureSummary(s) {
+  if (SUMMARY[s.code]) return Promise.resolve(SUMMARY[s.code]);
+  if (!pendingSummary[s.code]) {
+    pendingSummary[s.code] = (async () => {
+      let manifest = null, audio = null;
+      try { manifest = await fetchJson(trimSlash(s.data_root) + "/manifest.json"); } catch { /* fallback below */ }
+      if (manifest && manifest.run_id && manifest.run_id !== s.run_id) manifest = null;
+      try { audio = await fetchJson(s.audio_manifest); } catch { /* fallback below */ }
+      if (!manifest) { // file:// (or no export over HTTP): the full fallback load also yields the audio manifest
+        const c = await ensureState(s);
+        manifest = manifest || c.R.manifest;
+        audio = audio || c.audio.manifest;
+      }
+      return (SUMMARY[s.code] = summarize(s, manifest, audio));
+    })();
+  }
+  return pendingSummary[s.code];
+}
+function activateState(s) {
+  if (ST === s) return;
+  const c = STATE_CACHE[s.code];
+  ST = s;
+  R = c.R;
+  AUDIO_MANIFEST = c.audio.manifest;
+  AUDIO_FROM = c.audio.from;
+  SECTIONS = sectionsFor(s, R);
+  REAL_NOTE = `REAL — ${HB()}, belt-validated, audit pending`;
+  REVIEWER_EMPTY_NOTE = `REVIEWER VIEW — no accepted ${s.name} content yet`;
+  _factPages = null;
+  buildAudioIndex();
 }
 const view = document.getElementById("view");
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -96,8 +215,9 @@ async function loadData() {
 }
 
 // ---- Learner progress (real syllabus namespace) ----
+// Namespaced per state: nova-preview:v1:<xx>-handbook (Utah keeps its key).
 const store = {
-  key: "nova-preview:v1:ut-handbook",
+  get key() { return `nova-preview:v1:${ST ? slugOf(ST) : LEGACY_STATE}-handbook`; },
   read() { try { return JSON.parse(localStorage.getItem(this.key)) || {}; } catch { return {}; } },
   write(s) { localStorage.setItem(this.key, JSON.stringify(s)); }
 };
@@ -139,20 +259,31 @@ function voiceMatch(spoken, answer) {
 
 // ---- Pre-generated narration (minted clips, files only) ----
 // Clips were minted by the Nova fleet recipe (OpenAI gpt-4o-mini-tts, voice
-// "nova" — NOT a Meta model) and listed in audio/audio-manifest.json. The app
-// only ever plays a file_ref from that manifest; nothing is synthesized here.
+// "nova" — NOT a Meta model) and listed in the state's audio manifest
+// (Utah: audio/audio-manifest.json). The app only ever plays a file_ref from
+// that manifest; nothing is synthesized here.
 const AUDIO_LABEL = "narration · pre-generated (OpenAI TTS, not a Meta model)";
 let AUDIO_MANIFEST = null;
 let AUDIO_FROM = "none";
-async function loadAudio() {
+let AUDIO_ROOT = "audio";
+async function loadAudio(s) {
   try {
-    const m = await (await fetch("audio/audio-manifest.json", {cache: "no-store"})).json();
+    const m = await fetchJson(s.audio_manifest);
     return { manifest: m, from: "fetch" };
   } catch (e) {
-    const emb = window.__AUDIO_MANIFEST_EMBEDDED;
+    const emb = await loadEmbedded(audioEmbeddedSrc(s), "__AUDIO_MANIFEST_EMBEDDED");
     if (emb) return { manifest: emb, from: "embedded-fallback" };
     return { manifest: null, from: "none" };
   }
+}
+// Manifest file_refs follow the fleet minter's "audio/<file>" convention;
+// they are rebased under the state's audio_root (identity for Utah, whose
+// audio_root is "audio").
+function rebaseAudio(ref) {
+  const r = String(ref || "");
+  if (r.startsWith(AUDIO_ROOT + "/")) return r;
+  if (r.startsWith("audio/")) return AUDIO_ROOT + r.slice("audio".length);
+  return AUDIO_ROOT + "/" + r;
 }
 let AUDIO_FILES = new Set();
 let AUDIO_THINK = {};
@@ -161,17 +292,18 @@ function buildAudioIndex() {
   AUDIO_FILES = new Set();
   AUDIO_THINK = {};
   AUDIO_PAUSE_MS = 3000;
+  AUDIO_ROOT = trimSlash((ST && ST.audio_root) || "audio") || "audio";
   const m = AUDIO_MANIFEST;
   if (!m) return;
   for (const e of (m.entries || [])) {
-    if (e.file_ref) AUDIO_FILES.add(e.file_ref);
+    if (e.file_ref) AUDIO_FILES.add(rebaseAudio(e.file_ref));
   }
   AUDIO_THINK = m.think || {};
   if (Number.isFinite(m.pause_ms)) AUDIO_PAUSE_MS = m.pause_ms;
 }
 const audioAllowed = (src) => !!src && AUDIO_FILES.has(src);
 function slideAudioSrc(unitId, slideId) {
-  const src = `audio/sessions/${unitId}.${slideId}.mp3`;
+  const src = `${AUDIO_ROOT}/sessions/${unitId}.${slideId}.mp3`;
   return audioAllowed(src) ? src : null;
 }
 // Four-movement arc, or null when any movement is missing (then the card
@@ -179,17 +311,17 @@ function slideAudioSrc(unitId, slideId) {
 function cardAudioSrcs(cardId, sectionId) {
   const thinkFile = sectionId ? AUDIO_THINK[sectionId] : null;
   const srcs = {
-    q: `audio/${cardId}.q.mp3`,
-    think: thinkFile ? `audio/${thinkFile}` : "",
-    a: `audio/${cardId}.a.mp3`,
-    teach: `audio/${cardId}.teach.mp3`
+    q: `${AUDIO_ROOT}/${cardId}.q.mp3`,
+    think: thinkFile ? `${AUDIO_ROOT}/${thinkFile}` : "",
+    a: `${AUDIO_ROOT}/${cardId}.a.mp3`,
+    teach: `${AUDIO_ROOT}/${cardId}.teach.mp3`
   };
   if (!srcs.q || !srcs.think || !srcs.a || !srcs.teach) return null;
   if (!audioAllowed(srcs.q) || !audioAllowed(srcs.think) || !audioAllowed(srcs.a) || !audioAllowed(srcs.teach)) return null;
   return srcs;
 }
 function recapAudioSrc(recapCardId) {
-  const src = `audio/${recapCardId}.recap.mp3`;
+  const src = `${AUDIO_ROOT}/${recapCardId}.recap.mp3`;
   return audioAllowed(src) ? src : null;
 }
 function slideAudioHtml(unitId, sl) {
@@ -440,7 +572,7 @@ function realEntries() {
 }
 function realArt(entry) {
   if (!entry) return null;
-  return (R.files || {})[entry.file.replace(/^data\/real\//, "")] || null;
+  return (R.files || {})[relKey(ST ? ST.data_root : "data/real", entry.file)] || null;
 }
 function kgDocs() {
   const { kg } = realEntries();
@@ -582,13 +714,13 @@ function sourceLine(factIds) {
   const ids = (factIds || []).filter(Boolean);
   const secOf = (f) => (_factPages[f] || {}).section || null;
   const secs = [...new Set(ids.map(secOf).filter(Boolean))];
-  const label = secs.length === 1 ? shortSection(secs[0]) : "Utah Driver Handbook";
-  if (!ids.length) return `<p class="muted">Source: <a href="#/dossier">Utah Driver Handbook</a></p>`;
+  const label = secs.length === 1 ? shortSection(secs[0]) : HB();
+  if (!ids.length) return `<p class="muted">Source: <a href="${P()}dossier">${esc(HB())}</a></p>`;
   const pages = ids.map((f) => {
     const rec = _factPages[f] || {};
     const ref = rec.ref;
     const pg = ref && (ref.printed_page || ref.pdf_page) ? `, p. ${esc(ref.printed_page || ("PDF " + ref.pdf_page))}` : "";
-    return `<a href="#/dossier">${esc(f)}</a>${pg}`;
+    return `<a href="${P()}dossier">${esc(f)}</a>${pg}`;
   }).join(" · ");
   return `<p class="muted">Source: ${pages} · ${esc(label)}</p>`;
 }
@@ -612,7 +744,7 @@ function handbookCounts() {
   return { chapters: builtSections().length, total: SECTIONS.length, cards, items: Object.keys(byId).length, lessons, slides, modules: mods.length };
 }
 function realEmpty(what) {
-  return `<h1>Utah Driver Handbook</h1>
+  return `<h1>${esc(HB())}</h1>
   <div class="card"><h2>No accepted ${esc(what)} yet</h2>
   <p>The belt has no accepted artifact for this yet. Run <code>node tools/preview/export-content.mjs</code> after the belt accepts it, then re-open this page.</p></div>`;
 }
@@ -622,28 +754,83 @@ function realPending(sectionId, what) {
   return `<h1>${esc(shortSection(sectionId))}</h1>
   <div class="card"><h2>${esc(what)} — not yet built</h2>
   <p>The belt has not accepted this artifact for this chapter yet. Nothing synthetic is shown in its place.</p>
-  <p><a class="btn" href="#/chapter/${esc(sectionId)}">Back to the chapter</a></p></div>`;
+  <p><a class="btn" href="${P()}chapter/${esc(sectionId)}">Back to the chapter</a></p></div>`;
 }
 function sectionOfModule(moduleId) {
   const m = modulesReal().find((x) => x.module_id === moduleId);
   return m ? m.section_id : null;
 }
 
+const traceLink = (lead) => (ST && ST.trace ? `${lead || ""}<a href="${esc(ST.trace)}">How it was made — belt trace</a>` : "");
+
+// ---- State picker (#/) and non-complete states ----
+const STATUS_LABEL = { complete: "complete", building: "coming soon — building", sme_only: "coming soon — sources mapped" };
+function whatExists(s) {
+  const bits = [];
+  const n = (s.chapters || []).length;
+  if (n) bits.push(`${n} handbook section${n === 1 ? "" : "s"} mapped`);
+  if (s.note) bits.push(s.note);
+  return bits.join(" · ") || "registered; nothing exported yet";
+}
+function vPicker() {
+  const list = STATES || [];
+  if (!list.length) {
+    return `<h1>Driver handbook written-test prep</h1>
+    <div class="card"><h2>No states registered</h2><p>Add an entry to <code>app-preview/data/states.json</code> (then <code>node tools/preview/embed-states.mjs</code>).</p></div>`;
+  }
+  const open = list.filter((s) => s.status === "complete").length;
+  return `<h1>Driver handbook written-test prep — choose your state</h1>
+  <p class="muted">${esc(PICKER_NOTE)}. One course per state handbook. Every course is built from belt-accepted artifacts, shown word-for-word; full audit is still pending. ${open} of ${list.length} state${list.length === 1 ? "" : "s"} open.</p>
+  ${list.map((s) => {
+    const slug = slugOf(s);
+    const head = `<h2>${esc(s.name)}${s.status === "complete" ? "" : " — coming soon"}</h2>
+    <p><b>${esc(s.handbook)}</b> · ${esc(s.test)}</p>`;
+    if (s.status !== "complete") {
+      return `<div class="card" data-state-card="${esc(s.code)}" data-state-status="${esc(s.status)}">${head}
+      <p class="muted">Status: ${esc(STATUS_LABEL[s.status] || "coming soon")} · what exists: ${esc(whatExists(s))}</p>
+      <p class="muted">Not open yet — this course appears here once the belt has accepted its lessons, cards and quizzes.</p></div>`;
+    }
+    const sum = SUMMARY[s.code];
+    if (!sum || !sum.ok) {
+      return `<div class="card" data-state-card="${esc(s.code)}" data-state-status="unavailable">${head}
+      <p class="muted">Status: complete, but no export was found at <code>${esc(s.data_root)}</code> — run the content export, then reload. Nothing synthetic is shown in its place.</p></div>`;
+    }
+    const a = sum.audio;
+    return `<div class="card" data-state-card="${esc(s.code)}" data-state-status="complete">${head}
+    <p class="muted">Status: complete · ${sum.chaptersBuilt} of ${sum.chaptersTotal} chapters built · ${sum.files} accepted artifacts${a ? ` · narration: ${a.cards} cards, ${a.slides} lesson slides, ${a.recaps} recaps (${a.clips} clips)` : " · narration pending"}</p>
+    <p class="muted">Authored by ${esc(s.authored_by)} · run <code>${esc(s.run_id)}</code></p>
+    <p><a class="btn" href="#/${esc(slug)}/">Open ${esc(s.name)}</a>${s.trace ? ` <a href="${esc(s.trace)}">How it was made — belt trace</a>` : ""}</p></div>`;
+  }).join("")}`;
+}
+function vComingSoon(s) {
+  return `<h1>${esc(s.name)} — coming soon</h1>
+  <div class="card"><h2>${esc(s.handbook)} · ${esc(s.test)}</h2>
+  <p class="muted">Status: ${esc(STATUS_LABEL[s.status] || "coming soon")} · what exists: ${esc(whatExists(s))}</p>
+  <p>This course is not open yet. Nothing synthetic is shown in its place.</p>
+  <p><a class="btn" href="#/">Back to all states</a></p></div>`;
+}
+function vNoState(slug) {
+  return `<h1>Nothing here</h1><p>There is no state course <code>${esc(slug)}</code>.</p><p><a class="btn" href="#/">All states</a></p>`;
+}
+function vLoading(what) {
+  return `<h1>Loading…</h1><p class="muted">Loading ${esc(what)}.</p>`;
+}
+
 function vHome() {
   const c = handbookCounts();
   if (!c.chapters) return realEmpty("knowledge graph");
   const built = builtSections();
-  return `<h1>Utah Driver Handbook — written-test prep</h1>
+  return `<h1>${esc(HB())} — written-test prep</h1>
   <p class="muted">${esc(REAL_NOTE)}. Written-test preparation for regular non-commercial passenger-car rules. Everything below is a belt-accepted artifact, shown word-for-word; full audit is still pending.</p>
   <div class="card"><h2>${c.chapters} of ${c.total} chapters built · ${c.cards} flashcards · ${c.items} quiz items · ${c.lessons} lessons (${c.slides} slides)</h2>
   <p class="muted">Counts come from the accepted exports — no synthetic filler anywhere on learner routes.</p>
-  <p><a class="btn" href="#/chapters">Browse all ${c.total} chapters</a> <a class="btn" href="#/practice">Practice tests</a> <a href="trace.html">How it was made — belt trace</a></p></div>
+  <p><a class="btn" href="${P()}chapters">Browse all ${c.total} chapters</a> <a class="btn" href="${P()}practice">Practice tests</a>${traceLink(" ")}</p></div>
   ${built.map((s) => {
     const mods = modulesReal(s.id);
     const cards = mods.reduce((n, m) => n + (m.unit_id ? deckForUnit(m.unit_id).length : 0), 0);
     return `<div class="card"><h2>Chapter ${s.n} — ${esc(s.title)}</h2>
     <p class="muted">${mods.length} modules · ${cards} flashcards</p>
-    <p><a class="btn" href="#/chapter/${esc(s.id)}">Open chapter</a></p></div>`;
+    <p><a class="btn" href="${P()}chapter/${esc(s.id)}">Open chapter</a></p></div>`;
   }).join("")}`;
 }
 
@@ -651,13 +838,13 @@ function vChapters() {
   const c = handbookCounts();
   if (!c.chapters) return realEmpty("knowledge graph");
   const has = new Set(builtSections().map((s) => s.id));
-  return `<h1>Chapters — Utah Driver Handbook</h1>
+  return `<h1>Chapters — ${esc(HB())}</h1>
   <p class="muted">${esc(REAL_NOTE)}. One chapter per handbook section, in handbook order. ${c.chapters} of ${c.total} built so far.</p>
   ${SECTIONS.map((s) => {
     const mods = has.has(s.id) ? modulesReal(s.id) : [];
     return `<div class="card"><h2>Chapter ${s.n} — ${esc(s.title)}</h2>
     ${has.has(s.id)
-      ? `<p class="muted">${mods.length} modules from the accepted knowledge graph</p><p><a class="btn" href="#/chapter/${esc(s.id)}">Open chapter</a></p>`
+      ? `<p class="muted">${mods.length} modules from the accepted knowledge graph</p><p><a class="btn" href="${P()}chapter/${esc(s.id)}">Open chapter</a></p>`
       : `<p class="muted">Not yet built — the belt has no accepted artifacts for this chapter yet.</p>`}</div>`;
   }).join("")}`;
 }
@@ -670,7 +857,7 @@ function vChapter(sectionId) {
     return `<h1>Chapter ${meta.n} — ${esc(meta.title)}</h1>
     <div class="card"><h2>Not yet built</h2>
     <p>The belt has no accepted artifacts for this chapter yet. Nothing synthetic is shown in its place.</p>
-    <p><a class="btn" href="#/chapters">Back to all chapters</a></p></div>`;
+    <p><a class="btn" href="${P()}chapters">Back to all chapters</a></p></div>`;
   }
   return `<h1>Chapter ${meta.n} — ${esc(meta.title)}</h1>
   <p class="muted">${esc(REAL_NOTE)}. Study each module in order: lesson, then flashcards, then the quiz.</p>
@@ -683,11 +870,11 @@ function vChapter(sectionId) {
     <p class="muted">${m.nodeCount} handbook nodes · ${(unit ? unit.slides : []).length || "no"} lesson slides · ${deck.length || "no"} flashcards · ${(quiz ? quiz.item_ids : []).length || "no"} quiz questions</p>
     <dl class="kv"><dt>Lesson</dt><dd>${unit ? (s.lesson ? "done" : "not started") : "not yet built"}</dd>
     <dt>Cards seen</dt><dd>${deck.length ? (s.cards ? "yes" : "no") : "not yet built"}</dd></dl>
-    <p><a class="btn" href="#/module/${esc(m.module_id)}">Open module hub</a></p></div>`;
+    <p><a class="btn" href="${P()}module/${esc(m.module_id)}">Open module hub</a></p></div>`;
   }).join("")}
   <div class="card"><h2>Practice tests</h2>
   <p>Practice forms drawn from this chapter's accepted exam bank, if any. Practice only — no official pass claim.</p>
-  <p><a class="btn" href="#/practice">Choose a practice form</a></p></div>`;
+  <p><a class="btn" href="${P()}practice">Choose a practice form</a></p></div>`;
 }
 
 function sectionOfUnit(unitId) {
@@ -706,17 +893,17 @@ function vModule(moduleId) {
   <p class="muted">${esc(REAL_NOTE)} · ${esc(shortSection(m.section_id))}. Study in order: lesson, then flashcards, then the quiz.</p>
   <div class="card"><h2>1 · Lesson</h2>
   ${unit
-    ? `<p class="muted">${unit.slides.length} slides · ${s.lesson ? "done" : "not started"}</p><p><a class="btn" href="#/lesson/${esc(m.unit_id)}">Start the lesson</a></p>`
+    ? `<p class="muted">${unit.slides.length} slides · ${s.lesson ? "done" : "not started"}</p><p><a class="btn" href="${P()}lesson/${esc(m.unit_id)}">Start the lesson</a></p>`
     : `<p class="muted">Not yet built — the belt has no accepted lesson for this module yet.</p>`}</div>
   <div class="card"><h2>2 · Flashcards</h2>
   ${deck.length
-    ? `<p class="muted">${deck.length} cards · ${s.cards ? "seen" : "not started"}</p><p><a class="btn" href="#/cards/${esc(m.unit_id)}">Drill the cards</a></p>`
+    ? `<p class="muted">${deck.length} cards · ${s.cards ? "seen" : "not started"}</p><p><a class="btn" href="${P()}cards/${esc(m.unit_id)}">Drill the cards</a></p>`
     : `<p class="muted">Not yet built — the belt has no accepted cards for this module yet.</p>`}</div>
   <div class="card"><h2>3 · Quiz</h2>
   ${quiz
-    ? `<p class="muted">${quiz.item_ids.length} questions · ${esc(quiz.title || "")}</p><p><a class="btn" href="#/quiz/${esc(m.unit_id)}">Take the module quiz</a></p>`
+    ? `<p class="muted">${quiz.item_ids.length} questions · ${esc(quiz.title || "")}</p><p><a class="btn" href="${P()}quiz/${esc(m.unit_id)}">Take the module quiz</a></p>`
     : `<p class="muted">Not yet built — the belt has no accepted quiz for this module yet.</p>`}</div>
-  <p><a class="btn" href="#/chapter/${esc(m.section_id)}">Back to ${esc(shortSection(m.section_id))}</a></p>`;
+  <p><a class="btn" href="${P()}chapter/${esc(m.section_id)}">Back to ${esc(shortSection(m.section_id))}</a></p>`;
 }
 
 function vLesson(unitId) {
@@ -748,7 +935,7 @@ function vLesson(unitId) {
   <div class="card"><h2>Self-check</h2><p>${esc(sc.prompt && sc.prompt.text)}</p>
     <p><button data-reveal>Reveal answer</button></p>
     <p hidden data-answer><b>Answer.</b> ${esc(sc.answer && sc.answer.text)}<br><b>Why.</b> ${esc(sc.rationale && sc.rationale.text)}</p></div>
-  <p><a class="btn" href="#/cards/${esc(unitId)}">Continue to flashcards</a>${moduleId ? ` <a class="btn" href="#/module/${esc(moduleId)}">Back to module hub</a>` : ""}</p>`;
+  <p><a class="btn" href="${P()}cards/${esc(unitId)}">Continue to flashcards</a>${moduleId ? ` <a class="btn" href="${P()}module/${esc(moduleId)}">Back to module hub</a>` : ""}</p>`;
 }
 
 function vCards(unitId) {
@@ -779,7 +966,7 @@ function vCards(unitId) {
   }).join("")}
   ${recap ? `<div class="card"><h2>Deck recap</h2><p>${esc(recap.recap && recap.recap.narration_text)}</p><p class="muted">Hooks: ${esc((recap.recap && recap.recap.hooks_spoken || []).join("; "))}</p>${recapPlayHtml(recap)}</div>` : ""}
   <p class="muted">${esc(AUDIO_LABEL)}. Play runs question → think cue → answer → teaching; the answer reveals when the answer clip starts. The 3-second Recall beat is unchanged.</p>
-  <p><a class="btn" href="#/quiz/${esc(unitId)}">Continue to the quiz</a>${moduleId ? ` <a class="btn" href="#/module/${esc(moduleId)}">Back to module hub</a>` : ""}</p>`;
+  <p><a class="btn" href="${P()}quiz/${esc(unitId)}">Continue to the quiz</a>${moduleId ? ` <a class="btn" href="${P()}module/${esc(moduleId)}">Back to module hub</a>` : ""}</p>`;
 }
 
 // ---- Synthetic sample (comparison route #/synthetic-sample only) ----
@@ -849,7 +1036,7 @@ function vQuiz(unitId) {
   }
   return realQuizBlock(quiz.item_ids, "quiz:" + quiz.quiz_id, quiz.title,
     "Module quiz with supported rationales. Missed questions are listed for review after you check.", null)
-    + `<p><a class="btn" href="#/module/${esc(moduleForUnit(unitId) || "")}">Back to module hub</a> <a class="btn" href="#/practice">Try a practice test</a></p>`;
+    + `<p><a class="btn" href="${P()}module/${esc(moduleForUnit(unitId) || "")}">Back to module hub</a> <a class="btn" href="${P()}practice">Try a practice test</a></p>`;
 }
 
 function vPractice(formId) {
@@ -861,20 +1048,20 @@ function vPractice(formId) {
     return realQuizBlock(f.item_ids, "form:" + f.form_id, f.title,
       "Full practice form drawn from the accepted exam bank. Scores describe observed practice only — never licensing eligibility, driving competence, or predicted success.",
       `${f.title} — practice form`)
-      + `<p><a class="btn" href="#/practice">Choose the other form</a> <a class="btn" href="#/">Back home</a></p>`;
+      + `<p><a class="btn" href="${P()}practice">Choose the other form</a> <a class="btn" href="${P()}">Back home</a></p>`;
   }
   const bySec = {};
   for (const f of forms) { (bySec[f.section_id] = bySec[f.section_id] || []).push(f); }
-  return `<h1>Practice tests — Utah Driver Handbook</h1>
+  return `<h1>Practice tests — ${esc(HB())}</h1>
   <p class="muted">${esc(REAL_NOTE)}. ${forms.length} accepted practice forms across ${Object.keys(bySec).length} chapter(s). Practice only — no official pass claim.</p>
   ${Object.entries(bySec).map(([sec, list]) => `<div class="card"><h2>${esc(shortSection(sec))}</h2>
   ${list.map((f) => `<p class="muted">${esc(f.title)} · ${(f.item_ids || []).length} questions · practice ${esc(f.form_id)}</p>
-  <p><a class="btn" href="#/practice/${esc(f.form_id)}">Start ${esc(f.title || f.form_id)}</a></p>`).join("")}</div>`).join("")}`;
+  <p><a class="btn" href="${P()}practice/${esc(f.form_id)}">Start ${esc(f.title || f.form_id)}</a></p>`).join("")}</div>`).join("")}`;
 }
 
 function vResults(attemptId) {
   const r = getResult(attemptId);
-  if (!r) return `<h1>Results</h1><p>No practice attempt <code>${esc(attemptId)}</code> is stored in this browser. Scores live only here, on this device.</p><p><a class="btn" href="#/practice">Take a practice test</a></p>`;
+  if (!r) return `<h1>Results</h1><p>No practice attempt <code>${esc(attemptId)}</code> is stored in this browser. Scores live only here, on this device.</p><p><a class="btn" href="${P()}practice">Take a practice test</a></p>`;
   const missed = r.answers.filter((a) => !a.correct);
   return `<h1>Results — observed practice only</h1>
   <p class="muted">${esc(REAL_NOTE)}.</p>
@@ -885,31 +1072,32 @@ function vResults(attemptId) {
     const opts = (a.options || []).map((o) => `<br>· <b>${esc(o.key)}.</b> ${esc(o.text)} — ${esc(o.rationale || "")}`).join("");
     return `<p><b>Question:</b> ${esc(a.stem)}<br><b>You chose ${esc(a.picked || "(no answer)")}; correct answer ${esc(a.key)}.</b> ${esc(a.why)}${opts}</p>`; }).join("")}</div>`
   : `<div class="card"><h2>Clean sweep</h2><p>Every answer matched. A useful next step: re-drill the flashcards from memory, then retake a practice form tomorrow.</p></div>`}
-  <p><a class="btn" href="#/practice">Back to practice tests</a> <a class="btn" href="#/">Back home</a></p>`;
+  <p><a class="btn" href="${P()}practice">Back to practice tests</a> <a class="btn" href="${P()}">Back home</a></p>`;
 }
 
 function vSettings() {
   return `<h1>Settings and about</h1>
   <div class="card"><h2>About this course</h2>
-  <p>Utah Driver Handbook — written-test preparation for regular non-commercial passenger-car rules. Everything is free, with no account. Narration is pre-generated audio files (OpenAI TTS, not a Meta model). Lesson slides, cards and questions are the belt's accepted artifacts, shown word-for-word. Chapters without accepted artifacts show as "not yet built" — nothing synthetic stands in for them.</p>
-  <p><a href="trace.html">How it was made — belt trace</a></p>
-  <p class="muted">Data source: ${(R && R.from === "fetch") ? "app-preview/data/real/*.json over HTTP" : "embedded fallback copy (identical content, used because local files could not be fetched)"}.</p></div>
+  <p>${esc(HB())} — written-test preparation for regular non-commercial passenger-car rules. Everything is free, with no account. Narration is pre-generated audio files (OpenAI TTS, not a Meta model). Lesson slides, cards and questions are the belt's accepted artifacts, shown word-for-word. Chapters without accepted artifacts show as "not yet built" — nothing synthetic stands in for them.</p>
+  <p class="muted">${esc(ST.handbook)} · ${esc(ST.test)} · authored by ${esc(ST.authored_by)} · run <code>${esc(ST.run_id)}</code> · <a href="#/">all states</a></p>
+  ${ST.trace ? `<p><a href="${esc(ST.trace)}">How it was made — belt trace</a></p>` : ""}
+  <p class="muted">Data source: ${(R && R.from === "fetch") ? `app-preview/${esc(trimSlash(ST.data_root))}/*.json over HTTP` : "embedded fallback copy (identical content, used because local files could not be fetched)"}.</p></div>
   <div class="card"><h2>Reviewer</h2>
-  <p><a class="btn" href="#/dossier">Source dossier (reviewer view)</a>
-  <a class="btn" href="#/modules">Module structure (reviewer view)</a>
-  <a class="btn" href="#/real-cards">Real flashcards (reviewer view)</a>
-  <a class="btn" href="#/real-quiz">Real quiz (reviewer view)</a>
-  <a class="btn" href="#/real-lesson">Real lesson (reviewer view)</a></p>
+  <p><a class="btn" href="${P()}dossier">Source dossier (reviewer view)</a>
+  <a class="btn" href="${P()}modules">Module structure (reviewer view)</a>
+  <a class="btn" href="${P()}real-cards">Real flashcards (reviewer view)</a>
+  <a class="btn" href="${P()}real-quiz">Real quiz (reviewer view)</a>
+  <a class="btn" href="${P()}real-lesson">Real lesson (reviewer view)</a></p>
   <p class="muted">Accepted belt artifacts only. Card narration (stage 05.card_scripts) is shown under each flashcard answer.</p></div>
   <div class="card"><h2>Comparison</h2>
   <p><a class="btn" href="#/synthetic-sample">Fictional synthetic sample (for comparison)</a></p>
   <p class="muted">The old invented sample lives only on that screen — not on any learner screen.</p></div>
   <div class="card"><h2>Progress on this device</h2>
-  <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the Utah handbook syllabus. Changing the syllabus invalidates them.</p>
+  <p class="muted">Progress and practice scores are stored only in this browser, namespaced to the ${esc(ST.name)} handbook syllabus. Changing the syllabus invalidates them.</p>
   <p><button id="reset-progress" class="secondary">Erase my preview progress</button></p></div>`;
 }
 
-function vMissing() { return `<h1>Nothing here</h1><p>That module or unit is not part of this course.</p><p><a class="btn" href="#/chapters">Modules</a></p>`; }
+function vMissing() { return `<h1>Nothing here</h1><p>That module or unit is not part of this course.</p><p><a class="btn" href="${P()}chapters">Modules</a></p>`; }
 
 function factBlocks(md) {
   return String(md || "").split(/(?=^FACT_ID: )/m).map((b) => b.trim()).filter(Boolean);
@@ -923,7 +1111,7 @@ function vDossier() {
     <p>Stage 02 (dossier) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts a part: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Source dossier — Utah Driver Handbook</h1>
+  return `<h1>Source dossier — ${esc(HB())}</h1>
   <p class="muted">${esc(REAL_NOTE)}. Reviewer view, not a learner lesson: fact blocks as extracted, with provenance. Full audit is still pending.</p>
   ${dossier.map((e) => {
     const art = realArt(e);
@@ -943,15 +1131,15 @@ function vDossier() {
       }).join("") || `<pre class="fact">${esc((s.markdown || "").trim() || "(empty section)")}</pre>`)}</div>`).join("");
   }).join("")}
   ${kg.length ? `<div class="card"><h2>Accepted knowledge graph</h2>
-  <p>Stage 03 combined KG: ${kg.length} accepted task(s). <a class="btn" href="#/modules">View module structure</a></p></div>` : ""}
+  <p>Stage 03 combined KG: ${kg.length} accepted task(s). <a class="btn" href="${P()}modules">View module structure</a></p></div>` : ""}
   ${cards.length ? `<div class="card"><h2>Accepted flashcards</h2>
-  <p>Stage 04 cards: ${cards.length} accepted task(s). <a class="btn" href="#/real-cards">Study the real cards</a></p></div>` : ""}
+  <p>Stage 04 cards: ${cards.length} accepted task(s). <a class="btn" href="${P()}real-cards">Study the real cards</a></p></div>` : ""}
   ${exam.length ? `<div class="card"><h2>Accepted exam bank</h2>
-  <p>Stage 06 exam bank: ${exam.length} accepted task(s). <a class="btn" href="#/real-quiz">Take the real quiz</a></p></div>` : ""}
+  <p>Stage 06 exam bank: ${exam.length} accepted task(s). <a class="btn" href="${P()}real-quiz">Take the real quiz</a></p></div>` : ""}
   ${sessions.length ? `<div class="card"><h2>Accepted lesson sessions</h2>
-  <p>Stage 05 sessions: ${sessions.length} accepted task(s). <a class="btn" href="#/real-lesson">Study the real lesson</a></p></div>` : ""}
+  <p>Stage 05 sessions: ${sessions.length} accepted task(s). <a class="btn" href="${P()}real-lesson">Study the real lesson</a></p></div>` : ""}
   ${scripts.length ? `<div class="card"><h2>Accepted card narration</h2>
-  <p>Stage 05 card_scripts: ${scripts.length} accepted task(s). Narration text is shown under each answer on the <a class="btn" href="#/real-cards">real flashcards</a>.</p></div>` : ""}
+  <p>Stage 05 card_scripts: ${scripts.length} accepted task(s). Narration text is shown under each answer on the <a class="btn" href="${P()}real-cards">real flashcards</a>.</p></div>` : ""}
   ${other.length ? `<div class="card"><h2>Other accepted stages (learner wiring pending)</h2>
   <ul>${other.map((e) => `<li><code>${esc(e.stage_id)}</code> — task <code>${esc(e.task_id)}</code> · sha256 <code>${esc(e.sha256)}</code></li>`).join("")}</ul></div>` : ""}`;
 }
@@ -964,7 +1152,7 @@ function vModules() {
     <p>Stage 03 (combined KG) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts the KG: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Module structure — Utah Driver Handbook</h1>
+  return `<h1>Module structure — ${esc(HB())}</h1>
   <p class="muted">${esc(REAL_NOTE)}. Reviewer view, not a learner lesson: accepted knowledge-graph modules, nodes and learning path, with provenance. Full audit is still pending.</p>
   ${kg.map((e) => {
     const art = realArt(e);
@@ -995,12 +1183,12 @@ function vRealCards() {
     for (const s of (art && art.audio_scripts) || []) scriptByCard[s.card_id] = s;
   }
   if (!cards.length) {
-    return `<h1>Real flashcards — Utah Driver Handbook</h1>
+    return `<h1>Real flashcards — ${esc(HB())}</h1>
     <div class="card"><h2>No accepted cards yet</h2>
     <p>Stage 04 (cards) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts cards: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Real flashcards — Utah Driver Handbook</h1>
+  return `<h1>Real flashcards — ${esc(HB())}</h1>
   <p class="muted">${esc(REAL_NOTE)}. Accepted stage-04 cards with provenance. Full audit is still pending. No images in this text-first preview: each card gives a page-sourced verbal cue task instead of a claimed visual-recognition measurement.</p>
   ${cards.map((e) => {
     const art = realArt(e);
@@ -1026,12 +1214,12 @@ function vRealCards() {
 function vRealQuiz() {
   const { exam } = realEntries();
   if (!exam.length) {
-    return `<h1>Real quiz — Utah Driver Handbook</h1>
+    return `<h1>Real quiz — ${esc(HB())}</h1>
     <div class="card"><h2>No accepted exam bank yet</h2>
     <p>Stage 06 (exam bank) has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts the exam bank: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Real quiz — Utah Driver Handbook</h1>
+  return `<h1>Real quiz — ${esc(HB())}</h1>
   <p class="muted">${esc(REAL_NOTE)}. Accepted stage-06 exam items with provenance. Full audit is still pending. Scores describe observed practice only — never licensing eligibility, driving competence, or predicted success.</p>
   ${exam.map((e) => {
     const art = realArt(e);
@@ -1061,12 +1249,12 @@ function vRealQuiz() {
 function vRealLesson() {
   const { sessions } = realEntries();
   if (!sessions.length) {
-    return `<h1>Real lesson — Utah Driver Handbook</h1>
+    return `<h1>Real lesson — ${esc(HB())}</h1>
     <div class="card"><h2>No accepted lesson yet</h2>
     <p>Stage 05.sessions has no ledger task with status <code>accepted</code>, so there is nothing real to show. Held or blocked attempts are never displayed here.</p>
     <p class="muted">Operator step after the belt accepts sessions: <code>node tools/preview/export-content.mjs</code>, then re-open this page.</p></div>`;
   }
-  return `<h1>Real lesson — Utah Driver Handbook</h1>
+  return `<h1>Real lesson — ${esc(HB())}</h1>
   <p class="muted">${esc(REAL_NOTE)}. Accepted stage-05 teaching units with provenance. Full audit is still pending. Narration text is shown as written copy; no audio is generated in this preview.</p>
   ${sessions.map((e) => {
     const art = realArt(e);
@@ -1096,7 +1284,7 @@ function vRealLesson() {
         <p hidden data-answer><b>Answer.</b> ${esc(sc.answer && sc.answer.text)}<br><b>Why.</b> ${esc(sc.rationale && sc.rationale.text)}</p></div>`;
     }).join("");
   }).join("")}
-  <p><a class="btn" href="#/real-cards">Continue to the real flashcards</a></p>`;
+  <p><a class="btn" href="${P()}real-cards">Continue to the real flashcards</a></p>`;
 }
 
 function realGradeQuiz(form, formId, title) {
@@ -1132,7 +1320,7 @@ function realGradeQuiz(form, formId, title) {
   form.querySelector("[data-summary]").innerHTML =
     `<div class="card"><h2>You answered ${correctCount} of ${answers.length}</h2>
     <p class="muted">Observed practice only — never licensing eligibility or predicted success.</p>
-    <p><a class="btn" href="#/results/${attemptId}">See results and next steps</a></p></div>`;
+    <p><a class="btn" href="${P()}results/${attemptId}">See results and next steps</a></p></div>`;
   form.querySelector("[data-summary]").scrollIntoView();
 }
 
@@ -1162,7 +1350,7 @@ function synthGradeQuiz(form, formId, title) {
   form.querySelector("[data-summary]").scrollIntoView();
 }
 
-function wire() {
+function wire(sub) {
   view.querySelectorAll("[data-reveal]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const ans = btn.closest(".card").querySelector("[data-answer]");
@@ -1231,11 +1419,9 @@ function wire() {
       }).catch(() => { delete btn.dataset.busy; btn.disabled = false; });
     });
   });
-  const h = location.hash || "#/";
-  const lessonHit = h.startsWith("#/lesson/");
-  const cardsHit = h.startsWith("#/cards/");
-  if (lessonHit) markDone(h.split("/")[2], "lesson");
-  if (cardsHit) markDone(h.split("/")[2], "cards");
+  // sub = route parts after the state prefix (["lesson", unitId], …)
+  if (ST && sub && sub[0] === "lesson" && sub[1]) markDone(sub[1], "lesson");
+  if (ST && sub && sub[0] === "cards" && sub[1]) markDone(sub[1], "cards");
   view.querySelectorAll(".option").forEach((b) => {
     b.addEventListener("click", () => {
       const scope = b.closest("[data-ritem]") || b.closest("[data-sitem]");
@@ -1263,47 +1449,111 @@ function wire() {
   });
 }
 
-function route() {
-  stopAudio();
-  const h = location.hash || "#/";
-  const parts = h.replace(/^#\//, "").split("/");
+// One state's course: sub = parts after "#/<xx>/".
+function routeState(sub) {
+  const p0 = sub[0] || "";
   let html = "", nav = "home", banner = "real", bannerText = REAL_NOTE;
-  if (parts[0] === "") html = vHome();
-  else if (parts[0] === "chapters") { html = vChapters(); nav = "chapters"; }
-  else if (parts[0] === "chapter") html = vChapter(decodeURIComponent(parts[1] || ""));
-  else if (parts[0] === "module") html = vModule(decodeURIComponent(parts[1] || ""));
-  else if (parts[0] === "lesson") html = vLesson(decodeURIComponent(parts[1] || ""));
-  else if (parts[0] === "cards") html = vCards(decodeURIComponent(parts[1] || ""));
-  else if (parts[0] === "quiz") html = vQuiz(decodeURIComponent(parts[1] || ""));
-  else if (parts[0] === "practice" && parts[1]) { html = vPractice(decodeURIComponent(parts[1])); nav = "practice"; }
-  else if (parts[0] === "practice") { html = vPractice(null); nav = "practice"; }
-  else if (parts[0] === "results") html = vResults(decodeURIComponent(parts[1] || ""));
-  else if (parts[0] === "settings") { html = vSettings(); nav = "settings"; }
-  else if (parts[0] === "synthetic-sample") { html = vSyntheticSample(); banner = "synthetic"; bannerText = SYNTHETIC_NOTE; }
-  else if (parts[0] === "dossier") { html = vDossier(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
-  else if (parts[0] === "modules") { html = vModules(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
-  else if (parts[0] === "real-cards") { html = vRealCards(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
-  else if (parts[0] === "real-quiz") { html = vRealQuiz(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
-  else if (parts[0] === "real-lesson") { html = vRealLesson(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  if (p0 === "") html = vHome();
+  else if (p0 === "chapters") { html = vChapters(); nav = "chapters"; }
+  else if (p0 === "chapter") html = vChapter(decodeURIComponent(sub[1] || ""));
+  else if (p0 === "module") html = vModule(decodeURIComponent(sub[1] || ""));
+  else if (p0 === "lesson") html = vLesson(decodeURIComponent(sub[1] || ""));
+  else if (p0 === "cards") html = vCards(decodeURIComponent(sub[1] || ""));
+  else if (p0 === "quiz") html = vQuiz(decodeURIComponent(sub[1] || ""));
+  else if (p0 === "practice" && sub[1]) { html = vPractice(decodeURIComponent(sub[1])); nav = "practice"; }
+  else if (p0 === "practice") { html = vPractice(null); nav = "practice"; }
+  else if (p0 === "results") html = vResults(decodeURIComponent(sub[1] || ""));
+  else if (p0 === "settings") { html = vSettings(); nav = "settings"; }
+  else if (p0 === "dossier") { html = vDossier(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else if (p0 === "modules") { html = vModules(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else if (p0 === "real-cards") { html = vRealCards(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else if (p0 === "real-quiz") { html = vRealQuiz(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
+  else if (p0 === "real-lesson") { html = vRealLesson(); banner = "review"; bannerText = REVIEWER_EMPTY_NOTE; }
   else html = vMissing();
   if (banner === "review") {
     const re = realEntries();
-    const n = parts[0] === "dossier" ? re.dossier.length + re.kg.length + re.cards.length + re.exam.length + re.sessions.length + re.scripts.length + re.other.length : parts[0] === "modules" ? re.kg.length : parts[0] === "real-quiz" ? re.exam.length : parts[0] === "real-lesson" ? re.sessions.length : re.cards.length + re.scripts.length;
+    const n = p0 === "dossier" ? re.dossier.length + re.kg.length + re.cards.length + re.exam.length + re.sessions.length + re.scripts.length + re.other.length : p0 === "modules" ? re.kg.length : p0 === "real-quiz" ? re.exam.length : p0 === "real-lesson" ? re.sessions.length : re.cards.length + re.scripts.length;
     if (n) { banner = "real"; bannerText = REAL_NOTE; }
   }
-  setBanner(banner, bannerText);
-  view.innerHTML = html;
+  return { html, nav, banner, bannerText };
+}
+
+// Header: brand, title and state-scoped nav links follow the active state.
+function setChrome(navState, nav) {
+  const label = navState ? `${navState.short_title || navState.name + " Driver Handbook"} — Written-Test Prep` : "Driver Handbook — Written-Test Prep";
+  try { document.title = label; } catch { /* no-op */ }
+  const brand = document.getElementById("brand");
+  if (brand) brand.textContent = label;
   document.querySelectorAll("nav.main a").forEach((a) => {
-    if (a.dataset.nav === nav) a.setAttribute("aria-current", "page");
+    const k = a.dataset.nav;
+    if (k !== "states") {
+      if (navState) { a.hidden = false; a.setAttribute("href", "#/" + slugOf(navState) + "/" + (k === "home" ? "" : k)); }
+      else a.hidden = true;
+    }
+    if (k === nav) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
   });
-  wire();
+}
+
+let routeGen = 0;
+function route() {
+  stopAudio();
+  const gen = ++routeGen;
+  const rerender = () => { if (gen === routeGen) route(); };
+  let h = location.hash || "#/";
+  let parts = h.replace(/^#\/?/, "").split("/");
+  // Legacy unprefixed routes -> Utah (kept for one release).
+  if (LEGACY_ROUTES.has(parts[0])) {
+    h = "#/" + LEGACY_STATE + "/" + parts.join("/");
+    try {
+      if (typeof history !== "undefined" && history.replaceState) history.replaceState(null, "", h);
+      else location.hash = h;
+    } catch { location.hash = h; }
+    parts = h.replace(/^#\//, "").split("/");
+  }
+  let out = null, navState = null, sub = null;
+  if (!STATES) {
+    out = { html: vLoading("the state list"), nav: "states", banner: "real", bannerText: PICKER_NOTE };
+  } else if (parts[0] === "") {
+    const missing = STATES.filter((s) => s.status === "complete" && !SUMMARY[s.code]);
+    if (missing.length) {
+      Promise.all(missing.map((s) => ensureSummary(s).catch(() => (SUMMARY[s.code] = { ok: false })))).then(rerender);
+      out = { html: vLoading("the state courses"), nav: "states", banner: "real", bannerText: PICKER_NOTE };
+    } else {
+      out = { html: vPicker(), nav: "states", banner: "real", bannerText: PICKER_NOTE };
+    }
+  } else if (parts[0] === "synthetic-sample") {
+    out = { html: vSyntheticSample(), nav: "", banner: "synthetic", bannerText: SYNTHETIC_NOTE };
+    navState = ST;
+  } else {
+    const s = stateBySlug(parts[0]);
+    if (!s) out = { html: vNoState(parts[0]), nav: "", banner: "real", bannerText: PICKER_NOTE };
+    else if (s.status !== "complete") out = { html: vComingSoon(s), nav: "", banner: "real", bannerText: PICKER_NOTE };
+    else if (!STATE_CACHE[s.code]) {
+      ensureState(s).then(rerender, rerender);
+      out = { html: vLoading(`the ${s.name} course`), nav: "home", banner: "real", bannerText: PICKER_NOTE };
+      navState = s;
+    } else {
+      activateState(s);
+      navState = s;
+      sub = parts.slice(1);
+      out = routeState(sub);
+    }
+  }
+  setBanner(out.banner, out.bannerText);
+  view.innerHTML = out.html;
+  setChrome(navState, out.nav);
+  wire(sub);
   view.focus({ preventScroll: true });
   window.scrollTo(0, 0);
 }
 
 window.addEventListener("hashchange", route);
-loadReal().then((r) => { R = r; _factPages = null; return loadData(); }).then((d) => { D = d; return loadAudio(); }).then((a) => { AUDIO_MANIFEST = a.manifest; AUDIO_FROM = a.from; buildAudioIndex(); route(); }).catch(() => {});
+loadStates()
+  .then((st) => { STATES = st.list; STATES_FROM = st.from; })
+  .then(() => loadData().then((d) => { D = d; }, () => { /* synthetic sample stays unavailable; the course still loads */ }))
+  .then(() => { route(); })
+  .catch(() => {});
 </script>
 </body>
 </html>
