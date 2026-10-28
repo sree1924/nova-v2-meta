@@ -134,16 +134,24 @@ for (const f of listJson(path.join(REAL, '05_sessions'))) {
 }
 
 fs.mkdirSync(SESSION_AUDIO, { recursive: true });
+// Clip identity = hash of the spoken string under this voice/model/instructions (founder 2026-10-28: "hash based on string
+// generated"): identical sentences across states mint once. Physical files keep their per-card names until the player
+// resolves clips through the manifest; `by_hash` is the cross-state lookup the next mint consults before rendering.
+const clipHash = (input) => crypto.createHash('sha256').update(`${VOICE}|${MODEL}|${INSTRUCTIONS}|${input}`).digest('hex');
+for (const j of jobs) j.text_sha256 = clipHash(j.input);
+const priorManifest = fs.existsSync(MANIFEST) ? JSON.parse(fs.readFileSync(MANIFEST, 'utf8')) : null;
+const REFRESH = argv.includes('--refresh-manifest');
 const chars = jobs.reduce((n, j) => n + j.input.length, 0);
 let pending = jobs.filter((j) => !sizeOk(j.file));
 if (LIMIT > 0) pending = pending.slice(0, LIMIT);
 const estUsd = +(pending.length * RATE).toFixed(2);
 console.log(`COST ESTIMATE — utah: ${pending.length} new clips of ${jobs.length} total (${cards} cards × 3 + ${recaps} recaps + ${thinkByText.size} think + ${slides} slides; ${chars.toLocaleString()} chars; ${reorders} short-closer reorders) ≈ $${estUsd} @ ~$${RATE}/clip. ` + (GO ? 'MINTING (--go).' : 'DRY RUN — re-run with --go to mint.'));
 writeJson(ESTIMATE, { lane: 'utah', model: MODEL, voice: VOICE, provider: 'openai_audio_api', total_clips: jobs.length, new_clips: pending.length, chars, usd_per_clip: RATE, est_usd: estUsd, cards, recaps, think_clips: thinkByText.size, slides, short_closer_reorders: reorders, generated: GO, at: new Date().toISOString() });
-if (!GO) process.exit(0);
+if (!GO && !REFRESH) process.exit(0);
+if (REFRESH) { pending = []; console.log('REFRESH — rebuilding the manifest from clips on disk (no minting)'); }
 
 const KEY = process.env.OPENAI_API_KEY;
-if (!KEY || !KEY.startsWith('sk-')) { console.error('FATAL: OPENAI_API_KEY missing/invalid (never printed).'); process.exit(1); }
+if (!REFRESH && (!KEY || !KEY.startsWith('sk-'))) { console.error('FATAL: OPENAI_API_KEY missing/invalid (never printed).'); process.exit(1); }
 
 async function render(job) {
   if (sizeOk(job.file)) return { ...job, status: 'skipped' };
@@ -200,11 +208,17 @@ if (PACE_FACTOR && PACE_FACTOR !== 1 && fs.existsSync(FFMPEG)) {
 }
 
 // Manifest: every clip present on disk, with hashes; coverage gate counts.
-const entries = jobs.filter((j) => sizeOk(j.file)).map((j) => ({
-  kind: j.kind, id: j.id, section: j.section, file_ref: path.relative(path.join(LANE, 'app-preview'), j.file).replace(/\\/g, '/'),
-  bytes: fs.statSync(j.file).size, sha256: sha(j.file), reordered: j.reordered || false,
-  ...(j.unit_id ? { unit_id: j.unit_id, slide_id: j.slide_id } : {}),
-}));
+const priorByRef = new Map((priorManifest?.entries || []).map((e) => [e.file_ref, e]));
+const entries = jobs.filter((j) => sizeOk(j.file)).map((j) => {
+  const file_ref = path.relative(path.join(LANE, 'app-preview'), j.file).replace(/\\/g, '/');
+  const prior = priorByRef.get(file_ref) || {};
+  const keep = Object.fromEntries(Object.entries(prior).filter(([k]) => ['shrunk_bitrate', 'channels', 'sample_rate_hz'].includes(k)));
+  return { kind: j.kind, id: j.id, section: j.section, file_ref, text_sha256: j.text_sha256, chars: j.input.length,
+    bytes: fs.statSync(j.file).size, sha256: sha(j.file), reordered: j.reordered || false, ...keep,
+    ...(j.unit_id ? { unit_id: j.unit_id, slide_id: j.slide_id } : {}) };
+});
+const byHash = {};
+for (const e of entries) byHash[e.text_sha256] ??= e.file_ref;
 const missing = jobs.filter((j) => !sizeOk(j.file));
 const cardIds = [...new Set(jobs.filter((j) => j.kind.startsWith('card_')).map((j) => j.id))];
 const cardsComplete = cardIds.filter((id) => ['q', 'a', 'teach'].every((s) => sizeOk(path.join(AUDIO, `${id}.${s}.mp3`))));
@@ -212,6 +226,9 @@ writeJson(MANIFEST, {
   artifact: 'AudioAssetManifest', schema_version: '1.0.0-utah-lane', lane: 'utah-class-d', generated_at: new Date().toISOString(),
   minted_by: { provider: 'openai_audio_api', model: MODEL, voice: VOICE, instructions: INSTRUCTIONS, pace_atempo: paced ? PACE_FACTOR : null, not_a_meta_model: true },
   runtime_policy: 'play_pre_generated_files_only', live_tts_in_user_flow: false,
+  clip_identity: 'text_sha256 = sha256(voice|model|instructions|spoken_text); identical spoken strings share one clip across states',
+  by_hash: byHash, by_hash_count: Object.keys(byHash).length,
+  ...(priorManifest?.shrink ? { shrink: priorManifest.shrink } : {}),
   think: thinkFiles, pause_ms: 3000,
   totals: { clips: entries.length, cards: cardIds.length, cards_complete: cardsComplete.length, cards_missing_voice: cardIds.length - cardsComplete.length, slides, slides_with_audio: entries.filter((e) => e.kind === 'slide').length, sessions_missing_audio: slides - entries.filter((e) => e.kind === 'slide').length, recaps, missing: missing.length },
   this_run: { rendered, skipped, failed, paced, failures },
