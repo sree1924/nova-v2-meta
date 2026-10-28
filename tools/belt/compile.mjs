@@ -110,6 +110,9 @@ export function spokenize(text) {
   s = s.replace(/\b(\d{1,3})((?:\/\d{1,3}){2,})\b/g, (_, first, rest) => [first, ...rest.split('/').filter(Boolean)].map((n) => numberToWords(Number(n)) ?? n).join(', '));
   s = s.replace(/\b(\d{1,2})\/(\d{1,3})\b(?!\/)/g, (_, a, b) => fractionToWords(a, b));
   s = s.replace(/\b([A-Za-z0-9]{1,3})((?:\/[A-Za-z0-9]{1,3}\b)+)/g, (_, first, rest) => { const parts = [first, ...rest.split('/').filter(Boolean)]; return parts.length > 2 ? parts.slice(0, -1).join(', ') + ' or ' + parts.at(-1) : parts.join(' or '); });
+  // Literal glyph pronunciation for declared two-word labels; no and/or semantics are inferred.
+  // Keep existing short alternatives above; path-shaped, compound and undeclared tokens stay unchanged.
+  s = s.replace(/(?<![\p{L}\p{N}._~%:\/\\?&#=+@\[\]()-])(?:STOP\/SLOW|stop\/yield|day\/night|forward\/backward)(?![\p{L}\p{N}._~%:\/\\?&#=+@\[\]()-])/giu, label => label.replace('/', ' slash '));
   s = s.replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ');
   // Money: the amount group must not swallow a trailing list comma ("$1,000, plus costs" was "one thousand, dollars plus costs").
   s = s.replace(/\$\s?(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d{2}))?\b/g, (_, whole, cents) => {
