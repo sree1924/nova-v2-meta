@@ -65,7 +65,10 @@ $stagedNow = Staged
 Log "queue runner start: max $MaxParallel parallel, poll ${PollSeconds}s, staged: $($stagedNow -join ', ')"
 while ($true) {
   $stagedNow = Staged
-  $states = @($stagedNow | Where-Object { $skip -notcontains $_ })
+  # Worker boundary (founder 2026-10-28): states assigned to another worker in runs\_intake\QUEUE.json are not Muse's.
+  $notMine = @()
+  try { $q = Get-Content -Raw (Join-Path $lane "runs\_intake\QUEUE.json") | ConvertFrom-Json; foreach ($r in $q.queue) { if ($r.worker -and $r.worker -ne "muse") { $code = ("" + $r.jurisdiction).Replace("US-", "").ToUpper(); if ($code.Length -eq 2) { $notMine += $code } } } } catch {}
+  $states = @($stagedNow | Where-Object { ($skip -notcontains $_) -and ($notMine -notcontains $_) })
   $running = @(); $candidates = @()
   foreach ($st in $states) {
     $s = Status $st

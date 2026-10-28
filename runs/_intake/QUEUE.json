@@ -13,7 +13,8 @@
       "bytes": 3195207,
       "retrieved_at_utc": "2026-10-28T01:19:30Z",
       "status": "staged",
-      "local_path": "runs/_intake/sources/private/AZ.pdf"
+      "local_path": "runs/_intake/sources/private/AZ.pdf",
+      "worker": "muse"
     },
     {
       "state": "WA",
@@ -27,7 +28,8 @@
       "retrieved_at_utc": "2026-10-28T01:19:34Z",
       "status": "staged",
       "local_path": "runs/_intake/sources/private/WA.pdf",
-      "note": "linked href /media/pdf/4745/driver-guidepdf redirects to the final URL; edition date not printed on the cover (verify)"
+      "note": "linked href /media/pdf/4745/driver-guidepdf redirects to the final URL; edition date not printed on the cover (verify)",
+      "worker": "claude"
     },
     {
       "state": "NC",
@@ -41,7 +43,8 @@
       "retrieved_at_utc": "2026-10-28T01:20:47Z",
       "status": "staged",
       "local_path": "runs/_intake/sources/private/NC.pdf",
-      "note": "edition date not extracted (verify)"
+      "note": "edition date not extracted (verify)",
+      "worker": "claude"
     },
     {
       "state": "MI",
@@ -54,7 +57,8 @@
       "bytes": 10707706,
       "retrieved_at_utc": "2026-10-28T01:19:35Z",
       "status": "staged",
-      "local_path": "runs/_intake/sources/private/MI.pdf"
+      "local_path": "runs/_intake/sources/private/MI.pdf",
+      "worker": "claude"
     },
     {
       "state": "NJ",
@@ -67,7 +71,8 @@
       "bytes": 45733484,
       "retrieved_at_utc": "2026-10-28T01:20:12Z",
       "status": "staged",
-      "local_path": "runs/_intake/sources/private/NJ.pdf"
+      "local_path": "runs/_intake/sources/private/NJ.pdf",
+      "worker": "claude"
     },
     {
       "state": "CO",
@@ -80,7 +85,8 @@
       "bytes": 24292152,
       "retrieved_at_utc": "2026-10-28T01:21:13Z",
       "status": "staged",
-      "local_path": "runs/_intake/sources/private/CO.pdf"
+      "local_path": "runs/_intake/sources/private/CO.pdf",
+      "worker": "claude"
     },
     {
       "state": "TN",
@@ -94,7 +100,8 @@
       "retrieved_at_utc": "2026-10-28T01:22:07Z",
       "status": "staged",
       "local_path": "runs/_intake/sources/private/TN.pdf",
-      "note": "oldest edition in the queue (July 1, 2022 currency statement) - freshness (verify)"
+      "note": "oldest edition in the queue (July 1, 2022 currency statement) - freshness (verify)",
+      "worker": "muse"
     },
     {
       "state": "IN",
@@ -108,7 +115,8 @@
       "retrieved_at_utc": "2026-10-28T01:21:42Z",
       "status": "staged",
       "local_path": "runs/_intake/sources/private/IN.pdf",
-      "note": "issuer page also offers per-chapter PDFs; this is the single full-manual PDF"
+      "note": "issuer page also offers per-chapter PDFs; this is the single full-manual PDF",
+      "worker": "muse"
     },
     {
       "state": "MN",
@@ -122,7 +130,8 @@
       "retrieved_at_utc": "2026-10-28T01:23:11Z",
       "status": "staged",
       "local_path": "runs/_intake/sources/private/MN.pdf",
-      "note": "page href carries a ?v= cache-buster; fetched without it"
+      "note": "page href carries a ?v= cache-buster; fetched without it",
+      "worker": "muse"
     },
     {
       "state": "WI",
@@ -135,7 +144,8 @@
       "bytes": 4984487,
       "retrieved_at_utc": "2026-10-28T01:23:18Z",
       "status": "staged",
-      "local_path": "runs/_intake/sources/private/WI.pdf"
+      "local_path": "runs/_intake/sources/private/WI.pdf",
+      "worker": "muse"
     },
     {
       "state": "MD",
@@ -149,7 +159,8 @@
       "retrieved_at_utc": "2026-10-28T01:23:20Z",
       "status": "staged",
       "local_path": "runs/_intake/sources/private/MD.pdf",
-      "note": "link text: Maryland Driver's Manual - English (DL-002)"
+      "note": "link text: Maryland Driver's Manual - English (DL-002)",
+      "worker": "muse"
     },
     {
       "state": "MO",
@@ -162,7 +173,8 @@
       "bytes": 2350741,
       "retrieved_at_utc": "2026-10-28T01:23:24Z",
       "status": "staged",
-      "local_path": "runs/_intake/sources/private/MO.pdf"
+      "local_path": "runs/_intake/sources/private/MO.pdf",
+      "worker": "muse"
     }
   ],
   "refused": [
@@ -187,5 +199,10 @@
     "LA",
     "KY",
     "OK"
-  ]
+  ],
+  "workers": {
+    "muse": "queue-runner.ps1 (Muse Code subscription)",
+    "claude": "Claude Opus subagents (Anthropic subscription), coordination/CLAUDE-STATE-WORKER-BRIEF.md",
+    "note": "founder 2026-10-28: Claude authors the next five (WA NC MI NJ CO); Muse finishes TX CA FL NY VA + AZ pilot; state boundary = run dir"
+  }
 }
