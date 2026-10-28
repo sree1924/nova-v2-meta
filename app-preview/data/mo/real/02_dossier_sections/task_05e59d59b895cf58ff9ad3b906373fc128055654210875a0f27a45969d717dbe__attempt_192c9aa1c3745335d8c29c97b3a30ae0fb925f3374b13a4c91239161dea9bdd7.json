@@ -1,0 +1,136 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-mo-f",
+  "lineage": {
+    "input_manifest_sha256": "df387d4457d277a11497c72f2617bfb1a87f797c21259857c3e772dc3d80d790",
+    "candidate_lineage_id": "2026-10-28-rdmv-mo-class-f:lineage:3",
+    "source_registry_sha256": "f128002157e581eb7004b9370c8cfbafd7b29a1596262980704fbda0a45932f5",
+    "source_liveness_sha256": "fdf72d02e75b9589fee5aaf5b83ec9705ff03586f574464e3553a827f9b698d8"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy notes and source flags: license requirements, classes, documents, fees and restrictions",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy notes and source flags: license requirements, classes, documents, fees and restrictions\nEvery C and C2 fact cites exactly one physical guide page from the selected range; nothing relies on outside knowledge.\nThe fee chart extracted with its columns interleaved: the rows for the intermediate license, the full Class F license and the permits were read where minimum age, cost and term lined up unambiguously, but the two school-bus-endorsement rows for drivers aged seventy-five and older could not be tied to a specific license row, so no fee is stated for them [A06] (verify MO-LIC-D-FEECHART).\nThe restriction-code table extracted as two side-by-side columns; only codes whose letter and meaning sat on the same extracted line were used [A07].\nThe lawful-status paragraph links to an online document list; only the documents printed in the guide itself were used, and the online list is treated as dynamic [A04].\nFees, website document lists and office contact details are service details that can change and are isolated as dynamic.\nStatute citations printed in the chapter (for example the Class E exemption statute) were summarized, not copied.\n",
+      "char_count": 1167,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A06",
+          "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0010"
+        },
+        {
+          "anchor_id": "A07",
+          "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0011"
+        },
+        {
+          "anchor_id": "A04",
+          "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0008"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Missouri Driver Guide prints a single edition line on its front cover (Revised August 2026); its table-of-contents note says law and policy changes may make parts out of date and points to the website for the current version, with no sign in the selected pages of more than one rewrite per year."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "MO-LIC-D-FEECHART",
+      "claim_text": "The fee chart on physical page 10 shows two 'Age 75 or older with school bus endorsement' entries (New $14.00 / Renewal $9.00 and New $16.50 / Renewal $9.00) whose attachment to a license row was lost in text extraction; confirm from the rendered chart or the Department of Revenue fee page before teaching them.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

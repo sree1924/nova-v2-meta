@@ -53,3 +53,11 @@ Seeded 2026-10-28T07:23:58.772Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:26:39.135Z Batch02 sec03/sec04 four native C/C2 replacements/compiles PASS;26 corrections,10 additions,one explicit source-debt disposition. Read-only F/G inventory finds thirteen added debt IDs missing from four F indexes and four stale G11 completion rows. No downstream;accepted F/G unchanged.
 
 - 2026-10-28T10:33:15.628Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:23 for 02.dossier_sections (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-basic-driving__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:36:05.412Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:24 for 02.dossier_sections (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-basic-driving__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:36:15.648Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:25 for 02.dossier_sections (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-basic-driving__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:36:26.973Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:26 for 02.dossier_sections (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-basic-driving__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:36:37.641Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:27 for 02.dossier_sections (sec05-basic-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-basic-driving__G__n0 (lineage attempts exhausted)

@@ -147,3 +147,5 @@ Seeded 2026-10-28T07:01:29.980Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:34:35.931Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:72 for 02.dossier_sections (sec16-rural-night-sharing-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-rural-night-sharing-weather__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:35:22.516Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:73 for 02.dossier_sections (sec16-rural-night-sharing-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-rural-night-sharing-weather__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:36:40.567Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:74 for 02.dossier_sections (sec17-emergencies-crashes-law-enforcement) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-emergencies-crashes-law-enforcement__C2__n0 (lineage attempts exhausted)

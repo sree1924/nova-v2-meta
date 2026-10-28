@@ -1,0 +1,3972 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-mo-f",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "ea017eacdd73dff3c316929bfff69ff4af68b3824b51da310788529ea659336d",
+    "candidate_lineage_id": "2026-10-28-rdmv-mo-class-f:lineage:83"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-mo-class-f/16/sec11-special-driving-conditions/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-mo-class-f/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec11-F01",
+      "label": "Why night driving is harder",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F01"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F02",
+      "label": "Headlights by the clock",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F02"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R02",
+          "why": "sec11-F02 requires headlights from half an hour after sunset until half an hour before sunrise; sec11-R02 adds that this clock rule sits beside a second, weather rule whenever the wipers are needed.",
+          "fact_ids": [
+            "sec11-F02",
+            "sec11-R02"
+          ]
+        },
+        {
+          "other_id": "sec11-F08",
+          "why": "sec11-F02 ties headlights to the clock, from half an hour after sunset until half an hour before sunrise; sec11-F08 ties them to the weather, any time it calls for windshield wipers.",
+          "fact_ids": [
+            "sec11-F02",
+            "sec11-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F03",
+      "label": "Clean, working, aimed lights",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F03"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F04",
+      "label": "High beams with no oncoming traffic",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F04"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F27",
+          "why": "sec11-F04 says use high beams whenever no vehicles are coming toward you; sec11-F27 says in fog use low beams, because high beams make it harder to see.",
+          "fact_ids": [
+            "sec11-F04",
+            "sec11-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F05",
+      "label": "Do not overdrive your headlights",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F05"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R01",
+          "why": "sec11-F05 says headlights let you see only about three hundred fifty feet ahead, so keep a speed at which you can stop or turn within that range; sec11-R01 sets that reach beside the two dimming distances of five hundred feet for oncoming traffic and three hundred feet when following.",
+          "fact_ids": [
+            "sec11-F05",
+            "sec11-R01"
+          ]
+        },
+        {
+          "other_id": "sec11-F06",
+          "why": "sec11-F05 is how far headlights let you see, about three hundred fifty feet; sec11-F06 is when to dim to low beams, within five hundred feet of an oncoming vehicle and within three hundred feet when following.",
+          "fact_ids": [
+            "sec11-F05",
+            "sec11-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F06",
+      "label": "Two dimming distances",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F06"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R01",
+          "why": "sec11-F06 says dim to low beams within five hundred feet of an oncoming vehicle and within three hundred feet when following; sec11-R01 warns that these two dimming distances are easy to mix up with the headlight reach of about three hundred fifty feet.",
+          "fact_ids": [
+            "sec11-F06",
+            "sec11-R01"
+          ]
+        },
+        {
+          "other_id": "sec11-F05",
+          "why": "sec11-F05 is how far headlights let you see, about three hundred fifty feet; sec11-F06 is when to dim to low beams, within five hundred feet of an oncoming vehicle and within three hundred feet when following.",
+          "fact_ids": [
+            "sec11-F06",
+            "sec11-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F07",
+      "label": "Follow the edgeline at night",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F07"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F08",
+      "label": "Headlights with windshield wipers",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F08"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R02",
+          "why": "sec11-F08 says Missouri requires headlights any time the weather calls for windshield wipers; sec11-R02 pairs that weather rule with the clock rule from half an hour after sunset to half an hour before sunrise.",
+          "fact_ids": [
+            "sec11-F08",
+            "sec11-R02"
+          ]
+        },
+        {
+          "other_id": "sec11-F02",
+          "why": "sec11-F02 ties headlights to the clock, from half an hour after sunset until half an hour before sunrise; sec11-F08 ties them to the weather, any time it calls for windshield wipers.",
+          "fact_ids": [
+            "sec11-F08",
+            "sec11-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F09",
+      "label": "Clear snow and ice before leaving",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F09"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F10",
+      "label": "Winter tires help but slow down",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F10"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F11",
+      "label": "Rocking free when tires spin",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F11"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F12",
+      "label": "Keep people clear of spinning wheels",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F12"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F13",
+      "label": "Test-brake once moving on snow",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F13"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F14",
+      "label": "Longer gap on snow or ice",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F14"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R06",
+          "why": "sec11-F14 says stopping takes longer on snow or ice, so leave about eight to ten seconds to the vehicle ahead; sec11-R06 restates that the safe gap grows to about eight to ten seconds because stopping takes longer.",
+          "fact_ids": [
+            "sec11-F14",
+            "sec11-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F15",
+      "label": "Gentle braking on slippery roads",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F15"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R03",
+          "why": "sec11-F15 says brake gently on slippery roads and pump on very slick surfaces unless your manual gives anti-lock instructions; sec11-R03 notes the winter page says pump but points anti-lock vehicles to the owner's manual.",
+          "fact_ids": [
+            "sec11-F15",
+            "sec11-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F16",
+      "label": "Bridges and overpasses freeze first",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F16"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F17",
+          "why": "sec11-F16 says bridges and overpasses freeze before the rest of the road and ice patches may remain on cleared roads; sec11-F17 says do not use four-wheel drive on ice and lift your foot off the accelerator if you hit ice in four-wheel drive.",
+          "fact_ids": [
+            "sec11-F16",
+            "sec11-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F17",
+      "label": "No four-wheel drive on ice",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F17"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F16",
+          "why": "sec11-F16 says bridges and overpasses freeze before the rest of the road and ice patches may remain on cleared roads; sec11-F17 says do not use four-wheel drive on ice and lift your foot off the accelerator if you hit ice in four-wheel drive.",
+          "fact_ids": [
+            "sec11-F17",
+            "sec11-F16"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F18",
+      "label": "First rain makes a slick film",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F18"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F19",
+      "label": "No cruise control on wet pavement",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F19"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F20",
+      "label": "What hydroplaning is and when",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F20"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R05",
+          "why": "sec11-F20 defines hydroplaning as tires riding on water and says it can happen at any speed over thirty-five miles per hour, with all contact lost at fifty-five in a heavy storm; sec11-R05 keeps that onset apart from the full loss of contact.",
+          "fact_ids": [
+            "sec11-F20",
+            "sec11-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F21",
+      "label": "Responding to hydroplaning",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F21"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F22",
+          "why": "sec11-F21 is what to do while hydroplaning, easing off the accelerator and slowing without braking; sec11-F22 is how to prevent it, with good deep-tread tires at proper pressure, slower speeds in rain and no cruise control.",
+          "fact_ids": [
+            "sec11-F21",
+            "sec11-F22"
+          ]
+        },
+        {
+          "other_id": "sec11-F25",
+          "why": "sec11-F21 says ease off the accelerator and slow without braking when hydroplaning; sec11-F25 says a skid in any drive type is handled by lifting off the accelerator and not hitting the brakes.",
+          "fact_ids": [
+            "sec11-F21",
+            "sec11-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F22",
+      "label": "Preventing hydroplaning",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F22"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F21",
+          "why": "sec11-F21 is what to do while hydroplaning, easing off the accelerator and slowing without braking; sec11-F22 is how to prevent it, with good deep-tread tires at proper pressure, slower speeds in rain and no cruise control.",
+          "fact_ids": [
+            "sec11-F22",
+            "sec11-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F23",
+      "label": "What anti-lock brakes do",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F23"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F24",
+          "why": "sec11-F23 says four-wheel anti-lock brakes keep the wheels from locking and the pedal may pulse; sec11-F24 says keep firm, steady pressure while you steer, do not pump, and do not be alarmed by noise or slight pulsing.",
+          "fact_ids": [
+            "sec11-F23",
+            "sec11-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F24",
+      "label": "Firm steady anti-lock pressure",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F24"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R03",
+          "why": "sec11-F24 says with anti-lock brakes keep firm, steady pressure and do not pump; sec11-R03 notes the winter advice to pump on very slippery surfaces, with anti-lock vehicles pointed to the owner's manual for special situations.",
+          "fact_ids": [
+            "sec11-F24",
+            "sec11-R03"
+          ]
+        },
+        {
+          "other_id": "sec11-F23",
+          "why": "sec11-F23 says four-wheel anti-lock brakes keep the wheels from locking and the pedal may pulse; sec11-F24 says keep firm, steady pressure while you steer, do not pump, and do not be alarmed by noise or slight pulsing.",
+          "fact_ids": [
+            "sec11-F24",
+            "sec11-F23"
+          ]
+        },
+        {
+          "other_id": "sec11-R04",
+          "why": "sec11-F24 says keep firm, steady pressure with working anti-lock brakes and do not pump; sec11-R04 says brake failure is the one emergency where you pump the pedal fast and hard.",
+          "fact_ids": [
+            "sec11-F24",
+            "sec11-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F25",
+      "label": "Skids same in any drive type",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F25"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F21",
+          "why": "sec11-F21 says ease off the accelerator and slow without braking when hydroplaning; sec11-F25 says a skid in any drive type is handled by lifting off the accelerator and not hitting the brakes.",
+          "fact_ids": [
+            "sec11-F25",
+            "sec11-F21"
+          ]
+        },
+        {
+          "other_id": "sec11-F26",
+          "why": "sec11-F25 says a skid is handled the same in front-wheel and rear-wheel drive vehicles by lifting off the accelerator and not braking; sec11-F26 adds gently steering in the direction the rear wheels are sliding without jerking the wheel.",
+          "fact_ids": [
+            "sec11-F25",
+            "sec11-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F26",
+      "label": "Steer where rear wheels slide",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F26"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F25",
+          "why": "sec11-F25 says a skid is handled the same in front-wheel and rear-wheel drive vehicles by lifting off the accelerator and not braking; sec11-F26 adds gently steering in the direction the rear wheels are sliding without jerking the wheel.",
+          "fact_ids": [
+            "sec11-F26",
+            "sec11-F25"
+          ]
+        },
+        {
+          "other_id": "sec11-R15",
+          "why": "sec11-F26 says gently steer in the direction the rear wheels are sliding; sec11-R15 shows it in four captioned steps: before the skid, rear wheels sliding right, front wheels turned right, and the vehicle straight again.",
+          "fact_ids": [
+            "sec11-F26",
+            "sec11-R15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F27",
+      "label": "Low beams and slow in fog",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F27"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F04",
+          "why": "sec11-F04 says use high beams whenever no vehicles are coming toward you; sec11-F27 says in fog use low beams, because high beams make it harder to see.",
+          "fact_ids": [
+            "sec11-F27",
+            "sec11-F04"
+          ]
+        },
+        {
+          "other_id": "sec11-F28",
+          "why": "sec11-F27 says in fog slow down, be ready to stop and use low beams; sec11-F28 says if the fog gets so thick that you cannot see, pull off the road, stop and leave your lights and emergency flashers on.",
+          "fact_ids": [
+            "sec11-F27",
+            "sec11-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F28",
+      "label": "Pull off in very thick fog",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F28"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F27",
+          "why": "sec11-F27 says in fog slow down, be ready to stop and use low beams; sec11-F28 says if the fog gets so thick that you cannot see, pull off the road, stop and leave your lights and emergency flashers on.",
+          "fact_ids": [
+            "sec11-F28",
+            "sec11-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F29",
+      "label": "Do not panic, keep ignition on",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F29"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F30",
+      "label": "Brake pedal sinks to the floor",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F30"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R04",
+          "why": "sec11-F30 says if the brake pedal sinks to the floor, pump it fast and hard, then use the parking brake and a low gear; sec11-R04 says this pumping is the opposite of the steady pressure used with working anti-lock brakes.",
+          "fact_ids": [
+            "sec11-F30",
+            "sec11-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F31",
+      "label": "Call for help after brake failure",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F31"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F32",
+      "label": "Handling a tire blowout",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F32"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R07",
+          "why": "sec11-F32 says in a blowout lift off the accelerator without braking and brake only when nearly stopped and off the road; sec11-R07 says a steering failure also waits to brake until nearly stopped unless you must.",
+          "fact_ids": [
+            "sec11-F32",
+            "sec11-R07"
+          ]
+        },
+        {
+          "other_id": "sec11-R08",
+          "why": "sec11-F32 says a blowout calls for lifting off the accelerator without braking at first; sec11-R08 says a stuck accelerator is the opposite, shifting to neutral and braking right away.",
+          "fact_ids": [
+            "sec11-F32",
+            "sec11-R08"
+          ]
+        },
+        {
+          "other_id": "sec11-R17",
+          "why": "sec11-F32 is how to handle a blowout, gripping the wheel and lifting off the accelerator without braking; sec11-R17 is how a blowout may announce itself, with a loud bang, repeated thumping and a jerking wheel.",
+          "fact_ids": [
+            "sec11-F32",
+            "sec11-R17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F33",
+      "label": "Flashers and safe tire change",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F33"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F34",
+      "label": "Wheels off the paved edge",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F34"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F35",
+      "label": "Steering failure response",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F35"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R07",
+          "why": "sec11-F35 says if the steering fails, lift off the accelerator and let the vehicle slow without braking until nearly stopped unless you must; sec11-R07 sets that beside the blowout rule of braking only when nearly stopped.",
+          "fact_ids": [
+            "sec11-F35",
+            "sec11-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F36",
+      "label": "Headlight failure response",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F36"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F37",
+      "label": "Stuck accelerator steps",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F37"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R08",
+          "why": "sec11-F37 says for a stuck accelerator shift to neutral and brake; sec11-R08 contrasts that immediate braking with a blowout, where you avoid the brakes at first.",
+          "fact_ids": [
+            "sec11-F37",
+            "sec11-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F38",
+      "label": "Ignition off only after stopping",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F38"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F39",
+      "label": "Hood up or wipers fail",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F39"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F40",
+      "label": "Head-on vehicle in your lane",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F40"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F41",
+      "label": "Train coming while stalled on tracks",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F41"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0068"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R21",
+          "why": "sec11-F41 says run away from the tracks toward the direction the train is coming from to avoid flying debris; sec11-R21 says running in the direction the train is heading puts you in the path of debris.",
+          "fact_ids": [
+            "sec11-F41",
+            "sec11-R21"
+          ]
+        },
+        {
+          "other_id": "sec11-F42",
+          "why": "sec11-F41 covers a stall on the tracks with a train coming, where you unbuckle and get out and away; sec11-F42 covers a stall with no train in sight, where you listen, try to restart and push the vehicle off in neutral.",
+          "fact_ids": [
+            "sec11-F41",
+            "sec11-F42"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F42",
+      "label": "Stalled on tracks with no train",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F42"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0068"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F41",
+          "why": "sec11-F41 covers a stall on the tracks with a train coming, where you unbuckle and get out and away; sec11-F42 covers a stall with no train in sight, where you listen, try to restart and push the vehicle off in neutral.",
+          "fact_ids": [
+            "sec11-F42",
+            "sec11-F41"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F43",
+      "label": "Large passenger van instability",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "module_id": "sec11-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F43"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0068"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R01",
+      "label": "Three night distances contrast",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R01"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F05",
+          "why": "sec11-F05 says headlights let you see only about three hundred fifty feet ahead, so keep a speed at which you can stop or turn within that range; sec11-R01 sets that reach beside the two dimming distances of five hundred feet for oncoming traffic and three hundred feet when following.",
+          "fact_ids": [
+            "sec11-R01",
+            "sec11-F05"
+          ]
+        },
+        {
+          "other_id": "sec11-F06",
+          "why": "sec11-F06 says dim to low beams within five hundred feet of an oncoming vehicle and within three hundred feet when following; sec11-R01 warns that these two dimming distances are easy to mix up with the headlight reach of about three hundred fifty feet.",
+          "fact_ids": [
+            "sec11-R01",
+            "sec11-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R02",
+      "label": "Clock rule versus wiper rule",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R02"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F02",
+          "why": "sec11-F02 requires headlights from half an hour after sunset until half an hour before sunrise; sec11-R02 adds that this clock rule sits beside a second, weather rule whenever the wipers are needed.",
+          "fact_ids": [
+            "sec11-R02",
+            "sec11-F02"
+          ]
+        },
+        {
+          "other_id": "sec11-F08",
+          "why": "sec11-F08 says Missouri requires headlights any time the weather calls for windshield wipers; sec11-R02 pairs that weather rule with the clock rule from half an hour after sunset to half an hour before sunrise.",
+          "fact_ids": [
+            "sec11-R02",
+            "sec11-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R03",
+      "label": "Pumping versus anti-lock manual",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R03"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F15",
+          "why": "sec11-F15 says brake gently on slippery roads and pump on very slick surfaces unless your manual gives anti-lock instructions; sec11-R03 notes the winter page says pump but points anti-lock vehicles to the owner's manual.",
+          "fact_ids": [
+            "sec11-R03",
+            "sec11-F15"
+          ]
+        },
+        {
+          "other_id": "sec11-F24",
+          "why": "sec11-F24 says with anti-lock brakes keep firm, steady pressure and do not pump; sec11-R03 notes the winter advice to pump on very slippery surfaces, with anti-lock vehicles pointed to the owner's manual for special situations.",
+          "fact_ids": [
+            "sec11-R03",
+            "sec11-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R04",
+      "label": "Brake failure pumping versus anti-lock",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R04"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F24",
+          "why": "sec11-F24 says keep firm, steady pressure with working anti-lock brakes and do not pump; sec11-R04 says brake failure is the one emergency where you pump the pedal fast and hard.",
+          "fact_ids": [
+            "sec11-R04",
+            "sec11-F24"
+          ]
+        },
+        {
+          "other_id": "sec11-F30",
+          "why": "sec11-F30 says if the brake pedal sinks to the floor, pump it fast and hard, then use the parking brake and a low gear; sec11-R04 says this pumping is the opposite of the steady pressure used with working anti-lock brakes.",
+          "fact_ids": [
+            "sec11-R04",
+            "sec11-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R05",
+      "label": "Hydroplaning onset versus full loss",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R05"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F20",
+          "why": "sec11-F20 defines hydroplaning as tires riding on water and says it can happen at any speed over thirty-five miles per hour, with all contact lost at fifty-five in a heavy storm; sec11-R05 keeps that onset apart from the full loss of contact.",
+          "fact_ids": [
+            "sec11-R05",
+            "sec11-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R06",
+      "label": "Eight to ten second winter gap",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R06"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F14",
+          "why": "sec11-F14 says stopping takes longer on snow or ice, so leave about eight to ten seconds to the vehicle ahead; sec11-R06 restates that the safe gap grows to about eight to ten seconds because stopping takes longer.",
+          "fact_ids": [
+            "sec11-R06",
+            "sec11-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R07",
+      "label": "Blowout versus steering failure braking",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R07"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F32",
+          "why": "sec11-F32 says in a blowout lift off the accelerator without braking and brake only when nearly stopped and off the road; sec11-R07 says a steering failure also waits to brake until nearly stopped unless you must.",
+          "fact_ids": [
+            "sec11-R07",
+            "sec11-F32"
+          ]
+        },
+        {
+          "other_id": "sec11-F35",
+          "why": "sec11-F35 says if the steering fails, lift off the accelerator and let the vehicle slow without braking until nearly stopped unless you must; sec11-R07 sets that beside the blowout rule of braking only when nearly stopped.",
+          "fact_ids": [
+            "sec11-R07",
+            "sec11-F35"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R08",
+      "label": "Stuck accelerator versus blowout",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R08"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F32",
+          "why": "sec11-F32 says a blowout calls for lifting off the accelerator without braking at first; sec11-R08 says a stuck accelerator is the opposite, shifting to neutral and braking right away.",
+          "fact_ids": [
+            "sec11-R08",
+            "sec11-F32"
+          ]
+        },
+        {
+          "other_id": "sec11-F37",
+          "why": "sec11-F37 says for a stuck accelerator shift to neutral and brake; sec11-R08 contrasts that immediate braking with a blowout, where you avoid the brakes at first.",
+          "fact_ids": [
+            "sec11-R08",
+            "sec11-F37"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R09",
+      "label": "Slow for curves at night",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R09"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R10",
+      "label": "Stay alert, skip tired driving",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R10"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R11",
+      "label": "Wipers and defroster before winter",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R11"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R12",
+      "label": "Chains ready without snow tires",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R12"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R13",
+      "label": "Accelerate smoothly on snow",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R13"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.64",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0064"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R14",
+      "label": "Wet curves are harder",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R14"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.65",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0065"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R15",
+      "label": "Four-step skid diagram caption",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R15"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F26",
+          "why": "sec11-F26 says gently steer in the direction the rear wheels are sliding; sec11-R15 shows it in four captioned steps: before the skid, rear wheels sliding right, front wheels turned right, and the vehicle straight again.",
+          "fact_ids": [
+            "sec11-R15",
+            "sec11-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R16",
+      "label": "Calm helps you remember",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R16"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.66",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0066"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R17",
+      "label": "Blowout warning signs",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R17"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F32",
+          "why": "sec11-F32 is how to handle a blowout, gripping the wheel and lifting off the accelerator without braking; sec11-R17 is how a blowout may announce itself, with a loud bang, repeated thumping and a jerking wheel.",
+          "fact_ids": [
+            "sec11-R17",
+            "sec11-F32"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R18",
+      "label": "Pull to the right off the edge",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R18"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R19",
+      "label": "Look for a way out of traffic",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R19"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R20",
+      "label": "Why not swerve left",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R20"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.67",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0067"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R21",
+      "label": "Wrong way to run from a train",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R21"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0068"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F41",
+          "why": "sec11-F41 says run away from the tracks toward the direction the train is coming from to avoid flying debris; sec11-R21 says running in the direction the train is heading puts you in the path of debris.",
+          "fact_ids": [
+            "sec11-R21",
+            "sec11-F41"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R22",
+      "label": "NTSB van safety website",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "module_id": "sec11-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R22"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.68",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0068"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec11-F02",
+      "to": "sec11-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F08",
+      "to": "sec11-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F04",
+      "to": "sec11-F06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F05",
+      "to": "sec11-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F06",
+      "to": "sec11-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F14",
+      "to": "sec11-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F15",
+      "to": "sec11-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F23",
+      "to": "sec11-F24",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F24",
+      "to": "sec11-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F25",
+      "to": "sec11-F26",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F26",
+      "to": "sec11-R15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F20",
+      "to": "sec11-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F20",
+      "to": "sec11-F21",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F30",
+      "to": "sec11-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F24",
+      "to": "sec11-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F30",
+      "to": "sec11-F31",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-R17",
+      "to": "sec11-F32",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F32",
+      "to": "sec11-F33",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F34",
+      "to": "sec11-R18",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F32",
+      "to": "sec11-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F35",
+      "to": "sec11-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F37",
+      "to": "sec11-F38",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F37",
+      "to": "sec11-R19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F37",
+      "to": "sec11-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F32",
+      "to": "sec11-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F40",
+      "to": "sec11-R20",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F41",
+      "to": "sec11-R21",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec11-m01",
+      "title": "Night driving and headlight rules",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 17,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F01",
+        "sec11-F02",
+        "sec11-F08",
+        "sec11-R02",
+        "sec11-F03",
+        "sec11-F04",
+        "sec11-F05",
+        "sec11-F06",
+        "sec11-R01",
+        "sec11-F07",
+        "sec11-R09",
+        "sec11-R10"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m02",
+      "title": "Getting ready for winter roads",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-R11",
+        "sec11-F09",
+        "sec11-F10",
+        "sec11-R12",
+        "sec11-R13",
+        "sec11-F11",
+        "sec11-F12",
+        "sec11-F13"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m03",
+      "title": "Stopping and ice on winter roads",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F14",
+        "sec11-R06",
+        "sec11-F15",
+        "sec11-F16",
+        "sec11-F17"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m04",
+      "title": "Wet pavement and hydroplaning",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F18",
+        "sec11-R14",
+        "sec11-F19",
+        "sec11-F20",
+        "sec11-R05",
+        "sec11-F21",
+        "sec11-F22"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m05",
+      "title": "Anti-lock brakes and skids",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F23",
+        "sec11-F24",
+        "sec11-R03",
+        "sec11-F25",
+        "sec11-F26",
+        "sec11-R15"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m06",
+      "title": "Fog, calm and brake failure",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F27",
+        "sec11-F28",
+        "sec11-F29",
+        "sec11-R16",
+        "sec11-F30",
+        "sec11-R04",
+        "sec11-F31"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m07",
+      "title": "Blowouts, steering and other failures",
+      "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-R17",
+        "sec11-F32",
+        "sec11-F33",
+        "sec11-F34",
+        "sec11-R18",
+        "sec11-F35",
+        "sec11-R07",
+        "sec11-F36",
+        "sec11-F39"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m08",
+      "title": "Stuck pedals, head-on, tracks and vans",
+      "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F37",
+        "sec11-F38",
+        "sec11-R19",
+        "sec11-R08",
+        "sec11-F40",
+        "sec11-R20",
+        "sec11-F41",
+        "sec11-R21",
+        "sec11-F42",
+        "sec11-F43",
+        "sec11-R22"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec11-m01",
+      "unit_id": "sec11-u01",
+      "node_ids": [
+        "sec11-F01",
+        "sec11-F02",
+        "sec11-F08",
+        "sec11-R02",
+        "sec11-F03",
+        "sec11-F04",
+        "sec11-F05",
+        "sec11-F06",
+        "sec11-R01",
+        "sec11-F07",
+        "sec11-R09",
+        "sec11-R10"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain why night driving is harder, then the two headlight rules by the clock and by the wipers, clean and aimed lights, high beams, the reach of headlights, the two dimming distances, and the night habits of following the edgeline, slowing for curves and staying alert.",
+      "flashcard_strategy": "One card per night rule; contrast cards separating the clock rule from the wiper rule and the three night distances from each other.",
+      "quiz_strategy": "Hub-chosen quiz describing a night or rainy-day drive and asking which headlight or beam rule applies.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m02",
+      "unit_id": "sec11-u02",
+      "node_ids": [
+        "sec11-R11",
+        "sec11-F09",
+        "sec11-F10",
+        "sec11-R12",
+        "sec11-R13",
+        "sec11-F11",
+        "sec11-F12",
+        "sec11-F13"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Prepare the car for winter with working wipers and defroster and clear windows and lights, then cover snow-rated tires and chains, slower speeds without cruise control, starting out smoothly, rocking free of a spin, keeping people clear of spinning wheels, and test-braking once moving.",
+      "flashcard_strategy": "One card per winter step, from preparing the car to starting out and testing the road.",
+      "quiz_strategy": "Hub-chosen quiz putting a driver on a snowy morning and asking which preparation or starting step comes next.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m03",
+      "unit_id": "sec11-u03",
+      "node_ids": [
+        "sec11-F14",
+        "sec11-R06",
+        "sec11-F15",
+        "sec11-F16",
+        "sec11-F17"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Show why stopping on snow or ice needs eight to ten seconds of following gap, then gentle braking and pumping on very slick surfaces, bridges and overpasses that freeze first, and why four-wheel drive belongs off the ice.",
+      "flashcard_strategy": "One card per winter stopping rule; a contrast card fixing the longer winter gap.",
+      "quiz_strategy": "Hub-chosen quiz describing an icy stretch and asking how to space, brake or drive through it.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m04",
+      "unit_id": "sec11-u04",
+      "node_ids": [
+        "sec11-F18",
+        "sec11-R14",
+        "sec11-F19",
+        "sec11-F20",
+        "sec11-R05",
+        "sec11-F21",
+        "sec11-F22"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Describe how the first rain makes a slick film, why curves and cruise control turn risky on wet pavement, what hydroplaning is and the two speeds the guide names, how to respond without braking, and how tires and speed prevent it.",
+      "flashcard_strategy": "One card per wet-road rule; a contrast card keeping hydroplaning onset apart from full loss of contact.",
+      "quiz_strategy": "Hub-chosen quiz placing a driver in rain and asking what is happening to the tires or what to do next.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m05",
+      "unit_id": "sec11-u05",
+      "node_ids": [
+        "sec11-F23",
+        "sec11-F24",
+        "sec11-R03",
+        "sec11-F25",
+        "sec11-F26",
+        "sec11-R15"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain what four-wheel anti-lock brakes do and how to use them with firm steady pressure, set that against the winter advice to pump, then handle a skid the same way in any drive type by lifting off the gas and steering where the rear wheels slide.",
+      "flashcard_strategy": "One card per braking and skid rule; contrast cards separating pumping on slick surfaces from steady anti-lock pressure.",
+      "quiz_strategy": "Hub-chosen quiz describing a hard stop or a sliding rear end and asking what the driver should do with the pedal and wheel.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m06",
+      "unit_id": "sec11-u06",
+      "node_ids": [
+        "sec11-F27",
+        "sec11-F28",
+        "sec11-F29",
+        "sec11-R16",
+        "sec11-F30",
+        "sec11-R04",
+        "sec11-F31"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover fog with low beams and pulling off when it is too thick, the first emergency rule of not panicking and keeping the ignition on, then the brake failure sequence of pumping, the parking brake and a low gear, and calling for help afterward.",
+      "flashcard_strategy": "One card per fog and brake-failure rule; a contrast card setting brake-failure pumping against steady anti-lock pressure.",
+      "quiz_strategy": "Hub-chosen quiz describing thick fog or a sinking brake pedal and asking for the right next step.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m07",
+      "unit_id": "sec11-u07",
+      "node_ids": [
+        "sec11-R17",
+        "sec11-F32",
+        "sec11-F33",
+        "sec11-F34",
+        "sec11-R18",
+        "sec11-F35",
+        "sec11-R07",
+        "sec11-F36",
+        "sec11-F39"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Recognize a blowout and handle it without early braking, then running off the paved edge, steering failure and the shared wait-to-brake rule, failed headlights, and a hood that flies up or wipers that quit.",
+      "flashcard_strategy": "One card per failure; a contrast card comparing when to brake after a blowout and after a steering failure.",
+      "quiz_strategy": "Hub-chosen quiz naming a sudden failure and asking which response the guide gives.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m08",
+      "unit_id": "sec11-u08",
+      "node_ids": [
+        "sec11-F37",
+        "sec11-F38",
+        "sec11-R19",
+        "sec11-R08",
+        "sec11-F40",
+        "sec11-R20",
+        "sec11-F41",
+        "sec11-R21",
+        "sec11-F42",
+        "sec11-F43",
+        "sec11-R22"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Handle a stuck accelerator with neutral and brakes before the ignition, set it against the blowout rule, then a head-on vehicle in your lane, a stall on railroad tracks with or without a train, and the safety finding on large passenger vans.",
+      "flashcard_strategy": "One card per rule; contrast cards for neutral-and-brake versus blowout and for running toward the train's direction.",
+      "quiz_strategy": "Hub-chosen quiz describing a stuck pedal, an oncoming car or a stall on the tracks and asking what to do.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec11-F01",
+    "sec11-F02",
+    "sec11-F08",
+    "sec11-R02",
+    "sec11-F03",
+    "sec11-F04",
+    "sec11-F05",
+    "sec11-F06",
+    "sec11-R01",
+    "sec11-F07",
+    "sec11-R09",
+    "sec11-R10",
+    "sec11-R11",
+    "sec11-F09",
+    "sec11-F10",
+    "sec11-R12",
+    "sec11-R13",
+    "sec11-F11",
+    "sec11-F12",
+    "sec11-F13",
+    "sec11-F14",
+    "sec11-R06",
+    "sec11-F15",
+    "sec11-F16",
+    "sec11-F17",
+    "sec11-F18",
+    "sec11-R14",
+    "sec11-F19",
+    "sec11-F20",
+    "sec11-R05",
+    "sec11-F21",
+    "sec11-F22",
+    "sec11-F23",
+    "sec11-F24",
+    "sec11-R03",
+    "sec11-F25",
+    "sec11-F26",
+    "sec11-R15",
+    "sec11-F27",
+    "sec11-F28",
+    "sec11-F29",
+    "sec11-R16",
+    "sec11-F30",
+    "sec11-R04",
+    "sec11-F31",
+    "sec11-R17",
+    "sec11-F32",
+    "sec11-F33",
+    "sec11-F34",
+    "sec11-R18",
+    "sec11-F35",
+    "sec11-R07",
+    "sec11-F36",
+    "sec11-F39",
+    "sec11-F37",
+    "sec11-F38",
+    "sec11-R19",
+    "sec11-R08",
+    "sec11-F40",
+    "sec11-R20",
+    "sec11-F41",
+    "sec11-R21",
+    "sec11-F42",
+    "sec11-F43",
+    "sec11-R22"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec11-m01..sec11-m08; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 65,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec11-F01",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F02",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F03",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F04",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F05",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F06",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F07",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F08",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F09",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F10",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F11",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F12",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F13",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F14",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F15",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F16",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F17",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F18",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F19",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F20",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F21",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F22",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F23",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F24",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F25",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F26",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F27",
+          "module_id": "sec11-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F28",
+          "module_id": "sec11-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F29",
+          "module_id": "sec11-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F30",
+          "module_id": "sec11-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F31",
+          "module_id": "sec11-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F32",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F33",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F34",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F35",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F36",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F37",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F38",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F39",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F40",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F41",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F42",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F43",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R01",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R02",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R03",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R04",
+          "module_id": "sec11-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R05",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R06",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R07",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R08",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R09",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R10",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R11",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R12",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R13",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R14",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R15",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R16",
+          "module_id": "sec11-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R17",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R18",
+          "module_id": "sec11-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R19",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R20",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R21",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R22",
+          "module_id": "sec11-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec11-F02",
+          "to": "sec11-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F08",
+          "to": "sec11-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F04",
+          "to": "sec11-F06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F05",
+          "to": "sec11-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F06",
+          "to": "sec11-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F14",
+          "to": "sec11-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F15",
+          "to": "sec11-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F23",
+          "to": "sec11-F24",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F24",
+          "to": "sec11-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F25",
+          "to": "sec11-F26",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F26",
+          "to": "sec11-R15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F20",
+          "to": "sec11-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F20",
+          "to": "sec11-F21",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F30",
+          "to": "sec11-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F24",
+          "to": "sec11-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F30",
+          "to": "sec11-F31",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-R17",
+          "to": "sec11-F32",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F32",
+          "to": "sec11-F33",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F34",
+          "to": "sec11-R18",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F32",
+          "to": "sec11-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F35",
+          "to": "sec11-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F37",
+          "to": "sec11-F38",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F37",
+          "to": "sec11-R19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F37",
+          "to": "sec11-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F32",
+          "to": "sec11-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F40",
+          "to": "sec11-R20",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F41",
+          "to": "sec11-R21",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Missouri special driving conditions: night driving and headlights, winter driving, wet pavement and hydroplaning, anti-lock brakes, skids, fog and vehicle emergencies",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 65.5,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Special driving conditions look-alikes: beam distances, pumping versus steady braking, hydroplaning speeds, and emergency step contrasts",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 34.5,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec11-m01",
+          "sec11-m02",
+          "sec11-m03",
+          "sec11-m04",
+          "sec11-m05",
+          "sec11-m06",
+          "sec11-m07",
+          "sec11-m08"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}
