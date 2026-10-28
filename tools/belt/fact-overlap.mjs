@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 
 const LANE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const argRuns = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const NEAR = Number((process.argv.find((a) => a.startsWith('--near=')) || '--near=0.6').split('=')[1]);
 const runs = (argRuns.length ? argRuns : fs.readdirSync(path.join(LANE, 'runs')).filter((d) => fs.existsSync(path.join(LANE, 'runs', d, '16'))).map((d) => 'runs/' + d))
   .map((r) => r.replace(/\\/g, '/').replace(/\/$/, ''));
 
@@ -53,7 +54,7 @@ for (let i = 0; i < flat.length; i++) for (let j = i + 1; j < flat.length; j++) 
     const t = bByShape.get(a.sh);
     if (t && t.n !== a.n) { twin++; if (examples.twin.length < 3) examples.twin.push([a.text, t.text]); continue; }
     let best = 0, bestF = null; for (const b of B.facts) { const s = jaccard(a.tk, b.tk); if (s > best) { best = s; bestF = b; } }
-    if (best >= 0.6) { near++; if (examples.near.length < 3) examples.near.push([a.text, bestF.text, +best.toFixed(2)]); } else unique++;
+    if (best >= NEAR) { near++; if (examples.near.length < 3) examples.near.push([a.text, bestF.text, +best.toFixed(2)]); } else unique++;
   }
   pairs.push({ a: A.run, b: B.run, a_facts: A.facts.length, b_facts: B.facts.length, exact, near, numeric_twin: twin, unique_to_a: unique,
     shared_pct: +(((exact + near + twin) / (A.facts.length || 1)) * 100).toFixed(1), examples });
@@ -61,7 +62,7 @@ for (let i = 0; i < flat.length; i++) for (let j = i + 1; j < flat.length; j++) 
 const date = new Date().toISOString().slice(0, 10);
 const outJson = path.join(LANE, 'coordination', `FACT-OVERLAP-${date}.json`), outMd = path.join(LANE, 'coordination', `FACT-OVERLAP-${date}.md`);
 fs.writeFileSync(outJson, JSON.stringify({ generated_at: new Date().toISOString(), runs: flat.map((f) => ({ run: f.run, facts: f.facts.length })), pairs }, null, 2) + '\n');
-const md = [`# Fact overlap across belt runs — ${date}`, '', 'Accepted fact statements (compiled registries, latest per section). exact = same normalized sentence; near = token Jaccard ≥ 0.6; numeric-twin = same sentence with different numbers (the state-specific class); unique = nothing comparable.', '',
+const md = [`# Fact overlap across belt runs — ${date}`, '', 'Accepted fact statements (compiled registries, latest per section). exact = same normalized sentence; near = token Jaccard ≥ ' + NEAR + '; numeric-twin = same sentence with different numbers (the state-specific class); unique = nothing comparable.', '',
   '| run | facts |', '|---|---|', ...flat.map((f) => `| ${f.run} | ${f.facts.length} |`), '',
   '| A | B | A facts | exact | near | numeric-twin | unique to A | shared % of A |', '|---|---|---|---|---|---|---|---|',
   ...pairs.map((p) => `| ${p.a.replace('runs/', '')} | ${p.b.replace('runs/', '')} | ${p.a_facts} | ${p.exact} | ${p.near} | ${p.numeric_twin} | ${p.unique_to_a} | ${p.shared_pct}% |`), ''];
