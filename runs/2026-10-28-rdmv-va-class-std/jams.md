@@ -162,3 +162,7 @@ intact; Phase 2 (02/16 authoring) not started. Ledger actual $0.000, 0 model cal
 - 2026-10-28T06:55:23.302Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:74 for 03.combined_kg (sec07-right-of-way-roundabouts) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-right-of-way-roundabouts__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:09:48.253Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:75 for 03.combined_kg (sec09-sharing-road-blind-spots) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-sharing-road-blind-spots__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:19:04.665Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:76 for 03.combined_kg (sec11-dangerous-behaviors-crashes-deer) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-dangerous-behaviors-crashes-deer__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:27:35.628Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:77 for 03.combined_kg (sec13-penalties-suspension-alcohol) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-penalties-suspension-alcohol__-__n0 (lineage attempts exhausted)

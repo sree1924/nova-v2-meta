@@ -1,10 +1,10 @@
-# Worker token ledger — generated 2026-10-28T10:13:39.505Z
+# Worker token ledger — generated 2026-10-28T10:28:06.904Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 26 | 817,696,352 | 2,576,756 | 820,273,108 | $0.00 | AZ CA CO CT FL IA KY MT NM NY OK TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 73 | 0 | 0 | 19,804,701 | $0.00 | AL AZ CA CO FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
-| sol | ChatGPT Pro subscription | 21 | 0 | 0 | 83,354,209 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
+| claude | Anthropic subscription (Claude Code subagent) | 76 | 0 | 0 | 20,173,978 | $0.00 | AL AZ CA CO FL IN KY/OK/CT/IA MD MI MN MO NC NJ NV NY OR SC TN TX UT VA WA WI |
+| sol | ChatGPT Pro subscription | 25 | 0 | 0 | 98,399,639 | $0.00 | DE ID KS ME MT NE NM PA SD WY |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -30,11 +30,11 @@
 | muse | muse-spark-1.3 | KY | intake-KY | 50,840,022 | 50,078,311 | 169,710 | 69,955 | — | 240 | — | $0.00 |
 | muse | muse-spark-1.3 | OK | intake-OK | 41,046,372 | 40,719,191 | 118,896 | 48,358 | — | 213 | — | $0.00 |
 | muse | muse-spark-1.3 | CT | intake-CT-r1 | 33,205,029 | 32,880,899 | 105,320 | 29,095 | — | 184 | — | $0.00 |
-| muse | muse-spark-1.3 | IA | intake-IA-r1 | — | — | — | — | — | 164 | — | $0.00 |
-| muse | muse-spark-1.3 | KY | intake-KY-r1 | — | — | — | — | — | 200 | — | $0.00 |
+| muse | muse-spark-1.3 | IA | intake-IA-r1 | — | — | — | — | — | 228 | — | $0.00 |
+| muse | muse-spark-1.3 | KY | intake-KY-r1 | — | — | — | — | — | 273 | — | $0.00 |
 | muse | muse-spark-1.3 | MT | intake-MT | — | — | — | — | — | 147 | — | $0.00 |
 | muse | muse-spark-1.3 | NM | intake-NM | — | — | — | — | — | 19 | — | $0.00 |
-| muse | muse-spark-1.3 | OK | intake-OK-r1 | — | — | — | — | — | 15 | — | $0.00 |
+| muse | muse-spark-1.3 | OK | intake-OK-r1 | — | — | — | — | — | 106 | — | $0.00 |
 | claude | claude-opus-5-5 | — | scout: official handbook PDFs for 20 states (12 staged) | — | — | — | — | 125,817 | 43 | 7 min | $0.00 |
 | claude | claude-opus-5-5 | CO | state worker: intake + sec01-04 (36 parts, 4 compiles, 0 holds) | — | — | — | — | 213,786 | 67 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | UT | multi-state shell: state picker, #/<st>/ routes, states.json, harness rewrite, Utah onboarded | — | — | — | — | 243,214 | 95 | 14 min | $0.00 |
@@ -129,4 +129,11 @@
 | claude | claude-opus-5-5 | MN | downstream worker: sec01-07 (sec07 card_scripts held on request_byte_limit): 434 nodes/433 cards/434 items, 46 units/334 slides, 392 scripts — delta of resumed agent | — | — | — | — | 439,030 | 13 | 8 min | $0.00 |
 | claude | claude-opus-5-5 | WI | downstream worker: sec07-12 — WISCONSIN DOWNSTREAM COMPLETE 12/12: 612 nodes/609 cards/612 items, 69 units/509 slides, 670 scripts — delta of resumed agent | — | — | — | — | 215,432 | 16 | 8 min | $0.00 |
 | claude | claude-opus-5-5 | NY | downstream worker: sec01-07 through 03/04/06/05 (35/35; 235 nodes/233 cards/235 items, 41 units/309 slides, 274 scripts; 2 merges) — delta of resumed agent | — | — | — | — | 391,425 | 13 | 8 min | $0.00 |
+| sol | gpt-6.1-sol | ID | Native factual repair batch02 main-client delta; previous helpers excluded; cached replay included | — | — | — | — | 2,346,442 | — | 5 min | $0.00 |
+| sol | gpt-6.1-sol | KS | Native factual repair batch01 main-client delta; previous helpers excluded; cached replay included | — | — | — | — | 4,794,135 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NE | Native factual repair batch01 main-client delta; previous helpers excluded; cached replay included | — | — | — | — | 4,056,007 | — | 13 min | $0.00 |
+| sol | gpt-6.1-sol | NM | Native factual repair batch01 main-client delta; previous helpers excluded; cached replay included | — | — | — | — | 3,848,846 | — | 9 min | $0.00 |
+| claude | claude-opus-5-5 | TN | downstream worker: sec01-04,06 complete; sec05 (05.PRACTICE_ONLY on accepted wording) and sec07 (request_byte_limit) held; 445 nodes, 6 units avg — delta of resumed agent | — | — | — | — | 140,518 | 29 | 15 min | $0.00 |
+| claude | claude-opus-5-5 | AZ | downstream worker: sec01-08 through 03/04/06/05 (40/40 first-try; 403 nodes/399 cards/403 items, 50 units/350 slides, 449 scripts; 4 merges) — delta of resumed agent | — | — | — | — | 172,661 | 34 | 18 min | $0.00 |
+| claude | claude-opus-5-5 | TN | downstream worker: sec08 03/04/06 (96 nodes) + sec07 lessons; blocked on call-cap estimate and accepted-04 re-mint — delta of resumed agent | — | — | — | — | 56,098 | 48 | 23 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

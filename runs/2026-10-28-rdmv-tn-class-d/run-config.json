@@ -354,11 +354,11 @@
       "06": 8,
       "19A": 0
     },
-    "max_completion_tokens": 30000,
+    "max_completion_tokens": 4000,
     "per_role_usd_caps_note": "per-role SUB-caps for the 16-section Utah run (raised 2026-10-27 20:02Z from the single-section pilot values 12/5/5/5/3 after BUDGET_CAP_EXCEEDED on sec07; the binding cap is the standing-authority total, limits.max_total_usd)",
-    "max_completion_tokens_note": "raised 8000→30000 on 2026-10-27 after attempt aafbd5e9 hit finish_reason=length with 6453/8000 tokens consumed by reasoning at reasoning_effort low (JAM-UT-02); worst case ≈ $0.20/call at list price, under the $1 per-call reservation",
-    "max_request_bytes": 640000,
-    "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority"
+    "max_completion_tokens_note": "raised 8000→30000 on 2026-10-27 after attempt aafbd5e9 hit finish_reason=length with 6453/8000 tokens consumed by reasoning at reasoning_effort low (JAM-UT-02); worst case ≈ $0.20/call at list price, under the $1 per-call reservation | set 30000→4000 on 2026-10-28T10:28:20.124Z by coordinator decision: only an input to the Model-API cost estimate; file transport generates nothing at a provider; max_call_usd unchanged; revert before any Model-API dispatch",
+    "max_request_bytes": 800000,
+    "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority | raised 640000→800000 on 2026-10-28T10:20:17.720Z by coordinator decision for the Claude-subscription file transport ($0); revert before any Model-API dispatch"
   },
   "execution": {
     "executor_id": null,
@@ -385,7 +385,10 @@
       "path": "runs/2026-10-28-rdmv-tn-class-d/approvals/STANDING-AUTHORITY-utah-full-run.json",
       "sha256": "d9adaa41400e317e2facfe47283c53eaa2b4a587777a6d4c6567053ed15e1174"
     },
-    "retry_nonces": {},
+    "retry_nonces": {
+      "04.cards:@sec05-getting-familiar-with-your-vehicle": 1,
+      "05.card_scripts:@sec07-traffic-signs-and-signals": 1
+    },
     "retry_nonces_note": "per stage+part retry counter: each bump after a HOLD mints a NEW logical task (the held task stays blocked); the lineage attempt cap (C28) still bounds spend and triggers lineage resets"
   },
   "open_before_first_paid_call": [
@@ -396,7 +399,7 @@
     "founder --go for stage 02 (first paid call)"
   ],
   "founder_decision_2026_10_26_evening": "DMV = Nova probe #66, a SEPARATE store, all 50 states on the jurisdiction axis (THE-BELT V1-09); Utah is state 1 and the hackathon test. Supersedes the earlier hackathon-only framing. Manifest entry for #66 requires a founder-approved AMENDMENT-ORDER (not tonight; after Utah passes). The Meta sales funnel (Stage 12) is a parallel focus of the founder 10-day window, not deferred.",
-  "candidate_lineage_id": "2026-10-28-rdmv-tn-class-d:lineage:84",
+  "candidate_lineage_id": "2026-10-28-rdmv-tn-class-d:lineage:85",
   "state_selection": {
     "status": "confirmed",
     "confirmed_by": "founder",
@@ -413,8 +416,8 @@
     "spec": "coordination/intake/TN.spec.json"
   },
   "candidate_lineage_reset_ref": {
-    "path": "runs/2026-10-28-rdmv-tn-class-d/receipts/lineage-reset-03combinedkg-lineage84.json",
-    "sha256": "38e959d3efa3efba82fe7cbcd3ca585e10146a86f89decbd0c74fb98a2b05783",
-    "previous": "runs/2026-10-28-rdmv-tn-class-d/receipts/lineage-reset-03combinedkg-lineage83.json"
+    "path": "runs/2026-10-28-rdmv-tn-class-d/receipts/lineage-reset-04cards-lineage85.json",
+    "sha256": "c10b8153e1007472d752350b8d587224dcc000707259dfac261494f13e0c173a",
+    "previous": "runs/2026-10-28-rdmv-tn-class-d/receipts/lineage-reset-03combinedkg-lineage84.json"
   }
 }

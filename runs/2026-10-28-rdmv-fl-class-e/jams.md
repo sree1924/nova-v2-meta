@@ -125,3 +125,7 @@ Seeded 2026-10-28T00:58:50.714Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:49:45.347Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:59 for 03.combined_kg (sec05-your-vehicle) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-your-vehicle__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:07:55.896Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:60 for 03.combined_kg (sec07-driving-safety) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-driving-safety__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:18:17.218Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:61 for 03.combined_kg (sec09-handling-emergencies) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-handling-emergencies__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:26:07.594Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:62 for 03.combined_kg (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-sharing-the-road-emergency-golf-carts__-__n0 (lineage attempts exhausted)

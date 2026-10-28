@@ -26,6 +26,11 @@ const author = get('--author', null);
 const stepMode = author === 'muse';
 // --packet thin (v2): state/section context layers written once, few-KB part packets (dispatch.mjs emitThinPacket). Default = full.
 const packetMode = get('--packet', 'full');
+// --remint <stageId> (2026-10-28, Tennessee sec05): do NOT skip this stage for the listed --sections even though a version is
+// already accepted. With execution.retry_nonces bumped for that stage+section the dispatcher mints a NEW logical task (the old
+// accepted artifact stays in history); without a bumped nonce the dispatcher just returns the accepted one (reused). Used to
+// re-mint 04.cards with a merge when an accepted card back can never pass a later stage's check.
+const remintStage = get('--remint', null);
 if (!['full', 'thin'].includes(packetMode)) { console.error(`unknown --packet ${packetMode}; supported: full, thin`); process.exit(2); }
 if (author && !stepMode) { console.error(`unknown --author ${author}; supported: muse`); process.exit(2); }
 const stages = get('--stages', '02,16,03,04,06,05.sessions,05.card_scripts').split(',');
@@ -266,7 +271,8 @@ sectionLoop: for (section of sections) {
     const partList = stageId === '02.dossier_sections' ? parts.map(p => [p]) : [[]];
     const done = acceptedParts(stageId);
     for (const partIds of partList) {
-      if (done.includes(JSON.stringify(partIds))) { console.log(`  ${stageId}${partIds.length ? ' part ' + partIds.join('+') : ''}: already accepted — skipped`); continue; }
+      if (done.includes(JSON.stringify(partIds)) && !(remintStage && stageId === remintStage)) { console.log(`  ${stageId}${partIds.length ? ' part ' + partIds.join('+') : ''}: already accepted — skipped`); continue; }
+      if (remintStage && stageId === remintStage && done.includes(JSON.stringify(partIds))) console.log(`  ${stageId}: --remint requested; dispatching despite an accepted version (new logical task only if execution.retry_nonces was bumped)`);
       const r = await runStage(stageId, partIds);
       if (r.status === 'CAP') { outcomes[section] = 'CAP'; break sectionLoop; }
       if (r.status === 'WAITING') { outcomes[section] = `WAITING ${stageId} ${partIds.join('+')} → ${r.key}`; console.log(`WAITING ${section}: packet ${r.key} emitted; author it, then re-run --step`); break sectionLoop; }

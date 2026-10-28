@@ -23,3 +23,17 @@ Seeded 2026-10-28T07:07:07.574Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T07:30:15.394Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:11 for 02.dossier_sections (sec03-requirements-for-oklahoma-drivers) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-requirements-for-oklahoma-drivers__A__n0 (lineage attempts exhausted)
 
 - 2026-10-28T07:31:25.946Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:12 for 02.dossier_sections (sec03-requirements-for-oklahoma-drivers) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-requirements-for-oklahoma-drivers__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:20:16.842Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:13 for 02.dossier_sections (sec03-requirements-for-oklahoma-drivers) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-requirements-for-oklahoma-drivers__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:21:11.280Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:14 for 02.dossier_sections (sec03-requirements-for-oklahoma-drivers) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-requirements-for-oklahoma-drivers__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:23:49.353Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:15 for 02.dossier_sections (sec04-signs-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-signs-signals-and-markings__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:25:04.335Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:16 for 02.dossier_sections (sec04-signs-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-signs-signals-and-markings__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:25:59.589Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:17 for 02.dossier_sections (sec04-signs-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-signs-signals-and-markings__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:26:43.862Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:18 for 02.dossier_sections (sec04-signs-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-signs-signals-and-markings__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:27:38.123Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:19 for 02.dossier_sections (sec05-right-of-way-when-to-yield) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-right-of-way-when-to-yield__C__n0 (lineage attempts exhausted)

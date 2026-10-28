@@ -45,3 +45,9 @@ Seeded 2026-10-28T07:23:58.772Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:02:19.868Z Sol correction candidate 2026-10-28-rdmv-ks-class-c:lineage:19 → 2026-10-28-rdmv-ks-class-c:lineage:20, under exact standing authority ad8bcec79e7200560b8c59af1ddee3eff99a00659b61125b0938296cf68b8306; prior two 02 attempts accepted; all old counters/limits preserved; bounded advance 2/2; proof root 38bb974f2e031258a28e8794bdf1cedb2a63fcd851f31be5b381ddb971376e2f.
 
 - 2026-10-28T10:06:06.188Z First-two factual repair batch complete: four native replacements/compiles PASS; 38 flagged corrections, 1 coverage expansion, 15 added facts, 8 source-debt dispositions. Same-model only; independent07/08 pending.
+
+- 2026-10-28T10:19:58.059Z Sol correction candidate 2026-10-28-rdmv-ks-class-c:lineage:20 → 2026-10-28-rdmv-ks-class-c:lineage:21, under exact standing authority ad8bcec79e7200560b8c59af1ddee3eff99a00659b61125b0938296cf68b8306; prior two 02 attempts accepted; all old counters/limits preserved; bounded advance 1/2; proof root 38bb974f2e031258a28e8794bdf1cedb2a63fcd851f31be5b381ddb971376e2f.
+
+- 2026-10-28T10:21:05.865Z Sol correction candidate 2026-10-28-rdmv-ks-class-c:lineage:21 → 2026-10-28-rdmv-ks-class-c:lineage:22, under exact standing authority ad8bcec79e7200560b8c59af1ddee3eff99a00659b61125b0938296cf68b8306; prior two 02 attempts accepted; all old counters/limits preserved; bounded advance 2/2; proof root 38bb974f2e031258a28e8794bdf1cedb2a63fcd851f31be5b381ddb971376e2f.
+
+- 2026-10-28T10:26:39.135Z Batch02 sec03/sec04 four native C/C2 replacements/compiles PASS;26 corrections,10 additions,one explicit source-debt disposition. Read-only F/G inventory finds thirteen added debt IDs missing from four F indexes and four stale G11 completion rows. No downstream;accepted F/G unchanged.

@@ -1,0 +1,2653 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-nv-c",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "c75cc9ad87bb6d3f37820ebc57cf2e8473da1280cdc1295f263ba2478e5e22e2",
+    "candidate_lineage_id": "2026-10-28-rdmv-nv-class-c:lineage:59"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-nv-class-c/16/sec11-insurance-driving-record/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-nv-class-c/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec11-F01",
+      "label": "Mandatory liability insurance",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F01"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F02",
+          "why": "sec11-F02 is about carrying proof of insurance; sec11-F01 is about having the insurance at all.",
+          "fact_ids": [
+            "sec11-F01",
+            "sec11-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F02",
+      "label": "Proof of insurance in the vehicle",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F02"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F01",
+          "why": "sec11-F02 is about carrying proof of insurance; sec11-F01 is about having the insurance at all.",
+          "fact_ids": [
+            "sec11-F02",
+            "sec11-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F03",
+      "label": "Injury coverage minimums",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F03"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F04",
+          "why": "sec11-F03 sets the injury and death minimums; sec11-F04 sets the property damage minimum.",
+          "fact_ids": [
+            "sec11-F03",
+            "sec11-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F04",
+      "label": "Property damage minimum",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F04"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F03",
+          "why": "sec11-F03 sets the injury and death minimums; sec11-F04 sets the property damage minimum.",
+          "fact_ids": [
+            "sec11-F04",
+            "sec11-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F05",
+      "label": "The NV LIVE program",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F05"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F06",
+      "label": "Lapse fines and reinstatement",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F06"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F07",
+          "why": "sec11-F06 covers the reinstatement fee and fines for a lapse; sec11-F07 covers the SR-twenty-two and the license suspension.",
+          "fact_ids": [
+            "sec11-F06",
+            "sec11-F07"
+          ]
+        },
+        {
+          "other_id": "sec11-R03",
+          "why": "sec11-R03 says the lapse fines of sec11-F06 apply per vehicle on the policy.",
+          "fact_ids": [
+            "sec11-F06",
+            "sec11-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F07",
+      "label": "Other lapse penalties",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F07"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F06",
+          "why": "sec11-F06 covers the reinstatement fee and fines for a lapse; sec11-F07 covers the SR-twenty-two and the license suspension.",
+          "fact_ids": [
+            "sec11-F07",
+            "sec11-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F08",
+      "label": "Police-investigated crashes",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F08"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F09",
+          "why": "sec11-F09 requires your own SR-one when police do not investigate; sec11-F08 has the officer report an investigated crash.",
+          "fact_ids": [
+            "sec11-F08",
+            "sec11-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F09",
+      "label": "When to file an SR-one",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F09"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F08",
+          "why": "sec11-F09 requires your own SR-one when police do not investigate; sec11-F08 has the officer report an investigated crash.",
+          "fact_ids": [
+            "sec11-F09",
+            "sec11-F08"
+          ]
+        },
+        {
+          "other_id": "sec11-R02",
+          "why": "sec11-R02 contrasts the officer's report with the SR-one duty of sec11-F09.",
+          "fact_ids": [
+            "sec11-F09",
+            "sec11-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F10",
+      "label": "Who files the SR-one",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F10"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F11",
+      "label": "DMV decides fault and liability",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F11"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F12",
+      "label": "Uninsured at-fault drivers",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F12"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F13",
+      "label": "Not reporting a crash",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F13"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F14",
+      "label": "What an SR-twenty-two is",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F14"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F15",
+          "why": "sec11-F14 explains what an SR-twenty-two is; sec11-F15 explains when its coverage starts and when to buy it.",
+          "fact_ids": [
+            "sec11-F14",
+            "sec11-F15"
+          ]
+        },
+        {
+          "other_id": "sec11-R04",
+          "why": "sec11-R04 contrasts the SR-one crash report with the SR-twenty-two of sec11-F14.",
+          "fact_ids": [
+            "sec11-F14",
+            "sec11-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F15",
+      "label": "When SR-twenty-two coverage starts",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F15"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F14",
+          "why": "sec11-F14 explains what an SR-twenty-two is; sec11-F15 explains when its coverage starts and when to buy it.",
+          "fact_ids": [
+            "sec11-F15",
+            "sec11-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F16",
+      "label": "First duties at a crash",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F16"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F17",
+          "why": "sec11-F16 lists the first duties at any crash; sec11-F17 covers moving a no-injury fender bender aside.",
+          "fact_ids": [
+            "sec11-F16",
+            "sec11-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F17",
+      "label": "Moving a fender bender",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F17"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F16",
+          "why": "sec11-F16 lists the first duties at any crash; sec11-F17 covers moving a no-injury fender bender aside.",
+          "fact_ids": [
+            "sec11-F17",
+            "sec11-F16"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F18",
+      "label": "Exchanging information",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F18"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F19",
+          "why": "sec11-F19 covers informing the owner of unattended property; sec11-F18 covers exchanging details with other drivers.",
+          "fact_ids": [
+            "sec11-F18",
+            "sec11-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F19",
+      "label": "Unattended vehicles and property",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F19"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F18",
+          "why": "sec11-F19 covers informing the owner of unattended property; sec11-F18 covers exchanging details with other drivers.",
+          "fact_ids": [
+            "sec11-F19",
+            "sec11-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F20",
+      "label": "A license is a privilege",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F20"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F21",
+      "label": "What goes on your record",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F21"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F22",
+          "why": "sec11-F22 is how long violations stay reportable; sec11-F21 is what goes on the record, including out-of-state violations.",
+          "fact_ids": [
+            "sec11-F21",
+            "sec11-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F22",
+      "label": "How long violations stay",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F22"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-R07",
+          "why": "sec11-R07 restates the three-year and seven-year windows of sec11-F22.",
+          "fact_ids": [
+            "sec11-F22",
+            "sec11-R07"
+          ]
+        },
+        {
+          "other_id": "sec11-F21",
+          "why": "sec11-F22 is how long violations stay reportable; sec11-F21 is what goes on the record, including out-of-state violations.",
+          "fact_ids": [
+            "sec11-F22",
+            "sec11-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F23",
+      "label": "How demerit points are counted",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F23"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F24",
+      "label": "Twelve points suspends",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F24"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F25",
+          "why": "sec11-F24 suspends at twelve points in twelve months; sec11-F25 lets traffic school remove up to three points from three to eleven.",
+          "fact_ids": [
+            "sec11-F24",
+            "sec11-F25"
+          ]
+        },
+        {
+          "other_id": "sec11-F26",
+          "why": "sec11-F26 revokes for a major conviction with no points; sec11-F24 suspends for accumulated points.",
+          "fact_ids": [
+            "sec11-F24",
+            "sec11-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F25",
+      "label": "Traffic school removes points",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F25"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F24",
+          "why": "sec11-F24 suspends at twelve points in twelve months; sec11-F25 lets traffic school remove up to three points from three to eleven.",
+          "fact_ids": [
+            "sec11-F25",
+            "sec11-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F26",
+      "label": "Major offenses revoke",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F26"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F24",
+          "why": "sec11-F26 revokes for a major conviction with no points; sec11-F24 suspends for accumulated points.",
+          "fact_ids": [
+            "sec11-F26",
+            "sec11-F24"
+          ]
+        },
+        {
+          "other_id": "sec11-R08",
+          "why": "sec11-R08 contrasts points-based suspension with the revocation of sec11-F26.",
+          "fact_ids": [
+            "sec11-F26",
+            "sec11-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F27",
+      "label": "Reckless, careless and failing to aid",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F27"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F28",
+          "why": "sec11-F27 lists the eight-point and six-point violations; sec11-F28 lists the four-point violations.",
+          "fact_ids": [
+            "sec11-F27",
+            "sec11-F28"
+          ]
+        },
+        {
+          "other_id": "sec11-R10",
+          "why": "sec11-R10 contrasts reckless driving's eight points with careless driving's six in sec11-F27.",
+          "fact_ids": [
+            "sec11-F27",
+            "sec11-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F28",
+      "label": "Four-point violations",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F28"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F27",
+          "why": "sec11-F27 lists the eight-point and six-point violations; sec11-F28 lists the four-point violations.",
+          "fact_ids": [
+            "sec11-F28",
+            "sec11-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F29",
+      "label": "Two-point violations",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F29"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F30",
+          "why": "sec11-F30 sets speeding points by miles over the limit; sec11-F29 sets two points for driving too fast for conditions.",
+          "fact_ids": [
+            "sec11-F29",
+            "sec11-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F30",
+      "label": "Speeding point bands",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-F30"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F29",
+          "why": "sec11-F30 sets speeding points by miles over the limit; sec11-F29 sets two points for driving too fast for conditions.",
+          "fact_ids": [
+            "sec11-F30",
+            "sec11-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-F31",
+      "label": "False or misused licenses",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "module_id": "sec11-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-F31"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R01",
+      "label": "Minimums apply to driving and owning",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R01"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R02",
+      "label": "Investigated vs uninvestigated crashes",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R02"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F09",
+          "why": "sec11-R02 contrasts the officer's report with the SR-one duty of sec11-F09.",
+          "fact_ids": [
+            "sec11-R02",
+            "sec11-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R03",
+      "label": "Lapse fines per vehicle",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R03"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F06",
+          "why": "sec11-R03 says the lapse fines of sec11-F06 apply per vehicle on the policy.",
+          "fact_ids": [
+            "sec11-R03",
+            "sec11-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R04",
+      "label": "SR-one vs SR-twenty-two",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R04"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F14",
+          "why": "sec11-R04 contrasts the SR-one crash report with the SR-twenty-two of sec11-F14.",
+          "fact_ids": [
+            "sec11-R04",
+            "sec11-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R05",
+      "label": "Cost of SR-twenty-two coverage",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R05"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R06",
+      "label": "Injury crash vs fender bender",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R06"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R07",
+      "label": "Three vs seven years",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R07"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F22",
+          "why": "sec11-R07 restates the three-year and seven-year windows of sec11-F22.",
+          "fact_ids": [
+            "sec11-R07",
+            "sec11-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R08",
+      "label": "Suspension vs revocation",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R08"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F26",
+          "why": "sec11-R08 contrasts points-based suspension with the revocation of sec11-F26.",
+          "fact_ids": [
+            "sec11-R08",
+            "sec11-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R09",
+      "label": "When school points come off",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R09"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R10",
+      "label": "Reckless vs careless points",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec11-R10"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec11-F27",
+          "why": "sec11-R10 contrasts reckless driving's eight points with careless driving's six in sec11-F27.",
+          "fact_ids": [
+            "sec11-R10",
+            "sec11-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R11",
+      "label": "Too fast for conditions points",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R11"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R12",
+      "label": "Partial list and commercial drivers",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R12"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec11-R13",
+      "label": "Online driver record",
+      "domain": "Insurance and driving record confusables and continuation facts",
+      "module_id": "sec11-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec11-R13"
+      ],
+      "source_ref": {
+        "ref": "Nevada Driver's Handbook DMV 700 March 2024, PDF p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nv-c:nevada-department-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec11-F01",
+      "to": "sec11-F03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F06",
+      "to": "sec11-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F08",
+      "to": "sec11-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F09",
+      "to": "sec11-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F14",
+      "to": "sec11-F15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F14",
+      "to": "sec11-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F16",
+      "to": "sec11-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F17",
+      "to": "sec11-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F22",
+      "to": "sec11-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F23",
+      "to": "sec11-F24",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F24",
+      "to": "sec11-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F26",
+      "to": "sec11-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F27",
+      "to": "sec11-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec11-F29",
+      "to": "sec11-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec11-m01",
+      "title": "Required insurance and lapses",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 15,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F01",
+        "sec11-R01",
+        "sec11-F02",
+        "sec11-F03",
+        "sec11-F04",
+        "sec11-F05",
+        "sec11-F06",
+        "sec11-R03",
+        "sec11-F07"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m02",
+      "title": "Reporting crashes and SR forms",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 16,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F08",
+        "sec11-F09",
+        "sec11-R02",
+        "sec11-F10",
+        "sec11-F11",
+        "sec11-F12",
+        "sec11-F13",
+        "sec11-F14",
+        "sec11-F15",
+        "sec11-R04",
+        "sec11-R05"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m03",
+      "title": "At the crash scene",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F16",
+        "sec11-F17",
+        "sec11-R06",
+        "sec11-F18",
+        "sec11-F19"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m04",
+      "title": "Your driving record and points",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 16,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F20",
+        "sec11-F21",
+        "sec11-F22",
+        "sec11-R07",
+        "sec11-F23",
+        "sec11-F24",
+        "sec11-F25",
+        "sec11-R09",
+        "sec11-F26",
+        "sec11-R08"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m05",
+      "title": "Point values and license misuse",
+      "domain": "Insurance, financial responsibility, crash duties and the driving record",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 13,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec11-F27",
+        "sec11-R10",
+        "sec11-F28",
+        "sec11-F29",
+        "sec11-R11",
+        "sec11-F30",
+        "sec11-R12",
+        "sec11-R13",
+        "sec11-F31"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec11-m01",
+      "unit_id": "sec11-u01",
+      "node_ids": [
+        "sec11-F01",
+        "sec11-R01",
+        "sec11-F02",
+        "sec11-F03",
+        "sec11-F04",
+        "sec11-F05",
+        "sec11-F06",
+        "sec11-R03",
+        "sec11-F07"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Start with Nevada's mandatory liability insurance and proof of insurance, then the minimum coverage amounts, the NV LIVE program, and the fines and penalties for a lapse.",
+      "flashcard_strategy": "One card per insurance rule; a contrast card for the injury limits versus the property limit.",
+      "quiz_strategy": "Hub-chosen quiz on minimum coverage and lapse penalties.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m02",
+      "unit_id": "sec11-u02",
+      "node_ids": [
+        "sec11-F08",
+        "sec11-F09",
+        "sec11-R02",
+        "sec11-F10",
+        "sec11-F11",
+        "sec11-F12",
+        "sec11-F13",
+        "sec11-F14",
+        "sec11-F15",
+        "sec11-R04",
+        "sec11-R05"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach how crashes reach the DMV, when you must file an SR-one and who files it, how fault and liability are decided, penalties for uninsured or unreported crashes, and the SR-twenty-two.",
+      "flashcard_strategy": "Cards for each reporting rule; contrast cards for investigated versus uninvestigated crashes and the SR-one versus the SR-twenty-two.",
+      "quiz_strategy": "Hub-chosen quiz on crash reporting and SR forms.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m03",
+      "unit_id": "sec11-u03",
+      "node_ids": [
+        "sec11-F16",
+        "sec11-F17",
+        "sec11-R06",
+        "sec11-F18",
+        "sec11-F19"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover the first duties at a crash, moving a fender bender aside, exchanging information, and what to do after hitting an unattended vehicle or property.",
+      "flashcard_strategy": "Cards for each crash-scene duty; a contrast card for an injury crash versus a fender bender.",
+      "quiz_strategy": "Hub-chosen quiz on what to do at a crash scene.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m04",
+      "unit_id": "sec11-u04",
+      "node_ids": [
+        "sec11-F20",
+        "sec11-F21",
+        "sec11-F22",
+        "sec11-R07",
+        "sec11-F23",
+        "sec11-F24",
+        "sec11-F25",
+        "sec11-R09",
+        "sec11-F26",
+        "sec11-R08"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain that a license is a privilege, what goes on the record and for how long, how demerit points are counted, the suspension threshold, traffic school, and revocation for major offenses.",
+      "flashcard_strategy": "Cards for each record rule; contrast cards for three versus seven years and for suspension versus revocation.",
+      "quiz_strategy": "Hub-chosen quiz on demerit points, traffic school and revocation.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec11-m05",
+      "unit_id": "sec11-u05",
+      "node_ids": [
+        "sec11-F27",
+        "sec11-R10",
+        "sec11-F28",
+        "sec11-F29",
+        "sec11-R11",
+        "sec11-F30",
+        "sec11-R12",
+        "sec11-R13",
+        "sec11-F31"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover the demerit point values for common violations and speeding, the partial nature of the list, the online driver record, and the ban on false or misused licenses.",
+      "flashcard_strategy": "Cards for each point value; contrast cards for reckless versus careless driving and for speeding bands.",
+      "quiz_strategy": "Hub-chosen quiz matching violations to point values.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec11-F01",
+    "sec11-R01",
+    "sec11-F02",
+    "sec11-F03",
+    "sec11-F04",
+    "sec11-F05",
+    "sec11-F06",
+    "sec11-R03",
+    "sec11-F07",
+    "sec11-F08",
+    "sec11-F09",
+    "sec11-R02",
+    "sec11-F10",
+    "sec11-F11",
+    "sec11-F12",
+    "sec11-F13",
+    "sec11-F14",
+    "sec11-F15",
+    "sec11-R04",
+    "sec11-R05",
+    "sec11-F16",
+    "sec11-F17",
+    "sec11-R06",
+    "sec11-F18",
+    "sec11-F19",
+    "sec11-F20",
+    "sec11-F21",
+    "sec11-F22",
+    "sec11-R07",
+    "sec11-F23",
+    "sec11-F24",
+    "sec11-F25",
+    "sec11-R09",
+    "sec11-F26",
+    "sec11-R08",
+    "sec11-F27",
+    "sec11-R10",
+    "sec11-F28",
+    "sec11-F29",
+    "sec11-R11",
+    "sec11-F30",
+    "sec11-R12",
+    "sec11-R13",
+    "sec11-F31"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec11-m01..sec11-m05; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 44,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec11-F01",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F02",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F03",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F04",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F05",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F06",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F07",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F08",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F09",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F10",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F11",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F12",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F13",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F14",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F15",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F16",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F17",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F18",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F19",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F20",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F21",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F22",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F23",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F24",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F25",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F26",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F27",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F28",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F29",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F30",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-F31",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R01",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R02",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R03",
+          "module_id": "sec11-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R04",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R05",
+          "module_id": "sec11-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R06",
+          "module_id": "sec11-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R07",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R08",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R09",
+          "module_id": "sec11-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R10",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R11",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R12",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec11-R13",
+          "module_id": "sec11-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec11-F01",
+          "to": "sec11-F03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F06",
+          "to": "sec11-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F08",
+          "to": "sec11-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F09",
+          "to": "sec11-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F14",
+          "to": "sec11-F15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F14",
+          "to": "sec11-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F16",
+          "to": "sec11-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F17",
+          "to": "sec11-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F22",
+          "to": "sec11-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F23",
+          "to": "sec11-F24",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F24",
+          "to": "sec11-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F26",
+          "to": "sec11-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F27",
+          "to": "sec11-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec11-F29",
+          "to": "sec11-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Insurance, financial responsibility, crash duties and the driving record",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 72.1,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Insurance and driving record confusables and continuation facts",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 27.9,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec11-m01",
+          "sec11-m02",
+          "sec11-m03",
+          "sec11-m04",
+          "sec11-m05"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

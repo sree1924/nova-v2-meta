@@ -91,3 +91,27 @@ Seeded 2026-10-28T07:01:23.778Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:11:48.385Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:42 for 02.dossier_sections (sec09-emergency-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-emergency-situations__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:12:42.747Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:43 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:15:33.762Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:44 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:16:35.614Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:45 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:17:34.999Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:46 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:18:25.690Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:47 for 02.dossier_sections (sec10-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-sharing-the-road__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:20:05.145Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:48 for 02.dossier_sections (sec11-special-driving-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-special-driving-situations__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:21:23.237Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:49 for 02.dossier_sections (sec11-special-driving-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-special-driving-situations__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:22:25.516Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:50 for 02.dossier_sections (sec11-special-driving-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-special-driving-situations__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:23:21.791Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:51 for 02.dossier_sections (sec11-special-driving-situations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-special-driving-situations__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:24:27.412Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:52 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:25:56.557Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:53 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:26:54.644Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:54 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:28:06.651Z lineage reset → 2026-10-28-rdmv-ky-class-d:lineage:55 for 02.dossier_sections (sec12-test-your-knowledge) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-test-your-knowledge__E2__n0 (lineage attempts exhausted)

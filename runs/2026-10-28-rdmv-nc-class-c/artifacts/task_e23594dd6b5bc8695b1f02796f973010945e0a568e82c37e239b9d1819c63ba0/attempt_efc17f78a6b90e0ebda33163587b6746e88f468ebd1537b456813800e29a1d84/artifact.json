@@ -1,0 +1,2765 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-nc-class-c",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "d2cc63f4178678872ea57aa90d8e62551e6144d895560126e3f023e33cec6ef0",
+    "candidate_lineage_id": "2026-10-28-rdmv-nc-class-c:lineage:78"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-nc-class-c/16/sec14-traffic-signals/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-nc-class-c/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec14-F01",
+      "label": "What signals control",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F01"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F02",
+      "label": "Circular green",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F02"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F08",
+          "why": "sec14-F02 lets you turn on circular green only after yielding, while sec14-F08 gives a protected movement on a green arrow.",
+          "fact_ids": [
+            "sec14-F02",
+            "sec14-F08"
+          ]
+        },
+        {
+          "other_id": "sec14-R01",
+          "why": "sec14-F02 is the permitted circular green, and sec14-R01 contrasts it with the protected green arrow.",
+          "fact_ids": [
+            "sec14-F02",
+            "sec14-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F03",
+      "label": "Circular yellow",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F03"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F04",
+          "why": "sec14-F03 says stop on yellow unless too close, while sec14-F04 says never speed up to beat the red.",
+          "fact_ids": [
+            "sec14-F03",
+            "sec14-F04"
+          ]
+        },
+        {
+          "other_id": "sec14-F11",
+          "why": "sec14-F03 is the circular yellow warning red is coming, while sec14-F11 is the yellow arrow ending a protected phase.",
+          "fact_ids": [
+            "sec14-F03",
+            "sec14-F11"
+          ]
+        },
+        {
+          "other_id": "sec14-R02",
+          "why": "sec14-F03 is the circular yellow, and sec14-R02 contrasts it with the yellow arrow.",
+          "fact_ids": [
+            "sec14-F03",
+            "sec14-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F04",
+      "label": "Never speed up on yellow",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F04"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F03",
+          "why": "sec14-F03 says stop on yellow unless too close, while sec14-F04 says never speed up to beat the red.",
+          "fact_ids": [
+            "sec14-F04",
+            "sec14-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F05",
+      "label": "Steady red and right on red",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F05"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F10",
+          "why": "sec14-F05 allows a right turn on steady red after a full stop unless signed, while sec14-F10 stops all turns in a red arrow's direction.",
+          "fact_ids": [
+            "sec14-F05",
+            "sec14-F10"
+          ]
+        },
+        {
+          "other_id": "sec14-R03",
+          "why": "sec14-F05 is the circular red with right on red, and sec14-R03 contrasts it with the red arrow.",
+          "fact_ids": [
+            "sec14-F05",
+            "sec14-R03"
+          ]
+        },
+        {
+          "other_id": "sec14-F06",
+          "why": "sec14-F05 allows the right turn on red, and sec14-F06 requires yielding to traffic and pedestrians while making it.",
+          "fact_ids": [
+            "sec14-F05",
+            "sec14-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F06",
+      "label": "Yield when turning right on red",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F06"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F05",
+          "why": "sec14-F05 allows the right turn on red, and sec14-F06 requires yielding to traffic and pedestrians while making it.",
+          "fact_ids": [
+            "sec14-F06",
+            "sec14-F05"
+          ]
+        },
+        {
+          "other_id": "sec14-F07",
+          "why": "sec14-F06 requires yielding to pedestrians on right on red, and sec14-F07 sets the penalty for failing to.",
+          "fact_ids": [
+            "sec14-F06",
+            "sec14-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F07",
+      "label": "Penalty for not yielding on right on red",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F07"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F06",
+          "why": "sec14-F06 requires yielding to pedestrians on right on red, and sec14-F07 sets the penalty for failing to.",
+          "fact_ids": [
+            "sec14-F07",
+            "sec14-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F08",
+      "label": "Green arrow",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F08"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F02",
+          "why": "sec14-F02 lets you turn on circular green only after yielding, while sec14-F08 gives a protected movement on a green arrow.",
+          "fact_ids": [
+            "sec14-F08",
+            "sec14-F02"
+          ]
+        },
+        {
+          "other_id": "sec14-R01",
+          "why": "sec14-F08 is the protected green arrow, and sec14-R01 contrasts it with the circular green.",
+          "fact_ids": [
+            "sec14-F08",
+            "sec14-R01"
+          ]
+        },
+        {
+          "other_id": "sec14-F09",
+          "why": "sec14-F08 gives a protected arrow movement, while sec14-F09 has the U-turner yield to an opposing right turn when both have arrows.",
+          "fact_ids": [
+            "sec14-F08",
+            "sec14-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F09",
+      "label": "U-turn yields to right turn",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F09"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F08",
+          "why": "sec14-F08 gives a protected arrow movement, while sec14-F09 has the U-turner yield to an opposing right turn when both have arrows.",
+          "fact_ids": [
+            "sec14-F09",
+            "sec14-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F10",
+      "label": "Red arrow",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F10"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F05",
+          "why": "sec14-F05 allows a right turn on steady red after a full stop unless signed, while sec14-F10 stops all turns in a red arrow's direction.",
+          "fact_ids": [
+            "sec14-F10",
+            "sec14-F05"
+          ]
+        },
+        {
+          "other_id": "sec14-R03",
+          "why": "sec14-F10 is the red arrow, and sec14-R03 contrasts it with the circular red.",
+          "fact_ids": [
+            "sec14-F10",
+            "sec14-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F11",
+      "label": "Yellow arrow",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F11"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F03",
+          "why": "sec14-F03 is the circular yellow warning red is coming, while sec14-F11 is the yellow arrow ending a protected phase.",
+          "fact_ids": [
+            "sec14-F11",
+            "sec14-F03"
+          ]
+        },
+        {
+          "other_id": "sec14-R02",
+          "why": "sec14-F11 is the yellow arrow, and sec14-R02 contrasts it with the circular yellow.",
+          "fact_ids": [
+            "sec14-F11",
+            "sec14-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F12",
+      "label": "Arrows with circular lights",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F12"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F13",
+          "why": "sec14-F12 says circular lights control everyone when no arrow is lit, while sec14-F13 says arrows control turns when both show.",
+          "fact_ids": [
+            "sec14-F12",
+            "sec14-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F13",
+      "label": "Arrows for turns, circles for through",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F13"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F12",
+          "why": "sec14-F12 says circular lights control everyone when no arrow is lit, while sec14-F13 says arrows control turns when both show.",
+          "fact_ids": [
+            "sec14-F13",
+            "sec14-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F14",
+      "label": "Dark or broken signal",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F14"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F15",
+          "why": "sec14-F14 treats a dark signal as an all-way stop, while sec14-F15 gives the exceptions.",
+          "fact_ids": [
+            "sec14-F14",
+            "sec14-F15"
+          ]
+        },
+        {
+          "other_id": "sec14-R06",
+          "why": "sec14-F14 sets the all-way stop for a broken signal, and sec14-R06 pairs it with the exceptions.",
+          "fact_ids": [
+            "sec14-F14",
+            "sec14-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F15",
+      "label": "When the all-way stop rule does not apply",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F15"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F14",
+          "why": "sec14-F14 treats a dark signal as an all-way stop, while sec14-F15 gives the exceptions.",
+          "fact_ids": [
+            "sec14-F15",
+            "sec14-F14"
+          ]
+        },
+        {
+          "other_id": "sec14-R06",
+          "why": "sec14-F15 lists the exceptions, and sec14-R06 pairs them with the all-way stop rule.",
+          "fact_ids": [
+            "sec14-F15",
+            "sec14-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F16",
+      "label": "Flashing red",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F16"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F17",
+          "why": "sec14-F16 treats flashing red like a stop sign, while sec14-F17 treats flashing yellow like a warning sign.",
+          "fact_ids": [
+            "sec14-F16",
+            "sec14-F17"
+          ]
+        },
+        {
+          "other_id": "sec14-R04",
+          "why": "sec14-F16 is flashing red, and sec14-R04 contrasts it with flashing yellow.",
+          "fact_ids": [
+            "sec14-F16",
+            "sec14-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F17",
+      "label": "Flashing yellow",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F17"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F16",
+          "why": "sec14-F16 treats flashing red like a stop sign, while sec14-F17 treats flashing yellow like a warning sign.",
+          "fact_ids": [
+            "sec14-F17",
+            "sec14-F16"
+          ]
+        },
+        {
+          "other_id": "sec14-R04",
+          "why": "sec14-F17 is flashing yellow, and sec14-R04 contrasts it with flashing red.",
+          "fact_ids": [
+            "sec14-F17",
+            "sec14-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F18",
+      "label": "Flashing yellow arrow",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F18"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F19",
+          "why": "sec14-F18 lets you turn on a flashing yellow arrow after yielding, while sec14-F19 makes a solid yellow arrow mean get ready to stop.",
+          "fact_ids": [
+            "sec14-F18",
+            "sec14-F19"
+          ]
+        },
+        {
+          "other_id": "sec14-R05",
+          "why": "sec14-F18 is the flashing yellow arrow, and sec14-R05 contrasts it with the solid yellow arrow.",
+          "fact_ids": [
+            "sec14-F18",
+            "sec14-R05"
+          ]
+        },
+        {
+          "other_id": "sec14-F20",
+          "why": "sec14-F18 requires yielding on a flashing yellow arrow, while sec14-F20 lets you turn on a solid green arrow without yielding to oncoming traffic.",
+          "fact_ids": [
+            "sec14-F18",
+            "sec14-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F19",
+      "label": "Solid red and yellow arrows on that head",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F19"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F18",
+          "why": "sec14-F18 lets you turn on a flashing yellow arrow after yielding, while sec14-F19 makes a solid yellow arrow mean get ready to stop.",
+          "fact_ids": [
+            "sec14-F19",
+            "sec14-F18"
+          ]
+        },
+        {
+          "other_id": "sec14-R05",
+          "why": "sec14-F19 is the solid yellow arrow, and sec14-R05 contrasts it with the flashing yellow arrow.",
+          "fact_ids": [
+            "sec14-F19",
+            "sec14-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F20",
+      "label": "Solid green arrow on that head",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F20"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F18",
+          "why": "sec14-F18 requires yielding on a flashing yellow arrow, while sec14-F20 lets you turn on a solid green arrow without yielding to oncoming traffic.",
+          "fact_ids": [
+            "sec14-F20",
+            "sec14-F18"
+          ]
+        },
+        {
+          "other_id": "sec14-F21",
+          "why": "sec14-F20 is the solid green arrow on the flashing-arrow head, while sec14-F21 notes right-turn heads may show a circular red.",
+          "fact_ids": [
+            "sec14-F20",
+            "sec14-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F21",
+      "label": "Right-turn heads with circular red",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F21"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F20",
+          "why": "sec14-F20 is the solid green arrow on the flashing-arrow head, while sec14-F21 notes right-turn heads may show a circular red.",
+          "fact_ids": [
+            "sec14-F21",
+            "sec14-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F22",
+      "label": "What a ramp meter controls",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F22"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F23",
+      "label": "Ramp meter red and green",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F23"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F24",
+          "why": "sec14-F23 gives ramp meter red and green, while sec14-F24 covers a dark ramp meter.",
+          "fact_ids": [
+            "sec14-F23",
+            "sec14-F24"
+          ]
+        },
+        {
+          "other_id": "sec14-R07",
+          "why": "sec14-F23 says stop and wait on red, and sec14-R07 contrasts it with a dark meter.",
+          "fact_ids": [
+            "sec14-F23",
+            "sec14-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F24",
+      "label": "Dark ramp meter",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F24"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F23",
+          "why": "sec14-F23 gives ramp meter red and green, while sec14-F24 covers a dark ramp meter.",
+          "fact_ids": [
+            "sec14-F24",
+            "sec14-F23"
+          ]
+        },
+        {
+          "other_id": "sec14-R07",
+          "why": "sec14-F24 lets you merge without stopping at a dark meter, and sec14-R07 contrasts it with a red meter.",
+          "fact_ids": [
+            "sec14-F24",
+            "sec14-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F25",
+      "label": "Where hybrid beacons are used",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F25"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F26",
+          "why": "sec14-F25 says where beacons are used and that they start dark, while sec14-F26 gives the sequence once activated.",
+          "fact_ids": [
+            "sec14-F25",
+            "sec14-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F26",
+      "label": "Hybrid beacon sequence",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F26"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-R09",
+          "why": "sec14-F26 gives the beacon's flashing yellow, steady yellow, then red sequence, and sec14-R09 contrasts it with a ramp meter.",
+          "fact_ids": [
+            "sec14-F26",
+            "sec14-R09"
+          ]
+        },
+        {
+          "other_id": "sec14-F25",
+          "why": "sec14-F25 says where beacons are used and that they start dark, while sec14-F26 gives the sequence once activated.",
+          "fact_ids": [
+            "sec14-F26",
+            "sec14-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F27",
+      "label": "Hybrid beacon steady red",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F27"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F28",
+          "why": "sec14-F27 keeps vehicles stopped on steady red, while sec14-F28 lets them go after a full stop on flashing red once clear.",
+          "fact_ids": [
+            "sec14-F27",
+            "sec14-F28"
+          ]
+        },
+        {
+          "other_id": "sec14-R08",
+          "why": "sec14-F27 is the steady red phase, and sec14-R08 contrasts it with flashing red.",
+          "fact_ids": [
+            "sec14-F27",
+            "sec14-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F28",
+      "label": "Hybrid beacon flashing red",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-F28"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F27",
+          "why": "sec14-F27 keeps vehicles stopped on steady red, while sec14-F28 lets them go after a full stop on flashing red once clear.",
+          "fact_ids": [
+            "sec14-F28",
+            "sec14-F27"
+          ]
+        },
+        {
+          "other_id": "sec14-R08",
+          "why": "sec14-F28 is the flashing red phase, and sec14-R08 contrasts it with steady red.",
+          "fact_ids": [
+            "sec14-F28",
+            "sec14-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-F29",
+      "label": "Hybrid beacon goes dark",
+      "domain": "Traffic signals",
+      "module_id": "sec14-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec14-F29"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R01",
+      "label": "Permitted versus protected green",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R01"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F02",
+          "why": "sec14-F02 is the permitted circular green, and sec14-R01 contrasts it with the protected green arrow.",
+          "fact_ids": [
+            "sec14-R01",
+            "sec14-F02"
+          ]
+        },
+        {
+          "other_id": "sec14-F08",
+          "why": "sec14-F08 is the protected green arrow, and sec14-R01 contrasts it with the circular green.",
+          "fact_ids": [
+            "sec14-R01",
+            "sec14-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R02",
+      "label": "Circular yellow versus yellow arrow",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R02"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F11",
+          "why": "sec14-F11 is the yellow arrow, and sec14-R02 contrasts it with the circular yellow.",
+          "fact_ids": [
+            "sec14-R02",
+            "sec14-F11"
+          ]
+        },
+        {
+          "other_id": "sec14-F03",
+          "why": "sec14-F03 is the circular yellow, and sec14-R02 contrasts it with the yellow arrow.",
+          "fact_ids": [
+            "sec14-R02",
+            "sec14-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R03",
+      "label": "Circular red versus red arrow",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R03"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.82",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0082"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F05",
+          "why": "sec14-F05 is the circular red with right on red, and sec14-R03 contrasts it with the red arrow.",
+          "fact_ids": [
+            "sec14-R03",
+            "sec14-F05"
+          ]
+        },
+        {
+          "other_id": "sec14-F10",
+          "why": "sec14-F10 is the red arrow, and sec14-R03 contrasts it with the circular red.",
+          "fact_ids": [
+            "sec14-R03",
+            "sec14-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R04",
+      "label": "Flashing red versus flashing yellow",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R04"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F16",
+          "why": "sec14-F16 is flashing red, and sec14-R04 contrasts it with flashing yellow.",
+          "fact_ids": [
+            "sec14-R04",
+            "sec14-F16"
+          ]
+        },
+        {
+          "other_id": "sec14-F17",
+          "why": "sec14-F17 is flashing yellow, and sec14-R04 contrasts it with flashing red.",
+          "fact_ids": [
+            "sec14-R04",
+            "sec14-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R05",
+      "label": "Flashing versus solid yellow arrow",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R05"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F18",
+          "why": "sec14-F18 is the flashing yellow arrow, and sec14-R05 contrasts it with the solid yellow arrow.",
+          "fact_ids": [
+            "sec14-R05",
+            "sec14-F18"
+          ]
+        },
+        {
+          "other_id": "sec14-F19",
+          "why": "sec14-F19 is the solid yellow arrow, and sec14-R05 contrasts it with the flashing yellow arrow.",
+          "fact_ids": [
+            "sec14-R05",
+            "sec14-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R06",
+      "label": "Broken signal exceptions",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R06"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.83",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0083"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F14",
+          "why": "sec14-F14 sets the all-way stop for a broken signal, and sec14-R06 pairs it with the exceptions.",
+          "fact_ids": [
+            "sec14-R06",
+            "sec14-F14"
+          ]
+        },
+        {
+          "other_id": "sec14-F15",
+          "why": "sec14-F15 lists the exceptions, and sec14-R06 pairs them with the all-way stop rule.",
+          "fact_ids": [
+            "sec14-R06",
+            "sec14-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R07",
+      "label": "Ramp meter red versus dark",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R07"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F24",
+          "why": "sec14-F24 lets you merge without stopping at a dark meter, and sec14-R07 contrasts it with a red meter.",
+          "fact_ids": [
+            "sec14-R07",
+            "sec14-F24"
+          ]
+        },
+        {
+          "other_id": "sec14-F23",
+          "why": "sec14-F23 says stop and wait on red, and sec14-R07 contrasts it with a dark meter.",
+          "fact_ids": [
+            "sec14-R07",
+            "sec14-F23"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R08",
+      "label": "Beacon steady versus flashing red",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R08"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F28",
+          "why": "sec14-F28 is the flashing red phase, and sec14-R08 contrasts it with steady red.",
+          "fact_ids": [
+            "sec14-R08",
+            "sec14-F28"
+          ]
+        },
+        {
+          "other_id": "sec14-F27",
+          "why": "sec14-F27 is the steady red phase, and sec14-R08 contrasts it with flashing red.",
+          "fact_ids": [
+            "sec14-R08",
+            "sec14-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec14-R09",
+      "label": "Beacon sequence versus ramp meter",
+      "domain": "Traffic signal confusables",
+      "module_id": "sec14-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec14-R09"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.84",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0084"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec14-F26",
+          "why": "sec14-F26 gives the beacon's flashing yellow, steady yellow, then red sequence, and sec14-R09 contrasts it with a ramp meter.",
+          "fact_ids": [
+            "sec14-R09",
+            "sec14-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec14-F02",
+      "to": "sec14-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F08",
+      "to": "sec14-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F11",
+      "to": "sec14-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F03",
+      "to": "sec14-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F10",
+      "to": "sec14-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F05",
+      "to": "sec14-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F05",
+      "to": "sec14-F06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F06",
+      "to": "sec14-F07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F14",
+      "to": "sec14-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F15",
+      "to": "sec14-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F16",
+      "to": "sec14-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F17",
+      "to": "sec14-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F18",
+      "to": "sec14-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F19",
+      "to": "sec14-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F24",
+      "to": "sec14-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F23",
+      "to": "sec14-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F27",
+      "to": "sec14-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F28",
+      "to": "sec14-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec14-F26",
+      "to": "sec14-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec14-m01",
+      "title": "Circular signals",
+      "domain": "Traffic signals",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec14-F01",
+        "sec14-F02",
+        "sec14-F03",
+        "sec14-F04",
+        "sec14-F05",
+        "sec14-F06",
+        "sec14-F07"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m02",
+      "title": "Arrow signals",
+      "domain": "Traffic signals",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 15,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec14-F08",
+        "sec14-R01",
+        "sec14-F09",
+        "sec14-F10",
+        "sec14-R03",
+        "sec14-F11",
+        "sec14-R02",
+        "sec14-F12",
+        "sec14-F13"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m03",
+      "title": "Dark and flashing signals",
+      "domain": "Traffic signals",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec14-F14",
+        "sec14-F15",
+        "sec14-R06",
+        "sec14-F16",
+        "sec14-F17",
+        "sec14-R04"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m04",
+      "title": "Flashing yellow arrow signals",
+      "domain": "Traffic signals",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 7,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec14-F18",
+        "sec14-F19",
+        "sec14-R05",
+        "sec14-F20",
+        "sec14-F21"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m05",
+      "title": "Ramp meters",
+      "domain": "Traffic signals",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec14-F22",
+        "sec14-F23",
+        "sec14-F24",
+        "sec14-R07"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m06",
+      "title": "Hybrid beacons",
+      "domain": "Traffic signals",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec14-F25",
+        "sec14-F26",
+        "sec14-F27",
+        "sec14-F28",
+        "sec14-R08",
+        "sec14-F29",
+        "sec14-R09"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec14-m01",
+      "unit_id": "sec14-u01",
+      "node_ids": [
+        "sec14-F01",
+        "sec14-F02",
+        "sec14-F03",
+        "sec14-F04",
+        "sec14-F05",
+        "sec14-F06",
+        "sec14-F07"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover what signals control, circular green, yellow and red, turning right on red, the duty to yield to pedestrians, and the penalty.",
+      "flashcard_strategy": "One card per signal and rule.",
+      "quiz_strategy": "Hub-chosen quiz naming a circular signal and asking what to do.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m02",
+      "unit_id": "sec14-u02",
+      "node_ids": [
+        "sec14-F08",
+        "sec14-R01",
+        "sec14-F09",
+        "sec14-F10",
+        "sec14-R03",
+        "sec14-F11",
+        "sec14-R02",
+        "sec14-F12",
+        "sec14-F13"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach green, red and yellow arrows, the U-turn yield rule, and how arrows and circular lights share control.",
+      "flashcard_strategy": "Cards for each arrow and rule; contrast cards for circle versus arrow in each color.",
+      "quiz_strategy": "Hub-chosen quiz on arrows versus circular lights.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m03",
+      "unit_id": "sec14-u03",
+      "node_ids": [
+        "sec14-F14",
+        "sec14-F15",
+        "sec14-R06",
+        "sec14-F16",
+        "sec14-F17",
+        "sec14-R04"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain treating a dark signal as an all-way stop and its exceptions, flashing red and flashing yellow.",
+      "flashcard_strategy": "Cards for each rule; contrast cards for the dark-signal exception and flashing red versus yellow.",
+      "quiz_strategy": "Hub-chosen quiz on dark and flashing signals.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m04",
+      "unit_id": "sec14-u04",
+      "node_ids": [
+        "sec14-F18",
+        "sec14-F19",
+        "sec14-R05",
+        "sec14-F20",
+        "sec14-F21"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the flashing yellow arrow, the solid red and yellow arrows on that head, the solid green arrow, and right-turn heads.",
+      "flashcard_strategy": "Cards for each display; a contrast card for flashing versus solid yellow arrows.",
+      "quiz_strategy": "Hub-chosen quiz on flashing yellow arrow displays.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m05",
+      "unit_id": "sec14-u05",
+      "node_ids": [
+        "sec14-F22",
+        "sec14-F23",
+        "sec14-F24",
+        "sec14-R07"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain what a ramp meter controls, red and green, and what to do when it is dark.",
+      "flashcard_strategy": "Cards for each display; a contrast card for red versus dark.",
+      "quiz_strategy": "Hub-chosen quiz on ramp meters.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec14-m06",
+      "unit_id": "sec14-u06",
+      "node_ids": [
+        "sec14-F25",
+        "sec14-F26",
+        "sec14-F27",
+        "sec14-F28",
+        "sec14-R08",
+        "sec14-F29",
+        "sec14-R09"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover where hybrid beacons are used, their sequence, steady red, flashing red, and going dark.",
+      "flashcard_strategy": "Cards for each phase; contrast cards for steady versus flashing red and the beacon sequence.",
+      "quiz_strategy": "Hub-chosen quiz on hybrid beacon phases.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec14-F01",
+    "sec14-F02",
+    "sec14-F03",
+    "sec14-F04",
+    "sec14-F05",
+    "sec14-F06",
+    "sec14-F07",
+    "sec14-F08",
+    "sec14-R01",
+    "sec14-F09",
+    "sec14-F10",
+    "sec14-R03",
+    "sec14-F11",
+    "sec14-R02",
+    "sec14-F12",
+    "sec14-F13",
+    "sec14-F14",
+    "sec14-F15",
+    "sec14-R06",
+    "sec14-F16",
+    "sec14-F17",
+    "sec14-R04",
+    "sec14-F18",
+    "sec14-F19",
+    "sec14-R05",
+    "sec14-F20",
+    "sec14-F21",
+    "sec14-F22",
+    "sec14-F23",
+    "sec14-F24",
+    "sec14-R07",
+    "sec14-F25",
+    "sec14-F26",
+    "sec14-F27",
+    "sec14-F28",
+    "sec14-R08",
+    "sec14-F29",
+    "sec14-R09"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec14-m01..sec14-m06; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 38,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec14-F01",
+          "module_id": "sec14-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F02",
+          "module_id": "sec14-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F03",
+          "module_id": "sec14-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F04",
+          "module_id": "sec14-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F05",
+          "module_id": "sec14-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F06",
+          "module_id": "sec14-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F07",
+          "module_id": "sec14-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F08",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F09",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F10",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F11",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F12",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F13",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F14",
+          "module_id": "sec14-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F15",
+          "module_id": "sec14-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F16",
+          "module_id": "sec14-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F17",
+          "module_id": "sec14-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F18",
+          "module_id": "sec14-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F19",
+          "module_id": "sec14-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F20",
+          "module_id": "sec14-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F21",
+          "module_id": "sec14-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F22",
+          "module_id": "sec14-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F23",
+          "module_id": "sec14-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F24",
+          "module_id": "sec14-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F25",
+          "module_id": "sec14-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F26",
+          "module_id": "sec14-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F27",
+          "module_id": "sec14-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F28",
+          "module_id": "sec14-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-F29",
+          "module_id": "sec14-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R01",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R02",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R03",
+          "module_id": "sec14-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R04",
+          "module_id": "sec14-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R05",
+          "module_id": "sec14-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R06",
+          "module_id": "sec14-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R07",
+          "module_id": "sec14-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R08",
+          "module_id": "sec14-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec14-R09",
+          "module_id": "sec14-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec14-F02",
+          "to": "sec14-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F08",
+          "to": "sec14-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F11",
+          "to": "sec14-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F03",
+          "to": "sec14-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F10",
+          "to": "sec14-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F05",
+          "to": "sec14-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F05",
+          "to": "sec14-F06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F06",
+          "to": "sec14-F07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F14",
+          "to": "sec14-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F15",
+          "to": "sec14-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F16",
+          "to": "sec14-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F17",
+          "to": "sec14-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F18",
+          "to": "sec14-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F19",
+          "to": "sec14-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F24",
+          "to": "sec14-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F23",
+          "to": "sec14-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F27",
+          "to": "sec14-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F28",
+          "to": "sec14-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec14-F26",
+          "to": "sec14-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Traffic signals",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 70,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Traffic signal confusables",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 30,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec14-m01",
+          "sec14-m02",
+          "sec14-m03",
+          "sec14-m04",
+          "sec14-m05",
+          "sec14-m06"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

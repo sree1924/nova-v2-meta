@@ -167,3 +167,13 @@ Seeded 2026-10-28T05:03:22.057Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:55:09.497Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:83 for 03.combined_kg (sec05-getting-familiar-with-your-vehicle) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-getting-familiar-with-your-vehicle__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:12:34.950Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:84 for 03.combined_kg (sec07-traffic-signs-and-signals) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-traffic-signs-and-signals__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:20:17.720Z JAM: limits.max_request_bytes 640000→800000 (coordinator decision; sec07/sec08 05.card_scripts packets exceed 640000); file transport $0; revert before any Model-API dispatch
+
+- 2026-10-28T10:21:32.979Z retry nonce 04.cards:@sec05-getting-familiar-with-your-vehicle 0→1 (coordinator decision) to merge sec05-F02 onto the sec05-F01 card; 05.PRACTICE_ONLY unreachable on accepted wording ("the real test" in sec05-F02)
+
+- 2026-10-28T10:28:20.124Z JAM: limits.max_completion_tokens 30000→4000 (coordinator decision; call_cap_below_conservative_request_estimate on sec07 05.card_scripts / sec08 05.sessions); file transport $0; max_call_usd unchanged at $1; revert before any Model-API dispatch
+
+- 2026-10-28T10:28:22.148Z retry nonce 05.card_scripts:@sec07-traffic-signs-and-signals → 1 after HOLD (sec07-traffic-signs-and-signals); non-PASS: 05.INPUT_BINDING=FAIL
+
+- 2026-10-28T10:28:39.903Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:85 for 04.cards (sec05-getting-familiar-with-your-vehicle) under standing authority; cause: proactive reset before authoring packet 04.cards__sec05-getting-familiar-with-your-vehicle__-__n1 (lineage attempts exhausted)

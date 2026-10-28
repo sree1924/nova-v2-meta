@@ -105,3 +105,31 @@ Seeded 2026-10-28T07:01:29.980Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:13:38.864Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:51 for 02.dossier_sections (sec12-vehicle-control-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-vehicle-control-speed__C__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:15:02.536Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:52 for 02.dossier_sections (sec12-vehicle-control-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-vehicle-control-speed__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:15:42.640Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:53 for 02.dossier_sections (sec12-vehicle-control-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-vehicle-control-speed__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:16:30.971Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:54 for 02.dossier_sections (sec12-vehicle-control-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-vehicle-control-speed__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:17:12.091Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:55 for 02.dossier_sections (sec12-vehicle-control-speed) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-vehicle-control-speed__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:18:29.760Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:56 for 02.dossier_sections (sec13-turning-lanes-passing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-turning-lanes-passing__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:19:28.701Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:57 for 02.dossier_sections (sec13-turning-lanes-passing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-turning-lanes-passing__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:20:09.733Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:58 for 02.dossier_sections (sec13-turning-lanes-passing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-turning-lanes-passing__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:20:56.582Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:59 for 02.dossier_sections (sec13-turning-lanes-passing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-turning-lanes-passing__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:22:06.366Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:60 for 02.dossier_sections (sec14-defensive-driving-communication) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-communication__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:23:35.309Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:61 for 02.dossier_sections (sec14-defensive-driving-communication) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-communication__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:24:27.693Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:62 for 02.dossier_sections (sec14-defensive-driving-communication) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-communication__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:25:13.482Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:63 for 02.dossier_sections (sec14-defensive-driving-communication) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-communication__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:25:59.077Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:64 for 02.dossier_sections (sec14-defensive-driving-communication) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-communication__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:27:30.363Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:65 for 02.dossier_sections (sec15-highways-interchanges-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-highways-interchanges-roundabouts__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:28:37.183Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:66 for 02.dossier_sections (sec15-highways-interchanges-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-highways-interchanges-roundabouts__B__n0 (lineage attempts exhausted)

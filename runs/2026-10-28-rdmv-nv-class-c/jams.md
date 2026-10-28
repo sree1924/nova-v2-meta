@@ -119,3 +119,13 @@ Seeded 2026-10-28T05:06:50.392Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:46:28.821Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:57 for 03.combined_kg (sec07-driver-assistance-systems) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-driver-assistance-systems__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:58:06.375Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:58 for 03.combined_kg (sec09-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-sharing-the-road__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:16:08.044Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:59 for 03.combined_kg (sec11-insurance-driving-record) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-insurance-driving-record__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:28:25.496Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:60 for 16.compile (sec04-signs-signals-markings) under standing authority; cause: compile attempt cap on shared lineage (sec04-signs-signals-markings)
+
+- 2026-10-28T10:28:27.967Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:61 for 16.compile (sec07-driver-assistance-systems) under standing authority; cause: compile attempt cap on shared lineage (sec07-driver-assistance-systems)
+
+- 2026-10-28T10:28:30.007Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:62 for 16.compile (sec09-sharing-the-road) under standing authority; cause: compile attempt cap on shared lineage (sec09-sharing-the-road)
+
+- 2026-10-28T10:28:32.593Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:63 for 16.compile (sec11-insurance-driving-record) under standing authority; cause: compile attempt cap on shared lineage (sec11-insurance-driving-record)

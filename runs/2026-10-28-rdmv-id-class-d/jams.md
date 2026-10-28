@@ -49,3 +49,23 @@ Seeded 2026-10-28T07:24:05.831Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:06:56.200Z Sol bounded factual repair: new candidate 2026-10-28-rdmv-id-class-d:lineage:20 -> 2026-10-28-rdmv-id-class-d:lineage:21 under exact existing standing authority 8e33594400915c7c8a93795df68df40ac2810baac5f43bb495a55c5175f4144a after 2 accepted completed dossier attempts; old counters and caps preserved; fresh proof-key packets required. Receipt runs/2026-10-28-rdmv-id-class-d/receipts/sol-id-repair-batch02-lineage-21.json.
 
 - 2026-10-28T10:07:25.642Z Sol bounded factual repair: new candidate 2026-10-28-rdmv-id-class-d:lineage:21 -> 2026-10-28-rdmv-id-class-d:lineage:22 under exact existing standing authority 8e33594400915c7c8a93795df68df40ac2810baac5f43bb495a55c5175f4144a after 2 accepted completed dossier attempts; old counters and caps preserved; fresh proof-key packets required. Receipt runs/2026-10-28-rdmv-id-class-d/receipts/sol-id-repair-batch02-lineage-22.json.
+
+- 2026-10-28T10:16:32.367Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:23 for 02.dossier_sections (sec05-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-traffic-signs__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:21:31.030Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:24 for 02.dossier_sections (sec05-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-traffic-signs__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:21:39.461Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:25 for 02.dossier_sections (sec05-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-traffic-signs__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:21:51.179Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:26 for 02.dossier_sections (sec05-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-traffic-signs__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:22:03.896Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:27 for 02.dossier_sections (sec05-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-traffic-signs__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:26:27.094Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:28 for 02.dossier_sections (sec06-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signals-and-markings__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:26:47.628Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:29 for 02.dossier_sections (sec06-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signals-and-markings__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:27:00.271Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:30 for 02.dossier_sections (sec06-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signals-and-markings__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:27:13.497Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:31 for 02.dossier_sections (sec06-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signals-and-markings__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:27:30.518Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:32 for 02.dossier_sections (sec07-intersections) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-intersections__C__n0 (lineage attempts exhausted)

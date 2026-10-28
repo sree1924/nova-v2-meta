@@ -1,29 +1,28 @@
-# NM — native source-correction batch one
-Run: 2026-10-28-rdmv-nm-class-std; actual model gpt-6.1-sol, ChatGPT Pro subscription.
-Status: FIRST TWO AFFECTED SECTIONS REPAIRED; state remains assigned and incomplete.
-Section01: C eight corrections; C2 six corrections; fourteen corrected facts in two accepted native replacements.
-Section02: C one correction; C2 one correction; two corrected facts in two accepted native replacements.
-Batch total: sixteen corrected facts / four native C/C2 replacements / four fresh accepted compile versions.
-All seventy-nine fact IDs in these sections retained; all 340 current fact IDs and unaffected statements preserved.
-Old accepted envelopes and all eight original registry files remain byte-identical.
-Each latest compile binds corrected inputs, excludes the old input and retains its superseded provenance.
-Native mapped validation and prechecks passed for every part; no HOLD/retry or paid Model API call.
-Current sec01 compile: runs/2026-10-28-rdmv-nm-class-std/16/sec01-license-and-restraints/06e37807/16-compiled-dossier.json @ 2e0cc12814890fb1b12719f5c864c541cab56878679ba0d82366566b28fc96d6.
-Current sec02 compile: runs/2026-10-28-rdmv-nm-class-std/16/sec02-traffic-signals/79ed939e/16-compiled-dossier.json @ 34d8ad0afb99ba6534d630915e3631fbc41e6bdf279bfb7b6c6898601d1429ee.
-Current scope: 8/15 dossier sections compiled; 340 facts; 72 current dossier parts, 76 accepted historical parts, 12 historical compiles.
-Remaining original matrix: thirty-three corrections across sec03–08; all five material coverage findings still pending.
-No material coverage additions were flagged for this batch’s sections; none added or dropped.
-Next bounded repair: sec03 traffic signs and sec04 markings/lane controls, nine existing-fact corrections plus flagged coverage additions.
-Dossier sections09–15 and stages03/04/06/05.sessions/05.card_scripts remain owed; no audio/publishing.
-Unknown exam count/passing/time values and source pages remain null. Edition/effective date and class letter unverified.
-All source/visual/legal-currency/ambiguous-source debts, including NM-LICENSE-CURRENCY, preserved. Independent07/08 pending.
-Native authority: exact unexpired NM-extended standing authority; immutable review/evidence/proofs pinned within this run.
-Recorded new-candidate advances: lineage36→37 and37→38 after prior accepted-work exhaustion; bounded two of two.
-Every old task/attempt/counter retained; attempt caps, total budget and all monetary limits unchanged.
-Inherited Muse/Claude wrapper metadata, opaque class slug and pdf-null receipt remain disclosed provenance debt.
+# NM — native correction batch two
+Open metadata debt: sec03 accepted F counts remain C26/C2 18; current counts are C28/C2 22. Four accepted G line hints remain stale.
+Run: 2026-10-28-rdmv-nm-class-std; actual gpt-6.1-sol, ChatGPT Pro subscription.
+Sections03–04: nine existing-fact corrections and six supported textual coverage additions accepted in four native C/C2 replacements.
+Section03: C four corrections + two additions; C2 three corrections + four additions; fifty current facts.
+Section04: C one correction; C2 one correction; thirty-four current facts.
+New IDs: sec03-F27/F28 and sec03-R19/R20/R21/R22. Every original fact ID retained; no unrelated statement changed.
+Cumulative: twenty-five of forty-nine original corrections native-accepted; twenty-four corrections remain in sections05–08.
+Current source registry: 346 facts across 8/15 compiled sections; 72 current dossier parts, 80 accepted historical parts, 16 historical compiles.
+All source PDF/original registry/old accepted envelope bytes preserved; current section01/02 compile hashes unchanged.
+Every replacement passed native mapped validation; latest compiles bind both corrected parts and preserve old superseded envelopes.
+Current sec03 compile: runs/2026-10-28-rdmv-nm-class-std/16/sec03-traffic-signs/979f994c/16-compiled-dossier.json @ 36fe996844d89f3a0649fdf19afe026f415bd2b475908c84bd529998f988d3cf.
+Current sec04 compile: runs/2026-10-28-rdmv-nm-class-std/16/sec04-markings-and-lane-controls/4b8c6278/16-compiled-dossier.json @ a07028765b149298ee5a1876d86b7632f70a3ba06d680e15ec7a6e03d32aa850.
+Section03 G04–G07 point to C.01:L107–L110; actual corresponding labels are L115–L118. Accepted F/G bytes were not edited.
+F/G discrepancy evidence and proposed owner corrections are in native-repair-batch2-verification.json and the checkpoint.
+Three textual coverage findings addressed; two remain: split keep-right rule in sec07 and general crossing visibility in sec08.
+Visual interpretation, current-issuer/edition/effective-date, legal currency and ambiguous-source debts remain open. Independent07/08 pending.
+All safe exam counts/passing/time values and source pages remain unknown/null; source/class metadata not upgraded.
+Recorded lineage38→39 and39→40 after accepted-work exhaustion; two advances used; all old counters, caps and budgets unchanged.
+CURRENT refresh used the exported markCurrentCompiles for this own run only, under native executor lock: eight pointers match latest accepted companions, four changed.
+Operational issue: a native subprocess outlasted the initial wait before the next packet step began; both exits and all saved results reconciled PASS, no state loss.
+Next bounded work: sections05 lane use/turning and06 right-of-way, fourteen existing-fact corrections; no new packet emitted.
+Dossier sections09–15 and downstream03/04/06/05.sessions/05.card_scripts remain owed; no audio/publishing.
 Read-only ledger: actual $0.000; outstanding unknown $0.000; reserved $0.000; uncertain provider amount $0.000.
-Usage snapshot 2026-10-28T10:00:49.297Z: cumulative 13274413; cached input subset 12937600.
-Since last reported factual-review baseline 9425567: total delta 3848846; cached replay subset 3798016; noncache input plus output 50830.
-Cached input is included in totals; no unique newly authored-work counter is invented.
-Native locks released normally. Root alone aggregates shared queue/usage/defects.
-Verification and exact remaining corrections: NM.checkpoint.json plus scratch/sol-nm/native-repair-batch1-verification.json.
+Usage snapshot 2026-10-28T10:22:51.139Z: cumulative 17650279; cached-input subset 17276928.
+Delta since prior root checkpoint 13274413: 4375866 total, cached replay subset 4339328, metered noncache input plus output 36538.
+Cached replay is included in totals; unique newly authored-work tokens are unavailable and not invented.
+Native locks released. Root alone aggregates shared queue/usage/defect rows. See NM.checkpoint.json for exact refs and remaining corrections.

@@ -161,3 +161,13 @@ Seeded 2026-10-28T05:02:02.619Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28 JAM-MO-DS-01 (Claude downstream worker, sec01-06): sec05 05.card_scripts full request ~657 KB tripped request_byte_limit (640000). run-config limits.max_request_bytes 640000->700000 in this run dir only; max_completion_tokens, max_call_usd and all role/provider/total caps unchanged (conservative estimate ~$0.95 < $1). Subscription/file transport only; revert before any Model-API dispatch. Note at limits.muse_downstream_limits_note.
 
 - 2026-10-28T10:07:37.885Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:80 for 03.combined_kg (sec07-highway-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-highway-driving__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:18:37.918Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:81 for 03.combined_kg (sec13-point-system) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-point-system__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:22:44.061Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:82 for 05.sessions (sec09-markings-signals-signs-part-2) under standing authority; cause: proactive reset before authoring packet 05.sessions__sec09-markings-signals-signs-part-2__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:23:50.599Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:83 for 05.sessions (sec15-mandatory-insurance) under standing authority; cause: proactive reset before authoring packet 05.sessions__sec15-mandatory-insurance__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:25:03.797Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:84 for 05.sessions (sec11-special-driving-conditions) under standing authority; cause: proactive reset before authoring packet 05.sessions__sec11-special-driving-conditions__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:26:19.513Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:85 for 05.sessions (sec12-alcohol-drugs-driving) under standing authority; cause: proactive reset before authoring packet 05.sessions__sec12-alcohol-drugs-driving__-__n0 (lineage attempts exhausted)
