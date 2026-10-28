@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T06:36:24.434Z
+# Worker token ledger — generated 2026-10-28T06:38:32.512Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 16 | 571,600,494 | 1,828,254 | 573,428,748 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 53 | 0 | 0 | 13,279,878 | $0.00 | AL AZ CO IN MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
+| claude | Anthropic subscription (Claude Code subagent) | 55 | 0 | 0 | 14,346,308 | $0.00 | AL AZ CO IN MD MI MN MO NC NJ NV OR SC TN TX UT WA WI |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -77,4 +77,6 @@
 | claude | claude-opus-5-5 | OR | downstream worker: sec01-06 through 03/04/06/05 (30/30 first-try; 388 nodes/387 cards/388 items, 38 units/270 slides, 425 scripts; official_mirror 35q/80% VERIFIED) — delta of resumed agent | — | — | — | — | 187,379 | 106 | 58 min | $0.00 |
 | claude | claude-opus-5-5 | IN | downstream worker: sec01-05 through 03/04/06/05 (25/25 first-try; 282 nodes/278 cards/282 items, 25 units/180 slides, 303 scripts) — delta of resumed agent | — | — | — | — | 407,413 | 122 | 45 min | $0.00 |
 | claude | claude-opus-5-5 | NJ | downstream worker: sec09-15 (35/35; totals 895 nodes/892 cards/895 items, 115 units/814 slides, 1007 scripts) — NEW JERSEY DOWNSTREAM COMPLETE 15/15 — delta of resumed agent | — | — | — | — | 169,693 | 68 | 26 min | $0.00 |
+| claude | claude-opus-5-5 | NC | downstream worker: sec01-08 through 03/04/06/05 (40/40 first-try; 409 nodes/cards/items, 54 units/397 slides, 463 scripts; 5 dynamic facts quarantined) | — | — | — | — | 661,683 | 139 | 64 min | $0.00 |
+| claude | claude-opus-5-5 | WI | downstream worker: sec01-06 through 03/04/06/05 (30/30 first-try; 363 nodes/361 cards/363 items, 41 units/297 slides, 402 scripts) — delta of resumed agent | — | — | — | — | 404,747 | 140 | 52 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

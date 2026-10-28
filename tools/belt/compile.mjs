@@ -56,6 +56,16 @@ function fractionToWords(a, b) {
   return `${numberToWords(num) ?? a} over ${numberToWords(den) ?? b}`;
 }
 // Clock times (2026-10-28): "11:01 p.m." was spoken "eleven:one p.m."; "5:00 a.m." as "five:zero a.m.".
+const ORDINAL_ONES = {one: 'first', two: 'second', three: 'third', five: 'fifth', eight: 'eighth', nine: 'ninth', twelve: 'twelfth'};
+function ordinalWords(n) {
+  const w = numberToWords(n);
+  if (!w) return null;
+  const parts = w.split(/([ -])/); // keep separators
+  const last = parts[parts.length - 1];
+  const ord = ORDINAL_ONES[last] ?? (last.endsWith('y') ? last.slice(0, -1) + 'ieth' : last + 'th');
+  parts[parts.length - 1] = ord;
+  return parts.join('');
+}
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const spokenizeDecimal = (n) => { const [a, b] = String(n).split('.'); return (numberToWords(Number(a)) ?? a) + (b ? ' point ' + [...b].map((d) => ONES[Number(d)]).join(' ') : ''); };
 function timeToWords(h, m) {
@@ -79,6 +89,8 @@ export function spokenize(text) {
   // Years 1900–1999 (New Jersey "since 1998" was "one thousand nine hundred ninety-eight"): "nineteen ninety-eight" unless a
   // measure follows (then it is a quantity). 20xx already reads naturally as "two thousand twenty-one".
   s = s.replace(/\b19(\d\d)\b(?!\s*(?:feet|ft|foot|pounds|lbs?|miles|mi|mph|dollars|yards|inches|cc|percent|%))/g, (_, yy) => `nineteen ${Number(yy) === 0 ? 'hundred' : Number(yy) < 10 ? 'oh ' + ONES[Number(yy)] : numberToWords(Number(yy))}`);
+  // Numeric ranges before a measure ("3-6 feet" was "three-six feet", Wisconsin sec04): "three to six feet".
+  s = s.replace(/\b(\d+)\s*[-–]\s*(\d+)(?=\s*(?:feet|ft|foot|inches|in\.|yards|miles|mi|mph|pounds|lbs?|percent|%|seconds|secs?|minutes|mins?|hours|hrs?|days|weeks|months|years|yrs?|points|car lengths?|vehicle lengths?)\b)/gi, (_, a, b) => `${numberToWords(Number(a)) ?? a} to ${numberToWords(Number(b)) ?? b}`);
   // Clock times and numeric fractions/ratios BEFORE the alternatives rule, which would otherwise read "/" and ":" literally.
   s = s.replace(/\b(1[0-2]|0?[1-9])[:.]([0-5]\d)(?=\s*(?:a\.?m\.?|p\.?m\.?|noon|midnight)\b)/gi, (_, h, m) => timeToWords(h, m));
   s = s.replace(/\b(\d{1,2}):([0-5]\d)\b(?!\s*:)/g, (_, h, m) => timeToWords(h, m));
@@ -91,9 +103,14 @@ export function spokenize(text) {
   s = s.replace(/(\d)\s*%/g, '$1 percent').replace(/\s*&\s*/g, ' and ');
   // Money: the amount group must not swallow a trailing list comma ("$1,000, plus costs" was "one thousand, dollars plus costs").
   s = s.replace(/\$\s?(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d{2}))?\b/g, (_, whole, cents) => {
-    const w = numberToWords(Number(whole.replace(/,/g, ''))) ?? whole;
-    return cents && Number(cents) ? `${w} dollars and ${numberToWords(Number(cents))} cents` : `${w} dollars`;
+    const n = Number(whole.replace(/,/g, ''));
+    const w = numberToWords(n) ?? whole;
+    if (n === 0 && cents && Number(cents)) return `${numberToWords(Number(cents))} ${Number(cents) === 1 ? 'cent' : 'cents'}`; // "$0.50" (North Carolina) → "fifty cents"
+    const unit = n === 1 ? 'dollar' : 'dollars';
+    return cents && Number(cents) ? `${w} ${unit} and ${numberToWords(Number(cents))} ${Number(cents) === 1 ? 'cent' : 'cents'}` : `${w} ${unit}`;
   });
+  // Ordinals "18th", "21st", "3rd" (North Carolina sec03 kept the digits): spoken ordinal words.
+  s = s.replace(/\b(\d{1,3})(st|nd|rd|th)\b/g, (m, n) => ordinalWords(Number(n)) ?? m);
   s = s.replace(/\b(\d+)\s*(mph|mi\/h|kph|ft|yds?|mi|lbs?|oz|secs?|hrs?|mins?|mo|yrs?|dB)\b\.?/gi, (_, num, unit) => `${num} ${UNIT_WORDS[unit.toLowerCase()] ?? unit}`);
   // Leading-dot decimals (2026-10-28, Colorado ".08 / .02 / .04 BAC" came out "over.eight"): spoken "point zero eight".
   s = s.replace(/(^|[^\d.])\.(\d+)\b/g, (_, pre, frac) => `${pre}${pre && !/\s/.test(pre) ? ' ' : ''}point ${[...frac].map(d => ONES[Number(d)]).join(' ')}`);

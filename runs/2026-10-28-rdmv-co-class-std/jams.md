@@ -147,3 +147,5 @@ Seeded 2026-10-28T03:23:58.751Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:12:46.693Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:72 for 03.combined_kg (sec09-freeway-changing-lanes-passing) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-freeway-changing-lanes-passing__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:24:51.483Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:73 for 03.combined_kg (sec11-seasonal-mountain-rural-construction-tips) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-seasonal-mountain-rural-construction-tips__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T06:36:42.243Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:74 for 03.combined_kg (sec13-railroad-light-rail-bicyclists) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-railroad-light-rail-bicyclists__-__n0 (lineage attempts exhausted)
