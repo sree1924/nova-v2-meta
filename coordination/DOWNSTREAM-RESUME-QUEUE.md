@@ -5,14 +5,16 @@ same brief, same step command, final full-range run. Workers may raise limits.ma
 transport (record JAM in jams.md; revert before any Model-API dispatch) — NJ and MO needed it.
 
 ## Waiting to resume (worker finished its half; nothing running on the run)
+- SC sec08–15 (8 sections) — worker a8b01213dda90a469
+- FL sec07–12 (6 sections) — worker ae0947802147f1360 (the AL-first worker, now FL downstream)
 - AL sec08–13 (6 sections) — worker a13bf6cd6f2567fa5 (AL downstream sec01–07 done)
 - MO sec07–17 (11 sections) — worker a632003ee908516ad (MO downstream sec01–06 done, 25q/80% verified)
 
 ## Running now (first or second halves)
-IN(06–10) WI(07–12) NV(07–12) NC(09–16) OR(07–11) AZ(01–08) MN(01–07) SC(01–07) TN(01–08) WA(01–07) FL(01–06) VA(01–08) CA(01–07) NY(01–07)
+IN(06–10) WI(07–12) NV(07–12) NC(09–16) OR(07–11) AZ(01–08) MN(01–07) TN(01–08) WA(01–07) VA(01–08) CA(01–07) NY(01–07)
 
 ## Fully downstream + onboarded in the shell
-MI NJ TX MD CO (+ UT by hand)
+MI NJ TX MD CO OR (+ UT by hand)
 
 ## After downstream
 1. Onboard each finished state: node tools/preview/onboard-state.mjs --state XX --run <run> [--handbook ..] [--test ..] [--authored-by ..]; verify-learner; commit.
