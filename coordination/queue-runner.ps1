@@ -8,7 +8,8 @@
 param(
   [int]$MaxParallel = 5,
   [string]$Order = "",
-  [int]$PollSeconds = 60
+  [int]$PollSeconds = 60,
+  [switch]$NoNew
 )
 Set-Location D:\nova\fb-ai-hackathon
 $lane = "D:\nova\fb-ai-hackathon"
@@ -80,6 +81,7 @@ while ($true) {
   $withRun = @(); $pilot = @(); $rest = @()
   foreach ($c in $candidates) { $lower = $c.st.ToLower(); if (Get-ChildItem -Path (Join-Path $lane "runs") -Directory -Filter "2026-10-28-rdmv-$lower-*" -ErrorAction SilentlyContinue) { $withRun += $c } elseif ($c.st -eq "AZ") { $pilot += $c } else { $rest += $c } }
   $candidates = @($withRun + $pilot + $rest)
+  if ($NoNew) { $candidates = @($withRun) }  # founder 2026-10-28 22:58: only resume the incomplete states; start nothing new
   $slots = $MaxParallel - $running.Count
   if ((Get-Date) -lt $script:pauseUntil) { if ($candidates.Count -gt 0) { Log "paused until $($script:pauseUntil) (429); running: $($running -join ',')" } }
   elseif ($slots -gt 0 -and $candidates.Count -gt 0) {
