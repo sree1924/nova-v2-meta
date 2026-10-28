@@ -75,3 +75,65 @@ Seeded 2026-10-28T03:49:43.032Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T04:26:15.805Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:36 for 02.dossier_sections (sec08-defensive-driving-part-1) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-defensive-driving-part-1__F__n0 (lineage attempts exhausted)
 
 - 2026-10-28T04:26:21.265Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:37 for 02.dossier_sections (sec09-defensive-driving-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-defensive-driving-part-2__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:29:47.261Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:38 for 02.dossier_sections (sec09-defensive-driving-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-defensive-driving-part-2__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:30:20.668Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:39 for 02.dossier_sections (sec09-defensive-driving-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-defensive-driving-part-2__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:30:28.733Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:40 for 02.dossier_sections (sec09-defensive-driving-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-defensive-driving-part-2__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:30:37.743Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:41 for 02.dossier_sections (sec09-defensive-driving-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-defensive-driving-part-2__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:32:06.540Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:42 for 02.dossier_sections (sec10-drinking-drugs-health) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-drinking-drugs-health__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:32:32.292Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:43 for 02.dossier_sections (sec10-drinking-drugs-health) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-drinking-drugs-health__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:32:38.267Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:44 for 02.dossier_sections (sec10-drinking-drugs-health) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-drinking-drugs-health__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:32:45.698Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:45 for 02.dossier_sections (sec10-drinking-drugs-health) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-drinking-drugs-health__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:32:53.163Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:46 for 02.dossier_sections (sec11-privileges-penalties-part-1) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-privileges-penalties-part-1__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:34:46.582Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:47 for 02.dossier_sections (sec11-privileges-penalties-part-1) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-privileges-penalties-part-1__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:34:52.961Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:48 for 02.dossier_sections (sec11-privileges-penalties-part-1) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-privileges-penalties-part-1__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:35:00.563Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:49 for 02.dossier_sections (sec11-privileges-penalties-part-1) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-privileges-penalties-part-1__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:35:08.242Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:50 for 02.dossier_sections (sec11-privileges-penalties-part-1) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-privileges-penalties-part-1__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:36:39.830Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:51 for 02.dossier_sections (sec12-privileges-penalties-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-privileges-penalties-part-2__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:37:04.366Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:52 for 02.dossier_sections (sec12-privileges-penalties-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-privileges-penalties-part-2__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:37:10.262Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:53 for 02.dossier_sections (sec12-privileges-penalties-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-privileges-penalties-part-2__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:37:16.109Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:54 for 02.dossier_sections (sec12-privileges-penalties-part-2) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-privileges-penalties-part-2__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:37:22.509Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:55 for 02.dossier_sections (sec13-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-sharing-the-road__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:39:17.225Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:56 for 02.dossier_sections (sec13-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-sharing-the-road__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:39:23.896Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:57 for 02.dossier_sections (sec13-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-sharing-the-road__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:39:30.242Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:58 for 02.dossier_sections (sec13-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-sharing-the-road__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:39:36.691Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:59 for 02.dossier_sections (sec13-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-sharing-the-road__G__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:40:19.292Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:60 for 02.dossier_sections (sec14-vehicle-information) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-vehicle-information__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:41:05.394Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:61 for 02.dossier_sections (sec14-vehicle-information) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-vehicle-information__B__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:41:12.091Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:62 for 02.dossier_sections (sec14-vehicle-information) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-vehicle-information__E__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:41:18.852Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:63 for 02.dossier_sections (sec14-vehicle-information) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-vehicle-information__F__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:41:25.948Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:64 for 02.dossier_sections (sec15-driver-safety-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-driver-safety-signs__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:43:18.819Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:65 for 02.dossier_sections (sec15-driver-safety-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-driver-safety-signs__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:43:26.083Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:66 for 02.dossier_sections (sec15-driver-safety-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-driver-safety-signs__D__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:43:33.617Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:67 for 02.dossier_sections (sec15-driver-safety-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-driver-safety-signs__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-28T04:43:40.626Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:68 for 02.dossier_sections (sec15-driver-safety-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-driver-safety-signs__G__n0 (lineage attempts exhausted)

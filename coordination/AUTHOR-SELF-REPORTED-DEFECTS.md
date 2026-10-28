@@ -34,3 +34,7 @@ claim. Workers are told to report what they know is off. Fix pass = re-author th
 | 2026-10-28 | NJ | sec05 (p55) | deceleration "about 14 feet per second" repeated as printed (not a deceleration unit) — NJ-CTRL-D-DECEL | claude-opus-5-5 worker |
 | 2026-10-28 | NJ | sec06 (p64) | speed-limit graphic extracted as alternating lines; road-type pairing needs a rendered-page check — NJ-ROAD-D-LIMITS | claude-opus-5-5 worker |
 | 2026-10-28 | NJ | sec04 C / sec08 C2 | idling fact repeated from two pages (52, 101) in different words | claude-opus-5-5 worker |
+| 2026-10-28 | NJ | sec09–sec14 part E | unsourced audience lines ("new drivers and parents often fear...") labelled manual-only observation; corrected only in sec15 | claude-opus-5-5 worker |
+| 2026-10-28 | NJ | sec10 C glossary | defines "ignition interlock" before its own pages do (definition is p129 in sec11) | claude-opus-5-5 worker |
+| 2026-10-28 | NJ | sec12 | Notice of Scheduled Suspension "12 to 14 points within 24 months" kept as the manual's ambiguous wording — NJ-PTS-D-NOTICE | claude-opus-5-5 worker |
+| 2026-10-28 | NJ | pp116/117 | drink graphic says 86 proof, body text 80 proof — NJ-DUI-D-PROOF (nothing taught) | claude-opus-5-5 worker |

@@ -1,9 +1,9 @@
-# Worker token ledger — generated 2026-10-28T04:26:56.932Z
+# Worker token ledger — generated 2026-10-28T04:44:38.938Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 11 | 390,087,743 | 1,138,963 | 391,226,706 | $0.00 | AZ CA CO FL NY TX UT VA |
-| claude | Anthropic subscription (Claude Code subagent) | 15 | 0 | 0 | 3,292,773 | $0.00 | CO MI NC NJ UT WA |
+| claude | Anthropic subscription (Claude Code subagent) | 16 | 0 | 0 | 3,539,540 | $0.00 | CO MI NC NJ UT WA |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -34,4 +34,5 @@
 | claude | claude-opus-5-5 | NC | state worker: sec11-16 (54 parts, 6 compiles, 0 holds) — NORTH CAROLINA SME COMPLETE 16/16 | — | — | — | — | 190,945 | 51 | 13 min | $0.00 |
 | claude | claude-opus-5-5 | WA | state worker: sec10-14 (45 parts, 5 compiles, 1 hold = config rebind lineage) — WASHINGTON SME COMPLETE 14/14 | — | — | — | — | 214,837 | 78 | 16 min | $0.00 |
 | claude | claude-opus-5-5 | NJ | state worker: sec04-08 (45 parts, 5 compiles, 0 holds) | — | — | — | — | 243,841 | 80 | 17 min | $0.00 |
+| claude | claude-opus-5-5 | NJ | state worker: sec09-15 (63 parts, 7 compiles, 0 holds) — NEW JERSEY SME COMPLETE 15/15 | — | — | — | — | 246,767 | 72 | 17 min | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |
