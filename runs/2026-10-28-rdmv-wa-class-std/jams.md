@@ -143,3 +143,5 @@ Seeded 2026-10-28T03:24:01.059Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:17:07.511Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:69 for 04.cards (sec08-traffic-laws-signals-signs) under standing authority; cause: proactive reset before authoring packet 04.cards__sec08-traffic-laws-signals-signs__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:27:22.346Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:70 for 04.cards (sec10-road-markings-and-zones) under standing authority; cause: proactive reset before authoring packet 04.cards__sec10-road-markings-and-zones__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:38:31.797Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:71 for 04.cards (sec12-speed-space-and-time) under standing authority; cause: proactive reset before authoring packet 04.cards__sec12-speed-space-and-time__-__n0 (lineage attempts exhausted)

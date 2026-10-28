@@ -53,3 +53,7 @@ Seeded 2026-10-28T07:24:39.385Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:17:28.766Z Native factual repair batch two COMPLETE: four accepted C/C2 replacements, 13 corrections, five additions resolving three findings. Cumulative original corrections 28/28; material findings 9/9 covered by 11 added facts; current first-four facts 264. Sec01/sec02 pins preserved. Accepted F count prose remains pending for all four sections; exact paths/counts in checkpoint. Lineages 20→21→22; two bounded advances; old counters/caps unchanged. Actual/reserved/unknown $0/$0/$0; no API/audio/publish.
 
 - 2026-10-28T10:34:08.479Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:23 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__C__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:38:06.834Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:24 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__A__n0 (lineage attempts exhausted)
+
+- 2026-10-28T10:39:16.300Z lineage reset → 2026-10-28-rdmv-de-class-d:lineage:25 for 02.dossier_sections (sec05-driving-privileges) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-driving-privileges__D__n0 (lineage attempts exhausted)

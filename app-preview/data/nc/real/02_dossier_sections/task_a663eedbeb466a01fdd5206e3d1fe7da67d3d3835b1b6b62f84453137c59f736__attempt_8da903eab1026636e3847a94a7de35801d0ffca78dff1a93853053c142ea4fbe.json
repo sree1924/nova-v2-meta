@@ -1,0 +1,132 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-nc-c",
+  "lineage": {
+    "input_manifest_sha256": "861fbea4f0524098b30330bd634c8968a38e256c3770bb797391e4ca96705d5f",
+    "candidate_lineage_id": "2026-10-28-rdmv-nc-class-c:lineage:12",
+    "source_registry_sha256": "e128656a3d00ba5437556728ebd87f5842c83601163739613417fe77cf9f423b",
+    "source_liveness_sha256": "dbfdf3e6d892a41c42c05809a9213d44a78aedd480dc6de23937c97292428b74"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy notes and source flags: insurance proof, REAL ID and renewal",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy notes and source flags: insurance proof, REAL ID and renewal\nEvery C and C2 fact cites exactly one physical handbook page from the selected range; nothing relies on outside knowledge.\nRenewal window: one page gives the mailed reminder at about six months and the renewal window as 180 days before expiration; the dossier states both as printed without converting one into the other [A04].\nThe page on the new card says licenses may be renewed up to six months before the customer's birthday, phrased differently from the renewal section; both are kept as printed on their own pages [A03] (verify NC-INS-D-RENEW).\nFees and phone numbers are service details that can change and are isolated as dynamic.\nVeteran discharge-document code lists and military examples with past calendar years were summarized, not copied.\n",
+      "char_count": 831,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A04",
+          "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0028"
+        },
+        {
+          "anchor_id": "A03",
+          "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0027"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The handbook prints a single revision date (Revised May 2025) on its back cover and states laws and fees are subject to change by the General Assembly; no sign of more than one revision per year in the selected pages."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "NC-INS-D-RENEW",
+      "claim_text": "Renewal timing is stated as up to six months before the birthday (physical page 27) and within 180 days before expiration (physical page 28); confirm they describe the same window.",
+      "blocker_kind": "exam_policy_unclear",
+      "source_tier_required": "official",
+      "owner_worker": "HallucinationAuditor",
+      "ship_blocking": false,
+      "expires_by": "2026-11-30",
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}
