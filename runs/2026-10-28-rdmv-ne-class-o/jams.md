@@ -220,3 +220,7 @@ Seeded 2026-10-28T07:24:43.237Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T18:28:49.533Z Accepted-capacity lineage 2026-10-28-rdmv-ne-class-o:lineage:98 to 2026-10-28-rdmv-ne-class-o:lineage:99 for 05.card_scripts/sec12-turning-parking-and-railroads; exact native ledger rebind, no budget/counter/nonce/history change. runs/2026-10-28-rdmv-ne-class-o/receipts/sol-continuous-05-card_scripts-99-accepted-capacity.json
 
 - 2026-10-28T19:44:29.496Z Accepted-capacity lineage 2026-10-28-rdmv-ne-class-o:lineage:99 to 2026-10-28-rdmv-ne-class-o:lineage:100 for 05.card_scripts/sec08-traffic-signs; exact native ledger rebind, no budget/counter/nonce/history change. runs/2026-10-28-rdmv-ne-class-o/receipts/sol-continuous-05-card_scripts-100-accepted-capacity.json
+
+- 2026-10-28T20:15:09.284Z Accepted-capacity lineage 2026-10-28-rdmv-ne-class-o:lineage:100 to 2026-10-28-rdmv-ne-class-o:lineage:101 for 05.card_scripts/sec11-speed-and-passing; exact native ledger rebind, no budget/counter/nonce/history change. runs/2026-10-28-rdmv-ne-class-o/receipts/sol-continuous-05-card_scripts-101-accepted-capacity.json
+
+- 2026-10-28T20:15:59.391Z Accepted-capacity lineage 2026-10-28-rdmv-ne-class-o:lineage:101 to 2026-10-28-rdmv-ne-class-o:lineage:102 for 05.card_scripts/sec15-crash-response; exact native ledger rebind, no budget/counter/nonce/history change. runs/2026-10-28-rdmv-ne-class-o/receipts/sol-continuous-05-card_scripts-102-accepted-capacity.json

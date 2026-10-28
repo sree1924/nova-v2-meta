@@ -1,0 +1,153 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-pa-c",
+  "lineage": {
+    "input_manifest_sha256": "6c7d94ca3f9c00543c4e51e46d093ea1a58c28b9fc44d228a6560a123007c0a9",
+    "candidate_lineage_id": "2026-10-28-rdmv-pa-class-c:lineage:62",
+    "source_registry_sha256": "643bc755bc144bbb64c82e5b21691c27918519b2f96f9b0ff96b63899c04fddb",
+    "source_liveness_sha256": "d125293461efac0b369397a252e58fe1686ca24cdc89a306e2ea205c1feddb7c"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy and source controls for Driving record and enforcement",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy and source controls for Driving record and enforcement\nThe driving record and enforcement facts are authored from the selected official physical pages and preserve the actor, triggering condition and exceptions described there.\nSource confidence is high for page fidelity; current legal applicability is limited by the old edition and recorded freshness debt.\nImage-only information has not been converted into unsupported facts; any diagram-dependent learning surface needs its own evidence review.\nThe preaccept fact-check receipt is same-model review only; independent coverage and fact QA remain pending.\nDetailed DUI sentences, fine ranges, suspension/interlock matrices, ARD dispositions and refusal-fee schedules await current official verification (verify PA-RECORD-PENALTY-MATRICES).\nOnline record-purchase requirements and crash-report mailing details are service-currentness debt (verify PA-RECORD-SERVICES).\nUnperioded fleeing and teen mortality statistics are withheld as current estimates (verify PA-RECORD-STATISTICS).\n",
+      "char_count": 1050,
+      "fact_ids": [],
+      "source_anchors": []
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The issuer currently links the PUB 95 (4-21) handbook; no frequent-rewrite evidence is asserted. Edition age and absent effective date remain accuracy debt in part A."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "PA-RECORD-PENALTY-MATRICES",
+      "claim_text": "Physical85–88 detailed DUI/refusal/underage/supplier penalties,87 Tables1–3 by BAC/offense, ARD conditions and ungraded-misdemeanor/jury-trial claim remain source/legal-currentness debt. Table2 injury scope differs between86 bodily injury and87 serious bodily injury; no inferred reconciliation or current punishment guarantee is made. All source rows remain in the pinned handbook.",
+      "blocker_kind": "source_stale",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "PA-RECORD-SERVICES",
+      "claim_text": "Physical83 online driving-record transaction fields and85 AA-600 mailing address/website are not asserted as current service instructions without official reconfirmation.",
+      "blocker_kind": "source_stale",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "PA-RECORD-STATISTICS",
+      "claim_text": "Physical85 fleeing crash/injury totals and88 teenage mortality ranking have no current period; no present statistical estimate is emitted.",
+      "blocker_kind": "source_stale",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

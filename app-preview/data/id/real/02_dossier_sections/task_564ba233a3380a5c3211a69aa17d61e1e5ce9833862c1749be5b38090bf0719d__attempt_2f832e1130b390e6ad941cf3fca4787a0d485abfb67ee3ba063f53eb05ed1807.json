@@ -1,0 +1,166 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-id-d",
+  "lineage": {
+    "input_manifest_sha256": "9c91e972747a9dff9f11441bcd4cf862decd5ce91dc2496b42b0d6b7a9b2e1e4",
+    "candidate_lineage_id": "2026-10-28-rdmv-id-class-d:lineage:11",
+    "source_registry_sha256": "9c432577e712960022ff656d6738a091319c6e5e4dcbdcf9429cd450e142e543",
+    "source_liveness_sha256": "eee60602368bd429216c9c2833be0be6ed9e505e5c5accebaefb9d2b9a847475"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "A"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "A",
+      "chunk_id": "A.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "A — Credential maintenance and required testing",
+      "learner_facing": true,
+      "markdown": "## A — Credential maintenance and required testing\nSource edition: the extracted cover identifies the Driver’s Handbook as JULY 2026 [A01].\nIssuer: the frontmatter identifies the Idaho Transportation Department [A02].\nExam path: the handbook labels its knowledge test Class D, non-commercial [A32].\nTest length: the stated knowledge-test count is 40 questions [A32].\nScoring allowance: an applicant may miss as many as six questions before the knowledge test is failed [A32].\nA passing percentage is not printed in the test description; no percentage is inferred (verify ID-TESTING-PERCENT).\nAn official time limit was not located in the staged handbook and stays unknown (verify ID-TESTING-TIME).\nScope of this dossier: Credential maintenance and required testing, mapped from the selected physical pages. Practice settings follow the accepted learning loop and carry no claim to predict an official result.\n",
+      "char_count": 909,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-id-d:idaho-transportation-department-division:handbook:pdf-0001"
+        },
+        {
+          "anchor_id": "A02",
+          "source_page": "src:rdmv-id-d:idaho-transportation-department-division:handbook:pdf-0002"
+        },
+        {
+          "anchor_id": "A32",
+          "source_page": "src:rdmv-id-d:idaho-transportation-department-division:handbook:pdf-0032"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": "Class D non-commercial knowledge test",
+      "status": "verified",
+      "source_page": "src:rdmv-id-d:idaho-transportation-department-division:handbook:pdf-0032"
+    },
+    "issuing_body": {
+      "value": "Idaho Transportation Department",
+      "status": "verified",
+      "source_page": "src:rdmv-id-d:idaho-transportation-department-division:handbook:pdf-0002"
+    },
+    "edition": {
+      "value": "JULY 2026",
+      "status": "verified",
+      "source_page": "src:rdmv-id-d:idaho-transportation-department-division:handbook:pdf-0001"
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": 40,
+      "status": "verified",
+      "source_page": "src:rdmv-id-d:idaho-transportation-department-division:handbook:pdf-0032"
+    },
+    "passing_standard": {
+      "value": "An applicant may miss up to six questions before failing.",
+      "status": "verified",
+      "source_page": "src:rdmv-id-d:idaho-transportation-department-division:handbook:pdf-0032"
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "Corpus is the frozen July handbook snapshot; future issuer changes require a new source registration, rather than silent updates to this corpus."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "ID-TESTING-PERCENT",
+      "claim_text": "The handbook states a missed-question allowance but no passing percentage; any numerical percentage needs exact official evidence.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-TESTING-TIME",
+      "claim_text": "No official knowledge-test time limit was located; retain null until page-bound official evidence exists.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "ID-TESTING-EFFECTIVE",
+      "claim_text": "The July edition is observed; a separate handbook effective date is not established.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

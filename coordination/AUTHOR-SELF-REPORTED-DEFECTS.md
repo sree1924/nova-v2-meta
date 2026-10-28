@@ -339,3 +339,11 @@ Owner response coordination/DE-06-CAPABILITY-OWNER-RESPONSE.json corrects the in
 
 <!-- SOL-MT-SELF-REPORTED-AUTHORING-GAPS-20261028 -->
 Worker reports 820 card nodes without exam items or typed gaps, 418 repeated-statement narrations, incomplete card fronts, implausible distractors, and three classifier omissions. Fixed evidence: scratch/sol-state-coordinator/usage-evidence/MT-4363cab4492b5bf2c8730c70b9fb565a061546e6987a3c59bafb210c8c089454.json. MT remains incomplete and is assigned own native coverage and teaching repair; section02 form-title binding remains held. Accepted drafts are preserved, not declared complete.
+
+
+<!-- SOL-REMAINING-PRESENTATION-COMPILER-FIX-20261028 -->
+V3 exact-label and declared-identifier speech fix applied after fresh foreign and own writer boundaries. Proof: coordination/SOL-REMAINING-PRESENTATION-WRITE-BARRIER-RELEASE.json and spoken-remaining-bindings-prototype/integration/validation.json. Controller181/belt215/receipt41/predicate24 and global binding PASS. Raw facts/statuses/debts and mapped validators unchanged. Root-added URL regression initially assumed raw URL preservation; pinned baseline and candidate were proved identical, the expectation was corrected, rejected test/log retained, and full qualification passed. NM03 text-local-symbol consumer conflict remains separate; owner-path request pending.
+
+
+<!-- SOL-NM03-EXISTING-MERGE-OWNER-RESOLUTION-20261028 -->
+Owner response coordination/NM-03-TEXT-LOCAL-SYMBOL-OWNER-RESPONSE.json (87ad14a) supplies existing04 merges[] path for sec03-F24, with unchanged source fact/node and full exam/lesson coverage. Root earlier diagnosed the exact back-text regex conflict but missed the existing merge route. No schema/validator/compiler change or source/debt flag clearance is needed. Root explicitly authorized the worker to use a justified same-module host card, keep the host back exact, and preserve F24 teaching/exam coverage without a standalone merged-card script.

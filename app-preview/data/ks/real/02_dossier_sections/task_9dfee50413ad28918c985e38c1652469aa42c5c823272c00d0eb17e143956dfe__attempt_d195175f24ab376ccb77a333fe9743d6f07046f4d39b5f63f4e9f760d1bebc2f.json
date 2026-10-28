@@ -1,0 +1,185 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-ks-c",
+  "lineage": {
+    "input_manifest_sha256": "e58509bf9922d5252aa9fc7b0d8b7462921f2893906301efe48860aaa326b5e3",
+    "candidate_lineage_id": "2026-10-28-rdmv-ks-class-c:lineage:16",
+    "source_registry_sha256": "c7fb2073a9e8bb6a73d0151458fe04991b703d84f882b00a01bedfcea433c383",
+    "source_liveness_sha256": "94328be42cc10cf86af8e486b41bc40c72c45e4700d27b9b46d1f3d2feac7bb6"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Before driving",
+      "learner_facing": false,
+      "markdown": "## D — Before driving\n\nAccuracy scope: every fact in Before driving uses one physical page of the registered Kansas handbook, with original wording and one complete claim per block.\nAll quantities and exceptions are edition-bound. The cited handbook is the evidence; no recollection or competitor text supplies authority.\nSource flags: Enhanced-mirror setup on page 26 has confusing left/right and mirror-edge wording; no precise geometry is invented. Page 27 makes a general airbag statement that page 28 narrows to front airbags. Older child-seat transition thresholds in page 28 need current issuer confirmation before becoming recommendations. The page 17 rear-facing-seat exception is withheld in sec02. [A26] [A27] [A28] [A29]\nRefresh disposition: legal thresholds and administrative procedures require rechecking against an issuer source when a later edition replaces this snapshot.\n",
+      "char_count": 890,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A26",
+          "source_page": "src:rdmv-ks-c:kansas-department-of-revenue-division-of:handbook:pdf-0026"
+        },
+        {
+          "anchor_id": "A27",
+          "source_page": "src:rdmv-ks-c:kansas-department-of-revenue-division-of:handbook:pdf-0027"
+        },
+        {
+          "anchor_id": "A28",
+          "source_page": "src:rdmv-ks-c:kansas-department-of-revenue-division-of:handbook:pdf-0028"
+        },
+        {
+          "anchor_id": "A29",
+          "source_page": "src:rdmv-ks-c:kansas-department-of-revenue-division-of:handbook:pdf-0029"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The bound Kansas handbook has one February 2022 revision label; the selected source contains no evidence of multiple annual corpus rewrites. Later legal or administrative changes require issuer rechecking."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "sec04-MIRROR-GEOMETRY",
+      "claim_text": "The enhanced-mirror paragraph on page 26 swaps left/right and edge terms, with about five inches of head movement and a rear fender about half an inch from the mirror bottom. Confirm the intended geometry instead of inventing a diagram.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "sec04-CHILD-TRANSITIONS",
+      "claim_text": "Page 28 describes rear-facing infancy through at least age one and twenty pounds, a forward-facing toddler seat over age one and at least twenty pounds, a booster from ages four to eight when no taller than four feet nine inches, and adult-belt transition usually at eight or four feet nine inches. These are retained here as unconfirmed edition-bound claims; confirm current issuer recommendations before teaching them as safe transition cutoffs.",
+      "blocker_kind": "source_stale",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "sec04-AIRBAG-TYPE",
+      "claim_text": "The broad airbag statement on page 27 must be interpreted only as front-airbag coverage, as clarified on page 28; vehicle-specific equipment comes from the owner manual.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "sec04-CRASH-STAT",
+      "claim_text": "Page 27 claims more than half of injury or fatal crashes occur below forty miles per hour and within twenty-five miles of home, without study provenance; withhold that statistical claim pending a dated official source.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "Market evidence is handled in part E.",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}
