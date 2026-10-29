@@ -23,3 +23,13 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T03:48:11.951Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:4 for 02.dossier_sections (sec01-licensing-exemptions-types-obtaining) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-licensing-exemptions-types-obtaining__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:48:13.028Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:5 for 02.dossier_sections (sec01-licensing-exemptions-types-obtaining) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-licensing-exemptions-types-obtaining__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:52:35.028Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:6 for 02.dossier_sections (sec02-license-categories-tests-renewal) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-categories-tests-renewal__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:52:36.224Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:7 for 02.dossier_sections (sec02-license-categories-tests-renewal) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-categories-tests-renewal__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:52:37.481Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:8 for 02.dossier_sections (sec02-license-categories-tests-renewal) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-categories-tests-renewal__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:52:38.691Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:9 for 02.dossier_sections (sec02-license-categories-tests-renewal) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-categories-tests-renewal__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:52:40.007Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:10 for 02.dossier_sections (sec03-vehicle-equipment-inspection) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-equipment-inspection__C__n0 (lineage attempts exhausted)
