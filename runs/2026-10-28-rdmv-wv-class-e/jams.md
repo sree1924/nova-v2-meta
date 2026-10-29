@@ -125,3 +125,11 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:21:09.491Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:59 for 02.dossier_sections (sec13-highway-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-highway-driving__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:21:11.409Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:60 for 02.dossier_sections (sec14-defensive-driving-and-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-and-weather__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:23:12.629Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:61 for 02.dossier_sections (sec14-defensive-driving-and-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-and-weather__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:23:14.583Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:62 for 02.dossier_sections (sec14-defensive-driving-and-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-and-weather__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:23:16.533Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:63 for 02.dossier_sections (sec14-defensive-driving-and-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-and-weather__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:23:18.504Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:64 for 02.dossier_sections (sec14-defensive-driving-and-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-and-weather__G__n0 (lineage attempts exhausted)
