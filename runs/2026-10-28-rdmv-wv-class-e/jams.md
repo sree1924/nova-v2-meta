@@ -43,3 +43,21 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:05:55.560Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:18 for 02.dossier_sections (sec04-driver-responsibilities) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-driver-responsibilities__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:05:56.876Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:19 for 02.dossier_sections (sec04-driver-responsibilities) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-driver-responsibilities__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:35.798Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:20 for 02.dossier_sections (sec05-impaired-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-impaired-driving__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:37.238Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:21 for 02.dossier_sections (sec05-impaired-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-impaired-driving__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:38.611Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:22 for 02.dossier_sections (sec05-impaired-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-impaired-driving__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:39.960Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:23 for 02.dossier_sections (sec05-impaired-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-impaired-driving__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:41.396Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:24 for 02.dossier_sections (sec06-knowledge-examination) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-knowledge-examination__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:42.811Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:25 for 02.dossier_sections (sec06-knowledge-examination) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-knowledge-examination__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:44.248Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:26 for 02.dossier_sections (sec06-knowledge-examination) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-knowledge-examination__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:45.740Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:27 for 02.dossier_sections (sec06-knowledge-examination) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-knowledge-examination__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:09:47.169Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:28 for 02.dossier_sections (sec06-knowledge-examination) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-knowledge-examination__G__n0 (lineage attempts exhausted)
