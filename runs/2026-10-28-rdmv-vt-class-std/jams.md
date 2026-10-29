@@ -42,3 +42,11 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:01:06.518Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:18 for 02.dossier_sections (sec04-parking-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-parking-roundabouts__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:01:07.705Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:19 for 02.dossier_sections (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-police-signals__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:02:45.881Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:20 for 02.dossier_sections (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-police-signals__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:02:46.996Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:21 for 02.dossier_sections (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-police-signals__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:02:48.154Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:22 for 02.dossier_sections (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-police-signals__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:02:49.336Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:23 for 02.dossier_sections (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-police-signals__G__n0 (lineage attempts exhausted)
