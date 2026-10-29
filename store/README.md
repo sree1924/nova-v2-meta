@@ -21,7 +21,7 @@ quiz) + Utah's chapter-1 narration. Everything else is behind the paywall.
 | `src/app/api/stripe/webhook` | Signed webhook: grant on `checkout.session.completed` / `async_payment_succeeded`; revoke on `charge.refunded`. |
 | `src/app/api/me` | `GET` → `{signedIn, entitlements}`; refreshes/clears the `plp_ent` cookie. |
 | `src/lib/fulfillPurchase.ts` | Writes Clerk `publicMetadata.entitlements = {"TX": "<ISO expiry, purchase + 1 year>"}` + `purchases.TX = {session, at, expires}`. |
-| `/`, `/states/<slug>` | Indexable picker + 23 state landing pages; `sitemap.xml`, `robots.txt`. |
+| `/`, `/states/<slug>` | Indexable picker + one landing page per jurisdiction (51, generated from catalog.json); `sitemap.xml`, `robots.txt`. |
 | `/support`, `/refunds`, `/terms`, `/privacy` | Policy pages. |
 
 ## Run

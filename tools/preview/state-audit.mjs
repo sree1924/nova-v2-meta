@@ -6,7 +6,8 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 
-const LANE = 'D:/nova/fb-ai-hackathon';
+import { fileURLToPath } from 'node:url';
+const LANE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const APP = path.join(LANE, 'app-preview');
 const STORE = path.join(LANE, 'store/public/app');
 const outIdx = process.argv.indexOf('--out');
