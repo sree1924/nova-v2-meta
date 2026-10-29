@@ -61,3 +61,21 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:09:45.740Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:27 for 02.dossier_sections (sec06-knowledge-examination) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-knowledge-examination__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:09:47.169Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:28 for 02.dossier_sections (sec06-knowledge-examination) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-knowledge-examination__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:55.305Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:29 for 02.dossier_sections (sec07-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-traffic-signs__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:56.971Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:30 for 02.dossier_sections (sec07-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-traffic-signs__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:58.467Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:31 for 02.dossier_sections (sec07-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-traffic-signs__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:59.992Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:32 for 02.dossier_sections (sec07-traffic-signs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-traffic-signs__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:13:01.568Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:33 for 02.dossier_sections (sec08-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-and-markings__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:13:03.127Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:34 for 02.dossier_sections (sec08-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-and-markings__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:13:04.737Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:35 for 02.dossier_sections (sec08-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-and-markings__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:13:06.318Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:36 for 02.dossier_sections (sec08-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-and-markings__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:13:07.897Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:37 for 02.dossier_sections (sec08-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-and-markings__G__n0 (lineage attempts exhausted)
