@@ -96,3 +96,11 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:12:14.877Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:45 for 02.dossier_sections (sec10-interstates) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-interstates__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:12:16.473Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:46 for 02.dossier_sections (sec11-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-impairment__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:36.728Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:47 for 02.dossier_sections (sec11-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-impairment__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:38.260Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:48 for 02.dossier_sections (sec11-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-impairment__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:39.795Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:49 for 02.dossier_sections (sec11-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-impairment__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:41.352Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:50 for 02.dossier_sections (sec11-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-impairment__G__n0 (lineage attempts exhausted)
