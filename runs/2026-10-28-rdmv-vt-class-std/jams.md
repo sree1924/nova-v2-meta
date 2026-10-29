@@ -60,3 +60,11 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:03:10.736Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:27 for 02.dossier_sections (sec06-signs-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signs-markings__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:03:11.988Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:28 for 02.dossier_sections (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-sharing-road__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:55.033Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:29 for 02.dossier_sections (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-sharing-road__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:56.333Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:30 for 02.dossier_sections (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-sharing-road__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:57.649Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:31 for 02.dossier_sections (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-sharing-road__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:58.981Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:32 for 02.dossier_sections (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-sharing-road__G__n0 (lineage attempts exhausted)
