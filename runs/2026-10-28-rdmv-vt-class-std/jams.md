@@ -68,3 +68,13 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:04:57.649Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:31 for 02.dossier_sections (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-sharing-road__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:04:58.981Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:32 for 02.dossier_sections (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-sharing-road__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:32.846Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:33 for 02.dossier_sections (sec08-buses-railroads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-buses-railroads__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:34.193Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:34 for 02.dossier_sections (sec08-buses-railroads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-buses-railroads__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:35.547Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:35 for 02.dossier_sections (sec08-buses-railroads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-buses-railroads__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:36.877Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:36 for 02.dossier_sections (sec08-buses-railroads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-buses-railroads__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:38.284Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:37 for 02.dossier_sections (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-hazardous-conditions__C__n0 (lineage attempts exhausted)
