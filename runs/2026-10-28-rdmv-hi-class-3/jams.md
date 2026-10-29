@@ -159,3 +159,11 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:15:59.689Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:72 for 02.dossier_sections (sec16-sharing-road-trucks-trailers-buses-motorcycles) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-sharing-road-trucks-trailers-buses-motorcycles__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:16:01.933Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:73 for 02.dossier_sections (sec17-pedestrian-and-bicycle-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-pedestrian-and-bicycle-safety__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:17:43.790Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:74 for 02.dossier_sections (sec17-pedestrian-and-bicycle-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-pedestrian-and-bicycle-safety__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:17:45.943Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:75 for 02.dossier_sections (sec17-pedestrian-and-bicycle-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-pedestrian-and-bicycle-safety__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:17:48.115Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:76 for 02.dossier_sections (sec17-pedestrian-and-bicycle-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-pedestrian-and-bicycle-safety__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:17:50.394Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:77 for 02.dossier_sections (sec17-pedestrian-and-bicycle-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-pedestrian-and-bicycle-safety__G__n0 (lineage attempts exhausted)
