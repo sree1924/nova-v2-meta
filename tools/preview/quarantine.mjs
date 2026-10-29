@@ -153,6 +153,24 @@ for (const st of states) {
     }
   }
 
+  // Fact-check holds (2026-10-29): facts the Muse recheck confirmed MEANING-wrong (coordination/FACT-CHECK/<ST>/corrections.json)
+  // hide every card that claims them, until the belt re-authors the fact. Citation-only and OK findings are not hidden.
+  const corrPath = path.join(ROOT, '..', 'coordination/FACT-CHECK', st.code, 'corrections.json');
+  if (fs.existsSync(corrPath)) {
+    const corr = JSON.parse(fs.readFileSync(corrPath, 'utf8'));
+    for (const c of corr.corrections ?? []) {
+      if (c.kind !== 'MEANING' || c.applied) continue; // applied = the belt re-authored it and a recheck confirmed
+      const ids = cardsByFact.get(c.fact_id) ?? new Set();
+      if (!ids.size) for (const {j} of cardArts) for (const d of j.decks ?? []) for (const card of d.cards ?? []) if (card.node_id === c.fact_id || (card.claims_fact_ids ?? []).includes(c.fact_id)) ids.add(card.card_id);
+      for (const id of ids) {
+        if (hiddenIds.has(id)) continue;
+        perClass.factcheck_meaning = (perClass.factcheck_meaning ?? 0) + 1;
+        entries.push({id, deck: null, class: 'factcheck_meaning', classes: ['factcheck_meaning'], severity: 'meaning', matched: [c.fact_id], back_excerpt: String(c.note ?? '').slice(0, 160)});
+        hiddenIds.add(id);
+      }
+    }
+  }
+
   // Informational: exam items whose every scripted supporting card is hidden.
   let items = 0, itemsLost = 0, itemsNoCard = 0;
   const lostItems = [];
