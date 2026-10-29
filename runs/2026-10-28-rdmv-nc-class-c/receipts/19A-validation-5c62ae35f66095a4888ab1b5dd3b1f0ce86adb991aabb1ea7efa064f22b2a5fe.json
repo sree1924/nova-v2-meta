@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "output_sha256": "5c62ae35f66095a4888ab1b5dd3b1f0ce86adb991aabb1ea7efa064f22b2a5fe",
+  "checks": [
+    {
+      "check_id": "19A.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/19a-curriculum-unit-map.schema.json"
+    },
+    {
+      "check_id": "19A.PROBE_SLUG",
+      "status": "PASS",
+      "evidence": "probe \"2026-10-28-rdmv-nc-class-c\" and tenant_id \"2026-10-28-rdmv-nc-class-c\" are slugs"
+    },
+    {
+      "check_id": "19A.LINEAGE",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 matches; candidate_lineage_id=2026-10-28-rdmv-nc-class-c:lineage:92"
+    },
+    {
+      "check_id": "19A.TENANT_DIR",
+      "status": "PASS",
+      "evidence": "pilot_lane_path \"runs/2026-10-28-rdmv-nc-class-c/19A\""
+    },
+    {
+      "check_id": "19A.PRODUCTION_GATE_CEILING",
+      "status": "PASS",
+      "evidence": "status preview_only within pilot ceiling"
+    },
+    {
+      "check_id": "19A.PARENT_ALLOF_RESTORED",
+      "status": "PASS",
+      "evidence": "status preview_only: parent if(production_ready) invariant not triggered; ceiling enforced by 19A.PRODUCTION_GATE_CEILING"
+    },
+    {
+      "check_id": "19A.INTEGRITY_RECOMPUTE",
+      "status": "PASS",
+      "evidence": "all 10 counts recomputed and equal: {\"units_missing_sessions\":0,\"units_missing_cards\":0,\"units_missing_quizzes\":0,\"orphan_card_refs\":0,\"orphan_quiz_item_refs\":0,\"orphan_session_refs\":0,\"unresolved_required_media\":0,\"cross_product_refs\":0,\"duplicate_bindings\":0,\"module_unit_mismatches\":0}",
+      "metrics": {
+        "units_missing_sessions": 0,
+        "units_missing_cards": 0,
+        "units_missing_quizzes": 0,
+        "orphan_card_refs": 0,
+        "orphan_quiz_item_refs": 0,
+        "orphan_session_refs": 0,
+        "unresolved_required_media": 0,
+        "cross_product_refs": 0,
+        "duplicate_bindings": 0,
+        "module_unit_mismatches": 0
+      }
+    },
+    {
+      "check_id": "19A.INCOMPLETE_MAP_BLOCKED",
+      "status": "PASS",
+      "evidence": "no recomputed defects"
+    },
+    {
+      "check_id": "19A.REFS_RESOLVE",
+      "status": "PASS",
+      "evidence": "source_refs equal accepted refs; all unit/exam-mode ids resolve"
+    },
+    {
+      "check_id": "19A.MODULE_UNIT_CARDINALITY",
+      "status": "PASS",
+      "evidence": "9 KG module(s) <-> 9 unit(s), 1:1"
+    },
+    {
+      "check_id": "19A.UNIT_SHAPE",
+      "status": "PASS",
+      "evidence": "9 unit(s), order 1..9"
+    },
+    {
+      "check_id": "19A.USER_CYCLE",
+      "status": "PASS",
+      "evidence": "9 unit(s): session>flashcards>module_hub; hub options module_quiz|flashcards|session"
+    },
+    {
+      "check_id": "19A.HUB_UNLOCK",
+      "status": "PASS",
+      "evidence": "9 unit(s): hub unlocks after lesson_complete + all_cards_seen (rule_source learning_loop)"
+    },
+    {
+      "check_id": "19A.MASTERY_GATE",
+      "status": "PASS",
+      "evidence": "9 unit(s) bind quiz_threshold_pct 80 to LearningLoop@59f03c3ad5a6 (product_policy)"
+    },
+    {
+      "check_id": "19A.EXAM_MODE_TRUTH",
+      "status": "PASS",
+      "evidence": "2 exam mode(s): result language consistent with threshold status"
+    },
+    {
+      "check_id": "19A.MEDIA_SENTINEL",
+      "status": "PASS",
+      "evidence": "sentinels bound to media disposition; 1 exemption(s) named there"
+    }
+  ],
+  "metrics": {
+    "adapter_schema_sha256": "343cc578f12ebb8bb9d5bb24a2a59026ab525afca8a15fa36a1f2dd6f116ef0a",
+    "19A.INTEGRITY_RECOMPUTE.units_missing_sessions": 0,
+    "19A.INTEGRITY_RECOMPUTE.units_missing_cards": 0,
+    "19A.INTEGRITY_RECOMPUTE.units_missing_quizzes": 0,
+    "19A.INTEGRITY_RECOMPUTE.orphan_card_refs": 0,
+    "19A.INTEGRITY_RECOMPUTE.orphan_quiz_item_refs": 0,
+    "19A.INTEGRITY_RECOMPUTE.orphan_session_refs": 0,
+    "19A.INTEGRITY_RECOMPUTE.unresolved_required_media": 0,
+    "19A.INTEGRITY_RECOMPUTE.cross_product_refs": 0,
+    "19A.INTEGRITY_RECOMPUTE.duplicate_bindings": 0,
+    "19A.INTEGRITY_RECOMPUTE.module_unit_mismatches": 0,
+    "required_checks": 16,
+    "required_checks_missing": 0
+  }
+}

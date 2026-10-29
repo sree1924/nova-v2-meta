@@ -161,3 +161,13 @@ Truthful local official-web print assembly; no direct issuer PDF or current-edit
 - 2026-10-29T05:46:36.190Z Accepted-capacity lineage 2026-10-28-rdmv-oh-class-d:lineage:79 to 2026-10-28-rdmv-oh-class-d:lineage:80 for 05.card_scripts/sec11-sharing-the-road-part-2; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-oh-class-d/receipts/sol-native-05-card_scripts-80-accepted-capacity.json
 
 - 2026-10-29T05:51:48.210Z Sol authoring complete for all twelve mapped sections through 05.card_scripts. Current coverage/wording/script joins PASS; 510 facts/cards/items, 52 units, 360 slides, 562 scripts. Source/rights/currentness and fact-review debts remain unresolved. Owner receipt binding recovery is native PASS; prior HOLD evidence preserved. Completion audit: scratch/sol-round2/oh/COMPLETION-AUDIT.json. Prior jams snapshot: runs/2026-10-28-rdmv-oh-class-d/sources/private/sol-before-close-jams-40d7390b7116a4faaa7c9ab87c70fe635f3363119118a3be521bda66473ff07b.md
+
+- 2026-10-29T16:42:15.987Z lineage reset → 2026-10-28-rdmv-oh-class-d:lineage:81 for 19A.units (sec03-rules-of-the-road-part-1) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:16.676Z lineage reset → 2026-10-28-rdmv-oh-class-d:lineage:82 for 19A.units (sec05-learning-to-drive-part-1) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:17.203Z lineage reset → 2026-10-28-rdmv-oh-class-d:lineage:83 for 19A.units (sec07-state-laws-and-penalties) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:17.558Z lineage reset → 2026-10-28-rdmv-oh-class-d:lineage:84 for 19A.units (sec09-safe-driving-tips) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:17.949Z lineage reset → 2026-10-28-rdmv-oh-class-d:lineage:85 for 19A.units (sec11-sharing-the-road-part-2) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

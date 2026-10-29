@@ -21,6 +21,16 @@ export {authoringPaths,readAuthoringOutbox,museFileTransport} from './muse-file-
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const pin=p=>({path:p,sha256:sha256(fs.readFileSync(p)),bytes:fs.statSync(p).size});
 const ref=({path,sha256,bytes})=>({path,sha256,bytes});
+// Portable companion refs (2026-10-29): a compile receipt records companion paths as absolute paths on the machine that
+// compiled (D:\nova\... locally, /home/user/nova-v2-meta/... in a cloud session). A foreign absolute path is rebased onto
+// THIS run dir by its "runs/<run_id>/" suffix; verifyRef still requires the exact sha256, so integrity is unchanged.
+const portableRef=(r,runDir)=>{
+  if(!r?.path||!path.isAbsolute(r.path))return r;
+  const rel=path.relative(runDir,r.path);
+  if(rel&&!rel.startsWith('..')&&!path.isAbsolute(rel))return r;
+  const norm=String(r.path).replace(/\\/g,'/'),marker='/runs/'+path.basename(runDir)+'/',i=norm.lastIndexOf(marker);
+  return i<0?r:{...r,path:path.join(runDir,norm.slice(i+marker.length))};
+};
 const roleIdFor=id=>id.split('.')[0];
 // Only exact native file transports may use the zero-cost file exemption.
 export function applyFileTransportPreflight(prepared,transport){
@@ -99,7 +109,7 @@ export function acceptedRuntimeRefs(snapshot,projectRoot,runDir,{sectionIds=null
       identity:typeof identity==='string'?identity:JSON.stringify(identity),section_ids:secs,
       validation_ref:{...ref(main.validation_ref_json),path:validationFile},acceptance_ref:{...ref(main.acceptance_ref_json),path:acceptanceFile}};
     if(Array.isArray(validation.companions)){
-      for(const companion of validation.companions||[]){const file=verifyRef(companion,runDir);out.push({...ref(companion),path:file,kind:companion.kind,...metadata});}
+      for(const companion of validation.companions||[]){const file=verifyRef(portableRef(companion,runDir),runDir);out.push({...ref(companion),path:file,kind:companion.kind,...metadata});}
     }else out.push({...ref(main),path:outputFile,kind:task.stage_id,...metadata});
   }
   return out;

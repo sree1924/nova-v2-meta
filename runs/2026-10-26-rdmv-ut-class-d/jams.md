@@ -595,3 +595,19 @@
 - 2026-10-28T22:30:53.650Z SOL UT authorized 05.card_scripts/sec15-vehicle-equipment accepted remint nonce 05.card_scripts:@sec15-vehicle-equipment: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-05.card_scripts-sec15-vehicle-equipment-1.json
 
 - 2026-10-28T22:33:59.655Z SOL UT re-author native PASS: six section decks/scripts, 136 cards, 33 changed backs; 14 of original21 hidden corrected, seven residual internal-ID/incomplete facts held. Raw/source/debt/status/merges/IDs and accepted02/03/06/sessions preserved. Delta $0; historical $44.088251; reserved/uncertain $0. coordination/SOL-REPORTS/REAUTHOR-UT.md; scratch/sol-reauthor/ut/FINAL-CHECKPOINT.json
+
+- 2026-10-29T16:43:14.268Z JAM-UT-REPIN: execution.standing_authority_ref re-pinned 0b65f3b2eb0e -> cf20bebb6199. The pin still named the original $30 authority (dc7321428); the founder amendment to $60 (9ce4f02c3, "cap $60 go finish all 16") changed the file but never re-pinned the config, so the 2026-10-29 runner (which verifies the pin) refused every Utah step. No cap or authority changed by this re-pin. Done by the coordinator to run 19A.units (deterministic, $0).
+
+- 2026-10-29T16:43:14.604Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:138 for 19A.units (sec03-driver-education-permits) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:43:15.003Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:139 for 19A.units (sec05-vision-health) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:43:15.320Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:140 for 19A.units (sec07-preparing-vehicle) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:43:15.749Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:141 for 19A.units (sec09-rules-of-the-road) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:43:16.297Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:142 for 19A.units (sec11-distractions-challenges) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:43:16.939Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:143 for 19A.units (sec13-suspensions-record) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:43:17.532Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:144 for 19A.units (sec15-vehicle-equipment) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

@@ -163,6 +163,7 @@ Then run `rebuild-shell.mjs --states XX`. The shared steps (quarantine, harness,
 
 Measured by `rebuild-shell.mjs` on 2026-10-29 (see the final section).
 
+- **19A unit maps are closed (2026-10-29).** `tools/belt/unit-map.mjs` is the deterministic executor the belt requires for 19A. It builds one unit per knowledge-graph module from each section's accepted inputs, validates it, and accepts it into the ledger. Every section of all 51 is accepted, $0, and the audit now checks 19A too. The shell does not read 19A.
 - **Not fact-audited.** Every artifact passed the belt's deterministic checks only. The independent source audits (stages 07 and 08) have not run on any state. They are scheduled for the end.
 - **Audio exists for Utah only.** The other 50 jurisdictions show narration as text until audio is minted on the founder's "audio go".
 - **Exam facts:** the shell shows a pass mark or question count only where the state's safe view has it verified. Everywhere else it says unknown. The internal mastery bar is not an official pass mark.

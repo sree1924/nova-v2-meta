@@ -163,3 +163,17 @@ Seeded 2026-10-28T03:23:58.751Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T23:09:36.223Z Sol CO re-author COMPLETE_NATIVE: sec02/sec13 native16+04+05 PASS, all7 initial hidden backs corrected; zero listed residuals; no accepted replay. Source facts/debt/status/IDs/merges/02/03/06/sessions and historical blocked/queued history preserved. Report coordination/SOL-REPORTS/REAUTHOR-CO.md; scratch/sol-reauthor/co/FINAL-CHECKPOINT.json. Ledger released, actual/reserved/uncertain all $0.
 
 - 2026-10-28T23:11:24.712Z CO closeout clarification: all7 initial card backs corrected and native scope complete, but accepted05.sessions sec13-F23 retains five exact old "calling nine hundred eleven or RTD" narration quotes (units[4] slides2/3/4/5/7). Report/handoff now explicitly classify this as retained lesson semantic residue; sessions and native ledger unchanged. Versioned checkpoint scratch/sol-reauthor/co/FINAL-CHECKPOINT-LESSON-RESIDUE.json supersedes cards-complete metadata; all old metadata bytes archived privately.
+
+- 2026-10-29T16:39:26.934Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:77 for 19A.units (sec03-impairment-effects-before-you-drive) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:27.317Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:78 for 19A.units (sec05-traffic-signals-signs) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:27.708Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:79 for 19A.units (sec07-right-of-way) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:28.011Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:80 for 19A.units (sec09-freeway-changing-lanes-passing) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:28.348Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:81 for 19A.units (sec11-seasonal-mountain-rural-construction-tips) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:28.867Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:82 for 19A.units (sec13-railroad-light-rail-bicyclists) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:29.231Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:83 for 19A.units (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

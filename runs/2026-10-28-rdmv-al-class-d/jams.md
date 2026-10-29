@@ -165,3 +165,15 @@ Seeded 2026-10-28T05:08:44.916Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T22:40:54.914Z Sol re-author 05.card_scripts/sec13-graduated-driver-license-summary: explicit accepted remint nonce 05.card_scripts:@sec13-graduated-driver-license-summary 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-05.card_scripts-sec13-graduated-driver-license-summary-n1.json.
 
 - 2026-10-28T22:43:28.444Z Sol AL re-author COMPLETE_NATIVE_WITH_RESIDUALS: all seven affected sections native16+04+05 PASS; 20/22 initial hidden backs corrected. Current compiler residuals sec10-F73/sec13-F14 and or or retained. Partial report superseded by coordination/SOL-REPORTS/REAUTHOR-AL.md; versioned continuation checkpoint scratch/sol-reauthor/al/FINAL-CHECKPOINT-CONTINUATION.json. Raw facts/source spans/citations/debt/IDs/merges/02/03/06/sessions/history preserved; old queued65 task zero attempts; ledger released, actual/reserved/uncertain all $0.
+
+- 2026-10-29T16:40:19.614Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:71 for 19A.units (sec03-losing-your-license-and-points) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:20.292Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:72 for 19A.units (sec05-large-vehicles-parking-and-restraints) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:20.893Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:73 for 19A.units (sec07-drugs-stopping-crashes-and-railroads) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:21.289Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:74 for 19A.units (sec09-guide-signs-markings-signals-roundabouts) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:21.871Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:75 for 19A.units (sec11-adjusting-to-driving-conditions) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:22.438Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:76 for 19A.units (sec13-graduated-driver-license-summary) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

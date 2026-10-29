@@ -133,3 +133,15 @@ Seeded 2026-10-28T07:07:07.574Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T21:25:12.151Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:65 for 03.combined_kg (sec13-violations-and-penalties) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-violations-and-penalties__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T21:28:27Z cloud session (Claude) note: ledger receipts embed Windows absolute paths (D:\\nova\\fb-ai-hackathon\\...) in companion refs and the role-15 extractor hardcodes a C:/ python path; the cloud clone resolved them with local-only symlinks (298 backslash-named links plus a D:/nova/fb-ai-hackathon/runs/<run> tree inside the run dir, and C:/Users/.../python.exe at the clone root), kept out of git via .git/info/exclude. Private sources (handbook PDF sha b6daad72…, 15-source-text.txt ca9b68d0…, 15-extraction-receipt.json 7a7096ac…) were rebuilt byte-exact from the issuer URL with pinned pypdf 6.10.0/pdfplumber 0.11.9 (74/74 page hashes matched the registered page map). Downstream 03/04/06/05.sessions/05.card_scripts for all 13 sections accepted on first dispatch under the file transport; no size holds; limits unchanged; ledger actual $0.000.
+
+- 2026-10-29T16:41:30.009Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:66 for 19A.units (sec03-requirements-for-oklahoma-drivers) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:30.708Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:67 for 19A.units (sec05-right-of-way-when-to-yield) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:31.208Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:68 for 19A.units (sec07-basic-speed-rule) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:31.853Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:69 for 19A.units (sec09-parking) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:32.364Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:70 for 19A.units (sec11-driving-tips) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:32.903Z lineage reset → 2026-10-28-rdmv-ok-class-d:lineage:71 for 19A.units (sec13-violations-and-penalties) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

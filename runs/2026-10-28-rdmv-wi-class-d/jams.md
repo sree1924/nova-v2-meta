@@ -133,3 +133,13 @@ Seeded 2026-10-28T05:02:30.219Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T23:08:25.655Z SOL WI authorized 05.card_scripts/sec09-handling-emergencies accepted remint nonce 05.card_scripts:@sec09-handling-emergencies: 0 → 1; runs/2026-10-28-rdmv-wi-class-d/receipts/sol-reauthor-wi-nonce-05.card_scripts-sec09-handling-emergencies-1.json
 
 - 2026-10-28T23:10:31.024Z SOL WI re-author: two compiles/decks/scripts accepted;76 cards/76 card scripts/10recaps,8changed backs,8/8original hidden corrected. Accepted emergency lessons retain 18 narration fields with nine hundred eleven; exact quotes/paths reported; no session remint. Raw/source/debt/status/merges/IDs and accepted02/03/06/sessions preserved. Actual/reserved/uncertain $0. coordination/SOL-REPORTS/REAUTHOR-WI.md; scratch/sol-reauthor/wi/NATIVE-HANDOFF.json
+
+- 2026-10-29T16:39:54.945Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:61 for 19A.units (sec03-the-basics-part-1) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:55.572Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:62 for 19A.units (sec05-signs) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:55.953Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:63 for 19A.units (sec07-driving-situations) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:56.716Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:64 for 19A.units (sec09-handling-emergencies) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:57.115Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:65 for 19A.units (sec11-sharing-the-road) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

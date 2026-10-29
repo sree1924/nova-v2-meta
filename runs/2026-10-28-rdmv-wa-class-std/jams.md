@@ -167,3 +167,15 @@ Seeded 2026-10-28T03:24:01.059Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T23:03:10.457Z Sol re-author 05.card_scripts/sec14-failures-collisions-law-enforcement: explicit accepted remint nonce 05.card_scripts:@sec14-failures-collisions-law-enforcement 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-05.card_scripts-sec14-failures-collisions-law-enforcement-n1.json.
 
 - 2026-10-28T23:04:57.421Z Sol WA re-author complete within current compiler: sec01/sec06/sec07/sec14 native16+04+05 PASS, 11/16 initial hidden backs corrected; 5 RCW identifier residuals sec02-F18/F19/R05/F20 and sec04-F03 retained. sec02/sec04 current preview registries byte-identical; no remint/replay. Source facts/debt/status/IDs/merges/02/03/06/sessions and historical blocked/queued history preserved. Report coordination/SOL-REPORTS/REAUTHOR-WA.md; scratch/sol-reauthor/wa/FINAL-CHECKPOINT.json. Ledger released, actual/reserved/uncertain all $0.
+
+- 2026-10-29T16:39:33.152Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:75 for 19A.units (sec03-vehicle-services-and-maintenance) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:33.599Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:76 for 19A.units (sec05-driver-health-and-impairment) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:34.044Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:77 for 19A.units (sec07-sharing-the-road) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:34.393Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:78 for 19A.units (sec09-intersections-and-turning) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:34.944Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:79 for 19A.units (sec11-parking-transporting-maritime) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:35.381Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:80 for 19A.units (sec13-focus-and-road-conditions) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

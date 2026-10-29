@@ -193,3 +193,15 @@ Seeded 2026-10-29T00:20:50.792Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-29T06:33:50.370Z Accepted-capacity lineage 2026-10-28-rdmv-ga-class-c:lineage:92 to 2026-10-28-rdmv-ga-class-c:lineage:93 for 05.card_scripts/sec13-suspensions-alcohol-and-points; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-ga-class-c/receipts/sol-native-05-card_scripts-93-accepted-capacity.json
 
 - 2026-10-29T06:39:32.644Z Sol GA content authoring finished and writer stopped after all mapped02/16/03/04/06/05.sessions/05.card_scripts accepted. Final deterministic parity audit: scratch/sol-round2/ga/FINAL-AUDIT-1392c73eb165907c8bf15aa574a8d93627b0936395ff8b18afdd6fd2aa6261b0.json. Source freshness/rights/independent audit and visual coverage remain debt. Root19 neutral-note correction still pending; no factual clearance or publication.
+
+- 2026-10-29T16:42:18.958Z lineage reset → 2026-10-28-rdmv-ga-class-c:lineage:94 for 19A.units (sec03-testing-and-license-services) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:19.486Z lineage reset → 2026-10-28-rdmv-ga-class-c:lineage:95 for 19A.units (sec05-turning-parking-and-speed) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:19.967Z lineage reset → 2026-10-28-rdmv-ga-class-c:lineage:96 for 19A.units (sec07-teen-and-provisional-conditions) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:20.450Z lineage reset → 2026-10-28-rdmv-ga-class-c:lineage:97 for 19A.units (sec09-warning-guide-and-work-signs) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:21.247Z lineage reset → 2026-10-28-rdmv-ga-class-c:lineage:98 for 19A.units (sec11-safety-guidelines) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:42:21.869Z lineage reset → 2026-10-28-rdmv-ga-class-c:lineage:99 for 19A.units (sec13-suspensions-alcohol-and-points) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

@@ -139,3 +139,13 @@ Seeded 2026-10-28T00:58:50.714Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T23:15:00.595Z SOL re-author 05.card_scripts/sec09-handling-emergencies: runs/2026-10-28-rdmv-fl-class-e/receipts/sol-reauthor-nonce-05.card_scripts-sec09-handling-emergencies-n1.json; prior limits/counters/history retained.
 
 - 2026-10-28T23:16:24.328Z SOL re-author COMPLETE WITH RETAINED LESSON GARBLE:sec05/sec09 compile/cards/scripts accepted;84 cards/94 script records;4/4 initial hidden backs corrected. Nine911 lesson quotes retained under scope; raw facts/merges/IDs/03/06/sessions and old blocked02 rows preserved. Report coordination/SOL-REPORTS/REAUTHOR-FL.md; private NATIVE-HANDOFF.json +FINAL-CHECKPOINT.json. Native actual/reserved/uncertain $0.000; Fable owns canonical shell refresh.
+
+- 2026-10-29T16:40:04.251Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:64 for 19A.units (sec03-driving-privilege) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:04.741Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:65 for 19A.units (sec05-your-vehicle) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:05.191Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:66 for 19A.units (sec07-driving-safety) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:05.907Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:67 for 19A.units (sec09-handling-emergencies) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:06.441Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:68 for 19A.units (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

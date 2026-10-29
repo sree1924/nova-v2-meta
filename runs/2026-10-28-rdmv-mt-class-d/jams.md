@@ -205,3 +205,15 @@ Seeded 2026-10-28T09:00:16.730Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T22:03:06.700Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:101 to 2026-10-28-rdmv-mt-class-d:lineage:102 for 05.card_scripts/sec10-communication-and-speed; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-102-accepted-capacity.json
 
 - 2026-10-28T22:13:21.538Z Accepted-capacity lineage 2026-10-28-rdmv-mt-class-d:lineage:102 to 2026-10-28-rdmv-mt-class-d:lineage:103 for 05.card_scripts/sec05-signs-and-school-zones; native rebind with unchanged caps/counters/nonces/history. runs/2026-10-28-rdmv-mt-class-d/receipts/sol-native-05-card_scripts-103-accepted-capacity.json
+
+- 2026-10-29T16:41:33.397Z lineage reset → 2026-10-28-rdmv-mt-class-d:lineage:104 for 19A.units (sec03-vehicle-equipment) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:34.219Z lineage reset → 2026-10-28-rdmv-mt-class-d:lineage:105 for 19A.units (sec05-signs-and-school-zones) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:34.717Z lineage reset → 2026-10-28-rdmv-mt-class-d:lineage:106 for 19A.units (sec07-driving-and-sharing-rules) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:35.292Z lineage reset → 2026-10-28-rdmv-mt-class-d:lineage:107 for 19A.units (sec09-basic-driving-and-observation) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:35.659Z lineage reset → 2026-10-28-rdmv-mt-class-d:lineage:108 for 19A.units (sec11-sharing-space) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:41:36.330Z lineage reset → 2026-10-28-rdmv-mt-class-d:lineage:109 for 19A.units (sec13-emergencies-and-crashes) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

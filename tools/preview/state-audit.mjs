@@ -53,7 +53,7 @@ for (const code of ALL) {
   }
   // 1) ledger completeness + pointer of record (accepted_artifact_id resolves to a file on disk)
   let ledgerSlots = 0, ledgerOk = 0, ptrMissing = 0;
-  for (const stg of ['16.compile', ...LEARNER]) for (const s of secs) {
+  for (const stg of ['16.compile', ...LEARNER, '19A.units']) for (const s of secs) {
     ledgerSlots++;
     const t = newest.get(stg + '|' + s);
     if (!t) { r.problems.push(`ledger: ${stg} ${s} not accepted`); continue; }

@@ -257,3 +257,23 @@ Seeded 2026-10-28T05:16:54.777Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T23:04:08.649Z Sol re-author 05.card_scripts/sec05-equipment-defensive-driving-scanning: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-e1c288d1-67d7-4558-9c21-459977c11193.json
 
 - 2026-10-28T23:05:30.826Z Sol AZ re-author final: 6 new accepted compiles and 12 accepted content remints; 324 cards / 362 scripts, 12 changed answers, 12/14 initial hidden corrected. Residual c8 sec03-F04 and c10 sec18-F14. Raw facts, citations, debt, status, stable IDs, all 4 merges and other accepted stages preserved; one historical blocked out-of-scope sec08 attempt unchanged. Ledger actual/reserved/uncertain $0. Report coordination/SOL-REPORTS/REAUTHOR-AZ.md.
+
+- 2026-10-29T16:40:38.345Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:117 for 19A.units (sec03-license-classes-permits-graduated) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:39.081Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:118 for 19A.units (sec05-equipment-defensive-driving-scanning) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:39.610Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:119 for 19A.units (sec07-no-passing-roundabouts-parking) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:40.269Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:120 for 19A.units (sec09-signal-lights-intersections-right-of-way) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:40.883Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:121 for 19A.units (sec11-speed-adjustment-traffic-signs) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:41.285Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:122 for 19A.units (sec13-curbs-lanes-turning-rules) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:41.811Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:123 for 19A.units (sec15-sharing-road-bicycles-motorcycles-trucks) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:42.412Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:124 for 19A.units (sec17-floods-fog-snow-night-wrong-way) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:43.005Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:125 for 19A.units (sec19-suspension-points-penalties) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:43.395Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:126 for 19A.units (sec21-vehicle-emergencies-avoiding-crashes) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

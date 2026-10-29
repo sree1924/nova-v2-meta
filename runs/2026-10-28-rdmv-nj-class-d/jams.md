@@ -208,3 +208,17 @@ Seeded 2026-10-28T03:49:43.032Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T22:28:44.661Z Sol re-author 05.card_scripts/sec14-vehicle-information; nonce 05.card_scripts:@sec14-vehicle-information 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:84 -> 2026-10-28-rdmv-nj-class-d:lineage:84; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec14-vehicle-information-2026-10-28T22-28-44.661Z-cause.json
 
 - 2026-10-28T22:30:40.168Z Sol re-author complete with residual sec03-F21; 10 native compiles and 20 accepted remints, 607 cards / 684 scripts, 33 changed backs; raw facts and 02/03/06/05.sessions preserved. Report coordination/SOL-REPORTS/REAUTHOR-NJ.md; receipt runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-nj-completion-0d15740ce207e8d20b67ca510bbd8fee5a465dfd07ce0e525d2979847fffad77.json. Cost actual/reserved/uncertain $0/$0/$0. Coordinator onboarding pending.
+
+- 2026-10-29T16:39:36.559Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:85 for 19A.units (sec03-driver-testing) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:37.849Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:86 for 19A.units (sec05-driver-responsibility-part-2) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:38.555Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:87 for 19A.units (sec07-safe-driving-rules-part-2) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:39.367Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:88 for 19A.units (sec09-defensive-driving-part-2) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:40.614Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:89 for 19A.units (sec11-privileges-penalties-part-1) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:41.343Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:90 for 19A.units (sec13-sharing-the-road) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:39:42.074Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:91 for 19A.units (sec15-driver-safety-signs) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

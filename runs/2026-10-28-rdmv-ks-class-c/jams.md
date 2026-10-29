@@ -219,3 +219,13 @@ Continuous authoring self-continued on native PASS. All12KGs accepted, all1328 f
 ### SOL-KS-AUTHORING-COMPLETE — 2026-10-28T19:01:54.005Z
 
 All requested03/04/06/05.sessions/05.card_scripts authoring complete for12sections. Source guard HOLD resolved by released compiler over unchanged02 inputs: seven derived spoken strings only, one versioned16, semantic-copy fresh03 and fresh affected04. Native05C preflight exposed ellipsis/front parity incompatibility; owner04 front-only repair accepted for all1328 cards, preserving backs/hooks/IDs/source/SRS and old accepted history. Local post-accept refresh archive collision resolved with content-hash archive; native accepted call not repeated. Final native173→224, all accepted,50newzero-cost content calls plus1deterministiccompile.129source debts and independent07/08 remain pending. Final evidence runs/2026-10-28-rdmv-ks-class-c/receipts/sol-authoring-completion-1793214114017.json.
+
+- 2026-10-29T16:40:51.976Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:92 for 19A.units (sec03-fitness-to-drive) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:52.996Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:93 for 19A.units (sec05-basic-driving) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:53.634Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:94 for 19A.units (sec07-safe-driving) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:54.563Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:95 for 19A.units (sec09-sharing-road) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:55.361Z lineage reset → 2026-10-28-rdmv-ks-class-c:lineage:96 for 19A.units (sec11-test-preparation) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section

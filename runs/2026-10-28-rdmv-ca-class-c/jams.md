@@ -157,3 +157,15 @@ extracted handbook text and a fresh issuer-page fetch; seed adopted as-is. Phase
 - 2026-10-28T10:29:03.485Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:68 for 03.combined_kg (sec13-seniors-and-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-seniors-and-driving__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T23:19:22.275Z SOL CA current compiler reproduces exact accepted sec13 registry; sec13-F07 phone garble unfixable. Zero remints/nonce/lineage/config/tasks/attempts/calls; 0/1 hidden fixed. Existing raw/source/status/debt/IDs/merges and all accepted stages unchanged. Actual/reserved/uncertain $0. coordination/SOL-REPORTS/REAUTHOR-CA.md; scratch/sol-reauthor/ca/NATIVE-HANDOFF.json
+
+- 2026-10-29T16:40:00.598Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:69 for 19A.units (sec03-testing-process) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:01.386Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:70 for 19A.units (sec05-introduction-to-driving) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:01.783Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:71 for 19A.units (sec07-laws-and-rules-of-the-road) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:02.350Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:72 for 19A.units (sec09-alcohol-and-drugs) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:02.974Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:73 for 19A.units (sec11-vehicle-registration-requirements) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T16:40:03.757Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:74 for 19A.units (sec13-seniors-and-driving) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
