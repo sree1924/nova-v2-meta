@@ -17,3 +17,11 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T03:56:45.469Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:5 for 02.dossier_sections (sec01-definitions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-definitions__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:56:46.720Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:6 for 02.dossier_sections (sec02-license-eligibility-and-identity) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-eligibility-and-identity__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:00:45.933Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:7 for 02.dossier_sections (sec02-license-eligibility-and-identity) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-eligibility-and-identity__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:00:47.105Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:8 for 02.dossier_sections (sec02-license-eligibility-and-identity) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-eligibility-and-identity__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:00:48.297Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:9 for 02.dossier_sections (sec02-license-eligibility-and-identity) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-eligibility-and-identity__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:00:49.531Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:10 for 02.dossier_sections (sec02-license-eligibility-and-identity) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-eligibility-and-identity__G__n0 (lineage attempts exhausted)
