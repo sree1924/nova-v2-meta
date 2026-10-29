@@ -141,3 +141,11 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:12:16.207Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:63 for 02.dossier_sections (sec14-parking-signals-traffic-mix-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-parking-signals-traffic-mix-weather__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:12:18.242Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:64 for 02.dossier_sections (sec15-freeway-driving-emergency-procedures) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-freeway-driving-emergency-procedures__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:14:08.742Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:65 for 02.dossier_sections (sec15-freeway-driving-emergency-procedures) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-freeway-driving-emergency-procedures__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:14:10.917Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:66 for 02.dossier_sections (sec15-freeway-driving-emergency-procedures) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-freeway-driving-emergency-procedures__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:14:13.054Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:67 for 02.dossier_sections (sec15-freeway-driving-emergency-procedures) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-freeway-driving-emergency-procedures__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:14:15.110Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:68 for 02.dossier_sections (sec15-freeway-driving-emergency-procedures) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-freeway-driving-emergency-procedures__G__n0 (lineage attempts exhausted)
