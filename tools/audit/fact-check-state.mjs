@@ -35,6 +35,14 @@ const cfg = JSON.parse(fs.readFileSync(path.join(runDir, 'run-config.json'), 'ut
 const sections = Object.keys(cfg.scope.section_page_ranges);
 const privDir = path.join(runDir, 'sources/private/audits/muse-fact-check');
 const one = path.join(ROOT, 'tools/audit/muse-fact-check.mjs');
+// One runner per state at a time (2026-10-29 duplicate-spend incident).
+fs.mkdirSync(privDir, { recursive: true });
+const LOCK = path.join(privDir, '.state.lock');
+if (!DRY && fs.existsSync(LOCK)) {
+  const pid = Number(fs.readFileSync(LOCK, 'utf8').trim()); let alive = false; try { process.kill(pid, 0); alive = true; } catch {}
+  if (alive) { console.error(`REFUSED: ${ST} is already being fact-checked (pid ${pid}).`); process.exit(1); }
+}
+if (!DRY) { fs.writeFileSync(LOCK, String(process.pid)); process.on('exit', () => { try { if (fs.readFileSync(LOCK, 'utf8').trim() === String(process.pid)) fs.rmSync(LOCK); } catch {} }); }
 
 const latestFor = (sec) => {
   if (!fs.existsSync(privDir)) return null;
