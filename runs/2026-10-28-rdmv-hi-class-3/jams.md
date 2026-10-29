@@ -1,0 +1,17 @@
+# jams — 2026-10-28-rdmv-hi-class-3
+
+Seeded 2026-10-29T03:21:23.407Z by intake-state.mjs from 2026-10-26-rdmv-ut-class-d (spec coordination/intake/HI.spec.json); authoring mode muse_code_subscription.
+
+## JAM-HI-01 — cloud environment path shims (2026-10-29, claude cloud session)
+Receipts and tools embed Windows absolute paths. Local-only symlinks, listed in .git/info/exclude and never committed:
+`C:/Users/varad/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe` → /usr/bin/python3 (pypdf 6.10.0, pdfplumber 0.11.9 pinned);
+`D:/nova/fb-ai-hackathon` → the clone root. Parent-factory pins unzipped from coordination/cloud/factory-pins-full-belt.zip to ../factory (eleven hashes verified).
+
+## JAM-HI-02 — learning loop not pinned at intake (2026-10-29)
+intake-state.mjs: plan --init-ledger --register-sources exit 0 (source registered, liveness CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT, edition "HMG 5/2023");
+pin-learning-loop exit 2: ENOENT ../schemas/learning-loop.schema.json (parent repo file, pinned 54f8a656…, 7334 bytes; role 19 also lists schemas/learning-model.schema.json 79de9048…, 3945 bytes).
+Stage 02/16 need no learning loop (tools/belt/context.mjs NEEDS); 03/04/06/19A do. Resume: `node tools/belt/controller.mjs pin-learning-loop --run-config runs/2026-10-28-rdmv-hi-class-3/run-config.json --executor-id 2bdcad95-d4cc-467e-a88d-be4a6260cf03` once the schema is present.
+
+## JAM-HI-03 — dirty text layer in the Hawaii PDF (2026-10-29)
+Each physical page's pypdf text also carries the facing page's text (positioned outside the media box) and, on many pages, a superseded hidden layer clipped to a thin band (e.g. p12 hidden "1. Rules of the Road / 2. Vision / 3. Recognition of traffic control devices" vs visible "A vision test / A knowledge test … / A practical road test").
+Dossier facts are authored only from the visible layer (clip-aware pdfminer pass: track `re W n` rects through q/Q, keep chars inside the clip and media box) and anchored to the page where the sentence is visibly printed.
