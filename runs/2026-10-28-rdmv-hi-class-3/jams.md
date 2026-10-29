@@ -105,3 +105,11 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:04:56.695Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:45 for 02.dossier_sections (sec10-crash-procedures-insurance-financial-responsibility) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-crash-procedures-insurance-financial-responsibility__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:04:58.344Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:46 for 02.dossier_sections (sec11-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-alcohol-and-other-drugs__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:06:18.064Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:47 for 02.dossier_sections (sec11-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-alcohol-and-other-drugs__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:06:19.786Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:48 for 02.dossier_sections (sec11-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-alcohol-and-other-drugs__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:06:21.460Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:49 for 02.dossier_sections (sec11-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-alcohol-and-other-drugs__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:06:23.145Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:50 for 02.dossier_sections (sec11-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-alcohol-and-other-drugs__G__n0 (lineage attempts exhausted)
