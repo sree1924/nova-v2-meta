@@ -95,3 +95,13 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:03:30.251Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:40 for 02.dossier_sections (sec09-traffic-signs-warning-guide-construction) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-signs-warning-guide-construction__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:03:31.847Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:41 for 02.dossier_sections (sec09-traffic-signs-warning-guide-construction) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-signs-warning-guide-construction__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:51.802Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:42 for 02.dossier_sections (sec10-crash-procedures-insurance-financial-responsibility) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-crash-procedures-insurance-financial-responsibility__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:53.441Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:43 for 02.dossier_sections (sec10-crash-procedures-insurance-financial-responsibility) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-crash-procedures-insurance-financial-responsibility__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:55.070Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:44 for 02.dossier_sections (sec10-crash-procedures-insurance-financial-responsibility) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-crash-procedures-insurance-financial-responsibility__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:56.695Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:45 for 02.dossier_sections (sec10-crash-procedures-insurance-financial-responsibility) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-crash-procedures-insurance-financial-responsibility__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:04:58.344Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:46 for 02.dossier_sections (sec11-alcohol-and-other-drugs) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-alcohol-and-other-drugs__C__n0 (lineage attempts exhausted)
