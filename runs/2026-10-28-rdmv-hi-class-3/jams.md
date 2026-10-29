@@ -87,3 +87,11 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:02:03.463Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:36 for 02.dossier_sections (sec08-traffic-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-traffic-signals__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:02:05.038Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:37 for 02.dossier_sections (sec09-traffic-signs-warning-guide-construction) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-signs-warning-guide-construction__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:27.062Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:38 for 02.dossier_sections (sec09-traffic-signs-warning-guide-construction) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-signs-warning-guide-construction__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:28.668Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:39 for 02.dossier_sections (sec09-traffic-signs-warning-guide-construction) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-signs-warning-guide-construction__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:30.251Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:40 for 02.dossier_sections (sec09-traffic-signs-warning-guide-construction) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-signs-warning-guide-construction__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:31.847Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:41 for 02.dossier_sections (sec09-traffic-signs-warning-guide-construction) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-signs-warning-guide-construction__G__n0 (lineage attempts exhausted)
