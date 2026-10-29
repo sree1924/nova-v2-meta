@@ -16,7 +16,7 @@ PHASE 1 — INTAKE SPEC (read the handbook, write the spec; no guessing):
 7. node D:\nova\fb-ai-hackathon\tools\belt\intake-state.mjs --spec coordination/intake/<ST>.spec.json   → exit 0 = registered. On failure fix the SPEC (never the tool), remove the half-made run with node -e "require('fs').rmSync('runs/<run_id>',{recursive:true,force:true})", re-run. Three failures → stop and report.
 
 PHASE 2 — SME DOSSIERS + COMPILE under the subscription, THIN PACKETS (stages 02 and 16 only):
-   node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/<run_id> --author muse --packet thin --sections all --stages 02,16
+   node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/<run_id> --executor-id <your-actor-id> --author muse --packet thin --sections all --stages 02,16
    exit 3 = a packet is waiting: read runs/<run_id>/sources/private/muse-authoring/inbox/NEXT.json (packet_mode "thin").
    HOW THIN PACKETS WORK (read this once, it saves you 95% of the reading):
    - layers.state (CONTEXT-state.json): read ONCE per launch. It holds the stage prompt(s), the response_format schema(s), and the state-wide inputData (source_registry, page_map, output_conventions, instruction_templates, pilot_overlay, output_shape_example, safe_run_config, source_policy). It never changes within the run.

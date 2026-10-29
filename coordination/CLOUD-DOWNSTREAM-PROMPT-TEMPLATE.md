@@ -18,7 +18,7 @@ SETUP (do all of it before the first belt step; none of it needs the founder):
 
 TASK: run DOWNSTREAM for ALL {{N}} sections of {{ST}}, in handbook order, stages 03 knowledge graph → 04 flashcards → 06 exam bank → 05.sessions (lessons) → 05.card_scripts (narration scripts). First read coordination/CLAUDE-DOWNSTREAM-WORKER-BRIEF.md and follow it exactly. Read each stage's check module once, read-only: tools/belt/checks/03-combined-kg.mjs, 04-cards.mjs, 06-exam-bank.mjs, 05-sessions.mjs, 05-card-scripts.mjs. Pre-check every outbox against the stage's check module before writing it. One step per command:
 
-  node tools/belt/run-utah.mjs --run runs/{{RUN}} --author muse --packet thin --sections all --stages 03,04,06,05.sessions,05.card_scripts
+  node tools/belt/run-utah.mjs --run runs/{{RUN}} --executor-id <your-actor-id> --author muse --packet thin --sections all --stages 03,04,06,05.sessions,05.card_scripts
 
 exit 3 = a packet is waiting at runs/{{RUN}}/sources/private/muse-authoring/inbox/NEXT.json: read it (layers.state once, layers.section once per section, the small delta), author the artifact to the schema, write {"key","packet_sha256","authored_by":"claude (Anthropic cloud session, downstream worker)","artifact"} to the outbox path NEXT.json names (write .tmp then rename), re-run the command. exit 0 = all done. "--author muse" names the file-transport mode, not the author. The compiled registry per section is the one named in runs/{{RUN}}/16/<section>/CURRENT.json.
 

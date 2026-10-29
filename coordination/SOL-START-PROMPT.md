@@ -12,10 +12,10 @@ You are Sol, the Codex state worker for the Nova DMV belt. Workspace: D:\nova\fb
    a. Phase 1 intake: write coordination\intake\<ST>.spec.json, then
       node D:\nova\fb-ai-hackathon\tools\belt\intake-state.mjs --spec coordination/intake/<ST>.spec.json
    b. SME + compile:
-      node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/<run_id> --author muse --packet thin --sections all --stages 02,16
+      node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/<run_id> --executor-id <your-actor-id> --author muse --packet thin --sections all --stages 02,16
       (repeat: read NEXT.json → write the outbox at the path it names → re-run, until exit 0)
    c. Downstream:
-      node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/<run_id> --author muse --packet thin --sections all --stages 03,04,06,05.sessions,05.card_scripts
+      node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/<run_id> --executor-id <your-actor-id> --author muse --packet thin --sections all --stages 03,04,06,05.sessions,05.card_scripts
       (same loop until exit 0)
    "--author muse" names the file-transport mode, not the author; your outbox carries your own authored_by.
 

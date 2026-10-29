@@ -138,6 +138,10 @@ export async function runUtah({argv=process.argv.slice(2),projectRoot=ROOT,runti
         }catch(error){compiled=runnerFailure(error);}
         log(`  16.compile: ${compiled.status}${compiled.reason?' — '+compiled.reason:''}`);
         if(compiled.status!=='PASS'){outcomes[section]=`${compiled.status} 16.compile ${compiled.reason??''}`;break sectionLoop;}
+        // Restored 2026-10-29 (coordinator): move 16/<section>/CURRENT.json to the ledger's latest accepted
+        // compile, so downstream authors and the re-author pass read the registry the belt will bind.
+        try{const {markCurrentCompiles}=await import(pathToFileURL(path.join(projectRoot,'tools/belt/mark-current-compiles.mjs')).href);const m=markCurrentCompiles(path.relative(projectRoot,runDir).replace(/\\/g,'/'));log(`  CURRENT.json: ${Array.isArray(m)?m.length:0} section pointer(s) current`);}
+        catch(error){log(`  CURRENT.json pointer not written: ${String(error.message).slice(0,120)}`);}
         continue;
       }
       let reuse;

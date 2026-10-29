@@ -6,7 +6,7 @@ Run dir for this job: runs/2026-10-27-rdmv-ut-class-d-muse (a $0 sibling of the 
 
 THE LOOP (repeat until the step command exits 0):
 1. Run ONE step:
-   node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/2026-10-27-rdmv-ut-class-d-muse --author muse --sections sec01-definitions
+   node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/2026-10-27-rdmv-ut-class-d-muse --executor-id <your-actor-id> --author muse --sections sec01-definitions
    - exit 3 = WAITING: the belt wrote a packet and a pointer at
      runs/2026-10-27-rdmv-ut-class-d-muse/sources/private/muse-authoring/inbox/NEXT.json  (key, inbox path, outbox path, packet_sha256, previous_non_pass, required_checks)
    - exit 0 = the section is DONE (every stage accepted). Stop and report.

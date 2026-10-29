@@ -19,7 +19,7 @@ PHASE 1 — INTAKE SPEC (read the handbook, write the spec; no model API, no gue
    Exit 0 = registered. If it fails, read the error, fix the spec (not the tool), re-run after deleting runs/<run_id>/ with: node -e "require('fs').rmSync('runs/<run_id>',{recursive:true,force:true})". Three failures → stop and report.
 
 PHASE 2 — SME DOSSIERS + COMPILE under the subscription (stages 02 and 16 only; NO 03/04/05/06 this launch):
-   node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/<run_id> --author muse --sections all --stages 02,16
+   node D:\nova\fb-ai-hackathon\tools\belt\run-utah.mjs --run runs/<run_id> --executor-id <your-actor-id> --author muse --sections all --stages 02,16
    The loop is the one you know from coordination/MUSE-SUBSCRIPTION-AUTHORING-BRIEF.md: exit 3 = a packet is waiting at runs/<run_id>/sources/private/muse-authoring/inbox/NEXT.json → author the artifact strictly to the packet's schema + conventions from the handbook text in the packet → write the outbox → re-run the command. Repeat until exit 0 (all sections DONE through compile) or you are blocked. Report every HOLD check id. Never two authoring commands at once for the same run.
 
 Report: coordination/MUSE-INTAKE-<ST>-REPORT.md (≤ 60 lines): section map table (id, title, pages), exam facts with page + verbatim, issuer page used, intake result, sections DONE through 16.compile, holds, what you could not verify. Ledger actual must read $0.000 throughout. Stop when done.
