@@ -1,0 +1,182 @@
+{
+  "status": "PASS",
+  "stage_id": "03.combined_kg",
+  "checks": [
+    {
+      "check_id": "03.SCHEMA",
+      "status": "PASS",
+      "evidence": "validates against schemas-strict/03-knowledge-graph.schema.json"
+    },
+    {
+      "check_id": "03.PROBE_SLUG",
+      "status": "PASS",
+      "evidence": "probe \"rdmv-hi-x\" matches ^[a-z0-9][a-z0-9-]*$"
+    },
+    {
+      "check_id": "03.LINEAGE",
+      "status": "PASS",
+      "evidence": "input_manifest_sha256 matches; candidate_lineage_id=2026-10-28-rdmv-hi-class-3:lineage:82"
+    },
+    {
+      "check_id": "03.ID_INTEGRITY",
+      "status": "PASS",
+      "evidence": "32 nodes, 0 dynamic, 6 modules; ids unique, dynamic disjoint"
+    },
+    {
+      "check_id": "03.KG01_GAPS",
+      "status": "PASS",
+      "evidence": "verdict PASS; 0 gap(s), 0 blocking; nodes_extracted=32",
+      "metrics": {
+        "blocking_gaps": 0
+      }
+    },
+    {
+      "check_id": "03.KG01_ROUTE_BACK",
+      "status": "PASS",
+      "evidence": "verdict PASS; no blocking gap, no route_back to 02 required"
+    },
+    {
+      "check_id": "03.ONTOLOGY",
+      "status": "PASS",
+      "evidence": "2 node type(s), 2 edge type(s) declared; all used types legal"
+    },
+    {
+      "check_id": "03.EDGE_TYPED",
+      "status": "PASS",
+      "evidence": "61 edges typed with resolvable endpoints",
+      "metrics": {
+        "edges": 61
+      }
+    },
+    {
+      "check_id": "03.EDGES_MIRROR",
+      "status": "PASS",
+      "evidence": "kg03.edges == edges (61)"
+    },
+    {
+      "check_id": "03.ACYCLIC",
+      "status": "PASS",
+      "evidence": "prerequisite subgraph acyclic (41 edges, Kahn)"
+    },
+    {
+      "check_id": "03.ONE_MODULE_PER_NODE",
+      "status": "PASS",
+      "evidence": "32/32 nodes in exactly one module"
+    },
+    {
+      "check_id": "03.PATH_COVERAGE",
+      "status": "PASS",
+      "evidence": "path covers 32/32 stable nodes; 0 dynamic excluded; rule recorded"
+    },
+    {
+      "check_id": "03.PATH_TOPOLOGICAL",
+      "status": "PASS",
+      "evidence": "0 prerequisite violations over 41 prerequisite edges"
+    },
+    {
+      "check_id": "03.NODE_COVERAGE",
+      "status": "PASS",
+      "evidence": "all 32 registry facts are nodes",
+      "metrics": {
+        "dropped": 0
+      }
+    },
+    {
+      "check_id": "03.HIGH_YIELD_SET",
+      "status": "PASS",
+      "evidence": "high-yield set equals source (32)"
+    },
+    {
+      "check_id": "03.CONFUSABLE_SOURCE_BOUND",
+      "status": "PASS",
+      "evidence": "40 confusable record(s) cite both endpoint facts; every high-yield node covered",
+      "metrics": {
+        "pairs": 40
+      }
+    },
+    {
+      "check_id": "03.FACT_IDS_REGISTERED",
+      "status": "PASS",
+      "evidence": "32/32 fact ids registered"
+    },
+    {
+      "check_id": "03.WEIGHT_HONESTY",
+      "status": "PASS",
+      "evidence": "official weights honest: {\"unknown\":32}; no number under unknown status",
+      "metrics": {
+        "unknown": 32
+      }
+    },
+    {
+      "check_id": "03.VERIFIED_WEIGHTS_REGISTERED",
+      "status": "PASS",
+      "evidence": "no verified official weights claimed"
+    },
+    {
+      "check_id": "03.DOMAIN_EMPHASIS",
+      "status": "PASS",
+      "evidence": "1 domain row(s) recomputed within 0.1pp; verified-basis drift <= 2pp",
+      "metrics": {
+        "domains": 1
+      }
+    },
+    {
+      "check_id": "03.WEIGHT_CLOSURE",
+      "status": "PASS",
+      "evidence": "basis unknown; recomputed sum null (unclaimed)",
+      "metrics": {
+        "recomputed_sum": null
+      }
+    },
+    {
+      "check_id": "03.KG05_ASSERTIONS",
+      "status": "PASS",
+      "evidence": "claims agree with recomputation (null = unclaimed): {\"prerequisite_violations\":0,\"orphan_nodes\":0,\"double_homes\":0,\"dynamic_quarantined\":0,\"path_check\":\"PASS\"}",
+      "metrics": {
+        "prerequisite_violations": 0,
+        "orphan_nodes": 0,
+        "double_homes": 0,
+        "dynamic_quarantined": 0,
+        "path_check": "PASS"
+      }
+    },
+    {
+      "check_id": "03.CURRICULUM_HINTS",
+      "status": "PASS",
+      "evidence": "6 unit hint(s), one per module; session>flashcards>module_hub with hub options"
+    },
+    {
+      "check_id": "03.SCOUT_SENTINEL",
+      "status": "PASS",
+      "evidence": "media disposition lists 20A inactive and image-scout checks non-applicable"
+    },
+    {
+      "check_id": "03.LEARNING_INPUT_BOUND",
+      "status": "PASS",
+      "evidence": "learning_loop ref matches accepted input runs/2026-10-28-rdmv-hi-class-3/19-learning-loop.json"
+    }
+  ],
+  "errors": [],
+  "metrics": {
+    "adapter_schema_sha256": "789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8",
+    "03.KG01_GAPS.blocking_gaps": 0,
+    "03.EDGE_TYPED.edges": 61,
+    "03.NODE_COVERAGE.dropped": 0,
+    "03.CONFUSABLE_SOURCE_BOUND.pairs": 40,
+    "03.WEIGHT_HONESTY.unknown": 32,
+    "03.DOMAIN_EMPHASIS.domains": 1,
+    "03.WEIGHT_CLOSURE.recomputed_sum": null,
+    "03.KG05_ASSERTIONS.prerequisite_violations": 0,
+    "03.KG05_ASSERTIONS.orphan_nodes": 0,
+    "03.KG05_ASSERTIONS.double_homes": 0,
+    "03.KG05_ASSERTIONS.dynamic_quarantined": 0,
+    "03.KG05_ASSERTIONS.path_check": "PASS",
+    "required_checks": 25,
+    "required_checks_missing": 0
+  },
+  "output_sha256": "3831edddfd7259173e2dbcbae6ea1faf979213ceb9931e0ac3c76273efa554e9",
+  "mapped_check_coverage": {
+    "complete": true,
+    "missing": []
+  }
+}
