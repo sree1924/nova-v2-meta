@@ -78,3 +78,11 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:10:36.877Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:36 for 02.dossier_sections (sec08-buses-railroads) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-buses-railroads__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:10:38.284Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:37 for 02.dossier_sections (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-hazardous-conditions__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:11:24.993Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:38 for 02.dossier_sections (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-hazardous-conditions__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:11:26.442Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:39 for 02.dossier_sections (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-hazardous-conditions__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:11:27.892Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:40 for 02.dossier_sections (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-hazardous-conditions__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:11:29.316Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:41 for 02.dossier_sections (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-hazardous-conditions__G__n0 (lineage attempts exhausted)
