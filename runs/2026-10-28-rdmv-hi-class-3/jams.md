@@ -171,3 +171,5 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:34:36.729Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:78 for 03.combined_kg (sec03-vehicle-equipment-inspection) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-vehicle-equipment-inspection__-__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:38:12.119Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:79 for 03.combined_kg (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-the-driver-emotional-medical-age__-__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:43:35.354Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:80 for 03.combined_kg (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-pavement-markings__-__n0 (lineage attempts exhausted)
