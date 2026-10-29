@@ -75,7 +75,7 @@ const system = [
 const user = JSON.stringify({ state: st.name, handbook: st.handbook, section_id: SECTION, facts, pages });
 const request = { model: MODEL, messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
   response_format: { type: 'json_schema', json_schema: { name: 'fact_check_findings', strict: true, schema } },
-  max_completion_tokens: Math.min(32000, 2000 + facts.length * 300) };
+  max_completion_tokens: Math.min(32000, 2000 + facts.length * 300), reasoning_effort: opt('--reasoning', 'low') };
 const reqBytes = Buffer.byteLength(JSON.stringify(request));
 const estIn = Math.ceil(reqBytes / 3.6), estOut = request.max_completion_tokens;
 const estUsd = (estIn * PRICE.input_usd_per_million + estOut * PRICE.output_usd_per_million) / 1e6;
