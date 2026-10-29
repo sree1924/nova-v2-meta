@@ -50,7 +50,8 @@
     "exam_facts_view.domain_weights": "{<domain>:{value,status}} — 07.DOMAIN_WEIGHTS (HOLD only when a row claims weight_check checked)",
     "audit_assignment": "{provider_family, assigned_scope} — 07.PROVIDER_SCOPE (HOLD absent)",
     "intervention_lineage": "{lineage_complete, actors:[{actor_id,provider_family,session_id,artifact_sha256,contribution_kind}]} — the actor shape of tools/check-audit-independence.mjs; 07.INDEPENDENCE (HOLD absent)",
-    "prompt_authorship": "contracts/prompt-authorship.json document; entries folded in as authoring_prompt contributors"
+    "prompt_authorship": "contracts/prompt-authorship.json document; entries folded in as authoring_prompt contributors",
+    "accepted_inputs": "accepted knowledge_graph, carddeck and exam_bank with matching loaded_refs and report input_hashes; 07.REQUIRED_CHECKS_RUN deterministically joins served/merge/high-yield node targets to items. Missing evidence HOLD; uncovered targets FAIL. No schema-supported typed assessment-gap waiver exists."
   },
   "deviations": [
     {
@@ -323,6 +324,10 @@
     {
       "rule": "no majority vote: the post-validator status of each scoped report is its own acceptance (07.VERDICT_GATE); combining reports across providers is the caller's AND, never a vote",
       "check": "07.VERDICT_GATE"
+    },
+    {
+      "rule": "07.REQUIRED_CHECKS_RUN recomputes served/merged/high-yield node-to-item coverage over bound accepted inputs; no gap/waiver string can authorize missing assessment targets.",
+      "check": "07.REQUIRED_CHECKS_RUN"
     }
   ],
   "prompt_level_only": [
@@ -361,9 +366,10 @@
       "context_path": "tools/belt/fixtures/07.content_coverage/context-synthetic.json",
       "kind": "synthetic",
       "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
-      "expected_status": "PASS",
+      "expected_status": "HOLD",
       "transformation_notes": [
-        "fictional Examplia candidate; exambank member = sha256 of 06 synthetic-pass.json"
+        "fictional Examplia candidate; exambank member = sha256 of 06 synthetic-pass.json",
+        "2026-10-28 amendment: historical report lacks native-bound accepted KG/CardDeck; structural report consistency alone cannot prove served-node assessment coverage. Preserved unchanged, now HOLD."
       ],
       "context_sha256": "29b575b62fa1a2b9a811d9d2e50e1b6c1f05e898cd9377a491bb2d4f349494e5"
     },
@@ -391,12 +397,24 @@
         "to_worker 02 ACCEPTED by the adapter (07.SCHEMA PASS); acceptance FAIL only because the report verdict is FAIL (07.VERDICT_GATE)"
       ],
       "context_sha256": "29b575b62fa1a2b9a811d9d2e50e1b6c1f05e898cd9377a491bb2d4f349494e5"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/synthetic-completion-pass.json",
+      "sha256": "09878ccb2574e668c756baea1fb245ac2be7d09721afc8d3fa3d8ea311977369",
+      "context_path": "tools/belt/fixtures/07.content_coverage/context-completion.json",
+      "context_sha256": "18c86f9c875f3584eecbcfc3c54323fa229905ccc28e462469dcfa82954d7828",
+      "kind": "synthetic_bound_completion",
+      "source": "founder-approved Sol reauthor reliability amendment 2026-10-28",
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "Fictional accepted KG/CardDeck/exambank with exact byte-pinned native context; all served, merged and high-yield targets have emitted items."
+      ]
     }
   ],
   "unexecuted": [
     {
-      "item": "set-diff of every dossier fact through KG/card/item refs, high-yield card+item coverage, voice/session/unit coverage recompute",
-      "reason": "requires the full candidate artifacts in context; the adapter carries the auditor's results (dropped_facts, missing_high_yield, voice_gaps, curriculum_unit_gaps) and checks only their internal consistency + verdict invariants"
+      "item": "Full dossier-to-KG fact set-diff, voice/session/unit coverage recompute",
+      "reason": "Card/merged/high-yield node-to-item joins are now executed under 07.REQUIRED_CHECKS_RUN; remaining dossier and narration/unit joins still require their own independent coverage proof."
     },
     {
       "item": "Order Q rule 7 depth floor (>=6 slides/session, avg narration >=400 chars, trap-or-bridge, five-slide rejection)",
@@ -415,5 +433,5 @@
       "reason": "no endpoint call is authorized"
     }
   ],
-  "checks_module_sha256": "0299fded81b839311d4337f011f03300795493670d8473b63f8a1abe05a8965e"
+  "checks_module_sha256": "2752725c95621facfb01948e1ba718dd0d81117e701aff304fa70c3fa2e2f2f1"
 }

@@ -351,3 +351,59 @@ Owner response coordination/NM-03-TEXT-LOCAL-SYMBOL-OWNER-RESPONSE.json (87ad14a
 
 <!-- SOL-COMPLETED-NINE-CLOSEOUT-20261028 -->
 Read-only closeout report coordination/SOL-REPORTS/CLOSEOUT-COMPLETED-NINE-20261028.md confirms prompt06 coverage omissions: ID922 and PA857 served cards without exam items; accepted banks have no typed gap/page-debt entries. Native06 acceptance lacks a per-studied-card enforcement check. All current native artifact/source/companion/receipt bindings and script parity verified using transitive source supersession; no run or validator was changed. NE legacy delta sums exceed its fixed main sample by2335217 total /2249856cached, pending attribution/overlap reconciliation. Narration/cloze/speech diagnostics are qualified separately. Re-authoring and Fable re-onboarding were not performed.
+
+| 2026-10-28 | OH | staged queue provenance note / OH-provenance.json | Class D is physically observed at merged p87, in Section 12 pages83-90; the staged note says Section13. Original provenance preserved; shared row not edited. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+| 2026-10-28 | IL | physical26 / printed23, Safety Belt Fitting | Printed source says shoulder strap should cross at or near neck or face; visually confirmed, withheld as IL-sec05-shoulder-belt-source-wording with blocking clinical review request; no corrected clinical rule invented. | gpt-6.1-sol Sol worker |
+
+<!-- SOL-REMAINING-NINE-AR-20261028 -->
+| 2026-10-28 | AR | tools/belt/intake-plan.mjs:106 | Official-PDF intake requires numeric passing_score even when the source does not state it; unknown exam facts cannot proceed honestly. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+<!-- SOL-REMAINING-NINE-NH-20261028 -->
+| 2026-10-28 | NH | tools/belt/intake-plan.mjs official_pdf path | Requires issuer_page with rendered-DOM excerpt and numeric passing_score; cannot faithfully represent inaccessible issuer page or absent explicit passing percent without unsupported assertions. No shared edit made. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+<!-- SOL-REMAINING-NINE-MS-20261028 -->
+| 2026-10-28 | MS | tools/belt/intake-plan.mjs official_pdf passing_score requirement | Cannot represent unknown passing score for official PDF; blocks honest native intake despite safe downstream null support. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+<!-- SOL-REMAINING-NINE-RI-20261028 -->
+| 2026-10-28 | RI | tools/belt/intake-plan.mjs: official_pdf passing_score requirement | Unknown source passing threshold cannot be represented: plan-only rejects null with Invalid passing_score despite unknown exam-fact policy. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+<!-- SOL-REMAINING-NINE-AK-20261028 -->
+| 2026-10-28 | AK | tools/belt/intake-plan.mjs official_pdf passing_score validation | Rejects unknown passing_score even with genuine official source/edition/issuer link. Handbook written-exam section does not state numeric score. No shared edit or invented value. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+<!-- SOL-REMAINING-NINE-ND-20261028 -->
+| 2026-10-28 | ND | tools/belt/intake-plan.mjs official_pdf passing_score requirement | Unknown source passing_score cannot be represented; native intake blocked. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+<!-- SOL-REMAINING-NINE-DC-20261028 -->
+| 2026-10-28 | DC | tools/belt/intake-plan.mjs official_pdf passing_score validation | Unknown knowledge-exam passing score cannot be represented; plan-only rejects null with Invalid passing_score. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+<!-- SOL-REMAINING-NINE-WV-20261028 -->
+| 2026-10-28 | WV | tools/belt/checks/02-dossier-sections.mjs CORPUS_STABILITY/DEBT_TYPED and runner default C-first | No official revision-frequency evidence. C-only packet cannot carry section-A debt: SCOPE_COMPLETENESS rejects extra A; DEBT_TYPED rejects debt located in absent A. Claiming stable frequency or changing blocked_probe merely to pass would invent a source assessment. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+| 2026-10-28 | WV | native selected source pages 9–10 and multiple other physical pages | Embedded PDF character mappings corrupt letters, punctuation and digits in extracted source. Cover edition and first glossary page were rendered and visually inspected; no general extraction repair or factual clearance claimed. | gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker) |
+
+| 2026-10-28 | AK | sec09 / F016 | Accepted raw fact has17 consecutive normalized source words (limit12). Genuine immutable native replacement plus affected descendants authorized; original bytes/source/status/debt preserved. Evidence scratch/sol-round2/ak/ORIGINALITY-AUDIT.json. ID: sol-AK-sec09-F016-originality-20261028 | gpt-6.1-sol, Sol root coordinator |
+| 2026-10-28 | AK | sec14 / F016 | Accepted raw fact has15 consecutive normalized source words (limit12). Genuine immutable native replacement plus affected descendants authorized; original bytes/source/status/debt preserved. Evidence scratch/sol-round2/ak/ORIGINALITY-AUDIT.json. ID: sol-AK-sec14-F016-originality-20261028 | gpt-6.1-sol, Sol root coordinator |
+| 2026-10-28 | AR | sec01 / unaccepted06 draft | 50 draft items copied broad upstream source-assessment review flags. No06 native submission. DE owner-supported per-item adjudication resumed, preserving acceptedKG/source debt and any actual fact/item doubt; no blanket clear or factual waiver. Evidence scratch/sol-round2/ar/NATIVE-HANDOFF.json. ID: sol-AR-exam-metadata-inheritance-20261028 | gpt-6.1-sol, Sol root coordinator |
+| 2026-10-28 | AK | all18 / accepted03 and unaccepted06 | 787 graph nodes were marked needs_review for broad source-assessment debt; this is not787 proven wrong facts. Accepted03 flags remain; sound exam items require honest per-item adjudication under DE owner guidance. Evidence scratch/sol-round2/ak/NATIVE-HANDOFF.json. ID: sol-AK-graph-metadata-inheritance-20261028 | gpt-6.1-sol, Sol root coordinator |
+| 2026-10-28 | AK | sec10 / physical57 | Author reported a countdown-paragraph source conflict, retained as AK-COUNTDOWN-CONFLICT typed debt. No invented corrected rule or automatic human gate; genuine concern remains pending supported resolution. Evidence scratch/sol-round2/ak/NATIVE-HANDOFF.json. ID: sol-AK-countdown-source-concern-20261028 | gpt-6.1-sol, Sol root coordinator |
+| 2026-10-28 | AK | sec02 / physical14–15 | Author reported differing insurance-reporting threshold qualifiers (exceeds501 versus at least501). Exact source qualifiers/debt retained; no numeric certainty or source clearance invented. Evidence scratch/sol-round2/ak/NATIVE-HANDOFF.json. ID: sol-AK-insurance-boundary-source-concern-20261028 | gpt-6.1-sol, Sol root coordinator |
+
+| 2026-10-28 | MS | sec04 / F053 | Accepted raw fact has13 consecutive copied source words, limit12. Immutable accepted complete-envelope correction awaits tested compatibility release; originals and source/debt preserved. Evidence scratch/sol-round2/ms/ORIGINALITY-REPLACEMENT-INSPECTION.json. ID: sol-MS-sec04-F053-originality-20261028 | gpt-6.1-sol, Sol root coordinator |
+
+| 2026-10-28 | NH | sec03 / F025 | Accepted standalone BAC-threshold fact omits percent unit present in adjacent source context. Exact original and proposed unit completion preserved; immutable02 correction and affected descendants required. Evidence scratch/sol-round2/nh/overnight/ACCEPTED-DEFECTS.json. ID: sol-NH-sec03-F025-unit-20261028 | gpt-6.1-sol, Sol root coordinator |
+
+| 2026-10-28 | NH | sec03 / F001 | Compiler hintOnly regex classifies genuine sentence beginning Difficulty as metadata, excluding it from registry/nodes/cards/items. Source-faithful immutable rewording is proposed; no fabricated registry entry or suppressed guard. Evidence scratch/sol-round2/nh/overnight/ACCEPTED-DEFECTS.json. ID: sol-NH-sec03-F001-hint-classification-20261028 | gpt-6.1-sol, Sol root coordinator |
+
+| 2026-10-28 | RI | sec01 / itm001 | Accepted driver-responsibility question used implausible trucks/trains/aircraft-only distractors. Root authorized genuine accepted06 remint via native section retry nonce, preserve old version and refresh actual descendants. Evidence scratch/sol-round2/ri/resume2/ACCEPTED06-QUALITY-DEFECT-sec01.json. ID: sol-RI-sec01-itm001-distractor-quality-20261028 | gpt-6.1-sol, Sol root coordinator |
+
+| 2026-10-28 | AR/MS/AK/RI | accepted19 mastery_gate.policy_note | Inherited template falsely claimed official80 exam verification while safe exam facts remained unknown/null. AR/MS/AK corrected by native versioned field-only19; RI same precise correction pending quiescent apply. Internal product mastery80 and old provenance/source debt remain. Evidence scratch/sol-state-coordinator/overnight-20261028/policy-note/. ID: sol-AR-MS-AK-RI-policy19-note-20261028 | gpt-6.1-sol, Sol root coordinator |
+
+| 2026-10-29 | MA | sec05/sec09/sec10/sec16 /13 source-condition nodes | Author preserved genuine source-condition or safety ambiguities before bank dispatch. No native failed attempt or coverage waiver;13 flagged nodes are not13 proven wrong facts. Root resolving per-item supported predicates and exact source causes while ready sections continue. Evidence scratch/sol-round2/ma/SOURCE-CONDITION-HOLDS.json SHA8fbfc6f86d4d97c8777f82e614487336fc0b0ae69a25d1d95a7ca83200842a73. ID: sol-MA-source-condition-13nodes-20261029 | gpt-6.1-sol, Sol root coordinator |
+
+| 2026-10-29 | LA | sec01-F23 | Accepted C statement has15 consecutive source words, limit12. A faithful max6-word-overlap proposal exists. Existing exact acceptedC repair is supported: preserve original unknown+blocked_probe:true, oldpartscope/provenance/status/debt, then actual affected descendants. Evidence scratch/sol-round2/la/ACCEPTED02-F23-ORIGINALITY-HOLD.json. This is not a wrong-fact claim or a fictional blocked flag. ID: sol-LA-sec01-F23-originality-20261029 | gpt-6.1-sol, Sol root coordinator |
+
+| 2026-10-29 | MA | 05.sessions /148 facts | Final audit found148 facts in unit bodies/scripts but absent from slide narration. Corrected through16 versioned lessons and16 fresh script bindings; original audit and before/after inventory retained. No fact/source clearance. Evidence scratch/sol-round2/ma/NARRATION-QUALITY-INVENTORY.json and SCRIPT-REFRESH-INVENTORY.json. ID: sol-MA-148-narration-coverage-20261029 | gpt-6.1-sol, Sol root coordinator |
+
+- sol-MS-complete-envelope-multichunk-20261029: MS actual accepted sec04 complete_dossier contains all9 parts across10 valid chunks (two C2 chunks). Released source-groups exact9chunk check returns source_group:unpartitioned_target_not_complete before any new attempt/content change. Evidence: scratch/sol-round2/ms/CHECKPOINT.json and resume2/REPLACEMENT-INSPECTION.json. Typed capability defect; no wrong-fact/debt-clearance claim.
+
+- sol-MS-two-narration-omissions-20261029: MS final actual-narration audit found sec01-F029 and sec05-F013 absent from slide narration while assigned in lesson/card coverage. Root explicitly authorized versioned accepted05.sessions + affected05.card_scripts correction only; rawfacts/16/03/04/06/source/debt/history preserved. Genuine teaching omissions, not two provenwrongfacts.

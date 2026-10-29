@@ -1,0 +1,1275 @@
+{
+  "status": "PASS",
+  "binding_integrity": "PASS",
+  "execution_readiness": "NOT_READY_FOR_EXECUTION",
+  "execution_blockers": [
+    {
+      "kind": "role_qualification_pending",
+      "count": 27
+    },
+    {
+      "kind": "unresolved_run_intake",
+      "fields": [
+        "scope.jurisdiction",
+        "scope.issuing_authority",
+        "scope.audience_age_band",
+        "scope.application_path",
+        "scope.language",
+        "scope.coverage_kind",
+        "scope.handbook_edition",
+        "scope.source_effective_date",
+        "scope.exam_facts.question_count.value",
+        "scope.exam_facts.question_count.source_page",
+        "scope.exam_facts.question_count.source_snapshot_sha256",
+        "scope.exam_facts.passing_percent.value",
+        "scope.exam_facts.passing_percent.source_page",
+        "scope.exam_facts.passing_percent.source_snapshot_sha256",
+        "scope.exam_facts.time_limit_seconds.value",
+        "scope.exam_facts.time_limit_seconds.source_page",
+        "scope.exam_facts.time_limit_seconds.source_snapshot_sha256",
+        "scope.exam_facts.domain_weights.value",
+        "scope.exam_facts.domain_weights.source_page",
+        "scope.exam_facts.domain_weights.source_snapshot_sha256"
+      ]
+    },
+    {
+      "kind": "unresolved_provider_budgets",
+      "fields": [
+        "limits.per_provider_usd_caps.meta",
+        "limits.per_provider_usd_caps.openai",
+        "limits.per_provider_usd_caps.anthropic",
+        "limits.per_provider_usd_caps.google",
+        "limits.per_provider_usd_caps.media"
+      ]
+    },
+    {
+      "kind": "state_selection_pending",
+      "detail": "A non-null candidate jurisdiction does not establish founder selection. Regular passenger-car written-test prep is the locked product scope."
+    },
+    {
+      "kind": "planned_role_scripts_not_implemented",
+      "paths": [
+        "tools/roles/19-role.mjs",
+        "tools/roles/21-role.mjs",
+        "tools/roles/09-role.mjs",
+        "tools/roles/19A-role.mjs"
+      ]
+    },
+    {
+      "kind": "run_specific_review_scope_assignments_pending"
+    },
+    {
+      "kind": "two_independent_provider_families_unresolved",
+      "eligible_family_count": 0,
+      "detail": "Resolve actual candidate, authoring-prompt and intervention lineage; assign two eligible qualified families or HOLD. Google is not automatically activated."
+    },
+    {
+      "kind": "execution_disabled",
+      "detail": "This reviewed-configuration draft has not enabled or demonstrated a live belt run."
+    }
+  ],
+  "verification_debt_fields": [
+    "bindings.review_bots.audit-openai.model"
+  ],
+  "notes": [
+    {
+      "kind": "conditional_schema_non_applicability",
+      "path": "schemas/teaching-presentation.schema.json",
+      "reason": "Conditional pilot non-applicability: the absent parent TeachingPresentation/teaching schemas remain legacy artifacts, distinct from the active project-local contracts/teaching-unit.schema.json owned by05-sessions. Parent session-script/voicescripts and declared local adapters apply only to their mapped outputs. Local teaching fields and fact_id resolution are required, not waived. Re-evaluate applicability if pilot consumption changes; no parent schema requirement is amended."
+    },
+    {
+      "kind": "conditional_schema_non_applicability",
+      "path": "schemas/teaching.schema.json",
+      "reason": "Conditional pilot non-applicability: the absent parent TeachingPresentation/teaching schemas remain legacy artifacts, distinct from the active project-local contracts/teaching-unit.schema.json owned by05-sessions. Parent session-script/voicescripts and declared local adapters apply only to their mapped outputs. Local teaching fields and fact_id resolution are required, not waived. Re-evaluate applicability if pilot consumption changes; no parent schema requirement is amended."
+    }
+  ],
+  "prompt_checks": [
+    {
+      "path": "prompts/02.md",
+      "file_sha256": "d3c50cd8ec7f5eb865d2fea36d561de050cd7882e0babc1ecc152b8a20aa24fa",
+      "template_body_sha256": "c273f362e9aed66154eff114c57b28a7827d78a9b74b88b503222253064dee33",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/02-sme-dossier-envelope.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/03.md",
+      "file_sha256": "47d4adfec68d2aa8a1ff7383f7c033fa088c8a44e5f8a10c1a0b6231d03f291c",
+      "template_body_sha256": "e20709faceb049787c1296e9d8c7579c24162ede081972c39858c6651cb15230",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/03-knowledge-graph.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/04.md",
+      "file_sha256": "402044a44ad763490f1e6bca1e323ca6807f5b2bbc601dfc47858f4131cfd9bc",
+      "template_body_sha256": "e8a02126a8074ef365651361030c32009f5157f058bbf05a58887c54de776949",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/04-carddeck.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/05-sessions.md",
+      "file_sha256": "923c65a6527319116b4ea77a41901093ee5ece1478963c4e546a4ae562cd0dbc",
+      "template_body_sha256": "8637af75537f2a8a29001706a059099c3bdc093aa4b94371804d5d240c962799",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/05b-session-scripts.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/05-card-scripts.md",
+      "file_sha256": "249247583d2375a404c2355b1272d116ed889204f43b5f577551c9980c30c0ab",
+      "template_body_sha256": "c51de12057ee5feea69f5f41e1f33f532e5044dfc8c2850c091cffff16b90a57",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/05-voicescripts.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/06.md",
+      "file_sha256": "cc6a7b1a10494dc0bdb1f92d9ff559c4f0086c8da62030c9fbd04fefae91bc67",
+      "template_body_sha256": "e7130d77897dbccdff626594772d908165481ad464160b976c5f8a7bc72037d0",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/06-exambank.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/07.md",
+      "file_sha256": "2487fb703d009ca4dd957f5708f3cbc0d759e5c77d75c3a087f40861afccf15c",
+      "template_body_sha256": "48426e912dda5a464048bc2a10f34f5a19aa1c36ce94f48adb9725cdc5cf9249",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/07-coverage-report.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/08.md",
+      "file_sha256": "1bc9647173c6c6c2f1b2029c7bff89df698e73e18af1397ab58a50066747251e",
+      "template_body_sha256": "fbb77ce01fed9e35bbee3a5b750d9e3e5f8064d59cc372ab9e3551ba9c0ce052",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/08-fact-report.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/09.md",
+      "file_sha256": "bfd5a11de36b20cdd340fb21a3919cafdeab81f6358fb7f277c79f8f8ac54de5",
+      "template_body_sha256": "291cd0e21531afe959bedf672ff4957a910ab2c10c0de97352dce25918398882",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/09-product-package.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    },
+    {
+      "path": "prompts/19A.md",
+      "file_sha256": "da26d4f76ba84df7a200e1eafe92d45677fd86b032d095a40656e3844c351fa9",
+      "template_body_sha256": "3d9cabf03bd181aa56a4a1ed4bcd2bd101cea6f32ac6d6b75836f143fdd60259",
+      "footer_valid": true,
+      "body_mode_boundary_valid": true,
+      "schema_ref": "schemas-strict/19a-curriculum-unit-map.schema.json",
+      "schema_exists": true,
+      "schema_hash_pinned": true,
+      "adapter_status": "present_receipt_still_required"
+    }
+  ],
+  "controller_header": {
+    "status": "template_only",
+    "sha256": "dddf9efff85c066a9058642033d9aa9ec4099baefaa9a6e142b38d93ef1214c0",
+    "mode": "review",
+    "render_only": true,
+    "execution_authorized": false
+  },
+  "script_implementation_inventory": [
+    {
+      "role_id": "00",
+      "path": "tools/belt/controller.mjs",
+      "status": "implemented_not_qualified",
+      "file_exists": true,
+      "implementation_scope": "Bounded sequential controller; current dispatch/dependency scope only, not a demonstrated full belt.",
+      "sha256": "9b21c26a7cfbb64f5cf6095f9c532de6332b30d932f8dbe8f86bbd1e86706c0a",
+      "bytes": 43516,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "09",
+      "path": "tools/roles/09-role.mjs",
+      "status": "planned",
+      "file_exists": false,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "12",
+      "path": "tools/belt/ledger.mjs",
+      "status": "implemented_not_qualified",
+      "file_exists": true,
+      "implementation_scope": "Isolated run SQLite ledger and append-only provenance; does not amend the canonical factory manifest.",
+      "sha256": "a0084bb9a5480fee6404f2f9cf11a55e1067c9e46e543ca6be2355ef95ee9a28",
+      "bytes": 71828,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "13",
+      "path": "tools/belt/strict-lint.mjs",
+      "status": "implemented_not_qualified",
+      "file_exists": true,
+      "implementation_scope": "Provider strict-schema shape guard only; does not mint or repair all schema-steward artifacts.",
+      "sha256": "efdbde8620dff23683700d29ef998ace9fee617c3c3fef5521bd673ced5b43ac",
+      "bytes": 3973,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "14",
+      "path": "tools/belt/post-validate.mjs",
+      "status": "implemented_not_qualified",
+      "file_exists": true,
+      "implementation_scope": "Mapped artifact schemas and deterministic post-checks; does not assemble content or grant independent acceptance.",
+      "sha256": "68c6cfeca5105a4aab499ca91d92d4e867dd9c9e36c37c2c854f8706344b34b9",
+      "bytes": 7245,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "15",
+      "path": "tools/roles/15-register.mjs",
+      "status": "implemented_not_qualified",
+      "file_exists": true,
+      "implementation_scope": "Offline private-PDF registration and source evidence/debt; independent fact audits remain pending.",
+      "sha256": "3732cfe940ca042b7ebd89479190753382c4f167a752172ccbc6326f42d129ad",
+      "bytes": 32041,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "16",
+      "path": "tools/belt/compile.mjs",
+      "status": "implemented_not_qualified",
+      "file_exists": true,
+      "implementation_scope": "Deterministic accepted02 merge and fact index through the local CompiledDossierPilot adaptation; no canonical Blueprint certification.",
+      "sha256": "f4715740cd0b513cca75bfec1c0d515e5fd27da3aae7446c83c54c2dc7ef6867",
+      "bytes": 30591,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "17",
+      "path": "tools/belt/compile.mjs",
+      "status": "implemented_not_qualified",
+      "file_exists": true,
+      "implementation_scope": "Records the explicit pinned n/a_pilot disposition; no hint-enrichment task or model call executes.",
+      "sha256": "f4715740cd0b513cca75bfec1c0d515e5fd27da3aae7446c83c54c2dc7ef6867",
+      "bytes": 30591,
+      "disposition": "n/a_pilot",
+      "executes_stage": false,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "19",
+      "path": "tools/roles/19-role.mjs",
+      "status": "planned",
+      "file_exists": false,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "19A",
+      "path": "tools/roles/19A-role.mjs",
+      "status": "planned",
+      "file_exists": false,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    },
+    {
+      "role_id": "21",
+      "path": "tools/roles/21-role.mjs",
+      "status": "planned",
+      "file_exists": false,
+      "qualification_status": "not_qualified",
+      "observed_execution": false
+    }
+  ],
+  "adapter_validation_receipt": {
+    "status": "PINNED_EXECUTED_RECEIPTS_PRESENT",
+    "path": "coordination/SOL-BELT-AMENDMENT-ADAPTER-RECEIPT-20261028.json",
+    "observed_sha256": "dd35f06ea4cbac78f4efa8c5df3f6dbefdf1c768306cb58a216d8003963f79a3",
+    "configured_pin_matches": true,
+    "normalized_protocol": "ClaudeSchemaReceipt.0.4.0",
+    "incomplete": [],
+    "hash_mismatches": [],
+    "verified_file_count": 63,
+    "owner_test_summary": {
+      "files": 10,
+      "tests": 123,
+      "pass": 123,
+      "fail": 0,
+      "all_exit_zero": true
+    },
+    "owner_fixture_summary": {
+      "stages_run": [
+        "02.dossier_sections",
+        "03.combined_kg",
+        "04.cards",
+        "05.sessions",
+        "06.exam_bank",
+        "08.content_facts",
+        "09.package",
+        "19A.units",
+        "05.card_scripts",
+        "07.content_coverage"
+      ],
+      "fixtures": 82,
+      "matched": 82,
+      "mismatched": 0,
+      "observed": {
+        "PASS": 13,
+        "FAIL": 59,
+        "HOLD": 10,
+        "ERROR": 0
+      },
+      "stages_missing_mapping": [],
+      "mapping_errors": 0
+    },
+    "integration_acceptance": "Not granted by metadata inspection; owner feedback and independent integration review remain separate."
+  },
+  "observed_closure": {
+    "purpose": "read_only_implementation_dependency_provenance",
+    "stage_count": 10,
+    "observed_files": [
+      {
+        "path": "contracts/media-disposition.json",
+        "sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd",
+        "bytes": 1466,
+        "reasons": [
+          "stage-map shared context media_disposition",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "contracts/pilot-finish-criteria.json",
+        "sha256": "5434ac38e675ab6a05435e95c355d9ca825033fa13650bd26413aa11940261c5",
+        "bytes": 2512,
+        "reasons": [
+          "stage-map shared context finish_criteria",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "contracts/pilot-overrides-v0.4.0.json",
+        "sha256": "c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3",
+        "bytes": 9726,
+        "reasons": [
+          "stage-map shared context overlay",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "contracts/source-fact-policy.json",
+        "sha256": "525934833394b1b37cc5ce8eb58939ae78aff0fb0c814e70df7718253795d05d",
+        "bytes": 1327,
+        "reasons": [
+          "stage-map shared context source_fact_policy",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "contracts/source-liveness-receipt.schema.json",
+        "sha256": "09e2305a97b1fe3099e8889214fab78da330c4df1a85730da93eb4a15339696c",
+        "bytes": 2575,
+        "reasons": [
+          "stage-map shared context source_liveness_receipt_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "contracts/teaching-unit.schema.json",
+        "sha256": "0eb8189a6d4aac9ac2ce455c9d65f632e88c977200280748b6173f76de3a4b35",
+        "bytes": 6864,
+        "reasons": [
+          "05.sessions.local_owned_schema",
+          "stage-map shared context teaching_unit_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "ccf745c9c85e1eb09a62b485c0df4674ccdee26b6133b9145735b32f81b10653",
+        "bytes": 4517,
+        "reasons": [
+          "implementation entrypoint/lock",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "package.json",
+        "sha256": "53acbd3e40cb38569ca3d7c70e707d46d26924bc2a97ed253b6ff0a66b05c5ad",
+        "bytes": 442,
+        "reasons": [
+          "implementation entrypoint/lock",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/02-sme-dossier-envelope.mapping.json",
+        "sha256": "f74bd4b2508acddce3d7f7c1f475c6d4f1aaa0ab46d2fd9e15e049d35faba743",
+        "bytes": 20264,
+        "reasons": [
+          "02.dossier_sections.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/02-sme-dossier-envelope.schema.json",
+        "sha256": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111",
+        "bytes": 13800,
+        "reasons": [
+          "02.dossier_sections.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/03-knowledge-graph.mapping.json",
+        "sha256": "a3f46a4b9bb21c0e7c56e34584fed44a4c97adae5f62ec03a832a5a2bf681aca",
+        "bytes": 18389,
+        "reasons": [
+          "03.combined_kg.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/03-knowledge-graph.schema.json",
+        "sha256": "789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8",
+        "bytes": 19200,
+        "reasons": [
+          "03.combined_kg.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/04-carddeck.mapping.json",
+        "sha256": "6209f5a30e88fca9a52b4e987c3ffb0f0175429af2ba57ed254eaf86a7fba202",
+        "bytes": 33907,
+        "reasons": [
+          "04.cards.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/04-carddeck.schema.json",
+        "sha256": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d",
+        "bytes": 9692,
+        "reasons": [
+          "04.cards.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/05-voicescripts.mapping.json",
+        "sha256": "480d0f41bc8ddd0df420819fba7e1dd3cc36c4463275fbde25ca4f206c29d088",
+        "bytes": 26085,
+        "reasons": [
+          "05.card_scripts.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/05-voicescripts.schema.json",
+        "sha256": "7c02cb21865097a56362b1b8f474afb1d2ec798ec54b206e155c47e7777db409",
+        "bytes": 8195,
+        "reasons": [
+          "05.card_scripts.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/05b-session-scripts.mapping.json",
+        "sha256": "693b4a9ffa6a73c3179d80a627aa2aae1128a267ab15f951c2de679316596764",
+        "bytes": 30086,
+        "reasons": [
+          "05.sessions.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/05b-session-scripts.schema.json",
+        "sha256": "2457854f6f129e80be4465ac7a132295fd34e83425378365a4f491704aa88e41",
+        "bytes": 12141,
+        "reasons": [
+          "05.sessions.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/06-exambank.mapping.json",
+        "sha256": "2837d28d0dec105f7340940b567b9414eeb6aff002473d1eb65e6bdc85987933",
+        "bytes": 19372,
+        "reasons": [
+          "06.exam_bank.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/06-exambank.schema.json",
+        "sha256": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22",
+        "bytes": 8671,
+        "reasons": [
+          "06.exam_bank.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/07-coverage-report.mapping.json",
+        "sha256": "3523ac716a77c3e06172c185020271d37ef4ca6e618e9ccddba58c977f93db41",
+        "bytes": 21109,
+        "reasons": [
+          "07.content_coverage.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/07-coverage-report.schema.json",
+        "sha256": "bec7552a58e907e64b7efdbc47e453a92bc4043316b270daf473c1ef1eee9bea",
+        "bytes": 10667,
+        "reasons": [
+          "07.content_coverage.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/08-fact-report.mapping.json",
+        "sha256": "0b0a625ccec36dd51504d3a3b3139150f7eed104e76ab92aa9c048865ff3f9ad",
+        "bytes": 20789,
+        "reasons": [
+          "08.content_facts.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/08-fact-report.schema.json",
+        "sha256": "8a60a2ea4b4ceda131a7966a77883fb04b3ccc2e3d179989cee5ac20d1248502",
+        "bytes": 11252,
+        "reasons": [
+          "08.content_facts.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/09-product-package.mapping.json",
+        "sha256": "11b9cc7b92a4aedf4ffa42ac16f6df6983ae2d9924b85017be01a5fa6ef280de",
+        "bytes": 33594,
+        "reasons": [
+          "09.package.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/09-product-package.schema.json",
+        "sha256": "d5eb391b55633d4de7735a38dd0f3927edcfb511ce5592ea2f820d328b0dceb7",
+        "bytes": 12695,
+        "reasons": [
+          "09.package.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/19a-curriculum-unit-map.mapping.json",
+        "sha256": "24eb9f3bedd90aee1f399998a8087e0328ceac51c4795a8c66df2e9cefbb9d74",
+        "bytes": 16594,
+        "reasons": [
+          "19A.units.mapping",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/19a-curriculum-unit-map.schema.json",
+        "sha256": "343cc578f12ebb8bb9d5bb24a2a59026ab525afca8a15fa36a1f2dd6f116ef0a",
+        "bytes": 9481,
+        "reasons": [
+          "19A.units.adapter_schema",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "schemas-strict/stage-map.json",
+        "sha256": "c1317e9e8dca329758472f9ce70c49810a34afd0ef6d710073062c3d18f1e2dc",
+        "bytes": 6994,
+        "reasons": [
+          "implementation entrypoint/lock",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/02-dossier-sections.mjs",
+        "sha256": "5a9fe43294ea1368ce527163a4e219a2b201684cc176e1daf041eb434f2eedd9",
+        "bytes": 35561,
+        "reasons": [
+          "02.dossier_sections.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/03-combined-kg.mjs",
+        "sha256": "996ac651dbfd8643b78b3e6c28d5d073ed91cfbe0337ad5de1f764360fe1e08e",
+        "bytes": 28605,
+        "reasons": [
+          "03.combined_kg.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/04-cards.mjs",
+        "sha256": "bf7e0c201faaa458b311e10b942f2e509eb9dc762c5868da724eef2cb86722da",
+        "bytes": 33204,
+        "reasons": [
+          "04.cards.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/05-card-scripts.mjs",
+        "sha256": "1c05e52617fb918ea16b8ef40c50a98dd3276c2df5dc7257489923bc15c4f191",
+        "bytes": 23365,
+        "reasons": [
+          "05.card_scripts.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/05-sessions.mjs",
+        "sha256": "1751a8ece6fdea5bab53b466736d04bd1e6d87a3e636acf2a0d12d8a620aa4c7",
+        "bytes": 21406,
+        "reasons": [
+          "05.sessions.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/06-exam-bank.mjs",
+        "sha256": "c886bd5267f388c919bf4d9ea6e6702f60d636eec91bdca53fc0a00c43238146",
+        "bytes": 35372,
+        "reasons": [
+          "06.exam_bank.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/07-content-coverage.mjs",
+        "sha256": "2752725c95621facfb01948e1ba718dd0d81117e701aff304fa70c3fa2e2f2f1",
+        "bytes": 20526,
+        "reasons": [
+          "07.content_coverage.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/08-content-facts.mjs",
+        "sha256": "8475a929ef7c27a91d468b93a7bd1440614bf34d5631db1ed60f0ab86f471778",
+        "bytes": 18045,
+        "reasons": [
+          "08.content_facts.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/09-package.mjs",
+        "sha256": "5eda034e82fdb012c3af5751fa103bba61497cbc07fa0dc6e918ec8c6159be0a",
+        "bytes": 37151,
+        "reasons": [
+          "09.package.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/checks/19a-units.mjs",
+        "sha256": "f9f82a5e5e8968900317108f8f86f39ddab186be7d6b9567d753469e0da57bc6",
+        "bytes": 22044,
+        "reasons": [
+          "19A.units.checks_module",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/completion-coverage.mjs",
+        "sha256": "95ccb3bedc291284ea1a312568fca2fe3930a105ce5a9ca526c429cad245ee87",
+        "bytes": 6068,
+        "reasons": [
+          "explicit normalized owner closure pin",
+          "local import from tools/belt/checks/07-content-coverage.mjs"
+        ]
+      },
+      {
+        "path": "tools/belt/lib/cards-sessions-common.mjs",
+        "sha256": "20421533cae4d26af4e4c5c31431dfbd84c579d306fc1b0022ae4de22a88457d",
+        "bytes": 11171,
+        "reasons": [
+          "explicit normalized owner closure pin",
+          "local import from tools/belt/checks/04-cards.mjs",
+          "local import from tools/belt/checks/05-sessions.mjs",
+          "local import from tools/belt/checks/05-card-scripts.mjs"
+        ]
+      },
+      {
+        "path": "tools/belt/lib/hash.mjs",
+        "sha256": "200cee583fb112fb3544f95046ae0b07780eb2e4d1836cbc851d9836bf6793d2",
+        "bytes": 882,
+        "reasons": [
+          "explicit normalized owner closure pin",
+          "local import from tools/belt/post-validate.mjs",
+          "local import from tools/belt/checks/02-dossier-sections.mjs",
+          "local import from tools/belt/lib/qa-common.mjs"
+        ]
+      },
+      {
+        "path": "tools/belt/lib/qa-common.mjs",
+        "sha256": "7e7b6d32b77d50d0f1d1eed4f9d3e7d781ae8c398843167c10433d45b37f94ba",
+        "bytes": 8386,
+        "reasons": [
+          "explicit normalized owner closure pin",
+          "local import from tools/belt/checks/06-exam-bank.mjs",
+          "local import from tools/belt/checks/07-content-coverage.mjs",
+          "local import from tools/belt/checks/08-content-facts.mjs",
+          "local import from tools/belt/completion-coverage.mjs"
+        ]
+      },
+      {
+        "path": "tools/belt/post-validate.mjs",
+        "sha256": "68c6cfeca5105a4aab499ca91d92d4e867dd9c9e36c37c2c854f8706344b34b9",
+        "bytes": 7245,
+        "reasons": [
+          "implementation entrypoint/lock",
+          "explicit normalized owner closure pin"
+        ]
+      },
+      {
+        "path": "tools/belt/strict-lint.mjs",
+        "sha256": "efdbde8620dff23683700d29ef998ace9fee617c3c3fef5521bd673ced5b43ac",
+        "bytes": 3973,
+        "reasons": [
+          "implementation entrypoint/lock",
+          "explicit normalized owner closure pin",
+          "local import from tools/belt/strict-lint.mjs"
+        ]
+      },
+      {
+        "path": "tools/check-audit-independence.mjs",
+        "sha256": "3d1f580da26e14bdc41b0be9110b34b525fc4b1b1f26bbcfe07fcbc19eb616df",
+        "bytes": 9020,
+        "reasons": [
+          "explicit normalized owner closure pin",
+          "local import from tools/belt/checks/07-content-coverage.mjs",
+          "local import from tools/belt/lib/qa-common.mjs"
+        ]
+      },
+      {
+        "path": "tools/wrap-post-validation-receipt.mjs",
+        "sha256": "d7c0a2dbed4e40feb59a0968c7d1e0e58afb4e6240d46178db441352f74470b5",
+        "bytes": 30004,
+        "reasons": [
+          "explicit normalized owner closure pin",
+          "local import from tools/belt/post-validate.mjs"
+        ]
+      }
+    ],
+    "missing_files": [],
+    "parent_schema_pins": [
+      {
+        "stage_id": "02.dossier_sections",
+        "path": "schemas/blueprint.schema.json",
+        "expected_sha256": "3fbd6ddeaa402b2819d6e859d16034b002d78bc55f1727a388a722509c86de54",
+        "observed_sha256": "3fbd6ddeaa402b2819d6e859d16034b002d78bc55f1727a388a722509c86de54",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "03.combined_kg",
+        "path": "schemas/knowledge-graph.schema.json",
+        "expected_sha256": "19081f3514098118383a65b32534fde9730d2f1b001a01a3c2ef6606db9bf2bc",
+        "observed_sha256": "19081f3514098118383a65b32534fde9730d2f1b001a01a3c2ef6606db9bf2bc",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "04.cards",
+        "path": "schemas/carddeck.schema.json",
+        "expected_sha256": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93",
+        "observed_sha256": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "05.sessions",
+        "path": "schemas/session-script.schema.json",
+        "expected_sha256": "82aad2b15dd77c58e9770f6b809d07b1be9f3b5b91de550b6837f11bc5695ff2",
+        "observed_sha256": "82aad2b15dd77c58e9770f6b809d07b1be9f3b5b91de550b6837f11bc5695ff2",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "05.card_scripts",
+        "path": "schemas/voicescripts.schema.json",
+        "expected_sha256": "dacca78436481539c7ca3bd5c7d95f67cc7cc99b16e4f6e0d7a4da19ca19b3ca",
+        "observed_sha256": "dacca78436481539c7ca3bd5c7d95f67cc7cc99b16e4f6e0d7a4da19ca19b3ca",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "06.exam_bank",
+        "path": "schemas/exambank.schema.json",
+        "expected_sha256": "c0c885cc34e1cbea41ea8b91585733c3ebbed6c17e7228436735a33f6bd81b13",
+        "observed_sha256": "c0c885cc34e1cbea41ea8b91585733c3ebbed6c17e7228436735a33f6bd81b13",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "07.content_coverage",
+        "path": "schemas/coverage-report.schema.json",
+        "expected_sha256": "7b462eb53cbd2e27d66da59079cf96ef918f9b85928693a455f91e56d9ce3085",
+        "observed_sha256": "7b462eb53cbd2e27d66da59079cf96ef918f9b85928693a455f91e56d9ce3085",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "08.content_facts",
+        "path": "schemas/fact-report.schema.json",
+        "expected_sha256": "42c17d5f518376b7c1ff692b42a1e864a84e1bae82f64b5825ce310b905c394a",
+        "observed_sha256": "42c17d5f518376b7c1ff692b42a1e864a84e1bae82f64b5825ce310b905c394a",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "09.package",
+        "path": "schemas/product-package.schema.json",
+        "expected_sha256": "ed7005ca43944ebde3c5b9778c89694adeebbc6f39482ea31708dfe23520f721",
+        "observed_sha256": "ed7005ca43944ebde3c5b9778c89694adeebbc6f39482ea31708dfe23520f721",
+        "status": "MATCH"
+      },
+      {
+        "stage_id": "19A.units",
+        "path": "schemas/curriculum-unit-map.schema.json",
+        "expected_sha256": "16f942a9b4c09a85d723c9fd485c629f3b36cdbccb8bd332b340642348eddd26",
+        "observed_sha256": "16f942a9b4c09a85d723c9fd485c629f3b36cdbccb8bd332b340642348eddd26",
+        "status": "MATCH"
+      }
+    ],
+    "bare_package_imports": [
+      "+normalize(path.relative(projectRoot,file)));}}\n    }\n  }\n  const refs=[...pins.values()].sort((a,b)=>a.path.localeCompare(b.path));\n  return{status:errors.length?",
+      "+specifier+",
+      "ajv",
+      "ajv-formats"
+    ],
+    "unresolved_dynamic_imports": [],
+    "validation_errors": [],
+    "receipt_status": "LISTED_HASHES_MATCH_ONLY",
+    "unlisted_dependencies": [],
+    "changed_dependencies": [],
+    "sealed_but_unresolved": [],
+    "closure_complete": true,
+    "validation_claim": "No implementation or fixture was executed; matching hashes never constitute artifact validation."
+  },
+  "audit_independence": {
+    "status": "BLOCKED",
+    "lineage_complete": false,
+    "required_provider_families": 2,
+    "eligible_provider_families": [],
+    "eligible_provider_family_count": 0,
+    "evaluations": [
+      {
+        "bot_id": "audit-openai",
+        "actor_id": null,
+        "provider_family": "openai",
+        "eligible": false,
+        "reasons": [
+          "candidate_lineage_provenance_incomplete",
+          "auditor_actor_or_session_unresolved",
+          "auditor_actual_model_unresolved",
+          "auditor_not_qualified_for_scope"
+        ],
+        "conflicting_contributors": []
+      },
+      {
+        "bot_id": "audit-claude",
+        "actor_id": null,
+        "provider_family": "anthropic",
+        "eligible": false,
+        "reasons": [
+          "candidate_lineage_provenance_incomplete",
+          "auditor_actor_or_session_unresolved",
+          "auditor_not_qualified_for_scope"
+        ],
+        "conflicting_contributors": []
+      }
+    ],
+    "policy": "actor_and_provider_family_independence_including_prompt_and_intervention_lineage",
+    "no_model_calls": true,
+    "candidate_manifest_ref": null,
+    "resolved_lineage_files": 0,
+    "validation_errors": [
+      "candidate_manifest_ref unresolved"
+    ]
+  },
+  "ui_validation": {
+    "status": "not_requested",
+    "acceptance": "No UiSpec or validation receipts were produced by this check."
+  },
+  "optional_preview_parity": "not_requested",
+  "run_config": "D:/nova/fb-ai-hackathon/RDMV-RUN-CONFIG.template.json",
+  "registry_spec_inherited_from_template": false,
+  "roles": 47,
+  "roles_active": 27,
+  "inactive_for_pilot": [
+    "10",
+    "11",
+    "18",
+    "20",
+    "22",
+    "23",
+    "24",
+    "25",
+    "01",
+    "10A",
+    "10B",
+    "20A",
+    "20B",
+    "B2",
+    "B3",
+    "B4",
+    "B6",
+    "B7",
+    "B8",
+    "B9"
+  ],
+  "pinned_contracts": 47,
+  "unbound_roles": [],
+  "review_bots": 3,
+  "review_bots_active": 2,
+  "qualification_result_04": {
+    "role_id": "04",
+    "qualification_status": "not_qualified",
+    "qualification_source": "scoped_held_out_qualification_report",
+    "report_ref": "qualification/QUALIFICATION-REPORT-04.json",
+    "report_status": "absent",
+    "validation_errors": []
+  },
+  "qualification_sources": [
+    {
+      "role_id": "12",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "12",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "13",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "13",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "14",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "14",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "15",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "15",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "16",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "16",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "17",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "17",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "19",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "19",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "21",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "21",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "00",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "00",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "01b",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "01b",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "02",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "02",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "03",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "03",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "04",
+      "policy": "scoped_held_out_qualification_report",
+      "status": "pending",
+      "report_ref": "qualification/QUALIFICATION-REPORT-04.json",
+      "criteria_ref": "qualification/CRITERIA-04-text-first.json",
+      "binding_ref": "qualification/BINDING-04-text-first.template.json",
+      "proof_owner_role_id": "04",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "05",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "05",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "06",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "06",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "07",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "07",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "08",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "08",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "09",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "09",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "19A",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "19A",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "KG-01",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "03",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "KG-02",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "03",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "KG-03",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "03",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "KG-04",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "03",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "KG-05",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "03",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "UI",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "UI",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "B1",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "B1",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    },
+    {
+      "role_id": "B5",
+      "policy": "qualified_by_first_accepted_artifact",
+      "status": "pending",
+      "report_ref": null,
+      "criteria_ref": null,
+      "binding_ref": null,
+      "proof_owner_role_id": "B5",
+      "policy_does_not_imply_current_qualification": true,
+      "effective_qualification_status": "not_qualified"
+    }
+  ],
+  "schema_references": 52,
+  "unique_schema_paths": 46,
+  "missing_schema_paths": [],
+  "registry": "D:/nova/fb-ai-hackathon/contracts/bot-contract-bindings.json",
+  "errors": []
+}

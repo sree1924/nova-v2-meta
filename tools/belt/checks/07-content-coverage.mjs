@@ -6,6 +6,7 @@
 // "Never repair" is a prompt-level instruction, not a check. Pure: no network, no writes, no clock.
 import { check, head, isHex64, PROBE_SLUG, emptyStrings, candidateEchoCheck, inputMembershipCheck, independenceCheck, verdictGateCheck } from '../lib/qa-common.mjs';
 import { providerFamily } from '../../check-audit-independence.mjs';
+import { completionCoverage } from '../completion-coverage.mjs';
 
 export const stage_id = '07.content_coverage';
 const P = '07';
@@ -90,11 +91,18 @@ export function run(r, context = {}) {
     out.push(check(`${P}.VERDICT_CONSISTENCY`, st, ev));
   }
 
-  // REQUIRED_CHECKS_RUN — PASS requires every assigned required check executed.
+  // REQUIRED_CHECKS_RUN — completion independently joins accepted KG -> cards/merges -> items.
+  // 06 structural acceptance remains distinct; no freeform gap/disposition can waive this join.
   {
     const n = arr('required_checks_not_run');
     const bad = r?.verdict === 'PASS' && n.length;
-    out.push(check(`${P}.REQUIRED_CHECKS_RUN`, bad ? 'FAIL' : 'PASS', bad ? `verdict PASS but required_checks_not_run: ${head(n)}` : n.length ? `${n.length} required check(s) not run, verdict ${r?.verdict} (not PASS)` : 'no required check left unrun'));
+    const coverage = completionCoverage(context, r?.input_hashes);
+    const evidence = [bad ? `verdict PASS but required_checks_not_run: ${head(n)}` : n.length ? `${n.length} required check(s) not run, verdict ${r?.verdict} (not PASS)` : 'no required check left unrun'];
+    if (coverage.errors.length) evidence.push(head(coverage.errors));
+    if (coverage.missing.length) evidence.push(`completion coverage unverified: ${head(coverage.missing)} absent`);
+    if (coverage.gaps.length) evidence.push(`completion coverage missing: ${head(coverage.gaps.map(g => `${g.node_id}:${g.missing}`))}; no schema-supported assessment-gap waiver`);
+    if (coverage.status === 'PASS') evidence.push(`${coverage.metrics.required_nodes} required served/high-yield node(s) have card and assessment coverage, including merged nodes`);
+    out.push(check(`${P}.REQUIRED_CHECKS_RUN`, bad || coverage.status === 'FAIL' ? 'FAIL' : coverage.status, evidence.join(' | '), coverage.metrics));
   }
 
   // ROUTE_COVERAGE — every blocking finding's owner appears in route_back; gaps imply a route.

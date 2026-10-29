@@ -1,0 +1,419 @@
+{
+  "stage_id": "07.content_coverage",
+  "adapter_schema": {
+    "path": "schemas-strict/07-coverage-report.schema.json",
+    "sha256": "bec7552a58e907e64b7efdbc47e453a92bc4043316b270daf473c1ef1eee9bea"
+  },
+  "parent_schema": {
+    "path": "schemas/coverage-report.schema.json",
+    "sha256": "7b462eb53cbd2e27d66da59079cf96ef918f9b85928693a455f91e56d9ce3085"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "Adds HOLD verdict, candidate/input-hash binding, extended route enum, weight_check with nullable weights, media-disposition section and sentinel; not a strict subset of the parent.",
+  "overlay_authority": {
+    "path": "contracts/pilot-overrides-v0.4.0.json",
+    "pointer": "/role_overrides/07",
+    "sha256": "35a1237a237b6e03172ca6dae063de2c552103845c2d8ef4dd5a351c6f2d37d1",
+    "adaptations": [
+      "Practice-only06 acceptance under this overlay",
+      "Media non-applicability uses pinned early media-disposition artifact",
+      "Adapter route enum includes02/13/15/08 as typed responsible owners"
+    ]
+  },
+  "checks_module": "tools/belt/checks/07-content-coverage.mjs",
+  "compensating_checks": [
+    "07.SCHEMA",
+    "07.ENVELOPE",
+    "07.CANDIDATE_ECHO",
+    "07.INPUT_MEMBERSHIP",
+    "07.ROW_FIELDS",
+    "07.VERDICT_INVARIANT",
+    "07.VERDICT_CONSISTENCY",
+    "07.REQUIRED_CHECKS_RUN",
+    "07.ROUTE_COVERAGE",
+    "07.DOMAIN_WEIGHTS",
+    "07.PRACTICE_FORM_DRIFT",
+    "07.TITLED_PROMISE",
+    "07.MEDIA_DISPOSITION",
+    "07.EARLY_MEDIA_INTENT",
+    "07.PROVIDER_SCOPE",
+    "07.INDEPENDENCE",
+    "07.VERDICT_GATE"
+  ],
+  "acceptance_semantics": "post-validator status = acceptance status: 07.VERDICT_GATE mirrors the report verdict (FAIL->FAIL, HOLD->HOLD), so an honest FAIL/HOLD report never yields PASS; every other check validates the report's own honesty/binding.",
+  "context_keys": {
+    "candidate_manifest": "hashed manifest body {members:[{role,path,sha256}]} (never contains its own digest); expected candidate digest = context.candidate_manifest_sha256 if supplied else sha256(canonicalJson(candidate_manifest)) — 07.CANDIDATE_ECHO / 07.INPUT_MEMBERSHIP (HOLD absent)",
+    "media_disposition": "{path, sha256, document} of contracts/media-disposition.json — 07.MEDIA_DISPOSITION (HOLD absent)",
+    "early_media_intent": "{ref, sha256} bound before 07 — 07.EARLY_MEDIA_INTENT (HOLD absent)",
+    "exambank": "accepted 06 artifact body — 07.PRACTICE_FORM_DRIFT recompute (HOLD absent)",
+    "titled_surfaces": "[{surface_id,title,actual_count}] — 07.TITLED_PROMISE (HOLD absent)",
+    "exam_facts_view.domain_weights": "{<domain>:{value,status}} — 07.DOMAIN_WEIGHTS (HOLD only when a row claims weight_check checked)",
+    "audit_assignment": "{provider_family, assigned_scope} — 07.PROVIDER_SCOPE (HOLD absent)",
+    "intervention_lineage": "{lineage_complete, actors:[{actor_id,provider_family,session_id,artifact_sha256,contribution_kind}]} — the actor shape of tools/check-audit-independence.mjs; 07.INDEPENDENCE (HOLD absent)",
+    "prompt_authorship": "contracts/prompt-authorship.json document; entries folded in as authoring_prompt contributors"
+  },
+  "deviations": [
+    {
+      "field": "/verdict",
+      "parent_rule": "enum PASS|FAIL",
+      "adapter_rule": "enum PASS|FAIL|HOLD",
+      "reason": "prompt 07: candidate/hash mismatch -> HOLD; missing bindings produce a typed failure, never a guess",
+      "compensating_check": "07.VERDICT_CONSISTENCY, 07.VERDICT_GATE"
+    },
+    {
+      "field": "/route_back/items/to_worker",
+      "parent_rule": "enum 03|04|05|06|19A|20A|09",
+      "adapter_rule": "enum 02|03|04|05|06|13|15|19A|09|08|00 (also blocking_findings[].route_to; 20A removed — inactive seat, matches prompts/07.md)",
+      "reason": "overlay 07 adaptation: typed responsible owners 02/13/15/08 (+00 orchestrator); handoff item 7",
+      "compensating_check": "07.ROUTE_COVERAGE; fixture synthetic-route-to-02.json proves 07.SCHEMA accepts to_worker 02"
+    },
+    {
+      "field": "/candidate_sha256, /input_hashes",
+      "parent_rule": "absent (artifact_hash only)",
+      "adapter_rule": "candidate_sha256 required; input_hashes fixed-key object {blueprint,knowledge_graph,carddeck,session_scripts,voice_scripts,exambank,curriculum_unit_map,learning_loop,early_media_intent,source_registry} each sha256|null",
+      "reason": "post-seal reports echo the exact candidate; strict mode forbids an open map so keys are fixed",
+      "compensating_check": "07.CANDIDATE_ECHO, 07.INPUT_MEMBERSHIP (required non-null: blueprint, knowledge_graph, carddeck, session_scripts, exambank)"
+    },
+    {
+      "field": "/domain_coverage/items",
+      "parent_rule": "{domain, weight_pct 0..100 (required number), content_share, weighting_drift >=0, ok}",
+      "adapter_rule": "{domain, weight_check not_applicable|checked, weight_pct number|null, content_share, weighting_drift number|null, ok}",
+      "reason": "unknown official weights stay null; no fabricated number (source-fact-policy numerical_weights)",
+      "compensating_check": "07.DOMAIN_WEIGHTS"
+    },
+    {
+      "field": "/mock_drift",
+      "parent_rule": "mock_drift[]{form_id, issue distribution|threshold, expected any, actual any}",
+      "adapter_rule": "practice_form_drift[]{form_id, issue distribution|threshold|count|overlap_disclosure, expected string, actual string}",
+      "reason": "practice-only forms (overlay 06); strict mode needs typed expected/actual",
+      "compensating_check": "07.PRACTICE_FORM_DRIFT"
+    },
+    {
+      "field": "/dropped_facts/items/source_ref",
+      "parent_rule": "anyOf string | sourceRef object",
+      "adapter_rule": "string (+ fact_id)",
+      "reason": "anyOf object branch would need an open object; fact_id makes the row resolvable",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "field": "/media (new), /media_gaps/items/owner",
+      "parent_rule": "no media disposition section; owner enum 20A|20|04|05|19A (optional)",
+      "adapter_rule": "media{media_disposition_ref,media_disposition_sha256,early_media_intent_ref|null,non_applicable_checks[]}; owner required, enum adds 15 (Role 15 bound sign assets)",
+      "reason": "handoff item 8: explicit text-only disposition + early UI media intent; a late UISpec cannot supply it",
+      "compensating_check": "07.MEDIA_DISPOSITION, 07.EARLY_MEDIA_INTENT"
+    },
+    {
+      "field": "/source_refs/image_scout_plan",
+      "parent_rule": "string minLength 1 (an ImageScoutPlan ref)",
+      "adapter_rule": "string; sentinel deferred:not_applicable_pilot allowed only here",
+      "reason": "20A inactive per media-disposition; no scout success claimed",
+      "compensating_check": "07.ENVELOPE (sentinel placement), 07.MEDIA_DISPOSITION (image_cards_enabled false)"
+    },
+    {
+      "field": "/coverage_matrix_ref, /coverage_basis, /provider_family, /assigned_scope, /required_checks_not_run, /blocking_findings, /titled_promises",
+      "parent_rule": "absent",
+      "adapter_rule": "required",
+      "reason": "prompt 07 standing gates: evidence, scoped two-provider assignment, no PASS with unrun required check, rule 15",
+      "compensating_check": "07.ENVELOPE, 07.PROVIDER_SCOPE, 07.REQUIRED_CHECKS_RUN, 07.ROUTE_COVERAGE, 07.TITLED_PROMISE"
+    },
+    {
+      "field": "/curriculum_unit_gaps/items/ref",
+      "parent_rule": "optional string",
+      "adapter_rule": "required string|null",
+      "reason": "strict mode requires every property",
+      "compensating_check": "07.SCHEMA"
+    },
+    {
+      "field": "/schema_version",
+      "parent_rule": "const \"1.0.0\"",
+      "adapter_rule": "adapter_version enum [\"0.4.0\"] + artifact_type enum",
+      "reason": "const not relied on",
+      "compensating_check": "07.SCHEMA"
+    },
+    {
+      "field": "/artifact_hash",
+      "parent_rule": "optional string",
+      "adapter_rule": "absent",
+      "reason": "hashes computed by the dispatcher over bytes",
+      "compensating_check": "07.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate CLI artifact_sha256"
+    },
+    {
+      "field": "(every object)",
+      "parent_rule": "additionalProperties true",
+      "adapter_rule": "additionalProperties false, all properties required",
+      "reason": "provider strict subset",
+      "compensating_check": "07.SCHEMA"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "parent:/allOf/0",
+      "keyword": "allOf(if verdict PASS then curriculum_unit_gaps/media_gaps/cross_product_refs maxItems 0)",
+      "parent_value": {
+        "if": {
+          "verdict": "PASS"
+        },
+        "then": {
+          "curriculum_unit_gaps": {
+            "maxItems": 0
+          },
+          "media_gaps": {
+            "maxItems": 0
+          },
+          "cross_product_refs": {
+            "maxItems": 0
+          }
+        }
+      },
+      "compensating_check": "07.VERDICT_INVARIANT"
+    },
+    {
+      "json_pointer": "parent:/$defs/probeSlug",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "07.ENVELOPE"
+    },
+    {
+      "json_pointer": "parent:/properties/schema_version",
+      "keyword": "const",
+      "parent_value": "1.0.0",
+      "compensating_check": "07.SCHEMA (adapter_version enum)"
+    },
+    {
+      "json_pointer": "parent:/properties/source_refs/properties/*",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ENVELOPE"
+    },
+    {
+      "json_pointer": "parent:/properties/domain_coverage/items/properties/domain",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/domain_coverage/items/properties/weight_pct",
+      "keyword": "minimum/maximum",
+      "parent_value": [
+        0,
+        100
+      ],
+      "compensating_check": "07.ROW_FIELDS, 07.DOMAIN_WEIGHTS"
+    },
+    {
+      "json_pointer": "parent:/properties/domain_coverage/items/properties/content_share",
+      "keyword": "minimum/maximum",
+      "parent_value": [
+        0,
+        100
+      ],
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/domain_coverage/items/properties/weighting_drift",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "07.ROW_FIELDS, 07.DOMAIN_WEIGHTS (|share-weight| recomputed; ok <=> drift <= 5 and share > 0)"
+    },
+    {
+      "json_pointer": "parent:/properties/missing_high_yield/items/properties/{domain,high_yield_area}",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/dropped_facts/items/properties/{source_ref,statement,domain}",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/mock_drift/items/properties/form_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/voice_gaps/items/properties/card_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/curriculum_unit_gaps/items/properties/unit_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/media_gaps/items/properties/media_slot_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/pending_media/items/properties/media_slot_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/pending_media/items/properties/required",
+      "keyword": "const",
+      "parent_value": false,
+      "compensating_check": "07.SCHEMA (enum [false])"
+    },
+    {
+      "json_pointer": "parent:/properties/cross_product_refs/items/properties/ref",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/cross_product_refs/items/properties/expected_tenant_dir",
+      "keyword": "pattern",
+      "parent_value": "^app/public/tenants/[a-z0-9][a-z0-9-]*$",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/sme_dod_unsatisfied/items/properties/{checklist_item,evidence_missing}",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/properties/route_back/items/properties/gap_ref",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "json_pointer": "parent:/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "parent_value": "date-time",
+      "compensating_check": "sourceRef objects not carried at 07 (string refs); liveness dates validated by downstream stage 08: 08.LIVENESS_RECEIPT_SHAPE"
+    }
+  ],
+  "dropped_constraints_note": "json_pointer values are prefixed 'parent:' — they address the PARENT schema; the adapter itself uses no soft keyword (strict-lint ok without exemptions).",
+  "added_invariants": [
+    {
+      "rule": "candidate_sha256 echo + every bound input hash is a candidate-manifest member; mismatched candidate -> FAIL; manifest absent -> HOLD",
+      "check": "07.CANDIDATE_ECHO, 07.INPUT_MEMBERSHIP"
+    },
+    {
+      "rule": "verdict cannot be PASS with any required_checks_not_run",
+      "check": "07.REQUIRED_CHECKS_RUN"
+    },
+    {
+      "rule": "media ref/sha + non_applicable_checks must equal the pinned media disposition; early media intent bound before 07, never a 09 UISpec",
+      "check": "07.MEDIA_DISPOSITION, 07.EARLY_MEDIA_INTENT"
+    },
+    {
+      "rule": "Order Q rule 15 titled promises recomputed against context surfaces",
+      "check": "07.TITLED_PROMISE"
+    },
+    {
+      "rule": "Order Q rule 5 + rule 15 form recompute from the accepted 06 bank (06 totals never trusted)",
+      "check": "07.PRACTICE_FORM_DRIFT"
+    },
+    {
+      "rule": "two-provider rule: report states provider_family + assigned_scope matching dispatch; family independent of candidate/prompt lineage",
+      "check": "07.PROVIDER_SCOPE, 07.INDEPENDENCE"
+    },
+    {
+      "rule": "no majority vote: the post-validator status of each scoped report is its own acceptance (07.VERDICT_GATE); combining reports across providers is the caller's AND, never a vote",
+      "check": "07.VERDICT_GATE"
+    }
+  ],
+  "prompt_level_only": [
+    "never repair (the auditor reports, it does not edit candidate bytes) — prompt instruction, not a check"
+  ],
+  "sentinels": [
+    {
+      "field": "/source_refs/image_scout_plan",
+      "value": "deferred:not_applicable_pilot",
+      "binding": "contracts/media-disposition.json (image_cards_enabled false; 20A inactive)",
+      "check": "07.ENVELOPE, 07.MEDIA_DISPOSITION",
+      "compensating_check": "07.ENVELOPE, 07.MEDIA_DISPOSITION"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/v1-projected.json",
+      "sha256": "f6e3b6630e3cfb6ac8de108efef0e7e76886395bef53fd9d859cb7b0315eea6b",
+      "context_path": "tools/belt/fixtures/07.content_coverage/context-v1.json",
+      "kind": "v1_projected_with_synthetic_candidate",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/07-coverage-report.json",
+        "sha256": "5b716f01a4643522ecd7acb8f564b8cff5237784fc9d8253a85ddda03deffc22"
+      },
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "generated by tools/belt/project/07-content-coverage.mjs --write; decisions in _fixture.decisions",
+        "synthetic candidate manifest = the 5 input hashes V1 07 recorded",
+        "V1 FAILs under v0.4.0: session_scripts input absent, PASS with v0.4.0 required checks unevidenced, recompute finds A x 65/20 overlap without disclosure, anthropic auditor family = anthropic V1 authors; early media intent HOLD"
+      ],
+      "context_sha256": "0aca10600e7a9b2f766a4f0e22d71207b02f0955e9f0fea2591924b29d2af209"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/synthetic-pass.json",
+      "sha256": "5b927d59fb78055e4fe557dfe4cf81c40734ca3c7a8c890adf8f8d4e6207429d",
+      "context_path": "tools/belt/fixtures/07.content_coverage/context-synthetic.json",
+      "kind": "synthetic",
+      "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
+      "expected_status": "PASS",
+      "transformation_notes": [
+        "fictional Examplia candidate; exambank member = sha256 of 06 synthetic-pass.json"
+      ],
+      "context_sha256": "29b575b62fa1a2b9a811d9d2e50e1b6c1f05e898cd9377a491bb2d4f349494e5"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/synthetic-neg-candidate-mismatch.json",
+      "sha256": "fef4c62d5ace1f3c721f16e1db81b9ab87750d28807c89c0ba3d71addbf05924",
+      "context_path": "tools/belt/fixtures/07.content_coverage/context-synthetic.json",
+      "kind": "synthetic_negative",
+      "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
+      "expected_status": "FAIL",
+      "transformation_notes": [
+        "mismatched candidate hash -> 07.CANDIDATE_ECHO FAIL"
+      ],
+      "context_sha256": "29b575b62fa1a2b9a811d9d2e50e1b6c1f05e898cd9377a491bb2d4f349494e5"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/synthetic-route-to-02.json",
+      "sha256": "7a40a883def54a216bdf499d8beb06f3ef1ca3d91bdc687fbe6163a96c03eae2",
+      "context_path": "tools/belt/fixtures/07.content_coverage/context-synthetic.json",
+      "kind": "synthetic_adapter_acceptance",
+      "source": "tools/belt/project/synthetic-qa-fixtures.mjs",
+      "expected_status": "FAIL",
+      "expected_schema": "PASS",
+      "transformation_notes": [
+        "to_worker 02 ACCEPTED by the adapter (07.SCHEMA PASS); acceptance FAIL only because the report verdict is FAIL (07.VERDICT_GATE)"
+      ],
+      "context_sha256": "29b575b62fa1a2b9a811d9d2e50e1b6c1f05e898cd9377a491bb2d4f349494e5"
+    }
+  ],
+  "unexecuted": [
+    {
+      "item": "set-diff of every dossier fact through KG/card/item refs, high-yield card+item coverage, voice/session/unit coverage recompute",
+      "reason": "requires the full candidate artifacts in context; the adapter carries the auditor's results (dropped_facts, missing_high_yield, voice_gaps, curriculum_unit_gaps) and checks only their internal consistency + verdict invariants"
+    },
+    {
+      "item": "Order Q rule 7 depth floor (>=6 slides/session, avg narration >=400 chars, trap-or-bridge, five-slide rejection)",
+      "reason": "05.sessions owns the deterministic depth check (sibling builder); 07 does not recompute it here"
+    },
+    {
+      "item": "distribution drift vs verified official weights (+/-5 pts) inside 07.PRACTICE_FORM_DRIFT",
+      "reason": "only count and overlap-disclosure drift are recomputed; per-domain distribution recompute needs verified official weights, none exist for the pilot"
+    },
+    {
+      "item": "assigned required-check list (which checks the dispatch assigned)",
+      "reason": "no dispatch contract supplies it yet; the report's own required_checks_not_run is trusted for completeness"
+    },
+    {
+      "item": "provider strict-mode acceptance of this adapter",
+      "reason": "no endpoint call is authorized"
+    }
+  ],
+  "checks_module_sha256": "0299fded81b839311d4337f011f03300795493670d8473b63f8a1abe05a8965e"
+}

@@ -1,0 +1,413 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "synthetic",
+    "lane": "fixture",
+    "pass": "none"
+  },
+  "probe": "synthetic-examplia",
+  "version": "0.4.0-synthetic",
+  "lineage": {
+    "input_manifest_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "candidate_lineage_id": "synthetic-lineage-06"
+  },
+  "source_refs": {
+    "enriched_blueprint": "synthetic/17-enriched-blueprint.json",
+    "learning_loop": "synthetic/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "n.permit.hours",
+      "label": "Supervised driving hours",
+      "domain": "Permits",
+      "module_id": "mod.a",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 30,
+        "status": "authored",
+        "basis": "synthetic: authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "fact.syn.001"
+      ],
+      "source_ref": {
+        "ref": "Synthetic Examplia Handbook p.12",
+        "tier": "official",
+        "url": null,
+        "source_page": "SYN-HB#p.12"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "No additional source-supported confusable in this synthetic fixture."
+    },
+    {
+      "id": "n.permit.passengers",
+      "label": "Licensed front-seat supervisor",
+      "domain": "Permits",
+      "module_id": "mod.a",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 30,
+        "status": "authored",
+        "basis": "synthetic: authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "fact.syn.002"
+      ],
+      "source_ref": {
+        "ref": "Synthetic Examplia Handbook p.13",
+        "tier": "official",
+        "url": null,
+        "source_page": "SYN-HB#p.13"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "n.signal.distance",
+      "label": "Advance turn signal",
+      "domain": "Permits",
+      "module_id": "mod.a",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 30,
+        "status": "authored",
+        "basis": "synthetic: authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "fact.syn.003"
+      ],
+      "source_ref": {
+        "ref": "Synthetic Examplia Handbook p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "SYN-HB#p.21"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "n.parking.hydrant",
+      "label": "Hydrant parking clearance",
+      "domain": "Parking",
+      "module_id": "mod.b",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 30,
+        "status": "authored",
+        "basis": "synthetic: authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "fact.syn.004"
+      ],
+      "source_ref": {
+        "ref": "Synthetic Examplia Handbook p.30",
+        "tier": "official",
+        "url": null,
+        "source_page": "SYN-HB#p.30"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "No additional source-supported confusable in this synthetic fixture."
+    },
+    {
+      "id": "n.parking.curb",
+      "label": "Uphill curb wheel direction",
+      "domain": "Parking",
+      "module_id": "mod.b",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 30,
+        "status": "authored",
+        "basis": "synthetic: authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "fact.syn.005"
+      ],
+      "source_ref": {
+        "ref": "Synthetic Examplia Handbook p.31",
+        "tier": "official",
+        "url": null,
+        "source_page": "SYN-HB#p.31"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [],
+  "modules": [
+    {
+      "module_id": "mod.a",
+      "title": "Permits and Signals Quiz",
+      "domain": "Permits",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 50,
+        "status": "authored",
+        "basis": "synthetic: authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "n.permit.hours",
+        "n.permit.passengers",
+        "n.signal.distance"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "mod.b",
+      "title": "Parking Quiz",
+      "domain": "Parking",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 50,
+        "status": "authored",
+        "basis": "synthetic: authored pedagogic emphasis (product policy), not an exam weight"
+      },
+      "node_ids": [
+        "n.parking.hydrant",
+        "n.parking.curb"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "mod.a",
+      "unit_id": "unit.a",
+      "node_ids": [
+        "n.permit.hours",
+        "n.permit.passengers",
+        "n.signal.distance"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach rules in prerequisite order",
+      "flashcard_strategy": "visible-answer cards, one fact each",
+      "quiz_strategy": "hub-chosen module quiz",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "mod.b",
+      "unit_id": "unit.b",
+      "node_ids": [
+        "n.parking.hydrant",
+        "n.parking.curb"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach rules in prerequisite order",
+      "flashcard_strategy": "visible-answer cards, one fact each",
+      "quiz_strategy": "hub-chosen module quiz",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "n.permit.hours",
+    "n.permit.passengers",
+    "n.signal.distance",
+    "n.parking.hydrant",
+    "n.parking.curb"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "topological; high emphasis first; dynamic_nodes never on the path"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [
+        {
+          "type": "thin_domain",
+          "located_at": "C.04",
+          "detail": "right-of-way has two facts",
+          "severity": "advisory"
+        }
+      ],
+      "nodes_extracted": 4,
+      "merges": [],
+      "dynamic_concepts": [
+        "d1"
+      ]
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "rule",
+          "definition": "one accepted page-sourced rule"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "learn from before to"
+        },
+        {
+          "type": "easily_confused",
+          "directed": false,
+          "acyclic": false,
+          "definition": "commonly swapped pair"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": []
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "n1",
+          "to": "n3",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "n2",
+          "to": "n4",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "n1",
+          "to": "n2",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Signs (synthetic)",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 50,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Right of way (synthetic)",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 50,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "topological then emphasis",
+        "module_order": [
+          "m01",
+          "m02"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": 0,
+        "orphan_nodes": 0,
+        "double_homes": 0,
+        "dynamic_quarantined": 1,
+        "path_check": "PASS"
+      }
+    }
+  }
+}

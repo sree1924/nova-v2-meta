@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {appendUsageRecord,readUsageRecords,summarizeUsageRecords,projectUsageRecord,reportedTokenTotal} from '../../tools/preview/usage-records.mjs';
+const rec=()=>({record_id:'sol-reauthor-X-final',worker:'sol',model:'gpt-6.1-sol',platform:'ChatGPT Pro subscription',state:'X',session_id:'session-x',usage_source:'immutable-sample.json',sampled_at:'2026-10-28T23:00:00Z',tokens:100,cached_input_tokens:80,tool_uses:null,duration_ms:null});
+test('actual record IDs, cached subset and provenance survive projection',()=>{const r=projectUsageRecord(rec());assert.equal(r.record_id,rec().record_id);assert.equal(r.cached_tokens,80);assert.equal(r.source,'immutable-sample.json');assert.equal(r.total_tokens,100);});
+test('same record retry is idempotent and conflicting retry preserves original bytes',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'nova-usage-'));const file=path.join(dir,'usage.jsonl');try{assert.equal(appendUsageRecord(file,rec()).status,'RECORDED');const before=fs.readFileSync(file);assert.equal(appendUsageRecord(file,rec()).status,'REUSED');assert.deepEqual(fs.readFileSync(file),before);assert.throws(()=>appendUsageRecord(file,{...rec(),tokens:101}),/Conflicting/);assert.deepEqual(fs.readFileSync(file),before);assert.equal(readUsageRecords(file).length,1);}finally{fs.rmSync(dir,{recursive:true,force:true});}});
+test('cached tokens and record IDs cannot fabricate a valid canonical total',()=>{assert.throws(()=>summarizeUsageRecords([{...rec(),cached_input_tokens:101}]),/Cached/);assert.throws(()=>summarizeUsageRecords([rec(),rec()]),/Duplicate/);});
+test('canonical phase summary includes cached input only once',()=>{const s=summarizeUsageRecords([rec(),{...rec(),record_id:'other',tokens:500}],{prefix:'sol-reauthor-'});assert.equal(s.record_count,1);assert.equal(s.total_tokens,100);assert.equal(s.cached_input_tokens,80);assert.equal(s.cached_included_in_total,true);});
+test('unknown metrics remain unknown',()=>{const s=summarizeUsageRecords([{...rec(),tokens:null,cached_input_tokens:null}]);assert.equal(s.total_tokens,null);assert.equal(s.cached_input_tokens,null);assert.equal(s.unknown_total_records,1);assert.equal(reportedTokenTotal({}),null);});
+test('reported totals and input/output components are not added twice',()=>{assert.equal(reportedTokenTotal({total_tokens:100,input_tokens:90,output_tokens:10,cached_tokens:80}),100);assert.equal(reportedTokenTotal({input_tokens:90,output_tokens:10,cached_tokens:80}),100);});
+test('wrong Sol platform is rejected before a row is appended',()=>{const file=path.join(os.tmpdir(),'not-created-nova-usage-'+Date.now()+'.jsonl');assert.throws(()=>appendUsageRecord(file,{...rec(),platform:'Meta Model API'}),/platform/);assert.equal(fs.existsSync(file),false);});
+test('an empty aggregate cannot omit required completion usage records',()=>{assert.throws(()=>summarizeUsageRecords([],{requiredRecordIds:[rec().record_id]}),/Required canonical/);});

@@ -1,0 +1,2378 @@
+{
+  "artifact_type": "StrictAdapterMappingManifest",
+  "version": "0.4.0",
+  "generated_note": "local deterministic; hashes over exact bytes; no model/endpoint",
+  "generated_from": [
+    {
+      "path": "schemas-strict/stage-map.json",
+      "sha256": "c1317e9e8dca329758472f9ce70c49810a34afd0ef6d710073062c3d18f1e2dc"
+    },
+    {
+      "path": "schemas-strict/02-sme-dossier-envelope.mapping.json",
+      "sha256": "f74bd4b2508acddce3d7f7c1f475c6d4f1aaa0ab46d2fd9e15e049d35faba743"
+    },
+    {
+      "path": "schemas-strict/03-knowledge-graph.mapping.json",
+      "sha256": "a3f46a4b9bb21c0e7c56e34584fed44a4c97adae5f62ec03a832a5a2bf681aca"
+    },
+    {
+      "path": "schemas-strict/04-carddeck.mapping.json",
+      "sha256": "6209f5a30e88fca9a52b4e987c3ffb0f0175429af2ba57ed254eaf86a7fba202"
+    },
+    {
+      "path": "schemas-strict/05-voicescripts.mapping.json",
+      "sha256": "5d0bd40d5e654f2a1dbbedf4d5767d9c7e68add32c1647e7387242172e5f6697"
+    },
+    {
+      "path": "schemas-strict/05b-session-scripts.mapping.json",
+      "sha256": "693b4a9ffa6a73c3179d80a627aa2aae1128a267ab15f951c2de679316596764"
+    },
+    {
+      "path": "schemas-strict/06-exambank.mapping.json",
+      "sha256": "2837d28d0dec105f7340940b567b9414eeb6aff002473d1eb65e6bdc85987933"
+    },
+    {
+      "path": "schemas-strict/07-coverage-report.mapping.json",
+      "sha256": "81665c3860cb77e23581efeeb096202010f4eaa0651bbddaa85fb51ff1fd09b1"
+    },
+    {
+      "path": "schemas-strict/08-fact-report.mapping.json",
+      "sha256": "0b0a625ccec36dd51504d3a3b3139150f7eed104e76ab92aa9c048865ff3f9ad"
+    },
+    {
+      "path": "schemas-strict/09-product-package.mapping.json",
+      "sha256": "11b9cc7b92a4aedf4ffa42ac16f6df6983ae2d9924b85017be01a5fa6ef280de"
+    },
+    {
+      "path": "schemas-strict/19a-curriculum-unit-map.mapping.json",
+      "sha256": "24eb9f3bedd90aee1f399998a8087e0328ceac51c4795a8c66df2e9cefbb9d74"
+    }
+  ],
+  "stages": {
+    "02.dossier_sections": {
+      "mapping": {
+        "path": "schemas-strict/02-sme-dossier-envelope.mapping.json",
+        "sha256": "f74bd4b2508acddce3d7f7c1f475c6d4f1aaa0ab46d2fd9e15e049d35faba743"
+      },
+      "adapter": {
+        "path": "schemas-strict/02-sme-dossier-envelope.schema.json",
+        "sha256_pinned": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111",
+        "sha256_actual": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111"
+      },
+      "parent": {
+        "path": "schemas/blueprint.schema.json",
+        "sha256_pinned": "3fbd6ddeaa402b2819d6e859d16034b002d78bc55f1727a388a722509c86de54",
+        "sha256_actual": "3fbd6ddeaa402b2819d6e859d16034b002d78bc55f1727a388a722509c86de54"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 13,
+      "dropped_constraint_count": 13,
+      "compensating_checks": [
+        "02.ANCHORS_REGISTERED",
+        "02.CHUNK_IDENTITY",
+        "02.CHUNK_IDENTITY, 02.SECTION_BOUNDS, 02.TRUNCATION_GUARD",
+        "02.CORPUS_STABILITY",
+        "02.DEBT_TYPED",
+        "02.DEBT_TYPED, 02.NUMERAL_LEAK",
+        "02.DEDICATED_SURFACE",
+        "02.DEPTH_FLOOR",
+        "02.EXAM_FACT_STATUS",
+        "02.EXAM_FACT_STATUS, 02.NUMERAL_LEAK",
+        "02.EXTERNAL_REVIEW",
+        "02.FACT_LINES_CITED",
+        "02.FACT_LINES_CITED + 02.NUMERAL_LEAK at 02; 03.WEIGHT_HONESTY downstream",
+        "02.FACT_LINES_CITED, 02.ANCHORS_REGISTERED",
+        "02.G_MATRIX",
+        "02.HIGH_YIELD_PER_DOMAIN",
+        "02.LINEAGE",
+        "02.LINEAGE, 02.MERGE_DETERMINISTIC",
+        "02.MARKET_SIGNAL",
+        "02.MERGE_DETERMINISTIC",
+        "02.MERGE_DETERMINISTIC, 02.SCOPE_COMPLETENESS; compiled-root fields (minted_by, source_type, compiled_from, compiled_at, artifact_hash) are added and parent-validated by role 16, not by this lane",
+        "02.NUMERAL_LEAK",
+        "02.PROBE_SLUG",
+        "02.SCHEMA",
+        "02.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: none at 02 — added and validated by role 16 against the parent",
+        "02.SCOPE_COMPLETENESS",
+        "02.SECTION_BOUNDS",
+        "02.TRUNCATION_GUARD",
+        "none at 02 — role 16 hashes the compiled Blueprint; 02.MERGE_DETERMINISTIC reports the merged dossier sha256"
+      ],
+      "sentinels": [
+        {
+          "field": "/exam_facts/*",
+          "kind": "official_number_record",
+          "shape": "{value: null|string|number, status: unknown|verified|authored, source_page: null|string}",
+          "rule": "unknown => value null; verified => value non-null + registered source_page; authored => value non-null and treated as non-verified for the learner-facing numeral guard",
+          "compensating_check": "02.EXAM_FACT_STATUS"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/02.dossier_sections/v1-projected.json",
+          "sha256": "5b830f704344eebe08f4b220fe5d0051fc5513afd25394c847a883f107843388",
+          "kind": "v1_projected",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/02.dossier_sections/synthetic-positive.json",
+          "sha256": "02e7056016f8a458cf010ec57b38d582f5c65f0cb1b12ae541bb28b71ea18d52",
+          "kind": "synthetic",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-numeral-leak.json",
+          "sha256": "0a39854dfdd675cffb49b890687eb8d6d75d06451b2a0c2be4349f9f89bb1861",
+          "kind": "synthetic",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/02.dossier_sections/synthetic-negative-truncated.json",
+          "sha256": "5d065f9e9ef17de73189f5c22cf062fc6e6f2a596a19fd73c3c5a00218ccf953",
+          "kind": "synthetic",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/02.dossier_sections/synthetic-hold-no-context.json",
+          "sha256": "f9fc37f07c217f2b34ac4d711d9947cc6b7faaecb25364157b17a1cfcafcbcc7",
+          "kind": "synthetic",
+          "expected_status": "HOLD"
+        }
+      ],
+      "unexecuted_count": 8,
+      "pin_ok": true,
+      "problems": []
+    },
+    "03.combined_kg": {
+      "mapping": {
+        "path": "schemas-strict/03-knowledge-graph.mapping.json",
+        "sha256": "a3f46a4b9bb21c0e7c56e34584fed44a4c97adae5f62ec03a832a5a2bf681aca"
+      },
+      "adapter": {
+        "path": "schemas-strict/03-knowledge-graph.schema.json",
+        "sha256_pinned": "789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8",
+        "sha256_actual": "789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8"
+      },
+      "parent": {
+        "path": "schemas/knowledge-graph.schema.json",
+        "sha256_pinned": "19081f3514098118383a65b32534fde9730d2f1b001a01a3c2ef6606db9bf2bc",
+        "sha256_actual": "19081f3514098118383a65b32534fde9730d2f1b001a01a3c2ef6606db9bf2bc"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 14,
+      "dropped_constraint_count": 11,
+      "compensating_checks": [
+        "03.ACYCLIC",
+        "03.CONFUSABLE_SOURCE_BOUND",
+        "03.CONFUSABLE_SOURCE_BOUND, 03.FACT_IDS_REGISTERED",
+        "03.CURRICULUM_HINTS",
+        "03.CURRICULUM_HINTS (also flashcard_strategy, quiz_strategy)",
+        "03.DOMAIN_EMPHASIS",
+        "03.EDGES_MIRROR",
+        "03.EDGE_TYPED",
+        "03.EDGE_TYPED (endpoints must resolve to stable nodes)",
+        "03.EDGE_TYPED, 03.EDGES_MIRROR",
+        "03.FACT_IDS_REGISTERED",
+        "03.FACT_IDS_REGISTERED (fact binding) — empty ref strings are not separately rejected",
+        "03.HIGH_YIELD_SET",
+        "03.ID_INTEGRITY",
+        "03.ID_INTEGRITY, 03.FACT_IDS_REGISTERED",
+        "03.KG01_GAPS",
+        "03.KG01_GAPS, 03.KG01_ROUTE_BACK, 03.EDGES_MIRROR, 03.ACYCLIC, 03.DOMAIN_EMPHASIS, 03.WEIGHT_CLOSURE, 03.KG05_ASSERTIONS",
+        "03.KG01_ROUTE_BACK",
+        "03.KG05_ASSERTIONS",
+        "03.LEARNING_INPUT_BOUND",
+        "03.LEARNING_INPUT_BOUND, 03.SCOUT_SENTINEL",
+        "03.LINEAGE",
+        "03.NODE_COVERAGE",
+        "03.ONE_MODULE_PER_NODE",
+        "03.ONE_MODULE_PER_NODE, 03.ID_INTEGRITY, 03.ONTOLOGY",
+        "03.ONTOLOGY",
+        "03.PATH_COVERAGE",
+        "03.PATH_TOPOLOGICAL",
+        "03.PROBE_SLUG",
+        "03.SCHEMA",
+        "03.SCHEMA (enum)",
+        "03.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: none — retrieved_at not carried in the adapter source_ref; freshness belongs to the source registry / liveness receipt",
+        "03.SCOUT_SENTINEL",
+        "03.VERIFIED_WEIGHTS_REGISTERED",
+        "03.WEIGHT_CLOSURE",
+        "03.WEIGHT_HONESTY",
+        "03.WEIGHT_HONESTY, 03.VERIFIED_WEIGHTS_REGISTERED, 03.DOMAIN_EMPHASIS",
+        "03.WEIGHT_HONESTY, 03.WEIGHT_CLOSURE"
+      ],
+      "sentinels": [
+        {
+          "field": "/source_refs/image_scout_pre_kg",
+          "value": "deferred:not_applicable_pilot",
+          "binding": "contracts/media-disposition.json inactive_roles includes 20A and non_applicable_checks includes 'pre/post image scout plans'",
+          "check": "03.SCOUT_SENTINEL",
+          "compensating_check": "03.SCOUT_SENTINEL"
+        },
+        {
+          "field": "/nodes/*/official_weight, /modules/*/official_weight",
+          "kind": "official_number_record",
+          "shape": "{value: null|number, status: unknown|verified|authored, source_page: null|string}",
+          "rule": "unknown => null; verified => value + registered source_page; authored => value present and never compared as official_verified",
+          "compensating_check": "03.WEIGHT_HONESTY"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/03.combined_kg/v1-projected.json",
+          "sha256": "655e565a21284efb37bac10937e5a14ce7cb2cea34e3983600c59c05247c0927",
+          "kind": "v1_projected",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/03.combined_kg/synthetic-positive.json",
+          "sha256": "bab85a1ba30efdb9bb69e0a52baa521f18cb6b6700caf5a25115ac0d18b53ef2",
+          "kind": "synthetic",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/03.combined_kg/synthetic-negative-fabricated-weight.json",
+          "sha256": "504366bada49178e87fe1ff660b7a7df1aafe1a76dfdd761cc0bd58f7c13610d",
+          "kind": "synthetic",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/03.combined_kg/synthetic-negative-cycle.json",
+          "sha256": "2c66241f5e152e12c43369463a9821dafb33d80ddc24a8af5d11ad1fcd5ab3b4",
+          "kind": "synthetic",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/03.combined_kg/synthetic-hold-no-context.json",
+          "sha256": "dd24ec9410977901ba44b23bf58157551f6a8c8ef27d61e1e98f2a40afff61b6",
+          "kind": "synthetic",
+          "expected_status": "HOLD"
+        }
+      ],
+      "unexecuted_count": 6,
+      "pin_ok": true,
+      "problems": []
+    },
+    "04.cards": {
+      "mapping": {
+        "path": "schemas-strict/04-carddeck.mapping.json",
+        "sha256": "6209f5a30e88fca9a52b4e987c3ffb0f0175429af2ba57ed254eaf86a7fba202"
+      },
+      "adapter": {
+        "path": "schemas-strict/04-carddeck.schema.json",
+        "sha256_pinned": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d",
+        "sha256_actual": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d"
+      },
+      "parent": {
+        "path": "schemas/carddeck.schema.json",
+        "sha256_pinned": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93",
+        "sha256_actual": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 17,
+      "dropped_constraint_count": 16,
+      "compensating_checks": [
+        "04.CARD_IDS, 04.STRING_BOUNDS",
+        "04.EXAM_WEIGHT_STATUS",
+        "04.EXAM_WEIGHT_STATUS, 04.STRING_BOUNDS",
+        "04.HOOK_ORIGIN, 04.ATOMIC_CLUSTER, 04.FACT_IDS, 04.BACK_FIDELITY",
+        "04.MEDIA_DISPOSITION",
+        "04.PAGE_CITATIONS, 04.PAGE_RESOLUTION, 04.STRING_BOUNDS",
+        "04.RECAP_PER_DECK, 04.FACT_IDS, 04.STRING_BOUNDS, 04.BACK_SPOKEN_FORM",
+        "04.SCHEMA",
+        "04.SRS_POLICY",
+        "04.STRING_BOUNDS",
+        "04.STRING_BOUNDS, 04.CARD_IDS",
+        "04.STRING_BOUNDS, 04.HOOK_LENGTH",
+        "04.STRING_BOUNDS, 04.INPUT_BINDING, 04.MEDIA_DISPOSITION, 04.BACK_SPOKEN_FORM, 04.SRS_POLICY, 04.MERGES, 04.VERIFICATION_DEBT",
+        "n/a — field not carried by the adapter (see deviations /source_ref)",
+        "post-validate.mjs CLI artifact_sha256"
+      ],
+      "sentinels": [
+        {
+          "json_pointer": "/source_refs/image_scout_post_kg",
+          "value": "deferred:not_applicable_pilot",
+          "authority": "contracts/media-disposition.json#/non_applicable_checks (\"pre/post image scout plans\": 20A inactive) + image_cards_enabled false",
+          "compensating_check": "04.MEDIA_DISPOSITION"
+        },
+        {
+          "json_pointer": "/decks/*/exam_weight",
+          "value": "{value:null|number, status:unknown|verified, source_page} (+ separate pedagogic_emphasis)",
+          "authority": "contracts/source-fact-policy.json#/official_fact_shape + CONVENTIONS.md sentinel vocabulary",
+          "compensating_check": "04.EXAM_WEIGHT_STATUS"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-hold-no-context.json",
+          "sha256": "384a7088ee57d84e5f4b2ade5710e8731e9b5a588c1dd23c77fbd4f9aa91597e",
+          "kind": "synthetic_hold",
+          "expected_status": "HOLD"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-hold-page-debt.json",
+          "sha256": "04af35327adc46036d625f3e9e326e868d5b5d0a55447660f70497e306b32bdb",
+          "kind": "synthetic_hold",
+          "expected_status": "HOLD"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-atomic.json",
+          "sha256": "b0ada17d3a9b57c265a9047b53339adfadcae90600c1b45ad6c7b7c04d2a5a41",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-back-drift.json",
+          "sha256": "42047305df0ff44ca570f3a292564407bfbbc7acd518c01274d68b380880b8db",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-deictic-visual.json",
+          "sha256": "1041d71f0e8c7841b875773fc397f0a2815349b235c87c9eb9e4676ec36f4245",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-duplicate-back.json",
+          "sha256": "9907e4741a0e034343abd62e071ffb9a539cbf518936d260563a17e89bf78f04",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-hook-srs.json",
+          "sha256": "272d96ec05a179b2f2df4db49ff270a963ea150275db4c41a2fae59cac20277c",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-official-number.json",
+          "sha256": "3cf9bbff5d036cd7fd00f187b0d67012d0861edfc5b34523b5e4da256ce2650f",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-originality.json",
+          "sha256": "d2ce2394d574f885a57c9f36fed9fe377ea273f35a842b0fcdbb5d8ff2242a10",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-spoken-form.json",
+          "sha256": "9db457eaeca621f05911f2d6d02f13e1b431077216005fbb0ccb4bbe72401543",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-uncited.json",
+          "sha256": "dbe5ef870d2242a9549a8a074d90a4321f78cfd82aeb7fe9c70c68011e860661",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-neg-verify-leak.json",
+          "sha256": "6e2697f0738d66cd50ac2e132f1ade5e0be6076f2b5678c44ad3e22f29af821e",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/synthetic-positive.json",
+          "sha256": "d4beadcdcd3a5c46664820b014e433550acedd615bf45aed84aca6089df3e3df",
+          "kind": "synthetic_positive",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/v1-projected-spokenform-fixed.json",
+          "sha256": "fd2e741c9d7f4873d37928f4a6a3b959c376c12caf044696e438576a607c0ab7",
+          "kind": "v1_projection_spokenform_normalized",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/04.cards/v1-projected.json",
+          "sha256": "a2acbb9e5326749cab06d125831f1dc15066a4ba0d68534d82ae0a80c19bc8c2",
+          "kind": "v1_projection",
+          "expected_status": "FAIL"
+        }
+      ],
+      "unexecuted_count": 5,
+      "pin_ok": true,
+      "problems": []
+    },
+    "05.card_scripts": {
+      "mapping": {
+        "path": "schemas-strict/05-voicescripts.mapping.json",
+        "sha256": "5d0bd40d5e654f2a1dbbedf4d5767d9c7e68add32c1647e7387242172e5f6697"
+      },
+      "adapter": {
+        "path": "schemas-strict/05-voicescripts.schema.json",
+        "sha256_pinned": "7c02cb21865097a56362b1b8f474afb1d2ec798ec54b206e155c47e7777db409",
+        "sha256_actual": "7c02cb21865097a56362b1b8f474afb1d2ec798ec54b206e155c47e7777db409"
+      },
+      "parent": {
+        "path": "schemas/voicescripts.schema.json",
+        "sha256_pinned": "dacca78436481539c7ca3bd5c7d95f67cc7cc99b16e4f6e0d7a4da19ca19b3ca",
+        "sha256_actual": "dacca78436481539c7ca3bd5c7d95f67cc7cc99b16e4f6e0d7a4da19ca19b3ca"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 11,
+      "dropped_constraint_count": 10,
+      "compensating_checks": [
+        "05.CARD_PARITY",
+        "05.NARRATED_FIELDS",
+        "05.PRONUNCIATION",
+        "05.SCHEMA",
+        "05.SCHEMA (enum)",
+        "05.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate.mjs CLI artifact_sha256",
+        "05.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: n/a — field not carried",
+        "05.SCHEMA, 05.SCRIPT_SHAPE",
+        "05.SCRIPT_SHAPE",
+        "05.SCRIPT_SHAPE, 05.SEGMENT_ORDER, 05.RECALL_PAUSE, 05.SELF_EQUALITY, 05.CARD_PARITY",
+        "05.SELF_EQUALITY, 05.CARD_PARITY, 05.SCRIPT_IDS, 05.DEICTIC_VISUAL",
+        "05.STRING_BOUNDS",
+        "05.STRING_BOUNDS, 05.INPUT_BINDING, 05.AUDIO_RENDER, 05.THINK_REF"
+      ],
+      "sentinels": [
+        {
+          "json_pointer": "/audio_render",
+          "value": "deferred:not_applicable_pilot",
+          "authority": "contracts/media-disposition.json (rendered_audio_required false, live_tts_allowed false, inactive_roles includes 20, non_applicable_checks \"rendered audio manifest/files/provider\")",
+          "compensating_check": "05.AUDIO_RENDER"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-hold-no-context.json",
+          "sha256": "4a8638da39f4e598853cbb7809e527a48ed1e1c191605fbe0fdb5c5d2d9c6f3a",
+          "kind": "synthetic_hold",
+          "expected_status": "HOLD"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-answer-mismatch.json",
+          "sha256": "be649289f72985c3eaf603a22bc8b3054c889fab243d1a401bdab889cc9898d2",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-deictic.json",
+          "sha256": "f6ea176edeaea246854b930b785ca03425385af7479c81b57fb418718b94c30d",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-hook-mismatch.json",
+          "sha256": "62853c3e9f0bff0c8719fc6416857ef0b9573e622f11edb4c70f1959f4490cba",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-missing-script.json",
+          "sha256": "f8a42e4993f7abc1a5d97dc7f4c05a51ae2b4f27f77ec64841660eb39713ae65",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-official-answer.json",
+          "sha256": "5346d5cbc88cf3e0ec6c9aed429451fab962c1abeacdf46b370bd9e43833a816",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-pronunciation.json",
+          "sha256": "6578a0f0990fe6b5836f9d2268a1d82757858921b3cc21f0925dd658588433e8",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-recall-pause.json",
+          "sha256": "4a032e5a8b8ca3e7070fe5d14b9c5ca904dfb37434c62f1671e36903eb391034",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-segment-order.json",
+          "sha256": "e7ed282eab4dcf4bee924f875cb63cd7f6284f6e03fe71507195fad3b82dfec0",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-stage-direction.json",
+          "sha256": "2ff8b2cb6c1dd22ada69c6458ce844d41097d01e3570d42d5468a0248e0f5267",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/synthetic-positive.json",
+          "sha256": "49b07ca8c951d563fa8adda2c0e40e7a5829665338532052e2ffbc26af55ba64",
+          "kind": "synthetic_positive",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/v1-projected-practice-normalized.json",
+          "sha256": "395533eca425d83f41cc642db5843d806f96a7e092aa2d8aa3a9673304dea774",
+          "kind": "v1_projection_practice_normalized",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.card_scripts/v1-projected.json",
+          "sha256": "1e78981e75713d397487fbc8d3c88f1cf118b6ff1979b776328c73955a8db64c",
+          "kind": "v1_projection",
+          "expected_status": "FAIL"
+        }
+      ],
+      "unexecuted_count": 5,
+      "pin_ok": true,
+      "problems": []
+    },
+    "05.sessions": {
+      "mapping": {
+        "path": "schemas-strict/05b-session-scripts.mapping.json",
+        "sha256": "693b4a9ffa6a73c3179d80a627aa2aae1128a267ab15f951c2de679316596764"
+      },
+      "adapter": {
+        "path": "schemas-strict/05b-session-scripts.schema.json",
+        "sha256_pinned": "2457854f6f129e80be4465ac7a132295fd34e83425378365a4f491704aa88e41",
+        "sha256_actual": "2457854f6f129e80be4465ac7a132295fd34e83425378365a4f491704aa88e41"
+      },
+      "parent": {
+        "path": "schemas/session-script.schema.json",
+        "sha256_pinned": "82aad2b15dd77c58e9770f6b809d07b1be9f3b5b91de550b6837f11bc5695ff2",
+        "sha256_actual": "82aad2b15dd77c58e9770f6b809d07b1be9f3b5b91de550b6837f11bc5695ff2"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 9,
+      "dropped_constraint_count": 32,
+      "compensating_checks": [
+        "05.DECOMPRESSION_FIELDS, 05.MISCONCEPTION_LABELLED, 05.SELF_CHECK_ALIGNED",
+        "05.FACT_RESOLUTION, 05.UNIQUE_ITEMS",
+        "05.NARRATION_DEPTH (avg >= 400 chars) + 05.STRING_BOUNDS",
+        "05.NARRATION_SECONDS",
+        "05.ROOT_BOUNDS",
+        "05.SCHEMA",
+        "05.SCHEMA (both fields required, single-value enums)",
+        "05.SCHEMA (enum [\"none\"])",
+        "05.SCHEMA (enum [\"text_first_pilot\"])",
+        "05.SCHEMA (enum) + 05.ROOT_BOUNDS",
+        "05.SCHEMA (inlined identical object)",
+        "05.SCHEMA (structurally identical object)",
+        "05.SCHEMA — not carried; skippable is product policy (prompt 05-sessions); previously: n/a — not carried; sessions are skippable by product policy (prompt 05-sessions), not asserted per unit",
+        "05.SCHEMA — whole-document adapter (TeachingUnit); every carried constraint is mapped row-by-row below; previously: all 05.* checks",
+        "05.SLIDE_ARC",
+        "05.SLIDE_COUNT",
+        "05.SLIDE_COUNT, 05.SLIDE_ARC",
+        "05.SLIDE_LINES",
+        "05.STRING_BOUNDS",
+        "05.UNIQUE_ITEMS",
+        "05.UNIQUE_ITEMS, 05.DECOMPRESSION_FIELDS",
+        "05.WORD_LIMITS (<= 15 words supersedes 140 chars)",
+        "05.WORD_LIMITS (<= 6 words supersedes 60 chars)",
+        "n/a — est_minutes not carried (Order Q §4 rule 7: not a floor key); per-slide estimates via 05.NARRATION_SECONDS"
+      ],
+      "sentinels": [],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-hold-no-context.json",
+          "sha256": "07255ee86862aea8edf1140fe23dc09761dbb645778e391f75524cca417a1538",
+          "kind": "synthetic_hold",
+          "expected_status": "HOLD"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-neg-arc.json",
+          "sha256": "458d5b6d541309bd8aff56ca79b180678bcd29791b976e7e01f80c0cacccc4a7",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-neg-depth-limits.json",
+          "sha256": "de5d4fa232e1aaad076b9c3887ceb1e49ac978c1e30b27287cb33d2f686cf35f",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-neg-five-slide.json",
+          "sha256": "a4ef47d495977fbe35d46e0c03ff388185e766b1b31ebe93722718fad37e5019",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-neg-missing-decompression.json",
+          "sha256": "ef431957e82c660bc2262b08aa0d6e00857072401e6598651cb2071358d3dd85",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-neg-stage-direction.json",
+          "sha256": "c6a3b31c97370867b1054becc9dfc93c16f95e75466c5a6c9f16be58a02aa75d",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-neg-uniform-vector.json",
+          "sha256": "3820e2fcf2e2a52be22008e5c2269bb97d97da1e5ec964861f087fc61082775b",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-neg-unresolved-fact.json",
+          "sha256": "23426e510580f982236b25594b56967b181c3c21801f76c4932db2cf7ba37081",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-neg-verify-leak.json",
+          "sha256": "31665c2e61a81eb5b799473aa9998a9e7829e8932221cf4dc6c8f78e97f51fda",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-positive-sol.json",
+          "sha256": "68724acac5b8ff8c6cee3ff7f0c6bcebfc3699219a56ca5711fdce03f82081cf",
+          "kind": "synthetic_positive",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/05.sessions/synthetic-positive-two-units.json",
+          "sha256": "79a1b9e26fe81a28836e3e3e8d7937553bce57a25b4982057e3d6bb542131307",
+          "kind": "synthetic_positive",
+          "expected_status": "PASS"
+        }
+      ],
+      "unexecuted_count": 6,
+      "pin_ok": true,
+      "problems": []
+    },
+    "06.exam_bank": {
+      "mapping": {
+        "path": "schemas-strict/06-exambank.mapping.json",
+        "sha256": "2837d28d0dec105f7340940b567b9414eeb6aff002473d1eb65e6bdc85987933"
+      },
+      "adapter": {
+        "path": "schemas-strict/06-exambank.schema.json",
+        "sha256_pinned": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22",
+        "sha256_actual": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22"
+      },
+      "parent": {
+        "path": "schemas/exambank.schema.json",
+        "sha256_pinned": "c0c885cc34e1cbea41ea8b91585733c3ebbed6c17e7228436735a33f6bd81b13",
+        "sha256_actual": "c0c885cc34e1cbea41ea8b91585733c3ebbed6c17e7228436735a33f6bd81b13"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 14,
+      "dropped_constraint_count": 26,
+      "compensating_checks": [
+        "06.ANSWER_RATIONALE_AGREEMENT",
+        "06.BANNED_CLAIMS",
+        "06.DECLARED_COUNT",
+        "06.DECLARED_COUNT, 06.OFFICIAL_MIRROR",
+        "06.DERIVED_PLACEMENT",
+        "06.DISTRACTOR_SOURCE",
+        "06.DUPLICATE_STEM",
+        "06.ENVELOPE",
+        "06.ENVELOPE (non-empty model/lane/pass)",
+        "06.FORM_COUNT",
+        "06.FORM_NUMERALS",
+        "06.FORM_OVERLAP",
+        "06.ID_INTEGRITY",
+        "06.ID_INTEGRITY (must resolve)",
+        "06.ID_INTEGRITY, 06.ITEM_BINDING",
+        "06.INPUT_MANIFEST",
+        "06.INPUT_MANIFEST, 06.ENVELOPE",
+        "06.ITEM_BINDING",
+        "06.ITEM_CLONE",
+        "06.ITEM_NUMERALS",
+        "06.MODULE_QUIZ_COVERAGE",
+        "06.NEEDS_REVIEW_ZERO",
+        "06.NEEDS_REVIEW_ZERO, 06.DERIVED_PLACEMENT",
+        "06.OFFICIAL_MIRROR",
+        "06.OFFICIAL_MIRROR, 06.DECLARED_COUNT, 06.FORM_NUMERALS, 06.SCORING_POLICY",
+        "06.OFFICIAL_MIRROR, 06.SCORING_POLICY",
+        "06.OPTIONS_SHAPE",
+        "06.OPTIONS_SHAPE (correct_rationale + every option rationale non-empty)",
+        "06.OPTIONS_SHAPE (exactly 4 options = 1 correct + 3 distractors)",
+        "06.OPTIONS_SHAPE, 06.ANSWER_RATIONALE_AGREEMENT",
+        "06.PAGE_OR_DEBT",
+        "06.PAGE_OR_DEBT (open debt = HOLD)",
+        "06.PAGE_OR_DEBT, 06.ITEM_BINDING; 08.LIVENESS_COVERAGE downstream",
+        "06.PRACTICE_LABEL",
+        "06.SCHEMA",
+        "06.SCHEMA (adapter_version enum)",
+        "06.SCHEMA (enum)",
+        "06.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate CLI artifact_sha256",
+        "06.SCORING_POLICY",
+        "06.SELF_FLAGGED_RESOLVED",
+        "06.SELF_FLAGGED_RESOLVED (option_key enum; must not target the correct key)",
+        "06.TITLED_PROMISE",
+        "07.PRACTICE_FORM_DRIFT (stage 07 recompute); 06.DECLARED_COUNT guards served counts",
+        "field not carried at 06; downstream stage 08: 08.LIVENESS_RECEIPT_SHAPE validates retrieved_at date-time",
+        "field removed; downstream stage 07: 07.PRACTICE_FORM_DRIFT recomputes",
+        "field removed; items[].domain non-empty via 06.ITEM_BINDING"
+      ],
+      "sentinels": [
+        {
+          "field": "/practice_forms/*/official_mirror/{n_questions,passing,time}",
+          "kind": "official_number_record",
+          "shape": "{value:null|number, status:unknown|verified, source_page:null|string}",
+          "rule": "status unknown => value null (no numeric hint); verified => value + source_page non-null",
+          "compensating_check": "06.OFFICIAL_MIRROR"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/06.exam_bank/v1-projected.json",
+          "sha256": "9a39c8e09c970456f7f163c7351c42d8e3863e2eced62a52f341d0bd0024fa25",
+          "kind": "v1_projected",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/06.exam_bank/synthetic-pass.json",
+          "sha256": "19f2874b7cbe092b8b2cdeda9a8331094a92bd3269c92a66bd52ec5a2ce757cd",
+          "kind": "synthetic",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/06.exam_bank/synthetic-neg-source-debt-numeral.json",
+          "sha256": "d52523ecda273ac4f08358454d3a8028887c02dd5d00802c778832a29b2ddf27",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        }
+      ],
+      "unexecuted_count": 6,
+      "pin_ok": true,
+      "problems": []
+    },
+    "07.content_coverage": {
+      "mapping": {
+        "path": "schemas-strict/07-coverage-report.mapping.json",
+        "sha256": "81665c3860cb77e23581efeeb096202010f4eaa0651bbddaa85fb51ff1fd09b1"
+      },
+      "adapter": {
+        "path": "schemas-strict/07-coverage-report.schema.json",
+        "sha256_pinned": "bec7552a58e907e64b7efdbc47e453a92bc4043316b270daf473c1ef1eee9bea",
+        "sha256_actual": "bec7552a58e907e64b7efdbc47e453a92bc4043316b270daf473c1ef1eee9bea"
+      },
+      "parent": {
+        "path": "schemas/coverage-report.schema.json",
+        "sha256_pinned": "7b462eb53cbd2e27d66da59079cf96ef918f9b85928693a455f91e56d9ce3085",
+        "sha256_actual": "7b462eb53cbd2e27d66da59079cf96ef918f9b85928693a455f91e56d9ce3085"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 13,
+      "dropped_constraint_count": 21,
+      "compensating_checks": [
+        "07.CANDIDATE_ECHO",
+        "07.CANDIDATE_ECHO, 07.INPUT_MEMBERSHIP (required non-null: blueprint, knowledge_graph, carddeck, session_scripts, exambank)",
+        "07.DOMAIN_WEIGHTS",
+        "07.EARLY_MEDIA_INTENT",
+        "07.ENVELOPE",
+        "07.ENVELOPE (sentinel placement), 07.MEDIA_DISPOSITION (image_cards_enabled false)",
+        "07.ENVELOPE, 07.PROVIDER_SCOPE, 07.REQUIRED_CHECKS_RUN, 07.ROUTE_COVERAGE, 07.TITLED_PROMISE",
+        "07.INDEPENDENCE",
+        "07.INPUT_MEMBERSHIP",
+        "07.MEDIA_DISPOSITION",
+        "07.MEDIA_DISPOSITION, 07.EARLY_MEDIA_INTENT",
+        "07.PRACTICE_FORM_DRIFT",
+        "07.PROVIDER_SCOPE",
+        "07.REQUIRED_CHECKS_RUN",
+        "07.ROUTE_COVERAGE",
+        "07.ROUTE_COVERAGE; fixture synthetic-route-to-02.json proves 07.SCHEMA accepts to_worker 02",
+        "07.ROW_FIELDS",
+        "07.ROW_FIELDS, 07.DOMAIN_WEIGHTS",
+        "07.ROW_FIELDS, 07.DOMAIN_WEIGHTS (|share-weight| recomputed; ok <=> drift <= 5 and share > 0)",
+        "07.SCHEMA",
+        "07.SCHEMA (adapter_version enum)",
+        "07.SCHEMA (enum [false])",
+        "07.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate CLI artifact_sha256",
+        "07.TITLED_PROMISE",
+        "07.VERDICT_CONSISTENCY",
+        "07.VERDICT_CONSISTENCY, 07.VERDICT_GATE",
+        "07.VERDICT_GATE",
+        "07.VERDICT_INVARIANT",
+        "sourceRef objects not carried at 07 (string refs); liveness dates validated by downstream stage 08: 08.LIVENESS_RECEIPT_SHAPE"
+      ],
+      "sentinels": [
+        {
+          "field": "/source_refs/image_scout_plan",
+          "value": "deferred:not_applicable_pilot",
+          "binding": "contracts/media-disposition.json (image_cards_enabled false; 20A inactive)",
+          "check": "07.ENVELOPE, 07.MEDIA_DISPOSITION",
+          "compensating_check": "07.ENVELOPE, 07.MEDIA_DISPOSITION"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/07.content_coverage/v1-projected.json",
+          "sha256": "f6e3b6630e3cfb6ac8de108efef0e7e76886395bef53fd9d859cb7b0315eea6b",
+          "kind": "v1_projected_with_synthetic_candidate",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/07.content_coverage/synthetic-pass.json",
+          "sha256": "5b927d59fb78055e4fe557dfe4cf81c40734ca3c7a8c890adf8f8d4e6207429d",
+          "kind": "synthetic",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/07.content_coverage/synthetic-neg-candidate-mismatch.json",
+          "sha256": "fef4c62d5ace1f3c721f16e1db81b9ab87750d28807c89c0ba3d71addbf05924",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/07.content_coverage/synthetic-route-to-02.json",
+          "sha256": "7a40a883def54a216bdf499d8beb06f3ef1ca3d91bdc687fbe6163a96c03eae2",
+          "kind": "synthetic_adapter_acceptance",
+          "expected_status": "FAIL"
+        }
+      ],
+      "unexecuted_count": 5,
+      "pin_ok": true,
+      "problems": []
+    },
+    "08.content_facts": {
+      "mapping": {
+        "path": "schemas-strict/08-fact-report.mapping.json",
+        "sha256": "0b0a625ccec36dd51504d3a3b3139150f7eed104e76ab92aa9c048865ff3f9ad"
+      },
+      "adapter": {
+        "path": "schemas-strict/08-fact-report.schema.json",
+        "sha256_pinned": "8a60a2ea4b4ceda131a7966a77883fb04b3ccc2e3d179989cee5ac20d1248502",
+        "sha256_actual": "8a60a2ea4b4ceda131a7966a77883fb04b3ccc2e3d179989cee5ac20d1248502"
+      },
+      "parent": {
+        "path": "schemas/fact-report.schema.json",
+        "sha256_pinned": "42c17d5f518376b7c1ff692b42a1e864a84e1bae82f64b5825ce310b905c394a",
+        "sha256_actual": "42c17d5f518376b7c1ff692b42a1e864a84e1bae82f64b5825ce310b905c394a"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 16,
+      "dropped_constraint_count": 17,
+      "compensating_checks": [
+        "08.CANDIDATE_ECHO",
+        "08.CANDIDATE_ECHO, 08.INPUT_MEMBERSHIP (required non-null: blueprint, carddeck, voice_scripts, session_scripts, exambank, source_registry, source_liveness)",
+        "08.DISSENT_NOT_OUTVOTED",
+        "08.DISSENT_NOT_OUTVOTED, 08.FLAGGED_BINDING",
+        "08.ENVELOPE",
+        "08.EXTERNAL_REVIEW",
+        "08.FLAGGED_BINDING",
+        "08.FLAGGED_BINDING, 08.ROW_FIELDS, 08.VERDICT_CONSISTENCY (high|blocking => not PASS)",
+        "08.INDEPENDENCE",
+        "08.INDEPENDENCE (delegates to tools/check-audit-independence.mjs evaluateAuditIndependence)",
+        "08.INPUT_MEMBERSHIP",
+        "08.LIVENESS_AGE",
+        "08.LIVENESS_COVERAGE",
+        "08.LIVENESS_RECEIPT_SHAPE",
+        "08.LIVENESS_RECEIPT_SHAPE (validates each entry against the contract schema), 08.LIVENESS_COVERAGE, 08.LIVENESS_AGE",
+        "08.LIVENESS_RECEIPT_SHAPE, 08.LIVENESS_COVERAGE",
+        "08.REQUIRED_CHECKS_RUN",
+        "08.REQUIRED_CHECKS_RUN, 08.VERDICT_CONSISTENCY",
+        "08.ROW_FIELDS",
+        "08.ROW_FIELDS (owner_worker now enum)",
+        "08.SCHEMA",
+        "08.SCHEMA (adapter_version enum)",
+        "08.SCHEMA (enum [true])",
+        "08.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate CLI artifact_sha256",
+        "08.TIER_FIRST",
+        "08.VERDICT_CONSISTENCY",
+        "08.VERDICT_CONSISTENCY, 08.VERDICT_GATE",
+        "08.VERDICT_GATE",
+        "08.VERDICT_INVARIANT"
+      ],
+      "sentinels": [
+        {
+          "field": "/source_refs/image_scout_plan, /source_refs/curriculum_unit_map",
+          "value": "deferred:not_applicable_pilot",
+          "binding": "contracts/media-disposition.json (20A inactive) / no 19A artifact",
+          "check": "08.ENVELOPE",
+          "compensating_check": "08.ENVELOPE"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/08.content_facts/v1-projected.json",
+          "sha256": "3edbd47b3c17bf10296280acd859219f48892f45245cc97cfa4503734ba5a2a7",
+          "kind": "v1_projected_with_synthetic_candidate",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/08.content_facts/synthetic-pass.json",
+          "sha256": "d7966b49ccc4b04a2ca24794a26e56b85326c21b246a9e60f0d38b7aeed59a00",
+          "kind": "synthetic",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/08.content_facts/synthetic-neg-candidate-mismatch.json",
+          "sha256": "7561256997d138a9eb3f933f0c70f2eab32da5fe987c0a7c2c0f58ec49fbaa06",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/08.content_facts/synthetic-neg-auditor-not-independent.json",
+          "sha256": "676e32da9fd63916c6878f3a87abcbef28f074a65c9241410c2328fab2f45668",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/08.content_facts/synthetic-neg-dissent-outvoted.json",
+          "sha256": "673652142ac082033c98e99bca1f88730a3f1b16f1807ed0343b3a277dfcaa15",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/08.content_facts/synthetic-hold-undated-effective-date.json",
+          "sha256": "61637154fa5cf5a871592e0ff0e74ace5430d3c4fb9603d0bd0fc7d1618bbde8",
+          "kind": "synthetic_hold",
+          "expected_status": "HOLD"
+        }
+      ],
+      "unexecuted_count": 6,
+      "pin_ok": true,
+      "problems": []
+    },
+    "09.package": {
+      "mapping": {
+        "path": "schemas-strict/09-product-package.mapping.json",
+        "sha256": "11b9cc7b92a4aedf4ffa42ac16f6df6983ae2d9924b85017be01a5fa6ef280de"
+      },
+      "adapter": {
+        "path": "schemas-strict/09-product-package.schema.json",
+        "sha256_pinned": "d5eb391b55633d4de7735a38dd0f3927edcfb511ce5592ea2f820d328b0dceb7",
+        "sha256_actual": "d5eb391b55633d4de7735a38dd0f3927edcfb511ce5592ea2f820d328b0dceb7"
+      },
+      "parent": {
+        "path": "schemas/product-package.schema.json",
+        "sha256_pinned": "ed7005ca43944ebde3c5b9778c89694adeebbc6f39482ea31708dfe23520f721",
+        "sha256_actual": "ed7005ca43944ebde3c5b9778c89694adeebbc6f39482ea31708dfe23520f721"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 23,
+      "dropped_constraint_count": 32,
+      "compensating_checks": [
+        "09.AUDIO_INACTIVE_ROLE20",
+        "09.CANDIDATE_IN_MANIFEST",
+        "09.COUNTS_RECOMPUTED",
+        "09.FINISH_CRITERIA_BINDING",
+        "09.HASH_FORMAT",
+        "09.INTEGRITY_RECOMPUTED",
+        "09.INTEGRITY_ZERO_FOR_PREVIEW",
+        "09.LEARNER_FEATURES_OFF",
+        "09.LEGACY_STATUS_HONEST",
+        "09.MEDIA_DISPOSITION_BINDING",
+        "09.NONNEGATIVE_COUNTS",
+        "09.NO_DEPLOY_AUTH_CLAIMS",
+        "09.OFFICIAL_NUMBERS",
+        "09.OVERLAY_BINDING",
+        "09.PROBE_AND_VERSION",
+        "09.PROVENANCE_RECOMPUTED",
+        "09.QA_GATES_FOR_PREVIEW",
+        "09.QA_REPORTS_BINDING",
+        "09.SCHEMA",
+        "09.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: \"\"",
+        "09.SENTINEL_BINDING",
+        "09.SOURCE_DEBT_LEAK",
+        "09.STATUS_SCOPE",
+        "09.UISPEC_RECEIPTS"
+      ],
+      "sentinels": [
+        {
+          "value": "deferred:not_applicable_pilot",
+          "fields": [
+            "/deploy/supabase_dataset_ref",
+            "/deploy/mobile_api_payload_refs/0",
+            "/deploy/listing_assets_ref"
+          ],
+          "authority": "contracts/pilot-overrides-v0.4.0.json /role_overrides/09/sop_dispositions step 4 ADAPTED_DEV_PREVIEW, step 6 DEFERRED_PRODUCTION",
+          "compensating_check": "09.SENTINEL_BINDING"
+        },
+        {
+          "value": "deferred:not_applicable_pilot",
+          "fields": [
+            "/deploy/image_scout_plan_ref",
+            "/deploy/audio_manifest_ref"
+          ],
+          "authority": "contracts/media-disposition.json inactive_roles [20,20A,20B] + non_applicable_checks",
+          "compensating_check": "09.SENTINEL_BINDING"
+        },
+        {
+          "value": "deferred:not_applicable_pilot",
+          "fields": [
+            "/market_signal_ref"
+          ],
+          "authority": "BELT-V2-CONTRACT.md roster: 10 Launch & Growth inactive_for_pilot; C57 later sales handoff (recorded, not machine-verified)",
+          "compensating_check": "09.SENTINEL_BINDING"
+        },
+        {
+          "value": "none_text_only_pilot / none / none",
+          "fields": [
+            "/audio_teacher_loop/provider",
+            "/audio_teacher_loop/generation_mode",
+            "/audio_teacher_loop/output_manifest"
+          ],
+          "authority": "contracts/media-disposition.json inactive_roles includes 20; rendered_audio_required=false",
+          "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+        },
+        {
+          "value": "{value:null,status:\"unknown\",source_page:null,fact_id:null}",
+          "fields": [
+            "/exam_config/n_questions",
+            "/exam_config/passing_threshold",
+            "/exam_config/domain_weights/*/weight"
+          ],
+          "authority": "contracts/source-fact-policy.json + CONVENTIONS sentinel vocabulary",
+          "compensating_check": "09.OFFICIAL_NUMBERS"
+        },
+        {
+          "value": "status:\"blocked\" + pilot_status",
+          "fields": [
+            "/status",
+            "/pilot_status"
+          ],
+          "authority": "overlay /role_overrides/09/state_adaptation",
+          "compensating_check": "09.LEGACY_STATUS_HONEST"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/09.package/v1-projected-raw.json",
+          "sha256": "2e3fda2f038a114a2d966342260786d39d4e8a9adc38c9edd97d7cea10899e84",
+          "kind": "v1_projection_raw",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/v1-projected-normalized.json",
+          "sha256": "c6d1d163bf9f3000e562e0141403a81562db57911356141f14a8a4dcc145b210",
+          "kind": "v1_projection_normalized",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-preview-ready.json",
+          "sha256": "b1b63d936bae67016b1ecdcdce94167ab12851b0bc858842b0427f18c63cf761",
+          "kind": "synthetic_positive",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-hold-no-context.json",
+          "sha256": "1a6d51624c91b661d77c6c62e161ed641b7b62b05f3b9a302e7ac9c48b17a2e3",
+          "kind": "synthetic_hold",
+          "expected_status": "HOLD"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-audio-active-role20-inactive.json",
+          "sha256": "1adc52dedb17516a061f443b88e76e90d24ab82a68cc3d055cd7f2be35fa3935",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-preview-ready-no-uispec-receipts.json",
+          "sha256": "b76343278bac0ea3507022046deb3749845cd65471a2af63b1fcd0afdc010e3a",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-legacy-shipped.json",
+          "sha256": "1d7aee290da9228a53fca6ec400843fc0970e8ece151c596c2d0f92d27e383e0",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-empty-status-reason.json",
+          "sha256": "f8aa8bf73f8f6ff4f5951157678ffe9cb48ce53f4e2f0df9cd9e385bba6b6e46",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-candidate-mismatch.json",
+          "sha256": "273144ed299c1a94dbc77c2d5519c3db3640752b67e70841d7d526f9067a441b",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-count-fabricated.json",
+          "sha256": "976852ae5e009088a4e71b593178aff2dc24e77ec634c3e0c9120ff629b01294",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-deploy-auth-claims.json",
+          "sha256": "52d7dde256a9ba29c3f33e53ced7a98e37ab4837702af6a166e8ec97f689bdb3",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-source-debt-numeral.json",
+          "sha256": "dd65d68fdff2550d39c9f83528fb58633244a17b84ca65906087313e9e9d5e31",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-application-scope.json",
+          "sha256": "9c5ae2943b27f8c52408313e4776c379cce954868d3c299355b2b90a34002924",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-neg-orphans-preview-ready.json",
+          "sha256": "a47aa9d8268ed1a681bf7589c484a20f8a972b7f865d696019e84f711f401318",
+          "kind": "synthetic_negative",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/09.package/synthetic-blocked-orphans-honest.json",
+          "sha256": "abcf8c3b0cec031128f60ebcfb9a2c467eec867dc9bb6f97978acc7b4197f107",
+          "kind": "synthetic_positive",
+          "expected_status": "PASS"
+        }
+      ],
+      "unexecuted_count": 9,
+      "pin_ok": true,
+      "problems": []
+    },
+    "19A.units": {
+      "mapping": {
+        "path": "schemas-strict/19a-curriculum-unit-map.mapping.json",
+        "sha256": "24eb9f3bedd90aee1f399998a8087e0328ceac51c4795a8c66df2e9cefbb9d74"
+      },
+      "adapter": {
+        "path": "schemas-strict/19a-curriculum-unit-map.schema.json",
+        "sha256_pinned": "343cc578f12ebb8bb9d5bb24a2a59026ab525afca8a15fa36a1f2dd6f116ef0a",
+        "sha256_actual": "343cc578f12ebb8bb9d5bb24a2a59026ab525afca8a15fa36a1f2dd6f116ef0a"
+      },
+      "parent": {
+        "path": "schemas/curriculum-unit-map.schema.json",
+        "sha256_pinned": "16f942a9b4c09a85d723c9fd485c629f3b36cdbccb8bd332b340642348eddd26",
+        "sha256_actual": "16f942a9b4c09a85d723c9fd485c629f3b36cdbccb8bd332b340642348eddd26"
+      },
+      "adapter_kind": "pilot_adapter",
+      "deviation_count": 12,
+      "dropped_constraint_count": 14,
+      "compensating_checks": [
+        "19A.EXAM_MODE_TRUTH",
+        "19A.HUB_UNLOCK",
+        "19A.INCOMPLETE_MAP_BLOCKED",
+        "19A.INTEGRITY_RECOMPUTE",
+        "19A.INTEGRITY_RECOMPUTE (applies to all ten counts)",
+        "19A.INTEGRITY_RECOMPUTE (units_missing_cards) + 19A.INCOMPLETE_MAP_BLOCKED",
+        "19A.INTEGRITY_RECOMPUTE (units_missing_sessions)",
+        "19A.INTEGRITY_RECOMPUTE (unresolved_required_media), 19A.MEDIA_SENTINEL",
+        "19A.LINEAGE",
+        "19A.MASTERY_GATE",
+        "19A.MEDIA_SENTINEL",
+        "19A.MODULE_UNIT_CARDINALITY",
+        "19A.PARENT_ALLOF_RESTORED",
+        "19A.PARENT_ALLOF_RESTORED (recomputed counts AND claimed counts must all be 0 under production_ready; in the pilot production_ready additionally FAILs 19A.PRODUCTION_GATE_CEILING)",
+        "19A.PROBE_SLUG",
+        "19A.PRODUCTION_GATE_CEILING",
+        "19A.PRODUCTION_GATE_CEILING (rejects production_ready even if the schema step is bypassed), 19A.INCOMPLETE_MAP_BLOCKED",
+        "19A.REFS_RESOLVE",
+        "19A.REFS_RESOLVE, 19A.MEDIA_SENTINEL",
+        "19A.SCHEMA",
+        "19A.SCHEMA (enum)",
+        "19A.TENANT_DIR",
+        "19A.UNIT_SHAPE",
+        "19A.UNIT_SHAPE (also module_id, title, domain, readiness_domain)",
+        "19A.UNIT_SHAPE (order must be 1..n unique)",
+        "19A.USER_CYCLE",
+        "19A.USER_CYCLE, 19A.HUB_UNLOCK"
+      ],
+      "sentinels": [
+        {
+          "field": "/source_refs/image_scout_pre_kg, /source_refs/image_scout_post_kg, /source_refs/image_asset_manifest",
+          "value": "deferred:not_applicable_pilot",
+          "binding": "contracts/media-disposition.json inactive_roles includes 20A; exemptions in /media/exempt_by_disposition must be named verbatim in non_applicable_checks[].check",
+          "check": "19A.MEDIA_SENTINEL",
+          "compensating_check": "19A.MEDIA_SENTINEL"
+        },
+        {
+          "field": "/exam_modes/*/scoring_policy/passing_threshold",
+          "kind": "official_number_record",
+          "shape": "{value: null|number, status: unknown|verified|authored, source_page: null|string}",
+          "rule": "unknown => null; pass_fail only with verified + source_page",
+          "compensating_check": "19A.EXAM_MODE_TRUTH"
+        }
+      ],
+      "fixtures": [
+        {
+          "path": "tools/belt/fixtures/19A.units/synthetic-positive.json",
+          "sha256": "2eda57417eec01fe4240bb21c959eef2c9e12b2f5d3a8d476bb78862f6b6900c",
+          "kind": "synthetic",
+          "expected_status": "PASS"
+        },
+        {
+          "path": "tools/belt/fixtures/19A.units/synthetic-negative-production-ready-orphans.json",
+          "sha256": "79df4acd4e5b7f856eaa6137f793dfcfe4006654c61fc3990b04921fccc5ae8f",
+          "kind": "synthetic",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/19A.units/synthetic-negative-threshold-mismatch.json",
+          "sha256": "721f5786c42dda77c4c7879a5ffe12f8f256bbe4b6b025427a3c66565f43a3b0",
+          "kind": "synthetic",
+          "expected_status": "FAIL"
+        },
+        {
+          "path": "tools/belt/fixtures/19A.units/synthetic-hold-no-context.json",
+          "sha256": "e5d08cbb11dd19636b683c802910646edc7a00d4a46feb974704f7d2d74e32e2",
+          "kind": "synthetic",
+          "expected_status": "HOLD"
+        }
+      ],
+      "unexecuted_count": 6,
+      "pin_ok": true,
+      "problems": []
+    }
+  },
+  "dropped_parent_invariants_index": [
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/probe",
+      "keyword": "pattern",
+      "compensating_check": "02.PROBE_SLUG"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/sections",
+      "keyword": "minItems",
+      "compensating_check": "02.CHUNK_IDENTITY"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/sections/items/properties/markdown",
+      "keyword": "maxLength",
+      "compensating_check": "02.SECTION_BOUNDS"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/sections/items/properties/merge_seq",
+      "keyword": "minimum/uniqueItems",
+      "compensating_check": "02.CHUNK_IDENTITY"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/exam_facts/properties/n_questions/properties/value",
+      "keyword": "type integer + minimum",
+      "compensating_check": "02.EXAM_FACT_STATUS"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/exam_facts/properties/exam_name/properties/value",
+      "keyword": "minLength",
+      "compensating_check": "02.EXAM_FACT_STATUS"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/high_yield_ranked/items/properties/ranked",
+      "keyword": "minItems",
+      "compensating_check": "02.HIGH_YIELD_PER_DOMAIN"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/verification_debt/items/properties/claim_id",
+      "keyword": "minLength",
+      "compensating_check": "02.DEBT_TYPED"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/verification_debt/items/properties/expires_by",
+      "keyword": "format",
+      "compensating_check": "02.DEBT_TYPED"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "/properties/g_matrix",
+      "keyword": "minItems/maxItems/uniqueItems",
+      "compensating_check": "02.G_MATRIX"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "parent:/properties/knowledge/items/properties/facts/items/properties/source_ref",
+      "keyword": "required ref minLength 1 + tier enum",
+      "compensating_check": "02.FACT_LINES_CITED, 02.ANCHORS_REGISTERED"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "parent:/properties/compiled_at",
+      "keyword": "format",
+      "compensating_check": "02.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: none at 02 — added and validated by role 16 against the parent"
+    },
+    {
+      "stage_id": "02.dossier_sections",
+      "json_pointer": "parent:/properties/artifact_hash",
+      "keyword": "minLength",
+      "compensating_check": "none at 02 — role 16 hashes the compiled Blueprint; 02.MERGE_DETERMINISTIC reports the merged dossier sha256"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/probe",
+      "keyword": "pattern",
+      "compensating_check": "03.PROBE_SLUG"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/nodes/items/properties/official_weight/properties/value",
+      "keyword": "minimum",
+      "compensating_check": "03.WEIGHT_HONESTY"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/modules/items/properties/official_weight/properties/value",
+      "keyword": "minimum",
+      "compensating_check": "03.WEIGHT_HONESTY"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/nodes/items/properties/id",
+      "keyword": "minLength + uniqueness",
+      "compensating_check": "03.ID_INTEGRITY"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/nodes/items/properties/confusable_with/items/properties/why",
+      "keyword": "minLength",
+      "compensating_check": "03.CONFUSABLE_SOURCE_BOUND"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/edges/items/properties/from",
+      "keyword": "minLength",
+      "compensating_check": "03.EDGE_TYPED (endpoints must resolve to stable nodes)"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/modules/items/properties/module_id",
+      "keyword": "minLength + uniqueness",
+      "compensating_check": "03.ID_INTEGRITY"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/curriculum_unit_hints/items/properties/session_strategy",
+      "keyword": "minLength",
+      "compensating_check": "03.CURRICULUM_HINTS (also flashcard_strategy, quiz_strategy)"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "/properties/dynamic_nodes/items/properties/why_dynamic",
+      "keyword": "minLength",
+      "compensating_check": "03.ID_INTEGRITY"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "parent:/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "compensating_check": "03.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: none — retrieved_at not carried in the adapter source_ref; freshness belongs to the source registry / liveness receipt"
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "json_pointer": "parent:/$defs/sourceRef/properties/ref",
+      "keyword": "minLength",
+      "compensating_check": "03.FACT_IDS_REGISTERED (fact binding) — empty ref strings are not separately rejected"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/probeSlug",
+      "keyword": "pattern",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/properties/schema_version",
+      "keyword": "const",
+      "compensating_check": "04.SCHEMA"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/properties/decks/items/properties/module",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/properties/decks/items/properties/module_id",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/properties/decks/items/properties/domain",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/properties/decks/items/properties/exam_weight",
+      "keyword": "minimum",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/properties/recaps/items/properties/module",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/properties/recaps/items/properties/recap_hooks",
+      "keyword": "minItems",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/sourceRef/properties/ref",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "compensating_check": "n/a — field not carried by the adapter (see deviations /source_ref)"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/card/properties/id",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS, 04.CARD_IDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/card/properties/node_id",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/card/properties/front",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/card/properties/back",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/card/properties/memory_hook",
+      "keyword": "minLength",
+      "compensating_check": "04.STRING_BOUNDS, 04.HOOK_LENGTH"
+    },
+    {
+      "stage_id": "04.cards",
+      "json_pointer": "/$defs/card/properties/intro_order",
+      "keyword": "minimum",
+      "compensating_check": "04.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/probeSlug",
+      "keyword": "pattern",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/properties/schema_version",
+      "keyword": "const",
+      "compensating_check": "05.SCHEMA (enum)"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/audioScript/properties/card_id",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/audioScript/properties/repeat_count",
+      "keyword": "minimum",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/audioScript/properties/pause_after_ms",
+      "keyword": "minimum",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/audioScript/properties/pronunciation/items/properties/term",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/audioScript/properties/pronunciation/items/properties/say",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/sourceRef/properties/ref",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "compensating_check": "05.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: n/a — field not carried"
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "json_pointer": "/$defs/audioScript",
+      "keyword": "if/then",
+      "compensating_check": "05.NARRATED_FIELDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/schema_version",
+      "keyword": "const",
+      "compensating_check": "05.SCHEMA (enum) + 05.ROOT_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/input_manifest_sha256",
+      "keyword": "pattern",
+      "compensating_check": "05.ROOT_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/candidate_lineage_id",
+      "keyword": "minLength",
+      "compensating_check": "05.ROOT_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/source_registry_sha256",
+      "keyword": "pattern",
+      "compensating_check": "05.ROOT_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units",
+      "keyword": "minItems",
+      "compensating_check": "05.ROOT_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/unit_id",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/module_id",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/objective_ids",
+      "keyword": "minItems",
+      "compensating_check": "05.UNIQUE_ITEMS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/objective_ids",
+      "keyword": "uniqueItems",
+      "compensating_check": "05.UNIQUE_ITEMS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/objective_ids/items",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/why_how",
+      "keyword": "minItems",
+      "compensating_check": "05.UNIQUE_ITEMS, 05.DECOMPRESSION_FIELDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides",
+      "keyword": "minItems",
+      "compensating_check": "05.SLIDE_COUNT"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides",
+      "keyword": "maxItems",
+      "compensating_check": "05.SLIDE_COUNT"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/slide_id",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/lines",
+      "keyword": "minItems",
+      "compensating_check": "05.SLIDE_LINES"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/lines",
+      "keyword": "maxItems",
+      "compensating_check": "05.SLIDE_LINES"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/estimated_narration_seconds",
+      "keyword": "minimum",
+      "compensating_check": "05.NARRATION_SECONDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/estimated_narration_seconds",
+      "keyword": "maximum",
+      "compensating_check": "05.NARRATION_SECONDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/media_role",
+      "keyword": "const",
+      "compensating_check": "05.SCHEMA (enum [\"none\"])"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/units/items/properties/slides/items/properties/media_absence_reason",
+      "keyword": "const",
+      "compensating_check": "05.SCHEMA (enum [\"text_first_pilot\"])"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/$defs/span/properties/text",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/$defs/span/properties/fact_ids",
+      "keyword": "minItems",
+      "compensating_check": "05.UNIQUE_ITEMS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/$defs/span/properties/fact_ids",
+      "keyword": "uniqueItems",
+      "compensating_check": "05.UNIQUE_ITEMS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/$defs/span/properties/fact_ids/items",
+      "keyword": "minLength",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/$defs/span",
+      "keyword": "$ref (21 use sites)",
+      "compensating_check": "05.SCHEMA (inlined identical object)"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/sessions/items/properties/slides",
+      "keyword": "contains/minContains",
+      "compensating_check": "05.SLIDE_ARC"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/sessions/items/properties/slides/items/properties/title",
+      "keyword": "maxLength",
+      "compensating_check": "05.WORD_LIMITS (<= 6 words supersedes 60 chars)"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/sessions/items/properties/slides/items/properties/lines/items",
+      "keyword": "maxLength",
+      "compensating_check": "05.WORD_LIMITS (<= 15 words supersedes 140 chars)"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/sessions/items/properties/slides/items/properties/narration_text",
+      "keyword": "minLength",
+      "compensating_check": "05.NARRATION_DEPTH (avg >= 400 chars) + 05.STRING_BOUNDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/sessions/items/properties/slides/items",
+      "keyword": "if/then",
+      "compensating_check": "05.SCHEMA (both fields required, single-value enums)"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/sessions/items/properties/est_minutes",
+      "keyword": "minimum/maximum",
+      "compensating_check": "n/a — est_minutes not carried (Order Q §4 rule 7: not a floor key); per-slide estimates via 05.NARRATION_SECONDS"
+    },
+    {
+      "stage_id": "05.sessions",
+      "json_pointer": "/properties/sessions/items/properties/skippable",
+      "keyword": "const",
+      "compensating_check": "05.SCHEMA — not carried; skippable is product policy (prompt 05-sessions); previously: n/a — not carried; sessions are skippable by product policy (prompt 05-sessions), not asserted per unit"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/probeSlug",
+      "keyword": "pattern",
+      "compensating_check": "06.ENVELOPE"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/schema_version",
+      "keyword": "const",
+      "compensating_check": "06.SCHEMA (adapter_version enum)"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/mock_exams",
+      "keyword": "minItems",
+      "compensating_check": "06.FORM_COUNT"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/mock_exams/items/properties/form_id",
+      "keyword": "minLength",
+      "compensating_check": "06.ID_INTEGRITY"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/mock_exams/items/properties/n_questions",
+      "keyword": "minimum",
+      "compensating_check": "06.DECLARED_COUNT, 06.OFFICIAL_MIRROR"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/mock_exams/items/properties/domain_distribution/items/properties/item_count",
+      "keyword": "minimum",
+      "compensating_check": "field removed; downstream stage 07: 07.PRACTICE_FORM_DRIFT recomputes"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/mock_exams/items/properties/domain_distribution/items/properties/pct",
+      "keyword": "minimum/maximum",
+      "compensating_check": "field removed; downstream stage 07: 07.PRACTICE_FORM_DRIFT recomputes"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/mock_exams/items/properties/domain_distribution/items/properties/domain",
+      "keyword": "minLength",
+      "compensating_check": "field removed; items[].domain non-empty via 06.ITEM_BINDING"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/module_quizzes/items/properties/module",
+      "keyword": "minLength",
+      "compensating_check": "06.MODULE_QUIZ_COVERAGE"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/module_quizzes/items/properties/domain",
+      "keyword": "minLength",
+      "compensating_check": "06.MODULE_QUIZ_COVERAGE"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/self_flagged_distractors/items/properties/item_id",
+      "keyword": "minLength",
+      "compensating_check": "06.ID_INTEGRITY (must resolve)"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/self_flagged_distractors/items/properties/distractor",
+      "keyword": "minLength",
+      "compensating_check": "06.SELF_FLAGGED_RESOLVED (option_key enum; must not target the correct key)"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/properties/self_flagged_distractors/items/properties/why_possibly_correct",
+      "keyword": "minLength",
+      "compensating_check": "06.SELF_FLAGGED_RESOLVED"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/sourceRef/properties/ref",
+      "keyword": "minLength",
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "compensating_check": "field not carried at 06; downstream stage 08: 08.LIVENESS_RECEIPT_SHAPE validates retrieved_at date-time"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/id",
+      "keyword": "minLength",
+      "compensating_check": "06.ID_INTEGRITY"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/stem",
+      "keyword": "minLength",
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/correct",
+      "keyword": "minLength",
+      "compensating_check": "06.OPTIONS_SHAPE"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/distractors",
+      "keyword": "minItems/maxItems",
+      "compensating_check": "06.OPTIONS_SHAPE (exactly 4 options = 1 correct + 3 distractors)"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/distractors/items",
+      "keyword": "minLength",
+      "compensating_check": "06.OPTIONS_SHAPE"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/distractor_source",
+      "keyword": "minItems/maxItems",
+      "compensating_check": "06.DISTRACTOR_SOURCE"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/rationale",
+      "keyword": "minLength",
+      "compensating_check": "06.OPTIONS_SHAPE (correct_rationale + every option rationale non-empty)"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/domain",
+      "keyword": "minLength",
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/node_id",
+      "keyword": "minLength",
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/examItem/properties/module_id",
+      "keyword": "minLength",
+      "compensating_check": "06.ITEM_BINDING"
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "json_pointer": "parent:/$defs/mintedBy",
+      "keyword": "additionalProperties",
+      "compensating_check": "06.ENVELOPE (non-empty model/lane/pass)"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/allOf/0",
+      "keyword": "allOf(if verdict PASS then curriculum_unit_gaps/media_gaps/cross_product_refs maxItems 0)",
+      "compensating_check": "07.VERDICT_INVARIANT"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/$defs/probeSlug",
+      "keyword": "pattern",
+      "compensating_check": "07.ENVELOPE"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/schema_version",
+      "keyword": "const",
+      "compensating_check": "07.SCHEMA (adapter_version enum)"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/source_refs/properties/*",
+      "keyword": "minLength",
+      "compensating_check": "07.ENVELOPE"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/domain_coverage/items/properties/domain",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/domain_coverage/items/properties/weight_pct",
+      "keyword": "minimum/maximum",
+      "compensating_check": "07.ROW_FIELDS, 07.DOMAIN_WEIGHTS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/domain_coverage/items/properties/content_share",
+      "keyword": "minimum/maximum",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/domain_coverage/items/properties/weighting_drift",
+      "keyword": "minimum",
+      "compensating_check": "07.ROW_FIELDS, 07.DOMAIN_WEIGHTS (|share-weight| recomputed; ok <=> drift <= 5 and share > 0)"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/missing_high_yield/items/properties/{domain,high_yield_area}",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/dropped_facts/items/properties/{source_ref,statement,domain}",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/mock_drift/items/properties/form_id",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/voice_gaps/items/properties/card_id",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/curriculum_unit_gaps/items/properties/unit_id",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/media_gaps/items/properties/media_slot_id",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/pending_media/items/properties/media_slot_id",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/pending_media/items/properties/required",
+      "keyword": "const",
+      "compensating_check": "07.SCHEMA (enum [false])"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/cross_product_refs/items/properties/ref",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/cross_product_refs/items/properties/expected_tenant_dir",
+      "keyword": "pattern",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/sme_dod_unsatisfied/items/properties/{checklist_item,evidence_missing}",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/properties/route_back/items/properties/gap_ref",
+      "keyword": "minLength",
+      "compensating_check": "07.ROW_FIELDS"
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "json_pointer": "parent:/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "compensating_check": "sourceRef objects not carried at 07 (string refs); liveness dates validated by downstream stage 08: 08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/allOf/0",
+      "keyword": "allOf(if verdict PASS then visual_claim_issues/grouped_unit_claim_issues maxItems 0)",
+      "compensating_check": "08.VERDICT_INVARIANT"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/$defs/probeSlug",
+      "keyword": "pattern",
+      "compensating_check": "08.ENVELOPE"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/schema_version",
+      "keyword": "const",
+      "compensating_check": "08.SCHEMA (adapter_version enum)"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/source_refs/properties/*",
+      "keyword": "minLength",
+      "compensating_check": "08.ENVELOPE"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/flagged/items/properties/{item_id,issue}",
+      "keyword": "minLength",
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/visual_claim_issues/items/properties/media_slot_id",
+      "keyword": "minLength",
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/grouped_unit_claim_issues/items/properties/unit_id",
+      "keyword": "minLength",
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/verification_debt/items/properties/{claim_id,blocker_kind,owner_worker}",
+      "keyword": "minLength",
+      "compensating_check": "08.ROW_FIELDS (owner_worker now enum)"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/external_review_requests/items/properties/request_id",
+      "keyword": "minLength",
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/external_review_requests/items/properties/claim_ids",
+      "keyword": "minItems",
+      "compensating_check": "08.EXTERNAL_REVIEW"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/external_review_requests/items/properties/why_human_required",
+      "keyword": "minLength",
+      "compensating_check": "08.ROW_FIELDS"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "parent:/properties/external_review_requests/items/properties/blocking",
+      "keyword": "const",
+      "compensating_check": "08.SCHEMA (enum [true])"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/properties/snapshot_sha256",
+      "keyword": "pattern",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/properties/retrieved_at",
+      "keyword": "format",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/properties/{source_ref,official_url}",
+      "keyword": "minLength",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/properties/issuer_current_edition_sha256",
+      "keyword": "pattern",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE"
+    },
+    {
+      "stage_id": "08.content_facts",
+      "json_pointer": "contract:contracts/source-liveness-receipt.schema.json#/allOf/0",
+      "keyword": "allOf(if status PASS then edition non-placeholder, effective_date YYYY-MM-DD, issuer current-edition ref+sha)",
+      "compensating_check": "08.LIVENESS_RECEIPT_SHAPE, 08.LIVENESS_COVERAGE"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/$defs/probeSlug/pattern",
+      "keyword": "pattern",
+      "compensating_check": "09.PROBE_AND_VERSION"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/package_version/minLength",
+      "keyword": "minLength",
+      "compensating_check": "09.PROBE_AND_VERSION"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/schema_version/const",
+      "keyword": "const",
+      "compensating_check": "09.SCHEMA"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/contents/properties/deck_count/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/contents/properties/card_count/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/contents/properties/voice_count/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/contents/properties/item_count/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/contents/properties/mock_count/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/contents/properties/curriculum_unit_count/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/contents/properties/session_count/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/integrity/properties/orphans/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/integrity/properties/cards_missing_voice/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/integrity/properties/curriculum_units_missing_refs/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/integrity/properties/cross_product_refs/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.NONNEGATIVE_COUNTS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/exam_config/properties/n_questions/minimum",
+      "keyword": "minimum",
+      "compensating_check": "09.OFFICIAL_NUMBERS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/exam_config/properties/domain_weights/items/anyOf",
+      "keyword": "anyOf",
+      "compensating_check": "09.OFFICIAL_NUMBERS"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/audio_teacher_loop/properties/provider/const",
+      "keyword": "const",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/audio_teacher_loop/properties/generation_mode/const",
+      "keyword": "const",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/audio_teacher_loop/properties/output_manifest/const",
+      "keyword": "const",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/audio_teacher_loop/properties/runtime_policy/const",
+      "keyword": "const",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/audio_teacher_loop/properties/coverage_gate/properties/live_tts_in_user_flow/const",
+      "keyword": "const",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/audio_teacher_loop/properties/coverage_gate/properties/cards_missing_voice/const",
+      "keyword": "const",
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/properties/audio_teacher_loop/properties/coverage_gate/properties/sessions_missing_audio/const",
+      "keyword": "const",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0",
+      "keyword": "if/then",
+      "compensating_check": "09.LEGACY_STATUS_HONEST"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0/then/properties/qa_gates/properties/coverage/const",
+      "keyword": "const",
+      "compensating_check": "09.QA_GATES_FOR_PREVIEW"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0/then/properties/qa_gates/properties/fact/const",
+      "keyword": "const",
+      "compensating_check": "09.QA_GATES_FOR_PREVIEW"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/cards_missing_voice/const",
+      "keyword": "const",
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/orphans/const",
+      "keyword": "const",
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/sessions_missing_audio/const",
+      "keyword": "const",
+      "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/curriculum_units_missing_refs/const",
+      "keyword": "const",
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0/then/properties/integrity/properties/cross_product_refs/const",
+      "keyword": "const",
+      "compensating_check": "09.INTEGRITY_ZERO_FOR_PREVIEW"
+    },
+    {
+      "stage_id": "09.package",
+      "json_pointer": "/allOf/0/then/properties/provenance_preserved/const",
+      "keyword": "const",
+      "compensating_check": "09.PROVENANCE_RECOMPUTED"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "parent:/allOf/0",
+      "keyword": "allOf if/then",
+      "compensating_check": "19A.PARENT_ALLOF_RESTORED (recomputed counts AND claimed counts must all be 0 under production_ready; in the pilot production_ready additionally FAILs 19A.PRODUCTION_GATE_CEILING)"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/probe",
+      "keyword": "pattern",
+      "compensating_check": "19A.PROBE_SLUG"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/product_line/properties/tenant_id",
+      "keyword": "pattern",
+      "compensating_check": "19A.PROBE_SLUG"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/product_line/properties/tenant_dir",
+      "keyword": "pattern",
+      "compensating_check": "19A.TENANT_DIR"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/product_line/properties/product_line_id",
+      "keyword": "minLength",
+      "compensating_check": "19A.TENANT_DIR"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/units",
+      "keyword": "minItems",
+      "compensating_check": "19A.UNIT_SHAPE"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/units/items/properties/order",
+      "keyword": "minimum",
+      "compensating_check": "19A.UNIT_SHAPE (order must be 1..n unique)"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/units/items/properties/unit_id",
+      "keyword": "minLength",
+      "compensating_check": "19A.UNIT_SHAPE (also module_id, title, domain, readiness_domain)"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/units/items/properties/session_ref",
+      "keyword": "minLength",
+      "compensating_check": "19A.INTEGRITY_RECOMPUTE (units_missing_sessions)"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/units/items/properties/card_ids",
+      "keyword": "minItems",
+      "compensating_check": "19A.INTEGRITY_RECOMPUTE (units_missing_cards) + 19A.INCOMPLETE_MAP_BLOCKED"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/units/items/properties/user_cycle",
+      "keyword": "minItems",
+      "compensating_check": "19A.USER_CYCLE"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/units/items/properties/mastery_gate/properties/quiz_threshold_pct",
+      "keyword": "minimum/maximum",
+      "compensating_check": "19A.MASTERY_GATE"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/exam_modes",
+      "keyword": "minItems",
+      "compensating_check": "19A.UNIT_SHAPE"
+    },
+    {
+      "stage_id": "19A.units",
+      "json_pointer": "/properties/integrity/properties/units_missing_sessions",
+      "keyword": "minimum",
+      "compensating_check": "19A.INTEGRITY_RECOMPUTE (applies to all ten counts)"
+    }
+  ],
+  "missing_stages": [],
+  "problems": []
+}

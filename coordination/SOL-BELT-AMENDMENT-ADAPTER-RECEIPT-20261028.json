@@ -1,0 +1,603 @@
+{
+  "artifact_type": "BeltAdapterValidationReceipt",
+  "version": "0.4.0",
+  "author": {
+    "actor": "Sol",
+    "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+    "model": "gpt-6.1-sol",
+    "provider_family": "openai",
+    "builders": "This receipt records the supplied operator identity. Underlying adapter authorship is not inferred."
+  },
+  "authority_ref": {
+    "path": "coordination/SOL-REAUTHOR-AMENDMENT-WRITE-BARRIER-20261028.json",
+    "sha256": "eaabe7150478399ab176476aef95181e2ed4ccae5b7395217790c7e1ee49b05a"
+  },
+  "generated_note": "Local deterministic adapter validation only. No model/endpoint call, content authoring, qualification, spend or execution GO is established by this receipt.",
+  "handoff_targets_consumed": [
+    {
+      "path": "CLAUDE-V0.4.0-SCHEMA-HANDOFF.md",
+      "sha256": "3774c57c4c013ce7f0d5e55be30bb388e90a17946d3243db0f1937a68694cda6"
+    },
+    {
+      "path": "contracts/pilot-overrides-v0.4.0.json",
+      "sha256": "c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3"
+    },
+    {
+      "path": "contracts/media-disposition.json",
+      "sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd"
+    },
+    {
+      "path": "contracts/source-fact-policy.json",
+      "sha256": "525934833394b1b37cc5ce8eb58939ae78aff0fb0c814e70df7718253795d05d"
+    },
+    {
+      "path": "contracts/pilot-finish-criteria.json",
+      "sha256": "5434ac38e675ab6a05435e95c355d9ca825033fa13650bd26413aa11940261c5"
+    },
+    {
+      "path": "contracts/teaching-unit.schema.json",
+      "sha256": "0eb8189a6d4aac9ac2ce455c9d65f632e88c977200280748b6173f76de3a4b35"
+    },
+    {
+      "path": "contracts/source-liveness-receipt.schema.json",
+      "sha256": "09e2305a97b1fe3099e8889214fab78da330c4df1a85730da93eb4a15339696c"
+    },
+    {
+      "path": "schemas-strict/CONVENTIONS.md",
+      "sha256": "7f46341ba41a8838cdcbfc7006ca19ea347fc88496218640b9dd54e7c15160e6"
+    },
+    {
+      "path": "schemas-strict/stage-map.json",
+      "sha256": "c1317e9e8dca329758472f9ce70c49810a34afd0ef6d710073062c3d18f1e2dc"
+    }
+  ],
+  "adapter_receipts": [
+    {
+      "stage_id": "02.dossier_sections",
+      "prompt_path": "prompts/02.md",
+      "schema_ref": "schemas-strict/02-sme-dossier-envelope.schema.json",
+      "schema_sha256": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111",
+      "mapping_ref": "schemas-strict/02-sme-dossier-envelope.mapping.json",
+      "mapping_sha256": "f74bd4b2508acddce3d7f7c1f475c6d4f1aaa0ab46d2fd9e15e049d35faba743",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/02.dossier_sections.json",
+          "sha256": "90136be77051d594519c49179e5d52011163212b951132912f15658f9589c276"
+        }
+      }
+    },
+    {
+      "stage_id": "03.combined_kg",
+      "prompt_path": "prompts/03.md",
+      "schema_ref": "schemas-strict/03-knowledge-graph.schema.json",
+      "schema_sha256": "789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8",
+      "mapping_ref": "schemas-strict/03-knowledge-graph.mapping.json",
+      "mapping_sha256": "a3f46a4b9bb21c0e7c56e34584fed44a4c97adae5f62ec03a832a5a2bf681aca",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/03.combined_kg.json",
+          "sha256": "2540859b541021c366e7271cf518b5fc95c55d93e0d514f5bf76884fcc34b791"
+        }
+      }
+    },
+    {
+      "stage_id": "04.cards",
+      "prompt_path": "prompts/04.md",
+      "schema_ref": "schemas-strict/04-carddeck.schema.json",
+      "schema_sha256": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d",
+      "mapping_ref": "schemas-strict/04-carddeck.mapping.json",
+      "mapping_sha256": "6209f5a30e88fca9a52b4e987c3ffb0f0175429af2ba57ed254eaf86a7fba202",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/04.cards.json",
+          "sha256": "d9723f65f8ca9a33a097b8f8024289be20239603deb498372c82f93f1a5fc192"
+        }
+      }
+    },
+    {
+      "stage_id": "05.sessions",
+      "prompt_path": "prompts/05-sessions.md",
+      "schema_ref": "schemas-strict/05b-session-scripts.schema.json",
+      "schema_sha256": "2457854f6f129e80be4465ac7a132295fd34e83425378365a4f491704aa88e41",
+      "mapping_ref": "schemas-strict/05b-session-scripts.mapping.json",
+      "mapping_sha256": "693b4a9ffa6a73c3179d80a627aa2aae1128a267ab15f951c2de679316596764",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/05.sessions.json",
+          "sha256": "b4dd52e67d7148257f8fbc6807af4ff4554c694f506be464a73c9840537cdd30"
+        }
+      }
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "prompt_path": "prompts/05-card-scripts.md",
+      "schema_ref": "schemas-strict/05-voicescripts.schema.json",
+      "schema_sha256": "7c02cb21865097a56362b1b8f474afb1d2ec798ec54b206e155c47e7777db409",
+      "mapping_ref": "schemas-strict/05-voicescripts.mapping.json",
+      "mapping_sha256": "480d0f41bc8ddd0df420819fba7e1dd3cc36c4463275fbde25ca4f206c29d088",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/05.card_scripts.json",
+          "sha256": "c7592911a616e82d82f623159f6ffbfe0b4b18007182b1581bbde58bc08dcd2f"
+        }
+      }
+    },
+    {
+      "stage_id": "06.exam_bank",
+      "prompt_path": "prompts/06.md",
+      "schema_ref": "schemas-strict/06-exambank.schema.json",
+      "schema_sha256": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22",
+      "mapping_ref": "schemas-strict/06-exambank.mapping.json",
+      "mapping_sha256": "2837d28d0dec105f7340940b567b9414eeb6aff002473d1eb65e6bdc85987933",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/06.exam_bank.json",
+          "sha256": "7b2c05bbd79b5ddf622efbc390d06ed83f19026fd773d31140725591da1f4614"
+        }
+      }
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "prompt_path": "prompts/07.md",
+      "schema_ref": "schemas-strict/07-coverage-report.schema.json",
+      "schema_sha256": "bec7552a58e907e64b7efdbc47e453a92bc4043316b270daf473c1ef1eee9bea",
+      "mapping_ref": "schemas-strict/07-coverage-report.mapping.json",
+      "mapping_sha256": "3523ac716a77c3e06172c185020271d37ef4ca6e618e9ccddba58c977f93db41",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/07.content_coverage.json",
+          "sha256": "706b77d02c42098564de5dd0e3953601ed6bae83f4ea3ab455a86d62bab8dcac"
+        }
+      }
+    },
+    {
+      "stage_id": "08.content_facts",
+      "prompt_path": "prompts/08.md",
+      "schema_ref": "schemas-strict/08-fact-report.schema.json",
+      "schema_sha256": "8a60a2ea4b4ceda131a7966a77883fb04b3ccc2e3d179989cee5ac20d1248502",
+      "mapping_ref": "schemas-strict/08-fact-report.mapping.json",
+      "mapping_sha256": "0b0a625ccec36dd51504d3a3b3139150f7eed104e76ab92aa9c048865ff3f9ad",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/08.content_facts.json",
+          "sha256": "426aeee7f08f63b696107a883375cc2dbaef42fb9397f69ca5ae9a102be9994c"
+        }
+      }
+    },
+    {
+      "stage_id": "09.package",
+      "prompt_path": "prompts/09.md",
+      "schema_ref": "schemas-strict/09-product-package.schema.json",
+      "schema_sha256": "d5eb391b55633d4de7735a38dd0f3927edcfb511ce5592ea2f820d328b0dceb7",
+      "mapping_ref": "schemas-strict/09-product-package.mapping.json",
+      "mapping_sha256": "11b9cc7b92a4aedf4ffa42ac16f6df6983ae2d9924b85017be01a5fa6ef280de",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/09.package.json",
+          "sha256": "bdff1d56d0824d5d10f1eb0f0281e3cfa073ed161c5cc671f2a90fecbe81226b"
+        }
+      }
+    },
+    {
+      "stage_id": "19A.units",
+      "prompt_path": "prompts/19A.md",
+      "schema_ref": "schemas-strict/19a-curriculum-unit-map.schema.json",
+      "schema_sha256": "343cc578f12ebb8bb9d5bb24a2a59026ab525afca8a15fa36a1f2dd6f116ef0a",
+      "mapping_ref": "schemas-strict/19a-curriculum-unit-map.mapping.json",
+      "mapping_sha256": "24eb9f3bedd90aee1f399998a8087e0328ceac51c4795a8c66df2e9cefbb9d74",
+      "adapter_kind": "pilot_adapter",
+      "validation": {
+        "status": "PASS",
+        "executed": true,
+        "evidence_ref": {
+          "path": "verification/sol-reauthor-amendment-20261028/adapter-evidence/19A.units.json",
+          "sha256": "b248b82fd5f0a32002cf79ee8be78e3678b3d7f5144fef6e2e7288b2b0e2ce4a"
+        }
+      }
+    }
+  ],
+  "post_validator": {
+    "path": "tools/belt/post-validate.mjs",
+    "sha256": "68c6cfeca5105a4aab499ca91d92d4e867dd9c9e36c37c2c854f8706344b34b9",
+    "api": "validateArtifact({stage_id, artifact, context}) -> {status: PASS|FAIL|HOLD, checks:[{check_id,status,evidence,metrics?}], errors:[], metrics:{}}; CLI: node tools/belt/post-validate.mjs --stage <id> --artifact <file> [--context <file>] (exit 0 PASS / 1 FAIL / 2 HOLD)",
+    "api_mapping": [
+      {
+        "prompt_path": "prompts/02.md",
+        "stage_id": "02.dossier_sections",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/02-dossier-sections.mjs",
+        "checks_module_sha256": "5a9fe43294ea1368ce527163a4e219a2b201684cc176e1daf041eb434f2eedd9"
+      },
+      {
+        "prompt_path": "prompts/03.md",
+        "stage_id": "03.combined_kg",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/03-combined-kg.mjs",
+        "checks_module_sha256": "996ac651dbfd8643b78b3e6c28d5d073ed91cfbe0337ad5de1f764360fe1e08e"
+      },
+      {
+        "prompt_path": "prompts/04.md",
+        "stage_id": "04.cards",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/04-cards.mjs",
+        "checks_module_sha256": "bf7e0c201faaa458b311e10b942f2e509eb9dc762c5868da724eef2cb86722da"
+      },
+      {
+        "prompt_path": "prompts/05-sessions.md",
+        "stage_id": "05.sessions",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/05-sessions.mjs",
+        "checks_module_sha256": "1751a8ece6fdea5bab53b466736d04bd1e6d87a3e636acf2a0d12d8a620aa4c7"
+      },
+      {
+        "prompt_path": "prompts/05-card-scripts.md",
+        "stage_id": "05.card_scripts",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/05-card-scripts.mjs",
+        "checks_module_sha256": "1c05e52617fb918ea16b8ef40c50a98dd3276c2df5dc7257489923bc15c4f191"
+      },
+      {
+        "prompt_path": "prompts/06.md",
+        "stage_id": "06.exam_bank",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/06-exam-bank.mjs",
+        "checks_module_sha256": "c886bd5267f388c919bf4d9ea6e6702f60d636eec91bdca53fc0a00c43238146"
+      },
+      {
+        "prompt_path": "prompts/07.md",
+        "stage_id": "07.content_coverage",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/07-content-coverage.mjs",
+        "checks_module_sha256": "2752725c95621facfb01948e1ba718dd0d81117e701aff304fa70c3fa2e2f2f1"
+      },
+      {
+        "prompt_path": "prompts/08.md",
+        "stage_id": "08.content_facts",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/08-content-facts.mjs",
+        "checks_module_sha256": "8475a929ef7c27a91d468b93a7bd1440614bf34d5631db1ed60f0ab86f471778"
+      },
+      {
+        "prompt_path": "prompts/09.md",
+        "stage_id": "09.package",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/09-package.mjs",
+        "checks_module_sha256": "5eda034e82fdb012c3af5751fa103bba61497cbc07fa0dc6e918ec8c6159be0a"
+      },
+      {
+        "prompt_path": "prompts/19A.md",
+        "stage_id": "19A.units",
+        "exported_function": "validateArtifact",
+        "checks_module": "tools/belt/checks/19a-units.mjs",
+        "checks_module_sha256": "f9f82a5e5e8968900317108f8f86f39ddab186be7d6b9567d753469e0da57bc6"
+      }
+    ],
+    "strict_lint": {
+      "path": "tools/belt/strict-lint.mjs",
+      "sha256": "efdbde8620dff23683700d29ef998ace9fee617c3c3fef5521bd673ced5b43ac"
+    },
+    "hash_lib": {
+      "path": "tools/belt/lib/hash.mjs",
+      "sha256": "200cee583fb112fb3544f95046ae0b07780eb2e4d1836cbc851d9836bf6793d2"
+    }
+  },
+  "mapping_manifest": {
+    "path": "schemas-strict/mapping-manifest.json",
+    "sha256": "a5001648034f635663104891396935ad81f1487076f11041da56b52b070db4a3"
+  },
+  "fixture_runs": {
+    "path": "verification/sol-reauthor-amendment-20261028/fixture-runs.json",
+    "sha256": "fa142c1288f920ce1619d12a41eed4d198df743d54bbb0cd4b305aca0d0646cc",
+    "summary": {
+      "stages_run": [
+        "02.dossier_sections",
+        "03.combined_kg",
+        "04.cards",
+        "05.sessions",
+        "06.exam_bank",
+        "08.content_facts",
+        "09.package",
+        "19A.units",
+        "05.card_scripts",
+        "07.content_coverage"
+      ],
+      "fixtures": 82,
+      "matched": 82,
+      "mismatched": 0,
+      "observed": {
+        "PASS": 13,
+        "FAIL": 59,
+        "HOLD": 10,
+        "ERROR": 0
+      },
+      "stages_missing_mapping": [],
+      "mapping_errors": 0
+    }
+  },
+  "node_tests": {
+    "path": "verification/sol-reauthor-amendment-20261028/node-tests.json",
+    "sha256": "964dbce30baef3fb02bd2dbd704580f285679503d83ee2281c91472d0ab39acb",
+    "summary": {
+      "files": 10,
+      "tests": 123,
+      "pass": 123,
+      "fail": 0,
+      "all_exit_zero": true
+    }
+  },
+  "implementation_closure": {
+    "files": [
+      {
+        "path": "contracts/media-disposition.json",
+        "sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd",
+        "bytes": 1466
+      },
+      {
+        "path": "contracts/pilot-finish-criteria.json",
+        "sha256": "5434ac38e675ab6a05435e95c355d9ca825033fa13650bd26413aa11940261c5",
+        "bytes": 2512
+      },
+      {
+        "path": "contracts/pilot-overrides-v0.4.0.json",
+        "sha256": "c6f23ad715a06d3add4bb349d021b5c9172919648bb1601e1d8bedacec35dcb3",
+        "bytes": 9726
+      },
+      {
+        "path": "contracts/source-fact-policy.json",
+        "sha256": "525934833394b1b37cc5ce8eb58939ae78aff0fb0c814e70df7718253795d05d",
+        "bytes": 1327
+      },
+      {
+        "path": "contracts/source-liveness-receipt.schema.json",
+        "sha256": "09e2305a97b1fe3099e8889214fab78da330c4df1a85730da93eb4a15339696c",
+        "bytes": 2575
+      },
+      {
+        "path": "contracts/teaching-unit.schema.json",
+        "sha256": "0eb8189a6d4aac9ac2ce455c9d65f632e88c977200280748b6173f76de3a4b35",
+        "bytes": 6864
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "ccf745c9c85e1eb09a62b485c0df4674ccdee26b6133b9145735b32f81b10653",
+        "bytes": 4517
+      },
+      {
+        "path": "package.json",
+        "sha256": "53acbd3e40cb38569ca3d7c70e707d46d26924bc2a97ed253b6ff0a66b05c5ad",
+        "bytes": 442
+      },
+      {
+        "path": "schemas-strict/02-sme-dossier-envelope.mapping.json",
+        "sha256": "f74bd4b2508acddce3d7f7c1f475c6d4f1aaa0ab46d2fd9e15e049d35faba743",
+        "bytes": 20264
+      },
+      {
+        "path": "schemas-strict/02-sme-dossier-envelope.schema.json",
+        "sha256": "25bebb101d1fef5af68ecfffb6e924ec1e4b06f4fed463ea20475bd088a24111",
+        "bytes": 13800
+      },
+      {
+        "path": "schemas-strict/03-knowledge-graph.mapping.json",
+        "sha256": "a3f46a4b9bb21c0e7c56e34584fed44a4c97adae5f62ec03a832a5a2bf681aca",
+        "bytes": 18389
+      },
+      {
+        "path": "schemas-strict/03-knowledge-graph.schema.json",
+        "sha256": "789ffa7bc81f2de2fbfe0e2f4b4ef4fdc2d82a1e1b192352a40e9e6ddf025eb8",
+        "bytes": 19200
+      },
+      {
+        "path": "schemas-strict/04-carddeck.mapping.json",
+        "sha256": "6209f5a30e88fca9a52b4e987c3ffb0f0175429af2ba57ed254eaf86a7fba202",
+        "bytes": 33907
+      },
+      {
+        "path": "schemas-strict/04-carddeck.schema.json",
+        "sha256": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d",
+        "bytes": 9692
+      },
+      {
+        "path": "schemas-strict/05-voicescripts.mapping.json",
+        "sha256": "480d0f41bc8ddd0df420819fba7e1dd3cc36c4463275fbde25ca4f206c29d088",
+        "bytes": 26085
+      },
+      {
+        "path": "schemas-strict/05-voicescripts.schema.json",
+        "sha256": "7c02cb21865097a56362b1b8f474afb1d2ec798ec54b206e155c47e7777db409",
+        "bytes": 8195
+      },
+      {
+        "path": "schemas-strict/05b-session-scripts.mapping.json",
+        "sha256": "693b4a9ffa6a73c3179d80a627aa2aae1128a267ab15f951c2de679316596764",
+        "bytes": 30086
+      },
+      {
+        "path": "schemas-strict/05b-session-scripts.schema.json",
+        "sha256": "2457854f6f129e80be4465ac7a132295fd34e83425378365a4f491704aa88e41",
+        "bytes": 12141
+      },
+      {
+        "path": "schemas-strict/06-exambank.mapping.json",
+        "sha256": "2837d28d0dec105f7340940b567b9414eeb6aff002473d1eb65e6bdc85987933",
+        "bytes": 19372
+      },
+      {
+        "path": "schemas-strict/06-exambank.schema.json",
+        "sha256": "9e02180cd182fcc3d1909ccaca777285889cab4b82bf008d218698cd894fec22",
+        "bytes": 8671
+      },
+      {
+        "path": "schemas-strict/07-coverage-report.mapping.json",
+        "sha256": "3523ac716a77c3e06172c185020271d37ef4ca6e618e9ccddba58c977f93db41",
+        "bytes": 21109
+      },
+      {
+        "path": "schemas-strict/07-coverage-report.schema.json",
+        "sha256": "bec7552a58e907e64b7efdbc47e453a92bc4043316b270daf473c1ef1eee9bea",
+        "bytes": 10667
+      },
+      {
+        "path": "schemas-strict/08-fact-report.mapping.json",
+        "sha256": "0b0a625ccec36dd51504d3a3b3139150f7eed104e76ab92aa9c048865ff3f9ad",
+        "bytes": 20789
+      },
+      {
+        "path": "schemas-strict/08-fact-report.schema.json",
+        "sha256": "8a60a2ea4b4ceda131a7966a77883fb04b3ccc2e3d179989cee5ac20d1248502",
+        "bytes": 11252
+      },
+      {
+        "path": "schemas-strict/09-product-package.mapping.json",
+        "sha256": "11b9cc7b92a4aedf4ffa42ac16f6df6983ae2d9924b85017be01a5fa6ef280de",
+        "bytes": 33594
+      },
+      {
+        "path": "schemas-strict/09-product-package.schema.json",
+        "sha256": "d5eb391b55633d4de7735a38dd0f3927edcfb511ce5592ea2f820d328b0dceb7",
+        "bytes": 12695
+      },
+      {
+        "path": "schemas-strict/19a-curriculum-unit-map.mapping.json",
+        "sha256": "24eb9f3bedd90aee1f399998a8087e0328ceac51c4795a8c66df2e9cefbb9d74",
+        "bytes": 16594
+      },
+      {
+        "path": "schemas-strict/19a-curriculum-unit-map.schema.json",
+        "sha256": "343cc578f12ebb8bb9d5bb24a2a59026ab525afca8a15fa36a1f2dd6f116ef0a",
+        "bytes": 9481
+      },
+      {
+        "path": "schemas-strict/stage-map.json",
+        "sha256": "c1317e9e8dca329758472f9ce70c49810a34afd0ef6d710073062c3d18f1e2dc",
+        "bytes": 6994
+      },
+      {
+        "path": "tools/belt/checks/02-dossier-sections.mjs",
+        "sha256": "5a9fe43294ea1368ce527163a4e219a2b201684cc176e1daf041eb434f2eedd9",
+        "bytes": 35561
+      },
+      {
+        "path": "tools/belt/checks/03-combined-kg.mjs",
+        "sha256": "996ac651dbfd8643b78b3e6c28d5d073ed91cfbe0337ad5de1f764360fe1e08e",
+        "bytes": 28605
+      },
+      {
+        "path": "tools/belt/checks/04-cards.mjs",
+        "sha256": "bf7e0c201faaa458b311e10b942f2e509eb9dc762c5868da724eef2cb86722da",
+        "bytes": 33204
+      },
+      {
+        "path": "tools/belt/checks/05-card-scripts.mjs",
+        "sha256": "1c05e52617fb918ea16b8ef40c50a98dd3276c2df5dc7257489923bc15c4f191",
+        "bytes": 23365
+      },
+      {
+        "path": "tools/belt/checks/05-sessions.mjs",
+        "sha256": "1751a8ece6fdea5bab53b466736d04bd1e6d87a3e636acf2a0d12d8a620aa4c7",
+        "bytes": 21406
+      },
+      {
+        "path": "tools/belt/checks/06-exam-bank.mjs",
+        "sha256": "c886bd5267f388c919bf4d9ea6e6702f60d636eec91bdca53fc0a00c43238146",
+        "bytes": 35372
+      },
+      {
+        "path": "tools/belt/checks/07-content-coverage.mjs",
+        "sha256": "2752725c95621facfb01948e1ba718dd0d81117e701aff304fa70c3fa2e2f2f1",
+        "bytes": 20526
+      },
+      {
+        "path": "tools/belt/checks/08-content-facts.mjs",
+        "sha256": "8475a929ef7c27a91d468b93a7bd1440614bf34d5631db1ed60f0ab86f471778",
+        "bytes": 18045
+      },
+      {
+        "path": "tools/belt/checks/09-package.mjs",
+        "sha256": "5eda034e82fdb012c3af5751fa103bba61497cbc07fa0dc6e918ec8c6159be0a",
+        "bytes": 37151
+      },
+      {
+        "path": "tools/belt/checks/19a-units.mjs",
+        "sha256": "f9f82a5e5e8968900317108f8f86f39ddab186be7d6b9567d753469e0da57bc6",
+        "bytes": 22044
+      },
+      {
+        "path": "tools/belt/completion-coverage.mjs",
+        "sha256": "95ccb3bedc291284ea1a312568fca2fe3930a105ce5a9ca526c429cad245ee87",
+        "bytes": 6068
+      },
+      {
+        "path": "tools/belt/lib/cards-sessions-common.mjs",
+        "sha256": "20421533cae4d26af4e4c5c31431dfbd84c579d306fc1b0022ae4de22a88457d",
+        "bytes": 11171
+      },
+      {
+        "path": "tools/belt/lib/hash.mjs",
+        "sha256": "200cee583fb112fb3544f95046ae0b07780eb2e4d1836cbc851d9836bf6793d2",
+        "bytes": 882
+      },
+      {
+        "path": "tools/belt/lib/qa-common.mjs",
+        "sha256": "7e7b6d32b77d50d0f1d1eed4f9d3e7d781ae8c398843167c10433d45b37f94ba",
+        "bytes": 8386
+      },
+      {
+        "path": "tools/belt/post-validate.mjs",
+        "sha256": "68c6cfeca5105a4aab499ca91d92d4e867dd9c9e36c37c2c854f8706344b34b9",
+        "bytes": 7245
+      },
+      {
+        "path": "tools/belt/strict-lint.mjs",
+        "sha256": "efdbde8620dff23683700d29ef998ace9fee617c3c3fef5521bd673ced5b43ac",
+        "bytes": 3973
+      },
+      {
+        "path": "tools/check-audit-independence.mjs",
+        "sha256": "3d1f580da26e14bdc41b0be9110b34b525fc4b1b1f26bbcfe07fcbc19eb616df",
+        "bytes": 9020
+      },
+      {
+        "path": "tools/wrap-post-validation-receipt.mjs",
+        "sha256": "d7c0a2dbed4e40feb59a0968c7d1e0e58afb4e6240d46178db441352f74470b5",
+        "bytes": 30004
+      }
+    ],
+    "missing_files": [],
+    "inspector": "tools/inspect-implementation-closure.mjs",
+    "inspector_sha256": "a2156fdc51e221278504e0557d7b08172484ef98a3469f9b4fa47c510d6c4ee2"
+  },
+  "remaining_gaps": [],
+  "unexecuted": [
+    "Provider strict-mode acceptance of each adapter (api.meta.ai) — requires the first authorized qualification call; local ajv validity is not provider acceptance.",
+    "Checks that return HOLD without context (fact registry, candidate manifest, learning loop, intervention lineage, now_utc) have been exercised only with synthetic context fixtures.",
+    "No V1 projection exists for 05.sessions (TeachingUnit) or 19A.units; synthetic fixtures only."
+  ]
+}

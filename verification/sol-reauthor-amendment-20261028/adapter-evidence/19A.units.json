@@ -1,0 +1,361 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "19A.units",
+  "adapter_schema": {
+    "path": "schemas-strict/19a-curriculum-unit-map.schema.json",
+    "sha256": "343cc578f12ebb8bb9d5bb24a2a59026ab525afca8a15fa36a1f2dd6f116ef0a"
+  },
+  "mapping": {
+    "path": "schemas-strict/19a-curriculum-unit-map.mapping.json",
+    "sha256": "24eb9f3bedd90aee1f399998a8087e0328ceac51c4795a8c66df2e9cefbb9d74",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 12,
+    "dropped_constraints": 14,
+    "sentinels": [
+      {
+        "field": "/source_refs/image_scout_pre_kg, /source_refs/image_scout_post_kg, /source_refs/image_asset_manifest",
+        "value": "deferred:not_applicable_pilot",
+        "binding": "contracts/media-disposition.json inactive_roles includes 20A; exemptions in /media/exempt_by_disposition must be named verbatim in non_applicable_checks[].check",
+        "check": "19A.MEDIA_SENTINEL",
+        "compensating_check": "19A.MEDIA_SENTINEL"
+      },
+      {
+        "field": "/exam_modes/*/scoring_policy/passing_threshold",
+        "kind": "official_number_record",
+        "shape": "{value: null|number, status: unknown|verified|authored, source_page: null|string}",
+        "rule": "unknown => null; pass_fail only with verified + source_page",
+        "compensating_check": "19A.EXAM_MODE_TRUTH"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/curriculum-unit-map.schema.json",
+    "sha256_pinned": "16f942a9b4c09a85d723c9fd485c629f3b36cdbccb8bd332b340642348eddd26",
+    "sha256_actual": "16f942a9b4c09a85d723c9fd485c629f3b36cdbccb8bd332b340642348eddd26",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 6
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "19A.units",
+      "fixture": "tools/belt/fixtures/19A.units/synthetic-positive.json",
+      "sha256": "2eda57417eec01fe4240bb21c959eef2c9e12b2f5d3a8d476bb78862f6b6900c",
+      "context": "tools/belt/fixtures/19A.units/synthetic-positive.context.json",
+      "context_sha256": "f3926ec8a2244d1ac9c742ebc482491f9a5c7cb47c425db13bd7dcbed4bcc63b",
+      "kind": "synthetic",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "19A.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.TENANT_DIR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PRODUCTION_GATE_CEILING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PARENT_ALLOF_RESTORED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.INTEGRITY_RECOMPUTE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.INCOMPLETE_MAP_BLOCKED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.REFS_RESOLVE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MODULE_UNIT_CARDINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.UNIT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.USER_CYCLE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.HUB_UNLOCK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MASTERY_GATE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.EXAM_MODE_TRUTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MEDIA_SENTINEL",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "19A.units",
+      "fixture": "tools/belt/fixtures/19A.units/synthetic-negative-production-ready-orphans.json",
+      "sha256": "79df4acd4e5b7f856eaa6137f793dfcfe4006654c61fc3990b04921fccc5ae8f",
+      "context": "tools/belt/fixtures/19A.units/synthetic-negative-production-ready-orphans.context.json",
+      "context_sha256": "f3926ec8a2244d1ac9c742ebc482491f9a5c7cb47c425db13bd7dcbed4bcc63b",
+      "kind": "synthetic",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "19A.SCHEMA",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "19A.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.TENANT_DIR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PRODUCTION_GATE_CEILING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "19A.PARENT_ALLOF_RESTORED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "19A.INTEGRITY_RECOMPUTE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "19A.INCOMPLETE_MAP_BLOCKED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "19A.REFS_RESOLVE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "19A.MODULE_UNIT_CARDINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.UNIT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.USER_CYCLE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.HUB_UNLOCK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MASTERY_GATE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.EXAM_MODE_TRUTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MEDIA_SENTINEL",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "19A.units",
+      "fixture": "tools/belt/fixtures/19A.units/synthetic-negative-threshold-mismatch.json",
+      "sha256": "721f5786c42dda77c4c7879a5ffe12f8f256bbe4b6b025427a3c66565f43a3b0",
+      "context": "tools/belt/fixtures/19A.units/synthetic-negative-threshold-mismatch.context.json",
+      "context_sha256": "f3926ec8a2244d1ac9c742ebc482491f9a5c7cb47c425db13bd7dcbed4bcc63b",
+      "kind": "synthetic",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "19A.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.LINEAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.TENANT_DIR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PRODUCTION_GATE_CEILING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PARENT_ALLOF_RESTORED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.INTEGRITY_RECOMPUTE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.INCOMPLETE_MAP_BLOCKED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.REFS_RESOLVE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MODULE_UNIT_CARDINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.UNIT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.USER_CYCLE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.HUB_UNLOCK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MASTERY_GATE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "19A.EXAM_MODE_TRUTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MEDIA_SENTINEL",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "19A.units",
+      "fixture": "tools/belt/fixtures/19A.units/synthetic-hold-no-context.json",
+      "sha256": "e5d08cbb11dd19636b683c802910646edc7a00d4a46feb974704f7d2d74e32e2",
+      "context": null,
+      "context_sha256": null,
+      "kind": "synthetic",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "19A.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PROBE_SLUG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.LINEAGE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "19A.TENANT_DIR",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PRODUCTION_GATE_CEILING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.PARENT_ALLOF_RESTORED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.INTEGRITY_RECOMPUTE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "19A.INCOMPLETE_MAP_BLOCKED",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "19A.REFS_RESOLVE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "19A.MODULE_UNIT_CARDINALITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "19A.UNIT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.USER_CYCLE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.HUB_UNLOCK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MASTERY_GATE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "19A.EXAM_MODE_TRUTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "19A.MEDIA_SENTINEL",
+          "status": "HOLD"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": null,
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

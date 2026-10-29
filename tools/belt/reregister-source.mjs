@@ -37,12 +37,16 @@ export async function reregisterSourceRun({projectRoot=ROOT,run,executorId,revis
   const beforeRef=refs().find(r=>r.kind==='source_registry');
   const before=beforeRef?JSON.parse(fs.readFileSync(beforeRef.path,'utf8')).sources[0]:null;
   const result = await registerSource({projectRoot, loaded, ledger, fence, lockHandle, revisionProofRef});
-  const afterRefs=refs(),registryRef=afterRefs.find(r=>r.kind==='source_registry'),livenessRef=afterRefs.find(r=>r.kind==='source_liveness');
+  const accepted=result.native_acceptance?.accepted===true;
+  // The last accepted historical registry can survive a blocked new revision. It is not that revision's success.
+  const afterRefs=accepted?refs():[],registryRef=afterRefs.find(r=>r.kind==='source_registry'),livenessRef=afterRefs.find(r=>r.kind==='source_liveness');
   const registry=registryRef?JSON.parse(fs.readFileSync(registryRef.path,'utf8')):null,after=registry?.sources[0];
   const liveness=livenessRef?JSON.parse(fs.readFileSync(livenessRef.path,'utf8')):null;
   return {run: loaded.config.run_id, registration: result.status ?? result, reused: result.reused ?? null,
+    assessment_status:result.assessment_status??null,registration_metadata_status:result.registration_metadata_status??null,
+    native_acceptance:result.native_acceptance??null,verification_debt:result.verification_debt??[],receipt_ref:result.receipt_ref??null,
     is_official: {before: before?.is_official??null, after: after?.is_official??null}, trust_tier: {before: before?.trust_tier??null, after: after?.trust_tier??null},
-    source_registry_ref:registryRef??null,page_map_ref:afterRefs.find(r=>r.kind==='page_map')??null,
+    source_registry_ref:registryRef??null,previous_source_registry_ref:beforeRef??null,page_map_ref:afterRefs.find(r=>r.kind==='page_map')??null,
     liveness:liveness?.status??'VERIFICATION_DEBT',edition:liveness?.edition??null,source_revision:registry?.source_revision??null,
     factual_acceptance:false,model_calls:0};
   } finally { if (fence && ledger) ledger.releaseRun(fence); ledger?.close(); lockHandle.release(); }
@@ -55,5 +59,6 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
     if(!!options['--revision']!==!!options['--revision-sha256'])throw new Error('--revision and --revision-sha256 must be supplied together.');
     const result=await reregisterSourceRun({run:options['--run'],executorId:options['--executor-id'],revisionProofRef:options['--revision']?{path:options['--revision'],sha256:options['--revision-sha256']}:null});
     console.log(JSON.stringify(result,null,1));
+    if(result.native_acceptance?.accepted!==true)process.exitCode=1;
   }catch(error){console.error(JSON.stringify({status:'BLOCKED',message:error.message,model_calls:0}));process.exitCode=2;}
 }

@@ -1,0 +1,1263 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "05.card_scripts",
+  "adapter_schema": {
+    "path": "schemas-strict/05-voicescripts.schema.json",
+    "sha256": "7c02cb21865097a56362b1b8f474afb1d2ec798ec54b206e155c47e7777db409"
+  },
+  "mapping": {
+    "path": "schemas-strict/05-voicescripts.mapping.json",
+    "sha256": "480d0f41bc8ddd0df420819fba7e1dd3cc36c4463275fbde25ca4f206c29d088",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 11,
+    "dropped_constraints": 10,
+    "sentinels": [
+      {
+        "json_pointer": "/audio_render",
+        "value": "deferred:not_applicable_pilot",
+        "authority": "contracts/media-disposition.json (rendered_audio_required false, live_tts_allowed false, inactive_roles includes 20, non_applicable_checks \"rendered audio manifest/files/provider\")",
+        "compensating_check": "05.AUDIO_RENDER"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/voicescripts.schema.json",
+    "sha256_pinned": "dacca78436481539c7ca3bd5c7d95f67cc7cc99b16e4f6e0d7a4da19ca19b3ca",
+    "sha256_actual": "dacca78436481539c7ca3bd5c7d95f67cc7cc99b16e4f6e0d7a4da19ca19b3ca",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 7
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-hold-no-context.json",
+      "sha256": "4a8638da39f4e598853cbb7809e527a48ed1e1c191605fbe0fdb5c5d2d9c6f3a",
+      "context": null,
+      "context_sha256": null,
+      "kind": "synthetic_hold",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "HOLD"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-answer-mismatch.json",
+      "sha256": "be649289f72985c3eaf603a22bc8b3054c889fab243d1a401bdab889cc9898d2",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-answer-mismatch.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-deictic.json",
+      "sha256": "f6ea176edeaea246854b930b785ca03425385af7479c81b57fb418718b94c30d",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-deictic.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-hook-mismatch.json",
+      "sha256": "62853c3e9f0bff0c8719fc6416857ef0b9573e622f11edb4c70f1959f4490cba",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-hook-mismatch.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-missing-script.json",
+      "sha256": "f8a42e4993f7abc1a5d97dc7f4c05a51ae2b4f27f77ec64841660eb39713ae65",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-missing-script.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-official-answer.json",
+      "sha256": "5346d5cbc88cf3e0ec6c9aed429451fab962c1abeacdf46b370bd9e43833a816",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-official-answer.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-pronunciation.json",
+      "sha256": "6578a0f0990fe6b5836f9d2268a1d82757858921b3cc21f0925dd658588433e8",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-pronunciation.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-recall-pause.json",
+      "sha256": "4a032e5a8b8ca3e7070fe5d14b9c5ca904dfb37434c62f1671e36903eb391034",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-recall-pause.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-segment-order.json",
+      "sha256": "e7ed282eab4dcf4bee924f875cb63cd7f6284f6e03fe71507195fad3b82dfec0",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-segment-order.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-neg-stage-direction.json",
+      "sha256": "2ff8b2cb6c1dd22ada69c6458ce844d41097d01e3570d42d5468a0248e0f5267",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-neg-stage-direction.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/synthetic-positive.json",
+      "sha256": "49b07ca8c951d563fa8adda2c0e40e7a5829665338532052e2ffbc26af55ba64",
+      "context": "tools/belt/fixtures/05.card_scripts/synthetic-positive.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_positive",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/v1-projected-practice-normalized.json",
+      "sha256": "395533eca425d83f41cc642db5843d806f96a7e092aa2d8aa3a9673304dea774",
+      "context": "tools/belt/fixtures/05.card_scripts/v1-projected-practice-normalized.context.json",
+      "context_sha256": "a552069b8f1b1359db3d5c309ab209ae2f6c3cd5d3398cbe3e4c8a4375bde4d3",
+      "kind": "v1_projection_practice_normalized",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "HOLD"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "05.card_scripts",
+      "fixture": "tools/belt/fixtures/05.card_scripts/v1-projected.json",
+      "sha256": "1e78981e75713d397487fbc8d3c88f1cf118b6ff1979b776328c73955a8db64c",
+      "context": "tools/belt/fixtures/05.card_scripts/v1-projected.context.json",
+      "context_sha256": "a552069b8f1b1359db3d5c309ab209ae2f6c3cd5d3398cbe3e4c8a4375bde4d3",
+      "kind": "v1_projection",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "05.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.NARRATED_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SCRIPT_SHAPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SEGMENT_ORDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.RECALL_PAUSE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.THINK_REF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.SELF_EQUALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.CARD_COVERAGE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.CARD_PARITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.RECAP_PARITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.TEACHING_FACT_IDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.STAGE_DIRECTIONS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.PRACTICE_ONLY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.DEICTIC_VISUAL",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.PRONUNCIATION",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "05.AUDIO_RENDER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "05.INPUT_BINDING",
+          "status": "HOLD"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": null,
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

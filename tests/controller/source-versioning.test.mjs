@@ -77,6 +77,10 @@ test('versioned timestamp and section-map revision preserves every accepted byte
   const oldRefs=[...before.artifacts.map(a=>pin(verifyRef(a,f.runDir))),...before.artifacts.filter(a=>a.status==='accepted').flatMap(a=>[pin(verifyRef(a.validation_ref_json,f.runDir)),pin(verifyRef(a.acceptance_ref_json,f.runDir))]),pin(first.receipt_ref.path)];
   const issuerRef=issuer(f,'issuer-v2.json','2026-10-28T08:00:00Z'),revision=proof(f,old,{issuerRef}),result=await revise(f,revision),after=await snapshot(f),selected=refs(f,after);
   assert.equal(result.reused,false);assert.equal(result.registration,'HOLD');assert.equal(result.factual_acceptance,false);assert.equal(result.model_calls,0);
+  assert.equal(result.assessment_status,'HOLD');assert.equal(result.registration_metadata_status,'PASS');
+  assert.equal(result.native_acceptance.accepted,true);assert.equal(result.native_acceptance.status,'ACCEPTED');
+  assert.ok(result.native_acceptance.task_id);assert.ok(result.native_acceptance.attempt_id);
+  for(const ref of [result.native_acceptance.source_registry_ref,result.native_acceptance.validation_receipt_ref,result.native_acceptance.acceptance_receipt_ref])verifyRef(ref,f.runDir);
   const source=selected.find(a=>a.kind==='source_registry'),registry=read(source.path),pageMap=selected.find(a=>a.kind==='page_map'),extraction=selected.find(a=>a.kind==='source_text_extraction'),liveness=read(selected.find(a=>a.kind==='source_liveness').path);
   assert.ok(source.path.replaceAll('\\','/').includes('/15/revisions/'+revision.sha256+'/'));
   assert.ok(selected.find(a=>a.kind==='source_text').path.replaceAll('\\','/').includes('/sources/private/15-revisions/'+revision.sha256+'/'));
@@ -118,6 +122,9 @@ test('same revision replays exactly, stale targets fail, and later revisions inh
   const f=fixture(t);await initial(f);const old=refs(f,await snapshot(f)).find(a=>a.kind==='source_registry'),issuerRef=issuer(f,'issuer-v2.json','2026-10-28T08:00:00Z'),revision=proof(f,old,{issuerRef});
   const first=await revise(f,revision),before=await snapshot(f),again=await revise(f,revision);
   assert.equal(again.reused,true);assert.equal(again.source_registry_ref.sha256,first.source_registry_ref.sha256);assert.equal((await snapshot(f)).tasks.length,before.tasks.length);
+  assert.equal(again.registration,'PASS','legacy reused registration status is preserved');assert.equal(again.assessment_status,'HOLD');
+  assert.equal(again.native_acceptance.accepted,true);assert.deepEqual(again.native_acceptance,first.native_acceptance);
+  assert.equal((await snapshot(f)).attempts.length,before.attempts.length,'accepted reuse never creates another attempt');
   const stale=proof(f,old,{changeConfig:false,name:'stale'});await assert.rejects(revise(f,stale),/stale registry/);
   const current=refs(f,await snapshot(f)).find(a=>a.kind==='source_registry');f.config.scope.section_page_ranges['sec01-synthetic']=[2];f.config.candidate_lineage_id='source-version:lineage:2';json(f.runConfigPath,f.config);
   const next=proof(f,current,{changeConfig:false,name:'source-v3'}),third=await revise(f,next),registry=read(third.source_registry_ref.path);
@@ -152,4 +159,19 @@ test('new source metadata never silently reconciles a previously accepted dossie
   const compiled=compileDossier({projectRoot:f.projectRoot,runRoot:f.runDir,acceptedEnvelopes:selected.filter(a=>a.kind==='02.dossier_sections'),sourceRegistryRef:selected.find(a=>a.kind==='source_registry'),pageMapRef:selected.find(a=>a.kind==='page_map'),overlayRef:f.overlayRef});
   assert.equal(compiled.status,'HOLD');assert.ok(compiled.errors.some(e=>e.includes('Envelope source registry hash differs')));
   assert.equal(after.model_calls.length,0);assert.equal(after.reservations.length,0);
+});
+
+test('blocked new registration cannot report an old accepted registry as the new success',async t=>{
+  const f=fixture(t),first=await initial(f),old=refs(f,await snapshot(f)).find(a=>a.kind==='source_registry');
+  assert.equal(first.status,'HOLD');assert.equal(first.assessment_status,'HOLD');assert.equal(first.native_acceptance.accepted,true);
+  f.config.scope.handbook_sha256='0'.repeat(64);json(f.runConfigPath,f.config);
+  const revision=proof(f,old,{changeConfig:false,name:'wrong-configured-hash'}),result=await revise(f,revision),before=await snapshot(f);
+  assert.equal(result.registration,'HOLD');assert.equal(result.assessment_status,'HOLD');assert.equal(result.registration_metadata_status,'HOLD');
+  assert.equal(result.native_acceptance.accepted,false);assert.equal(result.native_acceptance.status,'BLOCKED');
+  assert.equal(result.source_registry_ref,null);assert.equal(result.native_acceptance.source_registry_ref,null);assert.equal(result.page_map_ref,null);
+  assert.equal(result.previous_source_registry_ref.sha256,old.sha256);assert.equal(result.is_official.after,null);
+  assert.equal(refs(f,before).find(a=>a.kind==='source_registry').sha256,old.sha256,'historical acceptance is retained');
+  const again=await revise(f,revision),after=await snapshot(f);
+  assert.equal(again.reused,true);assert.equal(again.native_acceptance.accepted,false);assert.equal(again.source_registry_ref,null);
+  assert.equal(after.attempts.length,before.attempts.length);assert.equal(after.model_calls.length,0);assert.equal(after.reservations.length,0);
 });

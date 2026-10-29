@@ -1,0 +1,168 @@
+{
+  "schema_version": "sol-belt-changes-owner-ack.v1",
+  "recorded_at": "2026-10-29T15:53:24.629Z",
+  "acknowledged_by": "claude-opus-5-5 (Claude belt coordinator, session 2bdcad95-d4cc-467e-a88d-be4a6260cf03)",
+  "founder_go": {
+    "channel": "founder chat with the coordinator, 2026-10-29",
+    "quote": "she signed off",
+    "context": "founder pointed at coordination/SOL-TO-FABLE-ONBOARDING-RECEIPT-20261029.md after the coordinator asked for \"ack sol\"; the coordinator treats the founder message, not the phrase inside Sol's file, as the authority"
+  },
+  "process_finding": "Sol applied these changes to production files before any owner acknowledgement: her own SOL-SHARED-BELT-WRITE-BARRIER-SOL-ACK-20261029.json says ACKNOWLEDGED_SOL_ONLY_WAITING_NON_SOL_OWNER, and the multichunk release followed its request by about one minute and cites the 2026-10-28 compiler ACK as owner_ack_ref. This acknowledgement is retroactive.",
+  "review": {
+    "tests": "node --test tests/belt/*.test.mjs tests/controller/*.test.mjs on the working tree: 512 tests, 511 pass, 0 fail, 1 skipped (2026-10-29)",
+    "checks_05_card_scripts": "TIGHTENS: new CARD_PARITY failure when a nonempty visual_sync.text_span is absent from the current card front/back/hook",
+    "checks_07_content_coverage": "TIGHTENS: REQUIRED_CHECKS_RUN now fails when any required served node lacks card plus assessment coverage (completion-coverage.mjs join); no waiver path",
+    "file_transport": "muse-file-transport.mjs brands the native transport in a module-private WeakSet; only that transport skips MODEL_API_KEY; it reads the outbox and never touches the network. Removes the need for MODEL_API_KEY=file-transport-no-key",
+    "money": "paid mode now requires explicit --author model-api plus --go; budget floor check added; no cap raised",
+    "receipt_pins": "mapping hashes follow the two check edits; contracts/bot-contract-bindings.json now points the schema receipt at coordination/SOL-BELT-AMENDMENT-ADAPTER-RECEIPT-20261028.json (Sol-built) instead of coordination/CLAUDE-SCHEMA-RECEIPT-v0.4.0.json. Accepted as part of this re-seal; the suite exercises it.",
+    "breaking_change": "runner now requires --executor-id <id> and an explicit --author, and rejects unknown or duplicate flags. Every belt command in the Claude briefs and cloud prompts must add --executor-id; fixed by the coordinator in a follow-up commit.",
+    "regression": "the rewrite dropped the post-compile CURRENT.json hook (16/<section>/CURRENT.json). AR has no pointers. Restored by the coordinator in a follow-up commit and back-filled for every run."
+  },
+  "decision": "ACCEPTED as Sol authorship, with the two coordinator follow-ups above",
+  "files": [
+    {
+      "path": "RDMV-RUN-CONFIG.template.json",
+      "sha256": "d0514807ef9e719ad55b9a546a230baa875dfdb2b2cdaf458f1102aa00543978"
+    },
+    {
+      "path": "contracts/bot-contract-bindings.json",
+      "sha256": "70a43e2cc2b622773f7e72e85c9ad7827d762d04ed3d1dd747e0ab8d6f70f3bc"
+    },
+    {
+      "path": "schemas-strict/05-voicescripts.mapping.json",
+      "sha256": "480d0f41bc8ddd0df420819fba7e1dd3cc36c4463275fbde25ca4f206c29d088"
+    },
+    {
+      "path": "schemas-strict/07-coverage-report.mapping.json",
+      "sha256": "3523ac716a77c3e06172c185020271d37ef4ca6e618e9ccddba58c977f93db41"
+    },
+    {
+      "path": "schemas-strict/mapping-manifest.json",
+      "sha256": "a5001648034f635663104891396935ad81f1487076f11041da56b52b070db4a3"
+    },
+    {
+      "path": "tests/belt/05-card-scripts.test.mjs",
+      "sha256": "4162a068788196f22e5fd7b7cdf291cc80c9868bb22d32599a95df6e0a1d5ad9"
+    },
+    {
+      "path": "tests/belt/07-content-coverage.test.mjs",
+      "sha256": "31a6af82d2a96460e7541e4bbbbdcd27d8443692884313f8138a750454d7cc31"
+    },
+    {
+      "path": "tests/belt/completion-coverage.test.mjs",
+      "sha256": "1e27f42aef1886c047cc34f197961e5b1f19e539586eb15a870f9bb75d7aabd8"
+    },
+    {
+      "path": "tests/controller/build-receipt-cli.test.mjs",
+      "sha256": "7dd85cb506c400bcaa67a5d317ab0d0afb24f3156ed36db2ab44ee9efaf782ae"
+    },
+    {
+      "path": "tests/controller/intake-state.test.mjs",
+      "sha256": "a22e390cf9b97466ee09c2b1fb065b6acc25aba1c7e1cda3fa9e811fd69b8dc6"
+    },
+    {
+      "path": "tests/controller/native-file-transport.test.mjs",
+      "sha256": "9136924dc13577382073ec8d71311242b1c9e525a633ae5ea5706f7560309240"
+    },
+    {
+      "path": "tests/controller/runner-policy.test.mjs",
+      "sha256": "bdc6067dae7b35695eabe42dd807c50f87e6113c0c6f9295ab98768c58b6c1c7"
+    },
+    {
+      "path": "tests/controller/source-versioning.test.mjs",
+      "sha256": "2d315def52d1bc2bd34d7972fe0dd823e2a7b6f5fdd0b0e11f0808854653a70b"
+    },
+    {
+      "path": "tests/controller/unpartitioned-source-group.test.mjs",
+      "sha256": "89831a4bd3ab614d03f0d489715511c2f0d6905ecfb53895724502811a52cfb0"
+    },
+    {
+      "path": "tests/preview/usage-records.test.mjs",
+      "sha256": "d184eebc35774269af7c227f4889f5bb015cbd52e330ffbbac9b5ba3da923652"
+    },
+    {
+      "path": "tools/belt/build-receipt.mjs",
+      "sha256": "a8a8fea88f1eb4c8c40c5cae9e4a77f95f85d6d0ed2d41802a89327fd1c17342"
+    },
+    {
+      "path": "tools/belt/checks/05-card-scripts.mjs",
+      "sha256": "1c05e52617fb918ea16b8ef40c50a98dd3276c2df5dc7257489923bc15c4f191"
+    },
+    {
+      "path": "tools/belt/checks/07-content-coverage.mjs",
+      "sha256": "2752725c95621facfb01948e1ba718dd0d81117e701aff304fa70c3fa2e2f2f1"
+    },
+    {
+      "path": "tools/belt/completion-coverage.mjs",
+      "sha256": "95ccb3bedc291284ea1a312568fca2fe3930a105ce5a9ca526c429cad245ee87"
+    },
+    {
+      "path": "tools/belt/controller.mjs",
+      "sha256": "9b21c26a7cfbb64f5cf6095f9c532de6332b30d932f8dbe8f86bbd1e86706c0a"
+    },
+    {
+      "path": "tools/belt/dispatch.mjs",
+      "sha256": "502dfbffa2c3207a7c7e31125bea878ace333f33096297a022d226b2152ce4f5"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/completion-carddeck.json",
+      "sha256": "0a8aa94c87aaa88d155fb19d21cc8a4710ef280d915a81c7d826958272d0cc81"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/completion-exambank.json",
+      "sha256": "f7aa11e8782f14cb145b6c970a606cf8f8f7470e89c45dcfc679e0ac6c6007bd"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/completion-knowledge-graph.json",
+      "sha256": "b3a70187cc2a8c8c41f5cce2d0bb32d86acde0d6be10b2d6bf225bcc2be3856c"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/context-completion.json",
+      "sha256": "18c86f9c875f3584eecbcfc3c54323fa229905ccc28e462469dcfa82954d7828"
+    },
+    {
+      "path": "tools/belt/fixtures/07.content_coverage/synthetic-completion-pass.json",
+      "sha256": "09878ccb2574e668c756baea1fb245ac2be7d09721afc8d3fa3d8ea311977369"
+    },
+    {
+      "path": "tools/belt/intake-plan.mjs",
+      "sha256": "079e8abbdb8f8496b215881a1b8e0cdae655659edf46a6f2c8f2166d3acc3a7a"
+    },
+    {
+      "path": "tools/belt/intake-state.mjs",
+      "sha256": "fe7801b96ef4b06f4fbfb886c9b448e989cb8cf1086bd75cc20acdc77e668d2a"
+    },
+    {
+      "path": "tools/belt/meta-client.mjs",
+      "sha256": "e89ed118e5000158f62bb76eb9e8ba0350fd9e60c03655608dd850b1513abbfb"
+    },
+    {
+      "path": "tools/belt/muse-file-transport.mjs",
+      "sha256": "2e5fc523d7cd1de30900b39e890bc0e7c952e3b26946b267a8fa02c52d56f312"
+    },
+    {
+      "path": "tools/belt/reregister-source.mjs",
+      "sha256": "691ab60992dffd1cca297b4c5aa83c828f84bccd54f81eed412075e467bd9661"
+    },
+    {
+      "path": "tools/belt/run-utah.mjs",
+      "sha256": "2408a282aa009d5f3b6376a56a9a005e9e3840d70ebeca8173c6403d0ff714de"
+    },
+    {
+      "path": "tools/belt/runner-policy.mjs",
+      "sha256": "ebd01717d9bcd0901eeb4d8d6bd0343acdeaf7ddb43c0756f916dd3658ed48ef"
+    },
+    {
+      "path": "tools/belt/source-groups.mjs",
+      "sha256": "f8a25816632c450f86d7ab1431b32a5b9166ec68c135cdd73c5204ef977dd2fc"
+    },
+    {
+      "path": "tools/preview/usage-records.mjs",
+      "sha256": "5535f4a3b155331afe8e1adfc4b7a7a46b1fcced822d5ec2ca8d8f8954ac85b2"
+    },
+    {
+      "path": "tools/preview/worker-token-ledger.mjs",
+      "sha256": "8de62f66533765f8926fa2486fe899d0d7e4da8f1cf87dce1aca19b2d2fa6176"
+    }
+  ]
+}

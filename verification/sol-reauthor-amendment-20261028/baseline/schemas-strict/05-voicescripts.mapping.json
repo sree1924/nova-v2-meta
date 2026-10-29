@@ -1,0 +1,565 @@
+{
+  "stage_id": "05.card_scripts",
+  "adapter_schema": {
+    "path": "schemas-strict/05-voicescripts.schema.json",
+    "sha256": "7c02cb21865097a56362b1b8f474afb1d2ec798ec54b206e155c47e7777db409"
+  },
+  "parent_schema": {
+    "path": "schemas/voicescripts.schema.json",
+    "sha256": "dacca78436481539c7ca3bd5c7d95f67cc7cc99b16e4f6e0d7a4da19ca19b3ca"
+  },
+  "adapter_kind": "pilot_adapter",
+  "adapter_kind_reason": "segments replace the fused narration_text; recap must_match_card_back false -> null; audio_render sentinel; documents are NOT parent-valid (no narration_text)",
+  "overlay_authority": {
+    "path": "contracts/pilot-overrides-v0.4.0.json",
+    "sha256": "35a1237a237b6e03172ca6dae063de2c552103845c2d8ef4dd5a351c6f2d37d1",
+    "pointer": "/role_overrides/05",
+    "canonical_contract": {
+      "path": "factory/workers/05-voice-coach.md",
+      "sha256": "714aad6d555eaa802f05d115c1c1ed1dc6bac79dd1cad4b97889234406bfaf6c"
+    },
+    "also": [
+      {
+        "path": "contracts/media-disposition.json",
+        "sha256": "d030d1d097629d946de7558bcee4f8d9396639c1abf470817b14737b5080c9bd"
+      },
+      {
+        "path": "AMENDMENT-ORDER-Q-2026-07-25-sol-format-canon-and-pristine-gate.md",
+        "sha256": "785d750caee5425a5e33b16528a75b973ad6530d314a177c7c3f3f640a85e65e",
+        "rules": [
+          "§1 Sol canon loop ask -> silent 3 s recall -> answer -> hook (05.SEGMENT_ORDER, 05.RECALL_PAUSE)",
+          "§4 rule 3/4 (05.LEARNER_SCAFFOLD)"
+        ]
+      }
+    ]
+  },
+  "prompt": {
+    "path": "prompts/05-card-scripts.md",
+    "sha256": "a3f055014b88f43c25c4083e58f8982929a2e1bdd8c04ed4512f177913181b30"
+  },
+  "checks_module": {
+    "path": "tools/belt/checks/05-card-scripts.mjs",
+    "sha256": "efd3fc00ad06559a827dbf12853b7f7b377677b1fe80b0136feed0faab617036"
+  },
+  "shared_lib": {
+    "path": "tools/belt/lib/cards-sessions-common.mjs",
+    "sha256": "602f7b91ad2408e7bdf3286a23512becceaaf64653d34d793b86152267a49c85"
+  },
+  "projector": {
+    "path": "tools/belt/project/05-card-scripts.mjs",
+    "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+  },
+  "context_contract": {
+    "accepted_inputs.carddeck": "the accepted 04.cards adapter artifact (decks[].cards[], recaps[]) — the only source of equality targets",
+    "fact_registry": "{facts:{<fact_id>:{statement, status}}} for teaching.fact_ids resolution",
+    "media_disposition": "contracts/media-disposition.json body + hash at loaded_refs/ref_sha256 media_disposition",
+    "input_manifest_sha256": "scoped input manifest digest"
+  },
+  "lints": {
+    "stage_directions": "tools/belt/lib/cards-sessions-common.mjs STAGE_DIRECTION_PATTERNS (\"[beat]\"-style brackets, pause word, timed wait/think/pause \"... three seconds\", \"N seconds of silence\", ellipsis timing markers, production cues) + SPEAK_REQUEST_RE (imperative say/speak/read ... out loud). A sourced fact such as \"stay three seconds behind\" is NOT flagged.",
+    "practice_only": "PRACTICE_ONLY_PATTERNS: official answer(s), official (test|exam) question(s), actual test/exam, actual question, real (test|exam) question(s), real test/exam",
+    "deictic_visual": "DEICTIC_VISUAL_RE: this/that/these/the following/the pictured (road) sign(s)/signal/image/picture/photo/marking/symbol/shape/diagram; \"shown here/above/below\"; \"in the image/picture/photo\"",
+    "pronunciation": "spokenTokens(term) == spokenTokens(say) (NFKC lowercase letter/number runs; consecutive single letters collapse: \"U.S.\" == \"U S\"), else proper_noun true AND term is capitalized word(s)"
+  },
+  "checks": [
+    "05.SCHEMA",
+    "05.STRING_BOUNDS",
+    "05.SCRIPT_IDS",
+    "05.NARRATED_FIELDS",
+    "05.SCRIPT_SHAPE",
+    "05.SEGMENT_ORDER",
+    "05.RECALL_PAUSE",
+    "05.THINK_REF",
+    "05.SELF_EQUALITY",
+    "05.CARD_COVERAGE",
+    "05.CARD_PARITY",
+    "05.RECAP_PARITY",
+    "05.TEACHING_FACT_IDS",
+    "05.STAGE_DIRECTIONS",
+    "05.PRACTICE_ONLY",
+    "05.LEARNER_SCAFFOLD",
+    "05.DEICTIC_VISUAL",
+    "05.PRONUNCIATION",
+    "05.AUDIO_RENDER",
+    "05.INPUT_BINDING"
+  ],
+  "deviations": [
+    {
+      "field": "(every object)",
+      "parent_rule": "additionalProperties true",
+      "adapter_rule": "additionalProperties false; all keys required, nullable via anyOf",
+      "reason": "Meta strict subset",
+      "compensating_check": "05.SCHEMA"
+    },
+    {
+      "field": "/schema_version",
+      "parent_rule": "const \"1.0.0\"",
+      "adapter_rule": "enum [\"1.0.0\"]",
+      "reason": "single-value enum is equivalent",
+      "compensating_check": "05.SCHEMA"
+    },
+    {
+      "field": "/adapter_version, /input_manifest_sha256, /candidate_lineage_id, /media_disposition_ref, /audio_render, /think_cue",
+      "parent_rule": "absent",
+      "adapter_rule": "required pilot fields",
+      "reason": "hash-boundary correction; pinned media disposition; render non-applicability sentinel; one shared silent-recall cue",
+      "compensating_check": "05.STRING_BOUNDS, 05.INPUT_BINDING, 05.AUDIO_RENDER, 05.THINK_REF"
+    },
+    {
+      "field": "/artifact_hash",
+      "parent_rule": "optional string",
+      "adapter_rule": "omitted",
+      "reason": "an artifact cannot carry its own digest",
+      "compensating_check": "05.SCHEMA — artifact_hash is not carried; bytes are hashed by the dispatcher (post-validate CLI artifact_sha256); previously: post-validate.mjs CLI artifact_sha256"
+    },
+    {
+      "field": "/audio_scripts/*/narration_text",
+      "parent_rule": "required fused string containing the back verbatim",
+      "adapter_rule": "replaced by segments{question{lead_in,text}, think_ref, recall_pause_ms, answer{lead_in,text}, teaching{text,fact_ids}} (card) or recap{hooks_spoken, narration_text} (recap)",
+      "reason": "overlay role 05 + contract SOP 1 v1.2 SEGMENTED; Order Q §1 recall beat must sit between question and answer",
+      "compensating_check": "05.SCRIPT_SHAPE, 05.SEGMENT_ORDER, 05.RECALL_PAUSE, 05.SELF_EQUALITY, 05.CARD_PARITY"
+    },
+    {
+      "field": "/audio_scripts/*/must_match_card_back",
+      "parent_rule": "string|boolean (recaps false)",
+      "adapter_rule": "string|null (recaps null)",
+      "reason": "\"true\" carried no meaning; recaps have no back",
+      "compensating_check": "05.SCRIPT_SHAPE"
+    },
+    {
+      "field": "/audio_scripts/*/{must_match_memory_hook, is_recap, script_id, module_id, unit_id, fact_ids, image_asset_id}",
+      "parent_rule": "absent",
+      "adapter_rule": "required",
+      "reason": "prompt 05-card-scripts: hook equality target, preserve card/module/unit/fact ids; deictic visuals need a bound asset id",
+      "compensating_check": "05.SELF_EQUALITY, 05.CARD_PARITY, 05.SCRIPT_IDS, 05.DEICTIC_VISUAL"
+    },
+    {
+      "field": "/audio_scripts/*/{tone,pacing,repeat_count,pause_after_ms}",
+      "parent_rule": "optional; if voice=narrated then required",
+      "adapter_rule": "required nullable",
+      "reason": "strict mode forbids if/then",
+      "compensating_check": "05.NARRATED_FIELDS"
+    },
+    {
+      "field": "/audio_scripts/*/pronunciation/*",
+      "parent_rule": "{term, say} additionalProperties true",
+      "adapter_rule": "{term, say, proper_noun}",
+      "reason": "prompt: say must normalize to the same tokens unless the term is a flagged proper noun",
+      "compensating_check": "05.PRONUNCIATION"
+    },
+    {
+      "field": "/audio_scripts/*/source_ref",
+      "parent_rule": "{ref, tier, url?, retrieved_at?}",
+      "adapter_rule": "{ref, tier, url|null, pdf_page, printed_page, page_map_id} (same as 04 card source_ref)",
+      "reason": "carried through unchanged from the accepted card",
+      "compensating_check": "05.CARD_PARITY"
+    },
+    {
+      "field": "/audio_scripts/*/visual_route",
+      "parent_rule": "enum [\"tap_ui\", null] (no type)",
+      "adapter_rule": "anyOf [{string enum tap_ui}, null]",
+      "reason": "strict-mode nullable form; same values",
+      "compensating_check": "05.SCHEMA, 05.SCRIPT_SHAPE"
+    }
+  ],
+  "dropped_constraints": [
+    {
+      "json_pointer": "/$defs/probeSlug",
+      "keyword": "pattern",
+      "parent_value": "^[a-z0-9][a-z0-9-]*$",
+      "adapter_pointer": "/properties/probe",
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/properties/schema_version",
+      "keyword": "const",
+      "parent_value": "1.0.0",
+      "compensating_check": "05.SCHEMA (enum)"
+    },
+    {
+      "json_pointer": "/$defs/audioScript/properties/card_id",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/audioScript/properties/repeat_count",
+      "keyword": "minimum",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/audioScript/properties/pause_after_ms",
+      "keyword": "minimum",
+      "parent_value": 0,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/audioScript/properties/pronunciation/items/properties/term",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/audioScript/properties/pronunciation/items/properties/say",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/sourceRef/properties/ref",
+      "keyword": "minLength",
+      "parent_value": 1,
+      "compensating_check": "05.STRING_BOUNDS"
+    },
+    {
+      "json_pointer": "/$defs/sourceRef/properties/retrieved_at",
+      "keyword": "format",
+      "parent_value": "date-time",
+      "compensating_check": "05.SCHEMA — field not carried by the adapter; no learner-facing effect; freshness lives in the source registry/liveness receipts; previously: n/a — field not carried"
+    },
+    {
+      "json_pointer": "/$defs/audioScript",
+      "keyword": "if/then",
+      "parent_value": "voice const narrated -> required tone,pacing,repeat_count,pause_after_ms",
+      "compensating_check": "05.NARRATED_FIELDS"
+    }
+  ],
+  "sentinels": [
+    {
+      "json_pointer": "/audio_render",
+      "value": "deferred:not_applicable_pilot",
+      "authority": "contracts/media-disposition.json (rendered_audio_required false, live_tts_allowed false, inactive_roles includes 20, non_applicable_checks \"rendered audio manifest/files/provider\")",
+      "compensating_check": "05.AUDIO_RENDER"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-hold-no-context.json",
+      "sha256": "4a8638da39f4e598853cbb7809e527a48ed1e1c191605fbe0fdb5c5d2d9c6f3a",
+      "context_path": null,
+      "context_sha256": null,
+      "kind": "synthetic_hold",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "HOLD",
+      "expected_check_status": {},
+      "transformation_notes": [
+        "positive bytes with NO context: deck parity, fact resolution, render binding and input binding must HOLD"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-answer-mismatch.json",
+      "sha256": "be649289f72985c3eaf603a22bc8b3054c889fab243d1a401bdab889cc9898d2",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-answer-mismatch.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.CARD_PARITY": "FAIL",
+        "05.SELF_EQUALITY": "FAIL"
+      },
+      "transformation_notes": [
+        "answer segment paraphrases the accepted back"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-deictic.json",
+      "sha256": "f6ea176edeaea246854b930b785ca03425385af7479c81b57fb418718b94c30d",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-deictic.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.DEICTIC_VISUAL": "FAIL"
+      },
+      "transformation_notes": [
+        "question says \"this sign\" with no bound image asset (image cards disabled)"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-hook-mismatch.json",
+      "sha256": "62853c3e9f0bff0c8719fc6416857ef0b9573e622f11edb4c70f1959f4490cba",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-hook-mismatch.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.CARD_PARITY": "FAIL",
+        "05.SELF_EQUALITY": "FAIL"
+      },
+      "transformation_notes": [
+        "teaching drops the accepted hook and must_match_memory_hook is rewritten"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-missing-script.json",
+      "sha256": "f8a42e4993f7abc1a5d97dc7f4c05a51ae2b4f27f77ec64841660eb39713ae65",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-missing-script.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.CARD_COVERAGE": "FAIL"
+      },
+      "transformation_notes": [
+        "accepted card syn-card-02-b has no script"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-official-answer.json",
+      "sha256": "5346d5cbc88cf3e0ec6c9aed429451fab962c1abeacdf46b370bd9e43833a816",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-official-answer.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.PRACTICE_ONLY": "FAIL"
+      },
+      "transformation_notes": [
+        "answer lead-in calls the authored back \"the official answer\" and teaching says \"real test question\""
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-pronunciation.json",
+      "sha256": "6578a0f0990fe6b5836f9d2268a1d82757858921b3cc21f0925dd658588433e8",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-pronunciation.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.PRONUNCIATION": "FAIL"
+      },
+      "transformation_notes": [
+        "pronunciation hint changes the spoken amount (20 -> twenty five)"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-recall-pause.json",
+      "sha256": "4a032e5a8b8ca3e7070fe5d14b9c5ca904dfb37434c62f1671e36903eb391034",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-recall-pause.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.RECALL_PAUSE": "FAIL"
+      },
+      "transformation_notes": [
+        "recall pause 2000 ms instead of 3000"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-segment-order.json",
+      "sha256": "e7ed282eab4dcf4bee924f875cb63cd7f6284f6e03fe71507195fad3b82dfec0",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-segment-order.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.SEGMENT_ORDER": "FAIL"
+      },
+      "transformation_notes": [
+        "answer emitted before think_ref/recall_pause_ms (recall beat lost)"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-stage-direction.json",
+      "sha256": "2ff8b2cb6c1dd22ada69c6458ce844d41097d01e3570d42d5468a0248e0f5267",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-neg-stage-direction.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_negative",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.STAGE_DIRECTIONS": "FAIL"
+      },
+      "transformation_notes": [
+        "teaching narrates \"[beat]\" and \"pause for three seconds\""
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/synthetic-positive.json",
+      "sha256": "49b07ca8c951d563fa8adda2c0e40e7a5829665338532052e2ffbc26af55ba64",
+      "context_path": "tools/belt/fixtures/05.card_scripts/synthetic-positive.context.json",
+      "context_sha256": "5ca278762fdc6f281da00609c430db57f62d09df923b0650cd4073c7cda9d946",
+      "kind": "synthetic_positive",
+      "source": {
+        "generator": {
+          "path": "tools/belt/project/05-card-scripts.mjs",
+          "sha256": "65866cbbdb1f77561e745b88ea320abce402997daf9ad9e341dbcd0491e1acd4"
+        }
+      },
+      "expected_status": "PASS",
+      "expected_check_status": {},
+      "transformation_notes": [
+        "template-arc scripts over the 04 synthetic deck"
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/v1-projected-practice-normalized.json",
+      "sha256": "395533eca425d83f41cc642db5843d806f96a7e092aa2d8aa3a9673304dea774",
+      "context_path": "tools/belt/fixtures/05.card_scripts/v1-projected-practice-normalized.context.json",
+      "context_sha256": "a552069b8f1b1359db3d5c309ab209ae2f6c3cd5d3398cbe3e4c8a4375bde4d3",
+      "kind": "v1_projection_practice_normalized",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/05-voicescripts.json",
+        "sha256": "2f26a2102a7cb75e48900fa72fe85d23d20bb3d099edac5a7104dafcbe76b728",
+        "companion": {
+          "path": "runs/2026-06-11-citizenship/audio-segments.json",
+          "sha256": "a471240610864e37378ca12c2363dc8f99a3299c79ea77fc554bceb3cfc00e4c"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.SCHEMA": "PASS",
+        "05.SEGMENT_ORDER": "PASS",
+        "05.RECALL_PAUSE": "PASS",
+        "05.THINK_REF": "PASS",
+        "05.SELF_EQUALITY": "PASS",
+        "05.AUDIO_RENDER": "PASS",
+        "05.CARD_COVERAGE": "FAIL",
+        "05.CARD_PARITY": "FAIL",
+        "05.RECAP_PARITY": "FAIL",
+        "05.TEACHING_FACT_IDS": "FAIL",
+        "05.STAGE_DIRECTIONS": "FAIL",
+        "05.PRACTICE_ONLY": "PASS",
+        "05.PRONUNCIATION": "FAIL",
+        "05.INPUT_BINDING": "HOLD",
+        "05.STRING_BOUNDS": "PASS",
+        "05.SCRIPT_IDS": "PASS",
+        "05.NARRATED_FIELDS": "PASS",
+        "05.SCRIPT_SHAPE": "PASS",
+        "05.LEARNER_SCAFFOLD": "PASS",
+        "05.DEICTIC_VISUAL": "PASS"
+      },
+      "transformation_notes": [
+        "Same projection + minimal normalization: N1 answer.lead_in \"Here is the official answer:\" -> \"Here is the answer:\" (130; the 05 contract v1.2 lead-in), N2 recap narration \" ... \" timing markers removed (26). Full diff in _fixture.diff.",
+        "05.PRACTICE_ONLY flips FAIL -> PASS; 05.STAGE_DIRECTIONS still FAILs on 1 span (card.gov-a.07 \"say it out loud\" — a genuine learner-speaks violation, deliberately not normalized); all other V1 FAILs remain."
+      ]
+    },
+    {
+      "path": "tools/belt/fixtures/05.card_scripts/v1-projected.json",
+      "sha256": "1e78981e75713d397487fbc8d3c88f1cf118b6ff1979b776328c73955a8db64c",
+      "context_path": "tools/belt/fixtures/05.card_scripts/v1-projected.context.json",
+      "context_sha256": "a552069b8f1b1359db3d5c309ab209ae2f6c3cd5d3398cbe3e4c8a4375bde4d3",
+      "kind": "v1_projection",
+      "source": {
+        "path": "runs/2026-06-11-citizenship/05-voicescripts.json",
+        "sha256": "2f26a2102a7cb75e48900fa72fe85d23d20bb3d099edac5a7104dafcbe76b728",
+        "companion": {
+          "path": "runs/2026-06-11-citizenship/audio-segments.json",
+          "sha256": "a471240610864e37378ca12c2363dc8f99a3299c79ea77fc554bceb3cfc00e4c"
+        }
+      },
+      "expected_status": "FAIL",
+      "expected_check_status": {
+        "05.SCHEMA": "PASS",
+        "05.SEGMENT_ORDER": "PASS",
+        "05.RECALL_PAUSE": "PASS",
+        "05.THINK_REF": "PASS",
+        "05.SELF_EQUALITY": "PASS",
+        "05.AUDIO_RENDER": "PASS",
+        "05.CARD_COVERAGE": "FAIL",
+        "05.CARD_PARITY": "FAIL",
+        "05.RECAP_PARITY": "FAIL",
+        "05.TEACHING_FACT_IDS": "FAIL",
+        "05.STAGE_DIRECTIONS": "FAIL",
+        "05.PRACTICE_ONLY": "FAIL",
+        "05.PRONUNCIATION": "FAIL",
+        "05.INPUT_BINDING": "HOLD",
+        "05.STRING_BOUNDS": "PASS",
+        "05.SCRIPT_IDS": "PASS",
+        "05.NARRATED_FIELDS": "PASS",
+        "05.SCRIPT_SHAPE": "PASS",
+        "05.LEARNER_SCAFFOLD": "PASS",
+        "05.DEICTIC_VISUAL": "PASS"
+      },
+      "transformation_notes": [
+        "FIXTURE/REFERENCE projection of V1 bytes: 156 scripts (130 card + 26 recap), all 130 fused narrations split by the V1 markers with 0 unsplit / 0 answer-prefix mismatches / 0 hook spans missing; never a DMV result. Decisions in _fixture.decisions.",
+        "LEGITIMATE V1 FAILs: 05.PRACTICE_ONLY 130 answer lead-ins \"Here is the official answer:\"; 05.STAGE_DIRECTIONS 26 recap narrations use \"...\" timing markers + card.gov-a.07 teaching asks the learner to \"say it out loud\"; 05.CARD_COVERAGE 17 accepted cards (3 branch atomics + 14 M-715 cards, all listed in audio-segments.json) have no V1 voicescript; 05.CARD_PARITY 20 defects — V1 scripts predate the current deck (14 fronts, 3 hooks changed since; carddeck_artifact_hash 446e0f20… != current deck bytes); 05.RECAP_PARITY recap m26 hooks changed; 05.PRONUNCIATION 89/161 hints change spoken tokens (\" | \" -> \", or, \" x80, URL spelling x5, \"M-715\" -> \"M seven fifteen\", \"(01/10)\" -> edition words); 05.TEACHING_FACT_IDS: V1 has no fact ids.",
+        "HOLD: 05.INPUT_BINDING (no V1 input manifest). Accepted carddeck context = the 04 projection of the CURRENT V1 deck bytes."
+      ]
+    }
+  ],
+  "v1_projection": {
+    "status": "projected",
+    "source": {
+      "path": "runs/2026-06-11-citizenship/05-voicescripts.json",
+      "sha256": "2f26a2102a7cb75e48900fa72fe85d23d20bb3d099edac5a7104dafcbe76b728"
+    },
+    "companion": {
+      "path": "runs/2026-06-11-citizenship/audio-segments.json",
+      "sha256": "a471240610864e37378ca12c2363dc8f99a3299c79ea77fc554bceb3cfc00e4c"
+    },
+    "fixtures": [
+      "tools/belt/fixtures/05.card_scripts/v1-projected.json",
+      "tools/belt/fixtures/05.card_scripts/v1-projected-practice-normalized.json"
+    ],
+    "expected_status": "FAIL",
+    "label": "fixture/reference only"
+  },
+  "unexecuted": [
+    "Semantic fidelity of teaching connective prose (\"rephrase only nonfactual connective wording\", \"no unsourced why it sticks\") — not deterministic beyond hook containment + teaching fact-id resolution.",
+    "Contrast spans binding both confusable fact ids (prompt) — needs the accepted KG confusable map; not implemented.",
+    "Tone/pacing/repeat_count vs accepted audience/LearningLoop — only presence is checked (parent if/then); the LearningLoop mapping is not bound.",
+    "No rendered audio, render-back diff, timing or loudness checks (media disposition non-applicable).",
+    "Provider strict-mode acceptance of this adapter is unverified (no endpoint call made)."
+  ]
+}

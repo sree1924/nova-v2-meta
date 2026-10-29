@@ -1,0 +1,1577 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "04.cards",
+  "adapter_schema": {
+    "path": "schemas-strict/04-carddeck.schema.json",
+    "sha256": "c2d4f5875585dab64d4b4b8342ce7e87f1391d36588c2170de33f2c179a2ee1d"
+  },
+  "mapping": {
+    "path": "schemas-strict/04-carddeck.mapping.json",
+    "sha256": "6209f5a30e88fca9a52b4e987c3ffb0f0175429af2ba57ed254eaf86a7fba202",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 17,
+    "dropped_constraints": 16,
+    "sentinels": [
+      {
+        "json_pointer": "/source_refs/image_scout_post_kg",
+        "value": "deferred:not_applicable_pilot",
+        "authority": "contracts/media-disposition.json#/non_applicable_checks (\"pre/post image scout plans\": 20A inactive) + image_cards_enabled false",
+        "compensating_check": "04.MEDIA_DISPOSITION"
+      },
+      {
+        "json_pointer": "/decks/*/exam_weight",
+        "value": "{value:null|number, status:unknown|verified, source_page} (+ separate pedagogic_emphasis)",
+        "authority": "contracts/source-fact-policy.json#/official_fact_shape + CONVENTIONS.md sentinel vocabulary",
+        "compensating_check": "04.EXAM_WEIGHT_STATUS"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/carddeck.schema.json",
+    "sha256_pinned": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93",
+    "sha256_actual": "9a5a0e438ad6206e50ae052067cbbe69d1f44f989090dd7b9b94e49e654adb93",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 7
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-hold-no-context.json",
+      "sha256": "384a7088ee57d84e5f4b2ade5710e8731e9b5a588c1dd23c77fbd4f9aa91597e",
+      "context": null,
+      "context_sha256": null,
+      "kind": "synthetic_hold",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-hold-page-debt.json",
+      "sha256": "04af35327adc46036d625f3e9e326e868d5b5d0a55447660f70497e306b32bdb",
+      "context": "tools/belt/fixtures/04.cards/synthetic-hold-page-debt.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_hold",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "HOLD"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-atomic.json",
+      "sha256": "b0ada17d3a9b57c265a9047b53339adfadcae90600c1b45ad6c7b7c04d2a5a41",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-atomic.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-back-drift.json",
+      "sha256": "42047305df0ff44ca570f3a292564407bfbbc7acd518c01274d68b380880b8db",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-back-drift.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-deictic-visual.json",
+      "sha256": "1041d71f0e8c7841b875773fc397f0a2815349b235c87c9eb9e4676ec36f4245",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-deictic-visual.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-duplicate-back.json",
+      "sha256": "9907e4741a0e034343abd62e071ffb9a539cbf518936d260563a17e89bf78f04",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-duplicate-back.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-hook-srs.json",
+      "sha256": "272d96ec05a179b2f2df4db49ff270a963ea150275db4c41a2fae59cac20277c",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-hook-srs.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-official-number.json",
+      "sha256": "3cf9bbff5d036cd7fd00f187b0d67012d0861edfc5b34523b5e4da256ce2650f",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-official-number.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-originality.json",
+      "sha256": "d2ce2394d574f885a57c9f36fed9fe377ea273f35a842b0fcdbb5d8ff2242a10",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-originality.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-spoken-form.json",
+      "sha256": "9db457eaeca621f05911f2d6d02f13e1b431077216005fbb0ccb4bbe72401543",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-spoken-form.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-uncited.json",
+      "sha256": "dbe5ef870d2242a9549a8a074d90a4321f78cfd82aeb7fe9c70c68011e860661",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-uncited.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-neg-verify-leak.json",
+      "sha256": "6e2697f0738d66cd50ac2e132f1ade5e0be6076f2b5678c44ad3e22f29af821e",
+      "context": "tools/belt/fixtures/04.cards/synthetic-neg-verify-leak.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/synthetic-positive.json",
+      "sha256": "d4beadcdcd3a5c46664820b014e433550acedd615bf45aed84aca6089df3e3df",
+      "context": "tools/belt/fixtures/04.cards/synthetic-positive.context.json",
+      "context_sha256": "90b00c9662335d010fd07b3d877e89aacf5a46ae920662b5a8bbfd9d1c4947de",
+      "kind": "synthetic_positive",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/v1-projected-spokenform-fixed.json",
+      "sha256": "fd2e741c9d7f4873d37928f4a6a3b959c376c12caf044696e438576a607c0ab7",
+      "context": "tools/belt/fixtures/04.cards/v1-projected-spokenform-fixed.context.json",
+      "context_sha256": "b1a92909b90a3cf55d70aae226e1628c1d863679cbb17c427e004441c2d8d4b9",
+      "kind": "v1_projection_spokenform_normalized",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "04.cards",
+      "fixture": "tools/belt/fixtures/04.cards/v1-projected.json",
+      "sha256": "a2acbb9e5326749cab06d125831f1dc15066a4ba0d68534d82ae0a80c19bc8c2",
+      "context": "tools/belt/fixtures/04.cards/v1-projected.context.json",
+      "context_sha256": "b1a92909b90a3cf55d70aae226e1628c1d863679cbb17c427e004441c2d8d4b9",
+      "kind": "v1_projection",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "04.SCHEMA",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.STRING_BOUNDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.CARD_IDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.MERGES",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.EXAM_WEIGHT_STATUS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.SRS_POLICY",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.BACK_SPOKEN_FORM",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.HOOK_LENGTH",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.HOOK_ORIGIN",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.FACT_IDS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.BACK_FIDELITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.ATOMIC_CLUSTER",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.DUPLICATE_BACKS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.PAGE_CITATIONS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.PAGE_RESOLUTION",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.LEARNER_SCAFFOLD",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.RECAP_PER_DECK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "04.DECKS_MIRROR_KG",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "04.ORIGINALITY",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.INPUT_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "04.VERIFICATION_DEBT",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": null,
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

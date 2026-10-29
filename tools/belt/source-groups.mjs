@@ -151,12 +151,36 @@ function scopeDebtBodies({receipt:p,projectRoot,runDir},bodies){
   for(const debt of debts)debt.claim_text='Historical source-scope note (retained verbatim): '+SCOPE_ORIGINAL+'\n'+SCOPE_CURRENT;
   return bodies;
 }
+// An empty native dossier_parts array is the ordinary unpartitioned complete-dossier
+// request. Infer its part coverage only from a hash/receipt-verified accepted full
+// envelope, and only for the existing single-composite fact-correction operation.
+// Never rewrite the recorded identity or broaden partial/malformed target scopes.
+function factCorrectionTargetParts(target,value,{kind,runId}){
+  const parts=scope(target).dossier_parts;if(valid(parts))return parts;
+  if(kind!=='source_supported_fact_correction'||!Array.isArray(parts)||parts.length!==0)fail('target_scope');
+  const identity=ident(target),envelope=value.envelope_scope,chunks=value.sections;
+  if(identity.run_id!==runId||identity.stage_id!=='02.dossier_sections'||identity.role_id!=='02'||
+      value.artifact!=='SmeDossierEnvelope'||value.stage_id!=='02.dossier_sections'||
+      envelope?.kind!=='complete_dossier'||envelope.chunk_index!==1||envelope.chunk_total!==1||
+      !valid(envelope.assigned_section_ids)||key(envelope.assigned_section_ids)!==key(SECTION_IDS)||
+      !Array.isArray(chunks)||chunks.length<SECTION_IDS.length)fail('unpartitioned_target_not_complete');
+  // Logical A..G part coverage is distinct from physical chunks: accepted C/C2
+  // may span multiple unique chunks. Preserve contiguous part order and native
+  // merge sequence; never infer a missing part or accept duplicated chunk data.
+  const ordered=[...chunks].sort((a,b)=>a.merge_seq-b.merge_seq),coverage=[...new Set(chunks.map(s=>s.section_id))];
+  const orderedParts=ordered.filter((s,i)=>i===0||s.section_id!==ordered[i-1].section_id).map(s=>s.section_id);
+  const contents=chunks.map(s=>{const {chunk_id,merge_seq,...content}=s;return canonicalJson(content);});
+  if(!valid(coverage)||key(coverage)!==key(SECTION_IDS)||
+      !valid(chunks.map(s=>s.chunk_id))||!valid(contents)||ordered.some((s,i)=>s.merge_seq!==i+1)||
+      orderedParts.length!==SECTION_IDS.length||orderedParts.some((part,i)=>part!==SECTION_IDS[i]))fail('unpartitioned_target_chunk_scope');
+  return [...SECTION_IDS];
+}
 function inspectProof({projectRoot,runDir,runId,all,proofRef,nowUtc=null}){
   const file=local(proofRef,projectRoot,runDir),p=read(file);proofShape(p,runId,nowUtc);
   if(!Array.isArray(p.supersedes)||!p.supersedes.length)fail('targets_missing');
   const targets=p.supersedes.map(t=>exactTarget(t,all,projectRoot,runDir)),parts=[];
   if(new Set(targets.map(r=>r.artifact_id)).size!==targets.length)fail('target_duplicate');
-  for(const target of targets){const s=scope(target);if(key(s.section_ids)!==key(p.section_ids)||!valid(s.dossier_parts))fail('target_scope');parts.push(...s.dossier_parts);const v=body(target,projectRoot,runDir);if(key(v.envelope_scope?.assigned_section_ids)!==key(s.dossier_parts)||v.lineage?.source_registry_sha256!==p.previous_registry_ref.sha256)fail('target_body_source');}
+  for(const target of targets){const s=scope(target);if(key(s.section_ids)!==key(p.section_ids))fail('target_scope');const v=body(target,projectRoot,runDir),targetParts=factCorrectionTargetParts(target,v,{kind:p.kind,runId});parts.push(...targetParts);if(key(v.envelope_scope?.assigned_section_ids)!==key(targetParts)||v.lineage?.source_registry_sha256!==p.previous_registry_ref.sha256)fail('target_body_source');}
   if(parts.length!==SECTION_IDS.length||new Set(parts).size!==parts.length||key(parts)!==key(SECTION_IDS))fail('target_partition');
   for(const pin of [p.previous_registry_ref,p.source_registry_ref,p.previous_page_map_ref,p.page_map_ref,p.previous_source_text_ref,p.source_text_ref,p.config_ref,...p.source_evidence_refs])local(pin,projectRoot,runDir);
   for(const target of targets){const inputs=ident(target).inputs??[];for(const [kind,pin]of [['source_registry',p.previous_registry_ref],['page_map',p.previous_page_map_ref],['source_text',p.previous_source_text_ref]])if(!inputs.some(input=>input.kind===kind&&same(input,pin,projectRoot)))fail('previous_'+kind+'_not_consumed');}
@@ -194,7 +218,7 @@ function inspectProof({projectRoot,runDir,runId,all,proofRef,nowUtc=null}){
   }else if(p.kind===D_LOCATOR){
     acceptedBodies({receipt:p,targets,projectRoot,runDir});
   }else{
-    if(!same(p.previous_registry_ref,p.source_registry_ref,projectRoot)||targets.length!==1||key(scope(targets[0]).dossier_parts)!==key(SECTION_IDS)||!valid(p.corrected_parts)||p.corrected_parts.some(part=>!['C','C2'].includes(part))||p.metadata_dependencies.length)fail('composite_fact_correction_scope');
+    if(!same(p.previous_registry_ref,p.source_registry_ref,projectRoot)||targets.length!==1||key(factCorrectionTargetParts(targets[0],body(targets[0],projectRoot,runDir),{kind:p.kind,runId}))!==key(SECTION_IDS)||!valid(p.corrected_parts)||p.corrected_parts.some(part=>!['C','C2'].includes(part))||p.metadata_dependencies.length)fail('composite_fact_correction_scope');
   }
   acceptedBodies({receipt:p,targets,projectRoot,runDir});
   return{receipt:p,ref:{path:file,sha256:proofRef.sha256},targets,group:true,projectRoot,runDir};

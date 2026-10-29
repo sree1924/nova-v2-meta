@@ -1,0 +1,1681 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "09.package",
+  "adapter_schema": {
+    "path": "schemas-strict/09-product-package.schema.json",
+    "sha256": "d5eb391b55633d4de7735a38dd0f3927edcfb511ce5592ea2f820d328b0dceb7"
+  },
+  "mapping": {
+    "path": "schemas-strict/09-product-package.mapping.json",
+    "sha256": "11b9cc7b92a4aedf4ffa42ac16f6df6983ae2d9924b85017be01a5fa6ef280de",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 23,
+    "dropped_constraints": 32,
+    "sentinels": [
+      {
+        "value": "deferred:not_applicable_pilot",
+        "fields": [
+          "/deploy/supabase_dataset_ref",
+          "/deploy/mobile_api_payload_refs/0",
+          "/deploy/listing_assets_ref"
+        ],
+        "authority": "contracts/pilot-overrides-v0.4.0.json /role_overrides/09/sop_dispositions step 4 ADAPTED_DEV_PREVIEW, step 6 DEFERRED_PRODUCTION",
+        "compensating_check": "09.SENTINEL_BINDING"
+      },
+      {
+        "value": "deferred:not_applicable_pilot",
+        "fields": [
+          "/deploy/image_scout_plan_ref",
+          "/deploy/audio_manifest_ref"
+        ],
+        "authority": "contracts/media-disposition.json inactive_roles [20,20A,20B] + non_applicable_checks",
+        "compensating_check": "09.SENTINEL_BINDING"
+      },
+      {
+        "value": "deferred:not_applicable_pilot",
+        "fields": [
+          "/market_signal_ref"
+        ],
+        "authority": "BELT-V2-CONTRACT.md roster: 10 Launch & Growth inactive_for_pilot; C57 later sales handoff (recorded, not machine-verified)",
+        "compensating_check": "09.SENTINEL_BINDING"
+      },
+      {
+        "value": "none_text_only_pilot / none / none",
+        "fields": [
+          "/audio_teacher_loop/provider",
+          "/audio_teacher_loop/generation_mode",
+          "/audio_teacher_loop/output_manifest"
+        ],
+        "authority": "contracts/media-disposition.json inactive_roles includes 20; rendered_audio_required=false",
+        "compensating_check": "09.AUDIO_INACTIVE_ROLE20"
+      },
+      {
+        "value": "{value:null,status:\"unknown\",source_page:null,fact_id:null}",
+        "fields": [
+          "/exam_config/n_questions",
+          "/exam_config/passing_threshold",
+          "/exam_config/domain_weights/*/weight"
+        ],
+        "authority": "contracts/source-fact-policy.json + CONVENTIONS sentinel vocabulary",
+        "compensating_check": "09.OFFICIAL_NUMBERS"
+      },
+      {
+        "value": "status:\"blocked\" + pilot_status",
+        "fields": [
+          "/status",
+          "/pilot_status"
+        ],
+        "authority": "overlay /role_overrides/09/state_adaptation",
+        "compensating_check": "09.LEGACY_STATUS_HONEST"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/product-package.schema.json",
+    "sha256_pinned": "ed7005ca43944ebde3c5b9778c89694adeebbc6f39482ea31708dfe23520f721",
+    "sha256_actual": "ed7005ca43944ebde3c5b9778c89694adeebbc6f39482ea31708dfe23520f721",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 6
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/v1-projected-raw.json",
+      "sha256": "2e3fda2f038a114a2d966342260786d39d4e8a9adc38c9edd97d7cea10899e84",
+      "context": "tools/belt/fixtures/09.package/v1-projected-raw.context.json",
+      "context_sha256": "7d5052bf3534d3b45b698ad7e706c65fce1409b858d7c31e59e5eb7f848bdaa9",
+      "kind": "v1_projection_raw",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/v1-projected-normalized.json",
+      "sha256": "c6d1d163bf9f3000e562e0141403a81562db57911356141f14a8a4dcc145b210",
+      "context": "tools/belt/fixtures/09.package/v1-projected-normalized.context.json",
+      "context_sha256": "7d5052bf3534d3b45b698ad7e706c65fce1409b858d7c31e59e5eb7f848bdaa9",
+      "kind": "v1_projection_normalized",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-preview-ready.json",
+      "sha256": "b1b63d936bae67016b1ecdcdce94167ab12851b0bc858842b0427f18c63cf761",
+      "context": "tools/belt/fixtures/09.package/synthetic-preview-ready.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_positive",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-hold-no-context.json",
+      "sha256": "1a6d51624c91b661d77c6c62e161ed641b7b62b05f3b9a302e7ac9c48b17a2e3",
+      "context": null,
+      "context_sha256": null,
+      "kind": "synthetic_hold",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "HOLD"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-audio-active-role20-inactive.json",
+      "sha256": "1adc52dedb17516a061f443b88e76e90d24ab82a68cc3d055cd7f2be35fa3935",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-audio-active-role20-inactive.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-preview-ready-no-uispec-receipts.json",
+      "sha256": "b76343278bac0ea3507022046deb3749845cd65471a2af63b1fcd0afdc010e3a",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-preview-ready-no-uispec-receipts.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-legacy-shipped.json",
+      "sha256": "1d7aee290da9228a53fca6ec400843fc0970e8ece151c596c2d0f92d27e383e0",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-legacy-shipped.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-empty-status-reason.json",
+      "sha256": "f8aa8bf73f8f6ff4f5951157678ffe9cb48ce53f4e2f0df9cd9e385bba6b6e46",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-empty-status-reason.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-candidate-mismatch.json",
+      "sha256": "273144ed299c1a94dbc77c2d5519c3db3640752b67e70841d7d526f9067a441b",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-candidate-mismatch.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-count-fabricated.json",
+      "sha256": "976852ae5e009088a4e71b593178aff2dc24e77ec634c3e0c9120ff629b01294",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-count-fabricated.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-deploy-auth-claims.json",
+      "sha256": "52d7dde256a9ba29c3f33e53ced7a98e37ab4837702af6a166e8ec97f689bdb3",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-deploy-auth-claims.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-source-debt-numeral.json",
+      "sha256": "dd65d68fdff2550d39c9f83528fb58633244a17b84ca65906087313e9e9d5e31",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-source-debt-numeral.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-application-scope.json",
+      "sha256": "9c5ae2943b27f8c52408313e4776c379cce954868d3c299355b2b90a34002924",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-application-scope.context.json",
+      "context_sha256": "affd1116afc92bc8ef9c5e7939bb403d8f46e2a12202f380905dd3424ed7b856",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-neg-orphans-preview-ready.json",
+      "sha256": "a47aa9d8268ed1a681bf7589c484a20f8a972b7f865d696019e84f711f401318",
+      "context": "tools/belt/fixtures/09.package/synthetic-neg-orphans-preview-ready.context.json",
+      "context_sha256": "e1a887f92eca90ea963afdba20aa350631cb64454ce03df92681439b3adcbee4",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "09.package",
+      "fixture": "tools/belt/fixtures/09.package/synthetic-blocked-orphans-honest.json",
+      "sha256": "abcf8c3b0cec031128f60ebcfb9a2c467eec867dc9bb6f97978acc7b4197f107",
+      "context": "tools/belt/fixtures/09.package/synthetic-blocked-orphans-honest.context.json",
+      "context_sha256": "e1a887f92eca90ea963afdba20aa350631cb64454ce03df92681439b3adcbee4",
+      "kind": "synthetic_positive",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "09.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEGACY_STATUS_HONEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.STATUS_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROBE_AND_VERSION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NONNEGATIVE_COUNTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.HASH_FORMAT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_GATES_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.QA_REPORTS_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.CANDIDATE_IN_MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.UISPEC_RECEIPTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.MEDIA_DISPOSITION_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.AUDIO_INACTIVE_ROLE20",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SENTINEL_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.FINISH_CRITERIA_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OVERLAY_BINDING",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.LEARNER_FEATURES_OFF",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.NO_DEPLOY_AUTH_CLAIMS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.SOURCE_DEBT_LEAK",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.OFFICIAL_NUMBERS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.COUNTS_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_RECOMPUTED",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.INTEGRITY_ZERO_FOR_PREVIEW",
+          "status": "PASS"
+        },
+        {
+          "check_id": "09.PROVENANCE_RECOMPUTED",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": null,
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

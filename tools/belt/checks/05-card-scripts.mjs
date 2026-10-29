@@ -167,10 +167,19 @@ export function run(artifact, context = {}) {
         : check(`${P}.CARD_COVERAGE`, 'PASS', `${deck.cards.size}/${deck.cards.size} accepted cards scripted exactly once`, { accepted_cards: deck.cards.size, missing: 0, extra: 0 }));
     }
     {
-      const bad = []; const counts = { question: 0, answer: 0, back_target: 0, hook_target: 0, teaching_hook: 0, carry: 0 };
+      const bad = []; const counts = { question: 0, answer: 0, back_target: 0, hook_target: 0, teaching_hook: 0, visual_sync: 0, carry: 0 };
       for (const s of cardScripts) {
         const c = deck.cards.get(s.card_id);
-        if (!c || !s.segments) continue;
+        if (!c) continue;
+        // Highlights address the CURRENT learner-visible card, including figural cards. They may
+        // select a substring of any displayed field; old answer bytes are not a valid target.
+        for (const [i, v] of arr(s.visual_sync).entries()) {
+          const span = v?.text_span;
+          if (isNonEmptyString(span) && ![c.front, c.back, c.memory_hook].some(t => typeof t === 'string' && t.includes(span))) {
+            counts.visual_sync++; bad.push(`${s.card_id}: visual_sync[${i}].text_span absent from accepted front/back/hook`);
+          }
+        }
+        if (!s.segments) continue;
         const g = s.segments;
         if (g.question?.text !== c.front) { counts.question++; bad.push(`${s.card_id}: question.text != card.front`); }
         if (g.answer?.text !== c.back) { counts.answer++; bad.push(`${s.card_id}: answer.text != card.back`); }
@@ -181,7 +190,7 @@ export function run(artifact, context = {}) {
         if (carryBad.length) { counts.carry++; bad.push(`${s.card_id}: carry-through differs (${carryBad.join(',')})`); }
       }
       out.push(bad.length ? check(`${P}.CARD_PARITY`, 'FAIL', `${bad.length} parity defect(s) vs accepted card bytes: ${head(bad)}`, counts)
-        : check(`${P}.CARD_PARITY`, 'PASS', 'question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, module/unit/source_ref/fact_ids carried through', counts));
+        : check(`${P}.CARD_PARITY`, 'PASS', 'question == front, answer == back, both equality targets == accepted back/hook, teaching contains the accepted hook, non-empty visual-sync spans occur in current front/back/hook, module/unit/source_ref/fact_ids carried through', counts));
     }
     {
       const bad = [];

@@ -2,19 +2,23 @@
 // No model/endpoint call; a PASS here is local validation only, never provider acceptance.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { readFileSync, writeFileSync, mkdtempSync, mkdirSync, rmSync } from 'node:fs';
+import { join, dirname, resolve, sep } from 'node:path';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { validateArtifact } from '../../tools/belt/post-validate.mjs';
 import { lintSchema } from '../../tools/belt/strict-lint.mjs';
+import { resolveContext } from '../../tools/belt/lib/fixture-context.mjs';
+import { assembleContext } from '../../tools/belt/context.mjs';
+import { sha256Bytes, sha256Canonical } from '../../tools/belt/lib/hash.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const J = (rel) => JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
 const STAGE = '07.content_coverage';
 const FX = 'tools/belt/fixtures/07.content_coverage';
 const mapping = J('schemas-strict/07-coverage-report.mapping.json');
-const ctxSyn = J(`${FX}/context-synthetic.json`);
-const base = () => { const a = J(`${FX}/synthetic-pass.json`); delete a._fixture; return a; };
+const ctxSyn = resolveContext(J(`${FX}/context-completion.json`));
+const base = () => J(`${FX}/synthetic-completion-pass.json`);
 const run = (artifact, context = ctxSyn) => validateArtifact({ stage_id: STAGE, artifact, context: { ...context, strip_fixture_meta: true } });
 const st = (res, id) => res.checks.find(c => c.check_id === id)?.status;
 
@@ -26,7 +30,7 @@ test('adapter passes strict-lint with no soft-keyword exemptions', () => {
 
 test('every mapping fixture yields its expected status', async () => {
   for (const f of mapping.fixtures) {
-    const res = await run(J(f.path), J(f.context_path));
+    const res = await run(J(f.path), resolveContext(J(f.context_path)));
     assert.equal(res.status, f.expected_status, `${f.path}: ${res.checks.filter(c => c.status !== 'PASS').map(c => c.check_id).join(',')}`);
     if (f.expected_schema) assert.equal(st(res, '07.SCHEMA'), f.expected_schema, f.path);
   }
@@ -77,6 +81,63 @@ test('parent allOf restored: PASS with media_gaps / unit gaps / cross-product re
 test('PASS with required_checks_not_run -> FAIL', async () => {
   const a = base(); a.required_checks_not_run = ['rule 7 depth floor'];
   assert.equal(st(await run(a), '07.REQUIRED_CHECKS_RUN'), 'FAIL');
+});
+
+test('historical context lacking accepted KG/cards cannot claim completion PASS', async () => {
+  const res = await run(J(`${FX}/synthetic-pass.json`), J(`${FX}/context-synthetic.json`));
+  assert.equal(st(res, '07.REQUIRED_CHECKS_RUN'), 'HOLD');
+  assert.equal(res.status, 'HOLD');
+});
+
+test('served node coverage FAILs independently of 06 structural acceptance and claimed gap strings', async () => {
+  const ctx = structuredClone(ctxSyn);
+  const structural = await validateArtifact({ stage_id: '06.exam_bank', artifact: ctx.accepted_inputs.exam_bank,
+    context: { ...J('tools/belt/fixtures/06.exam_bank/context-synthetic.json'), strip_fixture_meta: true } });
+  assert.equal(structural.status, 'PASS', '06 structural PASS does not require cards or prove served-node completeness');
+  const node = { ...ctx.accepted_inputs.knowledge_graph.nodes[0], id: 'n.unassessed', high_yield: false };
+  ctx.accepted_inputs.knowledge_graph.nodes.push(node);
+  ctx.accepted_inputs.carddeck.decks[0].cards.push({ ...ctx.accepted_inputs.carddeck.decks[0].cards[0], card_id: 'card.unassessed', node_id: node.id });
+  ctx.accepted_dispositions = [{ kind: 'assessment_gap', node_id: node.id, reason: 'old package already accepted' }];
+  const res = await run(base(), ctx);
+  assert.equal(st(res, '07.REQUIRED_CHECKS_RUN'), 'FAIL');
+  assert.match(res.checks.find(c => c.check_id === '07.REQUIRED_CHECKS_RUN').evidence, /n\.unassessed:item/);
+  assert.equal(st(res, '07.PRACTICE_FORM_DRIFT'), 'PASS', 'unchanged bank forms remain structurally sound');
+});
+
+test('native 07 context supplies exact accepted KG/card/exam pins for the completion join', async t => {
+  const projectRoot = mkdtempSync(join(tmpdir(), 'nova-completion-'));
+  t.after(() => {
+    assert.ok(projectRoot.startsWith(resolve(tmpdir()) + sep), 'cleanup stays inside the named temporary root');
+    rmSync(projectRoot, { recursive: true, force: true });
+  });
+  const runRoot = join(projectRoot, 'runs', 'synthetic-completion'); mkdirSync(runRoot, { recursive: true });
+  const data = structuredClone(ctxSyn.accepted_inputs);
+  const kgPath = 'runs/synthetic-completion/knowledge_graph.json';
+  data.carddeck.source_refs.knowledge_graph = kgPath;
+  data.exam_bank.source_refs.knowledge_graph = kgPath;
+  const refs = Object.entries(data).map(([kind, artifact]) => {
+    const path = `runs/synthetic-completion/${kind}.json`, bytes = JSON.stringify(artifact);
+    writeFileSync(join(projectRoot, path), bytes);
+    return { kind, path, sha256: sha256Bytes(Buffer.from(bytes)), accepted: true };
+  });
+  const assembled = assembleContext({ projectRoot, runRoot, stageId: STAGE, acceptedArtifacts: refs });
+  for (const key of ['knowledge_graph', 'carddeck', 'exam_bank']) {
+    assert.deepEqual(assembled.context.accepted_inputs[key], data[key]);
+    assert.equal(assembled.context.loaded_refs[`accepted_inputs.${key}`].sha256, refs.find(r => r.kind === key).sha256);
+  }
+  const report = base(), manifest = structuredClone(ctxSyn.candidate_manifest);
+  for (const ref of refs) {
+    const key = ref.kind === 'exam_bank' ? 'exambank' : ref.kind;
+    report.input_hashes[key] = ref.sha256;
+    Object.assign(manifest.members.find(m => m.role === key), { path: ref.path, sha256: ref.sha256 });
+  }
+  report.candidate_sha256 = sha256Canonical(manifest);
+  const ctx = { ...ctxSyn, accepted_inputs: assembled.context.accepted_inputs,
+    loaded_refs: assembled.context.loaded_refs, exambank: assembled.context.exambank, candidate_manifest: manifest };
+  assert.equal((await run(report, ctx)).status, 'PASS');
+  const missing = structuredClone(ctx);
+  missing.accepted_inputs.exam_bank.items = missing.accepted_inputs.exam_bank.items.filter(i => i.node_id !== 'n.permit.hours');
+  assert.equal(st(await run(report, missing), '07.REQUIRED_CHECKS_RUN'), 'FAIL');
 });
 
 test('unknown weights: null weight accepted; fabricated number under not_applicable -> FAIL; checked needs verified view', async () => {

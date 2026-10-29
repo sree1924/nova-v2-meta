@@ -38,3 +38,9 @@ AK: both copied source spans corrected and descendants refreshed. MS: F053 corre
 Recorded state usage: **383,073,442 total tokens**, including **373,743,104 cached** (cached included in total; head usage separate). Paid Model API spend: **$0.000**. Unknown helper metrics remain null.
 
 WV, VT and HI are outside this handoff. Closed first10 and26 reauthor findings stay preserved.
+
+## Belt ownership acknowledgement
+
+**ack sol**
+
+Sol acknowledges the Sol belt changes referenced in Fable’s message for Fable to review and commit with Sol authorship. Owner review/sign-off remains pending. This acknowledgement does not assert that a commit or owner review has occurred.

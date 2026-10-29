@@ -57,6 +57,34 @@ test('answer / hook / segment mismatches are each rejected', async () => {
   assert.equal(statusOf(await run('tools/belt/fixtures/05.card_scripts/synthetic-neg-segment-order.json'), '05.SEGMENT_ORDER'), 'FAIL');
 });
 
+test('visual-sync accepts exact front/back/hook substrings from the current card', async () => {
+  const rel = 'tools/belt/fixtures/05.card_scripts/synthetic-positive.json';
+  const a = load(rel), context = loadFixtureContext(join(ROOT, rel)).context;
+  const s = a.audio_scripts.find(s => !s.is_recap);
+  const c = context.accepted_inputs.carddeck.decks.flatMap(d => d.cards).find(c => c.card_id === s.card_id);
+  s.visual_sync = [c.front, c.back, c.memory_hook, c.back.slice(4, 30)].map(text_span => ({ text_span, timing_hint: 'highlight' }));
+  const r = await validateArtifact({ stage_id: STAGE, artifact: a, context: { ...context, strip_fixture_meta: true } });
+  assert.equal(statusOf(r, '05.CARD_PARITY'), 'PASS');
+  assert.equal(r.checks.find(c => c.check_id === '05.CARD_PARITY').metrics.visual_sync, 0);
+});
+
+test('revised answer cannot retain a stale visual-sync answer span', async () => {
+  const rel = 'tools/belt/fixtures/05.card_scripts/synthetic-positive.json';
+  const a = load(rel), context = loadFixtureContext(join(ROOT, rel)).context;
+  const s = a.audio_scripts.find(s => !s.is_recap);
+  const c = context.accepted_inputs.carddeck.decks.flatMap(d => d.cards).find(c => c.card_id === s.card_id);
+  const oldBack = c.back;
+  c.back = 'Stop completely before the marked fixture boundary.';
+  s.segments.answer.text = c.back;
+  s.must_match_card_back = c.back;
+  s.segments.teaching.text = `Remember: ${c.memory_hook}. ${c.back}`;
+  assert.equal(s.visual_sync[0].text_span, oldBack);
+  const r = await validateArtifact({ stage_id: STAGE, artifact: a, context: { ...context, strip_fixture_meta: true } });
+  assert.equal(statusOf(r, '05.SELF_EQUALITY'), 'PASS');
+  assert.equal(statusOf(r, '05.CARD_PARITY'), 'FAIL');
+  assert.equal(r.checks.find(c => c.check_id === '05.CARD_PARITY').metrics.visual_sync, 1);
+});
+
 test('without the accepted deck, parity HOLDs (never PASS)', async () => {
   const r = await run('tools/belt/fixtures/05.card_scripts/synthetic-hold-no-context.json');
   for (const id of ['05.CARD_COVERAGE', '05.CARD_PARITY', '05.RECAP_PARITY', '05.TEACHING_FACT_IDS', '05.AUDIO_RENDER', '05.INPUT_BINDING']) assert.equal(statusOf(r, id), 'HOLD', id);

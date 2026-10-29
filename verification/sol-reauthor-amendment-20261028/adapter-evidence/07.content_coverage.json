@@ -1,0 +1,452 @@
+{
+  "artifact_type": "AdapterValidationEvidence",
+  "version": "0.4.0",
+  "stage_id": "07.content_coverage",
+  "adapter_schema": {
+    "path": "schemas-strict/07-coverage-report.schema.json",
+    "sha256": "bec7552a58e907e64b7efdbc47e453a92bc4043316b270daf473c1ef1eee9bea"
+  },
+  "mapping": {
+    "path": "schemas-strict/07-coverage-report.mapping.json",
+    "sha256": "3523ac716a77c3e06172c185020271d37ef4ca6e618e9ccddba58c977f93db41",
+    "adapter_kind": "pilot_adapter",
+    "deviations": 13,
+    "dropped_constraints": 21,
+    "sentinels": [
+      {
+        "field": "/source_refs/image_scout_plan",
+        "value": "deferred:not_applicable_pilot",
+        "binding": "contracts/media-disposition.json (image_cards_enabled false; 20A inactive)",
+        "check": "07.ENVELOPE, 07.MEDIA_DISPOSITION",
+        "compensating_check": "07.ENVELOPE, 07.MEDIA_DISPOSITION"
+      }
+    ]
+  },
+  "parent_schema": {
+    "path": "schemas/coverage-report.schema.json",
+    "sha256_pinned": "7b462eb53cbd2e27d66da59079cf96ef918f9b85928693a455f91e56d9ce3085",
+    "sha256_actual": "7b462eb53cbd2e27d66da59079cf96ef918f9b85928693a455f91e56d9ce3085",
+    "pin_ok": true
+  },
+  "strict_lint": {
+    "ok": true,
+    "violations": [],
+    "soft_compensated": [],
+    "max_depth": 5
+  },
+  "fixture_runs": [
+    {
+      "stage_id": "07.content_coverage",
+      "fixture": "tools/belt/fixtures/07.content_coverage/v1-projected.json",
+      "sha256": "f6e3b6630e3cfb6ac8de108efef0e7e76886395bef53fd9d859cb7b0315eea6b",
+      "context": "tools/belt/fixtures/07.content_coverage/context-v1.json",
+      "context_sha256": "0aca10600e7a9b2f766a4f0e22d71207b02f0955e9f0fea2591924b29d2af209",
+      "kind": "v1_projected_with_synthetic_candidate",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "07.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INPUT_MEMBERSHIP",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "07.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.REQUIRED_CHECKS_RUN",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "07.ROUTE_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.DOMAIN_WEIGHTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PRACTICE_FORM_DRIFT",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "07.TITLED_PROMISE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.EARLY_MEDIA_INTENT",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "07.PROVIDER_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INDEPENDENCE",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "07.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "fixture": "tools/belt/fixtures/07.content_coverage/synthetic-pass.json",
+      "sha256": "5b927d59fb78055e4fe557dfe4cf81c40734ca3c7a8c890adf8f8d4e6207429d",
+      "context": "tools/belt/fixtures/07.content_coverage/context-synthetic.json",
+      "context_sha256": "29b575b62fa1a2b9a811d9d2e50e1b6c1f05e898cd9377a491bb2d4f349494e5",
+      "kind": "synthetic",
+      "expected": "HOLD",
+      "observed": "HOLD",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "07.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.REQUIRED_CHECKS_RUN",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "07.ROUTE_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.DOMAIN_WEIGHTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PRACTICE_FORM_DRIFT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.TITLED_PROMISE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.EARLY_MEDIA_INTENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PROVIDER_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INDEPENDENCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "fixture": "tools/belt/fixtures/07.content_coverage/synthetic-neg-candidate-mismatch.json",
+      "sha256": "fef4c62d5ace1f3c721f16e1db81b9ab87750d28807c89c0ba3d71addbf05924",
+      "context": "tools/belt/fixtures/07.content_coverage/context-synthetic.json",
+      "context_sha256": "29b575b62fa1a2b9a811d9d2e50e1b6c1f05e898cd9377a491bb2d4f349494e5",
+      "kind": "synthetic_negative",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "07.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.CANDIDATE_ECHO",
+          "status": "FAIL"
+        },
+        {
+          "check_id": "07.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.REQUIRED_CHECKS_RUN",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "07.ROUTE_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.DOMAIN_WEIGHTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PRACTICE_FORM_DRIFT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.TITLED_PROMISE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.EARLY_MEDIA_INTENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PROVIDER_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INDEPENDENCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "fixture": "tools/belt/fixtures/07.content_coverage/synthetic-route-to-02.json",
+      "sha256": "7a40a883def54a216bdf499d8beb06f3ef1ca3d91bdc687fbe6163a96c03eae2",
+      "context": "tools/belt/fixtures/07.content_coverage/context-synthetic.json",
+      "context_sha256": "29b575b62fa1a2b9a811d9d2e50e1b6c1f05e898cd9377a491bb2d4f349494e5",
+      "kind": "synthetic_adapter_acceptance",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "07.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.REQUIRED_CHECKS_RUN",
+          "status": "HOLD"
+        },
+        {
+          "check_id": "07.ROUTE_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.DOMAIN_WEIGHTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PRACTICE_FORM_DRIFT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.TITLED_PROMISE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.EARLY_MEDIA_INTENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PROVIDER_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INDEPENDENCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_GATE",
+          "status": "FAIL"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage_id": "07.content_coverage",
+      "fixture": "tools/belt/fixtures/07.content_coverage/synthetic-completion-pass.json",
+      "sha256": "09878ccb2574e668c756baea1fb245ac2be7d09721afc8d3fa3d8ea311977369",
+      "context": "tools/belt/fixtures/07.content_coverage/context-completion.json",
+      "context_sha256": "18c86f9c875f3584eecbcfc3c54323fa229905ccc28e462469dcfa82954d7828",
+      "kind": "synthetic_bound_completion",
+      "expected": "PASS",
+      "observed": "PASS",
+      "match": true,
+      "checks": [
+        {
+          "check_id": "07.SCHEMA",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ENVELOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.CANDIDATE_ECHO",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INPUT_MEMBERSHIP",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ROW_FIELDS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_INVARIANT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_CONSISTENCY",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.REQUIRED_CHECKS_RUN",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.ROUTE_COVERAGE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.DOMAIN_WEIGHTS",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PRACTICE_FORM_DRIFT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.TITLED_PROMISE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.MEDIA_DISPOSITION",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.EARLY_MEDIA_INTENT",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.PROVIDER_SCOPE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.INDEPENDENCE",
+          "status": "PASS"
+        },
+        {
+          "check_id": "07.VERDICT_GATE",
+          "status": "PASS"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "node_tests": null,
+  "verdict": "PASS",
+  "meaning": "Local deterministic validation of the adapter + compensating checks against committed fixtures. Not provider acceptance, not a belt/qualification result."
+}

@@ -1,4 +1,5 @@
 import {assertDispatchAllowed} from './execution-policy.mjs';
+import {isMuseFileTransport} from './muse-file-transport.mjs';
 
 // No dotenv, SDK or top-level network activity. Every request checks authority first.
 // Timeout: run-config limits.provider_timeout_ms (default 240 s) — a part-C dossier call with 30k reasoning tokens exceeded the
@@ -15,8 +16,9 @@ export function createMetaClient({projectRoot,config,go=false,mode='dry_run',sta
       if (request.model !== pinnedConfig.producer.model || /contributor/i.test(request.model || '')) throw new Error('Request model differs from bound standard model.');
       if (!Number.isSafeInteger(request.max_completion_tokens) || request.max_completion_tokens <= 0 || request.max_completion_tokens > pinnedConfig.limits.max_completion_tokens) throw new Error('Bound token cap is required.');
       if (request.response_format?.type!=='json_schema'||request.response_format?.json_schema?.strict!==true||!request.response_format.json_schema.schema||typeof request.response_format.json_schema.schema!=='object') throw new Error('Strict adapter request required.');
-      const key = process.env[keyEnvName];
-      if (!key) throw new Error('MODEL_API_KEY is absent.');
+      const fileTransport=isMuseFileTransport(transport);
+      const key = fileTransport ? null : process.env[keyEnvName];
+      if (!fileTransport&&!key) throw new Error('MODEL_API_KEY is absent.');
       // No automatic retries: a timeout may still consume money at the provider.
       const started = performance.now();
       let response, rawText;
@@ -27,7 +29,7 @@ export function createMetaClient({projectRoot,config,go=false,mode='dry_run',sta
       const dispatchSignal=signal?AbortSignal.any([signal,timeoutSignal]):timeoutSignal;
       try {
         response = await transport('https://api.meta.ai/v1/chat/completions', {
-          method: 'POST', signal:dispatchSignal, headers: {'Content-Type': 'application/json', Authorization: 'Bearer ' + key}, body: JSON.stringify(request)
+          method: 'POST', signal:dispatchSignal, headers: {'Content-Type': 'application/json', ...(!fileTransport?{Authorization:'Bearer '+key}:{})}, body: JSON.stringify(request)
         });
         rawText = await response.text();
       } catch (cause) {

@@ -200,7 +200,17 @@ export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle
       if (expectedHash!==ref.sha256) throw new Error('Source registration reuse does not match its current exact input/output plan.');
     }
     if (!existing.length) throw new Error('Prior source task has no saved evidence.');
-    return {status:task.status==='accepted'?'PASS':'HOLD',reused:true,artifacts:existing};
+    const main=existing.find(a=>a.artifact_id===task.accepted_artifact_id)??existing.find(a=>a.kind==='15-source-registry.json');
+    const attemptId=main?.attempt_id??ledger.listAttempts(fence.runId).filter(a=>a.task_id===taskId).at(-1)?.attempt_id??null;
+    const receiptRef=pin(path.join(loaded.runDir,outputPrefix+'15-registration-receipt.json'));
+    const validationRef=pin(path.join(loaded.runDir,outputPrefix+'receipts/15-registration-validation-'+registrationDigest+'.json'));
+    const acceptanceRef=pin(path.join(loaded.runDir,outputPrefix+'receipts/15-registration-acceptance-'+registrationDigest+'.json'));
+    const accepted=task.status==='accepted';
+    return {status:accepted?'PASS':'HOLD',assessment_status:result.status,verification_debt:result.verification_debt,
+      registration_metadata_status:accepted?'PASS':'HOLD',reused:true,artifacts:existing,receipt_ref:receiptRef,
+      native_acceptance:{status:accepted?'ACCEPTED':'BLOCKED',accepted,task_id:taskId,attempt_id:attemptId,
+        source_registry_ref:accepted?{path:verifyRef(main,loaded.runDir),sha256:main.sha256,bytes:main.bytes}:null,
+        validation_receipt_ref:evidenceRef(validationRef),acceptance_receipt_ref:evidenceRef(acceptanceRef)}};
   }
   const attempt = ledger.startAttempt(fence,{taskId,commandId:'local-register:'+taskId});
   const attemptId = attempt.attemptId ?? attempt.attempt_id;
@@ -239,7 +249,10 @@ export async function registerSource({projectRoot,loaded,ledger,fence,lockHandle
   if(registrationAccepted)ledger.acceptArtifact(fence,{taskId,attemptId,artifact:main,validationReceipt:validationRef,acceptanceReceipt:acceptanceRef});
   else{ledger.recordArtifact(fence,{taskId,attemptId,artifact:main,status:'output_saved'});ledger.failAttempt(fence,{attemptId,status:'blocked',errorRef:receiptRef});}
   ledger.appendEvent(fence,{eventId:attemptId+':registration-saved',type:'source.registration_saved',taskId,attemptId,payload:{receipt:receiptRef,status:result.status,content_calls:0}});
-  return {...receipt,receipt_ref:receiptRef,reused:false};
+  return {...receipt,assessment_status:result.status,registration_metadata_status:registrationAccepted?'PASS':'HOLD',
+    native_acceptance:{status:registrationAccepted?'ACCEPTED':'BLOCKED',accepted:registrationAccepted,task_id:taskId,attempt_id:attemptId,
+      source_registry_ref:registrationAccepted?evidenceRef(main):null,validation_receipt_ref:evidenceRef(validationRef),acceptance_receipt_ref:evidenceRef(acceptanceRef)},
+    receipt_ref:receiptRef,reused:false};
 }
 
 export async function compileAcceptedDossier({projectRoot=PROJECT_ROOT,runConfigPath,executorId,sectionIds=[],approvalRef=null}={}){
@@ -364,6 +377,12 @@ export async function pinLearningLoop({projectRoot=PROJECT_ROOT,runConfigPath,ex
   if(!validate(doc))throw new Error('LearningLoop fails parent schema: '+validate.errors.slice(0,5).map(e=>(e.instancePath||'/')+' '+e.message).join('; '));
   const role=read(path.join(projectRoot,'contracts/bot-contract-bindings.json')).roles.find(r=>r.role_id==='19');
   const contract=verifiedContract(projectRoot,role);
+  const authorityRefs={current_intake_authority_ref:null,standing_authority_ref:null};
+  for(const key of Object.keys(authorityRefs)){
+    const ref=loaded.config.execution?.[key];
+    if(ref){const target=verifyRef(ref,projectRoot);authorityRefs[key]=evidenceRef(pin(target));}
+  }
+  const authorityKnown=Object.values(authorityRefs).some(Boolean);
   const lockHandle=acquireExecutorLock({runDir:loaded.runDir,runId:loaded.config.run_id,executorId});
   let ledger,fence;
   try{
@@ -376,7 +395,9 @@ export async function pinLearningLoop({projectRoot=PROJECT_ROOT,runConfigPath,ex
     if(task.status==='accepted')return{status:'PASS',reused:true,artifact:evidenceRef(artifact),model_calls:0};
     const attempt=ledger.startAttempt(fence,{taskId,commandId:'pin-learning-loop:'+taskId});const attemptId=attempt.attemptId??attempt.attempt_id;
     const validation=writeImmutable(loaded.runDir,'receipts/19-validation-'+artifact.sha256+'.json',{status:'PASS',output_sha256:artifact.sha256,checks:[{check_id:'19.SCHEMA',status:'PASS',evidence:'validates against schemas/learning-loop.schema.json (parent, pinned '+pin(schemaPath).sha256.slice(0,12)+')'},{check_id:'19.PILOT_POLICY',status:'PASS',evidence:'mastery_gate labelled product_policy; audio_teacher_loop none (text-only pilot); no Nova V1 bytes reused'}],companions:[{...evidenceRef(artifact),kind:'learning_loop'}]},{lockHandle});
-    const acceptance=writeImmutable(loaded.runDir,'receipts/19-acceptance-'+artifact.sha256+'.json',{status:'PASS',output_sha256:artifact.sha256,kind:'deterministic_pin_lane_authored_policy',auditors:'pending 07/08',authority:'founder full-run standing authority 2026-10-27; C13 preflight pin'},{lockHandle});
+    const acceptance=writeImmutable(loaded.runDir,'receipts/19-acceptance-'+artifact.sha256+'.json',{status:'PASS',output_sha256:artifact.sha256,
+      kind:'deterministic_pin_lane_authored_policy',auditors:'pending 07/08',authority:authorityKnown?'Verified supplied authority references; policy pin only':'Unknown current authority; policy pin only',
+      authority_status:authorityKnown?'PINNED_REFERENCE_ONLY_NOT_EXECUTION_GO':'UNKNOWN_POLICY_PIN_ONLY',authority_refs:authorityRefs,execution_authorized:false},{lockHandle});
     ledger.recordArtifact(fence,{taskId,attemptId,artifact,status:'output_saved'});
     const accepted=ledger.acceptArtifact(fence,{taskId,attemptId,artifact,validationReceipt:validation,acceptanceReceipt:acceptance});
     return{status:'PASS',accepted,artifact:evidenceRef(artifact),model_calls:0};

@@ -15,16 +15,17 @@ import {validateArtifact} from './post-validate.mjs';
 import {inspectImplementationClosure} from '../inspect-implementation-closure.mjs';
 import {runArtifactTask} from './artifact-task.mjs';
 import {DatabaseSync} from 'node:sqlite';
+import {authoringPaths,isMuseFileTransport} from './muse-file-transport.mjs';
+export {authoringPaths,readAuthoringOutbox,museFileTransport} from './muse-file-transport.mjs';
 
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const pin=p=>({path:p,sha256:sha256(fs.readFileSync(p)),bytes:fs.statSync(p).size});
 const ref=({path,sha256,bytes})=>({path,sha256,bytes});
 const roleIdFor=id=>id.split('.')[0];
-// Only exact transports created by this module may use the zero-cost file exemption.
-const museFileTransports=new WeakSet();
+// Only exact native file transports may use the zero-cost file exemption.
 export function applyFileTransportPreflight(prepared,transport){
-  if(museFileTransports.has(transport)&&prepared.preflight.status!=='PASS'){
-    const waived=prepared.preflight.blockers.filter(b=>b==='request_byte_limit'||b==='call_cap_below_conservative_request_estimate');
+  if(isMuseFileTransport(transport)&&prepared.preflight.status!=='PASS'){
+    const waived=prepared.preflight.blockers.filter(b=>b==='request_byte_limit'||b==='call_cap_below_conservative_request_estimate'||b==='model_api_key_env_absent');
     const remaining=prepared.preflight.blockers.filter(b=>!waived.includes(b));
     if(waived.length)prepared.preflight={status:remaining.length?'HOLD':'PASS',blockers:remaining,waived_for_file_transport:waived};
   }
@@ -221,7 +222,6 @@ function retryNonce(p){const n=p.config.execution?.retry_nonces?.[retryNonceKey(
 // SAME client → validator → ledger path via a fetch-compatible file transport. Packets carry private handbook text, so they
 // live under sources/private/ (gitignored). Nothing in the validators, ledger or acceptance policy changes.
 export function authoringKey(stageId,sectionIds=[],partIds=[],nonce=0,replacementSha256=null){if(replacementSha256!==null&&!/^[a-f0-9]{64}$/.test(replacementSha256))throw new Error('Replacement authoring key requires an exact proof hash.');return [stageId,...[...(sectionIds||[])].sort(),(partIds||[]).join('+')||'-','n'+(nonce||0),...(replacementSha256?['r'+replacementSha256]:[])].join('__').replace(/[^A-Za-z0-9_.+@-]/g,'_');}
-export function authoringPaths(runDir,key){const base=path.join(runDir,'sources','private','muse-authoring');return{base,inbox:path.join(base,'inbox',key+'.json'),outbox:path.join(base,'outbox',key+'.json'),done:path.join(base,'done'),next:path.join(base,'inbox','NEXT.json')};}
 export function emitAuthoringPacket({previousNonPass=[],...options}){
   const p=prepareDispatch({...options,go:false});
   applyFileTransportPreflight(p,options.transport);
@@ -300,34 +300,6 @@ export function emitThinPacket({ previousNonPass = [], ...options }) {
   fs.writeFileSync(paths.next, JSON.stringify({ packet_mode: 'thin', key, inbox: rel(paths.inbox), outbox: rel(paths.outbox), packet_sha256: packetSha, layers: packet.layers, candidate_lineage_id: p.config.candidate_lineage_id, input_manifest_sha256: p.context.input_manifest_sha256, stage_id: p.stageId, section_ids: p.sectionIds, part_ids: p.partIds, retry_nonce: nonce, previous_non_pass: previousNonPass, required_checks: p.requiredChecks, emitted_at: packet.emitted_at }, null, 2) + '\n');
   return { status: p.preflight.status === 'PASS' ? 'EMITTED' : 'HOLD', key, inbox: paths.inbox, outbox: paths.outbox, packet_sha256: packetSha, request_bytes: Buffer.byteLength(body), full_request_bytes: packet.full_request_bytes, layers: { state: stateRef, section: secRef }, blockers: p.preflight.blockers };
 }
-// Reads Muse's outbox for a key without throwing: {ok, reason, outbox}. The runner calls this BEFORE dispatching so a missing or
-// malformed outbox never reaches the client (a transport throw would park the attempt as unknown_provider_result).
-export function readAuthoringOutbox(runDir,key){
-  const paths=authoringPaths(runDir,key);
-  if(!fs.existsSync(paths.outbox))return{ok:false,reason:'outbox_absent',path:paths.outbox};
-  let out;try{out=JSON.parse(fs.readFileSync(paths.outbox,'utf8'));}catch(e){return{ok:false,reason:'outbox_invalid_json:'+String(e.message).slice(0,80),path:paths.outbox};}
-  if(out?.key!==key)return{ok:false,reason:'outbox_key_mismatch:'+String(out?.key),path:paths.outbox};
-  if(!out.artifact||typeof out.artifact!=='object'||Array.isArray(out.artifact))return{ok:false,reason:'outbox_no_artifact_object',path:paths.outbox};
-  return{ok:true,outbox:out,path:paths.outbox};
-}
-// fetch-compatible transport answering the bound request from the outbox (Model API response shape; usage 0 → ledger actual $0).
-// Never throws (a throw = "may have reached the provider"); a bad outbox answers 422 with zero usage → HOLD http_status_not_200.
-export function museFileTransport({runDir,key}){
-  const transport=async function transport(_url,init){
-    const zero={prompt_tokens:0,completion_tokens:0,total_tokens:0};
-    const got=readAuthoringOutbox(runDir,key);
-    if(!got.ok){const text=JSON.stringify({error:{message:got.reason,type:'muse_outbox_unusable'},usage:zero,model:null});return{status:422,ok:false,headers:{get:()=>null},text:async()=>text};}
-    const raw=fs.readFileSync(got.path);const req=JSON.parse(init.body);
-    const body={id:'musecode-'+sha256(raw).slice(0,24),object:'chat.completion',created:Math.floor(Date.now()/1000),model:req.model,
-      choices:[{index:0,finish_reason:'stop',message:{role:'assistant',content:JSON.stringify(got.outbox.artifact)}}],usage:zero,
-      billing:{mode:'muse_code_subscription',authored_by:got.outbox.authored_by??'muse-code (subscription)',packet_sha256:got.outbox.packet_sha256??null,outbox_sha256:sha256(raw),model_api_called:false,credit_usd:0}};
-    const text=JSON.stringify(body);
-    return{status:200,ok:true,headers:{get:()=>null},text:async()=>text};
-  };
-  museFileTransports.add(transport);
-  return transport;
-}
-
 export async function executePreparedDispatch({prepared:p,ledger,fence,lockHandle,client,validator=validateArtifact}){
   const validateBound=async artifact=>{
     const validation=await validator({stage_id:p.stageId,artifact,context:p.context});
