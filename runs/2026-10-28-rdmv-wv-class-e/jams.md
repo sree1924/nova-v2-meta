@@ -25,3 +25,13 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:00:48.297Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:9 for 02.dossier_sections (sec02-license-eligibility-and-identity) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-eligibility-and-identity__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:00:49.531Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:10 for 02.dossier_sections (sec02-license-eligibility-and-identity) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-license-eligibility-and-identity__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:32.793Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:11 for 02.dossier_sections (sec03-permits-and-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-permits-and-graduated-licensing__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:34.192Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:12 for 02.dossier_sections (sec03-permits-and-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-permits-and-graduated-licensing__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:35.500Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:13 for 02.dossier_sections (sec03-permits-and-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-permits-and-graduated-licensing__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:36.743Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:14 for 02.dossier_sections (sec03-permits-and-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-permits-and-graduated-licensing__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:38.040Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:15 for 02.dossier_sections (sec04-driver-responsibilities) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-driver-responsibilities__C__n0 (lineage attempts exhausted)
