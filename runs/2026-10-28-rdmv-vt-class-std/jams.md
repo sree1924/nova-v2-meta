@@ -86,3 +86,13 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:11:27.892Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:40 for 02.dossier_sections (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-hazardous-conditions__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:11:29.316Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:41 for 02.dossier_sections (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-hazardous-conditions__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:10.181Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:42 for 02.dossier_sections (sec10-interstates) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-interstates__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:11.729Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:43 for 02.dossier_sections (sec10-interstates) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-interstates__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:13.350Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:44 for 02.dossier_sections (sec10-interstates) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-interstates__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:14.877Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:45 for 02.dossier_sections (sec10-interstates) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-interstates__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:12:16.473Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:46 for 02.dossier_sections (sec11-impairment) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-impairment__C__n0 (lineage attempts exhausted)
