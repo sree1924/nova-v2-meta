@@ -59,3 +59,13 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T03:57:32.399Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:22 for 02.dossier_sections (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-the-driver-emotional-medical-age__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:57:33.734Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:23 for 02.dossier_sections (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-the-driver-emotional-medical-age__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:59:27.003Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:24 for 02.dossier_sections (sec06-traffic-laws-rules-regulations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-traffic-laws-rules-regulations__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:59:28.403Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:25 for 02.dossier_sections (sec06-traffic-laws-rules-regulations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-traffic-laws-rules-regulations__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:59:29.827Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:26 for 02.dossier_sections (sec06-traffic-laws-rules-regulations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-traffic-laws-rules-regulations__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:59:31.278Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:27 for 02.dossier_sections (sec06-traffic-laws-rules-regulations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-traffic-laws-rules-regulations__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:59:32.732Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:28 for 02.dossier_sections (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-pavement-markings__C__n0 (lineage attempts exhausted)
