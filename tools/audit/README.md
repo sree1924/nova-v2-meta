@@ -33,3 +33,23 @@ Committed reports carry fact ids, verdicts, issues and fixes, but never handbook
 - **Any verdict other than SUPPORTED is a finding.** Muse labels a wrong number PARTIALLY_SUPPORTED, not CONTRADICTED.
 - **Recall varies run to run.** The default-effort pass flagged three Michigan section-4 facts that the low-effort pass did not. For release, run two passes per section and take the union. That roughly doubles the projection, to about $45 for all 51.
 - **Muse cannot independently audit what Muse wrote.** That rules out UT, TX, CA, FL, VA, NY, CT, KY, IA and OK. Claude or Sol must audit those states.
+
+## Fix pipeline (2026-10-29)
+
+| File | What it does |
+|---|---|
+| `fact-check-fleet.mjs` | First pass over all 51 states, several in parallel, under a fleet cap. Single instance (lock). |
+| `triage.mjs` | Sorts first-pass flags into MEANING and CITATION from the auditor's issue text. A review aid that over-counts meaning. Writes `coordination/FACT-CHECK/TRIAGE.md`. |
+| `muse-recheck.mjs` | Sends ONLY the flagged facts back to Muse, with the cited page and the pages either side. Gets back MEANING / CITATION / OK, a page-grounded corrected statement and the correct page. Writes `coordination/FACT-CHECK/<ST>/corrections.json`. Six sections in parallel, resumable, single instance. |
+| `tools/preview/quarantine.mjs` | Hides every card that claims a fact confirmed MEANING-wrong, until its correction is marked `"applied": true`. |
+
+Result on 2026-10-29: 38,074 facts checked, 664 flagged, re-checked to 444 MEANING (443 cards hidden), 184 CITATION and 36 OK. The corrections go back in through the belt per `coordination/SOL-FACT-FIX-BRIEF-2026-10-29.md`.
+
+| Spend | |
+|---|---|
+| Pilot | $1.40 |
+| Fleet first pass | about $35, including about $13 duplicated by two concurrent runs |
+| Re-check | $4.25 |
+| Total in `coordination/MUSE-API-SPEND.jsonl` | about $40.7 |
+
+The re-check output floor must be at least 8,000 tokens. Small sections ran out of output while reasoning at the old 1,500 + 450 per fact.

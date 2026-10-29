@@ -52,7 +52,9 @@ const started = new Date().toISOString();
 const spent = () => fs.readFileSync(spendLog, 'utf8').trim().split('\n').map((l) => JSON.parse(l)).filter((j) => j.at >= started && j.purpose === 'fact-check recheck (flagged only)').reduce((t, j) => t + j.usd_priced, 0);
 const perState = {};
 let worstTotal = 0, calls = 0;
-for (const [k, rows] of groups) {
+let STOP = false, dryFacts = 0;
+const handle = async (k, rows) => {
+  if (STOP) return;
   const [code, section] = k.split('|');
   const st = states.find((s) => s.code === code);
   const runDir = path.join(ROOT, 'runs', st.run_id);
@@ -68,13 +70,13 @@ for (const [k, rows] of groups) {
     const facts = rows.map((r) => { const f = byId.get(r.fact_id); return { fact_id: r.fact_id, statement: f?.statement ?? f?.text ?? '', cited_pdf_page: f?.pdf_page ?? null, first_pass_verdict: r.verdict, first_pass_issue: r.issue }; }).filter((f) => f.statement);
     const want = new Set(); for (const f of facts) for (const d of [-1, 0, 1]) if (pageText[String(f.cited_pdf_page + d)]) want.add(String(f.cited_pdf_page + d));
     const pages = Object.fromEntries([...want].sort((x, y) => x - y).map((p) => [p, pageText[p]]));
-    const request = { model: MODEL, reasoning_effort: 'low', max_completion_tokens: Math.min(16000, 1500 + facts.length * 450),
+    const request = { model: MODEL, reasoning_effort: 'low', max_completion_tokens: Math.min(24000, Math.max(8000, 3000 + facts.length * 700)),
       messages: [{ role: 'system', content: system }, { role: 'user', content: JSON.stringify({ state: st.name, handbook: st.handbook, section_id: section, facts, pages }) }],
       response_format: { type: 'json_schema', json_schema: { name: 'fact_rechecks', strict: true, schema } } };
     const worst = (Math.ceil(Buffer.byteLength(JSON.stringify(request)) / 3.6) * PRICE.input_usd_per_million + request.max_completion_tokens * PRICE.output_usd_per_million) / 1e6;
     worstTotal += worst;
-    if (DRY) { perState[code] = (perState[code] || 0) + facts.length; continue; }
-    if (spent() + worst > CAP) { console.log(`CAP: stop before ${code} ${section} (spent $${spent().toFixed(2)})`); break; }
+    if (DRY) { dryFacts += facts.length; return; }
+    if (spent() + worst > CAP) { console.log(`CAP: stop before ${code} ${section} (spent $${spent().toFixed(2)})`); STOP = true; return; }
     const res = await fetch('https://api.meta.ai/v1/chat/completions', { method: 'POST', signal: AbortSignal.timeout(600000), headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + process.env.MODEL_API_KEY }, body: JSON.stringify(request) });
     const raw = await res.text(); let body = null; try { body = JSON.parse(raw); } catch {}
     const u = body?.usage ?? {}; const usd = ((u.prompt_tokens || 0) * PRICE.input_usd_per_million + (u.completion_tokens || 0) * PRICE.output_usd_per_million) / 1e6;
@@ -91,7 +93,10 @@ for (const [k, rows] of groups) {
     const out = (perState[code] ??= []);
     for (const x of rec.result.rechecks) out.push({ section, fact_id: x.fact_id, kind: x.kind, still_wrong: x.still_wrong, corrected_statement: x.corrected_statement, correct_pdf_page: x.correct_pdf_page, note: x.note });
   }
-}
+};
+const PAR = Number(opt('--parallel', '6'));
+const queue = [...groups];
+await Promise.all(Array.from({ length: DRY ? 1 : PAR }, async () => { while (queue.length && !STOP) { const [k, rows] = queue.shift(); await handle(k, rows); } }));
 if (DRY) { console.log(`DRY: ${groups.size} sections with flags, worst case $${worstTotal.toFixed(2)}`); process.exit(0); }
 for (const [code, list] of Object.entries(perState)) {
   if (!Array.isArray(list)) continue;
