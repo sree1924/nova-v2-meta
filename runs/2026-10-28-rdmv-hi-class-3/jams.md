@@ -51,3 +51,11 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T03:56:18.402Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:18 for 02.dossier_sections (sec04-vehicle-registration-title) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-vehicle-registration-title__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:56:19.736Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:19 for 02.dossier_sections (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-the-driver-emotional-medical-age__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:57:29.753Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:20 for 02.dossier_sections (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-the-driver-emotional-medical-age__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:57:31.075Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:21 for 02.dossier_sections (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-the-driver-emotional-medical-age__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:57:32.399Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:22 for 02.dossier_sections (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-the-driver-emotional-medical-age__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:57:33.734Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:23 for 02.dossier_sections (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-the-driver-emotional-medical-age__G__n0 (lineage attempts exhausted)
