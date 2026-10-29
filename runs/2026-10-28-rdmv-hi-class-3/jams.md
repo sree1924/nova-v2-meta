@@ -181,3 +181,5 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T15:22:58.225Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:83 for 03.combined_kg (sec13-backing-lanes-speed-turns-passing-brakes) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-backing-lanes-speed-turns-passing-brakes__-__n0 (lineage attempts exhausted)
 
 - 2026-10-29T15:25:58.635Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:84 for 03.combined_kg (sec15-freeway-driving-emergency-procedures) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec15-freeway-driving-emergency-procedures__-__n0 (lineage attempts exhausted)
+
+- 2026-10-29T15:28:42.449Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:85 for 03.combined_kg (sec17-pedestrian-and-bicycle-safety) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec17-pedestrian-and-bicycle-safety__-__n0 (lineage attempts exhausted)
