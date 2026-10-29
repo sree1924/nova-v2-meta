@@ -1,0 +1,23 @@
+Sol — store 66 (PassLearnersPermit) to COMPLETE, all LOCAL (founder, 2026-10-29). No deployment, no Clerk, no Stripe, no Vercel until the store is complete; those come last. The coordinator (Fable) is offline until Saturday 7am MDT; the founder approves in his place.
+
+Read first: coordination/USER-FLOW-2026-10-29.md (the path, the customer-facing jargon list), coordination/SHELL-BUILD-RUNBOOK.md (how the shell is built), store/README.md. Workspace D:\nova\fb-ai-hackathon. Work on ONE branch, sol/store-local, commit and push there; never main. The coordinator reviews and merges.
+
+TASK 1 — LOCAL MODE (blocker: today every store page loops into a failed Clerk handshake because the keys are placeholders).
+- One env switch, e.g. STORE_LOCAL_MODE=1 in store/.env.local. When on: no Clerk middleware or components load; a local "Sign in as test learner" button sets a dev session cookie; /api/me answers from it; Buy goes to a local "Simulate purchase (no payment)" page that grants that state's entitlement for one year in the same shape fulfillPurchase writes (entitlements.XX = ISO expiry), signs the same plp_ent cookie, and lands on the same /purchase/success view ("Unlocked: <state>"); a "Simulate refund" control revokes it.
+- Must be impossible in production: local mode refuses to start unless NODE_ENV !== 'production' AND the host is localhost; next build fails if the switch is set. Real Clerk/Stripe code paths stay intact and unchanged for the end.
+- Acceptance: npm run dev in store/ with only local-mode env; walk landing → /states/<slug> → free chapter 1 → chapter 2 shows the buy panel and the server refuses its files → sign in (test) → simulate purchase → Unlocked → all chapters open → refund → back to chapter 1 only. Do it for Texas and Utah (audio). Screenshots in the branch report.
+
+TASK 2 — FUNNEL EVENTS (the funded conversion experiment needs them; none exist today).
+- POST /api/track {event, state?, ref?, arm?, path} for: landing_view, state_view, free_chapter_start, lesson_complete, buy_panel_view, signin_start, checkout_start, purchase, refund. Capture ?ref= and ?arm= from the first landing URL into a first-party cookie and attach to every event. Local sink = append-only JSONL file (gitignored); the production sink (Upstash, like citizenship's collector) is a later swap behind the same interface. No personal data beyond the anonymous id. Update /privacy to say what is collected.
+- Acceptance: the Task 1 walk produces every event once, in order, with ref/arm carried through.
+
+TASK 3 — NO BUILDER WORDS ON CUSTOMER PAGES (list in USER-FLOW section 2).
+- In the STORE copy only (sync-store STORE PATCH or gate.js after()), never in app-preview/ (it stays the honest builder view, and the hackathon belt visualizer). Remove raw ids (sec01-m01, sec01-F01, sec01-form-a), "handbook nodes", "accepted artifacts", model/run lines, the OpenAI-TTS line on states without audio, the builder assurance paragraphs. Source lines read "Source: <State> Driver Handbook, chapter N" (+ page when the export has it).
+- Banner wording is the founder's call; until he answers use: "Built from the <State> Driver Handbook. Machine-checked; independent review in progress."
+- Acceptance: a lint added to tools/preview/verify-learner.cjs --root=store/public/app that FAILS if any learner route's text matches /sec\d\d-|belt|handbook nodes|artifact|lineage|claude|gpt|muse|opus|REAL —/i; harness all PASS.
+
+TASK 4 — FINISHED LOOK (after 1–3 pass): bring the learner UI to the caregiver v2 standard (passmycna.com, nova-fleet branch caregiver @89b4e5e; read-only reference, worktree D:/nova/groupapp/_caregiver-r6-release — do not touch _caregiver-v2-review, it holds someone's uncommitted files): mobile-first at 375px, module hub, lesson player, flashcard flip, quiz with the mobile answer pager. Same data contract (states.json + manifests), so all 51 states work with no belt change.
+
+TASK 5 — ROAD SIGNS (after 4): the course omits sign pictures. Use the official public-domain US sign art (FHWA MUTCD), mapped to the sign facts/cards and the merged "this sign" facts; never generated images (a wrong sign is a wrong fact). Keep a mapping file with each image's source URL and license note.
+
+RULES: never edit tools/belt, schemas, contracts or prompts without a write-barrier request the founder ACKs; never touch other runs or app-preview/ content; no audio, no Muse API spend (the fact-check loop waits for the founder's go and $ cap: tools/audit/muse-fact-check.mjs, dry run first); keys never printed; after any data change run node tools/preview/rebuild-shell.mjs and keep it exit 0 (51/51). Report per task to coordination/SOL-REPORTS/STORE-<task>.md: what changed, the walk/test evidence, anything open.
