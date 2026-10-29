@@ -15,3 +15,11 @@ Stage 02/16 need no learning loop (tools/belt/context.mjs NEEDS); 03/04/06/19A d
 ## JAM-HI-03 — dirty text layer in the Hawaii PDF (2026-10-29)
 Each physical page's pypdf text also carries the facing page's text (positioned outside the media box) and, on many pages, a superseded hidden layer clipped to a thin band (e.g. p12 hidden "1. Rules of the Road / 2. Vision / 3. Recognition of traffic control devices" vs visible "A vision test / A knowledge test … / A practical road test").
 Dossier facts are authored only from the visible layer (clip-aware pdfminer pass: track `re W n` rects through q/Q, keep chars inside the clip and media box) and anchored to the page where the sentence is visibly printed.
+
+- 2026-10-29T03:48:03.669Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:2 for 02.dossier_sections (sec01-licensing-exemptions-types-obtaining) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-licensing-exemptions-types-obtaining__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:48:10.901Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:3 for 02.dossier_sections (sec01-licensing-exemptions-types-obtaining) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-licensing-exemptions-types-obtaining__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:48:11.951Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:4 for 02.dossier_sections (sec01-licensing-exemptions-types-obtaining) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-licensing-exemptions-types-obtaining__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:48:13.028Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:5 for 02.dossier_sections (sec01-licensing-exemptions-types-obtaining) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-licensing-exemptions-types-obtaining__G__n0 (lineage attempts exhausted)
