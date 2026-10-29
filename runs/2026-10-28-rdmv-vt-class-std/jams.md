@@ -24,3 +24,11 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T03:56:22.453Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:9 for 02.dossier_sections (sec02-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-graduated-licensing__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:56:23.537Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:10 for 02.dossier_sections (sec03-vehicle-operation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-operation__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:58:49.925Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:11 for 02.dossier_sections (sec03-vehicle-operation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-operation__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:58:50.959Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:12 for 02.dossier_sections (sec03-vehicle-operation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-operation__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:58:52.000Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:13 for 02.dossier_sections (sec03-vehicle-operation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-operation__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:58:53.070Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:14 for 02.dossier_sections (sec03-vehicle-operation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-operation__G__n0 (lineage attempts exhausted)
