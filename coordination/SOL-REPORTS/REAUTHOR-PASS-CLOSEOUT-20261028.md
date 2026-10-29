@@ -36,3 +36,5 @@ The remaining classes and exact fact/card IDs are preserved in each REAUTHOR-<ST
 The earlier first-ten closeout remains unchanged: ID has 922 and PA 857 served card nodes without exam items or typed gaps. The legacy NE usage-attribution discrepancy is 2,335,217 total / 2,249,856 cached tokens. Neither finding was cleared by this speech-only pass.
 
 All per-state native, preservation, ownership and new zero-credit/no-API accounting proofs are pinned in [the closeout evidence](REAUTHOR-PASS-CLOSEOUT-20261028.json). Historical UT actual spend was preserved. No onboarding, audio or publication was performed.
+
+Usage-index correction: the original JSON usage_record_ids array was empty because a derived projection discarded IDs. All27 original canonical rows exist and reconcile to79,493,192 total tokens (77,482,240cached included). The original JSON is preserved. Exact immutable reconciliation: [REAUTHOR-PASS-USAGE-RECONCILIATION-20261028.json](REAUTHOR-PASS-USAGE-RECONCILIATION-20261028.json). Full observed mistakes and amendment dispositions: [REAUTHOR-MISTAKES-AND-BELT-AMENDMENTS-20261028.md](REAUTHOR-MISTAKES-AND-BELT-AMENDMENTS-20261028.md).
