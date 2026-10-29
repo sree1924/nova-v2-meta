@@ -50,3 +50,13 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:02:48.154Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:22 for 02.dossier_sections (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-police-signals__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:02:49.336Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:23 for 02.dossier_sections (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-police-signals__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:07.052Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:24 for 02.dossier_sections (sec06-signs-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signs-markings__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:08.278Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:25 for 02.dossier_sections (sec06-signs-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signs-markings__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:09.465Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:26 for 02.dossier_sections (sec06-signs-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signs-markings__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:10.736Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:27 for 02.dossier_sections (sec06-signs-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-signs-markings__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:03:11.988Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:28 for 02.dossier_sections (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-sharing-road__C__n0 (lineage attempts exhausted)
