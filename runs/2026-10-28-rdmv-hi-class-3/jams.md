@@ -77,3 +77,13 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:00:57.912Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:31 for 02.dossier_sections (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-pavement-markings__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:00:59.385Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:32 for 02.dossier_sections (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-pavement-markings__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:01:58.794Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:33 for 02.dossier_sections (sec08-traffic-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-traffic-signals__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:02:00.351Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:34 for 02.dossier_sections (sec08-traffic-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-traffic-signals__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:02:01.911Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:35 for 02.dossier_sections (sec08-traffic-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-traffic-signals__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:02:03.463Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:36 for 02.dossier_sections (sec08-traffic-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-traffic-signals__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:02:05.038Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:37 for 02.dossier_sections (sec09-traffic-signs-warning-guide-construction) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-traffic-signs-warning-guide-construction__C__n0 (lineage attempts exhausted)
