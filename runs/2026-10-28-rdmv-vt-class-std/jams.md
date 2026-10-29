@@ -140,3 +140,5 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:28:55.486Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:67 for 03.combined_kg (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-hazardous-conditions__-__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:29:07.243Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:68 for 03.combined_kg (sec11-impairment) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-impairment__-__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:29:19.191Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:69 for 03.combined_kg (sec13-points) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-points__-__n0 (lineage attempts exhausted)
