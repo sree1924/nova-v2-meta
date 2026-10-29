@@ -1,0 +1,181 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-mt-d",
+  "lineage": {
+    "input_manifest_sha256": "d71e8bd7a49ca9ed1e7633798c45824cd20574fbd83acf1826d2a928d7138ca7",
+    "candidate_lineage_id": "2026-10-28-rdmv-mt-class-d:lineage:51",
+    "source_registry_sha256": "35425fc1b75886d4bce9129f5de9443ae8cee634cff4a62363bbcd7cc017fe32",
+    "source_liveness_sha256": "bf7b5d7e97593e3a1c6181f4785c9171cedac6e24ab65da907a644a4b4907add"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "A"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "A",
+      "chunk_id": "A.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "A — Driver fitness and impairment",
+      "learner_facing": true,
+      "markdown": "## A — Driver fitness and impairment\nThe selected source is the Montana Driver Manual, with the cover revision recorded in the pinned source registry [A01].\nThe agency named in the back matter is the Montana Department of Justice, Motor Vehicle Division [A02].\nThe selected applicant path is the non-commercial Class D license described in the licensing chapter [A03].\nOfficial question count, passing standard and time limit are unknown in the safe model view; no values are asserted (verify MT-sec12-COUNT, MT-sec12-PASS, MT-sec12-TIME).\nThe cover and back cover have conflicting revision statements; the cover was used at registration, with edition reconciliation still open (verify MT-sec12-EDITION).\nScope of this dossier: Driver fitness and impairment; the map selects only the applicable Class D paragraphs. Quiz mastery is an authored product policy and does not establish an official passing requirement.\n",
+      "char_count": 914,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-mt-d:montana-department-of-justice-motor-vehi:handbook:pdf-0001"
+        },
+        {
+          "anchor_id": "A02",
+          "source_page": "src:rdmv-mt-d:montana-department-of-justice-motor-vehi:handbook:pdf-0099"
+        },
+        {
+          "anchor_id": "A03",
+          "source_page": "src:rdmv-mt-d:montana-department-of-justice-motor-vehi:handbook:pdf-0011"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "This is a bounded snapshot of the issuer-linked Montana handbook. Its revision conflict is explicitly held as debt; there is no evidence in the supplied source of multiple substantive rewrites per year. Currency of individual changeable provisions is not inferred from this assessment."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "MT-sec12-COUNT",
+      "claim_text": "The safe model view has no verified official question count; obtain an exact official sentence and page before asserting a value.",
+      "blocker_kind": "exam_policy_unclear",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "MT-sec12-PASS",
+      "claim_text": "The safe model view has no verified official passing standard; obtain an exact official sentence and page before asserting a value.",
+      "blocker_kind": "exam_policy_unclear",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "MT-sec12-TIME",
+      "claim_text": "The safe model view has no verified official time limit; obtain an exact official sentence and page before asserting a value.",
+      "blocker_kind": "exam_policy_unclear",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    },
+    {
+      "claim_id": "MT-sec12-EDITION",
+      "claim_text": "Cover says Revised April 2024 but back cover says Revised November 2023. Reconcile the printed edition conflict and current applicability with the issuer.",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "A",
+        "chunk_id": "A.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

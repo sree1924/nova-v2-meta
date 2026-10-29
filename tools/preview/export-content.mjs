@@ -97,20 +97,34 @@ const wanted = new Set(); // relative paths that should exist after this run
 // ledger. The preview must show exactly one artifact per stage+section — the
 // newest accepted task — or the old garbled deck sits next to the refreshed one.
 // Tasks whose section cannot be determined are never collapsed.
-const winners = new Map(); // stage_id|section -> task_id of the newest accepted task
+// 02.dossier_sections is the exception (fix 2026-10-29): a section legitimately has one accepted task
+// PER DOSSIER PART (C, C2, A, B, ...), or one COMPLETE envelope (config.dossier_parts = []) that replaces
+// them. Key 02 by section + part list; a part task older than the section's newest complete envelope is
+// superseded by it.
+const partsOf = (task) => {
+  try { const p = JSON.parse(task.identity_json || '{}')?.config?.dossier_parts; return Array.isArray(p) && p.length ? [...p].sort().join('+') : 'COMPLETE'; }
+  catch { return 'COMPLETE'; }
+};
+const keyOf = (t, section) => t.stage_id + '|' + section + (t.stage_id === '02.dossier_sections' ? '|' + partsOf(t) : '');
+const winners = new Map(); // key -> newest accepted task
 for (const t of tasks) {
   if (t.status !== 'accepted' || !LEARNER_STAGES.has(t.stage_id)) continue;
   const section = sectionByTask.get(t.task_id) || 'unknown';
   if (section === 'unknown') continue;
-  const key = t.stage_id + '|' + section;
+  const key = keyOf(t, section);
   const cur = winners.get(key);
   if (!cur || String(t.created_at || '') > String(cur.created_at || '')) winners.set(key, t);
 }
 const supersededTask = (task) => {
   const section = sectionByTask.get(task.task_id) || 'unknown';
   if (section === 'unknown') return false;
-  const w = winners.get(task.stage_id + '|' + section);
-  return Boolean(w && w.task_id !== task.task_id);
+  const w = winners.get(keyOf(task, section));
+  if (w && w.task_id !== task.task_id) return true;
+  if (task.stage_id === '02.dossier_sections' && partsOf(task) !== 'COMPLETE') {
+    const complete = winners.get('02.dossier_sections|' + section + '|COMPLETE');
+    if (complete && String(complete.created_at || '') > String(task.created_at || '')) return true;
+  }
+  return false;
 };
 
 for (const art of artifacts) {

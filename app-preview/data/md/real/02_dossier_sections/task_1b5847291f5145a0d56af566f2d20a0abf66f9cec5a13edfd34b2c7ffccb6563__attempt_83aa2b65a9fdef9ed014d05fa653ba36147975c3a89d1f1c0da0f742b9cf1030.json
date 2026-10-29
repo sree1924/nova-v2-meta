@@ -1,0 +1,123 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-md-c",
+  "lineage": {
+    "input_manifest_sha256": "db8927332278bf72aa9cb6defe5a8f579a21bfb6073edfad8db2aef50b7a9bf7",
+    "candidate_lineage_id": "2026-10-28-rdmv-md-class-c:lineage:53",
+    "source_registry_sha256": "fac6b4b22cda98085a5d7df11947d7cc05865e6c877c17be3df4d573863d1518",
+    "source_liveness_sha256": "43fe3511474bec2a914f5cdb112291b78f4339942c4d6fb903d9e3bae34bb3fc"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy and verification",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy and verification\n\nSource: every knowledge fact in parts C and C2 cites exactly one physical page of the private snapshot of the Maryland Driver's Manual, the MVA's own publication, read from extracted page text.\nConfidence: facts restated from a single explicit page sentence are high confidence; nothing in this section was taken from memory or from a non-issuer source.\nPrecision rule: exact ages, hours, distances, durations and exceptions are kept exactly as printed, with the wording paraphrased so that no learner line copies the manual.\nSection notes: child-seat ages and height, supervising-driver age and licensing years, the vision threshold, test space sizes, bicycle brake and light distances and electric bicycle speeds are exact values restated in their own fact blocks; the KISS phone number is administrative and kept out of the facts.\nAccuracy flags: physical page fifty-four gives the bicycle headlight visibility distance two ways, once in the night-riding paragraph and once in the equipment list, so both statements were restated separately as printed and neither was asserted as the single legal figure (verify — sec12-D-FLAG).\nStability: the manual is a single published revision whose edition is printed only on the copyright page, so any rule that a later law or revision changes must be re-read from the current edition before reuse.\nExternal review: no clinical or legal review is required; the content restates published licensing and traffic rules for exam preparation only.\n",
+      "char_count": 1520,
+      "fact_ids": [],
+      "source_anchors": []
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Maryland Driver's Manual is one published revision (form line DL-002 (10-26), October 2026 Edition, on physical p2, replacing the DL-002 (05-23) line printed beside it); nothing on the selected pages indicates more than one rewrite per year."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "sec12-D-FLAG",
+      "claim_text": "Bicycle white headlight visibility (physical page 54): night-riding paragraph says 600 feet, equipment list says 500 feet; the governing figure is unconfirmed",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

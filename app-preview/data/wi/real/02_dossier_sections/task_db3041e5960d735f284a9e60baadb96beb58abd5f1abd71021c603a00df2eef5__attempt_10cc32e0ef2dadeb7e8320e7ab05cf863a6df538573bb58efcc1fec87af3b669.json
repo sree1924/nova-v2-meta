@@ -1,0 +1,124 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-wi-d",
+  "lineage": {
+    "input_manifest_sha256": "9c64b7bafd07fb4267d17aeaa14dfc14e54189ccd9e4faef981a66937f11efb4",
+    "candidate_lineage_id": "2026-10-28-rdmv-wi-class-d:lineage:21",
+    "source_registry_sha256": "9dcfc0d0c3044debd01d4cb03103f48fb860797364a23b2cb56d36c868619a64",
+    "source_liveness_sha256": "4ca51030ff51b3372629ada1c05ad91f501dabccdcf7931dab678c717e7bb9b6"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy notes and source flags: road signs: warning, regulatory, construction, destination, service, mile marker, route number and railroad crossing signs",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy notes and source flags: road signs: warning, regulatory, construction, destination, service, mile marker, route number and railroad crossing signs\nEvery C and C2 fact cites exactly one physical handbook page from the selected range; nothing relies on outside knowledge.\nThe signs chapter is a picture gallery; only the printed sign descriptions were used, and text that appears only inside sign pictures or posters, such as example speed values, example place names and slogans, was not used [A01].\nThe Reduced Speed Ahead description names a curb ahead where a curve may have been meant; the fact restates only the slippery-road reason, which is printed plainly [A03].\nThe reserved parking entry points to a linked title for permit details; that linked page was not followed and no permit process is stated here [A04].\nThe sentence describing the colors of some disabled access signs is ambiguous on the page, so it is not restated as a fact [A07].\nThe distances shown on work-ahead and brown destination signs vary by sign, which is isolated as dynamic.\n",
+      "char_count": 1072,
+      "fact_ids": [],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0026"
+        },
+        {
+          "anchor_id": "A03",
+          "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0028"
+        },
+        {
+          "anchor_id": "A04",
+          "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0029"
+        },
+        {
+          "anchor_id": "A07",
+          "source_page": "src:rdmv-wi-d:wisconsin-department-of-transportation-d:handbook:pdf-0032"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Wisconsin Motorists Handbook prints 2026 on its front cover and form number BDS126 with 2026 on its back cover; it is a yearly-dated handbook with no sign of more than one rewrite per year in the selected pages."
+  },
+  "verification_debt": [],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

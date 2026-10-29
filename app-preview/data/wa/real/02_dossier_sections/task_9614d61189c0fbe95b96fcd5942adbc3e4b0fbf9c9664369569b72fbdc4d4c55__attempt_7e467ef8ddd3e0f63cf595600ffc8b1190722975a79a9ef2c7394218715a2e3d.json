@@ -1,0 +1,123 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-wa-s",
+  "lineage": {
+    "input_manifest_sha256": "2d95e7ca0238b4b2971f7b445831040565ecb457652c54bf7eaec2523d89e9e2",
+    "candidate_lineage_id": "2026-10-28-rdmv-wa-class-std:lineage:21",
+    "source_registry_sha256": "9f6e1cb1188348b60e3a496c6f0991207e113d4c5c50fdea6643147e46e0832e",
+    "source_liveness_sha256": "13f9e69569c91234713e9bc57e8dbd507c97dcbcafbf4df2d8e9ff3a33c56e92"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "D"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "D",
+      "chunk_id": "D.01",
+      "merge_seq": 1,
+      "domain": null,
+      "heading": "D — Accuracy and verification",
+      "learner_facing": false,
+      "markdown": "## D — Accuracy and verification\n\nSource: every knowledge fact in parts C and C2 cites exactly one physical page of the private snapshot of the Washington Driver Guide, the issuer's own publication, read from extracted page text.\nConfidence: facts restated from a single explicit page sentence are high confidence; nothing in this section was taken from memory or from a non-issuer source.\nPrecision rule: exact ages, hours, distances, durations and exceptions are kept exactly as printed, with the wording paraphrased so that no learner line copies the guide.\nAccuracy flags: physical page seventy-one, inside the selected range, extracted with no text (likely a full-page image), so nothing on it was read and no fact was taken from it (verify — sec05-D-FLAG).\nStability: the guide is a single published revision and states it may lag new legislation, so any rule that a future law changes must be re-read from the current edition before reuse.\nExternal review: no clinical or legal review is required; the content restates published licensing and traffic rules for exam preparation only.\n",
+      "char_count": 1091,
+      "fact_ids": [],
+      "source_anchors": []
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [],
+  "needs_dedicated_surface": {
+    "status": "unknown",
+    "items": []
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Washington Driver Guide is one published guide revision (form line 520-400 R/4/25 on physical p4); the guide itself notes it may lag recent legislative changes, and nothing on the selected pages indicates more than one rewrite per year."
+  },
+  "verification_debt": [
+    {
+      "claim_id": "sec05-D-FLAG",
+      "claim_text": "Physical page 71 (inside section 3.0-3.1) extracted no text; any content printed on it is unread and unrepresented",
+      "blocker_kind": "source_missing",
+      "source_tier_required": "official",
+      "owner_worker": "EvidenceLibrarian",
+      "ship_blocking": false,
+      "expires_by": null,
+      "resolution_artifact_ref": null,
+      "located_at": {
+        "section_id": "D",
+        "chunk_id": "D.01"
+      },
+      "withheld_values": []
+    }
+  ],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}
