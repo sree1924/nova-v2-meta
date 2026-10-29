@@ -35,3 +35,11 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:03:36.743Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:14 for 02.dossier_sections (sec03-permits-and-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-permits-and-graduated-licensing__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:03:38.040Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:15 for 02.dossier_sections (sec04-driver-responsibilities) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-driver-responsibilities__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:05:52.922Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:16 for 02.dossier_sections (sec04-driver-responsibilities) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-driver-responsibilities__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:05:54.212Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:17 for 02.dossier_sections (sec04-driver-responsibilities) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-driver-responsibilities__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:05:55.560Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:18 for 02.dossier_sections (sec04-driver-responsibilities) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-driver-responsibilities__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:05:56.876Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:19 for 02.dossier_sections (sec04-driver-responsibilities) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-driver-responsibilities__G__n0 (lineage attempts exhausted)
