@@ -151,3 +151,5 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:27:56.156Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:72 for 02.dossier_sections (sec16-emergencies-and-roadside-assistance) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-emergencies-and-roadside-assistance__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:27:58.248Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:73 for 02.dossier_sections (sec16-emergencies-and-roadside-assistance) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-emergencies-and-roadside-assistance__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:41:23.961Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:74 for 03.combined_kg (sec03-permits-and-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec03-permits-and-graduated-licensing__-__n0 (lineage attempts exhausted)
