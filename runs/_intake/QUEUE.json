@@ -554,7 +554,7 @@
       "sha256": "6fd2b3dda657c340fd6a0a571ec5f91e33cb54d529eaef531774007620b4f3e0",
       "retrieved_at_utc": "2026-10-28T17:52:10Z",
       "note": "issuer page HTTP 200 (\"New Driver's License Manual\" notice) links this exact URL titled Mississippi Driver's License Manual. Printed p2: \"Revised December 2024\"; file path 2025-02 / 1.15.2025. Separate CDL manual not used. 92 pages extracted by handbook-text.mjs (5 near-empty pages)",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/MS.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.489Z",
@@ -566,10 +566,23 @@
       "reserved_by_session": "01a18580-32e7-76d3-8f6f-a181fa15379b",
       "reserved_at_utc": "2026-10-29T02:36:13.941Z",
       "sol_lane": 2,
-      "sol_authoring_status": "held_incomplete",
+      "sol_authoring_status": "authoring_except_audio",
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/ms-nine-held-20261028.json",
         "sha256": "70091f0305a797b2b53551de69e3e6554acb30c6704ac15632a6c4a2777d2b26"
+      },
+      "run_id": "2026-10-28-rdmv-ms-class-r",
+      "sol_current_continuation_authority_ref": {
+        "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+        "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+      },
+      "sol_repair_release_ref": {
+        "path": "coordination/SOL-COMPLETE-DOSSIER-REPLACEMENT-WRITE-BARRIER-RELEASE.json",
+        "sha256": "d3a1a2565a34026ceaf95b762a645b6852ed614d82693124c5db84417af9f72b"
+      },
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/reboot-recovery/MS-REPAIR-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "1a7f8573cf1bde6fcada70f3431dd941a288b7b71d43009be0d014f1024894ed"
       }
     },
     {
@@ -584,7 +597,7 @@
       "sha256": "45082246ab6df6c75d0968a680b6a7ad26d334aeb2e547871dea3fd7c7828a7a",
       "retrieved_at_utc": "2026-10-28T17:52:23Z",
       "note": "issuer page HTTP 200 links this exact URL as \"Download the Driver's Licensing Handbook\" beside separate CDL and motorcycle manuals (not used). Host webapps.transportation.wv.gov = WVDOT state domain. Cover text extracts garbled as \"Revised 0/202\" (verify edition). Handbook text names Class E. 90 pages extracted by handbook-text.mjs (5 near-empty pages)",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "claude-cloud",
       "local_path": "runs/_intake/sources/private/WV.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.490Z",
@@ -600,7 +613,9 @@
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/wv-nine-held-20261028.json",
         "sha256": "150f54635b80b8819a62e7c0cd9d76b2a740d88cbb18dd92409c835a45b861f9"
-      }
+      },
+      "completed_at_utc": "2026-10-29T15:38:24.703Z",
+      "completion_note": "Claude cloud session; ledger 7/7 learner stages accepted for every section, actual $0; onboarded by coordinator 2026-10-29"
     },
     {
       "state": "HI",
@@ -614,11 +629,13 @@
       "sha256": "43cfa28cb320e5ff1d4466f13520931a947765fe5f2d0890744036a37b21f94f",
       "retrieved_at_utc": "2026-10-28T17:52:24Z",
       "note": "issuer page HTTP 200 links this exact URL as \"Hawaii Driver's Manual - English (PDF)\". The newer files/2026/09/Hawaii-Drivers-Manual_2026_V2.pdf on the same page is labelled Chuukese (not used); translations, CDL and motorcycle manuals not used. Printed p2-3: \"HMG 5/2023\" (copyright 1977-2023 Director of Transportation; printed by Hagadone Media Group-Hawaii). Licenses are issued by the counties; HDOT publishes the manual. 132 pages extracted by handbook-text.mjs",
-      "status": "staged",
+      "status": "complete",
       "worker": "claude-cloud",
       "local_path": "runs/_intake/sources/private/HI.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.490Z",
-      "assignment_note": "founder 2026-10-28 ~21:45Z: one big fetchable corpus to a Claude cloud session (full belt, intake through card scripts); Sol finishes from the same run if cloud credit ends"
+      "assignment_note": "founder 2026-10-28 ~21:45Z: one big fetchable corpus to a Claude cloud session (full belt, intake through card scripts); Sol finishes from the same run if cloud credit ends",
+      "completed_at_utc": "2026-10-29T15:38:24.702Z",
+      "completion_note": "Claude cloud session; ledger 7/7 learner stages accepted for every section, actual $0; onboarded by coordinator 2026-10-29"
     },
     {
       "state": "RI",
@@ -632,7 +649,7 @@
       "sha256": "129265c8a44c75eba49ddf950ddd9dced3b4ee47796e901f9d6934b107782333",
       "retrieved_at_utc": "2026-10-28T17:52:25Z",
       "note": "issuer page HTTP 200 links href=/media/966/download?language=en under \"Download the PDF Print Version - full PDF print version of the Driver's Manual\". Printed cover: \"April 2024\". The older indexed .../manuals/Driver_Manual.pdf (08/2015) not used. 87 pages extracted by handbook-text.mjs",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/RI.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.490Z",
@@ -644,10 +661,14 @@
       "reserved_by_session": "01a18580-32e7-76d3-8f6f-a181fa15379b",
       "reserved_at_utc": "2026-10-29T02:36:13.941Z",
       "sol_lane": 5,
-      "sol_authoring_status": "held_incomplete",
+      "sol_authoring_status": "authoring_except_audio",
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/ri-nine-held-20261028.json",
         "sha256": "a6189ce70ef470b200ca181c3c287c4aa20bed24600db6423e97cd15c5fe803f"
+      },
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/RI-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "6f4539370ad63c96913b05bad764a76f3e2185633d5d2797a9e9f8640cef70dd"
       }
     },
     {
@@ -662,7 +683,7 @@
       "sha256": "f2de61f6c4ee2b693abbde07150945cb9ceee4cdefd225a4a5deb0cd04b1ff34",
       "retrieved_at_utc": "2026-10-28T17:52:26Z",
       "note": "issuer page HTTP 200 (Driver's Manual audio page) lists \"Driver's License Manual VN-007\" linking this exact URL. Printed cover: 2025; printed p3 form line: \"VN-007 07/2024 MTC\". 76 pages extracted by handbook-text.mjs",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "claude-cloud",
       "local_path": "runs/_intake/sources/private/VT.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.490Z",
@@ -678,7 +699,9 @@
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/vt-nine-held-20261028.json",
         "sha256": "65a28953b14d0b66acb8524c8a5ff66f521dc0fbc8d4b4d8c1cd871b2fd9e8df"
-      }
+      },
+      "completed_at_utc": "2026-10-29T15:38:24.703Z",
+      "completion_note": "Claude cloud session; ledger 7/7 learner stages accepted for every section, actual $0; onboarded by coordinator 2026-10-29"
     },
     {
       "state": "AK",
@@ -692,7 +715,7 @@
       "sha256": "779ca2b672e248b9373effcd1381726aac1979fc19c20c4d9e767476b7bb1ebd",
       "retrieved_at_utc": "2026-10-28T17:52:28Z",
       "note": "issuer page HTTP 200 links this exact URL as \"Alaska Driver Manual (5MB, pdf)\" beside CDL and motorcycle manuals (not used). Printed p2: \"REV.10/2025\". dmv.alaska.gov root and doa.alaska.gov manuals page returned 403 to curl; the drivermanual page itself returned 200. 95 pages extracted by handbook-text.mjs",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/AK.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.490Z",
@@ -704,10 +727,23 @@
       "reserved_by_session": "01a18580-32e7-76d3-8f6f-a181fa15379b",
       "reserved_at_utc": "2026-10-29T02:43:52.146Z",
       "sol_lane": 4,
-      "sol_authoring_status": "held_incomplete",
+      "sol_authoring_status": "authoring_except_audio",
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/ak-nine-held-20261028.json",
         "sha256": "a193cc59b4b51616fae6f5827bfdd233d7daa0bbcc97580e60be1b5e6efc162e"
+      },
+      "run_id": "2026-10-28-rdmv-ak-class-d",
+      "sol_current_continuation_authority_ref": {
+        "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+        "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+      },
+      "sol_repair_release_ref": {
+        "path": "coordination/SOL-COMPLETE-DOSSIER-REPLACEMENT-WRITE-BARRIER-RELEASE.json",
+        "sha256": "d3a1a2565a34026ceaf95b762a645b6852ed614d82693124c5db84417af9f72b"
+      },
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/reboot-recovery/AK-REPAIR-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "2d17ac3658500960fdedd79ac9f9bf3541952dbc40e7c922e311a0a83bd25878"
       }
     },
     {
@@ -722,7 +758,7 @@
       "sha256": "ab64830e432066dded224f4c790c4df7aace57c4b79dc06d7e94bd6d28d65250",
       "retrieved_at_utc": "2026-10-28T17:52:29Z",
       "note": "issuer page HTTP 200 (dot.nd.gov/node/5501 redirects there) links this exact URL as \"2025-2027 Noncommercial Driver License Manual\"; Spanish 2023 edition not used. Printed cover: \"2025-2027\"; running header from p5: \"Noncommercial Driver License Manual Revised 2025\". 56 pages extracted by handbook-text.mjs",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/ND.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.490Z",
@@ -734,10 +770,14 @@
       "reserved_by_session": "01a18580-32e7-76d3-8f6f-a181fa15379b",
       "reserved_at_utc": "2026-10-29T02:44:18.551Z",
       "sol_lane": 2,
-      "sol_authoring_status": "held_incomplete",
+      "sol_authoring_status": "authoring_except_audio",
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/nd-nine-held-20261028.json",
         "sha256": "819f09c508450faff9b5e6ed95c304e4beacb660007ea5e678ac7ea48783fb83"
+      },
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/ND-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "7185a1f1458dff9df83a73df7a6a492907b0100fbbdd93c42a8eb799ef4c7b76"
       }
     },
     {
@@ -752,7 +792,7 @@
       "sha256": "1b65c17ae146d4bb5b333b0e82a53db6fe0db6e749ed5ff034983494635b1479",
       "retrieved_at_utc": "2026-10-28T17:57:47Z",
       "note": "PORTAL RULING (coordinator, 2026-10-28): media.ark.org is the State of Arkansas own web portal (state-run, not a third-party host) and counts as the issuer domain; first refused in this round under the issuer-domain rule (cf. LA), then staged on this ruling. Issuer page HTTP 200 links this exact URL as \"Arkansas Driver License Test Study Guide\" beside the CDL manual, Spanish 2018 and Vietnamese editions (not used). Printed cover p1: \"VOLUME 1 - EDITION 10\" / \"October 2026\" / \"10282026\". Text names Class D licenses. 98 pages extracted by handbook-text.mjs (2 near-empty pages)",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/AR.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.490Z",
@@ -764,10 +804,14 @@
       "reserved_by_session": "01a18580-32e7-76d3-8f6f-a181fa15379b",
       "reserved_at_utc": "2026-10-29T02:36:13.941Z",
       "sol_lane": 1,
-      "sol_authoring_status": "held_incomplete",
+      "sol_authoring_status": "authoring_except_audio",
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/ar-nine-held-20261028.json",
         "sha256": "eacec8d1601ecf2b8fd7d6657c1394b398c1f3adead39a2f28a7f6742cd0b481"
+      },
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/AR-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "bbe7c41544b4f6a045fef497df1ede7e17aff963911bb9102b84f6755bbc3396"
       }
     },
     {
@@ -782,7 +826,7 @@
       "sha256": "25c2964c4c5bfe35e231b2508ae93d932fc36aa162bbb61d505618c6100df5ac",
       "retrieved_at_utc": "2026-10-28T19:41:55Z",
       "note": "assembled from issuer web chapters (see OH-provenance.json); no issuer PDF exists. Welcome + Sections 1-13 (14 pages on publicsafety.ohio.gov, all HTTP 200) printed by headless Edge and merged with pypdf; 94 pages extracted by handbook-text.mjs. Exam fact p4 (Section 1): \"The test is 40 multiple-choice questions (with a 75% passage rate needed)\". Class D named in Section 13 (p87). Site print CSS drops the per-section dateline (January 26, 2024)",
-      "status": "stopped",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/OH.pdf",
       "assigned_at_utc": "2026-10-28T20:25:04.490Z",
@@ -795,7 +839,17 @@
       "sol_source_recovery_ref": "scratch/sol-state-coordinator/OH-SOURCE-ASSEMBLY-SUPPORTED-PATH-20261028.json",
       "sol_stop_reason": "Founder immediate stop",
       "sol_stop_checkpoint": "scratch/sol-round2/oh/STOP-CHECKPOINT.json",
-      "sol_stopped_at": "2026-10-29T01:21:12.146Z"
+      "sol_stopped_at": "2026-10-29T01:21:12.146Z",
+      "sol_current_continuation_authority_ref": {
+        "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+        "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+      },
+      "sol_current_runtime_status": "pending_finalization",
+      "sol_authoring_status": "authoring_except_audio",
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/OH-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "232a8a57c363799939d07b2ba970f353b9043706cc4bfb037def8fe96d645729"
+      }
     },
     {
       "state": "IL",
@@ -810,7 +864,7 @@
       "sha256": "8b637e0702708585c19a9747f6eddf51af8cc373eb4721cbcd8f48c1014061dd",
       "pages": 113,
       "retrieved_at_utc": "2026-10-28T19:45:35.950Z",
-      "status": "stopped",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/IL.pdf",
       "provenance": "founder-manual-download",
@@ -822,7 +876,17 @@
       "sol_reserved_at": "2026-10-29T00:14:08.299Z",
       "sol_stop_reason": "Founder immediate stop",
       "sol_stop_checkpoint": "scratch/sol-round2/il/STOP-CHECKPOINT.json",
-      "sol_stopped_at": "2026-10-29T01:21:12.146Z"
+      "sol_stopped_at": "2026-10-29T01:21:12.146Z",
+      "sol_current_continuation_authority_ref": {
+        "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+        "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+      },
+      "sol_current_runtime_status": "pending_finalization",
+      "sol_authoring_status": "authoring_except_audio",
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/IL-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "37da57005b1605d2905f5ce7d3c136d244117b81a719341b5528249330d8f40d"
+      }
     },
     {
       "state": "GA",
@@ -837,7 +901,7 @@
       "sha256": "e311de54ad0ee6f5913e18e694914a560dac3592987437290c271f53c0c7fa71",
       "pages": 52,
       "retrieved_at_utc": "2026-10-28T19:45:35.950Z",
-      "status": "stopped",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/GA.pdf",
       "provenance": "founder-manual-download",
@@ -849,7 +913,17 @@
       "sol_reserved_at": "2026-10-29T00:14:08.299Z",
       "sol_stop_reason": "Founder immediate stop",
       "sol_stop_checkpoint": "scratch/sol-round2/ga/STOP-CHECKPOINT.json",
-      "sol_stopped_at": "2026-10-29T01:21:12.146Z"
+      "sol_stopped_at": "2026-10-29T01:21:12.146Z",
+      "sol_current_continuation_authority_ref": {
+        "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+        "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+      },
+      "sol_current_runtime_status": "authoring",
+      "sol_authoring_status": "authoring_except_audio",
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/GA-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "2facea238daedae549a38cd7d0e8286f76aaeff01a24bdb5b566f43e201dfdd5"
+      }
     },
     {
       "state": "MA",
@@ -864,7 +938,7 @@
       "sha256": "a24e5e352bf519f9000c753c9788e4b8cdd44001f1266f58f721117488df7fe3",
       "pages": 140,
       "retrieved_at_utc": "2026-10-28T19:45:35.950Z",
-      "status": "stopped",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/MA.pdf",
       "provenance": "founder-manual-download",
@@ -876,7 +950,17 @@
       "sol_reserved_at": "2026-10-29T00:14:08.299Z",
       "sol_stop_reason": "Founder immediate stop",
       "sol_stop_checkpoint": "scratch/sol-round2/ma/STOP-CHECKPOINT.json",
-      "sol_stopped_at": "2026-10-29T01:21:12.146Z"
+      "sol_stopped_at": "2026-10-29T01:21:12.146Z",
+      "sol_current_continuation_authority_ref": {
+        "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+        "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+      },
+      "sol_current_runtime_status": "authoring",
+      "sol_authoring_status": "authoring_except_audio",
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/MA-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "d86382ca72c06cd7e47540a58e2fa9851c7fd3aa4627cc62e113600c35a61e37"
+      }
     },
     {
       "state": "NH",
@@ -891,7 +975,7 @@
       "sha256": "4af2af2ac8115a1a8c4a3a8dab50739998b3e159a37fc280addd10d05e737902",
       "pages": 52,
       "retrieved_at_utc": "2026-10-28T19:45:35.950Z",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/NH.pdf",
       "provenance": "founder-manual-download",
@@ -904,10 +988,23 @@
       "reserved_by_session": "01a18580-32e7-76d3-8f6f-a181fa15379b",
       "reserved_at_utc": "2026-10-29T02:36:13.941Z",
       "sol_lane": 4,
-      "sol_authoring_status": "held_incomplete",
+      "sol_authoring_status": "authoring_except_audio",
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/nh-nine-held-20261028.json",
         "sha256": "fdb00b2f18bcba5d009aa67e4dba512b56af920394c1a51b597a775d6ff381a7"
+      },
+      "run_id": "2026-10-28-rdmv-nh-class-d",
+      "sol_current_continuation_authority_ref": {
+        "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+        "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+      },
+      "sol_repair_release_ref": {
+        "path": "coordination/SOL-MULTICHUNK-COMPLETE-ENVELOPE-WRITE-BARRIER-RELEASE-20261029.json",
+        "sha256": "56976c62fb6d6516d118cb7525c0c831a9b2ee6fd8b3ca5cfb0a709429771954"
+      },
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/reboot-recovery/NH-REPAIR-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "a319209c1335ccf9c5a842782992519e3074f0f7d5faa69b3f372a7f0e0ac132"
       }
     },
     {
@@ -923,7 +1020,7 @@
       "sha256": "3b3e094d39d16bb69685c9541db24486fdf1f38d09a4ca1158578a715da9d702",
       "pages": 143,
       "retrieved_at_utc": "2026-10-28T19:51:51.917Z",
-      "status": "stopped",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/LA.pdf",
       "provenance": "founder-manual-download",
@@ -935,7 +1032,16 @@
       "sol_reserved_at": "2026-10-29T00:14:08.299Z",
       "sol_stop_reason": "Founder immediate stop",
       "sol_stop_checkpoint": "scratch/sol-round2/la/STOP-CHECKPOINT.json",
-      "sol_stopped_at": "2026-10-29T01:21:12.146Z"
+      "sol_stopped_at": "2026-10-29T01:21:12.146Z",
+      "sol_current_continuation_authority_ref": {
+        "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+        "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+      },
+      "sol_authoring_status": "authoring_except_audio",
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/LA-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "cf4a482a43cfa6c1f0e6418dd1de43587d8aa24fe2c6f24d4cb720f0a62dd66a"
+      }
     },
     {
       "state": "DC",
@@ -950,7 +1056,7 @@
       "sha256": "2ecc3155926b55b62d33fb2f3fe9687be1a0a92d8c0604b0f89fa3c649f7ea3c",
       "pages": 59,
       "retrieved_at_utc": "2026-10-28T19:51:51.917Z",
-      "status": "in_progress",
+      "status": "complete",
       "worker": "sol",
       "local_path": "runs/_intake/sources/private/DC.pdf",
       "provenance": "founder-manual-download",
@@ -963,10 +1069,15 @@
       "reserved_by_session": "01a18580-32e7-76d3-8f6f-a181fa15379b",
       "reserved_at_utc": "2026-10-29T02:45:38.040Z",
       "sol_lane": 5,
-      "sol_authoring_status": "held_incomplete",
+      "sol_authoring_status": "authoring_except_audio",
       "sol_hold_receipt_ref": {
         "path": "scratch/sol-state-coordinator/dc-nine-held-20261028.json",
         "sha256": "5cbb5a3d76fcbab285a71a95fac403edc390d90e60d7a50d9943637a50dcb406"
+      },
+      "assigned_run_id": "2026-10-28-rdmv-dc-class-d",
+      "sol_authoring_completion_ref": {
+        "path": "scratch/sol-state-coordinator/overnight-20261028/DC-AUTHORING-COMPLETE-ROOT.json",
+        "sha256": "b0b21f1b18f40455ab6b4a421688da0669048494e2d5ff4cba51add421474aca"
       }
     }
   ],
