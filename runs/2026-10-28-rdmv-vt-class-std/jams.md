@@ -32,3 +32,13 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T03:58:52.000Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:13 for 02.dossier_sections (sec03-vehicle-operation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-operation__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:58:53.070Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:14 for 02.dossier_sections (sec03-vehicle-operation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-operation__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:01:03.223Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:15 for 02.dossier_sections (sec04-parking-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-parking-roundabouts__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:01:04.327Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:16 for 02.dossier_sections (sec04-parking-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-parking-roundabouts__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:01:05.438Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:17 for 02.dossier_sections (sec04-parking-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-parking-roundabouts__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:01:06.518Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:18 for 02.dossier_sections (sec04-parking-roundabouts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-parking-roundabouts__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:01:07.705Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:19 for 02.dossier_sections (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-police-signals__C__n0 (lineage attempts exhausted)
