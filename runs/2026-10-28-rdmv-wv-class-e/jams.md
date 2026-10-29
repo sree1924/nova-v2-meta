@@ -115,3 +115,13 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:19:12.141Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:54 for 02.dossier_sections (sec12-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:19:13.968Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:55 for 02.dossier_sections (sec12-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:21:03.873Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:56 for 02.dossier_sections (sec13-highway-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-highway-driving__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:21:05.754Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:57 for 02.dossier_sections (sec13-highway-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-highway-driving__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:21:07.619Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:58 for 02.dossier_sections (sec13-highway-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-highway-driving__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:21:09.491Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:59 for 02.dossier_sections (sec13-highway-driving) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-highway-driving__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:21:11.409Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:60 for 02.dossier_sections (sec14-defensive-driving-and-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-and-weather__C__n0 (lineage attempts exhausted)
