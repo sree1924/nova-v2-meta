@@ -129,3 +129,47 @@ Seeded 2026-10-28T05:06:50.392Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:28:30.007Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:62 for 16.compile (sec09-sharing-the-road) under standing authority; cause: compile attempt cap on shared lineage (sec09-sharing-the-road)
 
 - 2026-10-28T10:28:32.593Z lineage reset → 2026-10-28-rdmv-nv-class-c:lineage:63 for 16.compile (sec11-insurance-driving-record) under standing authority; cause: compile attempt cap on shared lineage (sec11-insurance-driving-record)
+
+- 2026-10-28T22:25:18.511Z Sol re-author 16.compile/sec02-getting-your-license-part-2: native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-capacity-418327fd-1ada-4380-9df7-7ca8420b1e13.json
+
+- 2026-10-28T22:26:15.035Z Sol re-author 04.cards/sec12-dui-suspensions: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-57dbc7ac-8cd5-4f92-a46d-afc8795e565d.json
+
+- 2026-10-28T22:27:19.082Z Sol re-author 05.card_scripts/sec12-dui-suspensions: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-da6a4281-8f31-4f37-b39e-2736e80f8fd4.json
+
+- 2026-10-28T22:27:40.766Z Sol re-author 04.cards/sec02-getting-your-license-part-2: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-ce01c301-81fd-4eab-a738-285cdf2f54f6.json
+
+- 2026-10-28T22:27:45.432Z Sol re-author 05.card_scripts/sec02-getting-your-license-part-2: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-3cb72f65-e036-40cd-bcbb-332a501105e9.json
+
+- 2026-10-28T22:27:49.199Z Sol re-author 04.cards/sec03-buckle-up: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-963258e6-c5cf-41a5-8d03-265ff8373941.json
+
+- 2026-10-28T22:27:52.978Z Sol re-author 05.card_scripts/sec03-buckle-up: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-d0759dbf-a6fe-45f8-b012-670916c610a5.json
+
+- 2026-10-28T22:27:56.479Z Sol re-author 04.cards/sec04-signs-signals-markings: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-ec15ecec-d0c9-42a1-9ddb-b478e19ce44d.json
+
+- 2026-10-28T22:28:01.232Z Sol re-author 05.card_scripts/sec04-signs-signals-markings: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-d56fed7e-d6dc-4366-8be4-cb655c798f6c.json
+
+- 2026-10-28T22:28:04.911Z Sol re-author 04.cards/sec05-right-of-way-speed-freeways: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-fdcbd46d-a01b-4801-98b0-8df70acd16e8.json
+
+- 2026-10-28T22:28:09.318Z Sol re-author 05.card_scripts/sec05-right-of-way-speed-freeways: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-d8d42de7-d176-41dc-b0f5-39bb37cda91b.json
+
+- 2026-10-28T22:28:13.165Z Sol re-author 04.cards/sec07-driver-assistance-systems: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-d48762fc-62b4-4426-91a0-0292b0d6a779.json
+
+- 2026-10-28T22:28:17.149Z Sol re-author 05.card_scripts/sec07-driver-assistance-systems: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-cc1a5b10-e902-4bef-a65c-d9baeb5e3a54.json
+
+- 2026-10-28T22:28:20.665Z Sol re-author 04.cards/sec08-special-driving-conditions: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-6dd08151-a13a-4c08-9f81-1d7dec940db5.json
+
+- 2026-10-28T22:28:24.265Z Sol re-author 05.card_scripts/sec08-special-driving-conditions: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-40bf221c-2899-487d-9e87-b6fcc02a4fc4.json
+
+- 2026-10-28T22:28:27.892Z Sol re-author 04.cards/sec09-sharing-the-road: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-e5b4332f-028e-48f9-9be2-7552cf9f66d2.json
+
+- 2026-10-28T22:28:32.004Z Sol re-author 05.card_scripts/sec09-sharing-the-road: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-6726d9df-e59b-4b87-a438-be901ac34cf7.json
+
+- 2026-10-28T22:28:35.849Z Sol re-author 04.cards/sec10-towing: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-d2258ea9-e1c8-48f5-af87-98f3ae327827.json
+
+- 2026-10-28T22:28:40.219Z Sol re-author 05.card_scripts/sec10-towing: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-c56a79fd-0731-4d75-bb6c-298379b974ea.json
+
+- 2026-10-28T22:28:44.054Z Sol re-author 04.cards/sec11-insurance-driving-record: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-159c84a5-1dbb-4d24-ad91-c492c0473fc9.json
+
+- 2026-10-28T22:28:49.908Z Sol re-author 05.card_scripts/sec11-insurance-driving-record: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-nv-class-c/receipts/sol-reauthor-nonce-1d0f7a2e-28b6-4a42-b8be-6d0ce16fa0b5.json
+
+- 2026-10-28T22:30:24.432Z Sol re-author complete: current 16 reused for 10 scoped sections; 04 cards + 05 card_scripts accepted 20 new native attempts, 521 cards / 573 scripts, 36 changed answers including 32 quarantined. Raw facts, citations, debt, stable IDs and 3 merges retained; 03/06/05.sessions unchanged. Ledger actual/reserved/uncertain $0. Report coordination/SOL-REPORTS/REAUTHOR-NV.md. Fable owns shell refresh.

@@ -129,3 +129,39 @@ Seeded 2026-10-28T05:08:44.916Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:29:54.734Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:64 for 03.combined_kg (sec11-adjusting-to-driving-conditions) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-adjusting-to-driving-conditions__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:41:37.402Z lineage reset → 2026-10-28-rdmv-al-class-d:lineage:65 for 03.combined_kg (sec13-graduated-driver-license-summary) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-graduated-driver-license-summary__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T22:25:36.960Z Sol re-author 04.cards/sec01-license-requirements-and-identification: explicit accepted remint nonce 04.cards:@sec01-license-requirements-and-identification 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-04.cards-sec01-license-requirements-and-identification-n1.json.
+
+- 2026-10-28T22:26:38.170Z Sol re-author 05.card_scripts/sec01-license-requirements-and-identification: explicit accepted remint nonce 05.card_scripts:@sec01-license-requirements-and-identification 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-05.card_scripts-sec01-license-requirements-and-identification-n1.json.
+
+- 2026-10-28T22:27:07.319Z Sol re-author 04.cards/sec02-testing-renewal-and-license-classes: explicit accepted remint nonce 04.cards:@sec02-testing-renewal-and-license-classes 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-04.cards-sec02-testing-renewal-and-license-classes-n1.json accepted-capacity runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-accepted-capacity-04.cards-1793226427284.json.
+
+- 2026-10-28T22:27:38.754Z Sol re-author 05.card_scripts/sec02-testing-renewal-and-license-classes: explicit accepted remint nonce 05.card_scripts:@sec02-testing-renewal-and-license-classes 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-05.card_scripts-sec02-testing-renewal-and-license-classes-n1.json.
+
+- 2026-10-28T22:29:29.781Z Sol AL re-author partial checkpoint: sec01/sec02 native16+04+05 PASS; five backs corrected. sec03 compile LINEAGE_ATTEMPT_LIMIT before attempt; no retry. Other affected sections held. Report coordination/SOL-REPORTS/REAUTHOR-AL.md. All raw fact/provenance/history preserved; ledger released, $0 actual/reserved/uncertain.
+
+- 2026-10-28T22:38:01.595Z Previously unsubmitted 16/sec10-traffic-laws: all-accepted capacity 2026-10-28-rdmv-al-class-d:lineage:66 -> 2026-10-28-rdmv-al-class-d:lineage:67, no nonce change; queued65 HOLD task preserved; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-accepted-capacity-16.compile-1793227081603.json.
+
+- 2026-10-28T22:38:08.568Z Previously unsubmitted 16/sec13-graduated-driver-license-summary: all-accepted capacity 2026-10-28-rdmv-al-class-d:lineage:67 -> 2026-10-28-rdmv-al-class-d:lineage:68, no nonce change; queued65 HOLD task preserved; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-accepted-capacity-16.compile-1793227088574.json.
+
+- 2026-10-28T22:38:39.543Z Sol re-author 04.cards/sec03-losing-your-license-and-points: explicit accepted remint nonce 04.cards:@sec03-losing-your-license-and-points 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-04.cards-sec03-losing-your-license-and-points-n1.json.
+
+- 2026-10-28T22:38:59.996Z Sol re-author 05.card_scripts/sec03-losing-your-license-and-points: explicit accepted remint nonce 05.card_scripts:@sec03-losing-your-license-and-points 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-05.card_scripts-sec03-losing-your-license-and-points-n1.json.
+
+- 2026-10-28T22:39:10.759Z Sol re-author 04.cards/sec06-driver-condition-phones-and-alcohol: explicit accepted remint nonce 04.cards:@sec06-driver-condition-phones-and-alcohol 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-04.cards-sec06-driver-condition-phones-and-alcohol-n1.json.
+
+- 2026-10-28T22:39:22.098Z Sol re-author 05.card_scripts/sec06-driver-condition-phones-and-alcohol: explicit accepted remint nonce 05.card_scripts:@sec06-driver-condition-phones-and-alcohol 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-05.card_scripts-sec06-driver-condition-phones-and-alcohol-n1.json.
+
+- 2026-10-28T22:39:34.018Z Sol re-author 04.cards/sec10-traffic-laws: explicit accepted remint nonce 04.cards:@sec10-traffic-laws 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-04.cards-sec10-traffic-laws-n1.json accepted-capacity runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-accepted-capacity-04.cards-1793227173982.json.
+
+- 2026-10-28T22:39:47.169Z Sol re-author 05.card_scripts/sec10-traffic-laws: explicit accepted remint nonce 05.card_scripts:@sec10-traffic-laws 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-05.card_scripts-sec10-traffic-laws-n1.json.
+
+- 2026-10-28T22:39:56.563Z Sol re-author 04.cards/sec12-freeways-and-vehicle-maintenance: explicit accepted remint nonce 04.cards:@sec12-freeways-and-vehicle-maintenance 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-04.cards-sec12-freeways-and-vehicle-maintenance-n1.json.
+
+- 2026-10-28T22:40:11.774Z Sol re-author 05.card_scripts/sec12-freeways-and-vehicle-maintenance: explicit accepted remint nonce 05.card_scripts:@sec12-freeways-and-vehicle-maintenance 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-05.card_scripts-sec12-freeways-and-vehicle-maintenance-n1.json.
+
+- 2026-10-28T22:40:24.150Z Sol re-author 04.cards/sec13-graduated-driver-license-summary: explicit accepted remint nonce 04.cards:@sec13-graduated-driver-license-summary 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-04.cards-sec13-graduated-driver-license-summary-n1.json accepted-capacity runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-accepted-capacity-04.cards-1793227224118.json.
+
+- 2026-10-28T22:40:54.914Z Sol re-author 05.card_scripts/sec13-graduated-driver-license-summary: explicit accepted remint nonce 05.card_scripts:@sec13-graduated-driver-license-summary 0 -> 1; runs/2026-10-28-rdmv-al-class-d/receipts/sol-reauthor-nonce-05.card_scripts-sec13-graduated-driver-license-summary-n1.json.
+
+- 2026-10-28T22:43:28.444Z Sol AL re-author COMPLETE_NATIVE_WITH_RESIDUALS: all seven affected sections native16+04+05 PASS; 20/22 initial hidden backs corrected. Current compiler residuals sec10-F73/sec13-F14 and or or retained. Partial report superseded by coordination/SOL-REPORTS/REAUTHOR-AL.md; versioned continuation checkpoint scratch/sol-reauthor/al/FINAL-CHECKPOINT-CONTINUATION.json. Raw facts/source spans/citations/debt/IDs/merges/02/03/06/sessions/history preserved; old queued65 task zero attempts; ledger released, actual/reserved/uncertain all $0.

@@ -97,3 +97,39 @@ Seeded 2026-10-28T05:00:20.774Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:38:36.837Z lineage reset → 2026-10-28-rdmv-in-class-std:lineage:48 for 03.combined_kg (sec07-safe-operation-part-1) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-safe-operation-part-1__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:52:47.029Z lineage reset → 2026-10-28-rdmv-in-class-std:lineage:49 for 03.combined_kg (sec09-accidents-emergencies) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-accidents-emergencies__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T22:52:27.828Z Sol re-author 16.compile/sec05-points-suspensions-insurance; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-in-class-std:lineage:49 -> 2026-10-28-rdmv-in-class-std:lineage:50; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-16.compile-sec05-points-suspensions-insurance-2026-10-28T22-52-27.828Z-cause.json
+
+- 2026-10-28T22:52:29.125Z Sol re-author 16.compile/sec08-safe-operation-part-2; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-in-class-std:lineage:50 -> 2026-10-28-rdmv-in-class-std:lineage:51; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-16.compile-sec08-safe-operation-part-2-2026-10-28T22-52-29.125Z-cause.json
+
+- 2026-10-28T22:52:30.223Z Sol re-author 16.compile/sec10-documents-teens-services; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-in-class-std:lineage:51 -> 2026-10-28-rdmv-in-class-std:lineage:52; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-16.compile-sec10-documents-teens-services-2026-10-28T22-52-30.223Z-cause.json
+
+- 2026-10-28T22:53:14.978Z Sol re-author 04.cards/sec02-new-credential-part-2; nonce 04.cards:@sec02-new-credential-part-2 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:52 -> 2026-10-28-rdmv-in-class-std:lineage:52; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-04.cards-sec02-new-credential-part-2-2026-10-28T22-53-14.978Z-cause.json
+
+- 2026-10-28T22:53:18.309Z Sol re-author 05.card_scripts/sec02-new-credential-part-2; nonce 05.card_scripts:@sec02-new-credential-part-2 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:52 -> 2026-10-28-rdmv-in-class-std:lineage:52; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-05.card_scripts-sec02-new-credential-part-2-2026-10-28T22-53-18.309Z-cause.json
+
+- 2026-10-28T22:53:20.847Z Sol re-author 04.cards/sec03-restrictions-endorsements; nonce 04.cards:@sec03-restrictions-endorsements 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:52 -> 2026-10-28-rdmv-in-class-std:lineage:52; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-04.cards-sec03-restrictions-endorsements-2026-10-28T22-53-20.847Z-cause.json
+
+- 2026-10-28T22:53:23.999Z Sol re-author 05.card_scripts/sec03-restrictions-endorsements; nonce 05.card_scripts:@sec03-restrictions-endorsements 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:52 -> 2026-10-28-rdmv-in-class-std:lineage:52; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-05.card_scripts-sec03-restrictions-endorsements-2026-10-28T22-53-23.999Z-cause.json
+
+- 2026-10-28T22:53:26.624Z Sol re-author 04.cards/sec05-points-suspensions-insurance; nonce 04.cards:@sec05-points-suspensions-insurance 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:52 -> 2026-10-28-rdmv-in-class-std:lineage:53; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-04.cards-sec05-points-suspensions-insurance-2026-10-28T22-53-26.624Z-cause.json
+
+- 2026-10-28T22:53:30.006Z Sol re-author 05.card_scripts/sec05-points-suspensions-insurance; nonce 05.card_scripts:@sec05-points-suspensions-insurance 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:53 -> 2026-10-28-rdmv-in-class-std:lineage:53; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-05.card_scripts-sec05-points-suspensions-insurance-2026-10-28T22-53-30.006Z-cause.json
+
+- 2026-10-28T22:53:32.599Z Sol re-author 04.cards/sec07-safe-operation-part-1; nonce 04.cards:@sec07-safe-operation-part-1 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:53 -> 2026-10-28-rdmv-in-class-std:lineage:53; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-04.cards-sec07-safe-operation-part-1-2026-10-28T22-53-32.599Z-cause.json
+
+- 2026-10-28T22:53:35.903Z Sol re-author 05.card_scripts/sec07-safe-operation-part-1; nonce 05.card_scripts:@sec07-safe-operation-part-1 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:53 -> 2026-10-28-rdmv-in-class-std:lineage:53; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-05.card_scripts-sec07-safe-operation-part-1-2026-10-28T22-53-35.903Z-cause.json
+
+- 2026-10-28T22:53:38.560Z Sol re-author 04.cards/sec08-safe-operation-part-2; nonce 04.cards:@sec08-safe-operation-part-2 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:53 -> 2026-10-28-rdmv-in-class-std:lineage:54; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-04.cards-sec08-safe-operation-part-2-2026-10-28T22-53-38.560Z-cause.json
+
+- 2026-10-28T22:53:41.881Z Sol re-author 05.card_scripts/sec08-safe-operation-part-2; nonce 05.card_scripts:@sec08-safe-operation-part-2 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:54 -> 2026-10-28-rdmv-in-class-std:lineage:54; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-05.card_scripts-sec08-safe-operation-part-2-2026-10-28T22-53-41.881Z-cause.json
+
+- 2026-10-28T22:53:45.981Z Sol re-author 04.cards/sec09-accidents-emergencies; nonce 04.cards:@sec09-accidents-emergencies 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:54 -> 2026-10-28-rdmv-in-class-std:lineage:54; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-04.cards-sec09-accidents-emergencies-2026-10-28T22-53-45.981Z-cause.json
+
+- 2026-10-28T22:53:50.731Z Sol re-author 05.card_scripts/sec09-accidents-emergencies; nonce 05.card_scripts:@sec09-accidents-emergencies 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:54 -> 2026-10-28-rdmv-in-class-std:lineage:54; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-05.card_scripts-sec09-accidents-emergencies-2026-10-28T22-53-50.731Z-cause.json
+
+- 2026-10-28T22:53:53.211Z Sol re-author 04.cards/sec10-documents-teens-services; nonce 04.cards:@sec10-documents-teens-services 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:54 -> 2026-10-28-rdmv-in-class-std:lineage:55; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-04.cards-sec10-documents-teens-services-2026-10-28T22-53-53.211Z-cause.json
+
+- 2026-10-28T22:53:56.186Z Sol re-author 05.card_scripts/sec10-documents-teens-services; nonce 05.card_scripts:@sec10-documents-teens-services 0 -> 1; lineage 2026-10-28-rdmv-in-class-std:lineage:55 -> 2026-10-28-rdmv-in-class-std:lineage:55; unchanged caps/history; runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-05.card_scripts-sec10-documents-teens-services-2026-10-28T22-53-56.186Z-cause.json
+
+- 2026-10-28T22:55:24.144Z Sol re-author complete: seven native compiles, 14 accepted remints, 403 cards / 443 scripts, 23 changed backs, 20/20 initially hidden corrected. Raw facts/history/02/03/06/05.sessions preserved. Identifier-cardinal sec02-F13/F23, sec05-R15 and off-card grammar sec07-F25 remain; sec01-R18 phone outside scope unchanged. Report coordination/SOL-REPORTS/REAUTHOR-IN.md; receipt runs/2026-10-28-rdmv-in-class-std/receipts/sol-reauthor-in-completion-5dc27c23631b8eb3b7740e5c5aecb6ced73b61eba2195abfa75629cae41399af.json; actual/reserved/uncertain $0/$0/$0; Fable onboarding pending.

@@ -145,3 +145,49 @@ Seeded 2026-10-28T05:04:23.825Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:51:29.028Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:69 for 05.card_scripts (sec11-driving-conditions-part-1) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec11-driving-conditions-part-1__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T11:04:15.976Z lineage reset → 2026-10-28-rdmv-mn-class-d:lineage:70 for 05.card_scripts (sec13-driving-privileges) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec13-driving-privileges__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T22:43:15.083Z Sol re-author 16.compile/sec04-your-vehicle; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-mn-class-d:lineage:70 -> 2026-10-28-rdmv-mn-class-d:lineage:71; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-16.compile-sec04-your-vehicle-2026-10-28T22-43-15.083Z-cause.json
+
+- 2026-10-28T22:43:16.271Z Sol re-author 16.compile/sec07-sharing-the-road-part-1; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-mn-class-d:lineage:71 -> 2026-10-28-rdmv-mn-class-d:lineage:72; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-16.compile-sec07-sharing-the-road-part-1-2026-10-28T22-43-16.271Z-cause.json
+
+- 2026-10-28T22:43:17.484Z Sol re-author 16.compile/sec11-driving-conditions-part-1; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-mn-class-d:lineage:72 -> 2026-10-28-rdmv-mn-class-d:lineage:73; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-16.compile-sec11-driving-conditions-part-1-2026-10-28T22-43-17.484Z-cause.json
+
+- 2026-10-28T22:43:18.684Z Sol re-author 16.compile/sec14-driving-under-influence; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-mn-class-d:lineage:73 -> 2026-10-28-rdmv-mn-class-d:lineage:74; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-16.compile-sec14-driving-under-influence-2026-10-28T22-43-18.684Z-cause.json
+
+- 2026-10-28T22:44:01.542Z Sol re-author 04.cards/sec02-license-to-drive-part-1; nonce 04.cards:@sec02-license-to-drive-part-1 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:74 -> 2026-10-28-rdmv-mn-class-d:lineage:74; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec02-license-to-drive-part-1-2026-10-28T22-44-01.542Z-cause.json
+
+- 2026-10-28T22:44:05.026Z Sol re-author 05.card_scripts/sec02-license-to-drive-part-1; nonce 05.card_scripts:@sec02-license-to-drive-part-1 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:74 -> 2026-10-28-rdmv-mn-class-d:lineage:74; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec02-license-to-drive-part-1-2026-10-28T22-44-05.026Z-cause.json
+
+- 2026-10-28T22:44:07.596Z Sol re-author 04.cards/sec03-license-to-drive-part-2; nonce 04.cards:@sec03-license-to-drive-part-2 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:74 -> 2026-10-28-rdmv-mn-class-d:lineage:74; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec03-license-to-drive-part-2-2026-10-28T22-44-07.596Z-cause.json
+
+- 2026-10-28T22:44:11.514Z Sol re-author 05.card_scripts/sec03-license-to-drive-part-2; nonce 05.card_scripts:@sec03-license-to-drive-part-2 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:74 -> 2026-10-28-rdmv-mn-class-d:lineage:74; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec03-license-to-drive-part-2-2026-10-28T22-44-11.514Z-cause.json
+
+- 2026-10-28T22:44:14.384Z Sol re-author 04.cards/sec04-your-vehicle; nonce 04.cards:@sec04-your-vehicle 1 -> 2; lineage 2026-10-28-rdmv-mn-class-d:lineage:74 -> 2026-10-28-rdmv-mn-class-d:lineage:75; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec04-your-vehicle-2026-10-28T22-44-14.384Z-cause.json
+
+- 2026-10-28T22:44:18.037Z Sol re-author 05.card_scripts/sec04-your-vehicle; nonce 05.card_scripts:@sec04-your-vehicle 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:75 -> 2026-10-28-rdmv-mn-class-d:lineage:75; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec04-your-vehicle-2026-10-28T22-44-18.037Z-cause.json
+
+- 2026-10-28T22:44:22.225Z Sol re-author 04.cards/sec06-traffic-laws-part-2; nonce 04.cards:@sec06-traffic-laws-part-2 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:75 -> 2026-10-28-rdmv-mn-class-d:lineage:75; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec06-traffic-laws-part-2-2026-10-28T22-44-22.225Z-cause.json
+
+- 2026-10-28T22:44:25.615Z Sol re-author 05.card_scripts/sec06-traffic-laws-part-2; nonce 05.card_scripts:@sec06-traffic-laws-part-2 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:75 -> 2026-10-28-rdmv-mn-class-d:lineage:75; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec06-traffic-laws-part-2-2026-10-28T22-44-25.615Z-cause.json
+
+- 2026-10-28T22:44:28.277Z Sol re-author 04.cards/sec07-sharing-the-road-part-1; nonce 04.cards:@sec07-sharing-the-road-part-1 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:75 -> 2026-10-28-rdmv-mn-class-d:lineage:76; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec07-sharing-the-road-part-1-2026-10-28T22-44-28.277Z-cause.json
+
+- 2026-10-28T22:44:31.882Z Sol re-author 05.card_scripts/sec07-sharing-the-road-part-1; nonce 05.card_scripts:@sec07-sharing-the-road-part-1 1 -> 2; lineage 2026-10-28-rdmv-mn-class-d:lineage:76 -> 2026-10-28-rdmv-mn-class-d:lineage:76; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec07-sharing-the-road-part-1-2026-10-28T22-44-31.882Z-cause.json
+
+- 2026-10-28T22:44:34.632Z Sol re-author 04.cards/sec08-sharing-the-road-part-2; nonce 04.cards:@sec08-sharing-the-road-part-2 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:76 -> 2026-10-28-rdmv-mn-class-d:lineage:76; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec08-sharing-the-road-part-2-2026-10-28T22-44-34.632Z-cause.json
+
+- 2026-10-28T22:44:38.254Z Sol re-author 05.card_scripts/sec08-sharing-the-road-part-2; nonce 05.card_scripts:@sec08-sharing-the-road-part-2 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:76 -> 2026-10-28-rdmv-mn-class-d:lineage:76; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec08-sharing-the-road-part-2-2026-10-28T22-44-38.254Z-cause.json
+
+- 2026-10-28T22:44:40.971Z Sol re-author 04.cards/sec11-driving-conditions-part-1; nonce 04.cards:@sec11-driving-conditions-part-1 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:76 -> 2026-10-28-rdmv-mn-class-d:lineage:77; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec11-driving-conditions-part-1-2026-10-28T22-44-40.971Z-cause.json
+
+- 2026-10-28T22:44:44.588Z Sol re-author 05.card_scripts/sec11-driving-conditions-part-1; nonce 05.card_scripts:@sec11-driving-conditions-part-1 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:77 -> 2026-10-28-rdmv-mn-class-d:lineage:77; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec11-driving-conditions-part-1-2026-10-28T22-44-44.588Z-cause.json
+
+- 2026-10-28T22:44:47.276Z Sol re-author 04.cards/sec12-driving-conditions-part-2; nonce 04.cards:@sec12-driving-conditions-part-2 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:77 -> 2026-10-28-rdmv-mn-class-d:lineage:77; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec12-driving-conditions-part-2-2026-10-28T22-44-47.276Z-cause.json
+
+- 2026-10-28T22:44:50.731Z Sol re-author 05.card_scripts/sec12-driving-conditions-part-2; nonce 05.card_scripts:@sec12-driving-conditions-part-2 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:77 -> 2026-10-28-rdmv-mn-class-d:lineage:77; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec12-driving-conditions-part-2-2026-10-28T22-44-50.731Z-cause.json
+
+- 2026-10-28T22:44:54.078Z Sol re-author 04.cards/sec14-driving-under-influence; nonce 04.cards:@sec14-driving-under-influence 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:77 -> 2026-10-28-rdmv-mn-class-d:lineage:78; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-04.cards-sec14-driving-under-influence-2026-10-28T22-44-54.078Z-cause.json
+
+- 2026-10-28T22:44:57.389Z Sol re-author 05.card_scripts/sec14-driving-under-influence; nonce 05.card_scripts:@sec14-driving-under-influence 0 -> 1; lineage 2026-10-28-rdmv-mn-class-d:lineage:78 -> 2026-10-28-rdmv-mn-class-d:lineage:78; unchanged caps/history; runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-05.card_scripts-sec14-driving-under-influence-2026-10-28T22-44-57.389Z-cause.json
+
+- 2026-10-28T22:46:12.125Z Sol re-author complete: nine native compiles and 18 accepted remints, 599 cards / 664 scripts, 22 changed backs; 21/21 initially hidden corrected. Raw facts/history/02/03/06/05.sessions preserved. Compiler-only residual sec04-F25 one pounds per square inch remains off card backs. Report coordination/SOL-REPORTS/REAUTHOR-MN.md; receipt runs/2026-10-28-rdmv-mn-class-d/receipts/sol-reauthor-mn-completion-31b76220b7e326bc717fb85e83fb42b041cd414940d143e5ddac7b092300a141.json; actual/reserved/uncertain $0/$0/$0; Fable onboarding pending.

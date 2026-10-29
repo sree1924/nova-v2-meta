@@ -92,6 +92,27 @@ const copied = [];
 const skipped = [];
 const wanted = new Set(); // relative paths that should exist after this run
 
+// Re-mints (2026-10-28 re-author pass): a retry-nonce bump mints a NEW logical
+// task for the same stage+section and the older task stays `accepted` in the
+// ledger. The preview must show exactly one artifact per stage+section — the
+// newest accepted task — or the old garbled deck sits next to the refreshed one.
+// Tasks whose section cannot be determined are never collapsed.
+const winners = new Map(); // stage_id|section -> task_id of the newest accepted task
+for (const t of tasks) {
+  if (t.status !== 'accepted' || !LEARNER_STAGES.has(t.stage_id)) continue;
+  const section = sectionByTask.get(t.task_id) || 'unknown';
+  if (section === 'unknown') continue;
+  const key = t.stage_id + '|' + section;
+  const cur = winners.get(key);
+  if (!cur || String(t.created_at || '') > String(cur.created_at || '')) winners.set(key, t);
+}
+const supersededTask = (task) => {
+  const section = sectionByTask.get(task.task_id) || 'unknown';
+  if (section === 'unknown') return false;
+  const w = winners.get(task.stage_id + '|' + section);
+  return Boolean(w && w.task_id !== task.task_id);
+};
+
 for (const art of artifacts) {
   if (art.kind !== 'stage_output') continue;
   const attempt = attemptById.get(art.attempt_id);
@@ -100,6 +121,10 @@ for (const art of artifacts) {
   if (!LEARNER_STAGES.has(task.stage_id)) continue; // not learner content
   if (task.status !== 'accepted') {
     skipped.push({ artifact_id: art.artifact_id, stage_id: task.stage_id, task_status: task.status, reason: 'task not accepted — never copied' });
+    continue;
+  }
+  if (supersededTask(task)) {
+    skipped.push({ artifact_id: art.artifact_id, stage_id: task.stage_id, task_status: task.status, reason: 'superseded by a newer accepted task for the same stage+section (re-mint)' });
     continue;
   }
   const src = path.join(RUN_DIR, art.path);

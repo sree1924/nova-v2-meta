@@ -109,3 +109,15 @@ Seeded 2026-10-28T05:09:00.542Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:41:28.885Z lineage reset → 2026-10-28-rdmv-or-class-c:lineage:54 for 03.combined_kg (sec09-safe-responsible-driving-part-1) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-safe-responsible-driving-part-1__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:53:50.274Z lineage reset → 2026-10-28-rdmv-or-class-c:lineage:55 for 03.combined_kg (sec11-other-important-information) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-other-important-information__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T23:04:31.219Z SOL re-author 16.compile/sec08-parking-and-stopping: runs/2026-10-28-rdmv-or-class-c/receipts/sol-reauthor-capacity-sec08-parking-and-stopping-16.compile-56.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:06:51.399Z SOL re-author 04.cards/sec08-parking-and-stopping: runs/2026-10-28-rdmv-or-class-c/receipts/sol-reauthor-nonce-04.cards-sec08-parking-and-stopping-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:07:02.184Z SOL re-author 05.card_scripts/sec08-parking-and-stopping: runs/2026-10-28-rdmv-or-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec08-parking-and-stopping-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:07:12.157Z SOL re-author 04.cards/sec11-other-important-information: runs/2026-10-28-rdmv-or-class-c/receipts/sol-reauthor-nonce-04.cards-sec11-other-important-information-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:07:19.006Z SOL re-author 05.card_scripts/sec11-other-important-information: runs/2026-10-28-rdmv-or-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec11-other-important-information-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:09:00.216Z SOL re-author COMPLETE WITH ONE FORM-CODE RESIDUAL:current sec08/sec11 compile reused;102 cards/113 script records accepted;9/10 initial hidden backs corrected, sec11-F04 unchanged. Three merges/raw facts/source/debt/IDs/03/06/sessions retained. Report coordination/SOL-REPORTS/REAUTHOR-OR.md; private NATIVE-HANDOFF.json and FINAL-CHECKPOINT.json. Actual/reserved/uncertain $0.000; Fable owns shell onboarding/quarantine.

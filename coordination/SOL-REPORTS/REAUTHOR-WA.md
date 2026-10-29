@@ -1,0 +1,19 @@
+# WA — native re-author complete; five compiler residuals
+- Run `runs/2026-10-28-rdmv-wa-class-std`; actual author `gpt-6.1-sol` (ChatGPT Pro subscription, Sol re-author pass); native Muse file transport only.
+- Inspected six affected sections; four native16 → separately nonced accepted04 → accepted05 PASS. Reminted 186 cards, 186 card scripts + 29 recap scripts; eleven backs/answers corrected.
+- `sec01-getting-your-license`: 16 version `1709673e`; accepted04 SHA `a682f3ddaf6fe6813f04856dbdc0d11ad8ae81b20d1b6eb770bf6fa15bda5878`; accepted05 SHA `63072ed3905ff201d5fc0fa8418bcd14433541c5d89e2682cafb120eeafb4229`.
+- `sec06-decisions-distraction-respect`: 16 version `6a92384e`; accepted04 SHA `9d2d989a472a27259d967a20e5a675735a72dddcd8f3495778dc83aee332c30e`; accepted05 SHA `902f9d41dfb76c2b105b2b1649c4ead3812330e63099831e8e30710e8227dac2`.
+- `sec07-sharing-the-road`: 16 version `01b1e160`; accepted04 SHA `e7862c6f3b7e1495c45cd603a79d3ac6447e80d81af3366a0a0431a831886b2e`; accepted05 SHA `56d625c3058b6f30597ebbb4e81aa8bb6ba71fa616f6546ce4d12e0f55876df9`.
+- `sec14-failures-collisions-law-enforcement`: 16 version `93c373fb`; accepted04 SHA `2cf72bb430bfee3d818047daf989dc51b8bbfc64d32eef68bad5a4e39212e52c`; accepted05 SHA `9395ab4ff11ea3ac6ff96843ae3ca5fabfe6f8bdc6f3737cb47df090a2dc0f75`.
+- Retained `sec02-exams-and-keeping-your-license` and `sec04-occupant-protection-and-vehicle-control`: current pure compiler outputs BYTE-IDENTICAL registries, so no native repeat, nonce bump, cards or scripts remint there. Their accepted refs and preview proof are in the handoff.
+- sec01-F10/R01 `fifteen½` → `fifteen and a half`; raw `15½` and all source facts unchanged.
+- sec06-F01/F02/R08, sec07-F33/R06 and sec14-F13/F23/F24/F25: `nine hundred eleven` → `nine one one`; all nine raw `911` statements/citations preserved.
+- Residual class `c1_leading_dot_decimal` actually affects RCW identifiers: sec02-F18/F19/R05/F20 and sec04-F03 (five cards). Current compiler still says `RCW forty-six point six one.five hundred two` / `.five hundred three`, `two zero.three hundred eight`, and `six one.six hundred eighty-seven` / `six hundred eighty-eight`.
+- No fabricated identifier repair, source rewriting or blanket clearance. Private native delta is eleven of sixteen initial-hidden backs repaired; five remain for quarantine. Shell files still show their existing state until Fable re-onboards.
+- All raw IDs/statements/source spans/citations/status/debt and all card/script IDs/merges preserved. Accepted02/03/06/05.sessions and all other sections unchanged.
+- Exact old-garble lesson quote hits: 0; any exact quotes in PRESERVATION-PROOF.json. Lessons remain accepted; no session remint.
+- Every new04 has22 mapped checks PASS; every new05 has20 PASS against full fresh context. No passed production suite rerun; independent07/08 audit remains pending.
+- Native assignment delta: twelve accepted tasks/attempts (four compiles, eight file-transport content calls). One historical blocked02 attempt and all old queued history preserved exactly; 2 cause-backed all-consumed-accepted capacity advancements, caps/counters unchanged.
+- Ledger released, claim removed at closeout; no active attempt/reservation/outbox/lock. Actual/reserved/uncertain each $0.000; eight raw calls model_api_called:false, credit_usd:0.
+- Handoff `scratch/sol-reauthor/wa/NATIVE-HANDOFF.json`; detailed immutable proof + FINAL-CHECKPOINT.json include before/current refs and exact log entry. Root alone writes shared queue/log/usage; Fable owns onboarding.
+- Actual cumulative sample 10112809 total / 9838336 cached input; WA baseline6,917,095 /6,696,704; WA delta 3195714 total /3141632 cached. Cached tokens are INCLUDED; exact raw event/model/session/timestamp/hash saved; unknown tool count/duration null.

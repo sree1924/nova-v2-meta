@@ -159,3 +159,43 @@ Seeded 2026-10-28T03:24:15.997Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:08:54.487Z lineage reset → 2026-10-28-rdmv-nc-class-c:lineage:78 for 03.combined_kg (sec13-emergencies-and-crashes) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-emergencies-and-crashes__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:22:40.123Z lineage reset → 2026-10-28-rdmv-nc-class-c:lineage:79 for 03.combined_kg (sec15-traffic-signs-pavement-markings) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec15-traffic-signs-pavement-markings__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T22:48:30.871Z SOL re-author 16.compile/sec06-driver-condition-occupant-protection: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-capacity-sec06-driver-condition-occupant-protection-16.compile-80.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:48:34.271Z SOL re-author 16.compile/sec04-alcohol-and-the-law: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-capacity-sec04-alcohol-and-the-law-16.compile-81.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:48:37.720Z SOL re-author 16.compile/sec03-insurance-real-id-renewal: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-capacity-sec03-insurance-real-id-renewal-16.compile-82.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:49:39.937Z SOL re-author 04.cards/sec11-vehicle-equipment-defensive-driving: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-04.cards-sec11-vehicle-equipment-defensive-driving-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:49:47.236Z SOL re-author 05.card_scripts/sec11-vehicle-equipment-defensive-driving: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec11-vehicle-equipment-defensive-driving-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:49:54.181Z SOL re-author 04.cards/sec12-hazardous-driving-conditions: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-04.cards-sec12-hazardous-driving-conditions-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:50:01.794Z SOL re-author 05.card_scripts/sec12-hazardous-driving-conditions: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec12-hazardous-driving-conditions-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:50:20.246Z SOL re-author 04.cards/sec06-driver-condition-occupant-protection: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-04.cards-sec06-driver-condition-occupant-protection-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:50:28.351Z SOL re-author 05.card_scripts/sec06-driver-condition-occupant-protection: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec06-driver-condition-occupant-protection-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:50:35.526Z SOL re-author 04.cards/sec07-pedestrians-school-buses-emergency-vehicles: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-04.cards-sec07-pedestrians-school-buses-emergency-vehicles-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:50:43.708Z SOL re-author 05.card_scripts/sec07-pedestrians-school-buses-emergency-vehicles: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec07-pedestrians-school-buses-emergency-vehicles-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:51:28.261Z SOL re-author 04.cards/sec04-alcohol-and-the-law: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-04.cards-sec04-alcohol-and-the-law-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:51:35.665Z SOL re-author 05.card_scripts/sec04-alcohol-and-the-law: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec04-alcohol-and-the-law-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:51:42.323Z SOL re-author 04.cards/sec01-testing-license-classes: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-04.cards-sec01-testing-license-classes-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:51:50.555Z SOL re-author 05.card_scripts/sec01-testing-license-classes: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec01-testing-license-classes-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:51:58.687Z SOL re-author 04.cards/sec03-insurance-real-id-renewal: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-04.cards-sec03-insurance-real-id-renewal-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:52:06.516Z SOL re-author 05.card_scripts/sec03-insurance-real-id-renewal: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec03-insurance-real-id-renewal-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:52:13.499Z SOL re-author 04.cards/sec16-sharing-the-road: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-04.cards-sec16-sharing-the-road-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:52:20.753Z SOL re-author 05.card_scripts/sec16-sharing-the-road: runs/2026-10-28-rdmv-nc-class-c/receipts/sol-reauthor-nonce-05.card_scripts-sec16-sharing-the-road-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:53:05.162Z SOL re-author COMPLETE WITH ONE COMPILER RESIDUAL: eight16 +eight04 +eight05.card_scripts accepted;19/20 initially hidden backs corrected; residual sec01-F41 half-spoken G.S.20-37.14A retained. Facts/source/debt/status/merges/IDs and03/06/sessions unchanged. Report coordination/SOL-REPORTS/REAUTHOR-NC.md; checkpoint scratch/sol-reauthor/nc/FINAL-CHECKPOINT.json. Native actual/reserved/uncertain $0.000; Fable owns onboarding/quarantine.

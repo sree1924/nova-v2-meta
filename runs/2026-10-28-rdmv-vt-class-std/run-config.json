@@ -1,0 +1,338 @@
+{
+  "schema_version": "rdmv.run-config.draft.0.2.0",
+  "run_id": "2026-10-28-rdmv-vt-class-std",
+  "working_product_id": "rdmv-vt-class-std",
+  "candidate_lineage_id": "2026-10-28-rdmv-vt-class-std:lineage:1",
+  "status": "STATE_SELECTED_BY_EXPLICIT_INTAKE_SOURCE_VERIFY_PENDING",
+  "execution_enabled": true,
+  "producer": {
+    "provider": "meta",
+    "endpoint_profile_ref": "https://api.meta.ai/v1/chat/completions; response_format json_schema strict:true with schemas-strict/* adapters",
+    "model": "muse-spark-1.3",
+    "model_is_candidate_until_qualified": true,
+    "key_env_name": "MODEL_API_KEY",
+    "contributor_mode_allowed": false,
+    "qualification_task": "Role 04 cards for ONE text-first handbook chapter (Sol/founder pick; road signs deferred per media disposition)",
+    "role_bindings_ref": "../../contracts/bot-contract-bindings.json#/roles",
+    "adapters_ref": "../../schemas-strict/stage-map.json",
+    "post_validator_ref": "../../tools/belt/post-validate.mjs",
+    "pricing_ref": {
+      "path": "contracts/meta-pricing-snapshot.v0.4.0.json",
+      "sha256": "2c61a45f146f396ec1ded19d0f6235ef04fc1138693fe618f0603fb2c147eb47"
+    },
+    "billing_mode": "credits",
+    "billing_mode_detail": {
+      "mode": "meta_free_credits",
+      "decided_by": "founder chat 2026-10-27 (\"credits\")",
+      "dashboard_clause": "While using free credits your content may be used for product improvement (dev.meta.ai billing, 2026-10-26)",
+      "hard_rule": "No NOVA V1 artifact (citizenship or any other line) is ever sent to the Meta API under credits; only Utah-lane inputs (handbook facts, lane artifacts) go to the model.",
+      "credit_balance_observed_usd": 149.98,
+      "observed_at": "2026-10-26"
+    }
+  },
+  "limits": {
+    "max_active_probe_runs": 1,
+    "max_parallel_curriculum_jobs": 1,
+    "max_parallel_audit_jobs": 2,
+    "max_automatic_attempts_per_logical_task": 2,
+    "max_candidate_remediation_cycles": 1,
+    "max_total_usd": 60,
+    "max_call_usd": 1,
+    "per_provider_usd_caps": {
+      "meta": 60,
+      "openai": 0,
+      "anthropic": 0,
+      "google": 0,
+      "media": 0
+    },
+    "pricing_snapshot_ref": "../../ENV-SETUP.md#meta-model-api (2026-10-26)",
+    "run_deadline_utc": "2026-11-05T02:00:00Z",
+    "spend_mode": "live",
+    "per_role_usd_caps": {
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "02": 40,
+      "03": 10,
+      "04": 10,
+      "05": 14,
+      "06": 8,
+      "19A": 0
+    },
+    "max_completion_tokens": 30000,
+    "per_role_usd_caps_note": "per-role SUB-caps for the 16-section Utah run (raised 2026-10-27 20:02Z from the single-section pilot values 12/5/5/5/3 after BUDGET_CAP_EXCEEDED on sec07; the binding cap is the standing-authority total, limits.max_total_usd)",
+    "max_completion_tokens_note": "raised 8000→30000 on 2026-10-27 after attempt aafbd5e9 hit finish_reason=length with 6453/8000 tokens consumed by reasoning at reasoning_effort low (JAM-UT-02); worst case ≈ $0.20/call at list price, under the $1 per-call reservation",
+    "max_request_bytes": 640000,
+    "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority"
+  },
+  "audit_pool": {
+    "required_providers": [
+      "openai",
+      "anthropic"
+    ],
+    "note": "two-family independence per tools/check-audit-independence.mjs; Claude Code sessions that touched candidate bytes are disqualified for that candidate"
+  },
+  "baseline": {
+    "kind": "none_new_product",
+    "existing_dmv_v1_verified": false,
+    "methodology_control_ref": "../../baseline/citizenship/BASELINE.json"
+  },
+  "authoring": {
+    "mode": "native authenticated museFileTransport; gpt-6.1-sol subscription authorship",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "identity": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed"
+    }
+  },
+  "scope": {
+    "application_path": "first_time_never_licensed",
+    "language": "en",
+    "coverage_kind": "full_knowledge_test",
+    "jurisdiction": "US-VT",
+    "jurisdiction_selected_by": "here u go.. 5 states at a time.. Work in D:\\nova\\fb-ai-hackathon.\n\nRead and execute coordination\\SOL-REMAINING-NINE-SESSION-PROMPT.md.\n\nI authorize AR MS WV NH RI VT AK ND DC, using five worker lanes.\n\n\nFollow the amended belt, track actual usage, and require native completion checks.\nNo paid API, audio, onboarding, publishing or commits.",
+    "issuing_authority": "Vermont Department of Motor Vehicles (Agency of Transportation)",
+    "license_or_permit_class": "Standard noncommercial driver license / learner permit (no class letter asserted)",
+    "handbook_edition": "Vermont Driver’s Manual 2025; VN-007 07/2024 MTC",
+    "handbook_url": "https://dmv.vermont.gov/sites/dmv/files/documents/VN-007-Drivers_Manual.pdf",
+    "handbook_local_snapshot": "runs/2026-10-28-rdmv-vt-class-std/sources/private/VN-007-Drivers_Manual.pdf",
+    "handbook_sha256": "f2de61f6c4ee2b693abbde07150945cb9ceee4cdefd225a4a5deb0cd04b1ff34",
+    "handbook_snapshot_bytes": 2448500,
+    "handbook_retrieved_at_utc": "2026-10-28T17:52:26Z",
+    "source_origin": {
+      "kind": "official_pdf"
+    },
+    "issuer_page_domains": [
+      "dmv.vermont.gov"
+    ],
+    "exam_facts": {
+      "question_count": {
+        "value": 20,
+        "status": "verified",
+        "source_page": "src:rdmv-vt-class-std:vermont-department-of-motor-vehicles-age:handbook:pdf-0019",
+        "source_ref": "src:rdmv-vt-class-std:vermont-department-of-motor-vehicles-age:handbook",
+        "source_snapshot_sha256": "f2de61f6c4ee2b693abbde07150945cb9ceee4cdefd225a4a5deb0cd04b1ff34",
+        "liveness_receipt_ref": "runs/2026-10-28-rdmv-vt-class-std/15-source-liveness.json"
+      },
+      "passing_percent": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "time_limit": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "format": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      }
+    },
+    "exam_facts_provenance": {
+      "note": "Physical p19 / printed18: test has20 questions and requires16 correct. Percentage is not stated and remains null; no time limit stated.",
+      "passing_score_observation_ref": {
+        "path": "runs/2026-10-28-rdmv-vt-class-std/receipts/15-passing-score-observation.json",
+        "sha256": "997ef042f0204ea12f5a6963efda81995024cc0b13c8189ccd62344437c1f8c5"
+      },
+      "issuer_confirmation_ref": {
+        "path": "runs/2026-10-28-rdmv-vt-class-std/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "cbd0ef71a8aef3769c1b31fff289dc94749eb1fa74fc48a46dcebb6dc8278eb8"
+      },
+      "intake_spec_ref": {
+        "path": "coordination/intake/VT.spec.json",
+        "sha256": "1de6a5efe1ddc9320439eb8c749f3576c3a0b3d7a935e61d822000e20c1a4460"
+      }
+    },
+    "section_page_ranges": {
+      "sec01-licensing": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "sec02-graduated-licensing": [
+        21,
+        22,
+        23
+      ],
+      "sec03-vehicle-operation": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "sec04-parking-roundabouts": [
+        30,
+        31
+      ],
+      "sec05-police-signals": [
+        32,
+        33
+      ],
+      "sec06-signs-markings": [
+        34,
+        35,
+        36,
+        37
+      ],
+      "sec07-sharing-road": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "sec08-buses-railroads": [
+        43,
+        44,
+        45,
+        46
+      ],
+      "sec09-hazardous-conditions": [
+        47,
+        48,
+        49,
+        50
+      ],
+      "sec10-interstates": [
+        51,
+        52
+      ],
+      "sec11-impairment": [
+        53,
+        54
+      ],
+      "sec12-distraction": [
+        55,
+        56
+      ],
+      "sec13-points": [
+        65
+      ],
+      "sec14-vehicle-ownership": [
+        66,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    "section_titles": {
+      "sec01-licensing": "Licensing and knowledge examination",
+      "sec02-graduated-licensing": "Graduated driver licensing",
+      "sec03-vehicle-operation": "Starting, turning, passing and intersections",
+      "sec04-parking-roundabouts": "Parking and roundabouts",
+      "sec05-police-signals": "Police stops, move over and traffic lights",
+      "sec06-signs-markings": "Road signs and highway markings",
+      "sec07-sharing-road": "Sharing the road with vulnerable users and trucks",
+      "sec08-buses-railroads": "School buses, railroads and slow vehicles",
+      "sec09-hazardous-conditions": "Hazardous driving conditions",
+      "sec10-interstates": "Interstate driving",
+      "sec11-impairment": "Impaired driving",
+      "sec12-distraction": "Distracted driving",
+      "sec13-points": "Point system",
+      "sec14-vehicle-ownership": "Vehicle ownership, insurance and maintenance"
+    },
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-vt-class-std/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "1f6aed6f74b62fd4d024e8680d5295206e529f413492bbe24fe0f3144b73a884"
+    },
+    "coverage_manifest_ref": null,
+    "depth_floor": {
+      "C": {
+        "min_fact_blocks": 10,
+        "min_code_points": 2500
+      },
+      "A": {
+        "min_fact_blocks": 0,
+        "min_code_points": 400
+      },
+      "default": {
+        "min_fact_blocks": 0,
+        "min_code_points": 200
+      },
+      "note": "per 02 chunk; C is the knowledge section; set for a ~12-page handbook section (Section 9); attempt lineage2#1 had 10 fact blocks/4625cp in C; lineage2#2 was 9 sections × ~145cp (hollow) — this floor exists because of it"
+    }
+  },
+  "execution": {
+    "executor_id": "01a18584-941e-7013-8fb3-6aa5e89ddeeb",
+    "lock_ref": "EXECUTOR.lock.md",
+    "run_write_root": "runs/2026-10-28-rdmv-vt-class-std",
+    "ledger": {
+      "kind": "sqlite",
+      "driver": "node:sqlite",
+      "path": "ledger/run.sqlite",
+      "journal_mode": "WAL",
+      "synchronous": "FULL"
+    },
+    "adapter_validation_receipts_ref": {
+      "path": "coordination/SOL-BELT-AMENDMENT-ADAPTER-RECEIPT-20261028.json",
+      "sha256": "dd35f06ea4cbac78f4efa8c5df3f6dbefdf1c768306cb58a216d8003963f79a3"
+    },
+    "retry_nonces": {},
+    "current_intake_authority_ref": {
+      "path": "runs/2026-10-28-rdmv-vt-class-std/approvals/INTAKE-AUTHORITY.json",
+      "sha256": "0f80a0699a3fea10140c3e84deef496dc604dd1bd9c00542a8c13868ed5b84ad"
+    },
+    "standing_authority_ref": {
+      "path": "runs/2026-10-28-rdmv-vt-class-std/approvals/STANDING-AUTHORITY-current.json",
+      "sha256": "e8d251f85f134fb9607e54bd5688c1231495d1c247f159ca3177a313c12c6909"
+    }
+  },
+  "state_selection": {
+    "status": "confirmed",
+    "confirmed_by": "founder",
+    "jurisdiction": "US-VT",
+    "evidence": "here u go.. 5 states at a time.. Work in D:\\nova\\fb-ai-hackathon.\n\nRead and execute coordination\\SOL-REMAINING-NINE-SESSION-PROMPT.md.\n\nI authorize AR MS WV NH RI VT AK ND DC, using five worker lanes.\n\n\nFollow the amended belt, track actual usage, and require native completion checks.\nNo paid API, audio, onboarding, publishing or commits.",
+    "recorded_by": "gpt-6.1-sol (Sol state worker)",
+    "confirmed_at_utc": "2026-10-29T02:36:13.941Z"
+  },
+  "intake_provenance": {
+    "spec_ref": {
+      "path": "coordination/intake/VT.spec.json",
+      "sha256": "1de6a5efe1ddc9320439eb8c749f3576c3a0b3d7a935e61d822000e20c1a4460"
+    },
+    "current_authority_ref": {
+      "path": "coordination/SOL-REMAINING-NINE-AUTHORITY-20261028.json",
+      "sha256": "0f80a0699a3fea10140c3e84deef496dc604dd1bd9c00542a8c13868ed5b84ad"
+    },
+    "actual_executor_id": "01a18584-941e-7013-8fb3-6aa5e89ddeeb",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "identity": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed"
+    }
+  },
+  "seeded_from": {
+    "run_id": "2026-10-26-rdmv-ut-class-d",
+    "config_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/run-config.json",
+      "sha256": "81de9122c028cbe33cd6ac563f56b88626141153c937be32b10ff8b8e0db6cb7"
+    },
+    "learning_loop_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/19-learning-loop.json",
+      "sha256": "cec2ff5234d1761d3b2612eabca489c66287e1a87a239f22bc3d438c02d3f45d"
+    },
+    "at": "2026-10-29T02:45:02.202Z",
+    "by": "tools/belt/intake-state.mjs"
+  }
+}
