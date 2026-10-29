@@ -14,3 +14,13 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T03:54:28.362Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:4 for 02.dossier_sections (sec01-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-licensing__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:54:29.279Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:5 for 02.dossier_sections (sec01-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec01-licensing__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:19.454Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:6 for 02.dossier_sections (sec02-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-graduated-licensing__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:20.447Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:7 for 02.dossier_sections (sec02-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-graduated-licensing__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:21.437Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:8 for 02.dossier_sections (sec02-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-graduated-licensing__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:22.453Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:9 for 02.dossier_sections (sec02-graduated-licensing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec02-graduated-licensing__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:23.537Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:10 for 02.dossier_sections (sec03-vehicle-operation) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-operation__C__n0 (lineage attempts exhausted)
