@@ -1,0 +1,202 @@
+{
+  "minted_by": {
+    "model": "deterministic-script:no-model",
+    "lane": "tool_assisted",
+    "pass": "intake-template-copy",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "identity": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed"
+    },
+    "template_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/19-learning-loop.json",
+      "sha256": "cec2ff5234d1761d3b2612eabca489c66287e1a87a239f22bc3d438c02d3f45d"
+    }
+  },
+  "probe": "rdmv-vt-class-std",
+  "schema_version": "1.0.0",
+  "loop_version": "rdmv-vt-class-std-intake-1",
+  "source_refs": {
+    "knowledge_graph": "pending:03.combined_kg",
+    "curriculum_unit_hints": "pending:03.combined_kg"
+  },
+  "user_cycle": [
+    "session",
+    "flashcards",
+    "module_quiz",
+    "missed_review",
+    "spaced_review",
+    "mock_exam"
+  ],
+  "teach_mode": {
+    "audio_autoplay_on_advance": false,
+    "first_card_waits_for_start": true,
+    "manual_replay": false,
+    "mark_for_review": true,
+    "pilot_note": "text-first pilot; no rendered audio (contracts/media-disposition.json)"
+  },
+  "module_quiz": {
+    "placement": "immediately_after_module_study",
+    "items_per_card": 1,
+    "instant_feedback_with_rationale": true,
+    "audio": "none"
+  },
+  "missed_pool": {
+    "scope": "global",
+    "persistent_across_sessions": true,
+    "sources": [
+      "quiz_miss",
+      "marked_card",
+      "practice_test_miss"
+    ]
+  },
+  "review_missed": {
+    "fixed_rule": "every missed item re-asked in the next session before new material; cleared after two consecutive correct answers",
+    "session_attempt_cap": 3,
+    "on_cap": "reenter_via_interval_ladder"
+  },
+  "mastery_gate": {
+    "quiz_threshold_pct": 80,
+    "missed_items_must_be_cleared": true,
+    "blocks_navigation": false,
+    "policy_kind": "product_policy",
+    "policy_note": "80 is the pilot's mastery bar for module quizzes; it is product policy, not the Vermont exam pass mark (which is separately verified at 80% in run-config exam_facts)"
+  },
+  "spaced_reentry": {
+    "interval_ladder_days": [
+      1,
+      3,
+      7,
+      16,
+      35
+    ],
+    "ease_default": 2.5,
+    "review_due_surfaced_on_home": true
+  },
+  "readiness": {
+    "bands": [
+      "not_started",
+      "developing",
+      "progressing",
+      "ready"
+    ],
+    "study_pct_threshold": 70,
+    "quiz_accuracy_threshold": 75,
+    "mock_unlock_rule": "practice test (50-item form, authored, practice-only) unlocks when every studied module quiz is at or above the mastery gate; no pass prediction is shown"
+  },
+  "audio_placement": {
+    "teach_mode": "autoplay",
+    "review_missed": "manual_replay",
+    "quizzes": "none",
+    "mocks": "none",
+    "pilot_note": "placement declared for schema parity; no audio is rendered in the text-first pilot"
+  },
+  "audio_teacher_loop": {
+    "provider": "openai_audio_api",
+    "generation_mode": "pre_generated_batch",
+    "surfaces": [
+      "session",
+      "flashcards",
+      "review_missed",
+      "spaced_review"
+    ],
+    "silent_surfaces": [
+      "module_quiz",
+      "mock_exam"
+    ],
+    "runtime_live_tts": false,
+    "output_manifest": "AudioAssetManifest",
+    "pilot_status": "DEFERRED_TEXT_FIRST — describes the target Nova teacher loop required by the parent schema; NO audio is rendered in this pilot (contracts/media-disposition.json: rendered_audio_required false, role 20 inactive). Any 09 package must not claim an active audio provider."
+  },
+  "modules": [
+    {
+      "module_id": "m.sec01-licensing",
+      "order": 1,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec02-graduated-licensing",
+      "order": 2,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec03-vehicle-operation",
+      "order": 3,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec04-parking-roundabouts",
+      "order": 4,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec05-police-signals",
+      "order": 5,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec06-signs-markings",
+      "order": 6,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec07-sharing-road",
+      "order": 7,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec08-buses-railroads",
+      "order": 8,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec09-hazardous-conditions",
+      "order": 9,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec10-interstates",
+      "order": 10,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec11-impairment",
+      "order": 11,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec12-distraction",
+      "order": 12,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec13-points",
+      "order": 13,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    },
+    {
+      "module_id": "m.sec14-vehicle-ownership",
+      "order": 14,
+      "card_count": 0,
+      "quiz_ref": "pending:06.exam_bank"
+    }
+  ],
+  "calibrated_from": {
+    "basis": "lane-local pilot policy; intervals and bands follow the Nova learning-science contract shape; no learner data yet"
+  }
+}

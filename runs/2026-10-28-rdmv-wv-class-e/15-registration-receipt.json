@@ -1,0 +1,132 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "3732cfe940ca042b7ebd89479190753382c4f167a752172ccbc6326f42d129ad",
+    "bytes": 32041
+  },
+  "source": {
+    "source_ref": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook",
+    "path": "runs/2026-10-28-rdmv-wv-class-e/sources/private/Drivers_Licensing_Handbook.pdf",
+    "sha256": "45082246ab6df6c75d0968a680b6a7ad26d334aeb2e547871dea3fd7c7828a7a",
+    "bytes": 17209872,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-wv-class-e/sources/private/input-snapshots/41bbaed1a857470ac5d356f3c2425bb41b2c6a9906e686863878591a7ee68b52.json",
+      "sha256": "41bbaed1a857470ac5d356f3c2425bb41b2c6a9906e686863878591a7ee68b52"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 90,
+    "printed_page_count": 0,
+    "page_map_sha256": "5f98bbd2cc30d215dae1dcca16e57bd31158fa47382e6d01e066780ab19e63b5",
+    "extracted_text_sha256": "6f58e354af8c5a918eb7846ad3c52af21301e3eb74d37d4ab7fd299a92164c9c",
+    "recorded_retrieved_at": "2026-10-28T17:52:23Z",
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": "Revised 07/2026",
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-wv-class-e/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "b3975e7b2419b93093ef86fb02f9af4cf1ed65c9a1f8c3c53a2f8e1d438fbfc0"
+    },
+    "issuer_confirmation": {
+      "receipt_ref": {
+        "path": "runs/2026-10-28-rdmv-wv-class-e/receipts/issuer-current-edition-confirmation.json",
+        "sha256": "7dbb561b9c0683e96b7d465c3ff13f8cb3fc9001ba7f1410996fca09dd14d0e6"
+      },
+      "observed_at_utc": "2026-10-29T02:40:43.211Z",
+      "official_page_url": "https://dmv.wv.gov/driver-services/drivers/drivers-licensing-handbooks",
+      "observation_method": "Explicit intake rendered-page excerpt; saved bytes are JSON, not HTTP response bytes.",
+      "recorder": {
+        "actor": "gpt-6.1-sol (Sol state worker)",
+        "session_id": "01a18584-ba24-7c11-9bf5-c17c0d5c3541"
+      },
+      "page_snapshot_ref": {
+        "path": "runs/2026-10-28-rdmv-wv-class-e/receipts/issuer-page-snapshot.json",
+        "sha256": "6efc5ab0db1ecf27edad6a7d92a3dfc3dcb97053ecf728c050344be9d88c4cfb",
+        "bytes": 1048,
+        "snapshot_kind": "rendered_dom_excerpt"
+      },
+      "evidence_strength": "HASHED_RENDERED_DOM_SNAPSHOT_NOT_HTTP_BYTES",
+      "recorded_effective_date_disposition": {
+        "value": null,
+        "reason": "No effective-date assertion supplied; remains verification debt"
+      },
+      "disposition_acceptance": "recorded_dated_effective_date_debt_not_full_liveness_PASS",
+      "proposed_liveness_status": "CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT"
+    },
+    "fact_authority_eligible": true,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "image_only_pages_need_review",
+      "field": "rights_and_frontmatter_review",
+      "reason": "Physical PDF pages 86, 88, 89 contain no extractable text. A scoped visual annotation, if bound, resolves only its stated observation; no OCR or complete visual clearance is claimed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "retrieval_assertion_not_independently_verified",
+      "field": "retrieved_at",
+      "reason": "Date is the existing run-config download assertion, bound by config hash; no independent HTTP/download receipt was found or fabricated.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-wv-class-e/sources/private/input-snapshots/41bbaed1a857470ac5d356f3c2425bb41b2c6a9906e686863878591a7ee68b52.json",
+          "sha256": "41bbaed1a857470ac5d356f3c2425bb41b2c6a9906e686863878591a7ee68b52"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "2261abaab8e2b1aaff5b8a336e3bfcf845adaa75847f0210442061783d7f9afb",
+      "bytes": 39397,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "5f98bbd2cc30d215dae1dcca16e57bd31158fa47382e6d01e066780ab19e63b5",
+      "bytes": 59908,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "15-source-liveness.json",
+      "sha256": "9a1fb68777f5e9d5c4b27899084cc233b265410fee506dfe6554447a61ea026e",
+      "bytes": 1010,
+      "kind": "15-source-liveness.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "6f58e354af8c5a918eb7846ad3c52af21301e3eb74d37d4ab7fd299a92164c9c",
+      "bytes": 236965,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "712109aa4530b55d8ce166b88526c86df552dd2a68a4ad0225ce30c731bb580c",
+      "bytes": 748,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "15-effective-date-dispositions.json",
+      "sha256": "2177b07d4e31547f4f7c5eb2f85b6ec38286f4e3e7bd7a894b4d82f13cd677d3",
+      "bytes": 553,
+      "kind": "accepted_dispositions"
+    }
+  ],
+  "content_calls": 0
+}
