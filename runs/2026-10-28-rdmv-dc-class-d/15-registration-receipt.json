@@ -1,0 +1,107 @@
+{
+  "schema_version": "role15-registration-receipt.v0.4.0",
+  "status": "HOLD",
+  "script_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\tools\\roles\\15-register.mjs",
+    "sha256": "3732cfe940ca042b7ebd89479190753382c4f167a752172ccbc6326f42d129ad",
+    "bytes": 32041
+  },
+  "source": {
+    "source_ref": "src:rdmv-dc-class-d:district-of-columbia-department-of-motor:handbook",
+    "path": "runs/2026-10-28-rdmv-dc-class-d/sources/private/dc_dmv_driver_manual_english_revised_final.pdf",
+    "sha256": "2ecc3155926b55b62d33fb2f3fe9687be1a0a92d8c0604b0f89fa3c649f7ea3c",
+    "bytes": 3872788,
+    "config_ref": {
+      "path": "runs/2026-10-28-rdmv-dc-class-d/sources/private/input-snapshots/3040e6e2b5b12f2544e979486ec52b890e3fff6c6506ceb84d6735a4203749fd.json",
+      "sha256": "3040e6e2b5b12f2544e979486ec52b890e3fff6c6506ceb84d6735a4203749fd"
+    },
+    "configured_hash_matches": true,
+    "pdf_page_count": 59,
+    "printed_page_count": 56,
+    "page_map_sha256": "06316d320e817a29e523a72a499a6162c1b2e0106147e7cf2208ab346ecc8f7c",
+    "extracted_text_sha256": "d3b995de64f779c6842c8f42c60c260d3c5b9c88f2eecee73c21484cb744056d",
+    "recorded_retrieved_at": null,
+    "retrieval_basis": "run_config_assertion_only",
+    "edition": null,
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-dc-class-d/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "4bd53a1a069dc4f81908caf7d6343080b9d232826fc2c8eda68f47555dd19705"
+    },
+    "issuer_confirmation": null,
+    "fact_authority_eligible": false,
+    "independent_fact_audit_status": "pending07/08",
+    "no_network": true,
+    "no_models": true,
+    "original_pdf_copied": false
+  },
+  "verification_debt": [
+    {
+      "code": "edition_unconfirmed",
+      "field": "edition",
+      "reason": "No edition has been independently confirmed. Filename/year and law-section headings are not edition evidence.",
+      "evidence_refs": []
+    },
+    {
+      "code": "effective_date_unconfirmed",
+      "field": "effective_date",
+      "reason": "Front-matter law effective dates are recorded as contextual evidence, not promoted to handbook effective date.",
+      "evidence_refs": []
+    },
+    {
+      "code": "issuer_current_edition_unconfirmed",
+      "field": "issuer_current_edition_ref",
+      "reason": "No dated issuer current-edition observation was supplied; this offline role does not fetch one.",
+      "evidence_refs": []
+    },
+    {
+      "code": "image_only_pages_need_review",
+      "field": "rights_and_frontmatter_review",
+      "reason": "Physical PDF pages 1, 59 contain no extractable text. A scoped visual annotation, if bound, resolves only its stated observation; no OCR or complete visual clearance is claimed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "rights_review_incomplete",
+      "field": "rights_notices",
+      "reason": "Text-matched attributions are captured verbatim. Absence of a copyright text match is not redistribution permission; image-only pages remain unreviewed.",
+      "evidence_refs": []
+    },
+    {
+      "code": "retrieval_time_unknown",
+      "field": "retrieved_at",
+      "reason": "No valid recorded download timestamp exists. Local mtime and current registration time are not retrieval evidence.",
+      "evidence_refs": [
+        {
+          "path": "runs/2026-10-28-rdmv-dc-class-d/sources/private/input-snapshots/3040e6e2b5b12f2544e979486ec52b890e3fff6c6506ceb84d6735a4203749fd.json",
+          "sha256": "3040e6e2b5b12f2544e979486ec52b890e3fff6c6506ceb84d6735a4203749fd"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "15-source-registry.json",
+      "sha256": "5f45b9e7b912af8aaf75bd9edc37c7a2f970c6898185ebaf59339dc7519cc7fa",
+      "bytes": 27759,
+      "kind": "15-source-registry.json"
+    },
+    {
+      "path": "15-page-map.json",
+      "sha256": "06316d320e817a29e523a72a499a6162c1b2e0106147e7cf2208ab346ecc8f7c",
+      "bytes": 48971,
+      "kind": "15-page-map.json"
+    },
+    {
+      "path": "sources/private/15-source-text.txt",
+      "sha256": "d3b995de64f779c6842c8f42c60c260d3c5b9c88f2eecee73c21484cb744056d",
+      "bytes": 153441,
+      "kind": "private_source_evidence"
+    },
+    {
+      "path": "sources/private/15-extraction-receipt.json",
+      "sha256": "01de2fbeb966fb8ac4a309874d8b6203a650ad920e1ce27324cd7f51dc265a1d",
+      "bytes": 739,
+      "kind": "private_source_evidence"
+    }
+  ],
+  "content_calls": 0
+}

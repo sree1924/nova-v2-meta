@@ -1,0 +1,388 @@
+{
+  "schema_version": "rdmv.run-config.draft.0.2.0",
+  "run_id": "2026-10-28-rdmv-ak-class-d",
+  "working_product_id": "rdmv-ak-d",
+  "candidate_lineage_id": "2026-10-28-rdmv-ak-class-d:lineage:54",
+  "status": "STATE_SELECTED_BY_EXPLICIT_INTAKE_SOURCE_VERIFY_PENDING",
+  "execution_enabled": true,
+  "producer": {
+    "provider": "meta",
+    "endpoint_profile_ref": "https://api.meta.ai/v1/chat/completions; response_format json_schema strict:true with schemas-strict/* adapters",
+    "model": "muse-spark-1.3",
+    "model_is_candidate_until_qualified": true,
+    "key_env_name": "MODEL_API_KEY",
+    "contributor_mode_allowed": false,
+    "qualification_task": "Role 04 cards for ONE text-first handbook chapter (Sol/founder pick; road signs deferred per media disposition)",
+    "role_bindings_ref": "../../contracts/bot-contract-bindings.json#/roles",
+    "adapters_ref": "../../schemas-strict/stage-map.json",
+    "post_validator_ref": "../../tools/belt/post-validate.mjs",
+    "pricing_ref": {
+      "path": "contracts/meta-pricing-snapshot.v0.4.0.json",
+      "sha256": "2c61a45f146f396ec1ded19d0f6235ef04fc1138693fe618f0603fb2c147eb47"
+    },
+    "billing_mode": "credits",
+    "billing_mode_detail": {
+      "mode": "meta_free_credits",
+      "decided_by": "founder chat 2026-10-27 (\"credits\")",
+      "dashboard_clause": "While using free credits your content may be used for product improvement (dev.meta.ai billing, 2026-10-26)",
+      "hard_rule": "No NOVA V1 artifact (citizenship or any other line) is ever sent to the Meta API under credits; only Utah-lane inputs (handbook facts, lane artifacts) go to the model.",
+      "credit_balance_observed_usd": 149.98,
+      "observed_at": "2026-10-26"
+    }
+  },
+  "limits": {
+    "max_active_probe_runs": 1,
+    "max_parallel_curriculum_jobs": 1,
+    "max_parallel_audit_jobs": 2,
+    "max_automatic_attempts_per_logical_task": 2,
+    "max_candidate_remediation_cycles": 1,
+    "max_total_usd": 60,
+    "max_call_usd": 1,
+    "per_provider_usd_caps": {
+      "meta": 60,
+      "openai": 0,
+      "anthropic": 0,
+      "google": 0,
+      "media": 0
+    },
+    "pricing_snapshot_ref": "../../ENV-SETUP.md#meta-model-api (2026-10-26)",
+    "run_deadline_utc": "2026-11-05T02:00:00Z",
+    "spend_mode": "live",
+    "per_role_usd_caps": {
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "02": 40,
+      "03": 10,
+      "04": 10,
+      "05": 14,
+      "06": 8,
+      "19A": 0
+    },
+    "max_completion_tokens": 30000,
+    "per_role_usd_caps_note": "per-role SUB-caps for the 16-section Utah run (raised 2026-10-27 20:02Z from the single-section pilot values 12/5/5/5/3 after BUDGET_CAP_EXCEEDED on sec07; the binding cap is the standing-authority total, limits.max_total_usd)",
+    "max_completion_tokens_note": "raised 8000→30000 on 2026-10-27 after attempt aafbd5e9 hit finish_reason=length with 6453/8000 tokens consumed by reasoning at reasoning_effort low (JAM-UT-02); worst case ≈ $0.20/call at list price, under the $1 per-call reservation",
+    "max_request_bytes": 640000,
+    "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority"
+  },
+  "audit_pool": {
+    "required_providers": [
+      "openai",
+      "anthropic"
+    ],
+    "note": "two-family independence per tools/check-audit-independence.mjs; Claude Code sessions that touched candidate bytes are disqualified for that candidate"
+  },
+  "baseline": {
+    "kind": "none_new_product",
+    "existing_dmv_v1_verified": false,
+    "methodology_control_ref": "../../baseline/citizenship/BASELINE.json"
+  },
+  "authoring": {
+    "mode": "native_file_transport",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "identity": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed"
+    }
+  },
+  "scope": {
+    "application_path": "first_time_never_licensed",
+    "language": "en",
+    "coverage_kind": "full_knowledge_test",
+    "jurisdiction": "US-AK",
+    "jurisdiction_selected_by": "alright none of the new ones working want to take three at a time from here and u acing as head?\n\nnew states\n\nadd this so these two sent back to claude.. Sol — NO-GO on two states (founder, 2026-10-29 ~02:30Z). West Virginia and Vermont are now owned by Claude cloud sessions, starting from the intake you registered (runs/2026-10-28-rdmv-wv-class-e and runs/2026-10-28-rdmv-vt-class-std, ledgers committed). Do not run any belt command on those two runs, do not touch their run dirs, specs or QUEUE rows; close your West Virginia lane now, even if a step is mid-flight (delete any .tmp outbox you own there, write nothing else). Replace that lane with Alaska or North Dakota. Your lanes are: Arkansas, Mississippi, New Hampshire, Rhode Island, plus the replacement. IL OH GA MA LA stay yours after these. Report the intake rejection you hit on AR and MS (unknown exam pass score refused at intake) as a one-paragraph note in coordination/SOL-REPORTS/INTAKE-REJECTION-AR-MS.md with the exact error text and the spec fields you used; exam facts not stated in the handbook are null + typed debt, so if the registrar refuses null the coordinator owns that fix, not you.",
+    "issuing_authority": "Alaska Department of Administration, Division of Motor Vehicles (DMV)",
+    "license_or_permit_class": "Class D (passenger vehicles; physical PDF page 6, printed page 2)",
+    "handbook_edition": "Alaska Driver Manual REV.10/2025",
+    "handbook_url": "https://dmv.alaska.gov/media/t5ef5vi2/dlman.pdf",
+    "handbook_local_snapshot": "runs/2026-10-28-rdmv-ak-class-d/sources/private/dlman.pdf",
+    "handbook_sha256": "779ca2b672e248b9373effcd1381726aac1979fc19c20c4d9e767476b7bb1ebd",
+    "handbook_snapshot_bytes": 6835064,
+    "handbook_retrieved_at_utc": "2026-10-28T17:52:28Z",
+    "source_origin": {
+      "kind": "official_pdf",
+      "issuer_current_edition_confirmed": false
+    },
+    "issuer_page_domains": [
+      "dmv.alaska.gov"
+    ],
+    "exam_facts": {
+      "question_count": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "passing_percent": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "time_limit": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "format": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      }
+    },
+    "exam_facts_provenance": {
+      "note": "Physical11/printed7 written-test section states content and retake timing, no passing score, question count or time limit; search of extracted manual found no such statements. Preserve unknowns. Source current-edition confirmation missing; source debt preserved.",
+      "passing_score_observation_ref": null,
+      "issuer_confirmation_ref": null,
+      "intake_spec_ref": {
+        "path": "coordination/intake/AK.spec.json",
+        "sha256": "62e89db84a1332169ad9948262ca859d8071322d1d2578fa2884b04d3203a44a"
+      }
+    },
+    "section_page_ranges": {
+      "sec01-licensing-and-examination": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "sec02-financial-responsibility-and-crashes": [
+        14,
+        15
+      ],
+      "sec03-points-and-license-actions": [
+        16,
+        17
+      ],
+      "sec04-alcohol-and-drugs": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "sec05-restraints-and-distractions": [
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "sec06-vehicle-control-speed-and-signals": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "sec07-turns-intersections-and-passing": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "sec08-traffic-signs-and-work-zones": [
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "sec09-sharing-the-road": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "sec10-traffic-signals": [
+        55,
+        56,
+        57,
+        58
+      ],
+      "sec11-pavement-markings-and-railroads": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "sec12-night-driving-and-highways": [
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "sec13-weather-animals-and-skids": [
+        71,
+        72,
+        73
+      ],
+      "sec14-parking-emergency-vehicles-and-emergencies": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "sec15-equipment-and-large-vehicles": [
+        80,
+        81,
+        82,
+        83
+      ],
+      "sec16-flooding-and-efficient-driving": [
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "sec17-maintenance-and-secured-loads": [
+        89,
+        90,
+        91
+      ],
+      "sec18-driving-responsibilities": [
+        94
+      ]
+    },
+    "section_titles": {
+      "sec01-licensing-and-examination": "Licensing and examination",
+      "sec02-financial-responsibility-and-crashes": "Financial responsibility and crashes",
+      "sec03-points-and-license-actions": "Points and license actions",
+      "sec04-alcohol-and-drugs": "Alcohol and drugs",
+      "sec05-restraints-and-distractions": "Restraints and distractions",
+      "sec06-vehicle-control-speed-and-signals": "Vehicle control speed and signals",
+      "sec07-turns-intersections-and-passing": "Turns intersections and passing",
+      "sec08-traffic-signs-and-work-zones": "Traffic signs and work zones",
+      "sec09-sharing-the-road": "Sharing the road",
+      "sec10-traffic-signals": "Traffic signals",
+      "sec11-pavement-markings-and-railroads": "Pavement markings and railroads",
+      "sec12-night-driving-and-highways": "Night driving and highways",
+      "sec13-weather-animals-and-skids": "Weather animals and skids",
+      "sec14-parking-emergency-vehicles-and-emergencies": "Parking emergency vehicles and emergencies",
+      "sec15-equipment-and-large-vehicles": "Equipment and large vehicles",
+      "sec16-flooding-and-efficient-driving": "Flooding and efficient driving",
+      "sec17-maintenance-and-secured-loads": "Maintenance and secured loads",
+      "sec18-driving-responsibilities": "Driving responsibilities"
+    },
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-ak-class-d/receipts/ROLE15-VISUAL-OBSERVATION-corrected-279c13fb91b3.json",
+      "sha256": "279c13fb91b30368eea973857a52d6716c80ec9a8494066e6f43dea3ac9fe1d7"
+    },
+    "coverage_manifest_ref": null,
+    "depth_floor": {
+      "C": {
+        "min_fact_blocks": 10,
+        "min_code_points": 2500
+      },
+      "A": {
+        "min_fact_blocks": 0,
+        "min_code_points": 400
+      },
+      "default": {
+        "min_fact_blocks": 0,
+        "min_code_points": 200
+      },
+      "note": "per 02 chunk; C is the knowledge section; set for a ~12-page handbook section (Section 9); attempt lineage2#1 had 10 fact blocks/4625cp in C; lineage2#2 was 9 sections × ~145cp (hollow) — this floor exists because of it"
+    }
+  },
+  "execution": {
+    "executor_id": "01a18584-be19-7b81-9c7c-f249d72cd487",
+    "lock_ref": "EXECUTOR.lock.md",
+    "run_write_root": "runs/2026-10-28-rdmv-ak-class-d",
+    "ledger": {
+      "kind": "sqlite",
+      "driver": "node:sqlite",
+      "path": "ledger/run.sqlite",
+      "journal_mode": "WAL",
+      "synchronous": "FULL"
+    },
+    "adapter_validation_receipts_ref": {
+      "path": "coordination/SOL-BELT-AMENDMENT-ADAPTER-RECEIPT-20261028.json",
+      "sha256": "dd35f06ea4cbac78f4efa8c5df3f6dbefdf1c768306cb58a216d8003963f79a3"
+    },
+    "retry_nonces": {},
+    "current_intake_authority_ref": {
+      "path": "runs/2026-10-28-rdmv-ak-class-d/approvals/INTAKE-AUTHORITY.json",
+      "sha256": "c473e8ba63758b3572bcaecd9794fea81d2ea29358d29293434863ce58c57b05"
+    },
+    "standing_authority_ref": {
+      "path": "runs/2026-10-28-rdmv-ak-class-d/approvals/STANDING-AUTHORITY-current.json",
+      "sha256": "e0d95fea3ee622246f7ce4b402f4bf34f4dd9c3cbf1de1c3f632af266148b549"
+    }
+  },
+  "state_selection": {
+    "status": "confirmed",
+    "confirmed_by": "founder",
+    "jurisdiction": "US-AK",
+    "evidence": "alright none of the new ones working want to take three at a time from here and u acing as head?\n\nnew states\n\nadd this so these two sent back to claude.. Sol — NO-GO on two states (founder, 2026-10-29 ~02:30Z). West Virginia and Vermont are now owned by Claude cloud sessions, starting from the intake you registered (runs/2026-10-28-rdmv-wv-class-e and runs/2026-10-28-rdmv-vt-class-std, ledgers committed). Do not run any belt command on those two runs, do not touch their run dirs, specs or QUEUE rows; close your West Virginia lane now, even if a step is mid-flight (delete any .tmp outbox you own there, write nothing else). Replace that lane with Alaska or North Dakota. Your lanes are: Arkansas, Mississippi, New Hampshire, Rhode Island, plus the replacement. IL OH GA MA LA stay yours after these. Report the intake rejection you hit on AR and MS (unknown exam pass score refused at intake) as a one-paragraph note in coordination/SOL-REPORTS/INTAKE-REJECTION-AR-MS.md with the exact error text and the spec fields you used; exam facts not stated in the handbook are null + typed debt, so if the registrar refuses null the coordinator owns that fix, not you.",
+    "recorded_by": "gpt-6.1-sol (Sol state worker)",
+    "confirmed_at_utc": "2026-10-29T03:12:48.412Z"
+  },
+  "intake_provenance": {
+    "spec_ref": {
+      "path": "coordination/intake/AK.spec.json",
+      "sha256": "62e89db84a1332169ad9948262ca859d8071322d1d2578fa2884b04d3203a44a"
+    },
+    "current_authority_ref": {
+      "path": "coordination/SOL-THREE-NEW-STATES-AUTHORITY-20261028.json",
+      "sha256": "c473e8ba63758b3572bcaecd9794fea81d2ea29358d29293434863ce58c57b05"
+    },
+    "actual_executor_id": "01a18584-be19-7b81-9c7c-f249d72cd487",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "identity": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed"
+    }
+  },
+  "seeded_from": {
+    "run_id": "2026-10-26-rdmv-ut-class-d",
+    "config_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/run-config.json",
+      "sha256": "81de9122c028cbe33cd6ac563f56b88626141153c937be32b10ff8b8e0db6cb7"
+    },
+    "learning_loop_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/19-learning-loop.json",
+      "sha256": "cec2ff5234d1761d3b2612eabca489c66287e1a87a239f22bc3d438c02d3f45d"
+    },
+    "at": "2026-10-29T03:15:36.671Z",
+    "by": "tools/belt/intake-state.mjs"
+  },
+  "candidate_lineage_reset_ref": {
+    "path": "runs/2026-10-28-rdmv-ak-class-d/receipts/accepted-capacity-7ff73f20163096f4.json",
+    "sha256": "7ff73f20163096f43395b16a49305555d3b59c1879b416d5ca4430ef86a93a2a"
+  }
+}

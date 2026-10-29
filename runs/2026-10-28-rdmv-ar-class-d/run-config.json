@@ -1,0 +1,376 @@
+{
+  "schema_version": "rdmv.run-config.draft.0.2.0",
+  "run_id": "2026-10-28-rdmv-ar-class-d",
+  "working_product_id": "rdmv-ar-class-d",
+  "candidate_lineage_id": "2026-10-28-rdmv-ar-class-d:lineage:23",
+  "status": "STATE_SELECTED_BY_EXPLICIT_INTAKE_SOURCE_VERIFY_PENDING",
+  "execution_enabled": true,
+  "producer": {
+    "provider": "meta",
+    "endpoint_profile_ref": "https://api.meta.ai/v1/chat/completions; response_format json_schema strict:true with schemas-strict/* adapters",
+    "model": "muse-spark-1.3",
+    "model_is_candidate_until_qualified": true,
+    "key_env_name": "MODEL_API_KEY",
+    "contributor_mode_allowed": false,
+    "qualification_task": "Role 04 cards for ONE text-first handbook chapter (Sol/founder pick; road signs deferred per media disposition)",
+    "role_bindings_ref": "../../contracts/bot-contract-bindings.json#/roles",
+    "adapters_ref": "../../schemas-strict/stage-map.json",
+    "post_validator_ref": "../../tools/belt/post-validate.mjs",
+    "pricing_ref": {
+      "path": "contracts/meta-pricing-snapshot.v0.4.0.json",
+      "sha256": "2c61a45f146f396ec1ded19d0f6235ef04fc1138693fe618f0603fb2c147eb47"
+    },
+    "billing_mode": "credits",
+    "billing_mode_detail": {
+      "mode": "meta_free_credits",
+      "decided_by": "founder chat 2026-10-27 (\"credits\")",
+      "dashboard_clause": "While using free credits your content may be used for product improvement (dev.meta.ai billing, 2026-10-26)",
+      "hard_rule": "No NOVA V1 artifact (citizenship or any other line) is ever sent to the Meta API under credits; only Utah-lane inputs (handbook facts, lane artifacts) go to the model.",
+      "credit_balance_observed_usd": 149.98,
+      "observed_at": "2026-10-26"
+    }
+  },
+  "limits": {
+    "max_active_probe_runs": 1,
+    "max_parallel_curriculum_jobs": 1,
+    "max_parallel_audit_jobs": 2,
+    "max_automatic_attempts_per_logical_task": 2,
+    "max_candidate_remediation_cycles": 1,
+    "max_total_usd": 60,
+    "max_call_usd": 1,
+    "per_provider_usd_caps": {
+      "meta": 60,
+      "openai": 0,
+      "anthropic": 0,
+      "google": 0,
+      "media": 0
+    },
+    "pricing_snapshot_ref": "../../ENV-SETUP.md#meta-model-api (2026-10-26)",
+    "run_deadline_utc": "2026-11-05T02:00:00Z",
+    "spend_mode": "live",
+    "per_role_usd_caps": {
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "02": 40,
+      "03": 10,
+      "04": 10,
+      "05": 14,
+      "06": 8,
+      "19A": 0
+    },
+    "max_completion_tokens": 30000,
+    "per_role_usd_caps_note": "per-role SUB-caps for the 16-section Utah run (raised 2026-10-27 20:02Z from the single-section pilot values 12/5/5/5/3 after BUDGET_CAP_EXCEEDED on sec07; the binding cap is the standing-authority total, limits.max_total_usd)",
+    "max_completion_tokens_note": "raised 8000→30000 on 2026-10-27 after attempt aafbd5e9 hit finish_reason=length with 6453/8000 tokens consumed by reasoning at reasoning_effort low (JAM-UT-02); worst case ≈ $0.20/call at list price, under the $1 per-call reservation",
+    "max_request_bytes": 640000,
+    "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority"
+  },
+  "audit_pool": {
+    "required_providers": [
+      "openai",
+      "anthropic"
+    ],
+    "note": "two-family independence per tools/check-audit-independence.mjs; Claude Code sessions that touched candidate bytes are disqualified for that candidate"
+  },
+  "baseline": {
+    "kind": "none_new_product",
+    "existing_dmv_v1_verified": false,
+    "methodology_control_ref": "../../baseline/citizenship/BASELINE.json"
+  },
+  "authoring": {
+    "mode": "native authenticated museFileTransport; actual gpt-6.1-sol subscription author",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed",
+      "identity": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)"
+    }
+  },
+  "scope": {
+    "application_path": "first_time_never_licensed",
+    "language": "en",
+    "coverage_kind": "full_knowledge_test",
+    "jurisdiction": "US-AR",
+    "jurisdiction_selected_by": "alright none of the new ones working want to take three at a time from here and u acing as head?\nnew states\nadd this so these two sent back to claude.. Sol — NO-GO on two states (founder, 2026-10-29 ~02:30Z). West Virginia and Vermont are now owned by Claude cloud sessions, starting from the intake you registered (runs/2026-10-28-rdmv-wv-class-e and runs/2026-10-28-rdmv-vt-class-std, ledgers committed). Do not run any belt command on those two runs, do not touch their run dirs, specs or QUEUE rows; close your West Virginia lane now, even if a step is mid-flight (delete any .tmp outbox you own there, write nothing else). Replace that lane with Alaska or North Dakota. Your lanes are: Arkansas, Mississippi, New Hampshire, Rhode Island, plus the replacement. IL OH GA MA LA stay yours after these. Report the intake rejection you hit on AR and MS (unknown exam pass score refused at intake) as a one-paragraph note in coordination/SOL-REPORTS/INTAKE-REJECTION-AR-MS.md with the exact error text and the spec fields you used; exam facts not stated in the handbook are null + typed debt, so if the registrar refuses null the coordinator owns that fix, not you.",
+    "issuing_authority": "Arkansas State Police (ASP), Driver Examination (Arkansas Department of Public Safety)",
+    "license_or_permit_class": "Class D (regular non-commercial passenger vehicle)",
+    "handbook_edition": "Arkansas Driver License Study Guide Volume 1 – Edition 10, October 2026",
+    "handbook_url": "https://media.ark.org/dps/Arkansas-DL-Study-Guide-English_10282026.pdf",
+    "handbook_local_snapshot": "runs/2026-10-28-rdmv-ar-class-d/sources/private/Arkansas-DL-Study-Guide-English_10282026.pdf",
+    "handbook_sha256": "1b65c17ae146d4bb5b333b0e82a53db6fe0db6e749ed5ff034983494635b1479",
+    "handbook_snapshot_bytes": 14972647,
+    "handbook_retrieved_at_utc": "2026-10-28T17:57:47Z",
+    "source_origin": {
+      "kind": "official_pdf"
+    },
+    "issuer_page_domains": [
+      "dps.arkansas.gov",
+      "media.ark.org"
+    ],
+    "exam_facts": {
+      "question_count": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "passing_percent": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "time_limit": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "format": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      }
+    },
+    "exam_facts_provenance": {
+      "note": "Written-test count, passing score and time limit not located in the supplied extracted source; preserve unknowns.",
+      "passing_score_observation_ref": null,
+      "issuer_confirmation_ref": null,
+      "intake_spec_ref": {
+        "path": "coordination/intake/AR.spec.json",
+        "sha256": "fea63245bf9f8ad1cb61c7e36cfed7e461b1aa9f056699e2a525c24bbd590fb5"
+      }
+    },
+    "section_page_ranges": {
+      "sec01-license": [
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "sec02-arkansas-law": [
+        2,
+        3,
+        4,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "sec03-work-zones": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "sec04-signals-signs": [
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "sec05-railroad-crossings": [
+        40,
+        41,
+        42
+      ],
+      "sec06-lanes-turns": [
+        43,
+        44,
+        45,
+        46
+      ],
+      "sec07-right-of-way": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "sec08-parking": [
+        53,
+        54
+      ],
+      "sec09-vehicle-operation-distraction": [
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "sec10-observation-backing": [
+        60,
+        61,
+        62
+      ],
+      "sec11-lights-conditions": [
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "sec12-traffic-space": [
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "sec13-trucks": [
+        76,
+        77,
+        78
+      ],
+      "sec14-bicycles-motorcycles": [
+        79,
+        80,
+        81,
+        82
+      ],
+      "sec15-fitness": [
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "sec16-emergencies-crashes": [
+        89,
+        90,
+        91,
+        92,
+        93
+      ]
+    },
+    "section_titles": {
+      "sec01-license": "Driver licenses and graduated licensing",
+      "sec02-arkansas-law": "Arkansas laws and road user duties",
+      "sec03-work-zones": "Construction and work zone safety",
+      "sec04-signals-signs": "Traffic signals and signs",
+      "sec05-railroad-crossings": "Railroad crossing safety",
+      "sec06-lanes-turns": "Lane markings, passing and turning",
+      "sec07-right-of-way": "Intersections, roundabouts and right of way",
+      "sec08-parking": "Parking restrictions and techniques",
+      "sec09-vehicle-operation-distraction": "Vehicle operation and distracted driving",
+      "sec10-observation-backing": "Observation, blind spots and backing",
+      "sec11-lights-conditions": "Visibility, signals and road conditions",
+      "sec12-traffic-space": "Traffic flow, speed, following and space",
+      "sec13-trucks": "Sharing the road with tractor trailers",
+      "sec14-bicycles-motorcycles": "Sharing the road with bicycles and motorcycles",
+      "sec15-fitness": "Driver fitness, impairment and alcohol",
+      "sec16-emergencies-crashes": "Vehicle emergencies and crashes"
+    },
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-ar-class-d/receipts/ROLE15-VISUAL-OBSERVATION-corrected.json",
+      "sha256": "d35470e33977eff26cbfe018f3034674d307421b5d6b9ffa2696c7f4bcce27f9"
+    },
+    "coverage_manifest_ref": null,
+    "depth_floor": {
+      "C": {
+        "min_fact_blocks": 10,
+        "min_code_points": 2500
+      },
+      "A": {
+        "min_fact_blocks": 0,
+        "min_code_points": 400
+      },
+      "default": {
+        "min_fact_blocks": 0,
+        "min_code_points": 200
+      },
+      "note": "per 02 chunk; C is the knowledge section; set for a ~12-page handbook section (Section 9); attempt lineage2#1 had 10 fact blocks/4625cp in C; lineage2#2 was 9 sections × ~145cp (hollow) — this floor exists because of it"
+    }
+  },
+  "execution": {
+    "executor_id": "01a18584-941e-7013-8fb3-6aa5e89ddeeb",
+    "lock_ref": "EXECUTOR.lock.md",
+    "run_write_root": "runs/2026-10-28-rdmv-ar-class-d",
+    "ledger": {
+      "kind": "sqlite",
+      "driver": "node:sqlite",
+      "path": "ledger/run.sqlite",
+      "journal_mode": "WAL",
+      "synchronous": "FULL"
+    },
+    "adapter_validation_receipts_ref": {
+      "path": "coordination/SOL-BELT-AMENDMENT-ADAPTER-RECEIPT-20261028.json",
+      "sha256": "dd35f06ea4cbac78f4efa8c5df3f6dbefdf1c768306cb58a216d8003963f79a3"
+    },
+    "retry_nonces": {},
+    "current_intake_authority_ref": {
+      "path": "runs/2026-10-28-rdmv-ar-class-d/approvals/INTAKE-AUTHORITY.json",
+      "sha256": "c473e8ba63758b3572bcaecd9794fea81d2ea29358d29293434863ce58c57b05"
+    },
+    "standing_authority_ref": {
+      "path": "runs/2026-10-28-rdmv-ar-class-d/approvals/STANDING-AUTHORITY-current.json",
+      "sha256": "4a781663d8cb43218ab47b324630abeea029e7669f497c52f6a43a4f142908ce"
+    }
+  },
+  "state_selection": {
+    "status": "confirmed",
+    "confirmed_by": "founder",
+    "jurisdiction": "US-AR",
+    "evidence": "alright none of the new ones working want to take three at a time from here and u acing as head?\nnew states\nadd this so these two sent back to claude.. Sol — NO-GO on two states (founder, 2026-10-29 ~02:30Z). West Virginia and Vermont are now owned by Claude cloud sessions, starting from the intake you registered (runs/2026-10-28-rdmv-wv-class-e and runs/2026-10-28-rdmv-vt-class-std, ledgers committed). Do not run any belt command on those two runs, do not touch their run dirs, specs or QUEUE rows; close your West Virginia lane now, even if a step is mid-flight (delete any .tmp outbox you own there, write nothing else). Replace that lane with Alaska or North Dakota. Your lanes are: Arkansas, Mississippi, New Hampshire, Rhode Island, plus the replacement. IL OH GA MA LA stay yours after these. Report the intake rejection you hit on AR and MS (unknown exam pass score refused at intake) as a one-paragraph note in coordination/SOL-REPORTS/INTAKE-REJECTION-AR-MS.md with the exact error text and the spec fields you used; exam facts not stated in the handbook are null + typed debt, so if the registrar refuses null the coordinator owns that fix, not you.",
+    "recorded_by": "gpt-6.1-sol (Sol state worker)",
+    "confirmed_at_utc": "2026-10-29T03:12:48.412Z"
+  },
+  "intake_provenance": {
+    "spec_ref": {
+      "path": "coordination/intake/AR.spec.json",
+      "sha256": "fea63245bf9f8ad1cb61c7e36cfed7e461b1aa9f056699e2a525c24bbd590fb5"
+    },
+    "current_authority_ref": {
+      "path": "coordination/SOL-THREE-NEW-STATES-AUTHORITY-20261028.json",
+      "sha256": "c473e8ba63758b3572bcaecd9794fea81d2ea29358d29293434863ce58c57b05"
+    },
+    "actual_executor_id": "01a18584-941e-7013-8fb3-6aa5e89ddeeb",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed",
+      "identity": "gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker)"
+    }
+  },
+  "seeded_from": {
+    "run_id": "2026-10-26-rdmv-ut-class-d",
+    "config_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/run-config.json",
+      "sha256": "81de9122c028cbe33cd6ac563f56b88626141153c937be32b10ff8b8e0db6cb7"
+    },
+    "learning_loop_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/19-learning-loop.json",
+      "sha256": "cec2ff5234d1761d3b2612eabca489c66287e1a87a239f22bc3d438c02d3f45d"
+    },
+    "at": "2026-10-29T03:15:17.748Z",
+    "by": "private scaffold from existing native source-registration route; no wrapper pass-score fabrication"
+  },
+  "candidate_lineage_reset_ref": {
+    "path": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-ar-class-d\\receipts\\accepted-capacity-23.json",
+    "sha256": "5ee579c209138e967c40e5c6dce79d57b550f0f23e48e849f1089a1c2078201a",
+    "previous": "D:\\nova\\fb-ai-hackathon\\runs\\2026-10-28-rdmv-ar-class-d\\receipts\\accepted-capacity-22.json"
+  }
+}

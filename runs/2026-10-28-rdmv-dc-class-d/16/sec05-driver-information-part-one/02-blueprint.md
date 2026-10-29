@@ -1,0 +1,271 @@
+## A — Authority and uncertainty
+This dossier studies the selected driver information part one pages. It preserves the accepted source snapshot while keeping its assessment debt visible. The official question count, passing standard, format and test duration remain unknown; a practice mastery threshold must never be described as an official passing score. Source revision frequency and currentness have not been established (verify DC-STABILITY). Examination policy remains nullable (verify DC-EXAM).
+## B — Audience and scope
+The audience is an District of Columbia first-time passenger-car applicant studying driver information part one. Use the exact selected source pages, plain definitions, complete qualifiers and the distinction between a source snapshot and a current official rule. Commercial operation and road-test maneuver grading remain outside this written-study scope.
+## C — driver information part one knowledge
+FACT_ID: sec05-F001 | anchor: P20
+Safe driving depends on clear vision, adequate rest, freedom from drug impairment and physical and emotional fitness.
+
+FACT_ID: sec05-F002 | anchor: P20
+A driver license grants a privilege to use the roadway safely rather than an unconditional right.
+
+FACT_ID: sec05-F003 | anchor: P20
+Obtaining or knowingly possessing a fraudulent license, identification card or learner permit can result in a fine or imprisonment.
+
+FACT_ID: sec05-F004 | anchor: P20
+Applicants need to recognize and explain highway signs, and the road test also checks attention to signs.
+
+FACT_ID: sec05-F005 | anchor: P20
+The handbook organizes driving into observing, choosing a response, communicating intentions and carrying out the decision.
+
+FACT_ID: sec05-F006 | anchor: P20
+Choose the response with the least risk after considering the traffic situation and available actions.
+
+FACT_ID: sec05-F007 | anchor: P20
+Vehicle position, hand signals, turn indicators, headlights and brake lamps communicate a driver's intended actions.
+
+FACT_ID: sec05-F008 | anchor: P20
+Drivers must follow traffic signs, signals, lane markings, police orders and emergency directions from firefighters.
+
+FACT_ID: sec05-F009 | anchor: P21
+A police officer's traffic directions take priority even when they differ from ordinary signs, markings or signal indications.
+
+FACT_ID: sec05-F010 | anchor: P21
+A driver may not bypass a traffic-control device by crossing private property.
+
+FACT_ID: sec05-F011 | anchor: P21
+Aggressive-driving behaviors include red-light violations, abrupt lane changes, tailgating, failing to yield and speeding.
+
+FACT_ID: sec05-F012 | anchor: P21
+Congestion, rushing, construction delays, outside stress and hostile attitudes can contribute to aggressive driving.
+
+FACT_ID: sec05-F013 | anchor: P21
+Planning ahead, choosing an alternate route and accepting a late arrival can help prevent aggressive driving.
+
+FACT_ID: sec05-F014 | anchor: P21
+A courteous driver follows speed limits and allows other road users time and space.
+
+FACT_ID: sec05-F015 | anchor: P21
+If another driver acts aggressively, let that driver pass and avoid a challenge or eye contact.
+
+FACT_ID: sec05-F016 | anchor: P21
+The handbook encourages reporting aggressive driving to police and modeling safe behavior for young passengers.
+
+FACT_ID: sec05-F017 | anchor: P21
+Reckless driving involves willful disregard for the safety of people or property.
+
+FACT_ID: sec05-F018 | anchor: P21
+Negligent driving is careless or imprudent vehicle operation that endangers a person or property.
+
+FACT_ID: sec05-F019 | anchor: P21
+Vehicle races and speed exhibitions, including drag racing, are prohibited on public roads.
+
+FACT_ID: sec05-F020 | anchor: P22
+After a crash, stop and remain close to the scene until injured people have been aided and identification exchanged.
+
+FACT_ID: sec05-F021 | anchor: P22
+Move a crashed vehicle out of the traffic stream when that can be done safely.
+
+FACT_ID: sec05-F022 | anchor: P22
+Assist an injured crash victim; calling an ambulance is often the appropriate assistance, and a seriously injured or unconscious person ordinarily should not be moved.
+
+FACT_ID: sec05-F023 | anchor: P22
+Drivers in a crash must exchange their names, addresses and vehicle-registration information and show a license when requested.
+
+FACT_ID: sec05-F024 | anchor: P22
+If nobody can receive crash information and no officer is present, report the information promptly to the nearest police department.
+
+FACT_ID: sec05-F025 | anchor: P22
+Crash information also includes the insurer's name and address, local agent or office details and policy-identification number.
+
+FACT_ID: sec05-F026 | anchor: P22
+When damaging unattended property, try to find its owner; if that fails, leave identifying information securely in a conspicuous location.
+
+FACT_ID: sec05-F027 | anchor: P22
+Report a crash involving your vehicle to your insurance company.
+
+FACT_ID: sec05-F028 | anchor: P22
+A motorist who injures a domestic animal should immediately notify the police agency responsible for that location.
+
+FACT_ID: sec05-F029 | anchor: P22
+Before driving, inspect tires, loose items and leaks, adjust the seat and mirrors, buckle up and check the vehicle's signals and brake lamps.
+
+FACT_ID: sec05-F030 | anchor: P22
+Before leaving, consider how light, weather, road conditions and traffic will affect the trip.
+
+FACT_ID: sec05-F031 | anchor: P22
+Plan a turn early and choose the appropriate lane well before reaching the turning point.
+
+FACT_ID: sec05-F032 | anchor: P23
+Before changing lanes for a turn, check behind and beside the vehicle and communicate the maneuver with the required signal.
+
+FACT_ID: sec05-F033 | anchor: P23
+Reduce speed gradually for an ordinary turn; highway exits instead use the deceleration-lane procedure described in the manual.
+
+FACT_ID: sec05-F034 | anchor: P23
+Before backing, turn to look through the rear window and check both side mirrors rather than relying solely on the inside mirror.
+
+FACT_ID: sec05-F035 | anchor: P23
+Back slowly and for the shortest practical distance, watching especially for children.
+
+FACT_ID: sec05-F036 | anchor: P23
+Do not back into or out of an intersection; use a side street or drive around the block to turn around instead.
+
+FACT_ID: sec05-F037 | anchor: P23
+When using a driveway to reverse direction, backing into it and leaving forward is safer than backing out.
+
+FACT_ID: sec05-F038 | anchor: P23
+Use the horn only to warn of an emergency involving a pedestrian, cyclist or another vehicle.
+
+FACT_ID: sec05-F039 | anchor: P23
+A Quiet Zone permits horn use only for an emergency; the horn does not replace braking.
+
+FACT_ID: sec05-F040 | anchor: P23
+When leaving a driveway or garage, look for nearby traffic and pedestrians, stop before the street and check again.
+
+FACT_ID: sec05-F041 | anchor: P23
+When backing from a driveway, inspect the space behind the vehicle first and keep checking through mirrors and direct observation.
+
+FACT_ID: sec05-F042 | anchor: P23
+Supplement turn indicators with hand signals when bright sunlight or vehicles behind obscure the indicators.
+
+FACT_ID: sec05-F043 | anchor: P23
+Passengers and parcels must not crowd the driver or block the view in any direction.
+
+FACT_ID: sec05-F044 | anchor: P23
+Keep pets away from the driver's lap and driving controls, and never leave them alone in the vehicle.
+
+FACT_ID: sec05-F045 | anchor: P23
+Secure loose cargo away from the dashboard and rear shelf because it can strike occupants during a crash.
+
+FACT_ID: sec05-F046 | anchor: P23
+Keep objects away from the accelerator and brake pedals so they cannot interfere with pedal movement.
+
+FACT_ID: sec05-F047 | anchor: P23
+Beside parked vehicles, anticipate doors opening, bicycles and pedestrians emerging between cars.
+
+FACT_ID: sec05-F048 | anchor: P24
+Reduce speed for intersections, rail crossings, hill crests and curves when conditions require it.
+
+FACT_ID: sec05-F049 | anchor: P24
+Playgrounds, schools, children, narrow or winding roads and pedestrian hazards require lower speeds.
+
+FACT_ID: sec05-F050 | anchor: P24
+Weather, road hazards or the driver's condition can require slowing below the normal travel speed.
+
+Misconceptions: Treat closely related requirements as separate rules; preserve the triggering condition and any exception given in each fact [P20].
+Mnemonics: Remember the condition together with the required action; this is an authored study cue.
+Glossary: Definitions in the fact blocks keep the source context rather than substituting a broader rule.
+Dynamic isolation: Source thresholds remain snapshot-specific until current official reconciliation.
+## C2 — driver information part one knowledge
+FACT_ID: sec05-F051 | anchor: P24
+Avoid an unnecessarily low speed that blocks ordinary traffic movement.
+
+FACT_ID: sec05-F052 | anchor: P24
+Wet pavement reduces traction on curves and lengthens the distance needed to stop.
+
+FACT_ID: sec05-F053 | anchor: P24
+The beginning of rain can be particularly slippery because water mixes with vehicle fluids that have not yet washed away.
+
+FACT_ID: sec05-F054 | anchor: P24
+Wet fallen leaves can also make pavement slippery.
+
+FACT_ID: sec05-F055 | anchor: P24
+Hydroplaning occurs when tires ride on water instead of maintaining effective contact with the pavement.
+
+FACT_ID: sec05-F056 | anchor: P24
+If hydroplaning begins, release the accelerator, hold the steering wheel toward the intended path and let speed fall until control returns.
+
+FACT_ID: sec05-F057 | anchor: P24
+Flash flooding can develop rapidly after heavy rainfall, even within minutes or hours.
+
+FACT_ID: sec05-F058 | anchor: P24
+Do not enter a flooded road; turn around for another route, or wait on higher ground if there is no route available.
+
+FACT_ID: sec05-F059 | anchor: P24
+Water only six inches deep at a vehicle's underside can cause control loss or a stall.
+
+FACT_ID: sec05-F060 | anchor: P24
+Two feet of moving water can sweep away most vehicles, including pickups and sport-utility vehicles.
+
+FACT_ID: sec05-F061 | anchor: P24
+Floodwater can conceal dips or pavement undermined by washed-away ground.
+
+FACT_ID: sec05-F062 | anchor: P24
+The following-distance example measures the interval after the leading vehicle passes a fixed landmark and treats arriving before a four-second count finishes as too close.
+
+FACT_ID: sec05-F063 | anchor: P24
+Allow extra following space behind vehicles that make frequent stops, such as buses and mail-delivery vehicles.
+
+FACT_ID: sec05-F064 | anchor: P24
+The source recommends four or five seconds of following distance in poor weather.
+
+FACT_ID: sec05-F065 | anchor: P24
+Avoid cutting in front of a truck because it needs additional stopping time and distance.
+
+FACT_ID: sec05-F066 | anchor: P25
+Stopping distance varies with recognition and reaction, road surface, grade, tire condition, brakes, vehicle condition and wind.
+
+FACT_ID: sec05-F067 | anchor: P25
+Mental attention to work or family problems increases the workload competing with driving.
+
+FACT_ID: sec05-F068 | anchor: P25
+Fatigue, weather and traffic conditions can compound the effects of distraction.
+
+FACT_ID: sec05-F069 | anchor: P25
+Grooming, eating, reading, handling cargo and concentrating on children or pets can all distract a driver.
+
+FACT_ID: sec05-F070 | anchor: P25
+Before using an unfamiliar vehicle, adjust the seat and mirrors and locate its lights, indicators and wipers.
+
+FACT_ID: sec05-F071 | anchor: P25
+Drowsiness is an early step toward sleep; monotonous long-distance driving can also reduce awareness of the road.
+
+FACT_ID: sec05-F072 | anchor: P25
+At the first signs of sleepiness, leave the highway at an appropriate rest or service area to rest or change drivers if possible.
+
+FACT_ID: sec05-F073 | anchor: P26
+Do not rely on stimulant stay-awake products to compensate for fatigue.
+
+FACT_ID: sec05-F074 | anchor: P26
+Unfocused eyes, repeated yawning and difficulty holding the head up are warnings of drowsiness.
+
+FACT_ID: sec05-F075 | anchor: P26
+Missing an exit, failing to remember recent miles, lane drifting and unstable speed can also signal a sleepy driver.
+
+FACT_ID: sec05-F076 | anchor: P26
+If tiredness develops, stopping to rest or handing driving to a rested driver is preferable to continuing.
+
+FACT_ID: sec05-F077 | anchor: P26
+Keep attention on traffic behind, beside and ahead instead of grooming, reading or adjusting entertainment while moving.
+
+FACT_ID: sec05-F078 | anchor: P26
+When upset or angry, calm down before driving or let somebody else drive.
+
+FACT_ID: sec05-F079 | anchor: P26
+The source requires hands-free cellular use and prohibits texting while driving.
+
+FACT_ID: sec05-F080 | anchor: P26
+Secure occupants and cargo and set climate, entertainment and route controls before moving.
+
+FACT_ID: sec05-F081 | anchor: P26
+Keep tempting reading material out of reach and postpone complex or emotional conversations until arrival.
+
+FACT_ID: sec05-F082 | anchor: P26
+If a passenger creates a distraction, pull over where legal and safe and resume only when the situation is controlled.
+
+FACT_ID: sec05-F083 | anchor: P26
+Take a break to eat or drink instead of doing so while driving.
+
+Handoff hints: Group the cited facts by their actual subject and condition. Use prerequisite relations only where one stated definition is needed to understand another fact. Pedagogic emphasis is authored, because official test-domain weighting is unavailable. Confusable rules retain all different qualifiers and source pages.
+## D — Accuracy and retained debt
+Facts retain their exact physical-page anchors and apply to the supplied handbook snapshot. Monetary fees, eligibility rules and online-service details need current official reconciliation before a current-law claim. The source registration is structurally accepted with source assessment debt preserved; this dossier does not clear effective-date, current-edition, rights or retrieval findings. No general legal-review gate is invented.
+Source conflict retained for reconciliation: DC-REACTION-TIME, DC-FATIGUE-TIPS. See typed debt records; disputed claims are not stable facts.
+## E — Market evidence debt
+No candidate volume, official pass rate, repeat-taker population, research rooms, customer quotations, buying persona, seasonal demand, price recommendation or acquisition success bar was supplied for District of Columbia licensing study. These remain research debt. No invented demand evidence or unsupported advertising hook is presented as a finding.
+## E — Competitive evidence debt
+No District of Columbia preparation competitor was inspected for pricing, course structure, teaching approach, practice formats, learner praise or complaints. Named and priced comparisons remain unavailable. Adopt and beat proposals require genuine review evidence before they can be treated as research conclusions. This dossier makes no competitive performance claim.
+## F — Consolidated verification index
+DC-STABILITY: source revision frequency, currentness, effective date, retrieval and rights remain unresolved. DC-EXAM: official test configuration is unknown. DC-MARKET and DC-COMPETITORS: research evidence is absent. DC-SURFACE: scored subskill requirements remain unconfirmed. The fact blocks are the handoff registry; hints remain separate from learner facts.
+## G — Completion dispositions
+The page-bound fact inventory records the selected driver information part one. High-yield ranking is authored pedagogic emphasis, not measured examination frequency. Misconceptions, glossary and memory distinctions restate the source. Unknown source and examination information is listed in the consolidated verification index. Market and competitor obligations retain typed debt.

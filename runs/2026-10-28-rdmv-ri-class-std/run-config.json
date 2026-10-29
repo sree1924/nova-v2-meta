@@ -1,0 +1,372 @@
+{
+  "schema_version": "rdmv.run-config.draft.0.2.0",
+  "run_id": "2026-10-28-rdmv-ri-class-std",
+  "working_product_id": "rdmv-ri-standard",
+  "candidate_lineage_id": "2026-10-28-rdmv-ri-class-std:lineage:49",
+  "status": "STATE_SELECTED_BY_EXPLICIT_INTAKE_SOURCE_VERIFY_PENDING",
+  "execution_enabled": true,
+  "producer": {
+    "provider": "meta",
+    "endpoint_profile_ref": "https://api.meta.ai/v1/chat/completions; response_format json_schema strict:true with schemas-strict/* adapters",
+    "model": "muse-spark-1.3",
+    "model_is_candidate_until_qualified": true,
+    "key_env_name": "MODEL_API_KEY",
+    "contributor_mode_allowed": false,
+    "qualification_task": "Role 04 cards for ONE text-first handbook chapter (Sol/founder pick; road signs deferred per media disposition)",
+    "role_bindings_ref": "../../contracts/bot-contract-bindings.json#/roles",
+    "adapters_ref": "../../schemas-strict/stage-map.json",
+    "post_validator_ref": "../../tools/belt/post-validate.mjs",
+    "pricing_ref": {
+      "path": "contracts/meta-pricing-snapshot.v0.4.0.json",
+      "sha256": "2c61a45f146f396ec1ded19d0f6235ef04fc1138693fe618f0603fb2c147eb47"
+    },
+    "billing_mode": "credits",
+    "billing_mode_detail": {
+      "mode": "meta_free_credits",
+      "decided_by": "founder chat 2026-10-27 (\"credits\")",
+      "dashboard_clause": "While using free credits your content may be used for product improvement (dev.meta.ai billing, 2026-10-26)",
+      "hard_rule": "No NOVA V1 artifact (citizenship or any other line) is ever sent to the Meta API under credits; only Utah-lane inputs (handbook facts, lane artifacts) go to the model.",
+      "credit_balance_observed_usd": 149.98,
+      "observed_at": "2026-10-26"
+    }
+  },
+  "limits": {
+    "max_active_probe_runs": 1,
+    "max_parallel_curriculum_jobs": 1,
+    "max_parallel_audit_jobs": 2,
+    "max_automatic_attempts_per_logical_task": 2,
+    "max_candidate_remediation_cycles": 1,
+    "max_total_usd": 60,
+    "max_call_usd": 1,
+    "per_provider_usd_caps": {
+      "meta": 60,
+      "openai": 0,
+      "anthropic": 0,
+      "google": 0,
+      "media": 0
+    },
+    "pricing_snapshot_ref": "../../ENV-SETUP.md#meta-model-api (2026-10-26)",
+    "run_deadline_utc": "2026-11-05T02:00:00Z",
+    "spend_mode": "live",
+    "per_role_usd_caps": {
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "02": 40,
+      "03": 10,
+      "04": 10,
+      "05": 14,
+      "06": 8,
+      "19A": 0
+    },
+    "max_completion_tokens": 30000,
+    "per_role_usd_caps_note": "per-role SUB-caps for the 16-section Utah run (raised 2026-10-27 20:02Z from the single-section pilot values 12/5/5/5/3 after BUDGET_CAP_EXCEEDED on sec07; the binding cap is the standing-authority total, limits.max_total_usd)",
+    "max_completion_tokens_note": "raised 8000→30000 on 2026-10-27 after attempt aafbd5e9 hit finish_reason=length with 6453/8000 tokens consumed by reasoning at reasoning_effort low (JAM-UT-02); worst case ≈ $0.20/call at list price, under the $1 per-call reservation",
+    "max_request_bytes": 1000000,
+    "max_request_bytes_note": "raised from the 262144 default on 2026-10-27 18:12Z: 06/05 requests carry the full fact registry + KG + deck (~300 KB ≈ 75k tokens, ≈ /usr/bin/bash.09 input per call); standing authority"
+  },
+  "audit_pool": {
+    "required_providers": [
+      "openai",
+      "anthropic"
+    ],
+    "note": "two-family independence per tools/check-audit-independence.mjs; Claude Code sessions that touched candidate bytes are disqualified for that candidate"
+  },
+  "baseline": {
+    "kind": "none_new_product",
+    "existing_dmv_v1_verified": false,
+    "methodology_control_ref": "../../baseline/citizenship/BASELINE.json"
+  },
+  "authoring": {
+    "mode": "native_authenticated_file_transport",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "identity": "gpt-6.1-sol on ChatGPT Pro subscription; actual session 01a18584-c227-7cc1-a021-6bc201b856be",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed"
+    }
+  },
+  "scope": {
+    "application_path": "first_time_never_licensed",
+    "language": "en",
+    "coverage_kind": "full_knowledge_test",
+    "jurisdiction": "US-RI",
+    "jurisdiction_selected_by": "okay finish all 12.. keep three running and keep me posted on percentage.. resolve blockers dont wait on me",
+    "issuing_authority": "Rhode Island Division of Motor Vehicles (RI DMV)",
+    "license_or_permit_class": "Regular non-commercial passenger-car operator license; letter class not stated in observed source",
+    "handbook_edition": "Rhode Island Driver’s Manual April 2024",
+    "handbook_url": "https://dmv.ri.gov/media/966/download?language=en",
+    "handbook_local_snapshot": "runs/2026-10-28-rdmv-ri-class-std/sources/private/download.pdf",
+    "handbook_sha256": "129265c8a44c75eba49ddf950ddd9dced3b4ee47796e901f9d6934b107782333",
+    "handbook_snapshot_bytes": 5509315,
+    "handbook_retrieved_at_utc": "2026-10-28T17:52:25Z",
+    "source_origin": {
+      "kind": "official_pdf"
+    },
+    "issuer_page_domains": [
+      "dmv.ri.gov"
+    ],
+    "exam_facts": {
+      "question_count": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "passing_percent": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "time_limit": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      },
+      "format": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null,
+        "source_ref": null,
+        "source_snapshot_sha256": null,
+        "liveness_receipt_ref": null
+      }
+    },
+    "exam_facts_provenance": {
+      "note": "Physical10 states40questions and90minutes, retained as source observations only; passing threshold remains unknown. All safe examination fields stay null until source liveness/factual verification permits them.",
+      "passing_score_observation_ref": null,
+      "issuer_confirmation_ref": null,
+      "intake_spec_ref": {
+        "path": "coordination/intake/RI.spec.json",
+        "sha256": "048f40e863533341963ffe235a937f64079f9005703edccea3de9ad58ca6c750"
+      }
+    },
+    "section_page_ranges": {
+      "sec01-messages-and-litter": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sec02-licensing": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "sec03-distractions-drowsiness-emotions": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "sec04-basic-driving": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "sec05-highway-and-communications": [
+        34,
+        35,
+        36,
+        37
+      ],
+      "sec06-signals-and-markings": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "sec07-emergencies": [
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "sec08-sharing-with-motorcycles": [
+        48,
+        49
+      ],
+      "sec09-defensive-driving": [
+        50,
+        51
+      ],
+      "sec10-sharing-the-road": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "sec11-traffic-laws": [
+        58,
+        59
+      ],
+      "sec12-alcohol-and-drugs": [
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "sec13-collisions": [
+        65,
+        66
+      ],
+      "sec14-law-enforcement-stops": [
+        67
+      ],
+      "sec15-equipment": [
+        68
+      ],
+      "sec16-organ-donation": [
+        69
+      ],
+      "sec17-miscellaneous-laws-work-zones": [
+        72,
+        73
+      ],
+      "sec18-signs": [
+        85,
+        86
+      ]
+    },
+    "section_titles": {
+      "sec01-messages-and-litter": "messages and litter",
+      "sec02-licensing": "licensing",
+      "sec03-distractions-drowsiness-emotions": "distractions drowsiness emotions",
+      "sec04-basic-driving": "basic driving",
+      "sec05-highway-and-communications": "highway and communications",
+      "sec06-signals-and-markings": "signals and markings",
+      "sec07-emergencies": "emergencies",
+      "sec08-sharing-with-motorcycles": "sharing with motorcycles",
+      "sec09-defensive-driving": "defensive driving",
+      "sec10-sharing-the-road": "sharing the road",
+      "sec11-traffic-laws": "traffic laws",
+      "sec12-alcohol-and-drugs": "alcohol and drugs",
+      "sec13-collisions": "collisions",
+      "sec14-law-enforcement-stops": "law enforcement stops",
+      "sec15-equipment": "equipment",
+      "sec16-organ-donation": "organ donation",
+      "sec17-miscellaneous-laws-work-zones": "miscellaneous laws work zones",
+      "sec18-signs": "signs"
+    },
+    "visual_observation_ref": {
+      "path": "runs/2026-10-28-rdmv-ri-class-std/receipts/ROLE15-VISUAL-OBSERVATION.json",
+      "sha256": "b4bb02d349d9af3306f6bc5ea0e01d757aff9304635d6fe58ca9421dff32ffd7"
+    },
+    "coverage_manifest_ref": null,
+    "depth_floor": {
+      "C": {
+        "min_fact_blocks": 10,
+        "min_code_points": 2500
+      },
+      "A": {
+        "min_fact_blocks": 0,
+        "min_code_points": 400
+      },
+      "default": {
+        "min_fact_blocks": 0,
+        "min_code_points": 200
+      },
+      "note": "per 02 chunk; C is the knowledge section; set for a ~12-page handbook section (Section 9); attempt lineage2#1 had 10 fact blocks/4625cp in C; lineage2#2 was 9 sections × ~145cp (hollow) — this floor exists because of it"
+    }
+  },
+  "execution": {
+    "executor_id": "01a18584-c227-7cc1-a021-6bc201b856be",
+    "lock_ref": "EXECUTOR.lock.md",
+    "run_write_root": "runs/2026-10-28-rdmv-ri-class-std",
+    "ledger": {
+      "kind": "sqlite",
+      "driver": "node:sqlite",
+      "path": "ledger/run.sqlite",
+      "journal_mode": "WAL",
+      "synchronous": "FULL"
+    },
+    "adapter_validation_receipts_ref": {
+      "path": "coordination/SOL-BELT-AMENDMENT-ADAPTER-RECEIPT-20261028.json",
+      "sha256": "dd35f06ea4cbac78f4efa8c5df3f6dbefdf1c768306cb58a216d8003963f79a3"
+    },
+    "retry_nonces": {
+      "06.exam_bank:@sec01-messages-and-litter": 1
+    },
+    "current_intake_authority_ref": {
+      "path": "runs/2026-10-28-rdmv-ri-class-std/approvals/INTAKE-AUTHORITY.json",
+      "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+    },
+    "standing_authority_ref": {
+      "path": "runs/2026-10-28-rdmv-ri-class-std/approvals/STANDING-AUTHORITY-current.json",
+      "sha256": "e1086ab76655d8f76a2deaa48442db1489ed5db063efc8789601cd567be3a755"
+    }
+  },
+  "state_selection": {
+    "status": "confirmed",
+    "confirmed_by": "founder",
+    "jurisdiction": "US-RI",
+    "evidence": "okay finish all 12.. keep three running and keep me posted on percentage.. resolve blockers dont wait on me",
+    "recorded_by": "gpt-6.1-sol (Sol state worker)",
+    "confirmed_at_utc": "2026-10-29T03:55:57.091Z"
+  },
+  "intake_provenance": {
+    "spec_ref": {
+      "path": "coordination/intake/RI.spec.json",
+      "sha256": "048f40e863533341963ffe235a937f64079f9005703edccea3de9ad58ca6c750"
+    },
+    "current_authority_ref": {
+      "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+      "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+    },
+    "actual_executor_id": "01a18584-c227-7cc1-a021-6bc201b856be",
+    "actual_author": {
+      "actor_id": "gpt-6.1-sol (Sol state worker)",
+      "provider_family": "openai",
+      "identity": "gpt-6.1-sol on ChatGPT Pro subscription; actual session 01a18584-c227-7cc1-a021-6bc201b856be",
+      "model": "gpt-6.1-sol",
+      "model_id_availability": "exposed"
+    }
+  },
+  "seeded_from": {
+    "run_id": "2026-10-26-rdmv-ut-class-d",
+    "config_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/run-config.json",
+      "sha256": "81de9122c028cbe33cd6ac563f56b88626141153c937be32b10ff8b8e0db6cb7"
+    },
+    "learning_loop_ref": {
+      "path": "runs/2026-10-26-rdmv-ut-class-d/19-learning-loop.json",
+      "sha256": "cec2ff5234d1761d3b2612eabca489c66287e1a87a239f22bc3d438c02d3f45d"
+    },
+    "at": "2026-10-29T04:36:25.750Z",
+    "by": "tools/belt/intake-state.mjs"
+  },
+  "candidate_lineage_reset_ref": {
+    "path": "runs/2026-10-28-rdmv-ri-class-std/receipts/accepted-capacity-550192f639b1eec3.json",
+    "sha256": "550192f639b1eec32fe9ad237ecb18fc1e48e28cc306105cf310394553d98cbd"
+  }
+}
