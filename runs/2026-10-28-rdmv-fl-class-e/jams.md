@@ -129,3 +129,13 @@ Seeded 2026-10-28T00:58:50.714Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:18:17.218Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:61 for 03.combined_kg (sec09-handling-emergencies) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-handling-emergencies__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:26:07.594Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:62 for 03.combined_kg (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-sharing-the-road-emergency-golf-carts__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T23:14:42.881Z SOL re-author 04.cards/sec05-your-vehicle: runs/2026-10-28-rdmv-fl-class-e/receipts/sol-reauthor-nonce-04.cards-sec05-your-vehicle-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:14:49.014Z SOL re-author 05.card_scripts/sec05-your-vehicle: runs/2026-10-28-rdmv-fl-class-e/receipts/sol-reauthor-nonce-05.card_scripts-sec05-your-vehicle-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:14:54.517Z SOL re-author 04.cards/sec09-handling-emergencies: runs/2026-10-28-rdmv-fl-class-e/receipts/sol-reauthor-nonce-04.cards-sec09-handling-emergencies-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:15:00.595Z SOL re-author 05.card_scripts/sec09-handling-emergencies: runs/2026-10-28-rdmv-fl-class-e/receipts/sol-reauthor-nonce-05.card_scripts-sec09-handling-emergencies-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T23:16:24.328Z SOL re-author COMPLETE WITH RETAINED LESSON GARBLE:sec05/sec09 compile/cards/scripts accepted;84 cards/94 script records;4/4 initial hidden backs corrected. Nine911 lesson quotes retained under scope; raw facts/merges/IDs/03/06/sessions and old blocked02 rows preserved. Report coordination/SOL-REPORTS/REAUTHOR-FL.md; private NATIVE-HANDOFF.json +FINAL-CHECKPOINT.json. Native actual/reserved/uncertain $0.000; Fable owns canonical shell refresh.

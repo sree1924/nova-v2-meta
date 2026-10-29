@@ -129,3 +129,33 @@ Seeded 2026-10-28T05:02:18.164Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:46:35.332Z lineage reset → 2026-10-28-rdmv-md-class-c:lineage:63 for 04.cards (sec10-crashes-traffic-stops) under standing authority; cause: proactive reset before authoring packet 04.cards__sec10-crashes-traffic-stops__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:48:54.054Z lineage reset → 2026-10-28-rdmv-md-class-c:lineage:64 for 04.cards (sec12-other-important-information) under standing authority; cause: proactive reset before authoring packet 04.cards__sec12-other-important-information__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T23:07:43.765Z Sol re-author 16.compile/sec11-restrictions-violations-penalties: native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-capacity-3fb86cef-2fed-4826-89a8-f808b153aa9c.json
+
+- 2026-10-28T23:08:51.345Z Sol re-author 04.cards/sec08-dangerous-driving-behaviors: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-5ccc498d-90ee-44cd-aa1f-b59f5daf1eb0.json
+
+- 2026-10-28T23:08:54.404Z Sol re-author 05.card_scripts/sec08-dangerous-driving-behaviors: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-9647b481-1dbb-484c-8d84-a59ba83d070c.json
+
+- 2026-10-28T23:08:57.578Z Sol re-author 04.cards/sec10-crashes-traffic-stops: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-b641b8e7-b9bf-4b26-820d-6d536b9cf23f.json
+
+- 2026-10-28T23:09:01.460Z Sol re-author 05.card_scripts/sec10-crashes-traffic-stops: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-31d95f70-5c19-4f7b-9c68-8e04554ea4a5.json
+
+- 2026-10-28T23:09:04.906Z Sol re-author 04.cards/sec11-restrictions-violations-penalties: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-146d7e4c-2d02-4bdd-a33e-cb73dfcdad16.json
+
+- 2026-10-28T23:09:08.165Z Sol re-author 05.card_scripts/sec11-restrictions-violations-penalties: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-acf1f671-6e39-4c84-aff0-87fa3e747144.json
+
+- 2026-10-28T23:09:11.316Z Sol re-author 04.cards/sec12-other-important-information: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-085f71da-3634-4495-841a-20f6e35b55b4.json
+
+- 2026-10-28T23:09:15.824Z Sol re-author 05.card_scripts/sec12-other-important-information: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-5dbf0fa0-7d9c-453e-a12e-8dcd3a0513db.json
+
+- 2026-10-28T23:12:37.499Z Sol MD re-author HOLD closeout: 4 new accepted compiles and 8 accepted content remints; 190 cards / 222 scripts, 6 backs/answers and exact teaching quotes corrected; all 6 initial hidden backs fixed. Local closeout guard stopped the candidate for 6 stale visual-sync text_span fields; no native request replay/reset. Accepted lessons retain 14 old 911 quote fields and 1 old year quote; exact spans/locations reported for semantic follow-up. Raw facts/source/debt/status/IDs/merges and 02/03/06/05.sessions preserved, with old blocked out-of-scope sec07 attempt unchanged. Ledger actual/reserved/uncertain $0. Report coordination/SOL-REPORTS/REAUTHOR-MD.md.
+
+- 2026-10-28T23:24:36.500Z Sol re-author 05.card_scripts/sec08-dangerous-driving-behaviors: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-926735e3-80cc-4623-8123-9031ca1beac0.json
+
+- 2026-10-28T23:24:40.225Z Sol re-author 05.card_scripts/sec10-crashes-traffic-stops: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-343c7caa-1dd8-448e-9cb1-eeab53f524ce.json
+
+- 2026-10-28T23:24:43.668Z Sol re-author 05.card_scripts/sec11-restrictions-violations-penalties: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-165d1d78-e13b-465a-a03f-3cd0fb3e7f1e.json
+
+- 2026-10-28T23:24:46.746Z Sol re-author 05.card_scripts/sec12-other-important-information: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-md-class-c/receipts/sol-reauthor-nonce-c9ac989f-9448-49e0-84e6-47ee4ad7bd65.json
+
+- 2026-10-28T23:28:24.608Z Sol MD authorized visual-sync repair complete: 4 additional accepted 05 revisions corrected exactly six visual_sync text_span fields using real changed accepted-script inputs; no04/16/03/06/session replay, other learner fields unchanged. Entire MD assignment: 16 new accepted attempts, 12 raw noAPI/credit0 calls; six original hidden backs fixed. All original HOLD/evidence retained; 14 old 911 lesson fields and 1 old year field remain HELD, exact quotes listed. Ledger actual/reserved/uncertain $0. Report coordination/SOL-REPORTS/REAUTHOR-MD.md.

@@ -155,3 +155,37 @@ Seeded 2026-10-28T05:05:26.561Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:37:55.164Z lineage reset → 2026-10-28-rdmv-sc-class-d:lineage:74 for 03.combined_kg (sec13-sharing-the-road-part-1) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-sharing-the-road-part-1__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:52:10.127Z lineage reset → 2026-10-28-rdmv-sc-class-d:lineage:75 for 03.combined_kg (sec15-special-driving-situations) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec15-special-driving-situations__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T22:57:12.992Z SOL SC accepted-capacity 2026-10-28-rdmv-sc-class-d:lineage:75 → 2026-10-28-rdmv-sc-class-d:lineage:76, 16.compile/sec11-safe-driving-tips; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-accepted-capacity-16.compile-76.json
+
+- 2026-10-28T22:57:24.249Z SOL SC accepted-capacity 2026-10-28-rdmv-sc-class-d:lineage:76 → 2026-10-28-rdmv-sc-class-d:lineage:77, 16.compile/sec14-sharing-the-road-part-2; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-accepted-capacity-16.compile-77.json
+
+- 2026-10-28T22:58:07.510Z SOL SC authorized 04.cards/sec01-drivers-license-part-1 accepted remint nonce 04.cards:@sec01-drivers-license-part-1: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-04.cards-sec01-drivers-license-part-1-1.json
+
+- 2026-10-28T22:58:16.848Z SOL SC authorized 05.card_scripts/sec01-drivers-license-part-1 accepted remint nonce 05.card_scripts:@sec01-drivers-license-part-1: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-05.card_scripts-sec01-drivers-license-part-1-1.json
+
+- 2026-10-28T22:58:32.156Z SOL SC authorized 04.cards/sec04-be-in-shape-to-drive accepted remint nonce 04.cards:@sec04-be-in-shape-to-drive: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-04.cards-sec04-be-in-shape-to-drive-1.json
+
+- 2026-10-28T22:58:41.474Z SOL SC authorized 05.card_scripts/sec04-be-in-shape-to-drive accepted remint nonce 05.card_scripts:@sec04-be-in-shape-to-drive: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-05.card_scripts-sec04-be-in-shape-to-drive-1.json
+
+- 2026-10-28T22:58:55.834Z SOL SC accepted-capacity 2026-10-28-rdmv-sc-class-d:lineage:77 → 2026-10-28-rdmv-sc-class-d:lineage:78, 04.cards/sec11-safe-driving-tips; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-accepted-capacity-04.cards-78.json
+
+- 2026-10-28T22:58:56.481Z SOL SC authorized 04.cards/sec11-safe-driving-tips accepted remint nonce 04.cards:@sec11-safe-driving-tips: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-04.cards-sec11-safe-driving-tips-1.json
+
+- 2026-10-28T22:59:06.210Z SOL SC authorized 05.card_scripts/sec11-safe-driving-tips accepted remint nonce 05.card_scripts:@sec11-safe-driving-tips: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-05.card_scripts-sec11-safe-driving-tips-1.json
+
+- 2026-10-28T22:59:21.274Z SOL SC authorized 04.cards/sec13-sharing-the-road-part-1 accepted remint nonce 04.cards:@sec13-sharing-the-road-part-1: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-04.cards-sec13-sharing-the-road-part-1-1.json
+
+- 2026-10-28T22:59:31.506Z SOL SC authorized 05.card_scripts/sec13-sharing-the-road-part-1 accepted remint nonce 05.card_scripts:@sec13-sharing-the-road-part-1: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-05.card_scripts-sec13-sharing-the-road-part-1-1.json
+
+- 2026-10-28T22:59:44.250Z SOL SC accepted-capacity 2026-10-28-rdmv-sc-class-d:lineage:78 → 2026-10-28-rdmv-sc-class-d:lineage:79, 04.cards/sec14-sharing-the-road-part-2; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-accepted-capacity-04.cards-79.json
+
+- 2026-10-28T22:59:44.806Z SOL SC authorized 04.cards/sec14-sharing-the-road-part-2 accepted remint nonce 04.cards:@sec14-sharing-the-road-part-2: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-04.cards-sec14-sharing-the-road-part-2-1.json
+
+- 2026-10-28T22:59:53.420Z SOL SC authorized 05.card_scripts/sec14-sharing-the-road-part-2 accepted remint nonce 05.card_scripts:@sec14-sharing-the-road-part-2: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-05.card_scripts-sec14-sharing-the-road-part-2-1.json
+
+- 2026-10-28T23:00:06.377Z SOL SC authorized 04.cards/sec15-special-driving-situations accepted remint nonce 04.cards:@sec15-special-driving-situations: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-04.cards-sec15-special-driving-situations-1.json
+
+- 2026-10-28T23:00:16.641Z SOL SC authorized 05.card_scripts/sec15-special-driving-situations accepted remint nonce 05.card_scripts:@sec15-special-driving-situations: 0 → 1; runs/2026-10-28-rdmv-sc-class-d/receipts/sol-reauthor-sc-nonce-05.card_scripts-sec15-special-driving-situations-1.json
+
+- 2026-10-28T23:02:24.730Z SOL SC re-author: six compiles/decks/scripts accepted; 344 cards/344 card scripts/43 recaps, 15 changed backs, 15/18 original hidden corrected; three hidden residual and four additional code residual facts retained. Raw/source/debt/status/merges/IDs and accepted02/03/06/sessions preserved. Actual/reserved/uncertain $0. coordination/SOL-REPORTS/REAUTHOR-SC.md; scratch/sol-reauthor/sc/NATIVE-HANDOFF.json

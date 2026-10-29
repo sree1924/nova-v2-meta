@@ -187,3 +187,33 @@ Seeded 2026-10-28T05:03:22.057Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T11:06:39.464Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:89 for 04.cards (sec16-sharing-the-road-safely) under standing authority; cause: proactive reset before authoring packet 04.cards__sec16-sharing-the-road-safely__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T11:14:28.924Z lineage reset → 2026-10-28-rdmv-tn-class-d:lineage:90 for 05.card_scripts (sec08-rules-of-the-road-part-1) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec08-rules-of-the-road-part-1__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T23:05:24.669Z Sol re-author 16.compile/sec06-safety-belt-laws; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-tn-class-d:lineage:90 -> 2026-10-28-rdmv-tn-class-d:lineage:91; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-16.compile-sec06-safety-belt-laws-2026-10-28T23-05-24.669Z-cause.json
+
+- 2026-10-28T23:05:26.193Z Sol re-author 16.compile/sec13-driving-responsibility; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-tn-class-d:lineage:91 -> 2026-10-28-rdmv-tn-class-d:lineage:92; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-16.compile-sec13-driving-responsibility-2026-10-28T23-05-26.193Z-cause.json
+
+- 2026-10-28T23:06:15.016Z Sol re-author 04.cards/sec01-your-license; nonce 04.cards:@sec01-your-license 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:92 -> 2026-10-28-rdmv-tn-class-d:lineage:92; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-04.cards-sec01-your-license-2026-10-28T23-06-15.016Z-cause.json
+
+- 2026-10-28T23:06:19.882Z Sol re-author 05.card_scripts/sec01-your-license; nonce 05.card_scripts:@sec01-your-license 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:92 -> 2026-10-28-rdmv-tn-class-d:lineage:92; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-05.card_scripts-sec01-your-license-2026-10-28T23-06-19.882Z-cause.json
+
+- 2026-10-28T23:06:22.766Z Sol re-author 04.cards/sec04-the-examinations; nonce 04.cards:@sec04-the-examinations 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:92 -> 2026-10-28-rdmv-tn-class-d:lineage:92; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-04.cards-sec04-the-examinations-2026-10-28T23-06-22.766Z-cause.json
+
+- 2026-10-28T23:06:27.139Z Sol re-author 05.card_scripts/sec04-the-examinations; nonce 05.card_scripts:@sec04-the-examinations 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:92 -> 2026-10-28-rdmv-tn-class-d:lineage:92; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-05.card_scripts-sec04-the-examinations-2026-10-28T23-06-27.139Z-cause.json
+
+- 2026-10-28T23:06:30.022Z Sol re-author 04.cards/sec06-safety-belt-laws; nonce 04.cards:@sec06-safety-belt-laws 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:92 -> 2026-10-28-rdmv-tn-class-d:lineage:93; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-04.cards-sec06-safety-belt-laws-2026-10-28T23-06-30.022Z-cause.json
+
+- 2026-10-28T23:06:34.968Z Sol re-author 05.card_scripts/sec06-safety-belt-laws; nonce 05.card_scripts:@sec06-safety-belt-laws 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:93 -> 2026-10-28-rdmv-tn-class-d:lineage:93; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-05.card_scripts-sec06-safety-belt-laws-2026-10-28T23-06-34.968Z-cause.json
+
+- 2026-10-28T23:06:37.913Z Sol re-author 04.cards/sec12-alcohol-other-drugs-and-driving; nonce 04.cards:@sec12-alcohol-other-drugs-and-driving 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:93 -> 2026-10-28-rdmv-tn-class-d:lineage:93; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-04.cards-sec12-alcohol-other-drugs-and-driving-2026-10-28T23-06-37.913Z-cause.json
+
+- 2026-10-28T23:06:43.135Z Sol re-author 05.card_scripts/sec12-alcohol-other-drugs-and-driving; nonce 05.card_scripts:@sec12-alcohol-other-drugs-and-driving 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:93 -> 2026-10-28-rdmv-tn-class-d:lineage:93; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-05.card_scripts-sec12-alcohol-other-drugs-and-driving-2026-10-28T23-06-43.135Z-cause.json
+
+- 2026-10-28T23:06:46.443Z Sol re-author 04.cards/sec13-driving-responsibility; nonce 04.cards:@sec13-driving-responsibility 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:93 -> 2026-10-28-rdmv-tn-class-d:lineage:94; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-04.cards-sec13-driving-responsibility-2026-10-28T23-06-46.443Z-cause.json
+
+- 2026-10-28T23:06:54.900Z Sol re-author 05.card_scripts/sec13-driving-responsibility; nonce 05.card_scripts:@sec13-driving-responsibility 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:94 -> 2026-10-28-rdmv-tn-class-d:lineage:94; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-05.card_scripts-sec13-driving-responsibility-2026-10-28T23-06-54.900Z-cause.json
+
+- 2026-10-28T23:06:59.339Z Sol re-author 04.cards/sec16-sharing-the-road-safely; nonce 04.cards:@sec16-sharing-the-road-safely 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:94 -> 2026-10-28-rdmv-tn-class-d:lineage:94; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-04.cards-sec16-sharing-the-road-safely-2026-10-28T23-06-59.339Z-cause.json
+
+- 2026-10-28T23:07:07.475Z Sol re-author 05.card_scripts/sec16-sharing-the-road-safely; nonce 05.card_scripts:@sec16-sharing-the-road-safely 0 -> 1; lineage 2026-10-28-rdmv-tn-class-d:lineage:94 -> 2026-10-28-rdmv-tn-class-d:lineage:94; unchanged caps/history; runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-05.card_scripts-sec16-sharing-the-road-safely-2026-10-28T23-07-07.475Z-cause.json
+
+- 2026-10-28T23:10:23.390Z Sol re-author: 9/9 hidden backs corrected, six compiles + 12 accepted remints; 459 cards / 502 scripts, 11 changed backs and one corrected teaching quote. Native PASS, $0 actual/reserved/uncertain. SEMANTIC HOLD: 14 accepted lesson nine hundred eleven spans, one old-year span and unchanged phone sec12-R41; sessions preserved under scope. Report coordination/SOL-REPORTS/REAUTHOR-TN.md; receipt runs/2026-10-28-rdmv-tn-class-d/receipts/sol-reauthor-tn-completion-10d452af944eb3d99f001984c311d97681b9edfa5fcfe79c456f098b7e8958a4.json; Fable onboarding metadata pending separately.

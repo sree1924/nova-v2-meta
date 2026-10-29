@@ -151,3 +151,15 @@ Seeded 2026-10-28T03:23:58.751Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:36:42.243Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:74 for 03.combined_kg (sec13-railroad-light-rail-bicyclists) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-railroad-light-rail-bicyclists__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:46:06.947Z lineage reset → 2026-10-28-rdmv-co-class-std:lineage:75 for 03.combined_kg (sec15-aggressive-driving-emergencies-crashes) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec15-aggressive-driving-emergencies-crashes__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T23:08:09.954Z Sol re-author 04.cards/sec02-license-loss-seat-belts-impaired-driving: explicit accepted remint nonce 04.cards:@sec02-license-loss-seat-belts-impaired-driving 0 -> 1; runs/2026-10-28-rdmv-co-class-std/receipts/sol-reauthor-nonce-04.cards-sec02-license-loss-seat-belts-impaired-driving-n1.json.
+
+- 2026-10-28T23:08:26.051Z Sol re-author 05.card_scripts/sec02-license-loss-seat-belts-impaired-driving: explicit accepted remint nonce 05.card_scripts:@sec02-license-loss-seat-belts-impaired-driving 0 -> 1; runs/2026-10-28-rdmv-co-class-std/receipts/sol-reauthor-nonce-05.card_scripts-sec02-license-loss-seat-belts-impaired-driving-n1.json.
+
+- 2026-10-28T23:08:36.406Z Sol re-author 04.cards/sec13-railroad-light-rail-bicyclists: explicit accepted remint nonce 04.cards:@sec13-railroad-light-rail-bicyclists 0 -> 1; runs/2026-10-28-rdmv-co-class-std/receipts/sol-reauthor-nonce-04.cards-sec13-railroad-light-rail-bicyclists-n1.json accepted-capacity runs/2026-10-28-rdmv-co-class-std/receipts/sol-reauthor-accepted-capacity-04.cards-1793228916373.json.
+
+- 2026-10-28T23:08:41.319Z Sol re-author 05.card_scripts/sec13-railroad-light-rail-bicyclists: explicit accepted remint nonce 05.card_scripts:@sec13-railroad-light-rail-bicyclists 0 -> 1; runs/2026-10-28-rdmv-co-class-std/receipts/sol-reauthor-nonce-05.card_scripts-sec13-railroad-light-rail-bicyclists-n1.json.
+
+- 2026-10-28T23:09:36.223Z Sol CO re-author COMPLETE_NATIVE: sec02/sec13 native16+04+05 PASS, all7 initial hidden backs corrected; zero listed residuals; no accepted replay. Source facts/debt/status/IDs/merges/02/03/06/sessions and historical blocked/queued history preserved. Report coordination/SOL-REPORTS/REAUTHOR-CO.md; scratch/sol-reauthor/co/FINAL-CHECKPOINT.json. Ledger released, actual/reserved/uncertain all $0.
+
+- 2026-10-28T23:11:24.712Z CO closeout clarification: all7 initial card backs corrected and native scope complete, but accepted05.sessions sec13-F23 retains five exact old "calling nine hundred eleven or RTD" narration quotes (units[4] slides2/3/4/5/7). Report/handoff now explicitly classify this as retained lesson semantic residue; sessions and native ledger unchanged. Versioned checkpoint scratch/sol-reauthor/co/FINAL-CHECKPOINT-LESSON-RESIDUE.json supersedes cards-complete metadata; all old metadata bytes archived privately.

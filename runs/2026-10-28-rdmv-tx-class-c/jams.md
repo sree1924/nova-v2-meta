@@ -143,3 +143,11 @@ Seeded 2026-10-28T01:00:27.659Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:32:05.724Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:69 for 03.combined_kg (sec11-motor-vehicle-crashes) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-motor-vehicle-crashes__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:37:48.613Z lineage reset → 2026-10-28-rdmv-tx-class-c:lineage:70 for 03.combined_kg (sec13-bicycle-laws-safety) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-bicycle-laws-safety__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T23:12:49.651Z SOL TX accepted-capacity 2026-10-28-rdmv-tx-class-c:lineage:70 → 2026-10-28-rdmv-tx-class-c:lineage:71, 04.cards/sec14-additional-safety-tips; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-28-rdmv-tx-class-c/receipts/sol-reauthor-tx-accepted-capacity-04.cards-71.json
+
+- 2026-10-28T23:12:50.383Z SOL TX authorized 04.cards/sec14-additional-safety-tips accepted remint nonce 04.cards:@sec14-additional-safety-tips: 0 → 1; runs/2026-10-28-rdmv-tx-class-c/receipts/sol-reauthor-tx-nonce-04.cards-sec14-additional-safety-tips-1.json
+
+- 2026-10-28T23:13:00.393Z SOL TX authorized 05.card_scripts/sec14-additional-safety-tips accepted remint nonce 05.card_scripts:@sec14-additional-safety-tips: 0 → 1; runs/2026-10-28-rdmv-tx-class-c/receipts/sol-reauthor-tx-nonce-05.card_scripts-sec14-additional-safety-tips-1.json
+
+- 2026-10-28T23:13:59.924Z SOL TX re-author nativePASS: sec14 compile/deck/scripts accepted;36 cards/36 card scripts/7recaps,onechanged back,1/1original hidden corrected;sec14-F24 nine hundred eleven→nine one one. No matching garble in current scripts/accepted lesson. Raw/source/debt/status/merges/IDs and accepted02/03/06/sessions preserved. Actual/reserved/uncertain $0. coordination/SOL-REPORTS/REAUTHOR-TX.md; scratch/sol-reauthor/tx/NATIVE-HANDOFF.json

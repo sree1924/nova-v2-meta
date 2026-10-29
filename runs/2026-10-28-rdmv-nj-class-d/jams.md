@@ -158,3 +158,53 @@ Seeded 2026-10-28T03:49:43.032Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T08:40Z JAM-NJ-DS-01 follow-up 2: sec09 05.card_scripts full request ~795.6 KB tripped both the 790000-byte limit and the $1 conservative estimate at 4000 tokens; limits now max_request_bytes 800000, max_completion_tokens 500 (first tried 900: estimate $1.0002; max_call_usd $1 unchanged; the estimate now binds at ~799 KB, so this is the ceiling of this mechanism). Subscription/file transport only; revert before any Model-API dispatch. The sec09 outbox written before this change was withdrawn to done/*.withdrawn.* and rebuilt from a fresh packet.
 
 - 2026-10-28T06:29:48.145Z lineage reset → 2026-10-28-rdmv-nj-class-d:lineage:76 for 04.cards (sec13-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 04.cards__sec13-sharing-the-road__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T22:25:16.413Z Sol re-author 16.compile/sec03-driver-testing; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-nj-class-d:lineage:76 -> 2026-10-28-rdmv-nj-class-d:lineage:77; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-16.compile-sec03-driver-testing-2026-10-28T22-25-16.413Z-cause.json
+
+- 2026-10-28T22:25:17.917Z Sol re-author 16.compile/sec06-safe-driving-rules-part-1; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-nj-class-d:lineage:77 -> 2026-10-28-rdmv-nj-class-d:lineage:78; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-16.compile-sec06-safe-driving-rules-part-1-2026-10-28T22-25-17.917Z-cause.json
+
+- 2026-10-28T22:25:19.814Z Sol re-author 16.compile/sec09-defensive-driving-part-2; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-nj-class-d:lineage:78 -> 2026-10-28-rdmv-nj-class-d:lineage:79; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-16.compile-sec09-defensive-driving-part-2-2026-10-28T22-25-19.814Z-cause.json
+
+- 2026-10-28T22:25:21.792Z Sol re-author 16.compile/sec12-privileges-penalties-part-2; nonce n/a n/a -> n/a; lineage 2026-10-28-rdmv-nj-class-d:lineage:79 -> 2026-10-28-rdmv-nj-class-d:lineage:80; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-16.compile-sec12-privileges-penalties-part-2-2026-10-28T22-25-21.792Z-cause.json
+
+- 2026-10-28T22:25:50.140Z Sol re-author 04.cards/sec01-license-system-part-1; nonce 04.cards:@sec01-license-system-part-1 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:80 -> 2026-10-28-rdmv-nj-class-d:lineage:80; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec01-license-system-part-1-2026-10-28T22-25-50.140Z-cause.json
+
+- 2026-10-28T22:26:53.089Z Sol re-author 05.card_scripts/sec01-license-system-part-1; nonce 05.card_scripts:@sec01-license-system-part-1 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:80 -> 2026-10-28-rdmv-nj-class-d:lineage:80; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec01-license-system-part-1-2026-10-28T22-26-53.089Z-cause.json
+
+- 2026-10-28T22:27:22.578Z Sol re-author 04.cards/sec02-license-system-part-2; nonce 04.cards:@sec02-license-system-part-2 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:80 -> 2026-10-28-rdmv-nj-class-d:lineage:80; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec02-license-system-part-2-2026-10-28T22-27-22.578Z-cause.json
+
+- 2026-10-28T22:27:27.422Z Sol re-author 05.card_scripts/sec02-license-system-part-2; nonce 05.card_scripts:@sec02-license-system-part-2 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:80 -> 2026-10-28-rdmv-nj-class-d:lineage:80; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec02-license-system-part-2-2026-10-28T22-27-27.422Z-cause.json
+
+- 2026-10-28T22:27:31.057Z Sol re-author 04.cards/sec03-driver-testing; nonce 04.cards:@sec03-driver-testing 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:80 -> 2026-10-28-rdmv-nj-class-d:lineage:81; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec03-driver-testing-2026-10-28T22-27-31.057Z-cause.json
+
+- 2026-10-28T22:27:37.023Z Sol re-author 05.card_scripts/sec03-driver-testing; nonce 05.card_scripts:@sec03-driver-testing 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:81 -> 2026-10-28-rdmv-nj-class-d:lineage:81; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec03-driver-testing-2026-10-28T22-27-37.023Z-cause.json
+
+- 2026-10-28T22:27:40.334Z Sol re-author 04.cards/sec04-driver-responsibility-part-1; nonce 04.cards:@sec04-driver-responsibility-part-1 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:81 -> 2026-10-28-rdmv-nj-class-d:lineage:81; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec04-driver-responsibility-part-1-2026-10-28T22-27-40.334Z-cause.json
+
+- 2026-10-28T22:27:46.643Z Sol re-author 05.card_scripts/sec04-driver-responsibility-part-1; nonce 05.card_scripts:@sec04-driver-responsibility-part-1 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:81 -> 2026-10-28-rdmv-nj-class-d:lineage:81; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec04-driver-responsibility-part-1-2026-10-28T22-27-46.643Z-cause.json
+
+- 2026-10-28T22:27:50.507Z Sol re-author 04.cards/sec06-safe-driving-rules-part-1; nonce 04.cards:@sec06-safe-driving-rules-part-1 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:81 -> 2026-10-28-rdmv-nj-class-d:lineage:82; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec06-safe-driving-rules-part-1-2026-10-28T22-27-50.507Z-cause.json
+
+- 2026-10-28T22:27:56.385Z Sol re-author 05.card_scripts/sec06-safe-driving-rules-part-1; nonce 05.card_scripts:@sec06-safe-driving-rules-part-1 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:82 -> 2026-10-28-rdmv-nj-class-d:lineage:82; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec06-safe-driving-rules-part-1-2026-10-28T22-27-56.385Z-cause.json
+
+- 2026-10-28T22:28:00.767Z Sol re-author 04.cards/sec07-safe-driving-rules-part-2; nonce 04.cards:@sec07-safe-driving-rules-part-2 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:82 -> 2026-10-28-rdmv-nj-class-d:lineage:82; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec07-safe-driving-rules-part-2-2026-10-28T22-28-00.767Z-cause.json
+
+- 2026-10-28T22:28:06.537Z Sol re-author 05.card_scripts/sec07-safe-driving-rules-part-2; nonce 05.card_scripts:@sec07-safe-driving-rules-part-2 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:82 -> 2026-10-28-rdmv-nj-class-d:lineage:82; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec07-safe-driving-rules-part-2-2026-10-28T22-28-06.537Z-cause.json
+
+- 2026-10-28T22:28:10.714Z Sol re-author 04.cards/sec09-defensive-driving-part-2; nonce 04.cards:@sec09-defensive-driving-part-2 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:82 -> 2026-10-28-rdmv-nj-class-d:lineage:83; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec09-defensive-driving-part-2-2026-10-28T22-28-10.714Z-cause.json
+
+- 2026-10-28T22:28:17.158Z Sol re-author 05.card_scripts/sec09-defensive-driving-part-2; nonce 05.card_scripts:@sec09-defensive-driving-part-2 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:83 -> 2026-10-28-rdmv-nj-class-d:lineage:83; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec09-defensive-driving-part-2-2026-10-28T22-28-17.158Z-cause.json
+
+- 2026-10-28T22:28:20.946Z Sol re-author 04.cards/sec11-privileges-penalties-part-1; nonce 04.cards:@sec11-privileges-penalties-part-1 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:83 -> 2026-10-28-rdmv-nj-class-d:lineage:83; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec11-privileges-penalties-part-1-2026-10-28T22-28-20.946Z-cause.json
+
+- 2026-10-28T22:28:26.356Z Sol re-author 05.card_scripts/sec11-privileges-penalties-part-1; nonce 05.card_scripts:@sec11-privileges-penalties-part-1 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:83 -> 2026-10-28-rdmv-nj-class-d:lineage:83; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec11-privileges-penalties-part-1-2026-10-28T22-28-26.356Z-cause.json
+
+- 2026-10-28T22:28:30.098Z Sol re-author 04.cards/sec12-privileges-penalties-part-2; nonce 04.cards:@sec12-privileges-penalties-part-2 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:83 -> 2026-10-28-rdmv-nj-class-d:lineage:84; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec12-privileges-penalties-part-2-2026-10-28T22-28-30.098Z-cause.json
+
+- 2026-10-28T22:28:35.830Z Sol re-author 05.card_scripts/sec12-privileges-penalties-part-2; nonce 05.card_scripts:@sec12-privileges-penalties-part-2 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:84 -> 2026-10-28-rdmv-nj-class-d:lineage:84; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec12-privileges-penalties-part-2-2026-10-28T22-28-35.830Z-cause.json
+
+- 2026-10-28T22:28:39.776Z Sol re-author 04.cards/sec14-vehicle-information; nonce 04.cards:@sec14-vehicle-information 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:84 -> 2026-10-28-rdmv-nj-class-d:lineage:84; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-04.cards-sec14-vehicle-information-2026-10-28T22-28-39.776Z-cause.json
+
+- 2026-10-28T22:28:44.661Z Sol re-author 05.card_scripts/sec14-vehicle-information; nonce 05.card_scripts:@sec14-vehicle-information 0 -> 1; lineage 2026-10-28-rdmv-nj-class-d:lineage:84 -> 2026-10-28-rdmv-nj-class-d:lineage:84; unchanged caps/history; runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-05.card_scripts-sec14-vehicle-information-2026-10-28T22-28-44.661Z-cause.json
+
+- 2026-10-28T22:30:40.168Z Sol re-author complete with residual sec03-F21; 10 native compiles and 20 accepted remints, 607 cards / 684 scripts, 33 changed backs; raw facts and 02/03/06/05.sessions preserved. Report coordination/SOL-REPORTS/REAUTHOR-NJ.md; receipt runs/2026-10-28-rdmv-nj-class-d/receipts/sol-reauthor-nj-completion-0d15740ce207e8d20b67ca510bbd8fee5a465dfd07ce0e525d2979847fffad77.json. Cost actual/reserved/uncertain $0/$0/$0. Coordinator onboarding pending.

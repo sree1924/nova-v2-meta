@@ -227,3 +227,33 @@ Seeded 2026-10-28T05:16:54.777Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T11:38:56.214Z lineage reset → 2026-10-28-rdmv-az-class-d:lineage:112 for 05.card_scripts (sec17-floods-fog-snow-night-wrong-way) under standing authority; cause: proactive reset before authoring packet 05.card_scripts__sec17-floods-fog-snow-night-wrong-way__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T11:39:48Z retry nonce 04.cards:@sec17-floods-fog-snow-night-wrong-way 0→1 (coordinator decision): re-mint 04 to merge sec17-F34 onto R08; 05.STAGE_DIRECTIONS unreachable on locked wording 'fade in'
+
+- 2026-10-28T23:03:04.677Z Sol re-author 16.compile/sec05-equipment-defensive-driving-scanning: native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-capacity-6e8faee1-38c4-4a8c-9967-0386b9ae4580.json
+
+- 2026-10-28T23:03:05.637Z Sol re-author 16.compile/sec18-impairment-road-rage-medical-fatigue: native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-capacity-762e5dd1-3fda-4eba-9021-0131b28b31b1.json
+
+- 2026-10-28T23:03:30.787Z Sol re-author 04.cards/sec17-floods-fog-snow-night-wrong-way: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-046c247c-f9e1-4183-9427-28fa2da35c60.json
+
+- 2026-10-28T23:03:34.254Z Sol re-author 05.card_scripts/sec17-floods-fog-snow-night-wrong-way: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-7af370f9-99eb-4354-a793-8bd2e1d44396.json
+
+- 2026-10-28T23:03:37.385Z Sol re-author 04.cards/sec21-vehicle-emergencies-avoiding-crashes: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-b4a59567-4bec-4dd3-a6a5-de20734ad6ef.json
+
+- 2026-10-28T23:03:40.869Z Sol re-author 05.card_scripts/sec21-vehicle-emergencies-avoiding-crashes: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-93436b1b-c6b5-4e78-a19b-1933623acd16.json
+
+- 2026-10-28T23:03:44.441Z Sol re-author 04.cards/sec22-crash-procedures-traffic-stops: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-29152e38-60c9-4379-a24c-19adf25c33f8.json
+
+- 2026-10-28T23:03:48.187Z Sol re-author 05.card_scripts/sec22-crash-procedures-traffic-stops: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-68fa65d8-7f8a-44fe-a876-0654a2e220f9.json
+
+- 2026-10-28T23:03:51.669Z Sol re-author 04.cards/sec02-insurance-residency-voter-donor: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-c53b226a-4b46-4d73-aa48-a13ba96dc54a.json
+
+- 2026-10-28T23:03:55.147Z Sol re-author 05.card_scripts/sec02-insurance-residency-voter-donor: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-c2195fb4-c4ad-4dda-a904-d0bc19720a40.json
+
+- 2026-10-28T23:03:58.356Z Sol re-author 04.cards/sec04-before-you-drive-belts-child-seats: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-14929e4c-3381-4b94-a270-89f00dbdbac0.json
+
+- 2026-10-28T23:04:01.879Z Sol re-author 05.card_scripts/sec04-before-you-drive-belts-child-seats: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-65cd04e1-32cf-4874-9597-1e2b57aeb12c.json
+
+- 2026-10-28T23:04:05.098Z Sol re-author 04.cards/sec05-equipment-defensive-driving-scanning: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-1474b89e-ef2e-4fec-8379-7a81bbdc5980.json
+
+- 2026-10-28T23:04:08.649Z Sol re-author 05.card_scripts/sec05-equipment-defensive-driving-scanning: explicit accepted-remint nonce increment once; native binding / accepted-capacity only, caps and history retained. runs/2026-10-28-rdmv-az-class-d/receipts/sol-reauthor-nonce-e1c288d1-67d7-4558-9c21-459977c11193.json
+
+- 2026-10-28T23:05:30.826Z Sol AZ re-author final: 6 new accepted compiles and 12 accepted content remints; 324 cards / 362 scripts, 12 changed answers, 12/14 initial hidden corrected. Residual c8 sec03-F04 and c10 sec18-F14. Raw facts, citations, debt, status, stable IDs, all 4 merges and other accepted stages preserved; one historical blocked out-of-scope sec08 attempt unchanged. Ledger actual/reserved/uncertain $0. Report coordination/SOL-REPORTS/REAUTHOR-AZ.md.

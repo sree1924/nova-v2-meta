@@ -147,3 +147,23 @@ Seeded 2026-10-28T03:24:01.059Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:38:31.797Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:71 for 04.cards (sec12-speed-space-and-time) under standing authority; cause: proactive reset before authoring packet 04.cards__sec12-speed-space-and-time__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:48:13.842Z lineage reset → 2026-10-28-rdmv-wa-class-std:lineage:72 for 04.cards (sec14-failures-collisions-law-enforcement) under standing authority; cause: proactive reset before authoring packet 04.cards__sec14-failures-collisions-law-enforcement__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T23:01:38.592Z Previously unsubmitted 16/sec07-sharing-the-road: all-accepted capacity 2026-10-28-rdmv-wa-class-std:lineage:72 -> 2026-10-28-rdmv-wa-class-std:lineage:73, no nonce change; pre-existing task history preserved; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-accepted-capacity-16.compile-1793228498598.json.
+
+- 2026-10-28T23:02:04.385Z Sol re-author 04.cards/sec01-getting-your-license: explicit accepted remint nonce 04.cards:@sec01-getting-your-license 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-04.cards-sec01-getting-your-license-n1.json.
+
+- 2026-10-28T23:02:09.712Z Sol re-author 05.card_scripts/sec01-getting-your-license: explicit accepted remint nonce 05.card_scripts:@sec01-getting-your-license 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-05.card_scripts-sec01-getting-your-license-n1.json.
+
+- 2026-10-28T23:02:19.232Z Sol re-author 04.cards/sec06-decisions-distraction-respect: explicit accepted remint nonce 04.cards:@sec06-decisions-distraction-respect 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-04.cards-sec06-decisions-distraction-respect-n1.json.
+
+- 2026-10-28T23:02:32.464Z Sol re-author 05.card_scripts/sec06-decisions-distraction-respect: explicit accepted remint nonce 05.card_scripts:@sec06-decisions-distraction-respect 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-05.card_scripts-sec06-decisions-distraction-respect-n1.json.
+
+- 2026-10-28T23:02:41.796Z Sol re-author 04.cards/sec07-sharing-the-road: explicit accepted remint nonce 04.cards:@sec07-sharing-the-road 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-04.cards-sec07-sharing-the-road-n1.json accepted-capacity runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-accepted-capacity-04.cards-1793228561759.json.
+
+- 2026-10-28T23:02:46.950Z Sol re-author 05.card_scripts/sec07-sharing-the-road: explicit accepted remint nonce 05.card_scripts:@sec07-sharing-the-road 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-05.card_scripts-sec07-sharing-the-road-n1.json.
+
+- 2026-10-28T23:02:57.927Z Sol re-author 04.cards/sec14-failures-collisions-law-enforcement: explicit accepted remint nonce 04.cards:@sec14-failures-collisions-law-enforcement 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-04.cards-sec14-failures-collisions-law-enforcement-n1.json.
+
+- 2026-10-28T23:03:10.457Z Sol re-author 05.card_scripts/sec14-failures-collisions-law-enforcement: explicit accepted remint nonce 05.card_scripts:@sec14-failures-collisions-law-enforcement 0 -> 1; runs/2026-10-28-rdmv-wa-class-std/receipts/sol-reauthor-nonce-05.card_scripts-sec14-failures-collisions-law-enforcement-n1.json.
+
+- 2026-10-28T23:04:57.421Z Sol WA re-author complete within current compiler: sec01/sec06/sec07/sec14 native16+04+05 PASS, 11/16 initial hidden backs corrected; 5 RCW identifier residuals sec02-F18/F19/R05/F20 and sec04-F03 retained. sec02/sec04 current preview registries byte-identical; no remint/replay. Source facts/debt/status/IDs/merges/02/03/06/sessions and historical blocked/queued history preserved. Report coordination/SOL-REPORTS/REAUTHOR-WA.md; scratch/sol-reauthor/wa/FINAL-CHECKPOINT.json. Ledger released, actual/reserved/uncertain all $0.

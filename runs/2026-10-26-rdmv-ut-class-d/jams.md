@@ -563,3 +563,35 @@
 - 2026-10-27T22:10:48.361Z lineage reset → 2026-10-26-rdmv-ut-class-d:lineage:134 for 02.dossier_sections (sec15-vehicle-equipment) under standing authority; cause: attempt limit after HOLDs; last non-PASS: 
 
 - 2026-10-27T22:12:42.958Z retry nonce 04.cards:@sec15-vehicle-equipment → 1 after HOLD (sec15-vehicle-equipment); non-PASS: finish_reason_not_stop
+
+- 2026-10-28T22:26:19.792Z SOL UT accepted-capacity 2026-10-26-rdmv-ut-class-d:lineage:134 → 2026-10-26-rdmv-ut-class-d:lineage:135, 16.compile/sec15-vehicle-equipment; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-accepted-capacity-16.compile-135.json
+
+- 2026-10-28T22:27:50.275Z SOL UT authorized 04.cards/sec02-licensing-requirements accepted remint nonce 04.cards:@sec02-licensing-requirements: 6 → 7; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-04.cards-sec02-licensing-requirements-7.json
+
+- 2026-10-28T22:28:07.125Z SOL UT authorized 05.card_scripts/sec02-licensing-requirements accepted remint nonce 05.card_scripts:@sec02-licensing-requirements: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-05.card_scripts-sec02-licensing-requirements-1.json
+
+- 2026-10-28T22:28:30.754Z SOL UT authorized 04.cards/sec03-driver-education-permits accepted remint nonce 04.cards:@sec03-driver-education-permits: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-04.cards-sec03-driver-education-permits-1.json
+
+- 2026-10-28T22:28:49.453Z SOL UT authorized 05.card_scripts/sec03-driver-education-permits accepted remint nonce 05.card_scripts:@sec03-driver-education-permits: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-05.card_scripts-sec03-driver-education-permits-1.json
+
+- 2026-10-28T22:29:10.312Z SOL UT accepted-capacity 2026-10-26-rdmv-ut-class-d:lineage:135 → 2026-10-26-rdmv-ut-class-d:lineage:136, 04.cards/sec05-vision-health; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-accepted-capacity-04.cards-136.json
+
+- 2026-10-28T22:29:10.970Z SOL UT authorized 04.cards/sec05-vision-health accepted remint nonce 04.cards:@sec05-vision-health: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-04.cards-sec05-vision-health-1.json
+
+- 2026-10-28T22:29:20.822Z SOL UT authorized 05.card_scripts/sec05-vision-health accepted remint nonce 05.card_scripts:@sec05-vision-health: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-05.card_scripts-sec05-vision-health-1.json
+
+- 2026-10-28T22:29:40.670Z SOL UT authorized 04.cards/sec09-rules-of-the-road accepted remint nonce 04.cards:: 6 → 7; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-04.cards-sec09-rules-of-the-road-7.json
+
+- 2026-10-28T22:29:50.884Z SOL UT authorized 05.card_scripts/sec09-rules-of-the-road accepted remint nonce 05.card_scripts:: 6 → 7; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-05.card_scripts-sec09-rules-of-the-road-7.json
+
+- 2026-10-28T22:30:12.137Z SOL UT accepted-capacity 2026-10-26-rdmv-ut-class-d:lineage:136 → 2026-10-26-rdmv-ut-class-d:lineage:137, 04.cards/sec10-alcohol-drugs; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-accepted-capacity-04.cards-137.json
+
+- 2026-10-28T22:30:12.885Z SOL UT authorized 04.cards/sec10-alcohol-drugs accepted remint nonce 04.cards:@sec10-alcohol-drugs: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-04.cards-sec10-alcohol-drugs-1.json
+
+- 2026-10-28T22:30:24.836Z SOL UT authorized 05.card_scripts/sec10-alcohol-drugs accepted remint nonce 05.card_scripts:@sec10-alcohol-drugs: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-05.card_scripts-sec10-alcohol-drugs-1.json
+
+- 2026-10-28T22:30:39.102Z SOL UT authorized 04.cards/sec15-vehicle-equipment accepted remint nonce 04.cards:@sec15-vehicle-equipment: 1 → 2; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-04.cards-sec15-vehicle-equipment-2.json
+
+- 2026-10-28T22:30:53.650Z SOL UT authorized 05.card_scripts/sec15-vehicle-equipment accepted remint nonce 05.card_scripts:@sec15-vehicle-equipment: 0 → 1; runs/2026-10-26-rdmv-ut-class-d/receipts/sol-reauthor-ut-nonce-05.card_scripts-sec15-vehicle-equipment-1.json
+
+- 2026-10-28T22:33:59.655Z SOL UT re-author native PASS: six section decks/scripts, 136 cards, 33 changed backs; 14 of original21 hidden corrected, seven residual internal-ID/incomplete facts held. Raw/source/debt/status/merges/IDs and accepted02/03/06/sessions preserved. Delta $0; historical $44.088251; reserved/uncertain $0. coordination/SOL-REPORTS/REAUTHOR-UT.md; scratch/sol-reauthor/ut/FINAL-CHECKPOINT.json

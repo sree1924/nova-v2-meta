@@ -121,3 +121,15 @@ Seeded 2026-10-28T05:02:30.219Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T06:50:24.708Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:58 for 03.combined_kg (sec09-handling-emergencies) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-handling-emergencies__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T06:58:50.798Z lineage reset → 2026-10-28-rdmv-wi-class-d:lineage:59 for 03.combined_kg (sec11-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-sharing-the-road__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T23:07:47.655Z SOL WI accepted-capacity 2026-10-28-rdmv-wi-class-d:lineage:59 → 2026-10-28-rdmv-wi-class-d:lineage:60, 04.cards/sec01-driving-test-requirements; all consumed stage attempts accepted; caps/counters/nonces/history preserved. runs/2026-10-28-rdmv-wi-class-d/receipts/sol-reauthor-wi-accepted-capacity-04.cards-60.json
+
+- 2026-10-28T23:07:48.270Z SOL WI authorized 04.cards/sec01-driving-test-requirements accepted remint nonce 04.cards:@sec01-driving-test-requirements: 0 → 1; runs/2026-10-28-rdmv-wi-class-d/receipts/sol-reauthor-wi-nonce-04.cards-sec01-driving-test-requirements-1.json
+
+- 2026-10-28T23:07:56.752Z SOL WI authorized 05.card_scripts/sec01-driving-test-requirements accepted remint nonce 05.card_scripts:@sec01-driving-test-requirements: 0 → 1; runs/2026-10-28-rdmv-wi-class-d/receipts/sol-reauthor-wi-nonce-05.card_scripts-sec01-driving-test-requirements-1.json
+
+- 2026-10-28T23:08:15.605Z SOL WI authorized 04.cards/sec09-handling-emergencies accepted remint nonce 04.cards:@sec09-handling-emergencies: 0 → 1; runs/2026-10-28-rdmv-wi-class-d/receipts/sol-reauthor-wi-nonce-04.cards-sec09-handling-emergencies-1.json
+
+- 2026-10-28T23:08:25.655Z SOL WI authorized 05.card_scripts/sec09-handling-emergencies accepted remint nonce 05.card_scripts:@sec09-handling-emergencies: 0 → 1; runs/2026-10-28-rdmv-wi-class-d/receipts/sol-reauthor-wi-nonce-05.card_scripts-sec09-handling-emergencies-1.json
+
+- 2026-10-28T23:10:31.024Z SOL WI re-author: two compiles/decks/scripts accepted;76 cards/76 card scripts/10recaps,8changed backs,8/8original hidden corrected. Accepted emergency lessons retain 18 narration fields with nine hundred eleven; exact quotes/paths reported; no session remint. Raw/source/debt/status/merges/IDs and accepted02/03/06/sessions preserved. Actual/reserved/uncertain $0. coordination/SOL-REPORTS/REAUTHOR-WI.md; scratch/sol-reauthor/wi/NATIVE-HANDOFF.json

@@ -1,0 +1,23 @@
+# AL — native re-author pass complete; two compiler residuals
+- Supersedes the partial report (preserved as `scratch/sol-reauthor/al/HOLD-V1-REAUTHOR-AL.md`) and its HOLD checkpoint; authorized continuation proof is in the versioned checkpoint.
+- Run `runs/2026-10-28-rdmv-al-class-d`; actual author `gpt-6.1-sol` (ChatGPT Pro subscription, Sol re-author pass); Muse used only as native file transport.
+- Seven affected sections: native16 → separate nonce1 accepted04 → separate nonce1 accepted05 PASS; 340 cards, 340 card scripts, 40 recap scripts reminted; twenty changed backs/answers.
+- `sec01-license-requirements-and-identification`: 16 version `9b8b8013`; accepted04 SHA `e8d9ef3ac1471eb1320b2a29eae2c6b0e01b8fc3772373b808a9fa4397168a0e`; accepted05 SHA `0b3bee8f45fb0ca80727528174b45955c004030eed3cf5fd7798b85516e94f4b`.
+- `sec02-testing-renewal-and-license-classes`: 16 version `75c83687`; accepted04 SHA `0572b987ce72498cb8f8e9c298c21cd98af2cafb55f88cbb1aa411fbc82022b9`; accepted05 SHA `d5e688e9b82b15ab64be3ad1efd0efa3b412999b246c0da93ee35fbf4f679035`.
+- `sec03-losing-your-license-and-points`: 16 version `b76c3134`; accepted04 SHA `a6106d195169b01bda56ca8cc42acbdb91e0ffe605a2e794766657980d8b631f`; accepted05 SHA `8a57b3604ae611c8d13338a3a6170cabb5aa80c0277d4828ac2109fe3470f9e6`.
+- `sec06-driver-condition-phones-and-alcohol`: 16 version `54d86e1a`; accepted04 SHA `46e55e936c95dd28ac200e4fcfc8ff81f47db5fe6b5c379269b97df94b2ecced`; accepted05 SHA `a7799cfb441113fd4187a23b091bac44fe5f68d3c41dd2d903d3cae3b0d060f0`.
+- `sec10-traffic-laws`: 16 version `21318d5d`; accepted04 SHA `1df3ca1b50b4b2242ca2c24dd0c2a2712cf71d9f91f09d1e3062cef261c897f3`; accepted05 SHA `6b23535ad80281f4b6b1781be2130aac166168b866ef17835283d57ee7644292`.
+- `sec12-freeways-and-vehicle-maintenance`: 16 version `59ede07e`; accepted04 SHA `42d3c2a1a0b06ebd3efb0b8e00341fde2c2a179a572a7e69fcd4b5492f2ca664`; accepted05 SHA `5c764080ef93fd1929570e52ae3a7803e25afeb4476ea6d1ab1d850df01b6888`.
+- `sec13-graduated-driver-license-summary`: 16 version `cbbfe886`; accepted04 SHA `65092519024ba5f53d946f8a2d2d625c86df39ca1e2f8b7eb95394698f2063c1`; accepted05 SHA `4b26078b6da6899bb4f5fa873a8e4ca531d939cb5a4dcd0a25916366dc57186f`.
+- BAC examples sec06-F25 `.05`/`of.five` → `point zero five`; F26/F27 `.08`/`at.eight`/`of.eight` → `point zero eight`; F33 `.04` → `point zero four`; F34/F35 `.02` → `point zero two` (R01/R02 likewise).
+- sec12-F37 `one or sixteen inch` → `one sixteenth inch`; sec02-F32 `one thousand nine hundred fifty-four` → `nineteen fifty-four`.
+- sec01-F36 `150cc` → `one hundred fifty cubic centimeters`; sec02-F28/F29/R09 large weights and sec06-F38/F39 / sec10-F72 dollar amounts now spoken; sec03-F04/R09 and sec06-R05/F39 dollar commas corrected.
+- sec13-F21 compile date `seven or one/two thousand ten` → `July one, two thousand ten`; it remains merged into F01, so sec13 cards/scripts reused their semantic bytes with fresh native bindings (zero backs changed there).
+- Residual/unfixable: sec10-F73 (`sec10-card-sec10-F73`) and sec13-F14 (`sec13-card-sec13-F14`), class `c8_and_or_or`; current compiler STILL emits `and or or`. No claim that these were fixed; preserve their quarantine.
+- Private native comparison: twenty of the initial twenty-two hidden backs repaired, two remain. Shell/quarantine files remain untouched; Fable re-onboards and regenerates them.
+- All raw fact IDs/statements/source spans/citations/status/debt, stable card/script IDs and merges preserved; all accepted02/03/06/05.sessions unchanged. No lesson old-garble quote hits in the exact-string scan; lessons stay accepted.
+- Per remint all22 mapped04 checks and all20 mapped05 checks PASS with full fresh native context; no passed production suite rerun; independent factual audit remains pending.
+- Original sec03 lineage65 task remains queued with ZERO attempts. Root authorized fresh unsubmitted lineage66 scope; all old receipts/counters/caps/history preserved; 5 cause-backed all-accepted capacity advancements total, no failed reset or accepted replay.
+- Ledger: 218 accepted attempts; released, no active attempts/reservations/outbox/lock. Actual $0.000; reserved $0.000; uncertain $0.000. Fourteen raw file-transport calls: model_api_called:false, credit_usd:0.
+- Versioned evidence: `scratch/sol-reauthor/al/FINAL-CHECKPOINT-CONTINUATION.json`; ready-to-append REAUTHOR-LOG entry included; root alone writes shared queue/log/usage.
+- Final fixed actual usage: 6076389 total tokens (cached input 5870592 INCLUDED), baseline0 / assignment delta same; exact raw metric event timestamp/hash in `FINAL-USAGE-SAMPLE-CONTINUATION.json`; tool count/duration null.

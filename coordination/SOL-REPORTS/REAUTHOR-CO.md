@@ -1,0 +1,17 @@
+# CO — native re-author complete; all seven listed backs repaired
+- Run runs/2026-10-28-rdmv-co-class-std; actual author gpt-6.1-sol (ChatGPT Pro subscription, Sol re-author pass); authentic native Muse file transport only.
+- Both affected sections: append-only16, separate nonce1 accepted04 remint, then separate nonce1 accepted05.card_scripts remint, all native PASS. 88 cards, 88 card scripts and 16 recap scripts reminted; seven changed backs/answers.
+- sec02-license-loss-seat-belts-impaired-driving: 16 version f3047fe5; accepted04 SHA 69e35aecd036d9d0e4ee5579b828b2bfa65858b18d243191fa5224bdb0a65712; accepted05 SHA 587e96fd89846f638552c979ebcd60cbd69ae7f158714ea84078e8fa7ab84855.
+- sec13-railroad-light-rail-bicyclists: 16 version e4aa2a4f; accepted04 SHA 4a0f044a7deb80d61ebd4fd40b24a619152155b997864691ef64a93dcd0892f5; accepted05 SHA d603dd4d0dfc4029ee2e2b5eafd86536e7cf50347ac9f1350fadfe8ecd720643.
+- sec02-F19 and sec02-R02: over.eight / over.two / over.four became over point zero eight / over point zero two / over point zero four; raw .08/.02/.04 remain unchanged.
+- sec02-F23/F24/F25/F26: five hundred, dollars / one thousand, dollars / one thousand five hundred, dollars now place dollars before the list comma; all fine amounts, jail/service ranges and qualifications preserved.
+- sec13-F23: nine hundred eleven became nine one one; raw 911 and its page citation unchanged.
+- Private initial-quarantine comparison: seven of seven listed card backs repaired, zero residual/unfixable listed facts. No native or accounting HOLD; retained lesson semantic residue is listed below. Fable shell refresh remains pending; quarantine files were not edited.
+- All raw fact IDs/statements/source spans/citations/status/debt and stable card/script IDs/merges preserved. Accepted02/03/06/05.sessions and other sections unchanged.
+- Retained lesson semantic residue: sec13-F23, accepted05.sessions sec13-railroad-light-rail-bicyclists, five exact narration quotes: "Report a hanging overhead wire or faulty light rail safety device by calling nine hundred eleven or RTD."
+- Exact lesson paths: $.units[4].slides[2].narration.text; $.units[4].slides[3].narration.text; $.units[4].slides[4].narration.text; $.units[4].slides[5].narration.text; $.units[4].slides[7].narration.text. Full quotes and accepted refs are in PRESERVATION-PROOF.json; sessions retained unchanged.
+- Every new04 has22 mapped checks PASS; every new05 has20 mapped checks PASS using full fresh native context; no passed production suite rerun. Independent07/08 factual audit remains pending.
+- Native delta: six new accepted tasks/attempts (two compiles, four file-transport content calls). 1 cause-backed all-consumed-accepted capacity advancement; prior counters/caps/queued history and all old receipts preserved; no failed reset or accepted replay.
+- Ledger released, claim removed at closeout; no active attempt/reservation/outbox/lock. Actual/reserved/uncertain each $0.000; raw model_api_called:false, credit_usd:0.
+- Private FINAL-CHECKPOINT-FINAL.json, PRESERVATION-PROOF.json and NATIVE-HANDOFF.json contain exact native refs, receipts, preservation and append-ready log. Root alone updates shared queue/log/usage; Fable onboards.
+- Actual cumulative 14436098 total / 14117248 cached; CO baseline10,934,175 /10,648,320; assignment delta 3501923 total /3468928 cached. Cached subset INCLUDED; exact raw metric timestamp/hash/model/session saved in FINAL-USAGE-SAMPLE-END.json; helper count/duration null.

@@ -171,3 +171,51 @@ Seeded 2026-10-28T05:02:02.619Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-28T10:25:03.797Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:84 for 05.sessions (sec11-special-driving-conditions) under standing authority; cause: proactive reset before authoring packet 05.sessions__sec11-special-driving-conditions__-__n0 (lineage attempts exhausted)
 
 - 2026-10-28T10:26:19.513Z lineage reset → 2026-10-28-rdmv-mo-class-f:lineage:85 for 05.sessions (sec12-alcohol-drugs-driving) under standing authority; cause: proactive reset before authoring packet 05.sessions__sec12-alcohol-drugs-driving__-__n0 (lineage attempts exhausted)
+
+- 2026-10-28T22:27:06.149Z SOL re-author checkpoint HOLD: sec12/sec03 compiled accepted; cards/scripts unchanged. Binding-path exception preserved; no retry. Report coordination/SOL-REPORTS/REAUTHOR-MO.md; checkpoint scratch/sol-reauthor/mo/FINAL-CHECKPOINT.json.
+
+- 2026-10-28T22:33:22.044Z SOL re-author resumes unsubmitted scopes only after root native receipt scratch/sol-state-coordinator/MO-REAUTHOR-BINDING-PATH-RECOVERY-20261028.json; existing sec16 GO/cause/config unchanged. Accepted sec03/sec12 are not replayed.
+
+- 2026-10-28T22:33:46.837Z SOL re-author 16.compile/sec02-driver-license-part-2: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-capacity-sec02-driver-license-part-2-16.compile-87.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:33:52.630Z SOL re-author 16.compile/sec06-parking: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-capacity-sec06-parking-16.compile-88.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:33:57.367Z SOL re-author 16.compile/sec15-mandatory-insurance: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-capacity-sec15-mandatory-insurance-16.compile-89.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:34:10.192Z SOL re-author 04.cards/sec12-alcohol-drugs-driving: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec12-alcohol-drugs-driving-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:35:38.776Z SOL re-author 05.card_scripts/sec12-alcohol-drugs-driving: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec12-alcohol-drugs-driving-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:36:04.137Z SOL re-author 04.cards/sec03-driver-examination: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec03-driver-examination-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:36:12.320Z SOL re-author 05.card_scripts/sec03-driver-examination: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec03-driver-examination-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:36:35.941Z SOL re-author 04.cards/sec16-inspections-equipment: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec16-inspections-equipment-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:36:44.627Z SOL re-author 05.card_scripts/sec16-inspections-equipment: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec16-inspections-equipment-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:36:58.529Z SOL re-author 04.cards/sec01-driver-license-part-1: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec01-driver-license-part-1-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:37:06.771Z SOL re-author 05.card_scripts/sec01-driver-license-part-1: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec01-driver-license-part-1-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:37:16.401Z SOL re-author 04.cards/sec02-driver-license-part-2: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec02-driver-license-part-2-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:37:24.207Z SOL re-author 05.card_scripts/sec02-driver-license-part-2: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec02-driver-license-part-2-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:37:38.508Z SOL re-author 04.cards/sec05-sharing-the-road: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec05-sharing-the-road-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:37:47.217Z SOL re-author 05.card_scripts/sec05-sharing-the-road: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec05-sharing-the-road-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:37:55.058Z SOL re-author 04.cards/sec06-parking: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec06-parking-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:38:06.041Z SOL re-author 05.card_scripts/sec06-parking: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec06-parking-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:38:26.649Z SOL re-author 04.cards/sec14-titling-registration: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec14-titling-registration-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:38:34.749Z SOL re-author 05.card_scripts/sec14-titling-registration: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec14-titling-registration-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:38:43.044Z SOL re-author 04.cards/sec15-mandatory-insurance: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-04.cards-sec15-mandatory-insurance-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:38:51.196Z SOL re-author 05.card_scripts/sec15-mandatory-insurance: runs/2026-10-28-rdmv-mo-class-f/receipts/sol-reauthor-nonce-05.card_scripts-sec15-mandatory-insurance-n1.json; prior limits/counters/history retained.
+
+- 2026-10-28T22:41:51.286Z SOL re-author COMPLETE WITH RESIDUALS: nine native16 + nine04 + nine05.card_scripts accepted; 529 cards/596 script records; raw facts and03/06/sessions/merges/IDs retained. Five and-or residuals and six lesson acuity quotes reported; coordinator owns shell quarantine. Report coordination/SOL-REPORTS/REAUTHOR-MO.md; checkpoint scratch/sol-reauthor/mo/FINAL-CHECKPOINT-v2.json. Actual/reserved/uncertain $0.000.

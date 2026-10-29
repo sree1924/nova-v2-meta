@@ -1,0 +1,29 @@
+# MA — authoring in progress
+- Run 2026-10-28-rdmv-ma-class-d; actual author gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker); session 01a1849b-e37b-7c32-a2d7-92a5854ae05c.
+- Source PNG derivative v3 accepted/PASS; historical private caller and all-accepted source-capacity stops resolved by root artifacts. Original v1/v2 proofs and zero-attempt queued v2 task retained.
+- Source: founder manual download, SHA256 a24e5e352bf519f9000c753c9788e4b8cdd44001f1266f58f721117488df7fe3, 140 physical pages. Class D source-verified; rendered frontmatter Revised April 2026; issuer exact-link DOM observed.
+- Physical24/printed16 says "Each learner’s permit exam has 25 multiple-choice questions." It also says18 correct within25minutes. Current bound safe exam view marks ALL metrics unknown; no inferred percentage or official-mirror promotion.
+- sec01-license-basics-and-eligibility: physical9–16; 02.dossier_sections, 16.compile; facts 66.
+- sec02-junior-license-and-identification: physical17–22; 02.dossier_sections, 16.compile; facts 69.
+- sec03-permit-exam-and-practice: physical23–28; 02.dossier_sections, 16.compile; facts 59.
+- sec04-license-testing-and-fees: physical29–40; 02.dossier_sections, 16.compile; facts 81.
+- sec05-vehicle-and-occupant-safety: physical41–48; 02.dossier_sections, 16.compile; facts 74.
+- sec06-defensive-driving-and-weather: physical49–56; 02.dossier_sections, 16.compile; facts 93.
+- sec07-vulnerable-road-users: physical57–62; 02.dossier_sections, 16.compile; facts 70.
+- sec08-violations-and-driving-records: physical63–68; 02.dossier_sections, 16.compile; facts 68.
+- sec09-license-suspensions: physical69–78; 02.dossier_sections, 16.compile; facts 84.
+- sec10-alcohol-drugs-and-license-retention: physical79–84; 02.dossier_sections, 16.compile; facts 55.
+- sec11-speed-signals-and-signs: physical85–96; 02.dossier_sections, 16.compile; facts 122.
+- sec12-markings-lanes-and-turns: physical97–108; 02.dossier_sections, 16.compile; facts 99.
+- sec13-right-of-way-passing-and-sharing: physical109–116; 02.dossier_sections, 16.compile; facts 72.
+- sec14-parking-pedestrians-and-bicycles: physical117–126; 02.dossier_sections, 16.compile; facts 106.
+- sec15-emergency-vehicles-and-enforcement: physical127–130; 02.dossier_sections, 16.compile; facts 38.
+- sec16-emergencies-crashes-and-green-driving: physical131–140; 02.dossier_sections, 16.compile; facts 87.
+- Accepted compiled facts 1243. Downstream 03/04/06/05 not yet authored. Full PART2 scope incomplete; no factual07/08 acceptance claimed.
+- C/C2 statements manually authored from bound whole-page contexts; helpers A/B/D/E/E2/F/G generated from declared source-specific inputs; every outbox locally checked before native submission.
+- Scope excludes conversion-only, separate CDL/motorcycle curriculum, hands-on test assessment, source-image reproduction, contact details and unverified contextual statistics. In-scope application, fees, small-vehicle and sharing rules retained.
+- Source liveness CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT; effective-date, rights, manual retrieval and image-page debt remain. Page-specific exclusions, ambiguous tint wording, seat-guide limitations and split-page conditions retained as typed debt.
+- All 36 native attempts accepted, ownership released; 16 authentic file-transport content calls; ledger actual/reserved/uncertain each $0.000. No paid Model API, audio, publish, commit, onboarding or shared edits.
+- Limits, nonces, counters, tasks and attempt history preserved. Distinct tasks use cause-backed capacity advancement only after all consumed same-stage/current-lineage attempts accepted. No failed candidate reset or accepted replay.
+- Current checkpoint and NATIVE-HANDOFF pin accepted refs and phase coverage. Earlier stop checkpoints preserved under immutable private history names.
+- Actual cumulative 37554878 total /35849856 cached; assignment delta 19558740 total /18535936 cached INCLUDED; authentic raw event saved, helper metrics null.
