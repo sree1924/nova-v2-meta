@@ -79,3 +79,31 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:13:06.318Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:36 for 02.dossier_sections (sec08-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-and-markings__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:13:07.897Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:37 for 02.dossier_sections (sec08-signals-and-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec08-signals-and-markings__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:40.187Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:38 for 02.dossier_sections (sec09-speed-and-right-of-way) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-speed-and-right-of-way__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:41.894Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:39 for 02.dossier_sections (sec09-speed-and-right-of-way) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-speed-and-right-of-way__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:43.549Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:40 for 02.dossier_sections (sec09-speed-and-right-of-way) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-speed-and-right-of-way__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:45.183Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:41 for 02.dossier_sections (sec09-speed-and-right-of-way) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec09-speed-and-right-of-way__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:46.940Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:42 for 02.dossier_sections (sec10-turning-and-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-turning-and-parking__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:48.647Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:43 for 02.dossier_sections (sec10-turning-and-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-turning-and-parking__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:50.408Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:44 for 02.dossier_sections (sec10-turning-and-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-turning-and-parking__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:52.072Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:45 for 02.dossier_sections (sec10-turning-and-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-turning-and-parking__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:53.785Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:46 for 02.dossier_sections (sec10-turning-and-parking) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec10-turning-and-parking__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:55.541Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:47 for 02.dossier_sections (sec11-lane-use-and-passing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-lane-use-and-passing__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:57.275Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:48 for 02.dossier_sections (sec11-lane-use-and-passing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-lane-use-and-passing__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:59.016Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:49 for 02.dossier_sections (sec11-lane-use-and-passing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-lane-use-and-passing__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:17:00.714Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:50 for 02.dossier_sections (sec11-lane-use-and-passing) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec11-lane-use-and-passing__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:17:02.483Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:51 for 02.dossier_sections (sec12-sharing-the-road) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-sharing-the-road__C__n0 (lineage attempts exhausted)
