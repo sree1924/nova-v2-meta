@@ -1,3 +1,5 @@
+RETRACTED 2026-10-28 ~22:45Z: Sol finished the manual re-author pass (coordination/SOL-REPORTS/REAUTHOR-PASS-CLOSEOUT-20261028.md) before this build started. Do NOT launch; if a cloud session is already running on it, stop it. Kept for the record only.
+
 CLOUD TOOL-BUILD PROMPT — refresh-backs. Paste the block below into a new Claude cloud session on sree1924/nova-v2-meta. The session BUILDS a deterministic tool; the coordinator (Fable, local) RUNS it against the 26 live states. Credit note: the Hawaii full-belt session shares the same ~$74 of cloud credit; this build should cost far less than a state.
 
 ----- paste from here -----

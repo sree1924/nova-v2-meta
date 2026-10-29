@@ -1,3 +1,5 @@
+SUPERSEDED 2026-10-28 ~22:45Z: Sol had already completed the whole pass (closeout 18:14 local) when this was written; no hand-back needed. Part 2 (MT + 14 states) stands.
+
 Sol — change of plan (founder, 2026-10-28 ~22:30Z). STOP the re-author pass (Part 1) now. A deterministic tool will do the byte refresh; the coordinator runs it. You keep MT and the 14 round-2 states (Part 2), nothing else.
 
 Hand-back, before you touch anything else:
