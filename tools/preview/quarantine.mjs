@@ -5,6 +5,7 @@
 // Read-only scan of accepted 04.cards backs for spoken-number garbles. Writes ONLY quarantine.json files + summary.
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 
 import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'app-preview');
@@ -193,4 +194,4 @@ if (WRITE) fs.writeFileSync(path.join(ROOT, 'data/quarantine-summary.json'), JSO
 console.log(JSON.stringify(summary.totals));
 console.log(JSON.stringify(summary.per_class_total));
 for (const s of summary.states) console.log(s.state, s.total_cards, s.hidden, s.percent_hidden + '%', JSON.stringify(s.per_class), 'lost', s.exam_items_losing_all_supporting_cards);
-fs.writeFileSync(path.join(path.dirname(new URL(import.meta.url).pathname.slice(1)), 'examples.json'), JSON.stringify(allExamples, null, 1));
+fs.writeFileSync(path.join(os.tmpdir(), 'nova-quarantine-examples.json'), JSON.stringify(allExamples, null, 1)); // debug sample only, never in the repo
