@@ -76,6 +76,40 @@ for (const s of STATES) {
   const missing = ['code', 'name', 'run_id', 'handbook', 'test', 'data_root', 'audio_root', 'audio_manifest', 'status', 'authored_by'].filter((k) => typeof s[k] !== 'string' || !s[k]);
   ok('states.json: ' + s.code + ' has every required field', missing.length === 0, missing.join(','));
 }
+// Content invariants (2026-10-29, after the re-author pass shipped doubled decks
+// to five states and the harness passed): per complete state, exactly one 04 deck
+// artifact per section, no duplicate card ids, every card has a script, and every
+// card script's must_match_card_back and answer segment equal the card back byte
+// for byte. Reads the exported manifests under the shell under test.
+for (const s of STATES) {
+  if (s.status !== 'complete' || !s.data_root) continue;
+  let man;
+  try { man = JSON.parse(fs.readFileSync(path.join(UNDER, s.data_root, 'manifest.json'), 'utf8')); }
+  catch (e) { ok('content: ' + s.code + ' manifest readable', false, String(e.message).slice(0, 80)); continue; }
+  const files = (stage) => (man.files || []).filter((f) => f.stage_id === stage);
+  const read = (f) => JSON.parse(fs.readFileSync(path.join(UNDER, String(f.file).replace(/^\.?\//, '')), 'utf8'));
+  const deckFiles = files('04.cards');
+  const perSection = {};
+  for (const f of deckFiles) perSection[f.section_id] = (perSection[f.section_id] || 0) + 1;
+  const doubled = Object.entries(perSection).filter(([, n]) => n > 1).map(([k, n]) => k + 'x' + n);
+  ok('content: ' + s.code + ' one 04 deck artifact per section', doubled.length === 0, doubled.slice(0, 4).join(' '));
+  const backs = new Map(); let dup = 0;
+  for (const f of deckFiles) { let j; try { j = read(f); } catch { continue; }
+    for (const d of j.decks || []) for (const c of d.cards || []) { if (backs.has(c.card_id)) dup++; backs.set(c.card_id, c.back); } }
+  ok('content: ' + s.code + ' no duplicate card ids', dup === 0, 'duplicates=' + dup);
+  const scripted = new Set(); let mismatch = 0; const ex = [];
+  for (const f of files('05.card_scripts')) { let j; try { j = read(f); } catch { continue; }
+    for (const sc of j.audio_scripts || []) {
+      if (!sc.card_id || !backs.has(sc.card_id)) continue; // recaps and non-card scripts
+      scripted.add(sc.card_id);
+      const ans = sc.segments && sc.segments.answer ? sc.segments.answer.text : undefined;
+      const back = backs.get(sc.card_id);
+      if (sc.must_match_card_back !== back || (ans !== undefined && ans !== back)) { mismatch++; if (ex.length < 3) ex.push(sc.card_id); }
+    } }
+  const unscripted = [...backs.keys()].filter((id) => !scripted.has(id)).length;
+  ok('content: ' + s.code + ' every card has a script', unscripted === 0, 'unscripted=' + unscripted);
+  ok('content: ' + s.code + ' card scripts byte-equal to card backs', mismatch === 0, 'mismatch=' + mismatch + ' ' + ex.join(' '));
+}
 const swin = {};
 vm.runInNewContext(fs.readFileSync(path.join(UNDER, 'states-embedded.js'), 'utf8'), { window: swin });
 ok('states-embedded.js matches states.json', JSON.stringify(swin.__STATES_EMBEDDED) === JSON.stringify(STATES), 'regenerate: node tools/preview/embed-states.mjs');
