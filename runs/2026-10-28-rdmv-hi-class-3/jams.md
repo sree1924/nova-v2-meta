@@ -123,3 +123,11 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:08:30.749Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:54 for 02.dossier_sections (sec12-driving-habits-defensive-driving-safety-belts) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec12-driving-habits-defensive-driving-safety-belts__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:08:32.663Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:55 for 02.dossier_sections (sec13-backing-lanes-speed-turns-passing-brakes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-backing-lanes-speed-turns-passing-brakes__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:18.632Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:56 for 02.dossier_sections (sec13-backing-lanes-speed-turns-passing-brakes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-backing-lanes-speed-turns-passing-brakes__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:20.534Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:57 for 02.dossier_sections (sec13-backing-lanes-speed-turns-passing-brakes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-backing-lanes-speed-turns-passing-brakes__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:22.452Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:58 for 02.dossier_sections (sec13-backing-lanes-speed-turns-passing-brakes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-backing-lanes-speed-turns-passing-brakes__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:10:24.304Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:59 for 02.dossier_sections (sec13-backing-lanes-speed-turns-passing-brakes) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec13-backing-lanes-speed-turns-passing-brakes__G__n0 (lineage attempts exhausted)
