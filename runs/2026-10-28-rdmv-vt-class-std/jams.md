@@ -136,3 +136,5 @@ Intake 2026-10-29T02:45:02.202Z; current authority and original template ancestr
 - 2026-10-29T04:27:58.128Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:65 for 03.combined_kg (sec05-police-signals) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec05-police-signals__-__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:28:43.578Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:66 for 03.combined_kg (sec07-sharing-road) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec07-sharing-road__-__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:28:55.486Z lineage reset → 2026-10-28-rdmv-vt-class-std:lineage:67 for 03.combined_kg (sec09-hazardous-conditions) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec09-hazardous-conditions__-__n0 (lineage attempts exhausted)
