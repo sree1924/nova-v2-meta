@@ -133,3 +133,13 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T04:23:16.533Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:63 for 02.dossier_sections (sec14-defensive-driving-and-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-and-weather__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:23:18.504Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:64 for 02.dossier_sections (sec14-defensive-driving-and-weather) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec14-defensive-driving-and-weather__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:25:15.409Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:65 for 02.dossier_sections (sec15-safe-driving-practices) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-safe-driving-practices__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:25:17.417Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:66 for 02.dossier_sections (sec15-safe-driving-practices) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-safe-driving-practices__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:25:19.432Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:67 for 02.dossier_sections (sec15-safe-driving-practices) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-safe-driving-practices__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:25:21.473Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:68 for 02.dossier_sections (sec15-safe-driving-practices) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-safe-driving-practices__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:25:23.619Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:69 for 02.dossier_sections (sec16-emergencies-and-roadside-assistance) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-emergencies-and-roadside-assistance__C__n0 (lineage attempts exhausted)
