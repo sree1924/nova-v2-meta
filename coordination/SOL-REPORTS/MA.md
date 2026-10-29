@@ -1,29 +1,21 @@
-# MA — authoring in progress
-- Run 2026-10-28-rdmv-ma-class-d; actual author gpt-6.1-sol (ChatGPT Pro subscription, Sol state worker); session 01a1849b-e37b-7c32-a2d7-92a5854ae05c.
-- Source PNG derivative v3 accepted/PASS; historical private caller and all-accepted source-capacity stops resolved by root artifacts. Original v1/v2 proofs and zero-attempt queued v2 task retained.
-- Source: founder manual download, SHA256 a24e5e352bf519f9000c753c9788e4b8cdd44001f1266f58f721117488df7fe3, 140 physical pages. Class D source-verified; rendered frontmatter Revised April 2026; issuer exact-link DOM observed.
-- Physical24/printed16 says "Each learner’s permit exam has 25 multiple-choice questions." It also says18 correct within25minutes. Current bound safe exam view marks ALL metrics unknown; no inferred percentage or official-mirror promotion.
-- sec01-license-basics-and-eligibility: physical9–16; 02.dossier_sections, 16.compile; facts 66.
-- sec02-junior-license-and-identification: physical17–22; 02.dossier_sections, 16.compile; facts 69.
-- sec03-permit-exam-and-practice: physical23–28; 02.dossier_sections, 16.compile; facts 59.
-- sec04-license-testing-and-fees: physical29–40; 02.dossier_sections, 16.compile; facts 81.
-- sec05-vehicle-and-occupant-safety: physical41–48; 02.dossier_sections, 16.compile; facts 74.
-- sec06-defensive-driving-and-weather: physical49–56; 02.dossier_sections, 16.compile; facts 93.
-- sec07-vulnerable-road-users: physical57–62; 02.dossier_sections, 16.compile; facts 70.
-- sec08-violations-and-driving-records: physical63–68; 02.dossier_sections, 16.compile; facts 68.
-- sec09-license-suspensions: physical69–78; 02.dossier_sections, 16.compile; facts 84.
-- sec10-alcohol-drugs-and-license-retention: physical79–84; 02.dossier_sections, 16.compile; facts 55.
-- sec11-speed-signals-and-signs: physical85–96; 02.dossier_sections, 16.compile; facts 122.
-- sec12-markings-lanes-and-turns: physical97–108; 02.dossier_sections, 16.compile; facts 99.
-- sec13-right-of-way-passing-and-sharing: physical109–116; 02.dossier_sections, 16.compile; facts 72.
-- sec14-parking-pedestrians-and-bicycles: physical117–126; 02.dossier_sections, 16.compile; facts 106.
-- sec15-emergency-vehicles-and-enforcement: physical127–130; 02.dossier_sections, 16.compile; facts 38.
-- sec16-emergencies-crashes-and-green-driving: physical131–140; 02.dossier_sections, 16.compile; facts 87.
-- Accepted compiled facts 1243. Downstream 03/04/06/05 not yet authored. Full PART2 scope incomplete; no factual07/08 acceptance claimed.
-- C/C2 statements manually authored from bound whole-page contexts; helpers A/B/D/E/E2/F/G generated from declared source-specific inputs; every outbox locally checked before native submission.
-- Scope excludes conversion-only, separate CDL/motorcycle curriculum, hands-on test assessment, source-image reproduction, contact details and unverified contextual statistics. In-scope application, fees, small-vehicle and sharing rules retained.
-- Source liveness CONFIRMED_EDITION_EFFECTIVE_DATE_DEBT; effective-date, rights, manual retrieval and image-page debt remain. Page-specific exclusions, ambiguous tint wording, seat-guide limitations and split-page conditions retained as typed debt.
-- All 36 native attempts accepted, ownership released; 16 authentic file-transport content calls; ledger actual/reserved/uncertain each $0.000. No paid Model API, audio, publish, commit, onboarding or shared edits.
-- Limits, nonces, counters, tasks and attempt history preserved. Distinct tasks use cause-backed capacity advancement only after all consumed same-stage/current-lineage attempts accepted. No failed candidate reset or accepted replay.
-- Current checkpoint and NATIVE-HANDOFF pin accepted refs and phase coverage. Earlier stop checkpoints preserved under immutable private history names.
-- Actual cumulative 37554878 total /35849856 cached; assignment delta 19558740 total /18535936 cached INCLUDED; authentic raw event saved, helper metrics null.
+# MA — assigned content complete; writer stopped
+- Run 2026-10-28-rdmv-ma-class-d; actual author gpt-6.1-sol / ChatGPT Pro; session 01a1849b-e37b-7c32-a2d7-92a5854ae05c.
+- Seven section-stage counts:02=16,16=16,03=16,04=16,06=16,05.sessions=16,05.card_scripts=16;112/112 slots.
+- Content:1243 facts/nodes/cards/items/card scripts;115 lesson units;786 slides;115 recap scripts;0 merges.
+- All1243 facts appear in current slide narration and lesson bodies. All16 completion joins and card/script/visual/recap-unit checks pass.
+- Actual148-fact narration omission, affected-section inventory and all old accepted bytes preserved; corrected16 lessons and16 dependent scripts accepted.
+- Scripts declare the corrected lessons; learner-facing script text remains byte-equal. Original content contexts retain their actual old19 ancestry.
+- All13 source flags remain; supported per-node item routes are pinned in scratch/sol-round2/ma/NODE-ITEM-ROUTES-COMPACT.json. No source or factual clearance.
+- RAW C/C2 originality: existing16 pre-acceptance checks mechanically reconciled to all1243 current facts (C625/C2618),66 raw chunks and registered source hashes;0 saved thirteen-word overlaps; no repeat comparison.
+- Originality index scratch/sol-round2/ma/RAW-C-C2-ORIGINALITY-EVIDENCE-INDEX.json; SHA256 e507aedbdab8436eabceea205dfc1b60809729b6b29e04f97c5c645f7537f738.
+- Source:140 physical pages, Revised April2026; PDF SHA256 a24e5e352bf519f9000c753c9788e4b8cdd44001f1266f58f721117488df7fe3. Source15 unchanged.
+- Effective-date, rights, founder-retrieval, image-page and page-specific debt retained. Independent07/08 and clinical/legal clearance remain unclaimed.
+- Root neutral19 metadata revision is native PASS; changed only mastery_gate.policy_note;0 model calls; product mastery80 preserved.
+- Current selected19 runs/2026-10-28-rdmv-ma-class-d/19/metadata-note/f66336b3d05083d09770dcea925a07a149b75da8540381d439f9ef9260e31611/19-learning-loop.json @f66336b3d05083d09770dcea925a07a149b75da8540381d439f9ef9260e31611. Old19 b0de66ddb0eaa317bf0c92f3c41dba08979d460eac7f2bc6dae7f02abf0e8c9a and prior content contexts preserved.
+- Root receipt scratch/sol-state-coordinator/overnight-20261028/policy-note-neutral/MA-APPLY-v3.json @55bed62f9c8b9bf2f58671464fe3b024a386d327cbe7caeeda6903cc15cb0b1c.
+- All raw/safe exam values, statuses and debt unchanged, including raw known question count/time25. No inferred official score or source-debt clearance.
+- Native150 attempts all accepted (149 content/source/compiler attempts plus root metadata revision);129 completed file-transport calls/reservations; actual/reserved/uncertain each $0.000.
+- Reporting-only follow-up: no content/native remint, no run write or executor lock; original ROOT19 safe boundary remains unchanged; ownership released.
+- Checkpoint and identical handoff now pin current selected19/root receipt and raw originality evidence. Prior immutable completion audit remains the exact content-era proof.
+- Actual cumulative 56573582 total /54039936 cached INCLUDED; resume baseline44284322/42466432; delta 12289260/11573504.
+- Increment since prior final usage sample 2179898 total /2152448 cached INCLUDED; raw actual client event saved; helper metrics null.

@@ -1,0 +1,30 @@
+{
+  "schema_version": "sol-shared-belt-write-barrier-request.v1",
+  "request_id": "sol-complete-envelope-multichunk-20261029-v2",
+  "recorded_at": "2026-10-29T14:29:12.562Z",
+  "founder_authority_ref": {
+    "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+    "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+  },
+  "cause": "Actual accepted MS all9 logical parts across10 chunks (two C2 chunks) rejected before candidateattempt by exact9chunk assumption; strict complete-part coverage with legitimate unique contiguous chunks needed.",
+  "baseline_sha256": "b40b0bb5a33138fad2a00477c3f77887b59c57b94cdc168fe719eb64db290409",
+  "candidate_sha256": "f8a25816632c450f86d7ab1431b32a5b9166ec68c135cdd73c5204ef977dd2fc",
+  "test_before_sha256": "5d7e20724052a96afdaf65f7123e597ecdb2480561e915f355ecf6a041bf06dd",
+  "test_after_sha256": "89831a4bd3ab614d03f0d489715511c2f0d6905ecfb53895724502811a52cfb0",
+  "production_target": "tools/belt/source-groups.mjs",
+  "additive_test": "tests/controller/unpartitioned-source-group.test.mjs",
+  "patch_ref": {
+    "path": "scratch/sol-state-coordinator/overnight-20261028/reboot-recovery/multichunk-extension/production.patch",
+    "sha256": "2927454c4cb76c124cef44cd89e490af8bb0476516bf4b311017cedaf117bfb0"
+  },
+  "private_test_receipt_ref": {
+    "path": "scratch/sol-state-coordinator/overnight-20261028/reboot-recovery/multichunk-extension/receipt.json",
+    "sha256": "0ab5ab3ee981e5c43ccc0762706a31a029b0a364065c4073f7932ec6f4b6d7eb"
+  },
+  "private_focused_tests": 51,
+  "exact_scope": "Complete all9 nativeaccepted/hash/receipt-bound envelope normalization only; permit schema-legitimate distinct contiguous multiplechunks/part, reject missing/wrong/reordered/duplicatechunk/payload/source/receipt; all native guards/source/debt/caps/history untouched.",
+  "prior_release_ref": {
+    "path": "coordination/SOL-COMPLETE-DOSSIER-REPLACEMENT-WRITE-BARRIER-RELEASE.json",
+    "sha256": "d3a1a2565a34026ceaf95b762a645b6852ed614d82693124c5db84417af9f72b"
+  }
+}

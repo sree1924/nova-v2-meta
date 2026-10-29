@@ -1,73 +1,74 @@
 {
-  "schema_version": "sol-shared-belt-write-barrier.v2",
-  "request_id": "sol-spoken-compiler-20261028-v1",
-  "status": "READY_TESTED_COMPILER_PATCH_WAITING_FOREIGN_WRITER_BOUNDARY",
-  "requested_by": "Sol head coordinator",
-  "founder_authority": "Yes—Sol fixes the belt and continues",
-  "production_target": "tools/belt/compile.mjs",
-  "baseline_sha256": "acfda132a50760f863693f2757e4803a40c7a23da98ba47ecf43fe744209980d",
-  "candidate_sha256": "090642ed18005ca560035745c911ed6e920e588c3568b43ebc205b4a0318bc1a",
+  "schema_version": "sol-shared-belt-write-barrier-request.v1",
+  "request_id": "sol-unpartitioned-complete-replacement-20261028-v1",
+  "status": "READY_TESTED_PRIVATE_PATCH_WAITING_FOREIGN_OWNER_BOUNDARY",
+  "requested_by": {
+    "actor_id": "Sol root coordinator",
+    "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006"
+  },
+  "founder_authority": {
+    "words": "okay finish all 12.. keep three running and keep me posted on percentage.. resolve blockers dont wait on me",
+    "ref": {
+      "path": "coordination/SOL-TWELVE-STATE-CONFIRMATION-20261028.json",
+      "sha256": "063aea435dec1ba133a8464fbd2bf0efc3f142499b3453957ddef6026c50a1f4"
+    }
+  },
+  "production_target": "tools/belt/source-groups.mjs",
+  "baseline_sha256": "cbfa89eb7c5f2f40c974af82baa9b22029263b9429798fcae0a414effa9b5ba0",
+  "candidate_sha256": "b40b0bb5a33138fad2a00477c3f77887b59c57b94cdc168fe719eb64db290409",
   "patch_ref": {
-    "path": "scratch/sol-state-coordinator/spoken-compiler-prototype/production.patch",
-    "sha256": "4013ba958b619d476456ac4a2d1f496683609c2cd9a5362700758ad3fae7b24d"
+    "path": "scratch/sol-state-coordinator/complete-dossier-replacement-prototype/production.patch",
+    "sha256": "049c8ef75ab7979b6a30421e76659c9b6bde86417fb44a008e8716ec925b4b06"
   },
   "receipt_ref": {
-    "path": "scratch/sol-state-coordinator/spoken-compiler-prototype/receipt.json",
-    "sha256": "1dec3662b238e91cbb3d1c18776b22a3b6fc2b8135fe1e43688da783f5d2123a"
+    "path": "scratch/sol-state-coordinator/complete-dossier-replacement-prototype/receipt.json",
+    "sha256": "d102cb4e498480f01b2c5bbd47b16e2f8269f904ddf7c45b627272740f6f0858"
   },
-  "owner_tests": {
-    "command": "node --test ./spoken-units.test.mjs",
-    "cwd": "D:/nova/fb-ai-hackathon/scratch/sol-state-coordinator/spoken-compiler-prototype",
-    "exit_code": 0,
-    "tests": 33,
-    "passed": 33,
-    "failed": 0,
-    "log": "test-results.tap",
-    "log_sha256": "f51c81d1a91ecbfd7bec5acfd2c1ea78a96008a500270eb0c64ed7f1997b05be",
-    "node_version": "v22.13.1"
+  "additive_test": {
+    "path": "tests/controller/unpartitioned-source-group.test.mjs",
+    "before_sha256": null,
+    "after_sha256": "5d7e20724052a96afdaf65f7123e597ecdb2480561e915f355ecf6a041bf06dd"
   },
+  "owner_tests": "34/34 targeted; frozen baseline28/34 with6 expected reproductions",
   "root_validation": {
-    "focused_tests": 33,
-    "pass": 33,
-    "fail": 0,
-    "exit_code": 0,
-    "baseline_patch_candidate_log_hashes_match": true,
-    "scope_review": "Only derived spoken unit normalization; factual statements/IDs/citations and accepted input bytes unchanged"
+    "frozen_patch_reviewed": true,
+    "production_baseline_matches": true,
+    "unchanged_compile_context_dispatch_schema_bindings_match": true,
+    "private_patch_apply_pass": true,
+    "actual_target_shape_ref": {
+      "path": "scratch/sol-state-coordinator/overnight-20261028/complete-dossier-barrier/ACTUAL-TARGET-SHAPE.json",
+      "sha256": "afe14d0ae2abb174ec7779f5281871b04c0fd145169384a056c84939f608c58c"
+    },
+    "tests_not_rerun": true
   },
   "applied": false,
   "previous_request_ref": {
-    "path": "scratch/sol-state-coordinator/coordination-history/SOL-SHARED-BELT-WRITE-BARRIER-REQUEST-1624e13fe56a327d1115ee2d628bdd888f5ab643412845e6bf793c9aa5d5f913.json",
-    "sha256": "1624e13fe56a327d1115ee2d628bdd888f5ab643412845e6bf793c9aa5d5f913"
+    "path": "scratch/sol-state-coordinator/overnight-20261028/complete-dossier-barrier/PREVIOUS-REQUEST-29676a61cbc2d48973b20cd0fb2c6cc7c0489691628cc26254eb5e356fb0d644.json",
+    "sha256": "29676a61cbc2d48973b20cd0fb2c6cc7c0489691628cc26254eb5e356fb0d644"
   },
-  "owner_request": "At a natural native subprocess boundary, pause foreign shared-code dispatchers/new-launch coordinators without killing in-flight workers or changing queue rows. Confirm no foreign native invocation can overlap the patch. Existing Sol five writers continue until this foreign boundary is acknowledged; Sol then checkpoints its own writers before applying. Do not modify live code on this request.",
+  "owner_request": "Please coordinate a NATURAL safe boundary for all non-Sol users of this LOCAL shared source-groups module and pause new shared-code launchers. Provide fresh exact request/hash ACK and concrete scope evidence. Remote-isolated Claude cloud sessions may keep running only if owner provides actual execution-isolation evidence that they do not import this local module. Sol will never command/write/inspect their WV/VT run dirs/specs/QUEUE. Do not kill workers or change their run rows. Sol writers continue until this owner ACK, then Sol roots its own safe-boundary ACKs and applies atomically only after all prerequisites. This request alone authorizes no live code change.",
   "acknowledgement_path": "coordination/BELT-WRITE-BARRIER-OWNER-ACK.json",
   "acknowledgement_required": {
-    "request_id": "sol-spoken-compiler-20261028-v1",
-    "request_sha256": "Compute SHA256 of this exact request",
+    "request_id": "sol-unpartitioned-complete-replacement-20261028-v1",
+    "request_sha256": "SHA256 of this exact request",
+    "patch_sha256": "049c8ef75ab7979b6a30421e76659c9b6bde86417fb44a008e8716ec925b4b06",
     "foreign_code_users_quiesced": true,
     "new_launchers_paused": true,
     "active_foreign_native_invocations": 0,
-    "evidence": "Explicit owner boundary evidence; PID absence/age or stale acknowledgements are insufficient"
+    "evidence": "Current owner attestation/evidence for ALL shared-code users or concrete remote isolation; PID absence/age or old ACK is insufficient."
   },
-  "release_path": "coordination/SOL-SPOKEN-COMPILER-WRITE-BARRIER-RELEASE.json",
-  "resume_requirement": "After release, use fresh processes/native packets with refreshed compiler/binding hashes; no stale ESM cache or old unconsumed packet replay",
+  "release_path": "coordination/SOL-COMPLETE-DOSSIER-REPLACEMENT-WRITE-BARRIER-RELEASE.json",
   "sol_writers_continue_until_foreign_ack": true,
+  "resume_requirement": "After actual safe atomic apply, assess binding closure with existing machinery; preserve prior receipts. Resume with actual current config/request/lineage/manifest/layer pins and fresh packets only where pins really changed. No accepted-request replay.",
   "constraints": {
-    "no_paid_api": true,
-    "no_audio": true,
-    "no_publishing": true,
-    "no_factory_schema_manifest_edits": true,
-    "no_validator_weakening": true,
-    "no_accepted_file_overwrites": true,
-    "no_failed_candidate_reset": true
+    "no_shared_apply_while_writers": true,
+    "no_paid_api_audio_publish_commit": true,
+    "no_contract_schema_check_id_or_cap_change": true,
+    "no_source_debt_or_factual_waiver": true,
+    "no_native_identity_history_or_accepted_file_edit": true,
+    "no_failed_reset": true,
+    "no_downstream_guard_suppression": true
   },
-  "remaining_limitations": [
-    "Candidate only. No live tool, schema, contract, accepted source, run, queue or binding changed; no patch application, dispatch, provider call or broad production suite.",
-    "NM that symbol remains a source-bound learner-wording/media-disposition conflict requiring separate capability.",
-    "NM sec10-R03 eastern/open and ME sec11-F27 stop/yield remain unchanged and fail slash speakability: existing generic alternatives support only 1–3-character tokens. No semantic choice is inferred.",
-    "Temperature glyphs, undeclared unit abbreviations and non-integer range grammar remain outside this repair.",
-    "The baseline unit rule removes a trailing unit period and uses plural dictionary forms (including one miles); those existing behaviors are preserved.",
-    "This is mechanical spoken derivation evidence, not factual, legal or clinical acceptance."
-  ],
-  "recorded_at": "2026-10-28T17:32:41.681Z"
+  "exact_scope": "Only authentic accepted/hash-bound native parts[] complete all9 targets for source_supported_fact_correction; explicit identity/receipt/source/body checks. Existing compiler supersession excludes old whole artifact. Full explicit02→16→fresh03/04/affected06/05 reconciliation plan remains required; high-level wrapper overlap HOLD unchanged.",
+  "recorded_at": "2026-10-29T04:20:52.449Z"
 }

@@ -1,0 +1,86 @@
+{
+  "schema_version": "sol-shared-belt-write-barrier-sol-ack.v1",
+  "artifact_type": "SolOnlySafeBoundaryAcknowledgement",
+  "status": "ACKNOWLEDGED_SOL_ONLY_WAITING_NON_SOL_OWNER",
+  "request_id": "sol-unpartitioned-complete-replacement-20261028-v1",
+  "request_ref": {
+    "path": "coordination/SOL-SHARED-BELT-WRITE-BARRIER-REQUEST.json",
+    "sha256": "38075f7d4812ff707c010f3862dc7a3bee632610eac41dac28358c3235f69104",
+    "bytes": 4861
+  },
+  "patch_ref": {
+    "path": "scratch/sol-state-coordinator/complete-dossier-replacement-prototype/production.patch",
+    "sha256": "049c8ef75ab7979b6a30421e76659c9b6bde86417fb44a008e8716ec925b4b06",
+    "bytes": 20395
+  },
+  "recorded_at": "2026-10-29T13:52:11.775Z",
+  "scope": "ONLY founder-authorized 12 Sol run/chat assignments; no assertion about non-Sol users",
+  "acknowledged_by": {
+    "actor_id": "Sol root coordinator",
+    "session_id": "01a1764d-cf44-7fc1-a31f-bf0be7852006",
+    "prepared_by": "/root/barrier_sol_boundary"
+  },
+  "root_attestation": {
+    "source": "Direct /root coordination message during this heartbeat",
+    "message": "Root has finalized LA and now pauses every Sol launcher/new assignment until this exact shared barrier is released or explicitly canceled. No current Sol authors remain.",
+    "native_derived": false
+  },
+  "runtime_ref": {
+    "path": "scratch/sol-state-coordinator/overnight-20261028/barrier-1346/RUNTIME-BEFORE-SOL-ACK.json",
+    "sha256": "3479c7b315c0eeff22181cb12fb7b84583fd87d4c3bf26de30bb67801089e03f"
+  },
+  "runtime_completed_states": [
+    "AR",
+    "RI",
+    "ND",
+    "OH",
+    "IL",
+    "DC",
+    "GA",
+    "MA",
+    "LA"
+  ],
+  "la_root_completion_ref": {
+    "path": "scratch/sol-state-coordinator/overnight-20261028/LA-AUTHORING-COMPLETE-ROOT.json",
+    "sha256": "cf4a482a43cfa6c1f0e6418dd1de43587d8aa24fe2c6f24d4cb720f0a62dd66a",
+    "bytes": 3264
+  },
+  "sol_content_writers_quiesced": true,
+  "sol_new_launchers_paused": true,
+  "active_sol_native_invocations": 0,
+  "all_sol_executor_locks_absent": true,
+  "all_sol_ownership_released": true,
+  "sol_unsettled_reservations": 0,
+  "native_scalar_evidence_ref": {
+    "path": "scratch/sol-state-coordinator/overnight-20261028/barrier-1346/SOL-NATIVE-SCALARS.json",
+    "sha256": "de5cd4c72e1c3f784cfc06c1b432be3b38b7b31ea79708e5f25c1f60ee526251",
+    "bytes": 27180
+  },
+  "foreign_code_users_quiesced": null,
+  "foreign_new_launchers_paused": null,
+  "active_foreign_native_invocations": null,
+  "foreign_ack_current": false,
+  "owner_ack_ref": {
+    "path": "coordination/BELT-WRITE-BARRIER-OWNER-ACK.json",
+    "sha256": "543aae92616e20708505ae1c9d92cc9b2094f46f5af1b51a42bc21f1760dfc28",
+    "bytes": 4363
+  },
+  "missing_release_prerequisite": "Genuine fresh non-Sol owner ACK for this exact request/patch with all local shared-code users quiesced or concrete remote isolation; current canonical ACK is for a different historical request",
+  "production_applied": false,
+  "shared_code_written": false,
+  "release_authorized": false,
+  "needs_root_publish": false,
+  "conditions": [
+    "Root alone publishes this Sol-only ACK and records current runtime pause",
+    "Do not apply production patch until genuine fresh non-Sol owner acknowledgement and exact barrier closure",
+    "Revalidate current Sol scalar boundary immediately before production swap if state changed",
+    "Never operate WV/VT/HI or attest their isolation on Sol authority"
+  ],
+  "prepared_candidate_ref": {
+    "path": "scratch/sol-state-coordinator/overnight-20261028/barrier-1346/SOL-SAFE-BOUNDARY-CANDIDATE.json",
+    "sha256": "c92ae11cbb31cf554ab87c6c76d3a31c384a3755834a84830bfcbcff22a2f248"
+  },
+  "live_runtime_path": "scratch/sol-state-coordinator/production-rounds.json",
+  "root_published": true,
+  "publication_is_not_shared_patch_release": true
+}

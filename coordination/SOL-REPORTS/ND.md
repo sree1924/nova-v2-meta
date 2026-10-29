@@ -1,31 +1,32 @@
-ND — HOLD; completion=false; lane 2 stopped.
-Run candidate 2026-10-28-rdmv-nd-class-d; no run created; executor 01a18584-b684-7f21-9d8a-3b561472a662.
-Author: gpt-6.1-sol, ChatGPT Pro subscription; actual rollout turn_context/plan_type verified.
-Native --plan-only: BLOCKED / Invalid passing_score; model_calls=0.
-Cause: official_pdf intake requires numeric pass score; staged handbook search found none. No fact fabricated.
-Source: 56 physical pages; SHA256 ab64830e432066dded224f4c790c4df7aace57c4b79dc06d7e94bd6d28d65250.
-Class D and edition2025–2027 physical1; NDDOT issuer physical2; printed1=physical5.
-Exam score/count/time: unknown null; no supporting verbatim numeric examination sentence.
-Cached issuer page links exact supplied PDF; no independent native liveness certificate.
-Provisional map (boundary QA required before eventual authoring):
-sec01-licensing-and-testing: physical5–8
-sec02-documents-and-young-drivers: physical9–12
-sec03-regulatory-and-warning-signs: physical13–17
-sec04-signals-and-markings: physical18–22
-sec05-right-of-way-and-turns: physical23–26
-sec06-speed-passing-and-parking: physical27–30
-sec07-driving-skills: physical31–34
-sec08-emergency-situations: physical35–38
-sec09-impairment: physical39–40
-sec10-pedestrians-and-recreation: physical41–43
-sec11-parent-coaching: physical44–48
-All seven stages0/11 sections; facts/nodes/cards/items/units/slides/scripts=0.
-Native accepted refs/receipts/policy pin: none; merges: none; no generated dossier parts.
-Completion coverage/parity/visual-sync NOT_RUN: no accepted native context. No assessment waiver.
-Proposed defect: native unknown passing_score capability boundary; root alone records shared log.
-Actual/reserved/uncertain/credit spend $0.000; model_api_called=false; native call rows0; no ledger.
-ND baseline 1348050 total / 1251200 cached from coordinator post-MS sample.
-Final actual 1946192; ND delta 598142, cached 582400 included in total.
-Baseline source: scratch/sol-state-coordinator/USAGE-MS-NINE-FINAL-20261028.json; exact hashes in INITIAL-USAGE and FINAL-USAGE.json.
-Evidence: scratch/sol-round2/nd/CHECKPOINT.json and NATIVE-HANDOFF.json.
-No shared edits, QUEUE/ledger updates, paid API, audio, onboarding, publishing or commits. STOP.
+ND — NATIVE_AUTHORING_COMPLETE; completion=true; stopped=true; release_ready=false.
+Run 2026-10-28-rdmv-nd-class-d; executor 01a18584-b684-7f21-9d8a-3b561472a662; actual gpt-6.1-sol / ChatGPT Pro subscription.
+Requested seven native stages11/11 each,77/77 section-stage acceptances(100%); no accepted replay or failed reset.
+15 registration ACCEPTED;19 policy pinPASS. 80 is INTERNAL PRODUCT MASTERY POLICY only; official exam numbers remain null.
+Source official_body/is_official:true; fact_authority_eligible:false and pending07/08; metadata assessmentHOLD retained.
+No claim of source currency, independent factual audit, clinical/legal clearance, onboarding or release.
+Per-section facts/nodes/cards/items; units/slides/scripts:
+sec01-licensing-and-testing p5–8: 42/42/42/42; 3/21/45.
+sec02-documents-and-young-drivers p9–12: 38/38/38/38; 3/21/41.
+sec03-regulatory-and-warning-signs p13–17: 32/32/32/32; 3/21/35.
+sec04-signals-and-markings p18–22: 36/36/36/36; 3/21/39.
+sec05-right-of-way-and-turns p23–26: 40/40/40/40; 3/21/43.
+sec06-speed-passing-and-parking p27–30: 43/43/43/43; 4/27/47.
+sec07-driving-skills p31–34: 48/48/48/48; 4/27/52.
+sec08-emergency-situations p35–38: 34/34/34/34; 3/21/37.
+sec09-impairment p39–40: 21/21/21/21; 3/21/24.
+sec10-pedestrians-and-recreation p41–43: 37/37/37/37; 3/21/40.
+sec11-parent-coaching p44–48: 33/33/33/33; 3/21/36.
+TOTAL 404facts/404nodes/404cards/404items; 35units/243slides/439scripts; merges0.
+Raw-fact originalityPASS, all facts <=12 consecutive normalized source words BEFORE02 ingestion and rechecked against current compiled statements.
+Completion coveragePASS11/11; full node-to-item/card joins saved; every served/merged/high-yield node has real assessment.
+Exact compiled answer/card/script parityPASS11/11; every card visual-sync span matches current front/back/hook.
+Teaching fact coveragePASS11/11; every graph node occurs in accepted lesson fact refs.
+Unaccepted KG enum draft and12 unresolved choice drafts preserved; substantive alternative sets supplied before native ingestion.
+Typed debt: examination policy/current edition, biological claims and undated statistics, vehicle-specific emergency advice, restraint currentness, blindspot diagram conflicts.
+Mapped scope physical5–48; front matter1–4, log49 and back matter50–56 outside mapped teaching. No whole-handbook coverage claim.
+Market/competitive research and official weighting remain unknown; no invented demand, score or facts.
+Raw native file calls66; 79 attempts all accepted; model_api_called:false; actual/reserved/uncertain/credit$0.000.
+Usage baseline36880394/36062976cached; final42043881; delta5163487; cached delta5028224 included.
+Evidence: scratch/sol-round2/nd/resume1/final-evidence/NATIVE-HANDOFF.json; COMPLETION-PROOFS.json; FACT-ORIGINALITY-CHECK.json; FINAL-USAGE.json.
+Root alone updates shared usage/defects/QUEUE; Fable owns onboarding. MS remains held in its separate immutable handoff.
+No shared code/schema/contract changes, paid API, audio, app preview, publishing or commits.
