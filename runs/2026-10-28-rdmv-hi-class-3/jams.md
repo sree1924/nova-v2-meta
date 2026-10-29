@@ -41,3 +41,13 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T03:54:29.262Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:13 for 02.dossier_sections (sec03-vehicle-equipment-inspection) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-equipment-inspection__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:54:30.527Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:14 for 02.dossier_sections (sec03-vehicle-equipment-inspection) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec03-vehicle-equipment-inspection__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:14.570Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:15 for 02.dossier_sections (sec04-vehicle-registration-title) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-vehicle-registration-title__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:15.848Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:16 for 02.dossier_sections (sec04-vehicle-registration-title) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-vehicle-registration-title__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:17.106Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:17 for 02.dossier_sections (sec04-vehicle-registration-title) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-vehicle-registration-title__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:18.402Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:18 for 02.dossier_sections (sec04-vehicle-registration-title) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec04-vehicle-registration-title__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T03:56:19.736Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:19 for 02.dossier_sections (sec05-the-driver-emotional-medical-age) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec05-the-driver-emotional-medical-age__C__n0 (lineage attempts exhausted)
