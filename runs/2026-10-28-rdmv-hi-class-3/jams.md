@@ -149,3 +149,13 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T04:14:13.054Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:67 for 02.dossier_sections (sec15-freeway-driving-emergency-procedures) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-freeway-driving-emergency-procedures__E2__n0 (lineage attempts exhausted)
 
 - 2026-10-29T04:14:15.110Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:68 for 02.dossier_sections (sec15-freeway-driving-emergency-procedures) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec15-freeway-driving-emergency-procedures__G__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:15:53.271Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:69 for 02.dossier_sections (sec16-sharing-road-trucks-trailers-buses-motorcycles) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-sharing-road-trucks-trailers-buses-motorcycles__C2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:15:55.386Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:70 for 02.dossier_sections (sec16-sharing-road-trucks-trailers-buses-motorcycles) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-sharing-road-trucks-trailers-buses-motorcycles__B__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:15:57.504Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:71 for 02.dossier_sections (sec16-sharing-road-trucks-trailers-buses-motorcycles) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-sharing-road-trucks-trailers-buses-motorcycles__E__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:15:59.689Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:72 for 02.dossier_sections (sec16-sharing-road-trucks-trailers-buses-motorcycles) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec16-sharing-road-trucks-trailers-buses-motorcycles__F__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:16:01.933Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:73 for 02.dossier_sections (sec17-pedestrian-and-bicycle-safety) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec17-pedestrian-and-bicycle-safety__C__n0 (lineage attempts exhausted)
