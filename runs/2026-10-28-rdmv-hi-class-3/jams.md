@@ -69,3 +69,11 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T03:59:31.278Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:27 for 02.dossier_sections (sec06-traffic-laws-rules-regulations) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec06-traffic-laws-rules-regulations__F__n0 (lineage attempts exhausted)
 
 - 2026-10-29T03:59:32.732Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:28 for 02.dossier_sections (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-pavement-markings__C__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:00:55.071Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:29 for 02.dossier_sections (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-pavement-markings__A__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:00:56.492Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:30 for 02.dossier_sections (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-pavement-markings__D__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:00:57.912Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:31 for 02.dossier_sections (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-pavement-markings__E2__n0 (lineage attempts exhausted)
+
+- 2026-10-29T04:00:59.385Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:32 for 02.dossier_sections (sec07-pavement-markings) under standing authority; cause: proactive reset before authoring packet 02.dossier_sections__sec07-pavement-markings__G__n0 (lineage attempts exhausted)
