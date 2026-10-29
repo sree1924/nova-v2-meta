@@ -163,3 +163,5 @@ Intake 2026-10-29T02:40:50.133Z; current authority and original template ancestr
 - 2026-10-29T14:48:06.921Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:78 for 03.combined_kg (sec11-lane-use-and-passing) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec11-lane-use-and-passing__-__n0 (lineage attempts exhausted)
 
 - 2026-10-29T14:48:59.666Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:79 for 03.combined_kg (sec13-highway-driving) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec13-highway-driving__-__n0 (lineage attempts exhausted)
+
+- 2026-10-29T14:50:06.824Z lineage reset → 2026-10-28-rdmv-wv-class-e:lineage:80 for 03.combined_kg (sec15-safe-driving-practices) under standing authority; cause: proactive reset before authoring packet 03.combined_kg__sec15-safe-driving-practices__-__n0 (lineage attempts exhausted)
