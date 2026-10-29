@@ -13,3 +13,5 @@ factory-workers-pins.zip — byte-exact copies of the four parent-factory role c
 Cloud recipe: from the clone root run `mkdir -p ../factory/workers && unzip -o coordination/cloud/factory-workers-pins.zip -d ../factory/workers`
 then verify with `sha256sum ../factory/workers/*.md`. Zipped (not committed as text) so Windows/Linux line-ending normalization
 cannot change the bytes. These are private factory contracts; the lane repo is private.
+
+2026-10-29 — factory-pins-full-belt.zip: ALL seven contracts a full-belt cloud session needs, in factory/ layout (workers/02 03 04 05 06 + infra-roles/15 19). From the clone root: unzip -o coordination/cloud/factory-pins-full-belt.zip -d .. then sha256sum ../factory/workers/*.md ../factory/infra-roles/*.md — expect f68613a8 (02) 8c66430a (03) ce0ce218 (04) 714aad6d (05) 689fcac8 (06) 726ccc46 (15) e0480375 (19). The four-worker zip above is enough only for downstream-only sessions (KY/IA/OK pattern). Hawaii's first session blocked at registration on the missing 15/19/02 pins; see CLOUD-REPORTS/HI.md.
