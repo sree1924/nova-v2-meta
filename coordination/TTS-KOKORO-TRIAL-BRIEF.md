@@ -24,6 +24,6 @@ REPORT to coordination/TTS-KOKORO-TRIAL-REPORT.md:
 2. The licence of the model and of each voice used, with the model-card URL.
 3. Install problems you hit on Windows and how you fixed them.
 4. Your pick for a teacher tone, and why.
-5. A rough time estimate for the whole fleet from the real-time factor. Assume narration of about 15,000 lesson slides at roughly 40 s each, plus flashcard answers.
+5. A rough time estimate for the whole fleet from the real-time factor. Measured fleet volume (2026-10-29): 34,793 lesson slides (about 20.0 million characters) plus 37,967 flashcards and 4,987 recaps (about 15.5 million characters).
 
 Reference files for comparison: tts-samples/amy-teacher-v2-natural.wav and amy-teacher-v2-measured.wav (Piper Amy, 0 clipped).

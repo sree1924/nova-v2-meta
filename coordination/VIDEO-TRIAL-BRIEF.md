@@ -21,8 +21,8 @@ OUTPUT: D:/nova/fb-ai-hackathon/video-samples/ is gitignored. Never commit mp4s 
 MEASURE AND REPORT to D:/nova/fb-ai-hackathon/coordination/VIDEO-TRIAL-REPORT.md:
 1. Video length, file size, resolution, and render wall-clock time (time each step: narration if you made it, rasterizing, composing).
 2. Render seconds per minute of finished video, and the same figure for audio alone (from the Ohio mint log once it finishes, or your own narration timing).
-3. A fleet projection: Ohio has 52 modules and 360 slides. All 51 states have about 750 modules and about 5,000 slides. Give hours on this machine (14 cores, no NVIDIA GPU) and the disk space needed.
+3. A fleet projection: Ohio has 52 modules and 360 slides. All 51 states (measured 2026-10-29): 4,987 modules and 34,793 slides, with about 20.0 million narration characters. Give hours on this machine (14 cores, no NVIDIA GPU) and the disk space needed.
 4. A short listen-and-watch check: text readable on a phone, audio in sync with each slide, no cut-off sentence endings.
-5. PRICE CHECK ONLY, NO GENERATION: what an AI-generated presenter video (a talking teacher) would cost per minute from Google's current video-generation offering and one other provider. Cite the official pricing pages with dates, multiply out for about 750 modules, and spend nothing.
+5. PRICE CHECK ONLY, NO GENERATION: what an AI-generated presenter video (a talking teacher) would cost per minute from Google's current video-generation offering and one other provider. Cite the official pricing pages with dates, multiply out for 4,987 modules (about 428 hours of lesson video), and spend nothing.
 
 RULES: $0 spend. No paid API calls. No changes outside tools/video/, video-samples/ and the report. Commit nothing; the coordinator reviews and commits.
