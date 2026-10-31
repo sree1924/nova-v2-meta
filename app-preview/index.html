@@ -1296,6 +1296,147 @@ function wire(sub) {
   });
 }
 
+// ---- Study flow (2026-10-31): lesson video frame + module step bar ----
+// Lesson videos are optional per state, by convention at video/<xx>/video-manifest.json (studio renders that
+// combine the lesson slides, their narration and scene illustrations; tools/video/onboard-videos.mjs writes it).
+// The step bar is data-driven (module → lesson, flashcards, quiz + saved progress) and works for every state.
+// Both are post-render enhancements: they read the DOM the view produced and never change the view functions.
+const STEP_ROUTES = new Set(["lesson", "cards", "quiz"]);
+const VIDEO_CACHE = {}; // state code -> manifest | null (none) | Promise while loading
+function ensureVideoManifest(s) {
+  if (!s) return Promise.resolve(null);
+  const v = VIDEO_CACHE[s.code];
+  if (v === null || (v && typeof v.then !== "function")) return Promise.resolve(v);
+  if (v) return v;
+  const root = trimSlash(s.video_root || ("video/" + slugOf(s)));
+  const p = fetch(root + "/video-manifest.json", { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : null)).catch(() => null)
+    .then((m) => { VIDEO_CACHE[s.code] = m && m.units ? { ...m, root } : null; return VIDEO_CACHE[s.code]; });
+  VIDEO_CACHE[s.code] = p;
+  return p;
+}
+const fmtTime = (t) => { t = Math.max(0, Math.round(Number(t) || 0)); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
+
+function stepInfo(unitId) {
+  const moduleId = moduleForUnit(unitId);
+  const m = moduleId ? modulesReal().find((x) => x.module_id === moduleId) : null;
+  const saved = store.read();
+  const prog = (saved.progress || {})[unitId] || {};
+  const quiz = moduleQuizForUnit(unitId);
+  const quizDone = !!quiz && Object.values(saved.results || {}).some((r) => r && r.formId === "quiz:" + quiz.quiz_id);
+  return { moduleId, module: m, hasLesson: !!sessionUnit(unitId), hasCards: deckForUnit(unitId).length > 0, hasQuiz: !!quiz,
+    lessonDone: !!prog.lesson, cardsDone: !!prog.cards, quizDone };
+}
+
+function renderStepBar(sub) {
+  const p0 = sub[0], unitId = decodeURIComponent(sub[1] || "");
+  const info = stepInfo(unitId);
+  if (!info.module) return;
+  const steps = [
+    { key: "lesson", label: "Lesson", href: P() + "lesson/" + encodeURIComponent(unitId), has: info.hasLesson, done: info.lessonDone },
+    { key: "cards", label: "Flashcards", href: P() + "cards/" + encodeURIComponent(unitId), has: info.hasCards, done: info.cardsDone },
+    { key: "quiz", label: "Quiz", href: P() + "quiz/" + encodeURIComponent(unitId), has: info.hasQuiz, done: info.quizDone },
+  ];
+  const idx = steps.findIndex((s) => s.key === p0);
+  const cur = steps[idx];
+  const next = steps.slice(idx + 1).find((s) => s.has);
+  const hubHref = P() + "module/" + encodeURIComponent(info.moduleId);
+  const bar = document.createElement("nav");
+  bar.className = "step-bar";
+  bar.setAttribute("aria-label", "Module steps");
+  bar.innerHTML = `<div class="sb-steps">${steps.map((s, i) => `${i ? '<span class="sb-sep" aria-hidden="true"></span>' : ""}<a class="sb-step" href="${esc(s.href)}" data-state="${s.key === p0 ? "current" : s.done ? "done" : "todo"}"${s.has ? "" : ' aria-disabled="true"'}${s.key === p0 ? ' aria-current="step"' : ""}><span class="sb-dot" aria-hidden="true">${s.done && s.key !== p0 ? "✓" : i + 1}</span><span class="sb-label">${s.label}</span></a>`).join("")}</div>
+    <div class="sb-actions"><a class="btn secondary" href="${esc(hubHref)}">Module</a>${p0 !== "quiz" && !cur.done ? `<button class="btn secondary" type="button" data-mark-done="${esc(p0)}" title="Mark the ${cur.label.toLowerCase()} as done">Mark done</button>` : ""}<a class="btn" href="${esc(next ? next.href : hubHref)}" data-next-step>${next ? "Next: " + next.label : "Finish module"} →</a></div>`;
+  view.appendChild(bar);
+  const mark = bar.querySelector("[data-mark-done]");
+  if (mark) mark.addEventListener("click", () => { markDone(unitId, p0); refreshStepBar(sub); });
+}
+function refreshStepBar(sub) { const old = view.querySelector(".step-bar"); if (old) old.remove(); renderStepBar(sub); }
+
+// Slide containers in the rendered lesson (any layout): the element whose own text starts "Slide k of n".
+function lessonSlideElements() {
+  const out = {};
+  for (const el of view.querySelectorAll("h2, h3, h4, p, span, div")) {
+    if (el.children.length > 2) continue;
+    const m = (el.textContent || "").trim().match(/^slide\s+(\d+)\s+of\s+\d+/i);
+    if (!m) continue;
+    const k = Number(m[1]);
+    if (!out[k]) out[k] = el.closest(".card, article, section, li") || el.parentElement || el;
+  }
+  return out;
+}
+
+let lpKeyHandler = null;
+function renderLessonPlayer(unitId, sub) {
+  const vm = VIDEO_CACHE[ST && ST.code];
+  if (!vm || typeof vm.then === "function" || !vm.units || !vm.units[unitId]) return;
+  if (view.querySelector(".lesson-player")) return;
+  const u = vm.units[unitId];
+  const unit = sessionUnit(unitId);
+  const slides = u.slides || [];
+  const total = Number(u.duration) || 0;
+  const label = (i) => { const sl = unit && unit.slides && unit.slides[i]; const t = sl && sl.title && sl.title.text; return t || (slides[i] && slides[i].kind ? slides[i].kind.replace(/_/g, " ") : "Slide " + (i + 1)); };
+  const wrap = document.createElement("section");
+  wrap.className = "lesson-player";
+  wrap.setAttribute("aria-label", "Lesson video");
+  wrap.innerHTML = `<div class="lp-head"><p class="lp-title">${esc(unit && unit.title ? unit.title.text : (u.title || "Lesson"))}</p><span class="lp-meta">${slides.length} slides · ${fmtTime(total)} · narrated lesson video</span></div>
+    <div class="lp-stage"><video playsinline preload="metadata" controls controlslist="nodownload"${u.poster ? ` poster="${esc(u.poster)}"` : ""} src="${esc(u.file)}"></video></div>
+    <div class="lp-progress" aria-hidden="true"><div class="lp-fill"></div>${total ? slides.map((s) => `<span class="lp-tick" style="left:${(100 * (Number(s.start) || 0) / total).toFixed(2)}%"></span>`).join("") : ""}</div>
+    <div class="lp-bar"><button type="button" class="btn" data-lp-play>▶ Play lesson</button><button type="button" data-lp-back title="Back 10 seconds (left arrow)">↶ 10s</button><button type="button" data-lp-fwd title="Forward 10 seconds (right arrow)">10s ↷</button><span class="lp-spacer"></span><label class="lp-meta">Speed <select data-lp-rate><option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label><label class="lp-meta"><input type="checkbox" data-lp-follow checked> Follow the transcript</label></div>
+    <div class="lp-chapters" aria-label="Lesson chapters">${slides.map((s, i) => `<button type="button" data-lp-idx="${i}" data-lp-seek="${Number(s.start) || 0}" aria-current="${i === 0 ? "true" : "false"}">${i + 1}. ${esc(label(i))}</button>`).join("")}</div>
+    <div class="lp-done" hidden>✓ Lesson complete. Continue to the flashcards.</div>`;
+  const h1 = view.querySelector("h1");
+  if (h1) h1.insertAdjacentElement("afterend", wrap); else view.prepend(wrap);
+
+  const video = wrap.querySelector("video"), fill = wrap.querySelector(".lp-fill"), playBtn = wrap.querySelector("[data-lp-play]");
+  const chapters = [...wrap.querySelectorAll("[data-lp-idx]")], follow = wrap.querySelector("[data-lp-follow]");
+  const slideEls = lessonSlideElements();
+  let active = -1, finished = false;
+  const idxAt = (t) => { let i = 0; for (let k = 0; k < slides.length; k++) if (t + 0.05 >= (Number(slides[k].start) || 0)) i = k; return i; };
+  const setActive = (i, scroll) => {
+    if (i === active) return;
+    active = i;
+    chapters.forEach((b, k) => b.setAttribute("aria-current", k === i ? "true" : "false"));
+    view.querySelectorAll(".lp-follow-active").forEach((el) => el.classList.remove("lp-follow-active"));
+    const el = slideEls[i + 1];
+    if (el) { el.classList.add("lp-follow-active"); if (scroll && follow.checked) el.scrollIntoView({ block: "start", behavior: "smooth" }); }
+  };
+  video.addEventListener("timeupdate", () => { if (total) fill.style.width = Math.min(100, 100 * video.currentTime / total).toFixed(2) + "%"; setActive(idxAt(video.currentTime), true); });
+  video.addEventListener("play", () => { stopAudio(); playBtn.textContent = "⏸ Pause"; });
+  video.addEventListener("pause", () => { playBtn.textContent = video.ended ? "↻ Replay lesson" : "▶ Resume lesson"; });
+  video.addEventListener("ended", () => { finished = true; markDone(unitId, "lesson"); wrap.querySelector(".lp-done").hidden = false; playBtn.textContent = "↻ Replay lesson"; refreshStepBar(sub); });
+  video.addEventListener("error", () => { wrap.querySelector(".lp-stage").insertAdjacentHTML("beforeend", `<p class="muted" style="color:#fff;padding:12px">This lesson's video is not available right now. The narrated slides below still work.</p>`); });
+  playBtn.addEventListener("click", () => { if (video.paused) { if (finished && video.ended) video.currentTime = 0; video.play().catch(() => {}); } else video.pause(); });
+  wrap.querySelector("[data-lp-back]").addEventListener("click", () => { video.currentTime = Math.max(0, video.currentTime - 10); });
+  wrap.querySelector("[data-lp-fwd]").addEventListener("click", () => { video.currentTime = Math.min(total || video.duration || 1e9, video.currentTime + 10); });
+  wrap.querySelector("[data-lp-rate]").addEventListener("change", (e) => { video.playbackRate = Number(e.target.value) || 1; });
+  chapters.forEach((b) => b.addEventListener("click", () => { video.currentTime = Number(b.dataset.lpSeek) || 0; setActive(Number(b.dataset.lpIdx), true); if (video.paused) video.play().catch(() => {}); }));
+  // narration buttons on the slides pause the video; the video pauses the narration (play handler above)
+  view.querySelectorAll("[data-slide-audio], [data-card-audio], [data-recap-audio]").forEach((b) => b.addEventListener("click", () => { if (!video.paused) video.pause(); }));
+  lpKeyHandler = (e) => {
+    const tag = (e.target && e.target.tagName) || "";
+    if (/^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(tag) || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === " " || e.key === "k") { e.preventDefault(); playBtn.click(); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); video.currentTime = Math.max(0, video.currentTime - 10); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); video.currentTime = video.currentTime + 10; }
+    else if (e.key === "j" || e.key === "l") { e.preventDefault(); const n = Math.max(0, Math.min(slides.length - 1, active + (e.key === "l" ? 1 : -1))); chapters[n] && chapters[n].click(); }
+  };
+  document.addEventListener("keydown", lpKeyHandler);
+  setActive(0, false);
+}
+
+function enhanceStudyFlow(sub) {
+  if (lpKeyHandler) { document.removeEventListener("keydown", lpKeyHandler); lpKeyHandler = null; }
+  if (!ST || !sub || !sub[0]) return;
+  const p0 = sub[0], unitId = decodeURIComponent(sub[1] || "");
+  if (!STEP_ROUTES.has(p0) || !unitId) return;
+  if (view.querySelector("[data-gate-buy]")) return; // store paywall panel: nothing to study here yet
+  try { renderStepBar(sub); } catch (e) { console.warn("step bar:", e); }
+  if (p0 === "lesson") {
+    const gen = routeGen;
+    ensureVideoManifest(ST).then(() => { if (gen !== routeGen) return; if (view.querySelector("[data-gate-buy]")) return; try { renderLessonPlayer(unitId, sub); } catch (e) { console.warn("lesson player:", e); } });
+  }
+}
+
 // One state's course: sub = parts after "#/<xx>/".
 function routeState(sub) {
   const p0 = sub[0] || "";
@@ -1391,6 +1532,7 @@ function route() {
   view.innerHTML = out.html;
   setChrome(navState, out.nav);
   wire(sub);
+  enhanceStudyFlow(sub);
   view.focus({ preventScroll: true });
   window.scrollTo(0, 0);
 }

@@ -29,6 +29,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { patchCustomerHtml } from '../../store/learner-assets/customer-ui.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const LANE = path.resolve(here, '..', '..');
@@ -37,12 +38,8 @@ const STORE = path.join(LANE, 'store');
 const DEST = path.join(STORE, 'public', 'app');
 const GEN = path.join(STORE, 'src', 'generated');
 const CHECK = process.argv.includes('--check');
-const KEEP = new Set(['gate.js']); // authored in store/public/app, never mirrored
-
-const die = (msg) => { console.error('sync-store: ' + msg); process.exit(1); };
-if (!fs.existsSync(path.join(SRC, 'index.html'))) die('app-preview/index.html not found at ' + SRC);
+const ASSETS = path.join(STORE, 'learner-assets');
 const posix = (p) => p.split(path.sep).join('/');
-const readJson = (rel) => JSON.parse(fs.readFileSync(path.join(SRC, rel), 'utf8'));
 const walk = (dirAbs) => {
   if (!fs.existsSync(dirAbs)) return [];
   const out = [];
@@ -53,6 +50,14 @@ const walk = (dirAbs) => {
   }
   return out;
 };
+const SIGN_ASSETS = walk(path.join(ASSETS, 'signs')).map((f) => posix(path.relative(ASSETS, f))).sort();
+const VISUAL_ASSETS = walk(path.join(ASSETS, 'visuals')).map((f) => posix(path.relative(ASSETS, f))).sort();
+const STORE_ASSETS = ['gate.js', 'learner.css', ...SIGN_ASSETS, ...VISUAL_ASSETS];
+const KEEP = new Set(STORE_ASSETS);
+
+const die = (msg) => { console.error('sync-store: ' + msg); process.exit(1); };
+if (!fs.existsSync(path.join(SRC, 'index.html'))) die('app-preview/index.html not found at ' + SRC);
+const readJson = (rel) => JSON.parse(fs.readFileSync(path.join(SRC, rel), 'utf8'));
 const relSrc = (abs) => posix(path.relative(SRC, abs));
 const trim = (p) => String(p || '').replace(/\/+$/, '');
 
@@ -70,6 +75,9 @@ for (const f of walk(path.join(SRC, 'audio'))) {
   const rel = relSrc(f);
   if (AUDIO_OK(rel)) copy.add(rel); else skippedAudio.push(rel);
 }
+// lesson videos (2026-10-31): video/<xx>/{<unit>.mp4, <unit>.jpg, video-manifest.json}, written by tools/video/onboard-videos.mjs
+const VIDEO_OK = (rel) => rel.endsWith('.mp4') || rel.endsWith('.jpg') || path.posix.basename(rel) === 'video-manifest.json';
+if (fs.existsSync(path.join(SRC, 'video'))) for (const f of walk(path.join(SRC, 'video'))) { const rel = relSrc(f); if (VIDEO_OK(rel)) copy.add(rel); }
 const quarantineFiles = [];
 for (const name of fs.readdirSync(path.join(SRC, 'data'))) {
   const rel = 'data/' + name + '/quarantine.json';
@@ -109,6 +117,7 @@ const PATCHES = [
       + '    // STORE PATCH: hide quarantined card ids from decks, card scripts and\n'
       + '    // recaps in the loaded view model (the artifact files are untouched).\n'
       + '    if (window.NovaGate) window.NovaGate.hideQuarantined(s, files);\n'
+      + '    if (window.NovaGate && window.NovaGate.ensureStateVisuals) await window.NovaGate.ensureStateVisuals(s);\n'
       + '    return { manifest, files, from: "fetch" };\n',
   },
   {
@@ -116,7 +125,7 @@ const PATCHES = [
     find: '// One state\'s course: sub = parts after "#/<xx>/".\nfunction routeState(sub) {\n',
     replace: '// STORE PATCH: read-only view helpers handed to gate.js.\n'
       + 'const GATE_VIEW = { esc, P: () => P(), HB: () => HB(), realNote: () => REAL_NOTE, sections: () => SECTIONS,\n'
-      + '  manifest: () => (R && R.manifest) || null, sectionMeta, sectionOfModule, sectionOfUnit, moduleForUnit, practiceForms };\n'
+      + '  hasAudio: () => !!AUDIO_MANIFEST, stopAudio: () => stopAudio(), manifest: () => (R && R.manifest) || null, sectionMeta, sectionOfModule, sectionOfUnit, moduleForUnit, practiceForms };\n'
       + '// One state\'s course: sub = parts after "#/<xx>/".\nfunction routeState(sub) {\n'
       + '  // STORE PATCH: chapter 1 is free; chapters 2+ (and their modules, lessons,\n'
       + '  // cards, quizzes, practice forms) render gate.js\'s buy panel unless the\n'
@@ -144,6 +153,7 @@ for (const p of PATCHES) {
   if (n !== 1) die(`patch "${p.name}": anchor found ${n} times (want 1) — app-preview/index.html changed; update PATCHES`);
   html = html.replace(p.find, () => p.replace);
 }
+html = patchCustomerHtml(html);
 
 // ------------------------------------------------------------ mirror files
 let copied = 0, skipped = 0, removed = 0, bytes = 0;
@@ -153,6 +163,13 @@ const writeIfChanged = (destAbs, content) => {
   return true;
 };
 if (writeIfChanged(path.join(DEST, 'index.html'), html)) copied++; else skipped++;
+for (const rel of STORE_ASSETS) {
+  const source = fs.readFileSync(path.join(ASSETS, rel));
+  const target = path.join(DEST, rel);
+  if (fs.existsSync(target) && fs.readFileSync(target).equals(source)) { skipped++; continue; }
+  if (!CHECK) { fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, source); }
+  copied++;
+}
 for (const rel of [...copy].sort()) {
   const s = path.join(SRC, rel), d = path.join(DEST, rel);
   const ss = fs.statSync(s);
@@ -188,7 +205,7 @@ if (writeIfChanged(path.join(DEST, 'quarantine-index.json'), qJson)) copied++;
 // clips (only Utah has minted audio today). Everything else under /app/ needs
 // an unexpired entitlement for the state that owns its prefix.
 const firstChapter = (s) => [...(s.chapters || [])].sort((a, b) => (a.n || 0) - (b.n || 0))[0] || null;
-const free = new Set(['', 'index.html', 'gate.js', 'quarantine-index.json', 'styles.css', 'states-embedded.js', 'data-embedded.js', 'data/states.json', 'data/manifest.json']);
+const free = new Set(['', 'index.html', ...STORE_ASSETS, 'quarantine-index.json', 'styles.css', 'states-embedded.js', 'data-embedded.js', 'data/states.json', 'data/manifest.json']);
 for (const rel of copy) if (rel.startsWith('data/synthetic/') || rel.endsWith('/quarantine.json')) free.add(rel);
 const paidPrefixes = [];
 const catalog = [];
@@ -226,13 +243,35 @@ for (const s of COMPLETE) {
     const rebase = (ref) => { const r = String(ref || ''); if (r.startsWith(aroot + '/')) return r; if (r.startsWith('audio/')) return aroot + r.slice('audio'.length); return aroot + '/' + r; };
     free.add(s.audio_manifest);
     let freeClips = 0;
+    let sampleSlide = null, sampleCardQ = null, sampleCardId = null, sampleCardA = null;
     for (const e of am.entries || []) {
       const secs = String(e.section || '').split('+');
-      if (e.file_ref && secs.includes(ch1.id)) { free.add(rebase(e.file_ref)); freeClips++; }
+      if (e.file_ref && secs.includes(ch1.id)) {
+        const reb = rebase(e.file_ref);
+        free.add(reb);
+        freeClips++;
+        if (!sampleSlide && e.kind === 'slide') sampleSlide = reb;
+        if (!sampleCardQ && e.kind === 'card_q') { sampleCardQ = reb; sampleCardId = e.id; }
+        if (sampleCardId && !sampleCardA && e.kind === 'card_a' && e.id === sampleCardId) sampleCardA = reb;
+      }
     }
     if (am.think && am.think[ch1.id]) free.add(aroot + '/' + am.think[ch1.id]);
-    audio = { clips: (am.totals && am.totals.clips) || (am.entries || []).length, free_clips: freeClips };
+    audio = { clips: (am.totals && am.totals.clips) || (am.entries || []).length, free_clips: freeClips, sample_slide: sampleSlide, sample_card_q: sampleCardQ, sample_card_a: sampleCardA };
     audioByState[s.code] = audio;
+  }
+  // lesson videos (optional per state; convention video/<xx>/): chapter-1 units free, the rest behind the state's paid prefix
+  let video = null;
+  const vroot = 'video/' + s.code.toLowerCase();
+  if (fs.existsSync(path.join(SRC, vroot, 'video-manifest.json'))) {
+    const vm = readJson(vroot + '/video-manifest.json');
+    paidPrefixes.push({ prefix: vroot + '/', code: s.code });
+    free.add(vroot + '/video-manifest.json');
+    let units = 0, freeUnits = 0;
+    for (const u of Object.values(vm.units || {})) {
+      units++;
+      if (u.section_id === ch1.id) { if (u.file) free.add(u.file); if (u.poster) free.add(u.poster); freeUnits++; }
+    }
+    video = { units, free_units: freeUnits, duration_seconds: (vm.totals && vm.totals.duration_seconds) || null };
   }
   catalog.push({
     code: s.code, registry_name: s.name, handbook: s.handbook, test: s.test, run_id: s.run_id,
@@ -240,9 +279,10 @@ for (const s of COMPLETE) {
     free_chapter: { id: ch1.id, n: ch1.n || 1, title: ch1.title || ch1.id },
     counts: { chapters_built: built.size, chapters_total: (s.chapters || []).length, flashcards: cards, flashcards_held_back: heldBack, quiz_items: items, lessons, module_quizzes: quizzes, practice_forms: forms },
     audio,
+    video,
   });
 }
-for (const rel of free) if (rel && !copy.has(rel) && !['index.html', 'gate.js', 'quarantine-index.json'].includes(rel)) die('free path not in copy set: ' + rel);
+for (const rel of free) if (rel && !copy.has(rel) && !['index.html', ...STORE_ASSETS, 'quarantine-index.json'].includes(rel)) die('free path not in copy set: ' + rel);
 paidPrefixes.sort((a, b) => b.prefix.length - a.prefix.length);
 const freeDoc = { generated_by: 'tools/preview/sync-store.mjs', note: 'paths are relative to /app/', free: [...free].sort(), paid_prefixes: paidPrefixes };
 const catDoc = { generated_by: 'tools/preview/sync-store.mjs', states: catalog };
