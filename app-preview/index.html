@@ -1399,7 +1399,9 @@ function renderLessonPlayer(unitId, sub) {
     view.querySelectorAll(".lp-follow-active").forEach((el) => el.classList.remove("lp-follow-active"));
     const el = slideEls[i + 1];
     if (el) { el.classList.add("lp-follow-active"); if (scroll && follow.checked) el.scrollIntoView({ block: "start", behavior: "smooth" }); }
+    if (READER && follow.checked) READER.show(i, { fromVideo: true });
   };
+  PLAYER = { video, seek: (i) => { const s = slides[i]; if (s) video.currentTime = Number(s.start) || 0; } };
   video.addEventListener("timeupdate", () => { if (total) fill.style.width = Math.min(100, 100 * video.currentTime / total).toFixed(2) + "%"; setActive(idxAt(video.currentTime), true); });
   video.addEventListener("play", () => { stopAudio(); playBtn.textContent = "⏸ Pause"; });
   video.addEventListener("pause", () => { playBtn.textContent = video.ended ? "↻ Replay lesson" : "▶ Resume lesson"; });
@@ -1437,10 +1439,86 @@ function renderLessonPlayer(unitId, sub) {
     chapters.forEach((b) => b.addEventListener("click", () => drivePager(Number(b.dataset.lpIdx))));
     void origSetActive;
   }
+  if (READER) wrap.querySelector(".lp-chapters").hidden = true; // the reader's pages are the chapter navigation
   setActive(0, false);
 }
 
+// ---- Reading session (founder, 2026-10-31): the lesson reads like book pages — one page at a time, Previous / Next,
+// no labelled "teacher" boxes. Pages come from the accepted unit data: one page per slide (its lines, then the narration
+// as the reading text), then Key rules, Worked example, Common trap, Remember it, Quick check. Figures the store layer
+// placed on a slide are carried onto that page. The video (when present) turns the pages; turning a page seeks the video.
+let READER = null, PLAYER = null;
+function lessonPages(unitId) {
+  const unit = sessionUnit(unitId);
+  if (!unit) return [];
+  const t = (x) => (x && typeof x === "object" ? x.text : x) || "";
+  const pages = [];
+  (unit.slides || []).forEach((sl, i) => pages.push({ kind: "slide", slide: i, title: t(sl.title) || "Page " + (i + 1), lines: (sl.lines || []).map((l) => t(l)).filter(Boolean), body: t(sl.narration), audio: slideAudioSrc(unitId, sl.slide_id) }));
+  const wx = unit.worked_example || {}, mc = unit.misconception || {}, sc = unit.self_check || {};
+  if ((unit.why_how || []).length) pages.push({ kind: "rules", title: "Key rules", paras: unit.why_how.map((w) => ["", t(w)]) });
+  if (t(wx.scenario)) pages.push({ kind: "example", title: "Worked example", paras: [["Situation", t(wx.scenario)], ["Reasoning", t(wx.reasoning)], ["Outcome", t(wx.result)]] });
+  if (t(mc.claim)) pages.push({ kind: "trap", title: "Common trap", paras: [["Not true", t(mc.claim)], ["What the handbook says", t(mc.correction)]] });
+  if (t(unit.memory_support)) pages.push({ kind: "memory", title: "Remember it", paras: [["", t(unit.memory_support)]] });
+  if (t(sc.prompt)) pages.push({ kind: "check", title: "Quick check", prompt: t(sc.prompt), answer: t(sc.answer), why: t(sc.rationale) });
+  return pages;
+}
+function renderReader(unitId, sub) {
+  const pages = lessonPages(unitId);
+  if (!pages.length || view.querySelector(".reader")) return;
+  // figures the store layer attached to slide pages, by slide order
+  const figures = [...view.querySelectorAll("[data-lesson-page]")].map((p) => p.querySelector("figure"));
+  const h1 = view.querySelector("h1");
+  const topLevel = (el) => { let n = el; while (n && n.parentElement && n.parentElement !== view) n = n.parentElement; return n; };
+  const anchor = h1 ? topLevel(h1) : null;
+  if (anchor) { let n = anchor.nextElementSibling; while (n) { const next = n.nextElementSibling; if (!n.classList.contains("step-bar") && !n.classList.contains("lesson-player")) n.remove(); n = next; } }
+  else { [...view.children].forEach((c) => { if (!c.classList.contains("step-bar")) c.remove(); }); }
+  const box = document.createElement("section");
+  box.className = "reader";
+  box.setAttribute("aria-label", "Lesson reading");
+  box.innerHTML = `<div class="rd-progress" aria-hidden="true"><div class="rd-fill"></div></div><article class="rd-page" aria-live="polite"></article>
+    <div class="rd-nav"><button type="button" class="btn secondary" data-rd-prev>← Previous</button><span class="rd-status"></span><button type="button" class="btn" data-rd-next>Next →</button></div>`;
+  if (anchor) anchor.insertAdjacentElement("afterend", box); else view.prepend(box);
+  const page = box.querySelector(".rd-page"), status = box.querySelector(".rd-status"), fill = box.querySelector(".rd-fill");
+  const prev = box.querySelector("[data-rd-prev]"), next = box.querySelector("[data-rd-next]");
+  let cur = -1, reachedEnd = false;
+  const kindLabel = { slide: "Reading", rules: "Key rules", example: "Worked example", trap: "Common trap", memory: "Remember it", check: "Quick check" };
+  const show = (i, opts = {}) => {
+    i = Math.max(0, Math.min(pages.length - 1, i));
+    if (i === cur) return;
+    cur = i;
+    const p = pages[i];
+    let html = `<p class="rd-eyebrow">${esc(kindLabel[p.kind] || "Reading")} · page ${i + 1} of ${pages.length}</p><h2 class="rd-title">${esc(p.title)}</h2>`;
+    if (p.kind === "slide") {
+      if (p.lines.length) html += `<ul class="rd-lines">${p.lines.map((l) => `<li>${esc(l)}</li>`).join("")}</ul>`;
+      html += `<div class="rd-body">${esc(p.body).split(/(?<=[.!?])\s+(?=[A-Z])/).reduce((acc, s) => { const last = acc[acc.length - 1]; if (last && (last + " " + s).length < 320) acc[acc.length - 1] = last + " " + s; else acc.push(s); return acc; }, []).map((para) => `<p>${para}</p>`).join("")}</div>`;
+      if (p.audio) html += `<p class="rd-listen"><button type="button" data-rd-audio data-src="${esc(p.audio)}">▶ Play narration</button></p>`;
+    } else if (p.kind === "check") {
+      html += `<p class="rd-prompt">${esc(p.prompt)}</p><p><button type="button" class="btn secondary" data-rd-reveal>Reveal answer</button></p><div class="rd-answer" hidden><p><b>Answer.</b> ${esc(p.answer)}</p>${p.why ? `<p><b>Why.</b> ${esc(p.why)}</p>` : ""}</div>`;
+    } else {
+      html += `<div class="rd-body">${p.paras.map(([k, v]) => v ? `<p>${k ? `<b>${esc(k)}.</b> ` : ""}${esc(v)}</p>` : "").join("")}</div>`;
+    }
+    page.innerHTML = html;
+    if (p.kind === "slide" && figures[p.slide]) page.appendChild(figures[p.slide]);
+    status.textContent = `Page ${i + 1} of ${pages.length}`;
+    fill.style.width = (100 * (i + 1) / pages.length).toFixed(1) + "%";
+    prev.disabled = i === 0;
+    next.textContent = i === pages.length - 1 ? "Finish reading ✓" : "Next →";
+    const ab = page.querySelector("[data-rd-audio]");
+    if (ab) ab.addEventListener("click", () => { if (PLAYER && PLAYER.video && !PLAYER.video.paused) PLAYER.video.pause(); playOne(ab.dataset.src, ab); });
+    const rv = page.querySelector("[data-rd-reveal]");
+    if (rv) rv.addEventListener("click", () => { const a = page.querySelector(".rd-answer"); a.hidden = !a.hidden; rv.textContent = a.hidden ? "Reveal answer" : "Hide answer"; });
+    if (!opts.fromVideo && PLAYER && p.kind === "slide") PLAYER.seek(p.slide);
+    if (!opts.fromVideo) box.scrollIntoView({ block: "start", behavior: "smooth" });
+    if (i === pages.length - 1 && !reachedEnd) { reachedEnd = true; markDone(unitId, "lesson"); refreshStepBar(sub); }
+  };
+  prev.addEventListener("click", () => show(cur - 1));
+  next.addEventListener("click", () => { if (cur === pages.length - 1) { const n = view.querySelector(".step-bar [data-next-step]"); if (n) location.hash = n.getAttribute("href"); } else show(cur + 1); });
+  READER = { show, pages, get current() { return cur; } };
+  show(0, { fromVideo: true });
+}
+
 function enhanceStudyFlow(sub) {
+  READER = null; PLAYER = null;
   if (lpKeyHandler) { document.removeEventListener("keydown", lpKeyHandler); lpKeyHandler = null; }
   if (!ST || !sub || !sub[0]) return;
   const p0 = sub[0], unitId = decodeURIComponent(sub[1] || "");
@@ -1448,6 +1526,7 @@ function enhanceStudyFlow(sub) {
   if (view.querySelector("[data-gate-buy]")) return; // store paywall panel: nothing to study here yet
   try { renderStepBar(sub); } catch (e) { console.warn("step bar:", e); }
   if (p0 === "lesson") {
+    try { renderReader(unitId, sub); } catch (e) { console.warn("reader:", e); }
     const gen = routeGen;
     ensureVideoManifest(ST).then(() => { if (gen !== routeGen) return; if (view.querySelector("[data-gate-buy]")) return; try { renderLessonPlayer(unitId, sub); } catch (e) { console.warn("lesson player:", e); } });
   }
