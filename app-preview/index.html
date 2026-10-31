@@ -1421,6 +1421,22 @@ function renderLessonPlayer(unitId, sub) {
     else if (e.key === "j" || e.key === "l") { e.preventDefault(); const n = Math.max(0, Math.min(slides.length - 1, active + (e.key === "l" ? 1 : -1))); chapters[n] && chapters[n].click(); }
   };
   document.addEventListener("keydown", lpKeyHandler);
+  // Store layer (gate.js) pages the lesson one slide at a time with "Slide k" pills and Previous/Next. When that pager
+  // exists, it becomes the single set of slide controls: the video drives it, and it drives the video.
+  const pills = [...view.querySelectorAll(".step-dot.is-lesson-pill")];
+  const pillFor = (i) => pills.find((p) => new RegExp("^slide\\s*" + (i + 1) + "$", "i").test((p.textContent || "").trim())) || null;
+  if (pills.some((p, i) => pillFor(i))) {
+    wrap.querySelector(".lp-chapters").hidden = true;
+    let syncing = false;
+    const seekToPill = (p) => { const k = pills.indexOf(p); const m = (p.textContent || "").match(/^slide\s*(\d+)$/i); if (!m) return; const s = slides[Number(m[1]) - 1]; if (s) video.currentTime = Number(s.start) || 0; };
+    pills.forEach((p) => p.addEventListener("click", () => { if (!syncing) seekToPill(p); }));
+    view.querySelectorAll(".pager-btn").forEach((b) => b.addEventListener("click", () => { setTimeout(() => { const cur = pills.find((p) => p.classList.contains("is-current")); if (cur) seekToPill(cur); }, 0); }));
+    const origSetActive = setActive;
+    const drivePager = (i) => { const p = pillFor(i); if (p && !p.classList.contains("is-current")) { syncing = true; try { p.click(); } finally { syncing = false; } } };
+    video.addEventListener("timeupdate", () => { if (!video.paused) drivePager(idxAt(video.currentTime)); });
+    chapters.forEach((b) => b.addEventListener("click", () => drivePager(Number(b.dataset.lpIdx))));
+    void origSetActive;
+  }
   setActive(0, false);
 }
 
