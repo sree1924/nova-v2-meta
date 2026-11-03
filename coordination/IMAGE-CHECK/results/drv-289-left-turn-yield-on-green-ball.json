@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-289-left-turn-yield-on-green-ball",
+  "file": "drv-289-left-turn-yield-on-green-ball.png",
+  "title": "Unprotected Circular Green Light Left Turn: Yield to All Oncoming Straight/Right Traffic & Pedestrians",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2dcb4b97b98a613e9586b3c668e25caee7873df92681aae46f1efa1dae6cf514",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4775,
+  "usage": {
+    "completion_tokens": 1047,
+    "prompt_tokens": 2269,
+    "total_tokens": 3316,
+    "completion_tokens_details": {
+      "reasoning_tokens": 648
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007286,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-289-left-turn-yield-on-green-ball",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan in foreground faces forward; oncoming SUVs are in opposite lanes across yellow centerline, no head-on pairing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear/side of blue sedan visible; no interior or steering wheel shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal shows only bottom green lit with top/middle dark; side signal on left shows only one amber lens lit.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Our lane has double-yellow centerline on left and white lane/curb line on right; oncoming traffic stays opposite, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs and license plate are blank geometric shapes; road arrow is pictogram only, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan in left-turn pocket with left blinker on waits under single circular green while oncoming cars and crosswalk pedestrians clear, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts yielding left on circular green with compliant signals, markings, and blank signage.",
+    "teaching_correct": {
+      "note": "Yielding vehicle waits behind crosswalk for oncoming traffic and pedestrians, teaching correct unprotected left-turn priority.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan with left blinker on waits in a left-turn lane at sunset under an overhead green light while pedestrians with a dog cross in front and oncoming cars approach in the distance."
+  },
+  "error_body": null
+}

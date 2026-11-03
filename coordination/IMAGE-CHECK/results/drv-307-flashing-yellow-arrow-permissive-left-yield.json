@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-307-flashing-yellow-arrow-permissive-left-yield",
+  "file": "drv-307-flashing-yellow-arrow-permissive-left-yield.png",
+  "title": "Flashing Yellow Arrow (4-Section Head): Left Turn Permitted ONLY After Yielding to Oncoming Traffic & Pedestrians",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "7eb1a68ded147c255aa3d7cf6a40cfbbcb921ccdf8ff8ad47cf7892344a38a58",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5453,
+  "usage": {
+    "completion_tokens": 1438,
+    "prompt_tokens": 2275,
+    "total_tokens": 3713,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1028
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008955,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-307-flashing-yellow-arrow-permissive-left-yield",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan faces forward in its turn bay; two oncoming cars are in opposite lanes across double-yellow, not same lane head-on.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; only exterior rear and front views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead heads each show at most one lit lens: second head shows only flashing yellow left arrow, other heads show only top red lit.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline is on left of blue sedan lane, white lane/curb on right; oncoming traffic keeps left of center.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is blank solid, signs and pavement arrow are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue sedan in left-turn bay under flashing yellow left arrow waiting for two oncoming cars and right-side crosswalk pedestrian, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Flashing yellow arrow yielding scene is correctly depicted with compliant traffic geometry, single-lens signals, and no text.",
+    "teaching_correct": {
+      "note": "Learner sees yield behavior: left-turner waits behind crosswalk for oncoming traffic and pedestrian under permissive flashing yellow arrow.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue sedan stopped in a left-turn bay at sunset, with two oncoming cars on the left and a woman crossing on the right crosswalk under an overhead flashing yellow left arrow."
+  },
+  "error_body": null
+}

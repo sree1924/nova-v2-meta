@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-473-clearing-all-snow-ice-roof-hood-lights-before-driving",
+  "file": "drv-473-clearing-all-snow-ice-roof-hood-lights-before-driving.png",
+  "title": "Winter Pre-Trip Rule: Clear ALL Snow & Ice From EVERY Window, Mirror, Roof, Hood, Headlight & Taillight (No 'Peephole' Driving!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1aac24b4337f33b3da64905409c55a0d002dd84cbf2d332909b0248a9f14edc4",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5115,
+  "usage": {
+    "completion_tokens": 857,
+    "prompt_tokens": 2306,
+    "total_tokens": 3163,
+    "completion_tokens_details": {
+      "reasoning_tokens": 445
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006525,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-473-clearing-all-snow-ice-roof-hood-lights-before-driving",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Right panel shows multiple vehicles all traveling same direction away from viewer; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; driver silhouette on right has no cabin detail.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals are present in driveway or road scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Right panel road shows double-yellow lines on left of travel lane and white edge line on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; license plates are blank rectangles, green check and red X are graphic icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left shows full roof brushing with broom, right shows peephole driving with thick roof snow slab flying off, exactly as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split comparison correctly teaches full snow clearance vs peephole driving with no text or traffic violations.",
+    "teaching_correct": {
+      "note": "Learner clearly sees correct full clearance on left and dangerous peephole plus flying roof snow on right; geometry and physics are correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split image: left foreground a man in driveway brushing snow off a dark SUV roof with a long blue broom under a green check; right background a snow-covered SUV driving on a mountain road with only a small rear-window peephole and snow flying off under a red X."
+  },
+  "error_body": null
+}

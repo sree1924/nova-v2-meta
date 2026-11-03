@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-320-mixed-broken-and-solid-yellow-centerline",
+  "file": "drv-320-mixed-broken-and-solid-yellow-centerline.png",
+  "title": "Combination Solid + Broken Yellow Centerline: Passing Allowed ONLY if Broken Line Is on YOUR Side",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d6167c52618c7535599e51160b27ce66616d27b4de1c61cf5810adbe32300779",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5663,
+  "usage": {
+    "completion_tokens": 1057,
+    "prompt_tokens": 2285,
+    "total_tokens": 3342,
+    "completion_tokens_details": {
+      "reasoning_tokens": 689
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007348,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-320-mixed-broken-and-solid-yellow-centerline",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue car and farm trailer both face forward in same right lane; no oncoming vehicle head-on in lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; rear exterior views only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Right lane travel with yellow centerline on left of lane and white edge line on right; both vehicles on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; plates and triangle are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows broken yellow on our side with green passing arrow, but missing oncoming lane car and red X forbidding crossing solid side required by prompt.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct right-hand geometry and passing arrow for broken-on-your-side, but oncoming prohibition example missing, needs human review.",
+    "teaching_correct": {
+      "note": "What is shown is correct: broken line on right-lane side permits passing when clear; no wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue car in the right foreground lane follows a hay trailer, with a green arrow curving left across a broken-yellow centerline next to a solid yellow line to pass."
+  },
+  "error_body": null
+}

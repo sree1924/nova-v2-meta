@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-506-vehicle-engine-fire-pull-off-evacuate-never-open-hood",
+  "file": "drv-506-vehicle-engine-fire-pull-off-evacuate-never-open-hood.png",
+  "title": "Vehicle / Engine Fire Emergency: Pull Off, Turn Ignition Off, Evacuate Far Upstream & NEVER Open Burning Hood (Feeds Oxygen!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "13e3e79bd890ee4dbe7945ae4ffbf6f301dbce76228b2b6cecb232d81ce60910",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8321,
+  "usage": {
+    "completion_tokens": 1685,
+    "prompt_tokens": 2510,
+    "total_tokens": 4195,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1259
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 1137
+    }
+  },
+  "usd_priced": 0.010299,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-506-vehicle-engine-fire-pull-off-evacuate-never-open-hood",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Travel-lane vehicles both face away toward overpass; burning car is on right shoulder, not inside same travel lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; windows are dark/opaque.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the scene or insets.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic drives forward on right; yellow line on far left, white lane/edge lines with right shoulder and guardrail on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All plates, phone screen and panels are blank shapes/icons; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Pull-off, smoke, distant callers and do-not-open-hood X are present, but main hood is ajar not closed and top-right inset shows red X over extinguisher use instead of water on fuel, contradicting prompt.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Emergency pull-off concept is recognizable but teaching is contradicted: main hood is open and insets both forbid and approve extinguisher use.",
+    "teaching_correct": {
+      "note": "Teaches opposite/confusing lessons: burning car is parked facing oncoming traffic with hood ajar, and top-right red X forbids extinguisher while bottom green check approves it.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "A black sedan smoking heavily on the right highway shoulder while three people stand behind guardrail with a phone, with inset panels showing red Xs and green checks around hood and extinguishers."
+  },
+  "error_body": null
+}

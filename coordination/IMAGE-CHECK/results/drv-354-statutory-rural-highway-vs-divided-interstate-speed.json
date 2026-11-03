@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-354-statutory-rural-highway-vs-divided-interstate-speed",
+  "file": "drv-354-statutory-rural-highway-vs-divided-interstate-speed.png",
+  "title": "Unposted Rural Two-Lane Highway vs. Rural Divided Interstate Highway Environments",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "e2f8b0e8870c699a52bdae2338ec7283e65aa477cca0c14e7cebd6f765b42a9c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3030,
+  "usage": {
+    "completion_tokens": 858,
+    "prompt_tokens": 2256,
+    "total_tokens": 3114,
+    "completion_tokens_details": {
+      "reasoning_tokens": 484
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006467,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-354-statutory-rural-highway-vs-divided-interstate-speed",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Left: red SUV and blue car in opposite lanes; Right: all foreground vehicles travel same direction, opposite traffic across median only.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either rural scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Left lane has yellow dashed center on left and white edge on right; Right interstate has yellow line on left edge, divided opposite traffic across grass median.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All plates and scenery blank shapes with no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left shows two-lane rural highway with dashed yellow center; Right shows multi-lane divided interstate with broad grassy median, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split comparison correctly depicts both highway environments with proper US markings and zero text.",
+    "teaching_correct": {
+      "note": "Clearly contrasts two-lane undivided vs divided interstate geometry without teaching wrong priority or markings.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split sunset view: left shows a red SUV following a two-lane rural road past farm and lake; right shows multi-lane divided interstate with grassy median and multiple cars and trucks in both directions."
+  },
+  "error_body": null
+}

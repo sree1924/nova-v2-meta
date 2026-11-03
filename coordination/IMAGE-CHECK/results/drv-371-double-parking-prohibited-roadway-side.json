@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-371-double-parking-prohibited-roadway-side",
+  "file": "drv-371-double-parking-prohibited-roadway-side.png",
+  "title": "Double Parking Strictly Prohibited: Never Stop or Park on the Street Side Beside Another Curb-Parked Car!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "ab7e65736897244fd9dd4e0c48f92496211213b33bed5353b8290fcd6c33e6bd",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3865,
+  "usage": {
+    "completion_tokens": 937,
+    "prompt_tokens": 2271,
+    "total_tokens": 3208,
+    "completion_tokens_details": {
+      "reasoning_tokens": 564
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006821,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-371-double-parking-prohibited-roadway-side",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Oncoming cars are in opposite lane left of yellow centerline; the two right-side cars face same direction, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; all windows are dark/opaque.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Distant overhead signal shows single green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left, white line and curb with parked cars on right, travel direction on right side correct for US.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; license plates, buildings and signs are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows silver car with red X stopped in active lane beside dark curb-parked sedan on right, matching double-parking prohibition prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Clear double-parking prohibition scene with correct US geometry and zero text, teaches rule correctly.",
+    "teaching_correct": {
+      "note": "Red X over lane-blocking car beside curb-parked car clearly teaches that stopping in travel lane is prohibited.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Silver car with large red X over it stopped in right travel lane beside a dark sedan parked at right curb, with oncoming traffic left of yellow centerline on urban street."
+  },
+  "error_body": null
+}

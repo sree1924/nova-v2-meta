@@ -1,0 +1,3894 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-nj-class-d",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "d47c7745c1d8300400ce059a14d1abddc8717f377462a6326508db8c449b3c5b",
+    "candidate_lineage_id": "2026-10-28-rdmv-nj-class-d:lineage:92"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-nj-class-d/16/sec12-privileges-penalties-part-2/4b394d79/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-nj-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec12-F01",
+      "label": "DUI with a minor aboard",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F01"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.135",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0135"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F17",
+          "why": "sec12-F17 gives the yearly DUI surcharge, while sec12-F01 covers a parent or guardian convicted of DUI with a passenger under eighteen: a disorderly persons offense, up to six months of suspension and up to five days of community service.",
+          "fact_ids": [
+            "sec12-F01",
+            "sec12-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F02",
+      "label": "Notice of Scheduled Suspension",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F02"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.135",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0135"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F03",
+          "why": "sec12-F02 sends a Notice of Scheduled Suspension at twelve to fourteen points within twenty-four months, while sec12-F03 lists the choices after that notice: a Driver Improvement Program, a hearing, or surrendering the license.",
+          "fact_ids": [
+            "sec12-F02",
+            "sec12-F03"
+          ]
+        },
+        {
+          "other_id": "sec12-F06",
+          "why": "sec12-F02 triggers a Notice of Scheduled Suspension at twelve to fourteen points, while under sec12-F06 any moving violation during the one-year probation leads to a scheduled suspension.",
+          "fact_ids": [
+            "sec12-F02",
+            "sec12-F06"
+          ]
+        },
+        {
+          "other_id": "sec12-F13",
+          "why": "sec12-F13 starts a surcharge at six or more points within three years, while sec12-F02 sends a Notice of Scheduled Suspension at twelve to fourteen points within twenty-four months.",
+          "fact_ids": [
+            "sec12-F02",
+            "sec12-F13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F03",
+      "label": "Choices after the notice",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F03"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.135",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0135"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F02",
+          "why": "sec12-F02 sends a Notice of Scheduled Suspension at twelve to fourteen points within twenty-four months, while sec12-F03 lists the choices after that notice: a Driver Improvement Program, a hearing, or surrendering the license.",
+          "fact_ids": [
+            "sec12-F03",
+            "sec12-F02"
+          ]
+        },
+        {
+          "other_id": "sec12-R06",
+          "why": "sec12-F03 lists asking for a hearing as one choice after the notice, and sec12-R06 says that at a hearing the MVC Chief Administrator or an Administrative Law Judge decides whether to suspend.",
+          "fact_ids": [
+            "sec12-F03",
+            "sec12-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F04",
+      "label": "Driver Improvement Program credit",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F04"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R01",
+          "why": "sec12-F04 takes three points off for a completed Driver Improvement Program, while sec12-R01 adds that a finished Probationary Driver Program removes up to three points.",
+          "fact_ids": [
+            "sec12-F04",
+            "sec12-R01"
+          ]
+        },
+        {
+          "other_id": "sec12-F10",
+          "why": "sec12-F04 takes three points off for a Driver Improvement Program, while sec12-F10 removes two points for a voluntary defensive driving course.",
+          "fact_ids": [
+            "sec12-F04",
+            "sec12-F10"
+          ]
+        },
+        {
+          "other_id": "sec12-F06",
+          "why": "sec12-F04 gives the three-point credit for completing a Driver Improvement Program, while sec12-F06 adds the one-year probationary period that follows it.",
+          "fact_ids": [
+            "sec12-F04",
+            "sec12-F06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F05",
+      "label": "Program fees",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F05"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R07",
+          "why": "sec12-R07 names who teaches Driver Improvement and Probationary Driver classes, while sec12-F05 covers the seventy-five dollar MVC administration fee plus a separate provider fee.",
+          "fact_ids": [
+            "sec12-F05",
+            "sec12-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F06",
+      "label": "One-year probation after the program",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F06"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F02",
+          "why": "sec12-F02 triggers a Notice of Scheduled Suspension at twelve to fourteen points, while under sec12-F06 any moving violation during the one-year probation leads to a scheduled suspension.",
+          "fact_ids": [
+            "sec12-F06",
+            "sec12-F02"
+          ]
+        },
+        {
+          "other_id": "sec12-F04",
+          "why": "sec12-F04 gives the three-point credit for completing a Driver Improvement Program, while sec12-F06 adds the one-year probationary period that follows it.",
+          "fact_ids": [
+            "sec12-F06",
+            "sec12-F04"
+          ]
+        },
+        {
+          "other_id": "sec12-R02",
+          "why": "sec12-R02 restates the sec12-F06 probation after a Driver Improvement Program or restoration as one year long.",
+          "fact_ids": [
+            "sec12-F06",
+            "sec12-R02"
+          ]
+        },
+        {
+          "other_id": "sec12-F07",
+          "why": "sec12-F06 is a one-year probation after a Driver Improvement Program or restoration, while sec12-F07 is a two-year probationary period that begins with a special learner or examination permit.",
+          "fact_ids": [
+            "sec12-F06",
+            "sec12-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F07",
+      "label": "Two-year probationary driver period",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F07"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R02",
+          "why": "sec12-R02 restates the sec12-F07 new-driver probationary period, which starts with a permit and lasts two years.",
+          "fact_ids": [
+            "sec12-F07",
+            "sec12-R02"
+          ]
+        },
+        {
+          "other_id": "sec12-F06",
+          "why": "sec12-F06 is a one-year probation after a Driver Improvement Program or restoration, while sec12-F07 is a two-year probationary period that begins with a special learner or examination permit.",
+          "fact_ids": [
+            "sec12-F07",
+            "sec12-F06"
+          ]
+        },
+        {
+          "other_id": "sec12-F08",
+          "why": "sec12-F07 starts the two-year probationary period, and sec12-F08 says two or more moving violations adding up to four or more points during it require the Probationary Driver Program.",
+          "fact_ids": [
+            "sec12-F07",
+            "sec12-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F08",
+      "label": "Probationary Driver Program trigger",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F08"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F07",
+          "why": "sec12-F07 starts the two-year probationary period, and sec12-F08 says two or more moving violations adding up to four or more points during it require the Probationary Driver Program.",
+          "fact_ids": [
+            "sec12-F08",
+            "sec12-F07"
+          ]
+        },
+        {
+          "other_id": "sec12-F09",
+          "why": "sec12-F08 says when enrollment in the Probationary Driver Program is required, while sec12-F09 says completing it can cut up to three points and skipping it brings a suspension.",
+          "fact_ids": [
+            "sec12-F08",
+            "sec12-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F09",
+      "label": "Completing or skipping the program",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F09"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R01",
+          "why": "sec12-R01 contrasts the three points a finished Driver Improvement Program removes with the sec12-F09 Probationary Driver Program, which can cut up to three points.",
+          "fact_ids": [
+            "sec12-F09",
+            "sec12-R01"
+          ]
+        },
+        {
+          "other_id": "sec12-F08",
+          "why": "sec12-F08 says when enrollment in the Probationary Driver Program is required, while sec12-F09 says completing it can cut up to three points and skipping it brings a suspension.",
+          "fact_ids": [
+            "sec12-F09",
+            "sec12-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F10",
+      "label": "Defensive driving course credit",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F10"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.137",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0137"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F04",
+          "why": "sec12-F04 takes three points off for a Driver Improvement Program, while sec12-F10 removes two points for a voluntary defensive driving course.",
+          "fact_ids": [
+            "sec12-F10",
+            "sec12-F04"
+          ]
+        },
+        {
+          "other_id": "sec12-F11",
+          "why": "sec12-F10 removes two points for a voluntary defensive driving course, while sec12-F11 limits that credit to once every five years.",
+          "fact_ids": [
+            "sec12-F10",
+            "sec12-F11"
+          ]
+        },
+        {
+          "other_id": "sec12-F21",
+          "why": "sec12-F10 removes two points for a defensive driving course, while sec12-F21 takes up to three points off for each year without a violation or suspension.",
+          "fact_ids": [
+            "sec12-F10",
+            "sec12-F21"
+          ]
+        },
+        {
+          "other_id": "sec12-R09",
+          "why": "sec12-R09 describes a six-hour driver safety class that can earn a two-point reduction where applicable, matching the two points sec12-F10 gives for a defensive driving course.",
+          "fact_ids": [
+            "sec12-F10",
+            "sec12-R09"
+          ]
+        },
+        {
+          "other_id": "sec12-R08",
+          "why": "sec12-F10 covers the voluntary defensive driving course and its two-point credit, while sec12-R08 adds that the MVC lists approved online providers besides classroom courses.",
+          "fact_ids": [
+            "sec12-F10",
+            "sec12-R08"
+          ]
+        },
+        {
+          "other_id": "sec12-R11",
+          "why": "sec12-F10 says a defensive driving course may qualify a driver for a lower insurance rate, while sec12-R11 says motor vehicle convictions may raise insurance premiums.",
+          "fact_ids": [
+            "sec12-F10",
+            "sec12-R11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F11",
+      "label": "Course credit once every five years",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F11"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.137",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0137"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F10",
+          "why": "sec12-F10 removes two points for a voluntary defensive driving course, while sec12-F11 limits that credit to once every five years.",
+          "fact_ids": [
+            "sec12-F11",
+            "sec12-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F12",
+      "label": "Courses for mature drivers",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F12"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.137",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0137"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R09",
+          "why": "sec12-F12 covers courses for mature drivers aged fifty-five and older, while sec12-R09 describes a six-hour driver safety class open to everyone.",
+          "fact_ids": [
+            "sec12-F12",
+            "sec12-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F13",
+      "label": "Point surcharge amounts",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F13"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.138",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0138"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R03",
+          "why": "sec12-F13 sets the surcharge at six or more points within three years, and sec12-R03 adds that surcharges keep applying while six or more points posted in the preceding three years remain on the record.",
+          "fact_ids": [
+            "sec12-F13",
+            "sec12-R03"
+          ]
+        },
+        {
+          "other_id": "sec12-F15",
+          "why": "sec12-F13 gives the point surcharge amounts, while sec12-F15 says that surcharge is paid every year for three years on top of court fines and point reductions do not apply.",
+          "fact_ids": [
+            "sec12-F13",
+            "sec12-F15"
+          ]
+        },
+        {
+          "other_id": "sec12-F02",
+          "why": "sec12-F13 starts a surcharge at six or more points within three years, while sec12-F02 sends a Notice of Scheduled Suspension at twelve to fourteen points within twenty-four months.",
+          "fact_ids": [
+            "sec12-F13",
+            "sec12-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F14",
+      "label": "Posted date counts",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F14"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.138",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0138"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R03",
+          "why": "sec12-R03 counts points posted in the preceding three years, and sec12-F14 says points count from the date the violation is posted, not the date it happened.",
+          "fact_ids": [
+            "sec12-F14",
+            "sec12-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F15",
+      "label": "No point reductions for surcharges",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F15"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.138",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0138"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F21",
+          "why": "sec12-F21 takes up to three points off for a clean year, but sec12-F15 says standard point reductions do not apply to the surcharge system.",
+          "fact_ids": [
+            "sec12-F15",
+            "sec12-F21"
+          ]
+        },
+        {
+          "other_id": "sec12-F13",
+          "why": "sec12-F13 gives the point surcharge amounts, while sec12-F15 says that surcharge is paid every year for three years on top of court fines and point reductions do not apply.",
+          "fact_ids": [
+            "sec12-F15",
+            "sec12-F13"
+          ]
+        },
+        {
+          "other_id": "sec12-F18",
+          "why": "sec12-F15 says a surcharge is paid every year for three years, and sec12-F18 says unpaid surcharges can lead to collection action such as a Superior Court judgment, a lien or wage garnishment.",
+          "fact_ids": [
+            "sec12-F15",
+            "sec12-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F16",
+      "label": "Unlicensed, suspended and uninsured surcharges",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F16"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.138",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0138"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F17",
+          "why": "sec12-F16 sets yearly surcharges of one hundred dollars for driving unlicensed and two hundred fifty dollars for driving suspended or uninsured, while sec12-F17 sets one thousand dollars for a DUI or refusal.",
+          "fact_ids": [
+            "sec12-F16",
+            "sec12-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F17",
+      "label": "DUI and refusal surcharges",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F17"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.138",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0138"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F16",
+          "why": "sec12-F16 sets yearly surcharges of one hundred dollars for driving unlicensed and two hundred fifty dollars for driving suspended or uninsured, while sec12-F17 sets one thousand dollars for a DUI or refusal.",
+          "fact_ids": [
+            "sec12-F17",
+            "sec12-F16"
+          ]
+        },
+        {
+          "other_id": "sec12-F01",
+          "why": "sec12-F17 gives the yearly DUI surcharge, while sec12-F01 covers a parent or guardian convicted of DUI with a passenger under eighteen: a disorderly persons offense, up to six months of suspension and up to five days of community service.",
+          "fact_ids": [
+            "sec12-F17",
+            "sec12-F01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F18",
+      "label": "Unpaid surcharges",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F18"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.139",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0139"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F15",
+          "why": "sec12-F15 says a surcharge is paid every year for three years, and sec12-F18 says unpaid surcharges can lead to collection action such as a Superior Court judgment, a lien or wage garnishment.",
+          "fact_ids": [
+            "sec12-F18",
+            "sec12-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F19",
+      "label": "Point violations stay on the record",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F19"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.139",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0139"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F21",
+          "why": "sec12-F21 lowers the point total by up to three points for each clean year, while sec12-F19 says point violations recorded after March one, nineteen seventy-four, stay on the record permanently.",
+          "fact_ids": [
+            "sec12-F19",
+            "sec12-F21"
+          ]
+        },
+        {
+          "other_id": "sec12-R10",
+          "why": "sec12-F19 keeps point violations on the record permanently, and sec12-R10 says traffic laws apply on parking areas, driveways and government grounds as well as highways.",
+          "fact_ids": [
+            "sec12-F19",
+            "sec12-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F20",
+      "label": "Out-of-state violation points",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F20"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.139",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0139"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F31",
+          "why": "sec12-F20 says a traffic violation in another state adds two points to a New Jersey record, matching the two points sec12-F31 lists for a moving violation out of state.",
+          "fact_ids": [
+            "sec12-F20",
+            "sec12-F31"
+          ]
+        },
+        {
+          "other_id": "sec12-F33",
+          "why": "sec12-F20 adds two points for an out-of-state violation, and sec12-F33 explains that under the Driver License Compact violations from other member states become part of the New Jersey record.",
+          "fact_ids": [
+            "sec12-F20",
+            "sec12-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F21",
+      "label": "Clean-year point reduction",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F21"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.139",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0139"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F10",
+          "why": "sec12-F10 removes two points for a defensive driving course, while sec12-F21 takes up to three points off for each year without a violation or suspension.",
+          "fact_ids": [
+            "sec12-F21",
+            "sec12-F10"
+          ]
+        },
+        {
+          "other_id": "sec12-F15",
+          "why": "sec12-F21 takes up to three points off for a clean year, but sec12-F15 says standard point reductions do not apply to the surcharge system.",
+          "fact_ids": [
+            "sec12-F21",
+            "sec12-F15"
+          ]
+        },
+        {
+          "other_id": "sec12-F19",
+          "why": "sec12-F21 lowers the point total by up to three points for each clean year, while sec12-F19 says point violations recorded after March one, nineteen seventy-four, stay on the record permanently.",
+          "fact_ids": [
+            "sec12-F21",
+            "sec12-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F22",
+      "label": "Racing and crosswalk yielding",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F22"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.140",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0140"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R05",
+          "why": "sec12-R05 gives five points for speeding thirty miles per hour or more over, the same five points sec12-F22 gives racing on a highway.",
+          "fact_ids": [
+            "sec12-F22",
+            "sec12-R05"
+          ]
+        },
+        {
+          "other_id": "sec12-F24",
+          "why": "sec12-F24 gives tailgating and reckless driving five points each, the same as racing on a highway in sec12-F22.",
+          "fact_ids": [
+            "sec12-F22",
+            "sec12-F24"
+          ]
+        },
+        {
+          "other_id": "sec12-R15",
+          "why": "sec12-R15 covers yielding to an emergency vehicle and at an intersection, while sec12-F22 covers failing to yield to a pedestrian in a crosswalk, all two points.",
+          "fact_ids": [
+            "sec12-F22",
+            "sec12-R15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F23",
+      "label": "Keeping right and passing on the right",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F23"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.140",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0140"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F26",
+          "why": "sec12-F23 gives five points for failing to keep right of oncoming traffic and four for passing on the right or off the roadway, while sec12-F26 gives four points for passing in a no passing zone.",
+          "fact_ids": [
+            "sec12-F23",
+            "sec12-F26"
+          ]
+        },
+        {
+          "other_id": "sec12-F29",
+          "why": "sec12-F29 gives five points for improperly passing a school bus and four for a frozen dessert truck, while sec12-F23 gives four for passing on the right or off the roadway.",
+          "fact_ids": [
+            "sec12-F23",
+            "sec12-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F24",
+      "label": "Tailgating, reckless and careless driving",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F24"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R16",
+          "why": "sec12-F24 gives careless driving two points, while sec12-R16 gives driving in an unsafe manner four points, but only for a third or later violation within five years of the previous one.",
+          "fact_ids": [
+            "sec12-F24",
+            "sec12-R16"
+          ]
+        },
+        {
+          "other_id": "sec12-F22",
+          "why": "sec12-F24 gives tailgating and reckless driving five points each, the same as racing on a highway in sec12-F22.",
+          "fact_ids": [
+            "sec12-F24",
+            "sec12-F22"
+          ]
+        },
+        {
+          "other_id": "sec12-F30",
+          "why": "sec12-F30 gives eight points for leaving the scene of a crash with personal injury, more than the five points sec12-F24 gives tailgating and reckless driving.",
+          "fact_ids": [
+            "sec12-F24",
+            "sec12-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F25",
+      "label": "Speeding point bands",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F25"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R05",
+          "why": "sec12-R05 restates the two upper sec12-F25 speeding bands: fifteen to twenty-nine miles per hour over carries four points, and thirty or more over carries five.",
+          "fact_ids": [
+            "sec12-F25",
+            "sec12-R05"
+          ]
+        },
+        {
+          "other_id": "sec12-R13",
+          "why": "sec12-F25 sets speeding points by how far over the limit a driver goes, while sec12-R13 gives three points for driving a construction vehicle faster than forty-five miles per hour.",
+          "fact_ids": [
+            "sec12-F25",
+            "sec12-R13"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F26",
+      "label": "No passing zone",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F26"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F23",
+          "why": "sec12-F23 gives five points for failing to keep right of oncoming traffic and four for passing on the right or off the roadway, while sec12-F26 gives four points for passing in a no passing zone.",
+          "fact_ids": [
+            "sec12-F26",
+            "sec12-F23"
+          ]
+        },
+        {
+          "other_id": "sec12-R12",
+          "why": "sec12-R12 gives four points for improper passing on the New Jersey Turnpike, Garden State Parkway and Atlantic City Expressway, the same four as sec12-F26 passing in a no passing zone.",
+          "fact_ids": [
+            "sec12-F26",
+            "sec12-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F27",
+      "label": "Handheld phone points",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F27"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F28",
+          "why": "sec12-F28 gives three points for each improper turn, the same three sec12-F27 gives for using a handheld phone, which applies on a third conviction within ten years of the second and every fourth or later offense.",
+          "fact_ids": [
+            "sec12-F27",
+            "sec12-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F28",
+      "label": "Improper turns",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F28"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F27",
+          "why": "sec12-F28 gives three points for each improper turn, the same three sec12-F27 gives for using a handheld phone, which applies on a third conviction within ten years of the second and every fourth or later offense.",
+          "fact_ids": [
+            "sec12-F28",
+            "sec12-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F29",
+      "label": "School bus and frozen dessert truck",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F29"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.142",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0142"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F23",
+          "why": "sec12-F29 gives five points for improperly passing a school bus and four for a frozen dessert truck, while sec12-F23 gives four for passing on the right or off the roadway.",
+          "fact_ids": [
+            "sec12-F29",
+            "sec12-F23"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F30",
+      "label": "Leaving the scene of a crash",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-F30"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.142",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0142"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F31",
+          "why": "sec12-F30 gives two points for leaving the scene of a crash when no one is hurt, the same as each sec12-F31 violation, but eight points when there is personal injury.",
+          "fact_ids": [
+            "sec12-F30",
+            "sec12-F31"
+          ]
+        },
+        {
+          "other_id": "sec12-F24",
+          "why": "sec12-F30 gives eight points for leaving the scene of a crash with personal injury, more than the five points sec12-F24 gives tailgating and reckless driving.",
+          "fact_ids": [
+            "sec12-F30",
+            "sec12-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F31",
+      "label": "Move Over Law and Stop or Yield signs",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F31"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.142",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0142"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R15",
+          "why": "sec12-R15 gives two points for failing to yield to an emergency vehicle or at an intersection, and sec12-F31 gives two points for failing to obey Stop or Yield signs and violating the Move Over Law.",
+          "fact_ids": [
+            "sec12-F31",
+            "sec12-R15"
+          ]
+        },
+        {
+          "other_id": "sec12-F30",
+          "why": "sec12-F30 gives two points for leaving the scene of a crash when no one is hurt, the same as each sec12-F31 violation, but eight points when there is personal injury.",
+          "fact_ids": [
+            "sec12-F31",
+            "sec12-F30"
+          ]
+        },
+        {
+          "other_id": "sec12-F20",
+          "why": "sec12-F20 says a traffic violation in another state adds two points to a New Jersey record, matching the two points sec12-F31 lists for a moving violation out of state.",
+          "fact_ids": [
+            "sec12-F31",
+            "sec12-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F32",
+      "label": "Nonresident Violator Compact",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F32"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.142",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0142"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R04",
+          "why": "sec12-R04 restates the sec12-F32 Nonresident Violator Compact: visiting drivers answer for tickets as residents would or risk suspension at home.",
+          "fact_ids": [
+            "sec12-F32",
+            "sec12-R04"
+          ]
+        },
+        {
+          "other_id": "sec12-F33",
+          "why": "sec12-F32 makes a driver ticketed in a member state satisfy the citation or risk suspension at home, while sec12-F33 puts violations from other member states on the New Jersey record.",
+          "fact_ids": [
+            "sec12-F32",
+            "sec12-F33"
+          ]
+        },
+        {
+          "other_id": "sec12-R18",
+          "why": "sec12-R18 says the sec12-F32 Nonresident Violator Compact covers forty-four states plus the District of Columbia and excludes parking or standing, weight limit and hazmat violations.",
+          "fact_ids": [
+            "sec12-F32",
+            "sec12-R18"
+          ]
+        },
+        {
+          "other_id": "sec12-R19",
+          "why": "sec12-F32 requires a ticketed driver to satisfy the citation, while sec12-R19 says nonresident drivers keep due process protection and cannot be detained out of state under that compact.",
+          "fact_ids": [
+            "sec12-F32",
+            "sec12-R19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-F33",
+      "label": "Driver License Compact",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "module_id": "sec12-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-F33"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.142",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0142"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F20",
+          "why": "sec12-F20 adds two points for an out-of-state violation, and sec12-F33 explains that under the Driver License Compact violations from other member states become part of the New Jersey record.",
+          "fact_ids": [
+            "sec12-F33",
+            "sec12-F20"
+          ]
+        },
+        {
+          "other_id": "sec12-R04",
+          "why": "sec12-R04 restates the sec12-F33 Driver License Compact: violation records are shared so out-of-state tickets land on the home record.",
+          "fact_ids": [
+            "sec12-F33",
+            "sec12-R04"
+          ]
+        },
+        {
+          "other_id": "sec12-F32",
+          "why": "sec12-F32 makes a driver ticketed in a member state satisfy the citation or risk suspension at home, while sec12-F33 puts violations from other member states on the New Jersey record.",
+          "fact_ids": [
+            "sec12-F33",
+            "sec12-F32"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R01",
+      "label": "Three points versus up to three",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R01"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F04",
+          "why": "sec12-F04 takes three points off for a completed Driver Improvement Program, while sec12-R01 adds that a finished Probationary Driver Program removes up to three points.",
+          "fact_ids": [
+            "sec12-R01",
+            "sec12-F04"
+          ]
+        },
+        {
+          "other_id": "sec12-F09",
+          "why": "sec12-R01 contrasts the three points a finished Driver Improvement Program removes with the sec12-F09 Probationary Driver Program, which can cut up to three points.",
+          "fact_ids": [
+            "sec12-R01",
+            "sec12-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R02",
+      "label": "One-year versus two-year probation",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R02"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F06",
+          "why": "sec12-R02 restates the sec12-F06 probation after a Driver Improvement Program or restoration as one year long.",
+          "fact_ids": [
+            "sec12-R02",
+            "sec12-F06"
+          ]
+        },
+        {
+          "other_id": "sec12-F07",
+          "why": "sec12-R02 restates the sec12-F07 new-driver probationary period, which starts with a permit and lasts two years.",
+          "fact_ids": [
+            "sec12-R02",
+            "sec12-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R03",
+      "label": "Surcharge threshold versus duration",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R03"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.138",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0138"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F13",
+          "why": "sec12-F13 sets the surcharge at six or more points within three years, and sec12-R03 adds that surcharges keep applying while six or more points posted in the preceding three years remain on the record.",
+          "fact_ids": [
+            "sec12-R03",
+            "sec12-F13"
+          ]
+        },
+        {
+          "other_id": "sec12-F14",
+          "why": "sec12-R03 counts points posted in the preceding three years, and sec12-F14 says points count from the date the violation is posted, not the date it happened.",
+          "fact_ids": [
+            "sec12-R03",
+            "sec12-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R04",
+      "label": "The two compacts compared",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R04"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.142",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0142"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F32",
+          "why": "sec12-R04 restates the sec12-F32 Nonresident Violator Compact: visiting drivers answer for tickets as residents would or risk suspension at home.",
+          "fact_ids": [
+            "sec12-R04",
+            "sec12-F32"
+          ]
+        },
+        {
+          "other_id": "sec12-F33",
+          "why": "sec12-R04 restates the sec12-F33 Driver License Compact: violation records are shared so out-of-state tickets land on the home record.",
+          "fact_ids": [
+            "sec12-R04",
+            "sec12-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R05",
+      "label": "The two upper speeding bands",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R05"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F25",
+          "why": "sec12-R05 restates the two upper sec12-F25 speeding bands: fifteen to twenty-nine miles per hour over carries four points, and thirty or more over carries five.",
+          "fact_ids": [
+            "sec12-R05",
+            "sec12-F25"
+          ]
+        },
+        {
+          "other_id": "sec12-F22",
+          "why": "sec12-R05 gives five points for speeding thirty miles per hour or more over, the same five points sec12-F22 gives racing on a highway.",
+          "fact_ids": [
+            "sec12-R05",
+            "sec12-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R06",
+      "label": "Who decides after a hearing",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R06"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F03",
+          "why": "sec12-F03 lists asking for a hearing as one choice after the notice, and sec12-R06 says that at a hearing the MVC Chief Administrator or an Administrative Law Judge decides whether to suspend.",
+          "fact_ids": [
+            "sec12-R06",
+            "sec12-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R07",
+      "label": "Who teaches the classes",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R07"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.136",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0136"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F05",
+          "why": "sec12-R07 names who teaches Driver Improvement and Probationary Driver classes, while sec12-F05 covers the seventy-five dollar MVC administration fee plus a separate provider fee.",
+          "fact_ids": [
+            "sec12-R07",
+            "sec12-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R08",
+      "label": "Online defensive driving providers",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R08"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.137",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0137"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F10",
+          "why": "sec12-F10 covers the voluntary defensive driving course and its two-point credit, while sec12-R08 adds that the MVC lists approved online providers besides classroom courses.",
+          "fact_ids": [
+            "sec12-R08",
+            "sec12-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R09",
+      "label": "Six-hour driver safety class",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R09"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.137",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0137"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F10",
+          "why": "sec12-R09 describes a six-hour driver safety class that can earn a two-point reduction where applicable, matching the two points sec12-F10 gives for a defensive driving course.",
+          "fact_ids": [
+            "sec12-R09",
+            "sec12-F10"
+          ]
+        },
+        {
+          "other_id": "sec12-F12",
+          "why": "sec12-F12 covers courses for mature drivers aged fifty-five and older, while sec12-R09 describes a six-hour driver safety class open to everyone.",
+          "fact_ids": [
+            "sec12-R09",
+            "sec12-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R10",
+      "label": "Where traffic laws apply",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R10"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.139",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0139"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F19",
+          "why": "sec12-F19 keeps point violations on the record permanently, and sec12-R10 says traffic laws apply on parking areas, driveways and government grounds as well as highways.",
+          "fact_ids": [
+            "sec12-R10",
+            "sec12-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R11",
+      "label": "Convictions and insurance premiums",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R11"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.139",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0139"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F10",
+          "why": "sec12-F10 says a defensive driving course may qualify a driver for a lower insurance rate, while sec12-R11 says motor vehicle convictions may raise insurance premiums.",
+          "fact_ids": [
+            "sec12-R11",
+            "sec12-F10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R12",
+      "label": "Toll road points",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R12"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.140",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0140"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F26",
+          "why": "sec12-R12 gives four points for improper passing on the New Jersey Turnpike, Garden State Parkway and Atlantic City Expressway, the same four as sec12-F26 passing in a no passing zone.",
+          "fact_ids": [
+            "sec12-R12",
+            "sec12-F26"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R13",
+      "label": "Construction vehicle speed",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R13"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.140",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0140"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F25",
+          "why": "sec12-F25 sets speeding points by how far over the limit a driver goes, while sec12-R13 gives three points for driving a construction vehicle faster than forty-five miles per hour.",
+          "fact_ids": [
+            "sec12-R13",
+            "sec12-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R14",
+      "label": "Officer directions and traffic signals",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R14"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.140",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0140"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R17",
+          "why": "sec12-R14 gives two points for failing to observe traffic signals, and sec12-R17 gives two points for failing to stop for a traffic light, failing to stop at a flashing red signal or failing to signal properly.",
+          "fact_ids": [
+            "sec12-R14",
+            "sec12-R17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R15",
+      "label": "Emergency vehicles and intersections",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R15"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F31",
+          "why": "sec12-R15 gives two points for failing to yield to an emergency vehicle or at an intersection, and sec12-F31 gives two points for failing to obey Stop or Yield signs and violating the Move Over Law.",
+          "fact_ids": [
+            "sec12-R15",
+            "sec12-F31"
+          ]
+        },
+        {
+          "other_id": "sec12-F22",
+          "why": "sec12-R15 covers yielding to an emergency vehicle and at an intersection, while sec12-F22 covers failing to yield to a pedestrian in a crosswalk, all two points.",
+          "fact_ids": [
+            "sec12-R15",
+            "sec12-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R16",
+      "label": "Unsafe driving points",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R16"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F24",
+          "why": "sec12-F24 gives careless driving two points, while sec12-R16 gives driving in an unsafe manner four points, but only for a third or later violation within five years of the previous one.",
+          "fact_ids": [
+            "sec12-R16",
+            "sec12-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R17",
+      "label": "Traffic lights, flashing red and signalling",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R17"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.141",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0141"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-R14",
+          "why": "sec12-R14 gives two points for failing to observe traffic signals, and sec12-R17 gives two points for failing to stop for a traffic light, failing to stop at a flashing red signal or failing to signal properly.",
+          "fact_ids": [
+            "sec12-R17",
+            "sec12-R14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R18",
+      "label": "What the Nonresident Violator Compact covers",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec12-R18"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.142",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0142"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F32",
+          "why": "sec12-R18 says the sec12-F32 Nonresident Violator Compact covers forty-four states plus the District of Columbia and excludes parking or standing, weight limit and hazmat violations.",
+          "fact_ids": [
+            "sec12-R18",
+            "sec12-F32"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec12-R19",
+      "label": "Protections for nonresident drivers",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "module_id": "sec12-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec12-R19"
+      ],
+      "source_ref": {
+        "ref": "New Jersey Driver Manual 2026 (R0726), PDF p.142",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nj-d:new-jersey-motor-vehicle-commission:handbook:pdf-0142"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec12-F32",
+          "why": "sec12-F32 requires a ticketed driver to satisfy the citation, while sec12-R19 says nonresident drivers keep due process protection and cannot be detained out of state under that compact.",
+          "fact_ids": [
+            "sec12-R19",
+            "sec12-F32"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec12-F02",
+      "to": "sec12-F03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F03",
+      "to": "sec12-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F03",
+      "to": "sec12-F04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F04",
+      "to": "sec12-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F04",
+      "to": "sec12-F05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F04",
+      "to": "sec12-F06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F07",
+      "to": "sec12-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F08",
+      "to": "sec12-F09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F04",
+      "to": "sec12-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F09",
+      "to": "sec12-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F06",
+      "to": "sec12-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F07",
+      "to": "sec12-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F10",
+      "to": "sec12-F11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F10",
+      "to": "sec12-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F12",
+      "to": "sec12-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F10",
+      "to": "sec12-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F13",
+      "to": "sec12-F14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F13",
+      "to": "sec12-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F13",
+      "to": "sec12-F15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F16",
+      "to": "sec12-F17",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F15",
+      "to": "sec12-F18",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F25",
+      "to": "sec12-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F24",
+      "to": "sec12-R16",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F23",
+      "to": "sec12-F26",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F26",
+      "to": "sec12-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F26",
+      "to": "sec12-F29",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-R14",
+      "to": "sec12-R17",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F20",
+      "to": "sec12-F33",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F32",
+      "to": "sec12-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F33",
+      "to": "sec12-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F32",
+      "to": "sec12-R18",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec12-F32",
+      "to": "sec12-R19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec12-m01",
+      "title": "Suspension notices and Driver Improvement",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec12-F02",
+        "sec12-F03",
+        "sec12-R06",
+        "sec12-F04",
+        "sec12-R07",
+        "sec12-F05",
+        "sec12-F06"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m02",
+      "title": "Probationary drivers",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 8,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec12-F07",
+        "sec12-F08",
+        "sec12-F09",
+        "sec12-R01",
+        "sec12-R02"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m03",
+      "title": "Defensive driving and point reduction",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec12-F10",
+        "sec12-F11",
+        "sec12-R08",
+        "sec12-F12",
+        "sec12-R09",
+        "sec12-F21"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m04",
+      "title": "Surcharges and DUI penalties",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec12-F13",
+        "sec12-F14",
+        "sec12-R03",
+        "sec12-F15",
+        "sec12-R11",
+        "sec12-F16",
+        "sec12-F17",
+        "sec12-F01",
+        "sec12-F18"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m05",
+      "title": "Point records, speed and driving manner",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 12,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec12-F19",
+        "sec12-R10",
+        "sec12-F25",
+        "sec12-R05",
+        "sec12-F22",
+        "sec12-R13",
+        "sec12-F24",
+        "sec12-R16"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m06",
+      "title": "Passing, turning and phone points",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec12-F23",
+        "sec12-F26",
+        "sec12-R12",
+        "sec12-F29",
+        "sec12-F28",
+        "sec12-F27"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m07",
+      "title": "Signals, yielding and crash scenes",
+      "domain": "Driver programs, surcharges and points confusables and continuation details",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 7,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec12-R14",
+        "sec12-R17",
+        "sec12-R15",
+        "sec12-F31",
+        "sec12-F30"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m08",
+      "title": "Out-of-state tickets and compacts",
+      "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec12-F20",
+        "sec12-F32",
+        "sec12-F33",
+        "sec12-R04",
+        "sec12-R18",
+        "sec12-R19"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec12-m01",
+      "unit_id": "sec12-u01",
+      "node_ids": [
+        "sec12-F02",
+        "sec12-F03",
+        "sec12-R06",
+        "sec12-F04",
+        "sec12-R07",
+        "sec12-F05",
+        "sec12-F06"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Open with the Notice of Scheduled Suspension at twelve to fourteen points in twenty-four months, the three choices after the notice, who decides at a hearing, then the Driver Improvement Program: its three-point credit, who teaches it, the fees, and the one-year probation that follows.",
+      "flashcard_strategy": "One card per rule; contrast cards for the three choices after a notice and for the program credit versus the probation that follows it.",
+      "quiz_strategy": "Hub-chosen quiz on the notice threshold, the choices after it, the hearing decision makers and the Driver Improvement Program.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m02",
+      "unit_id": "sec12-u02",
+      "node_ids": [
+        "sec12-F07",
+        "sec12-F08",
+        "sec12-F09",
+        "sec12-R01",
+        "sec12-R02"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the two-year probationary period that starts with a permit, what sends a new driver to the Probationary Driver Program, what completing or skipping it does, then contrast exactly three points with up to three points and one-year with two-year probation.",
+      "flashcard_strategy": "One card per rule; contrast cards for the two program credits and the two probation lengths.",
+      "quiz_strategy": "Hub-chosen quiz that swaps the probation lengths, the program trigger and the two point credits.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m03",
+      "unit_id": "sec12-u03",
+      "node_ids": [
+        "sec12-F10",
+        "sec12-F11",
+        "sec12-R08",
+        "sec12-F12",
+        "sec12-R09",
+        "sec12-F21"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover the voluntary defensive driving course and its two-point credit, the once-every-five-years limit, online providers, options for mature drivers and the six-hour driver safety class, then the yearly reduction of up to three points for a clean year.",
+      "flashcard_strategy": "One card per rule; contrast cards for the course credit versus the clean-year reduction.",
+      "quiz_strategy": "Hub-chosen quiz on course credits, how often they count and the clean-year reduction.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m04",
+      "unit_id": "sec12-u04",
+      "node_ids": [
+        "sec12-F13",
+        "sec12-F14",
+        "sec12-R03",
+        "sec12-F15",
+        "sec12-R11",
+        "sec12-F16",
+        "sec12-F17",
+        "sec12-F01",
+        "sec12-F18"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain the point surcharge at six or more points in three years, when points count, how long surcharges keep applying, why point reductions do not help, then the yearly surcharges for unlicensed, suspended, uninsured and DUI driving, the DUI penalty with a minor aboard and what happens to unpaid surcharges.",
+      "flashcard_strategy": "One card per rule; contrast cards for the surcharge threshold versus its duration and for the DUI surcharge versus the third-offense amount.",
+      "quiz_strategy": "Hub-chosen quiz on surcharge amounts, timing and collection.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m05",
+      "unit_id": "sec12-u05",
+      "node_ids": [
+        "sec12-F19",
+        "sec12-R10",
+        "sec12-F25",
+        "sec12-R05",
+        "sec12-F22",
+        "sec12-R13",
+        "sec12-F24",
+        "sec12-R16"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Show that point violations stay on the record permanently and where traffic laws apply, then the three speeding bands, racing and the construction vehicle limit, and the manner-of-driving points for tailgating, reckless, careless and unsafe driving.",
+      "flashcard_strategy": "One card per rule; contrast cards for the two upper speeding bands and for careless versus unsafe driving.",
+      "quiz_strategy": "Hub-chosen quiz that swaps speeding bands and the driving-manner point values.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m06",
+      "unit_id": "sec12-u06",
+      "node_ids": [
+        "sec12-F23",
+        "sec12-F26",
+        "sec12-R12",
+        "sec12-F29",
+        "sec12-F28",
+        "sec12-F27"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Walk through the passing violations and their points, the toll-road rules, passing a school bus versus a frozen dessert truck, then improper turns and the handheld phone rule.",
+      "flashcard_strategy": "One card per rule; contrast cards for the five-point and four-point passing violations.",
+      "quiz_strategy": "Hub-chosen quiz on passing, turning and handheld phone points.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m07",
+      "unit_id": "sec12-u07",
+      "node_ids": [
+        "sec12-R14",
+        "sec12-R17",
+        "sec12-R15",
+        "sec12-F31",
+        "sec12-F30"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Group the two-point violations for officers, signals, lights, yielding, Stop and Yield signs and the Move Over Law, then leaving the scene of a crash with and without personal injury.",
+      "flashcard_strategy": "One card per rule; contrast cards for leaving the scene with no injury versus with personal injury.",
+      "quiz_strategy": "Hub-chosen quiz on the two-point violations and the two crash-scene values.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec12-m08",
+      "unit_id": "sec12-u08",
+      "node_ids": [
+        "sec12-F20",
+        "sec12-F32",
+        "sec12-F33",
+        "sec12-R04",
+        "sec12-R18",
+        "sec12-R19"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the two points an out-of-state violation adds, then the Nonresident Violator Compact and the Driver License Compact, how they differ, what the first one covers and excludes, and the protections it keeps for nonresident drivers.",
+      "flashcard_strategy": "One card per rule; contrast cards for the two compacts.",
+      "quiz_strategy": "Hub-chosen quiz that swaps the two compacts and their coverage.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec12-F02",
+    "sec12-F03",
+    "sec12-R06",
+    "sec12-F04",
+    "sec12-R07",
+    "sec12-F05",
+    "sec12-F06",
+    "sec12-F07",
+    "sec12-F08",
+    "sec12-F09",
+    "sec12-R01",
+    "sec12-R02",
+    "sec12-F10",
+    "sec12-F11",
+    "sec12-R08",
+    "sec12-F12",
+    "sec12-R09",
+    "sec12-F21",
+    "sec12-F13",
+    "sec12-F14",
+    "sec12-R03",
+    "sec12-F15",
+    "sec12-R11",
+    "sec12-F16",
+    "sec12-F17",
+    "sec12-F01",
+    "sec12-F18",
+    "sec12-F19",
+    "sec12-R10",
+    "sec12-F25",
+    "sec12-R05",
+    "sec12-F22",
+    "sec12-R13",
+    "sec12-F24",
+    "sec12-R16",
+    "sec12-F23",
+    "sec12-F26",
+    "sec12-R12",
+    "sec12-F29",
+    "sec12-F28",
+    "sec12-F27",
+    "sec12-R14",
+    "sec12-R17",
+    "sec12-R15",
+    "sec12-F31",
+    "sec12-F30",
+    "sec12-F20",
+    "sec12-F32",
+    "sec12-F33",
+    "sec12-R04",
+    "sec12-R18",
+    "sec12-R19"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec12-m01..sec12-m08; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 52,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec12-F01",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F02",
+          "module_id": "sec12-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F03",
+          "module_id": "sec12-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F04",
+          "module_id": "sec12-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F05",
+          "module_id": "sec12-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F06",
+          "module_id": "sec12-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F07",
+          "module_id": "sec12-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F08",
+          "module_id": "sec12-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F09",
+          "module_id": "sec12-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F10",
+          "module_id": "sec12-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F11",
+          "module_id": "sec12-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F12",
+          "module_id": "sec12-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F13",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F14",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F15",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F16",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F17",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F18",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F19",
+          "module_id": "sec12-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F20",
+          "module_id": "sec12-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F21",
+          "module_id": "sec12-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F22",
+          "module_id": "sec12-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F23",
+          "module_id": "sec12-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F24",
+          "module_id": "sec12-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F25",
+          "module_id": "sec12-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F26",
+          "module_id": "sec12-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F27",
+          "module_id": "sec12-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F28",
+          "module_id": "sec12-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F29",
+          "module_id": "sec12-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F30",
+          "module_id": "sec12-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F31",
+          "module_id": "sec12-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F32",
+          "module_id": "sec12-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-F33",
+          "module_id": "sec12-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R01",
+          "module_id": "sec12-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R02",
+          "module_id": "sec12-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R03",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R04",
+          "module_id": "sec12-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R05",
+          "module_id": "sec12-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R06",
+          "module_id": "sec12-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R07",
+          "module_id": "sec12-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R08",
+          "module_id": "sec12-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R09",
+          "module_id": "sec12-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R10",
+          "module_id": "sec12-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R11",
+          "module_id": "sec12-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R12",
+          "module_id": "sec12-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R13",
+          "module_id": "sec12-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R14",
+          "module_id": "sec12-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R15",
+          "module_id": "sec12-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R16",
+          "module_id": "sec12-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R17",
+          "module_id": "sec12-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R18",
+          "module_id": "sec12-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec12-R19",
+          "module_id": "sec12-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec12-F02",
+          "to": "sec12-F03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F03",
+          "to": "sec12-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F03",
+          "to": "sec12-F04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F04",
+          "to": "sec12-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F04",
+          "to": "sec12-F05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F04",
+          "to": "sec12-F06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F07",
+          "to": "sec12-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F08",
+          "to": "sec12-F09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F04",
+          "to": "sec12-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F09",
+          "to": "sec12-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F06",
+          "to": "sec12-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F07",
+          "to": "sec12-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F10",
+          "to": "sec12-F11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F10",
+          "to": "sec12-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F12",
+          "to": "sec12-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F10",
+          "to": "sec12-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F13",
+          "to": "sec12-F14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F13",
+          "to": "sec12-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F13",
+          "to": "sec12-F15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F16",
+          "to": "sec12-F17",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F15",
+          "to": "sec12-F18",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F25",
+          "to": "sec12-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F24",
+          "to": "sec12-R16",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F23",
+          "to": "sec12-F26",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F26",
+          "to": "sec12-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F26",
+          "to": "sec12-F29",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-R14",
+          "to": "sec12-R17",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F20",
+          "to": "sec12-F33",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F32",
+          "to": "sec12-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F33",
+          "to": "sec12-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F32",
+          "to": "sec12-R18",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec12-F32",
+          "to": "sec12-R19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Driver programs, surcharges and the point system: DUI with a minor, driver improvement and probationary programs, defensive driving credits, violation surcharges, point values and interstate compacts",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 59.7,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Driver programs, surcharges and points confusables and continuation details",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 40.3,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec12-m01",
+          "sec12-m02",
+          "sec12-m03",
+          "sec12-m04",
+          "sec12-m05",
+          "sec12-m06",
+          "sec12-m07",
+          "sec12-m08"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

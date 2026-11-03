@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-148-road-test-examiner-no-passengers-pets",
+  "file": "drv-148-road-test-examiner-no-passengers-pets.png",
+  "title": "During the Driving Skills Exam: Only Applicant & Examiner Allowed (No Pets or Extra Riders)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "9f46ecfdbc870a4c1a30bce5f3cb488cff9fa72a9bcc7f1815dcf7cd47a22475",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8479,
+  "usage": {
+    "completion_tokens": 1535,
+    "prompt_tokens": 2276,
+    "total_tokens": 3811,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1135
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009369,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-148-road-test-examiner-no-passengers-pets",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one vehicle interior shown; no other vehicles facing each other in a lane are visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "Left-hand-drive cabin: steering wheel and driver on front-left, examiner on front-right.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is visible anywhere in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Left-hand-drive sedan parked at right-side curb; no left-side driving or wrong-side traffic visible through windshield.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; DMV sign shows only pictograms with red slash, clipboard paper, dash screen and all surfaces are blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows applicant driving front-left and examiner front-right with clipboard inside, while family and leashed dog wait on outside bench with no-pets/riders icon sign.",
+      "verdict": "MATCH"
+    },
+    "summary": "Interior view correctly teaches only applicant and examiner in car with others waiting outside; all applicable visual rules pass with no text or traffic errors.",
+    "teaching_correct": {
+      "note": "Learner sees only two front occupants in car and extra riders/pet left outside, correctly teaching exam rule.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "View from the back seat of a left-hand-drive car showing a young woman driving on the left and an examiner with blank clipboard on the right, with a family and golden dog waiting on a bench outside the DMV ahead."
+  },
+  "error_body": null
+}

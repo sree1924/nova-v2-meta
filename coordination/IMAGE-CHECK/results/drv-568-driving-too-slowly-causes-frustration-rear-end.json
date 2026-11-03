@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-568-driving-too-slowly-causes-frustration-rear-end",
+  "file": "drv-568-driving-too-slowly-causes-frustration-rear-end.png",
+  "title": "Driving Significantly Below Traffic Flow Speed Is Nearly as Dangerous as Speeding — Stay in Right Lane!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "177693b92e61b2aa1aa4aae96da6396a5ed36e0c149c47ee7aa50af3b699004b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5887,
+  "usage": {
+    "completion_tokens": 1288,
+    "prompt_tokens": 2251,
+    "total_tokens": 3539,
+    "completion_tokens_details": {
+      "reasoning_tokens": 862
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008288,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-568-driving-too-slowly-causes-frustration-rear-end",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both vehicles travel same direction in same lane away from viewer; no oncoming vehicle facing them.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exteriors shown, no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both cars travel in lane to right of double-yellow centerline on left, with white edge line on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license area is blank white rectangle and rear green shape is a simple turtle icon, not text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows slow car indicated by turtle icon with close follower illustrating frustration/rear-end risk, matching title, but road is two-lane coastal road from rear-driver view, not multi-lane highway aerial with smooth uniform spacing as prompt describes.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Illustrates slow-driver frustration with turtle icon and tailgating on correct US right-side lane with no text violations, but does not match prompt's multi-lane aerial smooth-flow description.",
+    "teaching_correct": {
+      "note": "Teaches slow-in-right-lane and following risk correctly; vehicles properly positioned in right lane, no wrong geometry or opposite lesson.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue SUV closely following a white SUV with a green turtle icon on a two-lane coastal highway at sunset, double-yellow on left and white edge on right."
+  },
+  "error_body": null
+}

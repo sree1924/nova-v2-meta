@@ -188,3 +188,127 @@ intact; Phase 2 (02/16 authoring) not started. Ledger actual $0.000, 0 model cal
 - 2026-10-29T16:40:15.545Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:84 for 19A.units (sec13-penalties-suspension-alcohol) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
 
 - 2026-10-29T16:40:15.952Z lineage reset → 2026-10-28-rdmv-va-class-std:lineage:85 for 19A.units (sec15-registration-insurance-other-info) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T21:28:38.520Z JAM SOL FACTFIX VA: 63 listed targets across9sections. FIXER Sol/gpt-6.1-sol/ChatGPTPro; original authorcredit preserved; no authoringAPI. sec01-R02, sec01-R09, sec02-R01, sec02-R02, sec02-R03, sec02-R05, sec03-F27, sec03-R10, sec04-F07, sec06-F01, sec06-F02, sec06-F03, sec06-F04, sec06-F05, sec06-F06, sec06-F07, sec06-F08, sec06-F09, sec06-F10, sec06-F11, sec06-F13, sec06-F14, sec06-R01, sec06-R02, sec06-R03, sec06-R04, sec06-R05, sec06-R06, sec06-R07, sec06-R09, sec07-F01, sec07-F02, sec07-F03, sec07-F04, sec07-F05, sec07-F06, sec07-F07, sec07-F08, sec07-F09, sec07-F10, sec07-F11, sec07-F12, sec07-F13, sec07-F14, sec07-R01, sec07-R02, sec07-R03, sec07-R04, sec07-R06, sec07-R07, sec07-R08, sec07-R09, sec07-R10, sec07-R11, sec12-F09, sec12-R04, sec12-R06, sec12-R11, sec14-F04, sec14-R03, sec14-R04, sec14-R08, sec13-F09
+
+- 2026-10-29T21:36:30.079Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec01-testing-knowledge-road-vision 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec01-testing-knowledge-road-vision-03.combined_kg-1.json.
+
+- 2026-10-29T21:36:37.409Z FACTFIX genuine assigned correction nonce 04.cards:@sec01-testing-knowledge-road-vision 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec01-testing-knowledge-road-vision-04.cards-1.json.
+
+- 2026-10-29T21:37:09.125Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec01-testing-knowledge-road-vision 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec01-testing-knowledge-road-vision-06.exam_bank-1.json.
+
+- 2026-10-29T21:37:35.679Z FACTFIX genuine assigned correction nonce 05.sessions:@sec01-testing-knowledge-road-vision 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec01-testing-knowledge-road-vision-05.sessions-1.json.
+
+- 2026-10-29T21:37:42.887Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec01-testing-knowledge-road-vision 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec01-testing-knowledge-road-vision-05.card_scripts-1.json.
+
+- 2026-10-29T21:41:20.216Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec02-traffic-signals-lane-use 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec02-traffic-signals-lane-use-03.combined_kg-1.json.
+
+- 2026-10-29T21:41:28.457Z FACTFIX genuine assigned correction nonce 04.cards:@sec02-traffic-signals-lane-use 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec02-traffic-signals-lane-use-04.cards-1.json.
+
+- 2026-10-29T21:41:36.178Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec02-traffic-signals-lane-use 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec02-traffic-signals-lane-use-06.exam_bank-1.json.
+
+- 2026-10-29T21:41:42.955Z FACTFIX genuine assigned correction nonce 05.sessions:@sec02-traffic-signals-lane-use 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec02-traffic-signals-lane-use-05.sessions-1.json.
+
+- 2026-10-29T21:41:50.296Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec02-traffic-signals-lane-use 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec02-traffic-signals-lane-use-05.card_scripts-1.json.
+
+- 2026-10-29T21:43:33.211Z FACTFIX accepted-only capacity 2026-10-28-rdmv-va-class-std:lineage:85 -> 2026-10-28-rdmv-va-class-std:lineage:86; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-ACCEPTED-CAPACITY-05.sessions-86.json; no cap or history reset.
+
+- 2026-10-29T21:43:33.211Z FACTFIX genuine assigned correction nonce 05.sessions:@sec01-testing-knowledge-road-vision 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec01-testing-knowledge-road-vision-05.sessions-2.json.
+
+- 2026-10-29T21:43:40.255Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec01-testing-knowledge-road-vision 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec01-testing-knowledge-road-vision-05.card_scripts-2.json.
+
+- 2026-10-29T21:43:49.718Z FACTFIX genuine assigned correction nonce 05.sessions:@sec02-traffic-signals-lane-use 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec02-traffic-signals-lane-use-05.sessions-2.json.
+
+- 2026-10-29T21:43:55.246Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec02-traffic-signals-lane-use 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec02-traffic-signals-lane-use-05.card_scripts-2.json.
+
+- 2026-10-29T21:46:55.906Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec03-regulatory-warning-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec03-regulatory-warning-signs-03.combined_kg-1.json.
+
+- 2026-10-29T21:46:57.982Z FACTFIX genuine assigned correction nonce 04.cards:@sec03-regulatory-warning-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec03-regulatory-warning-signs-04.cards-1.json.
+
+- 2026-10-29T21:47:00.494Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec03-regulatory-warning-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec03-regulatory-warning-signs-06.exam_bank-1.json.
+
+- 2026-10-29T21:47:03.208Z FACTFIX accepted-only capacity 2026-10-28-rdmv-va-class-std:lineage:86 -> 2026-10-28-rdmv-va-class-std:lineage:87; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-ACCEPTED-CAPACITY-05.sessions-87.json; no cap or history reset.
+
+- 2026-10-29T21:47:03.208Z FACTFIX genuine assigned correction nonce 05.sessions:@sec03-regulatory-warning-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec03-regulatory-warning-signs-05.sessions-1.json.
+
+- 2026-10-29T21:47:05.439Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec03-regulatory-warning-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec03-regulatory-warning-signs-05.card_scripts-1.json.
+
+- 2026-10-29T21:48:02.180Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec04-railroad-work-zone-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec04-railroad-work-zone-signs-03.combined_kg-1.json.
+
+- 2026-10-29T21:48:07.216Z FACTFIX genuine assigned correction nonce 04.cards:@sec04-railroad-work-zone-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec04-railroad-work-zone-signs-04.cards-1.json.
+
+- 2026-10-29T21:48:10.846Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec04-railroad-work-zone-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec04-railroad-work-zone-signs-06.exam_bank-1.json.
+
+- 2026-10-29T21:48:13.911Z FACTFIX genuine assigned correction nonce 05.sessions:@sec04-railroad-work-zone-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec04-railroad-work-zone-signs-05.sessions-1.json.
+
+- 2026-10-29T21:48:16.645Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec04-railroad-work-zone-signs 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec04-railroad-work-zone-signs-05.card_scripts-1.json.
+
+- 2026-10-29T21:59:10.761Z FACTFIX accepted-only capacity 2026-10-28-rdmv-va-class-std:lineage:87 -> 2026-10-28-rdmv-va-class-std:lineage:88; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-ACCEPTED-CAPACITY-02.dossier_sections-88.json; no cap or history reset.
+
+- 2026-10-29T21:59:13.741Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec06-speed-stopping-school-bus 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec06-speed-stopping-school-bus-03.combined_kg-1.json.
+
+- 2026-10-29T21:59:15.924Z FACTFIX genuine assigned correction nonce 04.cards:@sec06-speed-stopping-school-bus 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec06-speed-stopping-school-bus-04.cards-1.json.
+
+- 2026-10-29T22:02:24.400Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec06-speed-stopping-school-bus 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec06-speed-stopping-school-bus-03.combined_kg-2.json.
+
+- 2026-10-29T22:02:29.304Z FACTFIX genuine assigned correction nonce 04.cards:@sec06-speed-stopping-school-bus 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec06-speed-stopping-school-bus-04.cards-2.json.
+
+- 2026-10-29T22:02:57.078Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec06-speed-stopping-school-bus 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec06-speed-stopping-school-bus-06.exam_bank-1.json.
+
+- 2026-10-29T22:04:00.600Z FACTFIX genuine assigned correction nonce 05.sessions:@sec06-speed-stopping-school-bus 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec06-speed-stopping-school-bus-05.sessions-1.json.
+
+- 2026-10-29T22:04:03.986Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec06-speed-stopping-school-bus 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec06-speed-stopping-school-bus-05.card_scripts-1.json.
+
+- 2026-10-29T22:11:35.629Z FACTFIX accepted-only capacity 2026-10-28-rdmv-va-class-std:lineage:88 -> 2026-10-28-rdmv-va-class-std:lineage:89; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-ACCEPTED-CAPACITY-02.dossier_sections-89.json; no cap or history reset.
+
+- 2026-10-29T22:11:43.514Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec07-right-of-way-roundabouts 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec07-right-of-way-roundabouts-03.combined_kg-1.json.
+
+- 2026-10-29T22:11:46.516Z FACTFIX genuine assigned correction nonce 04.cards:@sec07-right-of-way-roundabouts 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec07-right-of-way-roundabouts-04.cards-1.json.
+
+- 2026-10-29T22:11:50.251Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec07-right-of-way-roundabouts 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec07-right-of-way-roundabouts-06.exam_bank-1.json.
+
+- 2026-10-29T22:11:53.414Z FACTFIX genuine assigned correction nonce 05.sessions:@sec07-right-of-way-roundabouts 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec07-right-of-way-roundabouts-05.sessions-1.json.
+
+- 2026-10-29T22:13:39.816Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec07-right-of-way-roundabouts 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec07-right-of-way-roundabouts-05.card_scripts-1.json.
+
+- 2026-10-29T22:19:35.703Z SOL FACTFIX VA STOP SOURCE HOLD: sec07-R07 compound citation physical18/19 and sec07-R10 missing source conditions; fresh Meta result retained, no same-input retry. Five sections/30targets PASS, section7native complete with22SUPPORTED and2targetHOLD, three sections/9targets unattempted. 0.119852 validationUSD; authoringAPI0/nativeUSD0. Own claim removed; all history/flags/credit/debt retained.
+
+- 2026-10-29T22:30:08.160Z SOL FACTFIX VA SOURCE RECOVERY: root d8e097 authorizes unattempted9targets in12/13/14 and genuine currentC2 R07support19/R10fullconditions19+20; originalbaseline/credit/history preserved. Section7 paid check waits exact bounded multipage approval.
+
+- 2026-10-29T22:34:32.412Z FACTFIX accepted-only capacity 2026-10-28-rdmv-va-class-std:lineage:89 -> 2026-10-28-rdmv-va-class-std:lineage:90; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-ACCEPTED-CAPACITY-02.dossier_sections-90.json; no cap or history reset.
+
+- 2026-10-29T22:34:52.184Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec12-traffic-stops-seat-belts-airbags-child-seats 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec12-traffic-stops-seat-belts-airbags-child-seats-03.combined_kg-1.json.
+
+- 2026-10-29T22:35:00.640Z FACTFIX genuine assigned correction nonce 04.cards:@sec12-traffic-stops-seat-belts-airbags-child-seats 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec12-traffic-stops-seat-belts-airbags-child-seats-04.cards-2.json.
+
+- 2026-10-29T22:35:07.729Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec12-traffic-stops-seat-belts-airbags-child-seats 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec12-traffic-stops-seat-belts-airbags-child-seats-06.exam_bank-1.json.
+
+- 2026-10-29T22:35:13.546Z FACTFIX genuine assigned correction nonce 05.sessions:@sec12-traffic-stops-seat-belts-airbags-child-seats 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec12-traffic-stops-seat-belts-airbags-child-seats-05.sessions-1.json.
+
+- 2026-10-29T22:35:19.331Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec12-traffic-stops-seat-belts-airbags-child-seats 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec12-traffic-stops-seat-belts-airbags-child-seats-05.card_scripts-2.json.
+
+- 2026-10-29T22:38:23.431Z FACTFIX accepted-only capacity 2026-10-28-rdmv-va-class-std:lineage:90 -> 2026-10-28-rdmv-va-class-std:lineage:91; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-ACCEPTED-CAPACITY-02.dossier_sections-91.json; no cap or history reset.
+
+- 2026-10-29T22:38:30.938Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec13-penalties-suspension-alcohol 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec13-penalties-suspension-alcohol-03.combined_kg-1.json.
+
+- 2026-10-29T22:38:37.062Z FACTFIX genuine assigned correction nonce 04.cards:@sec13-penalties-suspension-alcohol 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec13-penalties-suspension-alcohol-04.cards-1.json.
+
+- 2026-10-29T22:38:44.242Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec13-penalties-suspension-alcohol 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec13-penalties-suspension-alcohol-06.exam_bank-1.json.
+
+- 2026-10-29T22:38:51.521Z FACTFIX genuine assigned correction nonce 05.sessions:@sec13-penalties-suspension-alcohol 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec13-penalties-suspension-alcohol-05.sessions-1.json.
+
+- 2026-10-29T22:38:57.998Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec13-penalties-suspension-alcohol 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec13-penalties-suspension-alcohol-05.card_scripts-1.json.
+
+- 2026-10-29T22:39:52.183Z FACTFIX accepted-only capacity 2026-10-28-rdmv-va-class-std:lineage:91 -> 2026-10-28-rdmv-va-class-std:lineage:92; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-ACCEPTED-CAPACITY-02.dossier_sections-92.json; no cap or history reset.
+
+- 2026-10-29T22:40:00.054Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec14-license-types-learner-permit 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec14-license-types-learner-permit-03.combined_kg-1.json.
+
+- 2026-10-29T22:40:04.806Z FACTFIX genuine assigned correction nonce 04.cards:@sec14-license-types-learner-permit 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec14-license-types-learner-permit-04.cards-1.json.
+
+- 2026-10-29T22:40:10.928Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec14-license-types-learner-permit 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec14-license-types-learner-permit-06.exam_bank-1.json.
+
+- 2026-10-29T22:40:14.148Z FACTFIX genuine assigned correction nonce 05.sessions:@sec14-license-types-learner-permit 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec14-license-types-learner-permit-05.sessions-1.json.
+
+- 2026-10-29T22:40:17.016Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec14-license-types-learner-permit 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\FACTFIX-NONCE-sec14-license-types-learner-permit-05.card_scripts-1.json.
+
+- 2026-10-29T22:45:29.778Z SOL FIXER VA recovery native work complete; 9sections rebuilt, 8sections/39targets freshly validated, sec07 real supporting pages18/19 and19/20 plus current descendants ready for exact approved private validator. Own resume claim released; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-va-class-std\receipts\SOL-FACTFIX-VA-RECOVERY-NATIVE-RELEASE.json.

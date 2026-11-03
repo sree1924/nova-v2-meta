@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-673-one-way-street-wrong-way-signs-backs-of-signs-clue",
+  "file": "drv-673-one-way-street-wrong-way-signs-backs-of-signs-clue.png",
+  "title": "How to Spot a One-Way Street Instantly: All Parked Cars Face Same Way, All White Lane Lines & Backs of Signs Facing One Direction",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "7679dd7863ec6d8892602e56dd033e48cb21e4bd80aa68c7baabf01f67a9ffdb",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5496,
+  "usage": {
+    "completion_tokens": 1183,
+    "prompt_tokens": 2481,
+    "total_tokens": 3664,
+    "completion_tokens_details": {
+      "reasoning_tokens": 770
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008129,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-673-one-way-street-wrong-way-signs-backs-of-signs-clue",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in travel lanes and parked on both curbs face forward away from camera; no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels are visible; only exterior rear views shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Two small distant signals on poles appear dark with no multiple lit lenses visible.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "One-way flow away from camera with yellow line on far left edge and white line on right edge, all-white dashed dividers, consistent with US one-way.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All billboards, store signs, pole signs, and license plates are blank geometric shapes with no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows 3-lane one-way street with all white dashed dividers and all parked cars on left and right facing same forward direction as traffic.",
+      "verdict": "MATCH"
+    },
+    "summary": "Elevated one-way street correctly shows same-direction traffic and parking with white dividers and blank signage, meeting all rules.",
+    "teaching_correct": {
+      "note": "Correctly teaches one-way clues: same-direction parked cars, all-white lane lines, one-direction flow with proper edge colors.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated daylight view looking down a 3-lane urban street with all moving and parked cars facing away from camera, white dashed lane dividers, yellow line on left curb and white line on right curb, blank signs and billboards."
+  },
+  "error_body": null
+}

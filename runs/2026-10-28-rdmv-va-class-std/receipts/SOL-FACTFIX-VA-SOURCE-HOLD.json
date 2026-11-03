@@ -1,0 +1,85 @@
+{
+  "status": "HOLD_TARGET_NOT_SUPPORTED",
+  "state": "VA",
+  "run_id": "2026-10-28-rdmv-va-class-std",
+  "section": "sec07-right-of-way-roundabouts",
+  "actual_fresh_validation_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/batch45/VA/sections/sec07-right-of-way-roundabouts/POSTFIX-VALIDATION.json",
+    "sha256": "2716d5b931b42475fa2d7ceefdcc06e8afe52cafc4ff9c28c917781ac9505638"
+  },
+  "raw_result_ref": {
+    "path": "runs/2026-10-28-rdmv-va-class-std/sources/private/audits/muse-fact-check/sec07-right-of-way-roundabouts-2026-10-29T22-14-04-938Z.json",
+    "sha256": "492d9f5d4814b4af64717a9bfeadf4368d6903cd3c2f38cc656d5b7da7143777"
+  },
+  "held_target_findings": [
+    {
+      "evidence_quote": "drivers must travel in a counter-clockwise direction.",
+      "fact_id": "sec07-R07",
+      "issue": "Page 18 does not state a right-turn exit signal; that instruction is on page 19.",
+      "suggested_fix": "Roundabout entry yields to traffic already in the circle with counterclockwise travel and lane choice by intended turn per page 18; use right-turn signal to exit per page 19.",
+      "verdict": "PARTIALLY_SUPPORTED"
+    },
+    {
+      "evidence_quote": "on hills, curves, at intersections or railroad crossings,",
+      "fact_id": "sec07-R10",
+      "issue": "Fact omits railroad crossings from the passing ban and omits the private-road limit on the school-bus rule.",
+      "suggested_fix": "Return when front of passed vehicle is visible in rearview mirror; passing on hills, curves, at intersections or railroad crossings is unlawful except with two or more lanes same direction; do not pass a stopped school bus on a public road unless separated by physical barrier/unpaved median, or on a private road.",
+      "verdict": "PARTIALLY_SUPPORTED"
+    }
+  ],
+  "source_page_refs": {
+    "18": {
+      "path": "runs/2026-10-28-rdmv-va-class-std/sources/private/factfix/physical-18.json",
+      "sha256": "1ec0244a112dcccba14bc6f57a1cd65f4e537e523309bd4b0d7342698d02fc75"
+    },
+    "19": {
+      "path": "runs/2026-10-28-rdmv-va-class-std/sources/private/factfix/physical-19.json",
+      "sha256": "827b79f52532b6844fe47e6645610b7dd4b8efffdedf27c0f2fb981619fcfd82"
+    },
+    "20": {
+      "path": "runs/2026-10-28-rdmv-va-class-std/sources/private/factfix/physical-20.json",
+      "sha256": "777c49619482e36f6a8a3e58385e6d690b5e6ad45d9b95ab9bfd21bd58e0e857"
+    }
+  },
+  "source_pdf_ref": {
+    "path": "runs/2026-10-28-rdmv-va-class-std/sources/private/dmv39.pdf",
+    "sha256": "886137824ac880e7356d1d1ab2de5c3d38beef9a7287dbaa74d80d3b883a9428"
+  },
+  "original_correction_input_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/input-snapshots/VA.json",
+    "sha256": "22a70c0fbb4af408097ef14768192a52c77902a09e5a80fa7fd07dbc08cee406"
+  },
+  "scope_conflict": {
+    "fact_id": "sec07-R07",
+    "assigned_kind": "CITATION",
+    "assigned_correct_pdf_page": 18,
+    "wording_preserved_exactly": true,
+    "issue": "Assigned unchanged compound statement includes right-turn exit guidance found on physical19, while counterclockwise travel is on physical18. It is not wholly supported by assigned primary18 alone."
+  },
+  "own_rewrite_omissions": {
+    "fact_id": "sec07-R10",
+    "issue": "Current rewrite omitted railroad crossings from location list and did not fully express the private-road school-bus rule. This is a genuine source-condition defect to correct under a new targeted revision, not a judge-only rewrite."
+  },
+  "unlisted_record_only": [
+    {
+      "evidence_quote": "using a siren, flashing lights or both, you must immediately yield",
+      "fact_id": "sec07-R05",
+      "issue": "Fact requires both sirens and lights while page allows siren, lights, or both.",
+      "suggested_fix": "Active siren, flashing lights, or both demand pulling over, stopping and waiting, while stopped flashers demand a lane move if reasonable or reduced speed with caution.",
+      "verdict": "PARTIALLY_SUPPORTED"
+    }
+  ],
+  "needed_root_resolution": "Resolve the compound citation-only scope and genuine R10 source-condition correction. No same-input validation retry or provider fallback has occurred.",
+  "not_a_new_founder_or_clinical_review_gate": true,
+  "unchanged_future_sections": [
+    "sec12-traffic-stops-seat-belts-airbags-child-seats",
+    "sec13-penalties-suspension-alcohol",
+    "sec14-license-types-learner-permit"
+  ],
+  "recorded_by": {
+    "actor_id": "Sol FIXER / gpt-6.1-sol / ChatGPT Pro subscription",
+    "session_id": "01a1849b-9e9f-70b1-8371-c990ab8fd164",
+    "provider_family": "openai"
+  },
+  "recorded_at": "2026-10-29T22:19:35.418Z"
+}

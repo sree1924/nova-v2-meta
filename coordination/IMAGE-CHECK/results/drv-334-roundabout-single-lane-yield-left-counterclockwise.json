@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-334-roundabout-single-lane-yield-left-counterclockwise",
+  "file": "drv-334-roundabout-single-lane-yield-left-counterclockwise.png",
+  "title": "Single-Lane Roundabout Routine: Slow Down, Yield to Walkers & Left Circulating Traffic, Signal Right to Exit",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "fb0bcceaaf72182a7cbd8a668ddcb188c4fbfb6dab12228234423e7c5cdc6186",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 13260,
+  "usage": {
+    "completion_tokens": 2947,
+    "prompt_tokens": 2285,
+    "total_tokens": 5232,
+    "completion_tokens_details": {
+      "reasoning_tokens": 2553
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.015381,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-334-roundabout-single-lane-yield-left-counterclockwise",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan at south entry faces north, red sedan in southeast circulates westward; not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Bird's-eye view, no car interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in the roundabout scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "South approach shows yellow centerline on left of lane and white edge line/curb on right; circulation is counter-clockwise.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Yield signs, pavements and plates are blank shapes; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Bird's-eye single-lane roundabout with shark-teeth yields, blue car yielding at entry to red circulating car, green counter-clockwise arrow, right blinker lit.",
+      "verdict": "MATCH"
+    },
+    "summary": "Bird's-eye roundabout correctly shows yield, counter-clockwise circulation, and right-exit signal with no text or traffic violations.",
+    "teaching_correct": {
+      "note": "Blue car waits behind yield line for circulating traffic, counter-clockwise flow and right signal to exit are geometrically correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Bird's-eye view of a landscaped single-lane roundabout with central island; a blue sedan waits at southern shark-teeth yield line while a red sedan circulates counter-clockwise, with a green arrow showing flow."
+  },
+  "error_body": null
+}

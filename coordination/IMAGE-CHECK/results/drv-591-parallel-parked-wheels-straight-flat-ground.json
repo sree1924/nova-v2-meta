@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-591-parallel-parked-wheels-straight-flat-ground",
+  "file": "drv-591-parallel-parked-wheels-straight-flat-ground.png",
+  "title": "Curbside Parking on Level Ground: Leave Front Wheels Straight Parallel Within 12 Inches of Right Curb",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "5eb5b84d6c543071162d655efd6ac78280ee9f43a5c09e15f405a17ef65a462d",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7470,
+  "usage": {
+    "completion_tokens": 1468,
+    "prompt_tokens": 2254,
+    "total_tokens": 3722,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1069
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009057,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-591-parallel-parked-wheels-straight-flat-ground",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Parked blue sedan in right foreground lane faces forward; oncoming SUV and cars in background are in separate left lane, no head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear three-quarter view of sedan shown; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal in upper left shows only single green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline on left side of road, white edge line and curb on right where sedan is parked parallel.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plate is blank white rectangle; no letters, numbers, or words on signs, plates, or buildings.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Dark-blue sedan parked parallel close to right curb on flat suburban street matches location, but front wheels pointed straight cannot be verified from rear view.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "All applicable visual rules pass, but front-wheel straightness not visible from rear view, so requires human review.",
+    "teaching_correct": {
+      "note": "Shows correct parallel position within 12 inches of right curb on level ground; no incorrect wheel angle, grade, or priority taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a dark-blue sedan parked parallel tight to the right curb on a sunny suburban street, with oncoming traffic and a cyclist in the distance and a green traffic light overhead."
+  },
+  "error_body": null
+}

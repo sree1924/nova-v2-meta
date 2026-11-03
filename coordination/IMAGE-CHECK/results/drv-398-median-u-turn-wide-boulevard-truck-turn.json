@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-398-median-u-turn-wide-boulevard-truck-turn",
+  "file": "drv-398-median-u-turn-wide-boulevard-truck-turn.png",
+  "title": "Wide Divided Boulevard Median U-Turn Loon: Yield to Oncoming High-Speed Traffic",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "34c467791423a7f67f87320df1faa98f7985a95b81312f056bfc704ae476e86b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8006,
+  "usage": {
+    "completion_tokens": 1541,
+    "prompt_tokens": 2457,
+    "total_tokens": 3998,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1159
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009621,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-398-median-u-turn-wide-boulevard-truck-turn",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in each carriageway face same direction; no head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Cabin glimpsed through windshield but no steering wheel on right side visible.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Left carriageway traveling toward foreground has double-yellow on far left outer edge (right side of its travel) and yellow dashed lane dividers for same-direction lanes; yellow should be on left near median, same-direction dividers should be white.",
+        "verdict": "FAIL"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; pavement arrows are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Silver sedan paused in landscaped median break pocket of divided boulevard, matching U-turn yield description.",
+      "verdict": "MATCH"
+    },
+    "summary": "Median U-turn scene is recognizable but left carriageway markings violate US right-hand traffic with yellow on wrong side.",
+    "teaching_correct": {
+      "note": "U-turn vehicle waiting in protected pocket and yielding posture is correct; no wrong priority or stop-line error.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Aerial view of a landscaped divided boulevard with palm median; silver sedan waits in the median break U-turn pocket, left lanes have three cars approaching foreground, right lanes have three cars driving to background."
+  },
+  "error_body": null
+}

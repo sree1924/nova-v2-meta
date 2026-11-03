@@ -1,0 +1,102 @@
+{
+  "kind": "listed_target_source_supported_fact_correction",
+  "run_id": "2026-10-28-rdmv-ia-class-c",
+  "section": "sec14-defensive-driving-communication",
+  "part": "C2",
+  "authority_ref": {
+    "path": "coordination/SOL-TARGETED-45-SEVEN-LANES-AUTHORITY-20261029.json",
+    "sha256": "3c9b842dea00bf4169fbf4ff23d39e44597e8bab1b496faec0f27a917683d08d"
+  },
+  "input_snapshot_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/input-snapshots/IA.json",
+    "sha256": "dbf40a82f9e287e3cc1cf687783ef92d600b5b097fc4fedda18a5206ef94c217"
+  },
+  "corrections_ref": {
+    "path": "coordination/FACT-CHECK/IA/corrections.json",
+    "sha256": "dbf40a82f9e287e3cc1cf687783ef92d600b5b097fc4fedda18a5206ef94c217"
+  },
+  "official_pdf_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/sources/private/download.pdf",
+    "sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80"
+  },
+  "source_text_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/sources/private/15-source-text.txt",
+    "sha256": "9598d6b10d955a65cd4a0f278bc91395f01e6aec9c76957cd8cc454cad71b070"
+  },
+  "direct_pdf_pages_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/batch45/IA/DIRECT-PDF-TARGET-PAGES.json",
+    "sha256": "02a157c3672df2d70d0c8e96d93499976d6d4b79899a0d01c0f1c0c2494e672f"
+  },
+  "target_facts": [
+    {
+      "section": "sec14-defensive-driving-communication",
+      "fact_id": "sec14-R06",
+      "kind": "MEANING",
+      "correct_pdf_page": 48,
+      "part": "C2",
+      "chunk_id": "C2.01",
+      "old_fact": {
+        "fact_id": "sec14-R06",
+        "text": "Slow rigs wear orange triangles, while early spotting beats sudden braking.",
+        "statement": "Slow rigs wear orange triangles, while early spotting beats sudden braking.",
+        "status": "authored",
+        "acceptance_kind": "deterministic_validation_only",
+        "independent_audit_status": "pending",
+        "section": "C2",
+        "chunk_id": "C2.01",
+        "domain": "Defensive Driving and Communication",
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0048",
+        "pdf_page": 48,
+        "printed_page": "48",
+        "page_map_id": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0048",
+        "source_document_sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80",
+        "source_ref": {
+          "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+          "pdf_page": 48,
+          "printed_page": "48",
+          "page_map_id": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0048"
+        },
+        "source_span": {
+          "chunk_id": "C2.01",
+          "start_line": 28,
+          "end_line": 31,
+          "markdown_sha256": "f17942e6aedc7c840ce35b5b083d7b805e30bd35d93c29a0959903ad58aae558",
+          "verbatim": "FACT_ID: sec14-R06 | anchor: A02\nSlow rigs wear orange triangles, while early spotting beats sudden braking [A02].\nWhy it matters: group_hint traffic; prereq_hint sec14-F10; difficulty_hint one; confusable_with sec14-F11 and sec14-F12.\nSource: [A02 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0048]"
+        },
+        "transformation": "Remove explicit fact-ID marker and declared inline source-anchor tokens; retain all wording and continuation lines."
+      },
+      "old_statement": "Slow rigs wear orange triangles, while early spotting beats sudden braking.",
+      "old_spoken": "Slow rigs wear orange triangles, while early spotting beats sudden braking.",
+      "statement": "Farm vehicles, horse-drawn vehicles, ATVs, UTVs and road-maintenance vehicles typically move slowly and may display an orange triangle or flashing rear lights. Notice them early so you can slow or change lanes safely; abrupt slowing can cause a collision.",
+      "source_max_overlap": 8,
+      "correction_input": {
+        "section": "sec14-defensive-driving-communication",
+        "fact_id": "sec14-R06",
+        "kind": "MEANING",
+        "still_wrong": true,
+        "corrected_statement": "Farm vehicles horse drawn vehicles ATVs UTVs and roadway maintenance vehicles normally travel slower and may have an orange triangle or flashing lights on the back so spot them early to change lanes or slow down safely because slowing suddenly can cause a crash.",
+        "correct_pdf_page": 48,
+        "note": "Added that the sign only may be present and can be flashing lights, not only an orange triangle."
+      }
+    }
+  ],
+  "full_descendant_plan": [
+    "fresh16 compile after all changed parts",
+    "03 exact target labels/repeated claims",
+    "04 target backs/repeated claims",
+    "05 actual target visual/narration/why-how",
+    "05 target script answer/equality/repeated claims",
+    "06 only actual wrong claims or required current-binding metadata; preserve questions/counts"
+  ],
+  "fixer_receipt_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/receipts/sol-factfix-IA-FIXER.json",
+    "sha256": "ace26c195c2c454fd2d14778bcfa6f53906df63a51c6cd727cb79b3d7c0072ad"
+  },
+  "preserve": "All non-target fact wording, citations, IDs, status/debt/flags, original attribution, source/edition/map and immutable accepted history. No source15 replay or gap repair.",
+  "recorded_by": {
+    "actor_id": "Sol/gpt-6.1-sol (ChatGPT Pro subscription, Iowa targeted FIXER)",
+    "session_id": "01a1849b-eb8e-70c1-9506-35b6a8cc50f7",
+    "provider_family": "openai"
+  },
+  "recorded_at": "2026-10-29T21:31:34.190Z"
+}

@@ -1,0 +1,3032 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-cloud-session",
+    "lane": "tool_assisted",
+    "pass": "03.combined_kg"
+  },
+  "probe": "rdmv-wv-class-e",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "27dc83460af10ff6d7a5f35ea4946ca4565824608b51b1b223abfa7c68847127",
+    "candidate_lineage_id": "2026-10-28-rdmv-wv-class-e:lineage:90"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-wv-class-e/16/sec15-safe-driving-practices/b83f9524/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-wv-class-e/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec15-F01",
+      "label": "Vehicle defects cause crashes",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F01"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F02",
+      "label": "Driver conditions",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F02"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F03",
+      "label": "Fatigue: rest or swap",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F03"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R01",
+          "why": "The long-trip rest rule is a ten-minute break at least every two hours, and the break counts only when spent outside the vehicle.",
+          "fact_ids": [
+            "sec15-F03",
+            "sec15-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F04",
+      "label": "Break every two hours",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F04"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R01",
+          "why": "The long-trip rest rule is a ten-minute break at least every two hours, and the break counts only when spent outside the vehicle.",
+          "fact_ids": [
+            "sec15-F04",
+            "sec15-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F05",
+      "label": "Control emotions first",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F05"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F06",
+      "label": "Rush hour times",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F06"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R02",
+          "why": "Metropolitan rush hour runs inbound from seven to nine in the morning but outbound from four to six in the afternoon.",
+          "fact_ids": [
+            "sec15-F06",
+            "sec15-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F07",
+      "label": "Weekends and holidays",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F07"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R02",
+          "why": "Metropolitan rush hour runs inbound from seven to nine in the morning but outbound from four to six in the afternoon.",
+          "fact_ids": [
+            "sec15-F07",
+            "sec15-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F08",
+      "label": "Rural versus urban hazards",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F08"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F09",
+      "label": "Vehicle ahead may stop",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F09"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F10",
+      "label": "Signal for the tailgater",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F10"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F11",
+      "label": "Why oncoming drivers cross",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F11"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F12",
+      "label": "Vehicles at an angle",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F12"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F13",
+      "label": "Being passed is no challenge",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F13"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R09",
+          "why": "When another vehicle passes you, slow down and keep right rather than treating it as a challenge, and when you pass, exceeding the speed limit is illegal.",
+          "fact_ids": [
+            "sec15-F13",
+            "sec15-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F14",
+      "label": "Passing costs and limits",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F14"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R09",
+          "why": "When another vehicle passes you, slow down and keep right rather than treating it as a challenge, and when you pass, exceeding the speed limit is illegal.",
+          "fact_ids": [
+            "sec15-F14",
+            "sec15-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F15",
+      "label": "Ten steps to passing",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F15"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R10",
+          "why": "In the ten passing steps the warning to the other driver comes by horn or flashing lights, and the merge back right waits until the passed vehicle's headlights show in your rear view mirror.",
+          "fact_ids": [
+            "sec15-F15",
+            "sec15-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F16",
+      "label": "Everyone buckles up",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F16"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R03",
+          "why": "The only legal safety belt exception is a person eighteen or older in the back seat, while a child under eight needs a child safety device unless the child is at least four feet nine inches tall.",
+          "fact_ids": [
+            "sec15-F16",
+            "sec15-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F17",
+      "label": "Belts cut injury risk",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F17"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R04",
+          "why": "Wearing safety belts cuts the risk of collision injury or death by forty-five to fifty percent, and the lap belt should fit snugly and comfortably across the lower hips.",
+          "fact_ids": [
+            "sec15-F17",
+            "sec15-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F18",
+      "label": "Belts keep you in place",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F18"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R04",
+          "why": "Wearing safety belts cuts the risk of collision injury or death by forty-five to fifty percent, and the lap belt should fit snugly and comfortably across the lower hips.",
+          "fact_ids": [
+            "sec15-F18",
+            "sec15-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F19",
+      "label": "Child safety seats",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 3,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F19"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R03",
+          "why": "The only legal safety belt exception is a person eighteen or older in the back seat, while a child under eight needs a child safety device unless the child is at least four feet nine inches tall.",
+          "fact_ids": [
+            "sec15-F19",
+            "sec15-R03"
+          ]
+        },
+        {
+          "other_id": "sec15-R07",
+          "why": "A rear-facing infant seat never goes in front of a passenger air bag, and children twelve and under belong buckled in the rear seat.",
+          "fact_ids": [
+            "sec15-F19",
+            "sec15-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F20",
+      "label": "Head restraint fit",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2.5,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F20"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R11",
+          "why": "An adjustable head restraint fits against the back of the head, not the neck, because its job is to limit whiplash in a rear-end collision.",
+          "fact_ids": [
+            "sec15-F20",
+            "sec15-R11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F21",
+      "label": "Anti-lock: press and steer",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2.5,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F21"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R05",
+          "why": "With anti-lock brakes you press hard and keep steering, because pumping, the old advice for ordinary brakes, can cost all braking force in an anti-lock vehicle.",
+          "fact_ids": [
+            "sec15-F21",
+            "sec15-R05"
+          ]
+        },
+        {
+          "other_id": "sec15-R06",
+          "why": "Anti-lock brakes shorten a sudden stop by only about ten percent at best, so their real benefit is steering control rather than stopping distance.",
+          "fact_ids": [
+            "sec15-F21",
+            "sec15-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F22",
+      "label": "Anti-lock is not super brakes",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2.5,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F22"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R05",
+          "why": "With anti-lock brakes you press hard and keep steering, because pumping, the old advice for ordinary brakes, can cost all braking force in an anti-lock vehicle.",
+          "fact_ids": [
+            "sec15-F22",
+            "sec15-R05"
+          ]
+        },
+        {
+          "other_id": "sec15-R06",
+          "why": "Anti-lock brakes shorten a sudden stop by only about ten percent at best, so their real benefit is steering control rather than stopping distance.",
+          "fact_ids": [
+            "sec15-F22",
+            "sec15-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F23",
+      "label": "Dual air bag history",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2.5,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F23"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R08",
+          "why": "Around an air bag the hands sit at four and eight o'clock on the wheel, and most people killed by air bags were not wearing seat belts.",
+          "fact_ids": [
+            "sec15-F23",
+            "sec15-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F24",
+      "label": "Belts with air bags",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2.5,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F24"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R08",
+          "why": "Around an air bag the hands sit at four and eight o'clock on the wheel, and most people killed by air bags were not wearing seat belts.",
+          "fact_ids": [
+            "sec15-F24",
+            "sec15-R08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F25",
+      "label": "No infants before air bags",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2.5,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F25"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-R07",
+          "why": "A rear-facing infant seat never goes in front of a passenger air bag, and children twelve and under belong buckled in the rear seat.",
+          "fact_ids": [
+            "sec15-F25",
+            "sec15-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-F26",
+      "label": "Locks, hitchhikers, devices",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F26"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.79",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0079"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F27",
+      "label": "Valuables and getting lost",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F27"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.79",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0079"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-F28",
+      "label": "Parking safely, being followed",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-F28"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.79",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0079"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": "no page-supported confusable pairs this fact with another accepted fact of this section"
+    },
+    {
+      "id": "sec15-R01",
+      "label": "Ten minutes outside the vehicle",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m03",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R01"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F03",
+          "why": "The long-trip rest rule is a ten-minute break at least every two hours, and the break counts only when spent outside the vehicle.",
+          "fact_ids": [
+            "sec15-R01",
+            "sec15-F03"
+          ]
+        },
+        {
+          "other_id": "sec15-F04",
+          "why": "The long-trip rest rule is a ten-minute break at least every two hours, and the break counts only when spent outside the vehicle.",
+          "fact_ids": [
+            "sec15-R01",
+            "sec15-F04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R02",
+      "label": "Inbound morning, outbound afternoon",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m05",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R02"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.75",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0075"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F06",
+          "why": "Metropolitan rush hour runs inbound from seven to nine in the morning but outbound from four to six in the afternoon.",
+          "fact_ids": [
+            "sec15-R02",
+            "sec15-F06"
+          ]
+        },
+        {
+          "other_id": "sec15-F07",
+          "why": "Metropolitan rush hour runs inbound from seven to nine in the morning but outbound from four to six in the afternoon.",
+          "fact_ids": [
+            "sec15-R02",
+            "sec15-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R03",
+      "label": "Belt and child seat exceptions",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R03"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F16",
+          "why": "The only legal safety belt exception is a person eighteen or older in the back seat, while a child under eight needs a child safety device unless the child is at least four feet nine inches tall.",
+          "fact_ids": [
+            "sec15-R03",
+            "sec15-F16"
+          ]
+        },
+        {
+          "other_id": "sec15-F19",
+          "why": "The only legal safety belt exception is a person eighteen or older in the back seat, while a child under eight needs a child safety device unless the child is at least four feet nine inches tall.",
+          "fact_ids": [
+            "sec15-R03",
+            "sec15-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R04",
+      "label": "Belt benefit and lap fit",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R04"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F17",
+          "why": "Wearing safety belts cuts the risk of collision injury or death by forty-five to fifty percent, and the lap belt should fit snugly and comfortably across the lower hips.",
+          "fact_ids": [
+            "sec15-R04",
+            "sec15-F17"
+          ]
+        },
+        {
+          "other_id": "sec15-F18",
+          "why": "Wearing safety belts cuts the risk of collision injury or death by forty-five to fifty percent, and the lap belt should fit snugly and comfortably across the lower hips.",
+          "fact_ids": [
+            "sec15-R04",
+            "sec15-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R05",
+      "label": "Do not pump anti-lock brakes",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R05"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F21",
+          "why": "With anti-lock brakes you press hard and keep steering, because pumping, the old advice for ordinary brakes, can cost all braking force in an anti-lock vehicle.",
+          "fact_ids": [
+            "sec15-R05",
+            "sec15-F21"
+          ]
+        },
+        {
+          "other_id": "sec15-F22",
+          "why": "With anti-lock brakes you press hard and keep steering, because pumping, the old advice for ordinary brakes, can cost all braking force in an anti-lock vehicle.",
+          "fact_ids": [
+            "sec15-R05",
+            "sec15-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R06",
+      "label": "Steering, not shorter stops",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R06"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F21",
+          "why": "Anti-lock brakes shorten a sudden stop by only about ten percent at best, so their real benefit is steering control rather than stopping distance.",
+          "fact_ids": [
+            "sec15-R06",
+            "sec15-F21"
+          ]
+        },
+        {
+          "other_id": "sec15-F22",
+          "why": "Anti-lock brakes shorten a sudden stop by only about ten percent at best, so their real benefit is steering control rather than stopping distance.",
+          "fact_ids": [
+            "sec15-R06",
+            "sec15-F22"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R07",
+      "label": "Infant seat and young children",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m01",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R07"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F19",
+          "why": "A rear-facing infant seat never goes in front of a passenger air bag, and children twelve and under belong buckled in the rear seat.",
+          "fact_ids": [
+            "sec15-R07",
+            "sec15-F19"
+          ]
+        },
+        {
+          "other_id": "sec15-F25",
+          "why": "A rear-facing infant seat never goes in front of a passenger air bag, and children twelve and under belong buckled in the rear seat.",
+          "fact_ids": [
+            "sec15-R07",
+            "sec15-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R08",
+      "label": "Hands low near air bags",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R08"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F23",
+          "why": "Around an air bag the hands sit at four and eight o'clock on the wheel, and most people killed by air bags were not wearing seat belts.",
+          "fact_ids": [
+            "sec15-R08",
+            "sec15-F23"
+          ]
+        },
+        {
+          "other_id": "sec15-F24",
+          "why": "Around an air bag the hands sit at four and eight o'clock on the wheel, and most people killed by air bags were not wearing seat belts.",
+          "fact_ids": [
+            "sec15-R08",
+            "sec15-F24"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R09",
+      "label": "Being passed versus passing",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R09"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.76",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0076"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F13",
+          "why": "When another vehicle passes you, slow down and keep right rather than treating it as a challenge, and when you pass, exceeding the speed limit is illegal.",
+          "fact_ids": [
+            "sec15-R09",
+            "sec15-F13"
+          ]
+        },
+        {
+          "other_id": "sec15-F14",
+          "why": "When another vehicle passes you, slow down and keep right rather than treating it as a challenge, and when you pass, exceeding the speed limit is illegal.",
+          "fact_ids": [
+            "sec15-R09",
+            "sec15-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R10",
+      "label": "Warn, then wait for headlights",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m04",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R10"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.77",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0077"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F15",
+          "why": "In the ten passing steps the warning to the other driver comes by horn or flashing lights, and the merge back right waits until the passed vehicle's headlights show in your rear view mirror.",
+          "fact_ids": [
+            "sec15-R10",
+            "sec15-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec15-R11",
+      "label": "Head, not neck",
+      "domain": "Safe driving practices",
+      "module_id": "sec15-m02",
+      "node_type": "rule",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy) from the dossier high-yield rank, not an exam weight"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec15-R11"
+      ],
+      "source_ref": {
+        "ref": "West Virginia Driver's Licensing Handbook pdf p.78",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-wv-class-e:west-virginia-division-of-motor-vehicles:handbook:pdf-0078"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec15-F20",
+          "why": "An adjustable head restraint fits against the back of the head, not the neck, because its job is to limit whiplash in a rear-end collision.",
+          "fact_ids": [
+            "sec15-R11",
+            "sec15-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec15-F04",
+      "to": "sec15-R01",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R01",
+      "to": "sec15-F03",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R01",
+      "to": "sec15-F04",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F06",
+      "to": "sec15-R02",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R02",
+      "to": "sec15-F06",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R02",
+      "to": "sec15-F07",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F16",
+      "to": "sec15-R03",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R03",
+      "to": "sec15-F16",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R03",
+      "to": "sec15-F19",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F17",
+      "to": "sec15-R04",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R04",
+      "to": "sec15-F17",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R04",
+      "to": "sec15-F18",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F21",
+      "to": "sec15-R05",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R05",
+      "to": "sec15-F21",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R05",
+      "to": "sec15-F22",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F22",
+      "to": "sec15-R06",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R06",
+      "to": "sec15-F21",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R06",
+      "to": "sec15-F22",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F25",
+      "to": "sec15-R07",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R07",
+      "to": "sec15-F19",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R07",
+      "to": "sec15-F25",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F24",
+      "to": "sec15-R08",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R08",
+      "to": "sec15-F23",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R08",
+      "to": "sec15-F24",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F13",
+      "to": "sec15-R09",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R09",
+      "to": "sec15-F13",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R09",
+      "to": "sec15-F14",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F15",
+      "to": "sec15-R10",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R10",
+      "to": "sec15-F15",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F20",
+      "to": "sec15-R11",
+      "type": "prerequisite",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-R11",
+      "to": "sec15-F20",
+      "type": "easily_confused",
+      "origin": "sme_hint",
+      "confidence": "high"
+    },
+    {
+      "from": "sec15-F16",
+      "to": "sec15-F17",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F17",
+      "to": "sec15-F18",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F18",
+      "to": "sec15-F19",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F20",
+      "to": "sec15-F21",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F21",
+      "to": "sec15-F22",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F22",
+      "to": "sec15-F23",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F23",
+      "to": "sec15-F24",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F24",
+      "to": "sec15-F25",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F01",
+      "to": "sec15-F02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F02",
+      "to": "sec15-F03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F03",
+      "to": "sec15-F04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F04",
+      "to": "sec15-F05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F09",
+      "to": "sec15-F10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F10",
+      "to": "sec15-F11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F11",
+      "to": "sec15-F12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F12",
+      "to": "sec15-F13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F13",
+      "to": "sec15-F14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F14",
+      "to": "sec15-F15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F06",
+      "to": "sec15-F07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F07",
+      "to": "sec15-F08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F08",
+      "to": "sec15-F26",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F26",
+      "to": "sec15-F27",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    },
+    {
+      "from": "sec15-F27",
+      "to": "sec15-F28",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "medium"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec15-m01",
+      "title": "Safety belts and child seats",
+      "domain": "Safe driving practices",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 21.2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): share of node emphasis in this module, not an exam weight"
+      },
+      "node_ids": [
+        "sec15-F16",
+        "sec15-F17",
+        "sec15-F18",
+        "sec15-F19",
+        "sec15-R03",
+        "sec15-R04",
+        "sec15-R07"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec15-m02",
+      "title": "Air bags, anti-lock brakes and head restraints",
+      "domain": "Safe driving practices",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 27.1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): share of node emphasis in this module, not an exam weight"
+      },
+      "node_ids": [
+        "sec15-F20",
+        "sec15-F21",
+        "sec15-F22",
+        "sec15-F23",
+        "sec15-F24",
+        "sec15-F25",
+        "sec15-R05",
+        "sec15-R06",
+        "sec15-R08",
+        "sec15-R11"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec15-m03",
+      "title": "Driver conditions and fatigue",
+      "domain": "Safe driving practices",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 14.1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): share of node emphasis in this module, not an exam weight"
+      },
+      "node_ids": [
+        "sec15-F01",
+        "sec15-F02",
+        "sec15-F03",
+        "sec15-F04",
+        "sec15-F05",
+        "sec15-R01"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec15-m04",
+      "title": "Traffic situations and passing",
+      "domain": "Safe driving practices",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 21.2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): share of node emphasis in this module, not an exam weight"
+      },
+      "node_ids": [
+        "sec15-F09",
+        "sec15-F10",
+        "sec15-F11",
+        "sec15-F12",
+        "sec15-F13",
+        "sec15-F14",
+        "sec15-F15",
+        "sec15-R09",
+        "sec15-R10"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec15-m05",
+      "title": "Traffic conditions and personal safety",
+      "domain": "Safe driving practices",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 16.5,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): share of node emphasis in this module, not an exam weight"
+      },
+      "node_ids": [
+        "sec15-F06",
+        "sec15-F07",
+        "sec15-F08",
+        "sec15-F26",
+        "sec15-F27",
+        "sec15-F28",
+        "sec15-R02"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec15-m01",
+      "unit_id": "sec15-u01",
+      "node_ids": [
+        "sec15-F16",
+        "sec15-F17",
+        "sec15-F18",
+        "sec15-F19",
+        "sec15-R03",
+        "sec15-R04",
+        "sec15-R07"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the safety belts and child seats facts in prerequisite order, pairing each confusable rule with its contrast",
+      "flashcard_strategy": "one visible-answer card per fact on safety belts and child seats, with a recap hook for the module",
+      "quiz_strategy": "hub-chosen module quiz on safety belts and child seats with distractors drawn from the confusable pairs",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec15-m02",
+      "unit_id": "sec15-u02",
+      "node_ids": [
+        "sec15-F20",
+        "sec15-F21",
+        "sec15-F22",
+        "sec15-F23",
+        "sec15-F24",
+        "sec15-F25",
+        "sec15-R05",
+        "sec15-R06",
+        "sec15-R08",
+        "sec15-R11"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the air bags, anti-lock brakes and head restraints facts in prerequisite order, pairing each confusable rule with its contrast",
+      "flashcard_strategy": "one visible-answer card per fact on air bags, anti-lock brakes and head restraints, with a recap hook for the module",
+      "quiz_strategy": "hub-chosen module quiz on air bags, anti-lock brakes and head restraints with distractors drawn from the confusable pairs",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec15-m03",
+      "unit_id": "sec15-u03",
+      "node_ids": [
+        "sec15-F01",
+        "sec15-F02",
+        "sec15-F03",
+        "sec15-F04",
+        "sec15-F05",
+        "sec15-R01"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the driver conditions and fatigue facts in prerequisite order, pairing each confusable rule with its contrast",
+      "flashcard_strategy": "one visible-answer card per fact on driver conditions and fatigue, with a recap hook for the module",
+      "quiz_strategy": "hub-chosen module quiz on driver conditions and fatigue with distractors drawn from the confusable pairs",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec15-m04",
+      "unit_id": "sec15-u04",
+      "node_ids": [
+        "sec15-F09",
+        "sec15-F10",
+        "sec15-F11",
+        "sec15-F12",
+        "sec15-F13",
+        "sec15-F14",
+        "sec15-F15",
+        "sec15-R09",
+        "sec15-R10"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the traffic situations and passing facts in prerequisite order, pairing each confusable rule with its contrast",
+      "flashcard_strategy": "one visible-answer card per fact on traffic situations and passing, with a recap hook for the module",
+      "quiz_strategy": "hub-chosen module quiz on traffic situations and passing with distractors drawn from the confusable pairs",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec15-m05",
+      "unit_id": "sec15-u05",
+      "node_ids": [
+        "sec15-F06",
+        "sec15-F07",
+        "sec15-F08",
+        "sec15-F26",
+        "sec15-F27",
+        "sec15-F28",
+        "sec15-R02"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "teach the traffic conditions and personal safety facts in prerequisite order, pairing each confusable rule with its contrast",
+      "flashcard_strategy": "one visible-answer card per fact on traffic conditions and personal safety, with a recap hook for the module",
+      "quiz_strategy": "hub-chosen module quiz on traffic conditions and personal safety with distractors drawn from the confusable pairs",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec15-F16",
+    "sec15-F17",
+    "sec15-F18",
+    "sec15-F19",
+    "sec15-R03",
+    "sec15-R04",
+    "sec15-F20",
+    "sec15-F21",
+    "sec15-F22",
+    "sec15-F23",
+    "sec15-F24",
+    "sec15-F25",
+    "sec15-R07",
+    "sec15-R05",
+    "sec15-R06",
+    "sec15-R08",
+    "sec15-R11",
+    "sec15-F01",
+    "sec15-F02",
+    "sec15-F03",
+    "sec15-F04",
+    "sec15-F05",
+    "sec15-R01",
+    "sec15-F09",
+    "sec15-F10",
+    "sec15-F11",
+    "sec15-F12",
+    "sec15-F13",
+    "sec15-F14",
+    "sec15-F15",
+    "sec15-R09",
+    "sec15-R10",
+    "sec15-F06",
+    "sec15-F07",
+    "sec15-F08",
+    "sec15-F26",
+    "sec15-F27",
+    "sec15-F28",
+    "sec15-R02"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "topological prerequisite order; module order, handbook order and confusable rules after their base facts break ties; dynamic nodes never on the path"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 39,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "rule",
+          "definition": "one accepted page-sourced handbook fact"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "learn the from-fact before the to-fact"
+        },
+        {
+          "type": "easily_confused",
+          "directed": false,
+          "acyclic": false,
+          "definition": "pair of facts learners commonly swap, stated as a confusable rule in the dossier"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec15-F01",
+          "module_id": "sec15-m03",
+          "ambiguous": false,
+          "resolution": "Driver conditions and fatigue"
+        },
+        {
+          "concept_id": "sec15-F02",
+          "module_id": "sec15-m03",
+          "ambiguous": false,
+          "resolution": "Driver conditions and fatigue"
+        },
+        {
+          "concept_id": "sec15-F03",
+          "module_id": "sec15-m03",
+          "ambiguous": false,
+          "resolution": "Driver conditions and fatigue"
+        },
+        {
+          "concept_id": "sec15-F04",
+          "module_id": "sec15-m03",
+          "ambiguous": false,
+          "resolution": "Driver conditions and fatigue"
+        },
+        {
+          "concept_id": "sec15-F05",
+          "module_id": "sec15-m03",
+          "ambiguous": false,
+          "resolution": "Driver conditions and fatigue"
+        },
+        {
+          "concept_id": "sec15-F06",
+          "module_id": "sec15-m05",
+          "ambiguous": false,
+          "resolution": "Traffic conditions and personal safety"
+        },
+        {
+          "concept_id": "sec15-F07",
+          "module_id": "sec15-m05",
+          "ambiguous": false,
+          "resolution": "Traffic conditions and personal safety"
+        },
+        {
+          "concept_id": "sec15-F08",
+          "module_id": "sec15-m05",
+          "ambiguous": false,
+          "resolution": "Traffic conditions and personal safety"
+        },
+        {
+          "concept_id": "sec15-F09",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-F10",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-F11",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-F12",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-F13",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-F14",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-F15",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-F16",
+          "module_id": "sec15-m01",
+          "ambiguous": false,
+          "resolution": "Safety belts and child seats"
+        },
+        {
+          "concept_id": "sec15-F17",
+          "module_id": "sec15-m01",
+          "ambiguous": false,
+          "resolution": "Safety belts and child seats"
+        },
+        {
+          "concept_id": "sec15-F18",
+          "module_id": "sec15-m01",
+          "ambiguous": false,
+          "resolution": "Safety belts and child seats"
+        },
+        {
+          "concept_id": "sec15-F19",
+          "module_id": "sec15-m01",
+          "ambiguous": false,
+          "resolution": "Safety belts and child seats"
+        },
+        {
+          "concept_id": "sec15-F20",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-F21",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-F22",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-F23",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-F24",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-F25",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-F26",
+          "module_id": "sec15-m05",
+          "ambiguous": false,
+          "resolution": "Traffic conditions and personal safety"
+        },
+        {
+          "concept_id": "sec15-F27",
+          "module_id": "sec15-m05",
+          "ambiguous": false,
+          "resolution": "Traffic conditions and personal safety"
+        },
+        {
+          "concept_id": "sec15-F28",
+          "module_id": "sec15-m05",
+          "ambiguous": false,
+          "resolution": "Traffic conditions and personal safety"
+        },
+        {
+          "concept_id": "sec15-R01",
+          "module_id": "sec15-m03",
+          "ambiguous": false,
+          "resolution": "Driver conditions and fatigue"
+        },
+        {
+          "concept_id": "sec15-R02",
+          "module_id": "sec15-m05",
+          "ambiguous": false,
+          "resolution": "Traffic conditions and personal safety"
+        },
+        {
+          "concept_id": "sec15-R03",
+          "module_id": "sec15-m01",
+          "ambiguous": false,
+          "resolution": "Safety belts and child seats"
+        },
+        {
+          "concept_id": "sec15-R04",
+          "module_id": "sec15-m01",
+          "ambiguous": false,
+          "resolution": "Safety belts and child seats"
+        },
+        {
+          "concept_id": "sec15-R05",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-R06",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-R07",
+          "module_id": "sec15-m01",
+          "ambiguous": false,
+          "resolution": "Safety belts and child seats"
+        },
+        {
+          "concept_id": "sec15-R08",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        },
+        {
+          "concept_id": "sec15-R09",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-R10",
+          "module_id": "sec15-m04",
+          "ambiguous": false,
+          "resolution": "Traffic situations and passing"
+        },
+        {
+          "concept_id": "sec15-R11",
+          "module_id": "sec15-m02",
+          "ambiguous": false,
+          "resolution": "Air bags, anti-lock brakes and head restraints"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec15-F04",
+          "to": "sec15-R01",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R01",
+          "to": "sec15-F03",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R01",
+          "to": "sec15-F04",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F06",
+          "to": "sec15-R02",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R02",
+          "to": "sec15-F06",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R02",
+          "to": "sec15-F07",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F16",
+          "to": "sec15-R03",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R03",
+          "to": "sec15-F16",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R03",
+          "to": "sec15-F19",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F17",
+          "to": "sec15-R04",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R04",
+          "to": "sec15-F17",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R04",
+          "to": "sec15-F18",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F21",
+          "to": "sec15-R05",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R05",
+          "to": "sec15-F21",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R05",
+          "to": "sec15-F22",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F22",
+          "to": "sec15-R06",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R06",
+          "to": "sec15-F21",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R06",
+          "to": "sec15-F22",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F25",
+          "to": "sec15-R07",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R07",
+          "to": "sec15-F19",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R07",
+          "to": "sec15-F25",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F24",
+          "to": "sec15-R08",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R08",
+          "to": "sec15-F23",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R08",
+          "to": "sec15-F24",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F13",
+          "to": "sec15-R09",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R09",
+          "to": "sec15-F13",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R09",
+          "to": "sec15-F14",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F15",
+          "to": "sec15-R10",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R10",
+          "to": "sec15-F15",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F20",
+          "to": "sec15-R11",
+          "type": "prerequisite",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-R11",
+          "to": "sec15-F20",
+          "type": "easily_confused",
+          "origin": "sme_hint",
+          "confidence": "high"
+        },
+        {
+          "from": "sec15-F16",
+          "to": "sec15-F17",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F17",
+          "to": "sec15-F18",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F18",
+          "to": "sec15-F19",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F20",
+          "to": "sec15-F21",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F21",
+          "to": "sec15-F22",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F22",
+          "to": "sec15-F23",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F23",
+          "to": "sec15-F24",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F24",
+          "to": "sec15-F25",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F01",
+          "to": "sec15-F02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F02",
+          "to": "sec15-F03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F03",
+          "to": "sec15-F04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F04",
+          "to": "sec15-F05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F09",
+          "to": "sec15-F10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F10",
+          "to": "sec15-F11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F11",
+          "to": "sec15-F12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F12",
+          "to": "sec15-F13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F13",
+          "to": "sec15-F14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F14",
+          "to": "sec15-F15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F06",
+          "to": "sec15-F07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F07",
+          "to": "sec15-F08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F08",
+          "to": "sec15-F26",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F26",
+          "to": "sec15-F27",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        },
+        {
+          "from": "sec15-F27",
+          "to": "sec15-F28",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "medium"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Safe driving practices",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 100,
+          "drift_pp": null,
+          "comparison_basis": "authored_basis",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "topological then module order, base facts before their confusable rules",
+        "module_order": [
+          "sec15-m01",
+          "sec15-m02",
+          "sec15-m03",
+          "sec15-m04",
+          "sec15-m05"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

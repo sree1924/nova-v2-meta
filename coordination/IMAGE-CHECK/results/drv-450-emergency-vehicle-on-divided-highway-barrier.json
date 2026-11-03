@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-450-emergency-vehicle-on-divided-highway-barrier",
+  "file": "drv-450-emergency-vehicle-on-divided-highway-barrier.png",
+  "title": "Emergency Vehicle on Divided Highway Separated by Physical Barrier vs. Undivided Road",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2e2c89c5d6e3fdc68610608b3d7ed37d0dbd98a86b5ef8558ca1bc0ad7b089de",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6008,
+  "usage": {
+    "completion_tokens": 1174,
+    "prompt_tokens": 2269,
+    "total_tokens": 3443,
+    "completion_tokens_details": {
+      "reasoning_tokens": 772
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007826,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-450-emergency-vehicle-on-divided-highway-barrier",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles on each divided carriageway face same direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interiors or steering wheels are visible in this aerial exterior view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal on right foreground shows only one yellow lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Divided right-hand traffic: right carriageway moves away with yellow line left at barrier and white line right at shoulder; left carriageway moves toward camera.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; overhead signs, license plates and ambulance rear are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows 6-lane freeway split by concrete Jersey barrier with ambulance and right-pulled cars on right side and through traffic on left side as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Divided-highway ambulance yield scene is correctly depicted with no text, correct US lane colors, and proper signal, matching prompt.",
+    "teaching_correct": {
+      "note": "Correctly teaches same-direction traffic pulls right for ambulance while opposite traffic separated by physical barrier proceeds.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Aerial view of a divided multi-lane freeway with a central concrete barrier; an ambulance with red lights travels away on the right carriageway while cars there pull to the right shoulder, and oncoming cars on the left carriageway continue toward the foreground."
+  },
+  "error_body": null
+}

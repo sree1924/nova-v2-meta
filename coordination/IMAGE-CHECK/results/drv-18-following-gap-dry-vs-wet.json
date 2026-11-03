@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-18-following-gap-dry-vs-wet",
+  "file": "drv-18-following-gap-dry-vs-wet.png",
+  "title": "3-Second Dry Following Cushion vs. Double Snow/Rain Cushion (6–8s+)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "5a10b8deed1ef013f9c31ade23fed76e113e1e29c1c991842ac77ea54cb2b08a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4737,
+  "usage": {
+    "completion_tokens": 1090,
+    "prompt_tokens": 2133,
+    "total_tokens": 3223,
+    "completion_tokens_details": {
+      "reasoning_tokens": 729
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007299,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-18-following-gap-dry-vs-wet",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All four cars face upward in same direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down roofs only; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show forward-up travel with yellow line on left edge and white line on right edge.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Readable text present: 'SAME DIRECTION', 'DRY ROAD: 3-4 SEC GAP', 'SNOW / RAIN: DOUBLE GAP (6-8s+)'.",
+        "verdict": "FAIL"
+      }
+    },
+    "scene_match": {
+      "note": "Left dry short cushion vs right wet/rain long double cushion matches title and prompt, all forward-moving.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct following-gap comparison but fails zero-text rule due to multiple text labels.",
+    "teaching_correct": {
+      "note": "Dry gap shown shorter than wet/snow gap which is doubled, teaching increased following distance correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down split diagram of two-lane highway: left dry panel with three same-direction cars and short green gap box, right rainy panel with two same-direction cars and longer blue gap box."
+  },
+  "error_body": null
+}

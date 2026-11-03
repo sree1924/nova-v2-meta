@@ -157,3 +157,13 @@ Seeded 2026-10-28T00:58:10.604Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-29T16:40:18.553Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:72 for 19A.units (sec11-sharing-the-road) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
 
 - 2026-10-29T16:40:18.991Z lineage reset → 2026-10-28-rdmv-ny-class-d:lineage:73 for 19A.units (sec13-adas) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T19:31:17.968Z JAM FACTFIX sec10-R02 only, sec10-special-driving-conditions: correct stalled-vehicle order on physical PDF page61. Sol subscription authoring; API validation only.
+
+
+JAM 2026-10-29T19:40:03.616Z — Sol FACTFIX sec10-R02 STOP/HOLD: approval filename GO-FACTFIX-02.dossier_sections-* violates required GO-02.dossier_sections-* prefix; dispatch blocked before task/model call. Draft and pending outbox preserved. A subsequent compile was mistakenly run and only reused the old accepted dossier; 03 emit then held on pending outbox. No correction accepted; no validation API call; root owns resume. Own claim released.
+
+JAM 2026-10-29T19:42:25.490Z — scoped root continuation for sec10-R02: archive failed caller state; fix private GO basename; submit only unaccepted C2 under current config/replacement proof. No native replay or cap/lineage/nonce reset.
+
+
+JAM 2026-10-29T19:50:29.638Z — Sol FACTFIX sec10-R02 native correction and current descendants accepted; post-fix Muse check SUPPORTED (HTTP200/stop, one call, $0.031057, independent:false). Other fresh findings sec10-R01, sec10-R03, sec10-R06 recorded only. applied flag left unchanged for coordinator export verification. Own claim released; no further work.

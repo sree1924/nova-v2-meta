@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-601-alaska-northern-headlight-corridor-daytime",
+  "file": "drv-601-alaska-northern-headlight-corridor-daytime.png",
+  "title": "Daytime Headlight Safety Corridors: Two-Lane Highways Requiring Low Beams On At All Times",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "9ba74df94381c41553add8ae4adfea6b48837f8e2c74a009dfbac4399771ca81",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7461,
+  "usage": {
+    "completion_tokens": 1443,
+    "prompt_tokens": 2468,
+    "total_tokens": 3911,
+    "completion_tokens_details": {
+      "reasoning_tokens": 992
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009218,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-601-alaska-northern-headlight-corridor-daytime",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Right side of double-yellow: foreground dark sedan seen from rear driving away, while two red sedans mid-background in same lane face toward camera with headlights on, head-on in one lane.",
+        "verdict": "FAIL"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; only exteriors shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline with left lane for oncoming and right lane for forward travel, white edge on right; lane markings match US right-hand layout.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Left roadside rectangular sign and diamond sign are blank shapes; no letters, numbers, plates or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Mountain-forest two-lane with headlights on is shown, but lighting is golden dusk with dark wet reflections, not crisp sunny broad daylight, and right-lane traffic direction is wrong.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Dusk-lit two-lane scene with headlights on but wrong-way vehicles head-on in the right lane, failing daytime and lane-direction teaching.",
+    "teaching_correct": {
+      "note": "Teaches opposite of lane discipline: two red cars drive toward viewer in the same right lane occupied by a car driving away; also depicts dusk/dark conditions instead of daytime low-beam use.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "A two-lane mountain-forest highway at sunset/dusk with double-yellow center, oncoming SUV and cars on the left with headlights on, and a dark sedan from behind on the right foreground with two red cars facing the viewer in the same right lane."
+  },
+  "error_body": null
+}

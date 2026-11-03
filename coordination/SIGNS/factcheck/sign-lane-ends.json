@@ -1,0 +1,87 @@
+{
+  "schema_version": "nova-sign-fact-check.v1",
+  "id": "sign-lane-ends",
+  "name": "Lane Ends",
+  "spec": "yellow diamond with two black lines where the right one tapers into the left",
+  "meaning": "The right lane ends ahead; merge left early.",
+  "model": "muse-spark-1.3",
+  "http_status": 200,
+  "elapsed_ms": 7827,
+  "snippets": [
+    {
+      "state": "CA",
+      "card_id": "sec06-card-sec06-F05",
+      "back": "Broken white splits same-direction lanes; oversized broken lines warn of lane ends, heed exit and merge signs; yield triangles mark stop-or-yield points.",
+      "page": "14"
+    },
+    {
+      "state": "CO",
+      "card_id": "sec12-card-sec12-F03",
+      "back": "At a zipper merge where two lanes become one, use both lanes equally until just before the closure, then take turns into the open lane; drivers who wait until the lane ends are doing it right.",
+      "page": 22
+    },
+    {
+      "state": "FL",
+      "card_id": "sec06-card-sec06-F15",
+      "back": "Warning signs alert drivers to two-way traffic ahead, merging traffic, right-lane reductions, upcoming roundabouts, divided highways ahead, and divided highway ends—where the divided roadway ends three hundred fifty to five hundred feet ahead before two-way traffic resumes.",
+      "page": 57
+    },
+    {
+      "state": "HI",
+      "card_id": "sec09-card-sec09-F18",
+      "back": "Most warning signs are yellow diamonds carrying a black border and black symbols or words, and the examples pictured include divided highway, divided highway ends, hill, slippery when wet, pedestrian crossing, and lane ends or road narrows.",
+      "page": "4477"
+    },
+    {
+      "state": "ID",
+      "card_id": "sec05-card-r08",
+      "back": "A Lane Ends or Merge Left sign warns that two lanes become one and that merging traffic must yield.",
+      "page": "50"
+    },
+    {
+      "state": "IL",
+      "card_id": "sec15-card-r16",
+      "back": "At a lane reduction, merge early if traffic is light; in dense slow traffic use both lanes to the merge point and alternate joining there.",
+      "page": "86"
+    },
+    {
+      "state": "MD",
+      "card_id": "sec05-card-sec05-F37",
+      "back": "Other warning signs tell you that lanes or roads are changing: a lane ends and you merge left, two roads merge, the road divides ahead, or a divided road ends ahead.",
+      "page": 22
+    },
+    {
+      "state": "MI",
+      "card_id": "sec10-card-sec10-R13",
+      "back": "A Lane Ends Merge Left sign means the right lane is ending, so merge left and yield to traffic already in the left lane.",
+      "page": 59
+    }
+  ],
+  "usage": {
+    "completion_tokens": 2129,
+    "prompt_tokens": 765,
+    "total_tokens": 2894,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1770
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 241
+    }
+  },
+  "usd_priced": 0.010004,
+  "parse_error": null,
+  "result": {
+    "correction": "A Lane Ends Merge Left sign means the right lane is ending, so merge left and yield to traffic already in the left lane; at a zipper merge use both lanes equally until just before the closure, then take turns into the open lane - in dense slow traffic use both lanes to the merge point and alternate joining there, merge early only if traffic is light.",
+    "evidence": [
+      "[sec10-card-sec10-R13 | MI p.59] A Lane Ends Merge Left sign means the right lane is ending, so merge left and yield to traffic already in the left lane.",
+      "[sec12-card-sec12-F03 | CO p.22] At a zipper merge where two lanes become one, use both lanes equally until just before the closure, then take turns into the open lane; drivers who wait until the lane ends are doing it right.",
+      "[sec15-card-r16 | IL p.86] At a lane reduction, merge early if traffic is light; in dense slow traffic use both lanes to the merge point and alternate joining there.",
+      "[sec09-card-sec09-F18 | HI p.4477] Most warning signs are yellow diamonds carrying a black border and black symbols or words, and the examples pictured include divided highway, divided highway ends, hill, slippery when wet, pedestrian crossing, and lane ends or road narrows."
+    ],
+    "id": "sign-lane-ends",
+    "meaning_verdict": "CONTRADICTED",
+    "spec_verdict": "SUPPORTED",
+    "summary": "Sign is yellow diamond lane-ends warning for right-lane ending with merge left and yield, but official guidance contradicts merge-early as universal rule and requires zipper-merge late merge in dense traffic."
+  },
+  "error_body": null
+}

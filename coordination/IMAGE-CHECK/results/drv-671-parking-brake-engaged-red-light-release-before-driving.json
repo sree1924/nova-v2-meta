@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-671-parking-brake-engaged-red-light-release-before-driving",
+  "file": "drv-671-parking-brake-engaged-red-light-release-before-driving.png",
+  "title": "Always Release the Parking Brake Completely Before Driving Away (Driving With It On Overheats Rear Brakes!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "7af72d335280763cbe01084fbda2876accc3a3bc6c1a0f72f24017665f579599",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7248,
+  "usage": {
+    "completion_tokens": 1644,
+    "prompt_tokens": 2458,
+    "total_tokens": 4102,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1263
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.01006,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-671-parking-brake-engaged-red-light-release-before-driving",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All three cars ahead seen through windshield face away in same direction; no oncoming or head-on vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior center console shown but no steering wheel on right side is visible; left-hand-drive layout implied.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is visible in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Forward view shows yellow line on left of travel lane and white line/curb on right, with all vehicles facing forward.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Digits 6, 5, 7 visible on tachometer gauge at upper left, violating zero numbers rule.",
+        "verdict": "FAIL"
+      }
+    },
+    "scene_match": {
+      "note": "Shows right hand on console parking-brake lever with red circle brake-warning icon on dash, matching release-before-driving prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Scene correctly teaches parking-brake release but fails zero-text rule due to numbers on instrument cluster, requiring REJECT.",
+    "teaching_correct": {
+      "note": "Hand lowering parking-brake lever with brake warning light context correctly teaches releasing brake completely before driving.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Close-up from driver seat shows a right hand gripping the console parking-brake lever next to the shifter, with a red circle warning light on the dash left and three cars ahead through the windshield at sunset."
+  },
+  "error_body": null
+}

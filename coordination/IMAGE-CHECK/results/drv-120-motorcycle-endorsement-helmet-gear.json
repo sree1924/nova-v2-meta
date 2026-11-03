@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-120-motorcycle-endorsement-helmet-gear",
+  "file": "drv-120-motorcycle-endorsement-helmet-gear.png",
+  "title": "Motorcycle License / Endorsement & Approved Protective Riding Gear",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "267eafa3a48bbac2f7630963c67ab29680eef3aac6fc07ae7a02db1415a20e0b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4381,
+  "usage": {
+    "completion_tokens": 889,
+    "prompt_tokens": 2262,
+    "total_tokens": 3151,
+    "completion_tokens_details": {
+      "reasoning_tokens": 485
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006606,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-120-motorcycle-endorsement-helmet-gear",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one foreground motorcycle upright; background motorcycles parked, no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car cabin or steering wheel visible; scene is motorcycle and people only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in skills pad scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Closed DMV skills pad, no public road traffic; no wrong-way driving; yellow line on left, white lines visible, consistent with US layout.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license card shows only blank with small motorcycle silhouette icon, all other signs blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Rider in full-face helmet, armored jacket, gloves, boots on upright motorcycle between orange weave cones holding license card with motorcycle icon, examiner nearby, matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image meets all applicable visual rules with no text, correct pad layout, and accurately depicts helmet and protective gear with endorsement card.",
+    "teaching_correct": {
+      "note": "Shows correct protective gear: full-face helmet with visor, armored jacket, gloves, boots, knee protection, and upright controlled riding in cone course.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A helmeted rider in full protective gear straddles an upright motorcycle between orange cones on a sunny skills pad, holding up a blank card with a motorcycle icon, while an instructor gives thumbs-up on the right."
+  },
+  "error_body": null
+}

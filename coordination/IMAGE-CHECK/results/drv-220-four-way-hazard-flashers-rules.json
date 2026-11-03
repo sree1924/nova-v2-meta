@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-220-four-way-hazard-flashers-rules",
+  "file": "drv-220-four-way-hazard-flashers-rules.png",
+  "title": "Four-Way Emergency Hazard Flashers: Disabled Roadside Warning (Know State Moving-Use Rules)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "3caa231a81d25e6385ccad9f23aaa31b1cdd38e5c5ab823fd926e808aaa63502",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3239,
+  "usage": {
+    "completion_tokens": 682,
+    "prompt_tokens": 2264,
+    "total_tokens": 2946,
+    "completion_tokens_details": {
+      "reasoning_tokens": 328
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.005729,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-220-four-way-hazard-flashers-rules",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles travel same direction on highway; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Bottom-left inset shows left-side steering wheel with driver hands, correct LHD, no RHD.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline far left, white fog line on right separating shoulder, traffic drives on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates and signs are blank shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Silver sedan stopped fully on right shoulder with four amber hazards flashing plus red-triangle dash button insets matches disabled roadside warning prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Disabled sedan correctly off roadway on shoulder with hazards on and blank plates; all applicable rules pass.",
+    "teaching_correct": {
+      "note": "Shows correct behavior: pull fully off travel lane onto shoulder and activate four-way flashers to warn traffic.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Silver sedan stopped on gravel right shoulder of daylight highway with amber hazard lights flashing, traffic passing on left; insets show red-triangle hazard button and driver view from left-hand-drive cabin."
+  },
+  "error_body": null
+}

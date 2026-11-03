@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-651-pedestrian-hybrid-crosswalk-unmarked-rural-corner",
+  "file": "drv-651-pedestrian-hybrid-crosswalk-unmarked-rural-corner.png",
+  "title": "Turning at Any Signalized Corner: Turning Drivers Must ALWAYS Yield to Pedestrians Lawfully in the Crosswalk!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "eddd03d1354c7cdae9e046697a7edf8c99edf1391632a71d924827ff9ed0d25f",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6938,
+  "usage": {
+    "completion_tokens": 1464,
+    "prompt_tokens": 2468,
+    "total_tokens": 3932,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1050
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009307,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-651-pedestrian-hybrid-crosswalk-unmarked-rural-corner",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Black sedan on left and blue SUV on right both face forward away from viewer, same direction, no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel visible; only exteriors shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Vehicle signal top-left shows both red top lens and green bottom lens lit simultaneously, two lit lenses.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "No wrong-side driving visible; both stopped vehicles face same direction, curb on right, no opposing traffic or reversed markings.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license areas and signs are blank shapes, ped signal is white walking-person icon only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Signalized corner with crosswalk stripes, walk signal, and two vehicles paused behind crosswalk while three pedestrians cross, matching yielding description; turning direction not explicit but yielding setup present.",
+      "verdict": "MATCH"
+    },
+    "summary": "Vehicles correctly yield to pedestrians, but vehicle traffic light illegally shows red and green together, requiring REJECT.",
+    "teaching_correct": {
+      "note": "Core yield-to-pedestrians lesson is shown correctly with vehicles stopped behind stripes, but dual red-plus-green signal is impossible and mis-teaches signal meaning.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Three pedestrians walk across a striped crosswalk in foreground while a black sedan on the left and blue SUV on the right wait behind the stripes at a sunny signalized corner with palm trees and shops."
+  },
+  "error_body": null
+}

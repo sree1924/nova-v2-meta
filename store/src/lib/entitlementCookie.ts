@@ -29,7 +29,9 @@ const fromB64url = (s: string) => {
 };
 
 async function hmacKey(): Promise<CryptoKey | null> {
-  const secret = process.env.ENTITLEMENT_COOKIE_SECRET || process.env.CLERK_SECRET_KEY;
+  const local = process.env.STORE_LOCAL_MODE === "1" && process.env.NODE_ENV !== "production";
+  // Public, deliberately dev-only fallback: local mode additionally requires a loopback host.
+  const secret = process.env.ENTITLEMENT_COOKIE_SECRET || process.env.CLERK_SECRET_KEY || (local ? "plp-local-harness-not-a-production-secret-v1" : "");
   if (!secret) return null;
   return crypto.subtle.importKey("raw", enc.encode("plp-ent-v1:" + secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign", "verify"]);
 }

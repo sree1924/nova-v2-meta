@@ -1,0 +1,3877 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-nc-class-c",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "9ff35d6a2f4f381ba0b9e8596fcb58e9651c14dd183111700113b210af5741e0",
+    "candidate_lineage_id": "2026-10-28-rdmv-nc-class-c:lineage:94"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-nc-class-c/16/sec05-points-suspensions-restoration/ce3616a4/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-nc-class-c/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec05-F01",
+      "label": "Convictions put points on the record",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F01"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F02",
+      "label": "Seven points and the clinic",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F02"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F03",
+          "why": "sec05-F02 sends a driver with seven points to the clinic, and sec05-F03 says finishing it removes three points.",
+          "fact_ids": [
+            "sec05-F02",
+            "sec05-F03"
+          ]
+        },
+        {
+          "other_id": "sec05-R01",
+          "why": "sec05-F02 is the seven-point clinic threshold, and sec05-R01 contrasts it with the eight and twelve-point suspension thresholds.",
+          "fact_ids": [
+            "sec05-F02",
+            "sec05-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F03",
+      "label": "Clinic removes three points",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F03"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F02",
+          "why": "sec05-F02 sends a driver with seven points to the clinic, and sec05-F03 says finishing it removes three points.",
+          "fact_ids": [
+            "sec05-F03",
+            "sec05-F02"
+          ]
+        },
+        {
+          "other_id": "sec05-R02",
+          "why": "sec05-F03 removes three points through the clinic, and sec05-R02 contrasts it with reinstatement clearing every point.",
+          "fact_ids": [
+            "sec05-F03",
+            "sec05-R02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F04",
+      "label": "Twelve points in three years",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F04"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R01",
+          "why": "sec05-F04 is the twelve-point suspension threshold, and sec05-R01 contrasts it with seven and eight points.",
+          "fact_ids": [
+            "sec05-F04",
+            "sec05-R01"
+          ]
+        },
+        {
+          "other_id": "sec05-F05",
+          "why": "sec05-F04 suspends at twelve points in three years, while sec05-F05 suspends again at only eight points in three years after reinstatement.",
+          "fact_ids": [
+            "sec05-F04",
+            "sec05-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F05",
+      "label": "Eight points after reinstatement",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F05"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F04",
+          "why": "sec05-F04 suspends at twelve points in three years, while sec05-F05 suspends again at only eight points in three years after reinstatement.",
+          "fact_ids": [
+            "sec05-F05",
+            "sec05-F04"
+          ]
+        },
+        {
+          "other_id": "sec05-R01",
+          "why": "sec05-F05 is the eight-point post-reinstatement threshold, and sec05-R01 places it between seven and twelve.",
+          "fact_ids": [
+            "sec05-F05",
+            "sec05-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F06",
+      "label": "Point suspension lengths",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F06"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R04",
+          "why": "sec05-F06 sets the sixty-day, six-month and twelve-month suspensions, and sec05-R04 restates that adult ladder.",
+          "fact_ids": [
+            "sec05-F06",
+            "sec05-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F07",
+      "label": "Reinstatement wipes license points",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F07"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R02",
+          "why": "sec05-F07 wipes all earlier license points at reinstatement, and sec05-R02 contrasts that with the clinic's three points.",
+          "fact_ids": [
+            "sec05-F07",
+            "sec05-R02"
+          ]
+        },
+        {
+          "other_id": "sec05-R03",
+          "why": "sec05-F07 clears license points but not insurance points, and sec05-R03 explains insurers keep their own system.",
+          "fact_ids": [
+            "sec05-F07",
+            "sec05-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F08",
+      "label": "Five-point offenses",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F08"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F16",
+          "why": "sec05-F08 gives passing a stopped school bus five points in a regular vehicle, while sec05-F16 gives it eight points in a commercial vehicle.",
+          "fact_ids": [
+            "sec05-F08",
+            "sec05-F16"
+          ]
+        },
+        {
+          "other_id": "sec05-F09",
+          "why": "sec05-F08 lists the five-point offenses, while sec05-F09 lists offenses such as reckless driving and tailgating at four points.",
+          "fact_ids": [
+            "sec05-F08",
+            "sec05-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F09",
+      "label": "Four-point offenses",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F09"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F08",
+          "why": "sec05-F08 lists the five-point offenses, while sec05-F09 lists offenses such as reckless driving and tailgating at four points.",
+          "fact_ids": [
+            "sec05-F09",
+            "sec05-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F10",
+      "label": "Four points for failing to yield to vulnerable users",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F10"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F11",
+      "label": "Three points: stops, lights, yielding, high speed",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F11"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F14",
+          "why": "sec05-F11 gives stop sign, red light and yield violations three points, while sec05-F14 gives unlisted moving violations two points.",
+          "fact_ids": [
+            "sec05-F11",
+            "sec05-F14"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F12",
+      "label": "Three points: license, siren, safety zone, insurance",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F12"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F13",
+      "label": "Three points: reports and school zones",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F13"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F14",
+      "label": "Two points: child restraint and other moves",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F14"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F11",
+          "why": "sec05-F11 gives stop sign, red light and yield violations three points, while sec05-F14 gives unlisted moving violations two points.",
+          "fact_ids": [
+            "sec05-F14",
+            "sec05-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F15",
+      "label": "One point: littering with a vehicle",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F15"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R06",
+          "why": "sec05-F15 gives littering one point, and sec05-R06 sets it against the commercial highs.",
+          "fact_ids": [
+            "sec05-F15",
+            "sec05-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F16",
+      "label": "Commercial school bus passing",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F16"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F08",
+          "why": "sec05-F08 gives passing a stopped school bus five points in a regular vehicle, while sec05-F16 gives it eight points in a commercial vehicle.",
+          "fact_ids": [
+            "sec05-F16",
+            "sec05-F08"
+          ]
+        },
+        {
+          "other_id": "sec05-R06",
+          "why": "sec05-F16 is the eight-point commercial school bus value, and sec05-R06 contrasts the commercial highs with one-point littering.",
+          "fact_ids": [
+            "sec05-F16",
+            "sec05-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F17",
+      "label": "Commercial rail crossing and aggression",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F17"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R06",
+          "why": "sec05-F17 is the six-point commercial rail crossing value, and sec05-R06 contrasts it with littering.",
+          "fact_ids": [
+            "sec05-F17",
+            "sec05-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F18",
+      "label": "Other commercial values",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F18"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F19",
+      "label": "Alcohol in a commercial passenger area",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F19"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F20",
+      "label": "No points: size and parking",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F20"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F21",
+          "why": "sec05-F20 lists size and parking offenses with no points, and sec05-F21 lists plate, equipment and weapon offenses with no points.",
+          "fact_ids": [
+            "sec05-F20",
+            "sec05-F21"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F21",
+      "label": "No points: plates, equipment, weapon",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F21"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F20",
+          "why": "sec05-F20 lists size and parking offenses with no points, and sec05-F21 lists plate, equipment and weapon offenses with no points.",
+          "fact_ids": [
+            "sec05-F21",
+            "sec05-F20"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F22",
+      "label": "Double fines in commercial vehicles",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F22"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F23",
+      "label": "Insurance points are separate",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F23"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R03",
+          "why": "sec05-F23 says insurers set rates with their own point system, and sec05-R03 says reinstatement leaves those points untouched.",
+          "fact_ids": [
+            "sec05-F23",
+            "sec05-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F24",
+      "label": "Convictions can take the privilege",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F24"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F25",
+      "label": "Two high-speed convictions in a year",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F25"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F28",
+          "why": "sec05-F25 lets DMV suspend for two high-speed convictions in a year, while sec05-F28 revokes for at least thirty days for fifteen over above fifty-five.",
+          "fact_ids": [
+            "sec05-F25",
+            "sec05-F28"
+          ]
+        },
+        {
+          "other_id": "sec05-F27",
+          "why": "sec05-F25 covers two high-speed convictions in a year, and sec05-F27 covers court orders and speeding over seventy-five.",
+          "fact_ids": [
+            "sec05-F25",
+            "sec05-F27"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F26",
+      "label": "Willful racing",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F26"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F27",
+      "label": "Court orders and very high speed",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F27"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F25",
+          "why": "sec05-F25 covers two high-speed convictions in a year, and sec05-F27 covers court orders and speeding over seventy-five.",
+          "fact_ids": [
+            "sec05-F27",
+            "sec05-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F28",
+      "label": "Fifteen over above fifty-five",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F28"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F25",
+          "why": "sec05-F25 lets DMV suspend for two high-speed convictions in a year, while sec05-F28 revokes for at least thirty days for fifteen over above fifty-five.",
+          "fact_ids": [
+            "sec05-F28",
+            "sec05-F25"
+          ]
+        },
+        {
+          "other_id": "sec05-R07",
+          "why": "sec05-F28 is the thirty-day speeding revocation and sec05-R07 contrasts it with the sixty-day version.",
+          "fact_ids": [
+            "sec05-F28",
+            "sec05-R07"
+          ]
+        },
+        {
+          "other_id": "sec05-F29",
+          "why": "sec05-F28 sets at least thirty days for one such charge, and sec05-F29 sets sixty days for a second within a year or for speeding with reckless driving.",
+          "fact_ids": [
+            "sec05-F28",
+            "sec05-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F29",
+      "label": "Sixty-day speeding revocation",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F29"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R07",
+          "why": "sec05-F29 is the sixty-day speeding revocation and sec05-R07 contrasts it with the thirty-day version.",
+          "fact_ids": [
+            "sec05-F29",
+            "sec05-R07"
+          ]
+        },
+        {
+          "other_id": "sec05-F28",
+          "why": "sec05-F28 sets at least thirty days for one such charge, and sec05-F29 sets sixty days for a second within a year or for speeding with reckless driving.",
+          "fact_ids": [
+            "sec05-F29",
+            "sec05-F28"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F30",
+      "label": "Suspension on receipt and hearings",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F30"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R10",
+          "why": "sec05-F30 gives a revoked driver a possible hearing, and sec05-R10 puts the hearing before any appeal.",
+          "fact_ids": [
+            "sec05-F30",
+            "sec05-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F32",
+      "label": "Appeal to Superior Court",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F32"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R10",
+          "why": "sec05-F32 allows an appeal within thirty days to Superior Court, and sec05-R10 says it comes only after the hearing.",
+          "fact_ids": [
+            "sec05-F32",
+            "sec05-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F33",
+      "label": "Manslaughter and vehicle death or assault",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F33"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R08",
+          "why": "sec05-F33 gives manslaughter one year and impaired manslaughter permanent, and sec05-R08 contrasts the two.",
+          "fact_ids": [
+            "sec05-F33",
+            "sec05-R08"
+          ]
+        },
+        {
+          "other_id": "sec05-F34",
+          "why": "sec05-F34 gives failing to give aid and test refusal one year each, matching the one year that sec05-F33 gives manslaughter.",
+          "fact_ids": [
+            "sec05-F33",
+            "sec05-F34"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F34",
+      "label": "Hit and run with no aid, test refusal",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F34"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F33",
+          "why": "sec05-F34 gives failing to give aid and test refusal one year each, matching the one year that sec05-F33 gives manslaughter.",
+          "fact_ids": [
+            "sec05-F34",
+            "sec05-F33"
+          ]
+        },
+        {
+          "other_id": "sec05-F36",
+          "why": "sec05-F34 lists failing to give aid and test refusal at one year, and sec05-F36 lists repeat reckless driving and false pretenses at one year.",
+          "fact_ids": [
+            "sec05-F34",
+            "sec05-F36"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F35",
+      "label": "Speeding to avoid arrest",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F35"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F36",
+      "label": "Repeat reckless driving or false pretenses",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F36"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F34",
+          "why": "sec05-F34 lists failing to give aid and test refusal at one year, and sec05-F36 lists repeat reckless driving and false pretenses at one year.",
+          "fact_ids": [
+            "sec05-F36",
+            "sec05-F34"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F37",
+      "label": "Prearranged racing",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F37"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R09",
+          "why": "sec05-F37 sets three years for prearranged racing, and sec05-R09 contrasts it with the one-year offenses.",
+          "fact_ids": [
+            "sec05-F37",
+            "sec05-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F38",
+      "label": "Failing to yield causing serious injury",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "hard",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F38"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F39",
+      "label": "Out-of-state convictions",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F39"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F40",
+          "why": "sec05-F39 covers suspension for out-of-state convictions, while sec05-F40 covers revocation for a missed court date or unpaid fine.",
+          "fact_ids": [
+            "sec05-F39",
+            "sec05-F40"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F40",
+      "label": "Missed court or unpaid fine",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F40"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F39",
+          "why": "sec05-F39 covers suspension for out-of-state convictions, while sec05-F40 covers revocation for a missed court date or unpaid fine.",
+          "fact_ids": [
+            "sec05-F40",
+            "sec05-F39"
+          ]
+        },
+        {
+          "other_id": "sec05-F41",
+          "why": "sec05-F40 revokes until a fine is paid or waived, and sec05-F41 says paying does not cancel the consequences of a conviction.",
+          "fact_ids": [
+            "sec05-F40",
+            "sec05-F41"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F41",
+      "label": "Paying does not undo the offense",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F41"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F40",
+          "why": "sec05-F40 revokes until a fine is paid or waived, and sec05-F41 says paying does not cancel the consequences of a conviction.",
+          "fact_ids": [
+            "sec05-F41",
+            "sec05-F40"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F42",
+      "label": "Motion for Relief",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F42"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R11",
+          "why": "sec05-F42 is the Motion for Relief route for drivers who cannot pay, and sec05-R11 contrasts it with paying in full.",
+          "fact_ids": [
+            "sec05-F42",
+            "sec05-R11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F43",
+      "label": "Paying in full",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F43"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R11",
+          "why": "sec05-F43 is the pay-in-full route, and sec05-R11 contrasts it with the Motion for Relief.",
+          "fact_ids": [
+            "sec05-F43",
+            "sec05-R11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F44",
+      "label": "Provisional second violation",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F44"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R05",
+          "why": "sec05-F44 is the first rung of the provisional ladder, and sec05-R05 lays out the whole ladder.",
+          "fact_ids": [
+            "sec05-F44",
+            "sec05-R05"
+          ]
+        },
+        {
+          "other_id": "sec05-F45",
+          "why": "sec05-F44 suspends for thirty days on a second violation, while sec05-F45 sets ninety days and six months for the third and fourth.",
+          "fact_ids": [
+            "sec05-F44",
+            "sec05-F45"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F45",
+      "label": "Provisional third and fourth violations",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F45"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R05",
+          "why": "sec05-F45 gives the third and fourth provisional rungs, and sec05-R05 lays out the whole ladder.",
+          "fact_ids": [
+            "sec05-F45",
+            "sec05-R05"
+          ]
+        },
+        {
+          "other_id": "sec05-F44",
+          "why": "sec05-F44 suspends for thirty days on a second violation, while sec05-F45 sets ninety days and six months for the third and fourth.",
+          "fact_ids": [
+            "sec05-F45",
+            "sec05-F44"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F46",
+      "label": "Ordinary restoration fee",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F46"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R12",
+          "why": "sec05-F46 is the ordinary restoration fee, and sec05-R12 contrasts it with the DWI fee and service fee.",
+          "fact_ids": [
+            "sec05-F46",
+            "sec05-R12"
+          ]
+        },
+        {
+          "other_id": "sec05-F47",
+          "why": "sec05-F46 sets the ordinary restoration fee with a medical exception, while sec05-F47 sets the higher DWI restoration fee and the service fee.",
+          "fact_ids": [
+            "sec05-F46",
+            "sec05-F47"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F47",
+      "label": "DWI restoration and service fee",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-F47"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R12",
+          "why": "sec05-F47 is the DWI restoration and service fee, and sec05-R12 contrasts it with the ordinary fee.",
+          "fact_ids": [
+            "sec05-F47",
+            "sec05-R12"
+          ]
+        },
+        {
+          "other_id": "sec05-F46",
+          "why": "sec05-F46 sets the ordinary restoration fee with a medical exception, while sec05-F47 sets the higher DWI restoration fee and the service fee.",
+          "fact_ids": [
+            "sec05-F47",
+            "sec05-F46"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-F48",
+      "label": "Steps to restore a license",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "module_id": "sec05-m08",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec05-F48"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R01",
+      "label": "Seven, eight and twelve",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R01"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F02",
+          "why": "sec05-F02 is the seven-point clinic threshold, and sec05-R01 contrasts it with the eight and twelve-point suspension thresholds.",
+          "fact_ids": [
+            "sec05-R01",
+            "sec05-F02"
+          ]
+        },
+        {
+          "other_id": "sec05-F04",
+          "why": "sec05-F04 is the twelve-point suspension threshold, and sec05-R01 contrasts it with seven and eight points.",
+          "fact_ids": [
+            "sec05-R01",
+            "sec05-F04"
+          ]
+        },
+        {
+          "other_id": "sec05-F05",
+          "why": "sec05-F05 is the eight-point post-reinstatement threshold, and sec05-R01 places it between seven and twelve.",
+          "fact_ids": [
+            "sec05-R01",
+            "sec05-F05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R02",
+      "label": "Clinic versus reinstatement",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R02"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F03",
+          "why": "sec05-F03 removes three points through the clinic, and sec05-R02 contrasts it with reinstatement clearing every point.",
+          "fact_ids": [
+            "sec05-R02",
+            "sec05-F03"
+          ]
+        },
+        {
+          "other_id": "sec05-F07",
+          "why": "sec05-F07 wipes all earlier license points at reinstatement, and sec05-R02 contrasts that with the clinic's three points.",
+          "fact_ids": [
+            "sec05-R02",
+            "sec05-F07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R03",
+      "label": "License versus insurance points",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R03"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F07",
+          "why": "sec05-F07 clears license points but not insurance points, and sec05-R03 explains insurers keep their own system.",
+          "fact_ids": [
+            "sec05-R03",
+            "sec05-F07"
+          ]
+        },
+        {
+          "other_id": "sec05-F23",
+          "why": "sec05-F23 says insurers set rates with their own point system, and sec05-R03 says reinstatement leaves those points untouched.",
+          "fact_ids": [
+            "sec05-R03",
+            "sec05-F23"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R04",
+      "label": "Adult suspension ladder",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R04"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.36",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0036"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F06",
+          "why": "sec05-F06 sets the sixty-day, six-month and twelve-month suspensions, and sec05-R04 restates that adult ladder.",
+          "fact_ids": [
+            "sec05-R04",
+            "sec05-F06"
+          ]
+        },
+        {
+          "other_id": "sec05-R05",
+          "why": "sec05-R04 is the adult point ladder, while sec05-R05 is the shorter provisional ladder counted from moving violations.",
+          "fact_ids": [
+            "sec05-R04",
+            "sec05-R05"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R05",
+      "label": "Provisional suspension ladder",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R05"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-R04",
+          "why": "sec05-R04 is the adult point ladder, while sec05-R05 is the shorter provisional ladder counted from moving violations.",
+          "fact_ids": [
+            "sec05-R05",
+            "sec05-R04"
+          ]
+        },
+        {
+          "other_id": "sec05-F44",
+          "why": "sec05-F44 is the first rung of the provisional ladder, and sec05-R05 lays out the whole ladder.",
+          "fact_ids": [
+            "sec05-R05",
+            "sec05-F44"
+          ]
+        },
+        {
+          "other_id": "sec05-F45",
+          "why": "sec05-F45 gives the third and fourth provisional rungs, and sec05-R05 lays out the whole ladder.",
+          "fact_ids": [
+            "sec05-R05",
+            "sec05-F45"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R06",
+      "label": "Commercial highs versus littering",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R06"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.37",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0037"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F16",
+          "why": "sec05-F16 is the eight-point commercial school bus value, and sec05-R06 contrasts the commercial highs with one-point littering.",
+          "fact_ids": [
+            "sec05-R06",
+            "sec05-F16"
+          ]
+        },
+        {
+          "other_id": "sec05-F17",
+          "why": "sec05-F17 is the six-point commercial rail crossing value, and sec05-R06 contrasts it with littering.",
+          "fact_ids": [
+            "sec05-R06",
+            "sec05-F17"
+          ]
+        },
+        {
+          "other_id": "sec05-F15",
+          "why": "sec05-F15 gives littering one point, and sec05-R06 sets it against the commercial highs.",
+          "fact_ids": [
+            "sec05-R06",
+            "sec05-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R07",
+      "label": "Thirty days versus sixty days",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R07"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.38",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0038"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F28",
+          "why": "sec05-F28 is the thirty-day speeding revocation and sec05-R07 contrasts it with the sixty-day version.",
+          "fact_ids": [
+            "sec05-R07",
+            "sec05-F28"
+          ]
+        },
+        {
+          "other_id": "sec05-F29",
+          "why": "sec05-F29 is the sixty-day speeding revocation and sec05-R07 contrasts it with the thirty-day version.",
+          "fact_ids": [
+            "sec05-R07",
+            "sec05-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R08",
+      "label": "Manslaughter versus impaired manslaughter",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R08"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F33",
+          "why": "sec05-F33 gives manslaughter one year and impaired manslaughter permanent, and sec05-R08 contrasts the two.",
+          "fact_ids": [
+            "sec05-R08",
+            "sec05-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R09",
+      "label": "Racing triples the year",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R09"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F37",
+          "why": "sec05-F37 sets three years for prearranged racing, and sec05-R09 contrasts it with the one-year offenses.",
+          "fact_ids": [
+            "sec05-R09",
+            "sec05-F37"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R10",
+      "label": "Hearing before appeal",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R10"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F30",
+          "why": "sec05-F30 gives a revoked driver a possible hearing, and sec05-R10 puts the hearing before any appeal.",
+          "fact_ids": [
+            "sec05-R10",
+            "sec05-F30"
+          ]
+        },
+        {
+          "other_id": "sec05-F32",
+          "why": "sec05-F32 allows an appeal within thirty days to Superior Court, and sec05-R10 says it comes only after the hearing.",
+          "fact_ids": [
+            "sec05-R10",
+            "sec05-F32"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R11",
+      "label": "Cannot pay versus can pay",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R11"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.40",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0040"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F42",
+          "why": "sec05-F42 is the Motion for Relief route for drivers who cannot pay, and sec05-R11 contrasts it with paying in full.",
+          "fact_ids": [
+            "sec05-R11",
+            "sec05-F42"
+          ]
+        },
+        {
+          "other_id": "sec05-F43",
+          "why": "sec05-F43 is the pay-in-full route, and sec05-R11 contrasts it with the Motion for Relief.",
+          "fact_ids": [
+            "sec05-R11",
+            "sec05-F43"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec05-R12",
+      "label": "Fees and the service fee",
+      "domain": "Points and suspension confusables",
+      "module_id": "sec05-m08",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec05-R12"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.41",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0041"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec05-F46",
+          "why": "sec05-F46 is the ordinary restoration fee, and sec05-R12 contrasts it with the DWI fee and service fee.",
+          "fact_ids": [
+            "sec05-R12",
+            "sec05-F46"
+          ]
+        },
+        {
+          "other_id": "sec05-F47",
+          "why": "sec05-F47 is the DWI restoration and service fee, and sec05-R12 contrasts it with the ordinary fee.",
+          "fact_ids": [
+            "sec05-R12",
+            "sec05-F47"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec05-F02",
+      "to": "sec05-F03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F04",
+      "to": "sec05-F05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F05",
+      "to": "sec05-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F02",
+      "to": "sec05-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F06",
+      "to": "sec05-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F07",
+      "to": "sec05-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F03",
+      "to": "sec05-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F07",
+      "to": "sec05-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F16",
+      "to": "sec05-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F17",
+      "to": "sec05-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F28",
+      "to": "sec05-F29",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F29",
+      "to": "sec05-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F33",
+      "to": "sec05-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F37",
+      "to": "sec05-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F30",
+      "to": "sec05-F32",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F32",
+      "to": "sec05-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F42",
+      "to": "sec05-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F43",
+      "to": "sec05-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F44",
+      "to": "sec05-F45",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F45",
+      "to": "sec05-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F46",
+      "to": "sec05-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec05-F47",
+      "to": "sec05-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec05-m01",
+      "title": "How points add up",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F01",
+        "sec05-F02",
+        "sec05-F03",
+        "sec05-F04",
+        "sec05-F05",
+        "sec05-R01"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m02",
+      "title": "Point suspensions and reinstatement",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F06",
+        "sec05-R04",
+        "sec05-F07",
+        "sec05-R02",
+        "sec05-R03",
+        "sec05-F23"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m03",
+      "title": "The regular point schedule",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F08",
+        "sec05-F09",
+        "sec05-F10",
+        "sec05-F11",
+        "sec05-F12",
+        "sec05-F13",
+        "sec05-F14",
+        "sec05-F15"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m04",
+      "title": "Commercial points and no-point offenses",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F16",
+        "sec05-F17",
+        "sec05-F18",
+        "sec05-F19",
+        "sec05-R06",
+        "sec05-F20",
+        "sec05-F21",
+        "sec05-F22"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m05",
+      "title": "Speeding and racing suspensions",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 10,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F24",
+        "sec05-F25",
+        "sec05-F26",
+        "sec05-F27",
+        "sec05-F28",
+        "sec05-F29",
+        "sec05-R07"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m06",
+      "title": "Serious offense suspensions",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F33",
+        "sec05-R08",
+        "sec05-F34",
+        "sec05-F35",
+        "sec05-F36",
+        "sec05-F37",
+        "sec05-R09",
+        "sec05-F38"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m07",
+      "title": "Hearings, other states and unpaid tickets",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 15,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F30",
+        "sec05-F32",
+        "sec05-R10",
+        "sec05-F39",
+        "sec05-F40",
+        "sec05-F41",
+        "sec05-F42",
+        "sec05-F43",
+        "sec05-R11"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m08",
+      "title": "Provisional suspensions and restoration",
+      "domain": "Driving privilege: points, suspensions and restoration",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 13,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec05-F44",
+        "sec05-F45",
+        "sec05-R05",
+        "sec05-F46",
+        "sec05-F47",
+        "sec05-R12",
+        "sec05-F48"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec05-m01",
+      "unit_id": "sec05-u01",
+      "node_ids": [
+        "sec05-F01",
+        "sec05-F02",
+        "sec05-F03",
+        "sec05-F04",
+        "sec05-F05",
+        "sec05-R01"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain that convictions put points on the record, the seven-point clinic and the three points it removes, then the twelve-point and post-reinstatement eight-point suspension thresholds.",
+      "flashcard_strategy": "One card per threshold; a contrast card on seven, eight and twelve points.",
+      "quiz_strategy": "Hub-chosen quiz describing a point total and asking what DMV may do.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m02",
+      "unit_id": "sec05-u02",
+      "node_ids": [
+        "sec05-F06",
+        "sec05-R04",
+        "sec05-F07",
+        "sec05-R02",
+        "sec05-R03",
+        "sec05-F23"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the sixty-day, six-month and twelve-month suspension ladder, then what reinstatement clears, and why insurance points are separate.",
+      "flashcard_strategy": "Cards for the ladder and reinstatement; contrast cards on clinic versus reinstatement and license versus insurance points.",
+      "quiz_strategy": "Hub-chosen quiz on suspension lengths and which points survive reinstatement.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m03",
+      "unit_id": "sec05-u03",
+      "node_ids": [
+        "sec05-F08",
+        "sec05-F09",
+        "sec05-F10",
+        "sec05-F11",
+        "sec05-F12",
+        "sec05-F13",
+        "sec05-F14",
+        "sec05-F15"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Walk the regular schedule from five points for passing a stopped school bus and aggressive driving down through four, three, two and one point offenses.",
+      "flashcard_strategy": "One card per point tier group.",
+      "quiz_strategy": "Hub-chosen quiz naming a violation and asking its points.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m04",
+      "unit_id": "sec05-u04",
+      "node_ids": [
+        "sec05-F16",
+        "sec05-F17",
+        "sec05-F18",
+        "sec05-F19",
+        "sec05-R06",
+        "sec05-F20",
+        "sec05-F21",
+        "sec05-F22"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover the commercial vehicle schedule and alcohol in a commercial passenger area, contrast it with littering, list offenses with no points, and double fines in commercial vehicles.",
+      "flashcard_strategy": "Cards for each commercial value and no-point group; a contrast card for the commercial highs versus littering.",
+      "quiz_strategy": "Hub-chosen quiz on commercial point values and offenses with no points.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m05",
+      "unit_id": "sec05-u05",
+      "node_ids": [
+        "sec05-F24",
+        "sec05-F25",
+        "sec05-F26",
+        "sec05-F27",
+        "sec05-F28",
+        "sec05-F29",
+        "sec05-R07"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain that some convictions take the privilege beyond points, the speeding and racing grounds, and the thirty-day and sixty-day speeding revocations.",
+      "flashcard_strategy": "Cards for each ground; a contrast card for thirty versus sixty days.",
+      "quiz_strategy": "Hub-chosen quiz describing a speeding record and asking the consequence.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m06",
+      "unit_id": "sec05-u06",
+      "node_ids": [
+        "sec05-F33",
+        "sec05-R08",
+        "sec05-F34",
+        "sec05-F35",
+        "sec05-F36",
+        "sec05-F37",
+        "sec05-R09",
+        "sec05-F38"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "List the one-year suspension offenses, the permanent one for impaired manslaughter, the three-year racing suspension with vehicle seizure, and the failure-to-yield injury penalty.",
+      "flashcard_strategy": "One card per offense group; contrast cards for one year versus permanent and three years.",
+      "quiz_strategy": "Hub-chosen quiz naming an offense and asking the suspension.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m07",
+      "unit_id": "sec05-u07",
+      "node_ids": [
+        "sec05-F30",
+        "sec05-F32",
+        "sec05-R10",
+        "sec05-F39",
+        "sec05-F40",
+        "sec05-F41",
+        "sec05-F42",
+        "sec05-F43",
+        "sec05-R11"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover when DMV suspends and the hearing then appeal route, out-of-state convictions, revocation for missed court or unpaid fines, and the two ways to resolve a ticket.",
+      "flashcard_strategy": "Cards for each step; contrast cards for hearing versus appeal and the two payment routes.",
+      "quiz_strategy": "Hub-chosen quiz on challenging a revocation and clearing an unpaid ticket.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec05-m08",
+      "unit_id": "sec05-u08",
+      "node_ids": [
+        "sec05-F44",
+        "sec05-F45",
+        "sec05-R05",
+        "sec05-F46",
+        "sec05-F47",
+        "sec05-R12",
+        "sec05-F48"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach the provisional ladder for repeat moving violations, then restoration fees and the steps to get a license back.",
+      "flashcard_strategy": "Cards for each rung and fee; contrast cards for the provisional ladder and the fee amounts.",
+      "quiz_strategy": "Hub-chosen quiz on provisional suspensions and restoration steps.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec05-F01",
+    "sec05-F02",
+    "sec05-F03",
+    "sec05-F04",
+    "sec05-F05",
+    "sec05-R01",
+    "sec05-F06",
+    "sec05-R04",
+    "sec05-F07",
+    "sec05-R02",
+    "sec05-R03",
+    "sec05-F23",
+    "sec05-F08",
+    "sec05-F09",
+    "sec05-F10",
+    "sec05-F11",
+    "sec05-F12",
+    "sec05-F13",
+    "sec05-F14",
+    "sec05-F15",
+    "sec05-F16",
+    "sec05-F17",
+    "sec05-F18",
+    "sec05-F19",
+    "sec05-R06",
+    "sec05-F20",
+    "sec05-F21",
+    "sec05-F22",
+    "sec05-F24",
+    "sec05-F25",
+    "sec05-F26",
+    "sec05-F27",
+    "sec05-F28",
+    "sec05-F29",
+    "sec05-R07",
+    "sec05-F33",
+    "sec05-R08",
+    "sec05-F34",
+    "sec05-F35",
+    "sec05-F36",
+    "sec05-F37",
+    "sec05-R09",
+    "sec05-F38",
+    "sec05-F30",
+    "sec05-F32",
+    "sec05-R10",
+    "sec05-F39",
+    "sec05-F40",
+    "sec05-F41",
+    "sec05-F42",
+    "sec05-F43",
+    "sec05-R11",
+    "sec05-F44",
+    "sec05-F45",
+    "sec05-R05",
+    "sec05-F46",
+    "sec05-F47",
+    "sec05-R12",
+    "sec05-F48"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec05-m01..sec05-m08; component facts before the synthesis (R) nodes that contrast them; dynamic nodes sec05-F31 quarantined off the path for refresh"
+  },
+  "dynamic_nodes": [
+    {
+      "id": "sec05-F31",
+      "label": "Requesting a hearing",
+      "why_dynamic": "The DMV hearing phone number and web contact route are operational details that can change; refresh from NCDMV.gov before serving.",
+      "fact_ids": [
+        "sec05-F31"
+      ],
+      "source_ref": {
+        "ref": "North Carolina Driver Handbook (Revised May 2025), PDF p.39",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-nc-c:north-carolina-department-of-transportat:handbook:pdf-0039"
+      }
+    }
+  ],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 59,
+      "merges": [],
+      "dynamic_concepts": [
+        "sec05-F31"
+      ]
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec05-F01",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F02",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F03",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F04",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F05",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F06",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F07",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F08",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F09",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F10",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F11",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F12",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F13",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F14",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F15",
+          "module_id": "sec05-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F16",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F17",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F18",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F19",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F20",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F21",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F22",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F23",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F24",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F25",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F26",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F27",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F28",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F29",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F30",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F32",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F33",
+          "module_id": "sec05-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F34",
+          "module_id": "sec05-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F35",
+          "module_id": "sec05-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F36",
+          "module_id": "sec05-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F37",
+          "module_id": "sec05-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F38",
+          "module_id": "sec05-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F39",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F40",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F41",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F42",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F43",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F44",
+          "module_id": "sec05-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F45",
+          "module_id": "sec05-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F46",
+          "module_id": "sec05-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F47",
+          "module_id": "sec05-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-F48",
+          "module_id": "sec05-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R01",
+          "module_id": "sec05-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R02",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R03",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R04",
+          "module_id": "sec05-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R05",
+          "module_id": "sec05-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R06",
+          "module_id": "sec05-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R07",
+          "module_id": "sec05-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R08",
+          "module_id": "sec05-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R09",
+          "module_id": "sec05-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R10",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R11",
+          "module_id": "sec05-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec05-R12",
+          "module_id": "sec05-m08",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec05-F02",
+          "to": "sec05-F03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F04",
+          "to": "sec05-F05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F05",
+          "to": "sec05-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F02",
+          "to": "sec05-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F06",
+          "to": "sec05-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F07",
+          "to": "sec05-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F03",
+          "to": "sec05-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F07",
+          "to": "sec05-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F16",
+          "to": "sec05-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F17",
+          "to": "sec05-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F28",
+          "to": "sec05-F29",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F29",
+          "to": "sec05-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F33",
+          "to": "sec05-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F37",
+          "to": "sec05-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F30",
+          "to": "sec05-F32",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F32",
+          "to": "sec05-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F42",
+          "to": "sec05-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F43",
+          "to": "sec05-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F44",
+          "to": "sec05-F45",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F45",
+          "to": "sec05-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F46",
+          "to": "sec05-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec05-F47",
+          "to": "sec05-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "Driving privilege: points, suspensions and restoration",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 73,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Points and suspension confusables",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 27,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec05-m01",
+          "sec05-m02",
+          "sec05-m03",
+          "sec05-m04",
+          "sec05-m05",
+          "sec05-m06",
+          "sec05-m07",
+          "sec05-m08"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-130-uninsured-vehicle-registration-suspend",
+  "file": "drv-130-uninsured-vehicle-registration-suspend.png",
+  "title": "Driving Without Required Insurance: Registration & License Suspension Penalty",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "bda5f1bb4a5516f5c6ff36632a7dc1bf5959d459bf5ad2f8d1877764ba5923a2",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5912,
+  "usage": {
+    "completion_tokens": 1069,
+    "prompt_tokens": 2252,
+    "total_tokens": 3321,
+    "completion_tokens_details": {
+      "reasoning_tokens": 691
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007358,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-130-uninsured-vehicle-registration-suspend",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one parked car visible from rear; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; rear exterior view only with dark windows.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Parked on right shoulder; double-yellow centerline on left of lane, white edge line and curb on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plate, driver card, and background are blank shapes/icons with no letters, numbers, or words.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows parked car under broken red umbrella with padlock-chained blank plate and padlock-chained driver card, matching lapsed-insurance suspension prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Editorial illustration correctly depicts lapsed insurance leading to registration/license lock with no rule violations.",
+    "teaching_correct": {
+      "note": "Broken umbrella plus padlocks on plate and license clearly teach suspension penalty for driving without required insurance.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A gray sedan parked at a sunset curb viewed from the rear with a broken red umbrella above it, a chain and padlock over its blank plate, while a worried man on the right holds a blank ID card also chained and padlocked."
+  },
+  "error_body": null
+}

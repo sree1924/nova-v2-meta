@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-512-about-to-be-hit-from-behind-head-against-headrest-brake",
+  "file": "drv-512-about-to-be-hit-from-behind-head-against-headrest-brake.png",
+  "title": "If About to Be Rear-Ended: Press Back & Head Firmly Against Seat/Headrest & Hold Brake (Unless Room Ahead to Pull Forward)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "0dfa0b3e7dfaf22d075cda234ece406ab549e9ded54cdb02fd2d16342cd9819b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 22343,
+  "usage": {
+    "completion_tokens": 1575,
+    "prompt_tokens": 2279,
+    "total_tokens": 3854,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1189
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009543,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-512-about-to-be-hit-from-behind-head-against-headrest-brake",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one vehicle interior shown, no second vehicle facing it in same lane.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "Left-side cutaway shows US left-hand drive with steering wheel in front of driver on left side, no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal visible in the interior cutaway.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No roadway, centerline, or edge line visible; interior cutaway only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; dash, pedals and trim are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Title requires head firmly against headrest and implied rear threat; image shows clear gap between head and headrest and no fast car in mirror.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Driver shown with head forward off the headrest and no rear threat visible, teaching opposite of brace-against-headrest rule.",
+    "teaching_correct": {
+      "note": "Shows upright posture with gap between skull and head restraint instead of pressing back firmly, teaching incorrect bracing for rear impact.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Side cutaway of a blue car with a belted woman driver, hands on wheel and foot on pedal, head upright forward with a clear gap to the headrest and no approaching car in the mirror."
+  },
+  "error_body": null
+}

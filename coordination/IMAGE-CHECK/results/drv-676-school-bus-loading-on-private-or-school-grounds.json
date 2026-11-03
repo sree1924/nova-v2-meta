@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-676-school-bus-loading-on-private-or-school-grounds",
+  "file": "drv-676-school-bus-loading-on-private-or-school-grounds.png",
+  "title": "School Driveway & Campus Bus Loop: Never Pass Any Stopped School Bus Loading or Unloading Students!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "4fa38f447d0c5faac52a15dab20bce83cbcb270987a9639ef84578925a99f746",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4467,
+  "usage": {
+    "completion_tokens": 920,
+    "prompt_tokens": 2244,
+    "total_tokens": 3164,
+    "completion_tokens_details": {
+      "reasoning_tokens": 555
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006715,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-676-school-bus-loading-on-private-or-school-grounds",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles face forward in same direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Driver viewpoint shows left-hand-drive cabin with steering wheel on left and both hands on wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead traffic signal on left shows single lit amber lens, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline on left of travel lane, white edge line and curb on right; traffic queued on right-hand side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; license plate is blank white rectangle, bus and building blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Campus loop with line of yellow buses on right flashing red, students boarding from sidewalk, parent cars held behind - matches title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Driver-view scene of stopped school buses loading students with traffic holding behind teaches never passing on campus; all visual rules pass.",
+    "teaching_correct": {
+      "note": "Shows correct behavior: holding stationary well behind bus line while students board, no passing.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "From a driver's seat behind the wheel, a line of yellow school buses is stopped on the right by a school building with students boarding, while cars queue behind on the left."
+  },
+  "error_body": null
+}

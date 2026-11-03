@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-457-moped-25-30mph-right-edge-no-interstate",
+  "file": "drv-457-moped-25-30mph-right-edge-no-interstate.png",
+  "title": "Low-Powered Mopeds & Motor-Driven Cycles (<=30 mph): Stay Off High-Speed Freeways & Give Safe Passing Room",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2511b61374ace2a2b10af25b3fa94363f0c5d93a4a7df99e75e477e3febb4ffc",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4691,
+  "usage": {
+    "completion_tokens": 1125,
+    "prompt_tokens": 2278,
+    "total_tokens": 3403,
+    "completion_tokens_details": {
+      "reasoning_tokens": 673
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007629,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-457-moped-25-30mph-right-edge-no-interstate",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No head-on opposing vehicles in same lane; left panel shows same-direction following and distant oncoming in separate lane, right panel shows all same-direction freeway traffic.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior rear views of cars and mopeds.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show right-hand traffic: left has double-yellow centerline on left and white edge/curb on right; right has yellow line on left of ramp and white edge on right with same-direction flow.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, overhead gantry sign, and license plates are blank shapes; only instructional check/X icons present as requested, no letters, numbers or words.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left shows helmeted moped rider near right curb on calm neighborhood street with green check; right shows same rider on high-speed interstate ramp crossed out with red X, exactly as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split illustration correctly teaches low-powered mopeds to use low-speed streets on the right and stay off interstates, with no rule violations.",
+    "teaching_correct": {
+      "note": "Geometry is correct: moped positioned near right edge on neighborhood street and incorrectly on freeway ramp marked prohibited, teaching safe placement.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split image: left foreground shows a helmeted rider on a green moped near the right curb of a sunny residential street; right foreground shows the same rider on a freeway on-ramp with multi-lane high-speed traffic, overlaid with a red prohibition symbol."
+  },
+  "error_body": null
+}

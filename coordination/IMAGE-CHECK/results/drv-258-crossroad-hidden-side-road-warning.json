@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-258-crossroad-hidden-side-road-warning",
+  "file": "drv-258-crossroad-hidden-side-road-warning.png",
+  "title": "Crossroad, Side-Road & Y-Intersection Advance Warning Signs: Scan for Hidden Entering Cars",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "ccf82cdd7008db21eb1d8915094baac38ac30d0ab78bf37798e57a38a0e33a31",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4467,
+  "usage": {
+    "completion_tokens": 974,
+    "prompt_tokens": 2269,
+    "total_tokens": 3243,
+    "completion_tokens_details": {
+      "reasoning_tokens": 607
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006976,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-258-crossroad-hidden-side-road-warning",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No oncoming vehicle in our lane; white pickup is perpendicular on side road to the right, not head-on.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior shows left-hand drive: driver on left side holding wheel centered in front of him.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal visible in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of travel lane, white edge line on right; driving on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All shapes blank; yellow diamond shows only black plus icon, dash screen and gauges have no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Driver POV on rural corn-lined highway with crossroad warning sign on right and white pickup waiting at hidden side road on right.",
+      "verdict": "MATCH"
+    },
+    "summary": "Rural crossroad warning scene matches prompt with correct US geometry and no text violations.",
+    "teaching_correct": {
+      "note": "Correctly teaches scanning for hidden entering car after advance crossroad sign; no wrong priority or geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "View from behind the driver inside a left-hand-drive car on a two-lane rural road lined with corn, with a yellow diamond plus-sign on the right shoulder and a white pickup waiting at a side road on the right."
+  },
+  "error_body": null
+}

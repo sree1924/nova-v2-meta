@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-372-no-parking-within-15ft-fire-hydrant",
+  "file": "drv-372-no-parking-within-15ft-fire-hydrant.png",
+  "title": "Do Not Park Within 15 Feet of a Fire Hydrant",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8a5843479e8a19fb1ea3642433498dacf40d62f2c4a024f70781165f16bcdc79",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5396,
+  "usage": {
+    "completion_tokens": 1330,
+    "prompt_tokens": 2259,
+    "total_tokens": 3589,
+    "completion_tokens_details": {
+      "reasoning_tokens": 956
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008476,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-372-no-parking-within-15ft-fire-hydrant",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "White SUV and dark sedan are in opposite lanes separated by yellow centerline, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; all vehicles shown as exteriors only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the neighborhood street scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double centerline on left, white edge line and curb parking on right, parked blue sedan on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is blank white rectangle, no signs with text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Red hydrant on grass strip with long red no-parking curb buffer and blue sedan parked legally beyond it matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Sunny US street with hydrant clear zone and legally parked car correctly teaches 15-ft rule with no rule violations.",
+    "teaching_correct": {
+      "note": "Shows generous red buffer in both directions around hydrant and sedan parked outside it, teaching keep-clear correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Sunny suburban street with red fire hydrant on right grass strip beside a long red-painted curb, with a blue sedan parked legally beyond the red zone on the right."
+  },
+  "error_body": null
+}

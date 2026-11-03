@@ -19,11 +19,14 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const a = process.argv.slice(2);
 const opt = (k) => { const i = a.indexOf(k); return i >= 0 ? a[i + 1] : null; };
-const ST = (opt('--state') || '').toUpperCase(), FROM = opt('--from'), DRY = a.includes('--dry');
-if (!ST || !FROM) { console.error('usage: --state XX --from <course-video-manifest.json> [--dry]'); process.exit(2); }
+const ST = (opt('--state') || '').toUpperCase(), FROM = opt('--from'), UNITS_RAW = opt('--units'), DRY = a.includes('--dry'), FORCE = a.includes('--force');
+const UNIT_FILTER = UNITS_RAW ? new Set(UNITS_RAW.split(',').map((s) => s.trim()).filter(Boolean)) : null;
+if (!ST || !FROM) { console.error('usage: --state XX --from <course-video-manifest.json> [--units u1,u2] [--dry] [--force]'); process.exit(2); }
 const FFMPEG = process.env.FFMPEG || 'D:/nova/video-studio/node_modules/ffmpeg-static/ffmpeg.exe';
 const xx = ST.toLowerCase();
 const outDir = path.join(ROOT, 'app-preview', 'video', xx);
+const existingManifestPath = path.join(outDir, 'video-manifest.json');
+const existingManifest = (UNIT_FILTER && fs.existsSync(existingManifestPath)) ? JSON.parse(fs.readFileSync(existingManifestPath, 'utf8')) : null;
 const src = JSON.parse(fs.readFileSync(path.resolve(ROOT, FROM), 'utf8'));
 if (String(src.state || '').toUpperCase() !== ST && String(src.course_slug || '').toUpperCase().indexOf(ST) < 0) console.warn(`warning: manifest state "${src.state}" vs --state ${ST}`);
 
@@ -32,10 +35,11 @@ const moovFirst = (file) => {
   const m = (r.stderr || '').match(/type:'(moov|mdat)'/g) || [];
   return m.length ? m[0].includes('moov') : true;
 };
-const units = {};
+const units = existingManifest && existingManifest.units ? { ...existingManifest.units } : {};
 let copied = 0, remuxed = 0, posters = 0, skipped = 0;
 for (const l of src.lessons || []) {
   const unit = l.unit_id, from = l.video_file;
+  if (UNIT_FILTER && !UNIT_FILTER.has(unit)) continue;
   if (!unit || !from || !fs.existsSync(from)) { console.warn(`skip ${unit}: source missing`); continue; }
   const mp4 = path.join(outDir, unit + '.mp4'), jpg = path.join(outDir, unit + '.jpg');
   const size = fs.statSync(from).size;
@@ -43,11 +47,12 @@ for (const l of src.lessons || []) {
   units[unit] = { file: `video/${xx}/${unit}.mp4`, poster: `video/${xx}/${unit}.jpg`, section_id: l.section_id, title: l.title || null, lesson_number: l.lesson_number || null, duration: l.duration_seconds, size_bytes: size, sha256: l.sha256 || null, slides };
   if (DRY) continue;
   fs.mkdirSync(outDir, { recursive: true });
-  if (!(fs.existsSync(mp4) && fs.statSync(mp4).size > 0)) {
+  const needMp4 = FORCE || !(fs.existsSync(mp4) && fs.statSync(mp4).size > 0);
+  if (needMp4) {
     if (moovFirst(from)) { fs.copyFileSync(from, mp4); copied++; }
     else { const r = spawnSync(FFMPEG, ['-y', '-loglevel', 'error', '-i', from, '-c', 'copy', '-movflags', '+faststart', mp4], { encoding: 'utf8' }); if (r.status !== 0) { console.warn(`remux failed ${unit}: ${r.stderr.slice(-200)}`); continue; } remuxed++; }
   } else skipped++;
-  if (!fs.existsSync(jpg)) {
+  if (FORCE || !fs.existsSync(jpg)) {
     const r = spawnSync(FFMPEG, ['-y', '-loglevel', 'error', '-ss', '1.5', '-i', mp4, '-frames:v', '1', '-q:v', '4', '-vf', 'scale=960:-2', jpg], { encoding: 'utf8' });
     if (r.status === 0) posters++; else { console.warn(`poster failed ${unit}: ${r.stderr.slice(-160)}`); delete units[unit].poster; }
   }

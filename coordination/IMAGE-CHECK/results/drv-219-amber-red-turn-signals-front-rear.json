@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-219-amber-red-turn-signals-front-rear",
+  "file": "drv-219-amber-red-turn-signals-front-rear.png",
+  "title": "Electric Turn Signal Lamps: Amber/White in Front, Amber/Red in Rear, Visible in Sunlight",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "42fc5656652b9213317e5064a763bcec9fc16b0e2a9799cc3adee2f28508c15c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4147,
+  "usage": {
+    "completion_tokens": 1061,
+    "prompt_tokens": 2264,
+    "total_tokens": 3325,
+    "completion_tokens_details": {
+      "reasoning_tokens": 681
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007339,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-219-amber-red-turn-signals-front-rear",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Split studio views of same car front and rear, no shared lane and no opposing vehicles facing each other.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No steering wheel visible; windshield and rear glass are dark with no discernible cabin detail.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No intersection traffic signal present; only vehicle turn lamps shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Studio gray background with no road, lane, or centerline shown; no traffic direction to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; front and rear plates are blank white rectangles, emblems are blank ovals.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left panel shows blue sedan front with amber blinker lit, right panel shows rear with amber/red blinker lit, as described.",
+      "verdict": "MATCH"
+    },
+    "summary": "Clean split front-rear studio diagram correctly shows amber front and amber/red rear signals with zero text. Accept.",
+    "teaching_correct": {
+      "note": "Correctly teaches front amber and rear amber/red turn lamp colors and visibility; no wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split studio view of a blue sedan on gray background: left shows front with left amber headlamp blinker lit, right shows rear with right amber-red taillamp blinker lit, both plates blank white."
+  },
+  "error_body": null
+}

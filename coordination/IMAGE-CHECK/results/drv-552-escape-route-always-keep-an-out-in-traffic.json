@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-552-escape-route-always-keep-an-out-in-traffic",
+  "file": "drv-552-escape-route-always-keep-an-out-in-traffic.png",
+  "title": "Space Management: Always Keep an Open 'Escape Path' ('Leave Yourself an Out') in Case Traffic Ahead Stops Suddenly!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "c157452eba679214f499d8172f4fef1e203051dd469d02b986d77c8267990868",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5325,
+  "usage": {
+    "completion_tokens": 1125,
+    "prompt_tokens": 2262,
+    "total_tokens": 3387,
+    "completion_tokens_details": {
+      "reasoning_tokens": 734
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007609,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-552-escape-route-always-keep-an-out-in-traffic",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible cars and bicycle face forward away from camera in same direction; no oncoming or head-on pairing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only tinted rear exteriors shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Right foreground signal shows only bottom green lens lit, upper two lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "One-way forward flow; double-yellow on far left edge, white edge line and guardrail on far right, all lanes same direction.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, signal backplate, and license plates are blank solid shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan in foreground right with glowing green arrow showing open forward/right escape path around boxed-in traffic matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly visualizes keeping an open escape path with compliant road markings, blank signage, and single green signal.",
+    "teaching_correct": {
+      "note": "Shows generous following distance and open right escape lane for blue sedan; does not teach wrong priority or stopping position.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of multi-lane elevated highway at sunset with blue sedan in foreground right and glowing green arrow ahead in open right lane, other cars bunched left/center, cyclist far left, city skyline ahead."
+  },
+  "error_body": null
+}

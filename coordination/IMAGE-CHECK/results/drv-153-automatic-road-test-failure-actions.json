@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-153-automatic-road-test-failure-actions",
+  "file": "drv-153-automatic-road-test-failure-actions.png",
+  "title": "Automatic Driving Exam Disqualification: Striking Curb/Cone, Rolling Stop, or Examiner Intervention",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "4425cba567f98eb5b160cf2f3218f46556fc681ac687365d27b525e353ecf05a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6844,
+  "usage": {
+    "completion_tokens": 1371,
+    "prompt_tokens": 2275,
+    "total_tokens": 3646,
+    "completion_tokens_details": {
+      "reasoning_tokens": 962
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00867,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-153-automatic-road-test-failure-actions",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No opposing vehicles facing each other in same lane; panels show single SUV and interior view only.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Right panel shows left-hand drive: driver on left seat with steering wheel on left, examiner/passenger reaching from right seat.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Middle panel traffic signal shows two lit lenses: red on top and green on bottom illuminated simultaneously.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Middle and right panels show double-yellow centerline on left of travel lane and white edge/curb on right; left close-up consistent.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; stop sign, plates are blank shapes; white X marks are simple graphic icons, not text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "All three prompted errors present: left tire on knocked-down cone, center car past white stop bar, right examiner hand grabbing wheel.",
+      "verdict": "MATCH"
+    },
+    "summary": "Scene matches three automatic failures but traffic signal illegally shows both red and green lit, requiring REJECT.",
+    "teaching_correct": {
+      "note": "Panels correctly illustrate disqualifying errors with red-X marking; car past stop bar and examiner intervention teach correct concept.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Three red-bordered panels with red-X badges show a blue SUV tire crushing a knocked-down orange cone on the left, the SUV beyond a white stop bar at a blank stop sign and traffic light in the center, and a passenger grabbing the wheel from the left-seat driver on the right."
+  },
+  "error_body": null
+}

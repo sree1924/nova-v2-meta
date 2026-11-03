@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-242-sign-colors-meaning-palette-chart",
+  "file": "drv-242-sign-colors-meaning-palette-chart.png",
+  "title": "Standard U.S. Traffic Sign Color Meanings (Red, Yellow, Orange, Green, Blue, Brown, White, Fluorescent Yellow-Green)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "87f20dcd952fe87cccbcbe3f1a61dcae075f1b40731978a199df95c2f66ce568",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5072,
+  "usage": {
+    "completion_tokens": 1094,
+    "prompt_tokens": 2306,
+    "total_tokens": 3400,
+    "completion_tokens_details": {
+      "reasoning_tokens": 684
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007532,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-242-sign-colors-meaning-palette-chart",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible cars are rear-view in same direction; no oncoming vehicle facing another in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interiors or steering wheels shown; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Top-left panel traffic signal foreground left shows only top red lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "All road panels show vehicles on right side with double-yellow on left of lane and white edge/curb on right; no left-hand driving.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All 8 signs show only icons, license plates are blank rectangles; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "8 panels show all 8 requested colors with correct icons: red hand, yellow exclamation, orange cone, yellow-green children, white gavel, green arrow, blue bed/pump, brown tree/tent.",
+      "verdict": "MATCH"
+    },
+    "summary": "Clean 8-color chart matches prompt with zero text, correct US traffic geometry, single red signal, and correct color-meaning pairings.",
+    "teaching_correct": {
+      "note": "Color-to-meaning mapping is standard: red stop, yellow warning, orange work zone, fluorescent yellow-green school/ped, white regulatory, green guide, blue services, brown recreation.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Eight-panel widescreen chart, each panel pairs a large blank-icon sign in correct color with a scenic road background and a dark SUV seen from behind."
+  },
+  "error_body": null
+}

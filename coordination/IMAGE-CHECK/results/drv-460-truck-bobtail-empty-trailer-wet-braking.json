@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-460-truck-bobtail-empty-trailer-wet-braking",
+  "file": "drv-460-truck-bobtail-empty-trailer-wet-braking.png",
+  "title": "Bobtail Semi-Tractor (No Trailer) or Empty Trailer Actually Takes LONGER to Stop on Wet Pavement Than Expected!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "98f69ad524c32ac0af4c2ac2f191e085c08bdd5e78fbaa7e4f66137fa659b330",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4570,
+  "usage": {
+    "completion_tokens": 926,
+    "prompt_tokens": 2265,
+    "total_tokens": 3191,
+    "completion_tokens_details": {
+      "reasoning_tokens": 546
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006767,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-460-truck-bobtail-empty-trailer-wet-braking",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Red bobtail and SUV ahead both face forward in right lanes; oncoming pickup is across yellow line in opposite direction, not same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double line on left, white edge line and guardrail on right; traffic travels forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is blank white rectangle, no signage text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows rear view of red bobtail semi-tractor with no trailer on wet rainy highway, matching prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Wet-road bobtail scene matches title with correct US traffic layout and zero text, teaching longer stopping need.",
+    "teaching_correct": {
+      "note": "Shows bobtail tractor on wet pavement with spray and following gap to vehicle ahead, correctly implying reduced traction and longer stop.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a red bobtail semi-tractor without trailer driving in the right lane of a wet highway at sunset, with water spray, a silver SUV ahead, and oncoming traffic across the yellow line on the left."
+  },
+  "error_body": null
+}

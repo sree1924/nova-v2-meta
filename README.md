@@ -7,9 +7,12 @@ builder and author**, **muse-spark-1.3 as the only authoring model**, and a stri
 > Every learner-facing sentence in the app traces back through a ledger to one model attempt, its request, its raw
 > response, the validator receipt that accepted it, and the handbook page it cites. Nothing was hand-edited.
 
-**State of the lane (2026-10-28 00:00Z):** all 16 Utah handbook chapters built and verified — 48 modules, 374 flashcards,
-328 quiz items, 48 lessons / 335 slides, 32 practice forms; 1,509 narration clips minted; spoken recall live; harness
-`ALL CHECKS PASSED` on 244 learner routes.
+**State of the lane (2026-11-02):** Utah was the Model-API centerpiece (16/16 chapters, 371 receipted calls, $44.09). The same
+belt then ran every US jurisdiction: **51/51 complete** — 745 chapters, 4,987 learning units (video → reading → narrated
+flashcards → quiz), 37,967 flashcards, 36,234 quiz items, 1,490 practice forms, 4,987 lesson videos, a 723-scene illustration
+library and 93 federal road signs. All 38,074 compiled facts were independently re-checked by `muse-spark-1.3` against their
+cited pages; every illustration passed a Meta vision review. Store: `store/` (Next/Clerk/Stripe, $9.99 one state one year,
+chapter 1 free). Submission package: `submission/` (copy, evidence ledger, video script, repo-public checklist).
 
 ## What Muse did
 

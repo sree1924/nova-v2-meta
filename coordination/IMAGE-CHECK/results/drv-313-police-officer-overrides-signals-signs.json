@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-313-police-officer-overrides-signals-signs",
+  "file": "drv-313-police-officer-overrides-signals-signs.png",
+  "title": "Traffic Control Hierarchy: A Uniformed Officer's Hand Direction Always Overrides Signs & Green Lights!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "f8cdd88987fa5dbf439b700a6d402c64d9c4de8584993176b84a90c8a57eeb3a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4904,
+  "usage": {
+    "completion_tokens": 1064,
+    "prompt_tokens": 2275,
+    "total_tokens": 3339,
+    "completion_tokens_details": {
+      "reasoning_tokens": 689
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007366,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-313-police-officer-overrides-signals-signs",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No lane contains two opposing vehicles facing each other; through traffic ahead and cross traffic left are separated.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel is visible; view is from outside over blue hood.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal shows only green lit with red/yellow dark; side pole signal shows no lit lens, so at most one lit.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Ego lane has double-yellow centerline on left and white stop/edge lines, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; signs, signals, and vehicles are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Officer in vest/white gloves in intersection center holds STOP palm to foreground blue sedan while overhead light is green and sedan is stopped.",
+      "verdict": "MATCH"
+    },
+    "summary": "Officer-stop-over-green-light hierarchy correctly depicted with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Clearly teaches officer overrides green light; ego car stopped at stop line obeying officer.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "View over a blue sedan hood stopped at an intersection where a uniformed officer in vest and white gloves holds a stop palm toward camera, with a green overhead traffic light behind him."
+  },
+  "error_body": null
+}

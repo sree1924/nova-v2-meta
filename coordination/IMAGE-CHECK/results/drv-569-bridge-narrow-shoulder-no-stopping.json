@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-569-bridge-narrow-shoulder-no-stopping",
+  "file": "drv-569-bridge-narrow-shoulder-no-stopping.png",
+  "title": "Bridges Without Shoulders: Extra Vigilance & Never Stop Except in Actual Traffic Blockage",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "7fe5b28efa7562489dc09481835dd08938459ac19fab62da3247c71ebd51e37a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3838,
+  "usage": {
+    "completion_tokens": 803,
+    "prompt_tokens": 2249,
+    "total_tokens": 3052,
+    "completion_tokens_details": {
+      "reasoning_tokens": 428
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006224,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-569-bridge-narrow-shoulder-no-stopping",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All three visible vehicles in foreground and background travel same direction away from viewer; no oncoming vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exterior rear views of sedans.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in bridge scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles travel on right; yellow line on left of travel lane, white edge line and concrete parapet on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; license plates are blank white rectangles, no signs with text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Long water-crossing causeway bridge with concrete parapets tight to white edge line, sedans maintaining forward motion with gaps, matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Bridge scene with correct US right-hand geometry, zero text, no violations, correctly teaches steady movement with no stopping on shoulderless span.",
+    "teaching_correct": {
+      "note": "Shows continuous flow with generous gaps and no stopped vehicle on narrow bridge, correctly teaching never stop except in blockage.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Three cars viewed from behind driving forward across a long causeway bridge over blue water toward a city skyline, with concrete parapets tight to the roadway on both sides."
+  },
+  "error_body": null
+}

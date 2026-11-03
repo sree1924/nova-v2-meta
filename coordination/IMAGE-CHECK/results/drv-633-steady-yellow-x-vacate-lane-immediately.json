@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-633-steady-yellow-x-vacate-lane-immediately",
+  "file": "drv-633-steady-yellow-x-vacate-lane-immediately.png",
+  "title": "Overhead Steady Yellow 'X' Signal: Lane Direction Is About to Turn Red — Safely Vacate This Lane Immediately!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "df18b9b19932c3f7d23d49c5037d2071aa9004dbf8885831a52b18a5f10a5774",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5460,
+  "usage": {
+    "completion_tokens": 1196,
+    "prompt_tokens": 2261,
+    "total_tokens": 3457,
+    "completion_tokens_details": {
+      "reasoning_tokens": 786
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007909,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-633-steady-yellow-x-vacate-lane-immediately",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles travel forward in same direction on bridge; no opposing vehicles facing head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of vehicles shown; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Middle gantry shows single amber X lit, right gantry shows single green arrow lit; no signal displays more than one lit lens.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic travels forward on right side of bridge with double-yellow line on left and white edge line/curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plates are blank gray shapes and gantry signals are symbols only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Gantry shows amber X over middle lane and green arrow over right lane, with foreground silver sedan showing right signal while leaving middle lane, matching title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows steady yellow X vacate maneuver with proper US traffic, blank plates, and single-indication lane signals.",
+    "teaching_correct": {
+      "note": "Silver sedan with right blinker vacating yellow-X middle lane toward green-arrow lane teaches immediate safe vacate correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Daylight view from behind cars on a suspension bridge with an overhead gantry showing a dark left signal, amber X in center, and green down-arrow on right; a foreground silver sedan with right turn signal lit moves out of the middle lane."
+  },
+  "error_body": null
+}

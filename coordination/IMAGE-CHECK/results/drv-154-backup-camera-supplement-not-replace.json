@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-154-backup-camera-supplement-not-replace",
+  "file": "drv-154-backup-camera-supplement-not-replace.png",
+  "title": "Rearview Backup Camera & Sensors Supplement — Never Replace — Turning Your Head to Look",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "762c7ebcabdaee39d1c51d5dd06e4f88bde416b8417da1b35b3b4e95f05ae606",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9075,
+  "usage": {
+    "completion_tokens": 1558,
+    "prompt_tokens": 2266,
+    "total_tokens": 3824,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1158
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009454,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-154-backup-camera-supplement-not-replace",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only ego vehicle interior shown; no other vehicles in parking lot view, so no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Left-hand drive cabin: driver and steering wheel on left side of image, center screen on right.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in interior or parking lot view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Interior parked in lot, no public travel lane with centerline/edge lines to judge right-hand traffic; no wrong-side driving shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; dash screen shows only graphic image with colored guide lines, controls are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows left-seat driver turned over right shoulder with hand on passenger seat while dash backup camera is visible as supplement, matching title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Interior shows proper head-turn backing behavior with camera as helper, no text or RHD or traffic errors.",
+    "teaching_correct": {
+      "note": "Correctly teaches turning head over right shoulder to check directly while treating camera view as secondary helper.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A woman in a pink hoodie sits in the left driver seat with her right hand on the passenger seat, turned to look over her right shoulder, while the center dash screen shows a backup camera view with colored guide lines and an empty palm-tree parking lot is visible ahead."
+  },
+  "error_body": null
+}

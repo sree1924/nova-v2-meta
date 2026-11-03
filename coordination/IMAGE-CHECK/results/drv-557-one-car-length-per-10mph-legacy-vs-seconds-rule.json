@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-557-one-car-length-per-10mph-legacy-vs-seconds-rule",
+  "file": "drv-557-one-car-length-per-10mph-legacy-vs-seconds-rule.png",
+  "title": "Time-Interval Following Rule (3–4 Seconds) Automatically Scales Distance as Speed Rises",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1e8895f089d88d691cafbe1706c85339c1b9416f228e2acf72d851dd59958c37",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4528,
+  "usage": {
+    "completion_tokens": 985,
+    "prompt_tokens": 2255,
+    "total_tokens": 3240,
+    "completion_tokens_details": {
+      "reasoning_tokens": 604
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007005,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-557-one-car-length-per-10mph-legacy-vs-seconds-rule",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in both tiers travel same direction in same lane following; no oncoming facing vehicles in lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Both circular insets on right show left-hand-drive cabins with driver on left holding left-side steering wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Single traffic signal top-center shows only green lens lit, upper lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both tiers show following lanes with yellow line on far left and white edge line on right, vehicles driving on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; license plates are blank white rectangles and road markings are blank red bars.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Two-tier diagram shows short gap in top city street and much longer gap in bottom highway, illustrating distance scaling with speed.",
+      "verdict": "MATCH"
+    },
+    "summary": "Two-tier following-distance diagram correctly shows short city gap and long highway gap with all US traffic and zero-text rules satisfied.",
+    "teaching_correct": {
+      "note": "Clearly teaches 3-4 second interval scales physical distance with speed; following geometry and priority are correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split two-panel illustration with top city street and bottom mountain highway, each showing a blue SUV following a white SUV with a red gap overlay, plus right-side circular driver-view insets."
+  },
+  "error_body": null
+}

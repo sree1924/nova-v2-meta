@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-137-abandoned-vehicle-tow-impound",
+  "file": "drv-137-abandoned-vehicle-tow-impound.png",
+  "title": "Abandoned Vehicle Left on Highway Shoulder: Tagging & Tow Impound Rule",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "25b39f3098165ad5516f4f14548c4d3e6662edd3dcd4f7931203219840962b9c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4371,
+  "usage": {
+    "completion_tokens": 757,
+    "prompt_tokens": 2270,
+    "total_tokens": 3027,
+    "completion_tokens_details": {
+      "reasoning_tokens": 377
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006055,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-137-abandoned-vehicle-tow-impound",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles face same direction of travel; tow truck and sedan on shoulder, background traffic moving away in lane, no head-on facing.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; cabins shown only as dark exterior windows.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway shoulder scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline on far left, white fog line on right, tow operation on right shoulder, traffic traveling on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank gray rectangles, tag is blank orange square, no letters, numbers or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows dusty long-term sedan with bright orange side-window tag loaded on yellow flatbed on daylight highway right shoulder as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Highway shoulder tow of dusty tagged sedan matches prompt with all applicable visual rules passing.",
+    "teaching_correct": {
+      "note": "Correctly teaches abandoned vehicle on shoulder being secured for tow impound with proper shoulder placement, cones and operator action.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A dusty gray sedan with a blank orange tag on its rear side window is chained on a yellow flatbed tow truck parked on the right highway shoulder while a worker secures it and cones mark the lane behind."
+  },
+  "error_body": null
+}

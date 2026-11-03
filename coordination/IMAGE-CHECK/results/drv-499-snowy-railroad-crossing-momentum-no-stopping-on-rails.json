@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-499-snowy-railroad-crossing-momentum-no-stopping-on-rails",
+  "file": "drv-499-snowy-railroad-crossing-momentum-no-stopping-on-rails.png",
+  "title": "Crossing Railroad Tracks in Snow: Check Clear First, Keep Steady Momentum so You Don't Get Stuck on the Rails!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "deed483e8ce1ffc4b3c281ede394d5a3eccead4e2f0f200a61a2b2c3be64a455",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8274,
+  "usage": {
+    "completion_tokens": 1433,
+    "prompt_tokens": 2476,
+    "total_tokens": 3909,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1015
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009185,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-499-snowy-railroad-crossing-momentum-no-stopping-on-rails",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "SUV in foreground faces left across tracks; distant red car in background on curving road does not face it head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Side windows show driver silhouette but no steering wheel is visible to judge left/right position.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Right-side crossing signal in mid-right has both red lenses lit simultaneously; left foreground signal has one lit. More than one lit lens on same signal head.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "No left-hand traffic shown; road with yellow centerline at bottom and vehicles not driving on left.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Crossbucks, plates, and small sign shapes are blank; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows snowy rural grade crossing with SUV rolling over rails, but crossing displays active stop condition with flashing reds and lowered gate, not the clear tracks described.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Active railroad warning violated: right signal shows two lit reds and gate is down while SUV crosses, teaching to proceed against flashing red.",
+    "teaching_correct": {
+      "note": "Teaches opposite of safe rule: SUV proceeds across rails under flashing red lights with gate down instead of stopping clear, despite title to check clear first.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "A dark SUV crosses snow-covered railroad tracks at sunset between two X-crossbuck posts with flashing red lights, with a red car on the snowy road in the background."
+  },
+  "error_body": null
+}

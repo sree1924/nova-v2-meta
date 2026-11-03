@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-322-broken-white-vs-solid-white-vs-double-white",
+  "file": "drv-322-broken-white-vs-solid-white-vs-double-white.png",
+  "title": "White Lane Lines: Broken White (Change Permitted), Single Solid White (Stay in Lane), Double Solid White (Crossing Prohibited!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1d83722f1ddbb703106e652f5574b113be2d72c71a31274aa61a3e3780511346",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4494,
+  "usage": {
+    "completion_tokens": 1158,
+    "prompt_tokens": 2289,
+    "total_tokens": 3447,
+    "completion_tokens_details": {
+      "reasoning_tokens": 737
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007783,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-322-broken-white-vs-solid-white-vs-double-white",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in all three panels face the same forward/north direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Aerial exterior view only; no car interiors or steering wheels are visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals are present in the aerial diagram.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow line on left edge and white edge on right in all panels; all traffic moves forward in same direction consistent with US right-hand layout.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plates blank; green check and red X are graphic icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Three-zone aerial diagram shows left broken white with green lane-change arrow, middle single solid white with straight-ahead staying arrow, right double solid white with red crossing arrow blocked by red X, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Three-zone aerial correctly teaches broken-white permitted, single-solid stay, double-solid prohibited with correct US lane colors and no rule violations.",
+    "teaching_correct": {
+      "note": "Correctly teaches permitted change on broken white, staying in lane on single solid, and prohibited crossing on double solid with appropriate green-check and red-X cues.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down three-panel highway diagram with red, blue, and white cars facing north; left panel has broken white divider with green curving arrow, middle has solid white divider with straight white arrow, right has double solid white divider with red dashed arrow and red X."
+  },
+  "error_body": null
+}

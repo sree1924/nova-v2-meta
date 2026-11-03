@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-421-motorcycle-never-share-lane-side-by-side",
+  "file": "drv-421-motorcycle-never-share-lane-side-by-side.png",
+  "title": "Motorcycles Entitled to Full Traffic Lane Width: NEVER Squeeze Into the Same Lane Beside a Motorcyclist!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8ea1244447c900391d2c902c45aa4f0504a4f39d235f6960c238168e35197f5b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4656,
+  "usage": {
+    "completion_tokens": 1111,
+    "prompt_tokens": 2286,
+    "total_tokens": 3397,
+    "completion_tokens_details": {
+      "reasoning_tokens": 681
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007579,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-421-motorcycle-never-share-lane-side-by-side",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles seen from rear traveling same direction; no oncoming or head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of sedan, SUV, and motorcyclist; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals, stoplights, or signal heads present in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show forward travel with solid yellow line on far left, dashed white lane divider in center, and white edge/curb on far right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles; no letters, numbers, or words visible. Green check and red X are graphic icons as directed, not text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left panel shows bike owning full right lane with sedan fully in adjacent left lane; right panel shows SUV squeezing beside bike in same lane with red X, exactly as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct two-panel comparison teaches full-lane right for motorcycles with proper US lane markings and blank plates; no rule violations.",
+    "teaching_correct": {
+      "note": "Left green-check models correct full-lane use and adjacent-lane pass; right red-X correctly condemns side-by-side sharing of one lane.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split sunset highway view: left foreground motorcyclist in right lane with silver sedan ahead in left lane under green check; right foreground same motorcyclist squeezed side-by-side with dark SUV in same lane under red X."
+  },
+  "error_body": null
+}

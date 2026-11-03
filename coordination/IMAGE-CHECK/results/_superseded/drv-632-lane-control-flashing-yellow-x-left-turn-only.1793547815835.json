@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-632-lane-control-flashing-yellow-x-left-turn-only",
+  "file": "drv-632-lane-control-flashing-yellow-x-left-turn-only.png",
+  "title": "Overhead Flashing Yellow 'X' Lane-Control Signal: Use This Center Reversible Lane ONLY for Turning Left (With Caution)!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "48cf3df9661ebce2d5637857e156f6dff1800518c81057723759517ae79641a4",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5752,
+  "usage": {
+    "completion_tokens": 1181,
+    "prompt_tokens": 2283,
+    "total_tokens": 3464,
+    "completion_tokens_details": {
+      "reasoning_tokens": 781
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007873,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-632-lane-control-flashing-yellow-x-left-turn-only",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No two vehicles face each other head-on within the same lane; opposing flows are separated by double yellow.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible to judge drive side.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Each gantry head shows only one lit symbol: red X left, amber X center, green arrow right, with no extra lit lenses.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Through traffic keeps right with double-yellow on left of foreground lane and white edge line/curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; license plates are blank gray rectangles.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Center amber X and side signals match, but blue sedan is shown going straight in center lane, not pausing to make a careful left into a side street.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Center-lane-through movement teaches opposite of flashing-yellow-X left-turn-only rule; reject for wrong teaching and partial scene match.",
+    "teaching_correct": {
+      "note": "Blue sedan uses the flashing-yellow-X center lane for straight-through travel instead of left-turn-only with caution, teaching the opposite maneuver.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Overhead gantry shows red X on left, amber X in center, green arrow on right over a multi-lane arterial; a blue sedan drives straight ahead in the center foreground lane with a silver SUV in the right lane."
+  },
+  "error_body": null
+}

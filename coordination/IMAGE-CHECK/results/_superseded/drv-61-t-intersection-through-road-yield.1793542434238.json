@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-61-t-intersection-through-road-yield",
+  "file": "drv-61-t-intersection-through-road-yield.png",
+  "title": "T-Intersection: Terminating Side-Road Driver Yielding to Through-Street Traffic",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "272d2c5dbcf340e50b8e12869c13e1a63a9c5c7e6114574834a03d2b19cc5810",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9935,
+  "usage": {
+    "completion_tokens": 1717,
+    "prompt_tokens": 2294,
+    "total_tokens": 4011,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1299
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.010165,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-61-t-intersection-through-road-yield",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Silver sedan faces away from viewer and red pickup faces right; they are on different intersecting roads, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; exterior rear and side views only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Red pickup facing right (left-to-right) is positioned north of the double-yellow centerline in the north lane; for US right-hand traffic eastbound must be south of center with yellow on its left.",
+        "verdict": "FAIL"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; stop sign is blank red octagon and license plate is blank white rectangle.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows T-intersection with stopped silver sedan on terminating bottom road yielding to red pickup on horizontal through road, as titled.",
+      "verdict": "MATCH"
+    },
+    "summary": "Through-road pickup is shown driving on the wrong (left) side of the centerline, violating US right-hand traffic and teaching wrong lane position, requiring rejection despite correct yield setup and zero text.",
+    "teaching_correct": {
+      "note": "Terminating driver correctly stopped before stop line yielding, but through pickup traveling left-to-right on the left side of the yellow center teaches wrong-side driving.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Silver sedan stopped at a white stop line on a bottom side street with brake lights lit, facing a horizontal through highway where a red pickup travels left-to-right above the double-yellow centerline."
+  },
+  "error_body": null
+}

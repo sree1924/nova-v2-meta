@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-350-multi-lane-same-direction-merging-into-center",
+  "file": "drv-350-multi-lane-same-direction-merging-into-center.png",
+  "title": "Three-Lane Highway Simultaneous Lane Change Into Center Lane: Left-Lane Car Yields to Right-Lane Car",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "03a4ef3f0c48e3d2fa4285dc7aa680c780aee5673508538054b6a7cedd5b7500",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4832,
+  "usage": {
+    "completion_tokens": 1113,
+    "prompt_tokens": 2280,
+    "total_tokens": 3393,
+    "completion_tokens_details": {
+      "reasoning_tokens": 715
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00758,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-350-multi-lane-same-direction-merging-into-center",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both red car on left and white car on right face same forward direction in separate lanes; no head-on facing.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior roofs and rears visible from aerial rear view; no steering wheel or cabin interior shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal gantry or intersection signal present in highway view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "All traffic forward same direction with yellow line on far left and white edge line/guardrail on far right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, words, plates or signs with text visible; road and cars blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows two cars in outer lanes signaling to open center lane, but both remain side-by-side with no left-car easing back to yield.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Simultaneous merge depicted but required left-yields-to-right offset missing, needs human review.",
+    "teaching_correct": {
+      "note": "Shows symmetric simultaneous move with equal position; does not demonstrate left-lane car yielding back to right-lane car, so learner could infer both may enter together.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Aerial rear view of a 3-lane one-way highway with a red sedan in the left lane and white SUV in the right lane, both with amber side signals on and blue arrows pointing into the empty center lane."
+  },
+  "error_body": null
+}

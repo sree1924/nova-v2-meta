@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-424-motorcycle-surface-hazards-bridge-grates-gravel-tracks",
+  "file": "drv-424-motorcycle-surface-hazards-bridge-grates-gravel-tracks.png",
+  "title": "Road Hazards Minor to Cars Are Deadly to Motorcycles: Potholes, Loose Gravel, Wet Leaves, Steel Bridge Grates & Rail Tracks",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "0d0af9f740aa719d8779fada15bd79c9d8f3f29a5e9059929e711ae3acfb3f8d",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6005,
+  "usage": {
+    "completion_tokens": 1036,
+    "prompt_tokens": 2287,
+    "total_tokens": 3323,
+    "completion_tokens_details": {
+      "reasoning_tokens": 649
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007262,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-424-motorcycle-surface-hazards-bridge-grates-gravel-tracks",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Motorcycle and sedan travel same direction away from viewer in same lane, no oncoming vehicle in lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior top view of blue sedan and motorcyclist shown, no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in overhead road scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles travel to the right of double-yellow centerline with white edge line on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license areas are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows trailing sedan behind motorcyclist with shoulder pothole and loose gravel on right, but wet autumn leaves, bridge grates, and rail tracks from title/prompt are absent.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct traffic geometry and zero text, but key hazards (leaves, bridge grates, tracks) missing, requires human review.",
+    "teaching_correct": {
+      "note": "Shows motorcycle maintaining lane while avoiding shoulder pothole/gravel with safe following car, no incorrect positioning taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Overhead view of a motorcyclist riding ahead of a blue sedan in the right lane, with a pothole and loose gravel scattered on the right shoulder."
+  },
+  "error_body": null
+}

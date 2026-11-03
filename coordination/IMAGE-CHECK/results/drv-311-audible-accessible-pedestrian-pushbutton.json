@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-311-audible-accessible-pedestrian-pushbutton",
+  "file": "drv-311-audible-accessible-pedestrian-pushbutton.png",
+  "title": "Accessible Pedestrian Pushbutton (APS) With Chirp/Vibrotactile Arrow for Visually Impaired Walkers",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "a45f8f3fd6c5ee3b91cc4f1b0672cdfa2ecaa31be485975616a70d07731f5c00",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4451,
+  "usage": {
+    "completion_tokens": 1122,
+    "prompt_tokens": 2260,
+    "total_tokens": 3382,
+    "completion_tokens_details": {
+      "reasoning_tokens": 731
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007594,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-311-audible-accessible-pedestrian-pushbutton",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No vehicles visible in scene; no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only sidewalk and street.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Left traffic light shows one green lens lit, others dark; center ped signal shows one white walker lit, upper lens dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Road shows double-yellow centerline on left, white edge line/curb on right; no wrong-side driving.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; pushbutton shows only arrow icon, signals show icons/lights, no text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Man with white cane on tactile pad touches yellow corner APS with cyan soundwaves and tactile arrow next to zebra crosswalk, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Sidewalk APS close-up matches prompt with correct US geometry and single-lit signals; no text violations.",
+    "teaching_correct": {
+      "note": "Shows correct APS use: cane user presses button, vibrotactile arrow and chirp cues, Walk icon displayed, waiting on detectable pad.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A man with sunglasses and white cane stands on a yellow tactile pad on a sunny right-side sidewalk, pressing a yellow pushbutton on a pole emitting cyan soundwaves, with a zebra crosswalk and lit Walk signal behind him."
+  },
+  "error_body": null
+}

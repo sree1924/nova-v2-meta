@@ -2,7 +2,9 @@ import { BRAND, CURRENCY, PRICE_CENTS, PRODUCT_TAG } from "./product";
 import { isStateCode } from "./catalog";
 
 export function purchaseMetadata(userId: string, state: string): Record<string, string> {
-  return { state, userId, brand: BRAND, product: PRODUCT_TAG };
+  // `group` is what the fleet's Stripe webhook relay (nova-webhook-relay) routes on — the shared
+  // NovaPrep Stripe account is capped at 16 endpoints, so this store receives events via the relay.
+  return { state, userId, brand: BRAND, product: PRODUCT_TAG, group: BRAND };
 }
 
 /** A Checkout Session is fulfillable only if every field matches what /api/checkout creates. */

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-389-valet-commercial-freight-curb-bay",
+  "file": "drv-389-valet-commercial-freight-curb-bay.png",
+  "title": "Commercial Freight Loading Zones Reserved for Active Delivery Vehicles",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "3e411e73b4cb3b829bb1e28ee91908d24c3761dda8dc47c51015e1cb00cca699",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4910,
+  "usage": {
+    "completion_tokens": 1071,
+    "prompt_tokens": 2240,
+    "total_tokens": 3311,
+    "completion_tokens_details": {
+      "reasoning_tokens": 702
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007352,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-389-valet-commercial-freight-curb-bay",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one parked van visible, no opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior of van shown, no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Background signal on left shows single green lit lens, others dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double yellow centerline on left, white lane line on right with yellow curb bay on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Yellow sign shows only hand-truck icon, no letters, numbers, or words anywhere visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Van actively unloading in yellow curb bay with hand-truck sign matches, but passenger cars continuing past to regular stalls from prompt are absent, road is empty.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean US traffic and zero-text illustration of active freight loading, but missing passing passenger cars element, needs human review.",
+    "teaching_correct": {
+      "note": "Van parked in yellow bay actively unloading correctly teaches commercial loading zone use with no geometry errors.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A white delivery van parked in a yellow-painted curb bay on the right sidewalk with rear doors open full of boxes, while a driver pushes a hand-truck with parcels beside a yellow hand-truck icon sign."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-254-narrow-bridge-one-lane-bridge-yield",
+  "file": "drv-254-narrow-bridge-one-lane-bridge-yield.png",
+  "title": "Narrow Bridge & One-Lane Rural Bridge: Slow Down & Yield to Vehicle Already on Bridge",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1f60652b8fdfcd9a99a47f0d931d81fcc71dc3e28fbebde3ce5967321becda5f",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3298,
+  "usage": {
+    "completion_tokens": 854,
+    "prompt_tokens": 2268,
+    "total_tokens": 3122,
+    "completion_tokens_details": {
+      "reasoning_tokens": 440
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006464,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-254-narrow-bridge-one-lane-bridge-yield",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan stopped on near approach with rear to viewer and red pickup on bridge facing forward; they are in opposite directions but separated by yield position, not head-on inside same lane segment.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; blue sedan seen from rear exterior, red pickup windows dark with no cabin detail.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in rural bridge scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of blue sedan lane, white edge line and guardrail on right; blue sedan travels on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, chevron boards, and license plate are blank shapes with no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows narrow steel-truss one-lane bridge over creek with blue sedan yielding on near right approach while red pickup already on deck exits.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct yield-at-one-lane-bridge illustration with proper US markings and zero text; blue car waits while oncoming truck clears bridge.",
+    "teaching_correct": {
+      "note": "Teaches correct yield behavior: approaching blue sedan stopped before bridge with brake lights on while vehicle already on bridge has priority.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan viewed from behind stopped on the right approach to a narrow steel-truss one-lane bridge over a creek, while a red pickup already on the bridge drives toward the viewer to exit."
+  },
+  "error_body": null
+}

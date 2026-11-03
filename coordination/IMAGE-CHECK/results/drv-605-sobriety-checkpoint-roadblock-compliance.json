@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-605-sobriety-checkpoint-roadblock-compliance",
+  "file": "drv-605-sobriety-checkpoint-roadblock-compliance.png",
+  "title": "Lawful Roadside Sobriety / License Checkpoint: Slow Smoothly, Roll Window Down & Follow Officer Directions",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "eeb69e50d72a0173935851e7c0f636fd3c01dae6a9148945edc9a7fe735d20d8",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5088,
+  "usage": {
+    "completion_tokens": 1079,
+    "prompt_tokens": 2256,
+    "total_tokens": 3335,
+    "completion_tokens_details": {
+      "reasoning_tokens": 676
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007406,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-605-sobriety-checkpoint-roadblock-compliance",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible sedans and patrol cars face the same direction toward foreground; no opposing vehicles head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No steering wheel or car cabin interior is clearly visible; driver window is open but interior details absent.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal at top center shows only green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Queued lane has double yellow centerline on left side of image and curb/sidewalk with cones on right; traffic flows on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, barricade panel, plates and vests appear as blank shapes with no legible letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Evening cone lane with floodlights, patrol strobes, queued sedans stopping one-by-one to speak with uniformed officers matches checkpoint prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Checkpoint scene correctly depicts slow queue, window down, officer contact with proper US traffic, blank signage, and single green signal.",
+    "teaching_correct": {
+      "note": "Shows calm stopped sedan with window down speaking to officer in coned lane, teaching slow, cooperate and follow directions correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Evening boulevard at sunset with orange cones forming a lane where a gray sedan is stopped in foreground speaking to a uniformed officer, with more cars, officers, patrol cars with strobes and floodlights behind."
+  },
+  "error_body": null
+}

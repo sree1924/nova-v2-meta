@@ -1,0 +1,56 @@
+# R2 upload status — bucket plp-app (started 2026-11-03T04:31:14.061Z)
+
+| when (UTC) | unit | files | GB | took | check |
+|---|---|---:|---:|---|---|
+| 04:31Z | shared | 831 | 0.13 | 0m40s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | nd | 2,478 | 1.57 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | tx | 2,694 | 2.49 | 0m1s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | ca | 2,845 | 2.24 | 0m1s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | fl | 3,375 | 2.37 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | ny | 2,930 | 2.75 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | pa | 5,935 | 2.76 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | il | 5,444 | 3.41 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | oh | 3,293 | 1.90 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | ga | 4,228 | 3.03 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | nc | 5,539 | 4.10 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | mi | 4,980 | 3.96 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:31Z | nj | 5,951 | 4.57 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | va | 3,067 | 2.25 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | wa | 4,548 | 3.94 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | az | 7,602 | 5.12 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ma | 7,568 | 4.20 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | tn | 7,893 | 4.46 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | in | 3,639 | 2.11 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | mo | 6,530 | 4.94 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | md | 3,965 | 3.05 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | wi | 4,013 | 2.67 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | co | 4,536 | 4.01 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | mn | 5,757 | 3.74 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | sc | 5,183 | 3.44 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | al | 4,461 | 2.94 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | la | 6,534 | 2.78 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ky | 2,785 | 1.82 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | or | 4,221 | 2.57 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ok | 2,619 | 1.81 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ct | 3,191 | 3.21 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ia | 4,213 | 3.04 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ms | 4,414 | 2.63 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ar | 4,384 | 2.47 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ks | 8,077 | 5.11 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | nv | 4,161 | 2.35 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | nm | 4,154 | 2.80 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ne | 14,420 | 29.33 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | wv | 4,633 | 2.88 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | id | 6,571 | 4.45 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | hi | 5,067 | 3.53 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | nh | 3,094 | 1.89 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | me | 5,925 | 2.40 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | mt | 5,536 | 2.43 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ri | 5,405 | 3.16 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | de | 9,133 | 7.46 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | sd | 6,450 | 4.65 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ak | 4,803 | 2.86 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | dc | 4,101 | 2.32 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | vt | 3,286 | 2.20 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | wy | 6,052 | 4.48 | 0m0s | rclone rc=1; FAIL (rc 1) |
+| 04:32Z | ut | 2,631 | 1.63 | 0m0s | rclone rc=1; FAIL (rc 1) |

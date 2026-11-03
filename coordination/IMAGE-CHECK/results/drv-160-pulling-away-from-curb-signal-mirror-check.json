@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-160-pulling-away-from-curb-signal-mirror-check",
+  "file": "drv-160-pulling-away-from-curb-signal-mirror-check.png",
+  "title": "Entering Traffic From Right Curb: Left Signal, Mirror + Left Shoulder Check & Yield",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "35216d728aab24bec1ac7e22c456b111d6b739d26be324778a4cdba6a30cd9c0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8546,
+  "usage": {
+    "completion_tokens": 1851,
+    "prompt_tokens": 2481,
+    "total_tokens": 4332,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1443
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.010968,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-160-pulling-away-from-curb-signal-mirror-check",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both blue sedan foreground right and red sedan background left are viewed from rear and face away in same direction; no head-on facing.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Driver visible leaning from left front window of blue car; no steering wheel on right side visible.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead gantry signals in background are dark with zero lit lenses; no intersection signal shows multiple lights.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue car is correctly at right curb with double-yellow to its left, but red car ahead is to the left of the double-yellow centerline while traveling same direction away, placing it driving on the left side.",
+        "verdict": "FAIL"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles and overhead sign is blank; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan at right curb flashes left amber, driver looks left over shoulder while red car passes in lane, matching entering traffic with signal, check and yield.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct curb-entry behavior shown but red through-car is placed left of double-yellow going same direction, violating US right-hand traffic.",
+    "teaching_correct": {
+      "note": "Signal, shoulder check, and yield posture are correct for pulling from right curb.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan parked at the right curb viewed from behind with left amber flashing while driver leans out looking left, and a red sedan passing ahead to the left of the double-yellow lines."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-179-fleeing-eluding-police-felony",
+  "file": "drv-179-fleeing-eluding-police-felony.png",
+  "title": "Promptly Pulling Right for Law Enforcement vs. Felony Fleeing / Eluding",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "c9903fff4e29a69d34f1de713c59fdc57b1d499e7c4fb1d2d0da3c1fbce78149",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8169,
+  "usage": {
+    "completion_tokens": 1632,
+    "prompt_tokens": 2259,
+    "total_tokens": 3891,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1234
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00976,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-179-fleeing-eluding-police-felony",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both vehicles viewed from rear facing same forward direction, no oncoming vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views shown, no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No intersection traffic signal present; police lightbar and vehicle tail lamps are not traffic signals.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles on right shoulder, double-yellow centerline on left of frame, white edge line and paved shoulder with guardrail on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Both license plates are blank white rectangles, no letters, numbers, or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue sedan pulled onto right shoulder ahead of patrol SUV with red-and-blue lightbar as described, though turn indication appears on left rear rather than right.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct pull-to-right composition with proper US road markings and blank plates, but left rear amber lit instead of right signal warrants human check.",
+    "teaching_correct": {
+      "note": "Teaches pulling right correctly, but blue sedan shows amber lit on left rear (driver side) rather than right side, which could teach wrong signal direction for a right pull-over.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Rear view of a blue sedan pulled onto the right highway shoulder ahead of a black-and-white patrol SUV with flashing red-and-blue roof lights at sunset by a lake."
+  },
+  "error_body": null
+}

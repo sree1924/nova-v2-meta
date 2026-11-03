@@ -149,3 +149,33 @@ Seeded 2026-10-28T00:58:50.714Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-29T16:40:05.907Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:67 for 19A.units (sec09-handling-emergencies) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
 
 - 2026-10-29T16:40:06.441Z lineage reset → 2026-10-28-rdmv-fl-class-e:lineage:68 for 19A.units (sec11-sharing-the-road-emergency-golf-carts) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T19:26:42.235Z JAM FACTFIX sec05-R07 (sec05-your-vehicle): targeted source-supported C2 correction and assigned descendants only; Sol gpt-6.1-sol subscription author, Meta API validation-only. Executor 01a1849b-9e9f-70b1-8371-c990ab8fd164.
+
+- 2026-10-29T19:32:53.631Z FACTFIX STOP sec05-R07: native stage-policy HOLD before attempt/call; generated approval basename GO-FACTFIX-02... violates required GO-02.dossier_sections- prefix. Draft passed; no compile/descendant dispatch/API validation. Own claim removed, own unconsumed outbox archived byte-exact D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\sources\private\factfix\unconsumed-outbox-0a96ef9564eeba980516dd3a79644b370048c384825e01829213ffd1d0a8a0fa.json; no automatic retry.
+
+- 2026-10-29T19:39:20.677Z FACTFIX RESUME sec05-R07: root-authorized own unaccepted GO filename repair; old zero-attempt HOLD and all bytes preserved. Same proof/baseline/scope; no new nonce/lineage for metadata repair.
+
+- 2026-10-29T19:40:17.365Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec05-your-vehicle 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-03.combined_kg.json.
+
+- 2026-10-29T19:40:31.948Z FACTFIX genuine assigned correction nonce 04.cards:@sec05-your-vehicle 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-04.cards.json.
+
+- 2026-10-29T19:40:43.500Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec05-your-vehicle 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-06.exam_bank.json.
+
+- 2026-10-29T19:41:01.590Z FACTFIX genuine assigned correction nonce 05.sessions:@sec05-your-vehicle 0->1; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-05.sessions.json.
+
+- 2026-10-29T19:41:26.552Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec05-your-vehicle 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-05.card_scripts.json.
+
+- 2026-10-29T19:43:55.504Z FACTFIX join found stale embedded lineage refs (33/33 coverage). Genuine append-only binding reconciliation03/04/06+05 dependents; current learner bodies byte-preserved, original nativePASS/history retained; no successful request replay.
+
+- 2026-10-29T19:44:16.603Z FACTFIX genuine assigned correction nonce 03.combined_kg:@sec05-your-vehicle 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-03.combined_kg-2.json.
+
+- 2026-10-29T19:44:23.877Z FACTFIX genuine assigned correction nonce 04.cards:@sec05-your-vehicle 2->3; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-04.cards-3.json.
+
+- 2026-10-29T19:44:33.949Z FACTFIX genuine assigned correction nonce 06.exam_bank:@sec05-your-vehicle 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-06.exam_bank-2.json.
+
+- 2026-10-29T19:44:51.651Z FACTFIX genuine assigned correction nonce 05.sessions:@sec05-your-vehicle 1->2; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-05.sessions-2.json.
+
+- 2026-10-29T19:45:01.900Z FACTFIX genuine assigned correction nonce 05.card_scripts:@sec05-your-vehicle 2->3; D:\nova\fb-ai-hackathon\runs\2026-10-28-rdmv-fl-class-e\receipts\FACTFIX-NONCE-05.card_scripts-3.json.
+
+- 2026-10-29T19:51:37.679Z SOL FACTFIX PRIORITY TARGETS DONE sec05-R07: corrected native02/16 and actual false-claim03/04/06/05 descendants accepted; current refs/parity/completion33/33 PASS; one Meta validation SUPPORTED, priced $0.025466, independent:false. Applied flags/learner hold preserved for Fable export verification. Own claim released, history/debt/caps retained; no authoringAPI/audio/export/shell/publish.

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-205-airbag-on-off-switch-rear-facing-ban",
+  "file": "drv-205-airbag-on-off-switch-rear-facing-ban.png",
+  "title": "NEVER Place a Rear-Facing Infant Seat in Front of an Active Passenger Airbag",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "436e4efe96ad4ac3a444eb88cc9d63ad4b77a821ca38f10545e283f97511ea58",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5275,
+  "usage": {
+    "completion_tokens": 1090,
+    "prompt_tokens": 2267,
+    "total_tokens": 3357,
+    "completion_tokens_details": {
+      "reasoning_tokens": 702
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007466,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-205-airbag-on-off-switch-rear-facing-ban",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Roads seen through windshields show only same-direction cars ahead, no head-on facing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior is left-hand-drive: driver with steering wheel on left side in right panel; no steering wheel on right.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in either cabin view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Right panel forward road shows vehicle in right lane with yellow centerline to left; left panel road view shows no left-hand traffic violation.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; red X and green check are pure graphic icons, screens and exterior plates blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Split view matches prompt: left red-X front-seat infant carrier struck by dashboard airbag cloud, right green-check carrier buckled in back seat.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split comparison correctly teaches back-seat placement with no rule violations.",
+    "teaching_correct": {
+      "note": "Clearly shows front-seat airbag danger as wrong and back-seat placement as correct, matching title rule.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split car interior at sunset: left foreground shows rear-facing infant carrier on front passenger seat hit by expanding dashboard airbag under a red X; right foreground shows same carrier buckled in back seat under a green check with driver ahead."
+  },
+  "error_body": null
+}

@@ -6,6 +6,7 @@
 <title>Driver Handbook — Written-Test Prep</title>
 <link rel="stylesheet" href="styles.css">
 <script src="data-embedded.js" defer></script>
+<script src="signs-embedded.js" defer></script>
 <!-- State registry fallback for file:// opens. Per-state content and audio
      fallbacks (data-real-embedded.js, audio-manifest-embedded.js, …) are
      loaded on demand from each states.json entry, only when fetch fails. -->
@@ -41,7 +42,7 @@ const PICKER_NOTE = "REAL — driver handbook courses, belt-validated, audit pen
 // Legacy unprefixed routes (#/chapter/…, #/lesson/…, …) redirect to Utah for
 // one release so nothing already linked breaks.
 const LEGACY_STATE = "ut";
-const LEGACY_ROUTES = new Set(["chapters", "chapter", "module", "lesson", "cards", "quiz", "practice", "results", "settings", "dossier", "modules", "real-cards", "real-quiz", "real-lesson"]);
+const LEGACY_ROUTES = new Set(["chapters", "chapter", "module", "lesson", "cards", "quiz", "practice", "results", "settings", "dossier", "modules", "real-cards", "real-quiz", "real-lesson", "signs"]);
 let STATES = null;          // registry array once loaded
 let STATES_FROM = "none";
 let ST = null;              // active state entry
@@ -101,6 +102,165 @@ async function loadStates() {
   const emb = window.__STATES_EMBEDDED;
   if (Array.isArray(emb)) return { list: emb, from: "embedded-fallback" };
   return { list: [], from: "none" };
+}
+
+// ---- National Road Signs module (data/signs/{signs,by-state,quiz}.json, read-only) ----
+const SIGN_PROVENANCE = "Sign standards: FHWA MUTCD 11th Ed.";
+const SIGN_YIELD_SVG = `<svg class="sign-yield-icon" viewBox="0 0 28 26" width="22" height="20" fill="none" aria-hidden="true"><path d="M2.6 3.2C1.7 1.7 2.8 0 4.5 0h19c1.7 0 2.8 1.7 1.9 3.2l-9.5 19.6c-.8 1.6-3 1.6-3.8 0L2.6 3.2Z" fill="#D92D20" stroke="#111326" stroke-width="1.6"/><path d="M6.7 4h14.6L14 19.1 6.7 4Z" fill="#FFFFFF"/></svg>`;
+const SIGN_CATEGORIES = [
+  { id: "regulatory", label: "Regulatory", rule: "Red and white = you must obey" },
+  { id: "warning", label: "Warning", rule: "Yellow diamond = warning ahead" },
+  { id: "school", label: "School", rule: "Yellow-green pentagon = school" },
+  { id: "work-zone", label: "Work zone", rule: "Orange = work zone" },
+  { id: "guide", label: "Guide", rule: "Green = guide, brown = recreation" },
+  { id: "services", label: "Services", rule: "Blue = services" }
+];
+const SIGN_CAT_MAP = Object.fromEntries(SIGN_CATEGORIES.map((c) => [c.id, c]));
+let SIGNS_PKG = null;
+let signAttemptSeed = "";
+
+function indexSignsPkg(raw, from) {
+  if (!raw || !raw.signs || !raw.byState || !raw.quiz) return null;
+  const list = Array.isArray(raw.signs.signs) ? raw.signs.signs : [];
+  const byId = {};
+  for (const s of list) {
+    if (!s || !s.id) continue;
+    // Never copy mutcd or mutcd_status into learner-reachable objects.
+    byId[s.id] = {
+      id: s.id,
+      name: s.name || "",
+      category: s.category || "regulatory",
+      spec: s.spec || "",
+      meaning: s.meaning || "",
+      image: s.image && s.image.file ? { file: s.image.file } : null
+    };
+  }
+  const states = (raw.byState && raw.byState.states) || {};
+  const quizItems = Array.isArray(raw.quiz.items) ? raw.quiz.items : [];
+  return { byId, list: list.map((s) => byId[s.id]).filter(Boolean), states, quizItems, from };
+}
+async function loadSigns() {
+  try {
+    const [signs, byState, quiz] = await Promise.all([
+      fetchJson("data/signs/signs.json"),
+      fetchJson("data/signs/by-state.json"),
+      fetchJson("data/signs/quiz.json")
+    ]);
+    const pkg = indexSignsPkg({ signs, byState, quiz }, "fetch");
+    if (pkg) return pkg;
+  } catch { /* fall through to embedded copy */ }
+  const emb = window.__SIGNS_EMBEDDED;
+  if (emb) {
+    const pkg = indexSignsPkg(emb, "embedded-fallback");
+    if (pkg) return pkg;
+  }
+  return null;
+}
+function stateSignIds(code) {
+  const rec = SIGNS_PKG && SIGNS_PKG.states && SIGNS_PKG.states[String(code || "").toUpperCase()];
+  return (rec && Array.isArray(rec.signs)) ? rec.signs : [];
+}
+function stateSignList(code) {
+  if (!SIGNS_PKG) return [];
+  return stateSignIds(code).map((id) => SIGNS_PKG.byId[id]).filter(Boolean);
+}
+function stateHandbookCardsForSign(code, signId) {
+  const rec = SIGNS_PKG && SIGNS_PKG.states && SIGNS_PKG.states[String(code || "").toUpperCase()];
+  const list = rec && rec.handbook_cards && rec.handbook_cards[signId];
+  return Array.isArray(list) ? list : [];
+}
+function shortSignSpec(spec) {
+  let t = String(spec || "").trim();
+  if (!t) return "Road sign";
+  if (/^hand-held paddle/i.test(t)) {
+    const f = (t.split(":")[1] || t).trim().replace(/\s+with\b[\s\S]*$/i, "").replace(/\s+face$/i, "");
+    t = f + " paddle";
+  } else if (/alternating black and yellow diagonal stripes/i.test(t)) {
+    t = "Black and yellow diagonal-striped vertical rectangle";
+  } else if (/alternating red and white diagonal stripes/i.test(t)) {
+    t = "Red and white diagonal-striped barricade";
+  } else {
+    const hasRedCircleSlash = /red circle/i.test(t) && /red diagonal slash/i.test(t);
+    const hasRedBorder = /wide red border|dark red reflective border/i.test(t);
+    t = t.split(/\s+with\b|\s+reading\b|\s+showing\b|\s+pointing\b|:\s*/i)[0];
+    t = t.replace(/,\s*(?:white|black|red|green|blue|yellow|orange|fluorescent)?\s*(?:legend|symbol|numerals?|text|letters?|arrow|word|chevrons?|stripes?)[\s\S]*$/i, "").trim();
+    t = t.replace(/,\s*white border$/i, "").trim();
+    if (hasRedCircleSlash && !/red circle/i.test(t)) t += ", red circle and slash";
+    else if (hasRedBorder && !/red border/i.test(t)) t += ", red border";
+  }
+  t = t.replace(/[,;:\s]+$/, "");
+  return t ? t.charAt(0).toUpperCase() + t.slice(1) : "Road sign";
+}
+function signColourRule(sign) {
+  if (sign && (sign.id === "sign-recreation-brown" || /^brown\b/i.test(sign.spec || ""))) return "Brown = recreation";
+  const cat = SIGN_CAT_MAP[sign && sign.category];
+  return cat ? cat.rule : "Red and white = you must obey";
+}
+function handbookRuleHref(cardIds) {
+  const ids = Array.isArray(cardIds) ? cardIds.filter(Boolean) : [];
+  if (!ids.length) return "";
+  const { cards } = realEntries();
+  const mods = modulesReal();
+  for (const wantId of ids) {
+    for (const e of cards) {
+      const art = realArt(e);
+      for (const d of ((art && art.decks) || [])) {
+        for (const c of (d.cards || [])) {
+          if (c.card_id === wantId) {
+            const uId = c.unit_id || (mods.find((m) => m.module_id === c.module_id)?.unit_id) || "";
+            if (uId) return P() + "cards/" + encodeURIComponent(uId) + "/" + encodeURIComponent(c.card_id);
+          }
+        }
+      }
+    }
+  }
+  const cid = ids[0];
+  const m = String(cid).match(/^(sec\d+)/i);
+  let sec = m ? SECTIONS.find((s) => s.id.toLowerCase().startsWith(m[1].toLowerCase())) : null;
+  if (!sec && ST && ST.code === "UT" && /^card-(?:F|R09)/i.test(cid)) {
+    sec = SECTIONS.find((s) => s.id.startsWith("sec09")) || null;
+  }
+  return sec ? (P() + "chapter/" + encodeURIComponent(sec.id)) : (P() + "chapters");
+}
+function hashSeed32(str) {
+  let h = 2166136261 >>> 0;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  return h || 1;
+}
+function seededShuffle(arr, seedInt) {
+  const a = arr.slice();
+  let s = seedInt >>> 0;
+  const next = () => {
+    s = (s + 0x6D2B79F5) >>> 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(next() * (i + 1));
+    const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+function pickSignQuizItems(code, seedStr, count = 20) {
+  if (!SIGNS_PKG) return [];
+  const allowed = new Set(stateSignIds(code));
+  const pool = SIGNS_PKG.quizItems.filter((it) => it && allowed.has(it.sign_id));
+  const seed = hashSeed32(String(seedStr || code || "signs"));
+  const meanings = seededShuffle(pool.filter((it) => it.kind === "sign_meaning"), seed ^ 0x9E3779B9);
+  const names = seededShuffle(pool.filter((it) => it.kind === "sign_name"), seed ^ 0x85EBCA6B);
+  const half = Math.floor(count / 2);
+  const picked = [];
+  const takeM = Math.min(half, meanings.length);
+  const takeN = Math.min(count - takeM, names.length);
+  for (let i = 0; i < takeM; i++) picked.push(meanings[i]);
+  for (let i = 0; i < takeN; i++) picked.push(names[i]);
+  for (let i = takeM; picked.length < count && i < meanings.length; i++) picked.push(meanings[i]);
+  for (let i = takeN; picked.length < count && i < names.length; i++) picked.push(names[i]);
+  return seededShuffle(picked, seed ^ 0xC2B2AE35);
 }
 
 // Handbook chapters in handbook order come from the state's entry
@@ -699,7 +859,10 @@ function vHome() {
     return `<div class="card"><h2>Chapter ${s.n} — ${esc(s.title)}</h2>
     <p class="muted">${mods.length} modules · ${cards} flashcards</p>
     <p><a class="btn" href="${P()}chapter/${esc(s.id)}">Open chapter</a></p></div>`;
-  }).join("")}`;
+  }).join("")}
+  <div class="card" data-road-signs-entry><h2>${SIGN_YIELD_SVG} Road signs</h2>
+  <p class="muted">The ${stateSignList(ST.code).length} signs the ${esc(ST.name)} handbook expects you to know · ${esc(SIGN_PROVENANCE)}</p>
+  <p><a class="btn" href="${P()}signs">Open Road signs</a> <a class="btn secondary" href="${P()}signs/cards">Study cards</a> <a class="btn secondary" href="${P()}signs/test">Sign test</a></p></div>`;
 }
 
 function vChapters() {
@@ -714,7 +877,10 @@ function vChapters() {
     ${has.has(s.id)
       ? `<p class="muted">${mods.length} modules from the accepted knowledge graph</p><p><a class="btn" href="${P()}chapter/${esc(s.id)}">Open chapter</a></p>`
       : `<p class="muted">Not yet built — the belt has no accepted artifacts for this chapter yet.</p>`}</div>`;
-  }).join("")}`;
+  }).join("")}
+  <div class="card" data-road-signs-entry><h2>${SIGN_YIELD_SVG} Road signs</h2>
+  <p class="muted">The ${stateSignList(ST.code).length} signs the ${esc(ST.name)} handbook expects you to know · ${esc(SIGN_PROVENANCE)}</p>
+  <p><a class="btn" href="${P()}signs">Open Road signs</a> <a class="btn secondary" href="${P()}signs/cards">Study cards</a> <a class="btn secondary" href="${P()}signs/test">Sign test</a></p></div>`;
 }
 
 function vChapter(sectionId) {
@@ -919,6 +1085,9 @@ function vPractice(formId) {
   for (const f of forms) { (bySec[f.section_id] = bySec[f.section_id] || []).push(f); }
   return `<h1>Practice tests — ${esc(HB())}</h1>
   <p class="muted">${esc(REAL_NOTE)}. ${forms.length} accepted practice forms across ${Object.keys(bySec).length} chapter(s). Practice only — no official pass claim.</p>
+  <div class="card" data-signs-practice-tile><h2>${SIGN_YIELD_SVG} Road signs test</h2>
+  <p class="muted">20 questions drawn from the ${stateSignList(ST.code).length} road signs in the ${esc(ST.name)} handbook · ${esc(SIGN_PROVENANCE)}</p>
+  <p><a class="btn" href="${P()}signs/test">Start Road signs test</a> <a class="btn secondary" href="${P()}signs">Review signs</a></p></div>
   ${Object.entries(bySec).map(([sec, list]) => `<div class="card"><h2>${esc(shortSection(sec))}</h2>
   ${list.map((f) => `<p class="muted">${esc(f.title)} · ${(f.item_ids || []).length} questions · practice ${esc(f.form_id)}</p>
   <p><a class="btn" href="${P()}practice/${esc(f.form_id)}">Start ${esc(f.title || f.form_id)}</a></p>`).join("")}</div>`).join("")}`;
@@ -934,10 +1103,11 @@ function vResults(attemptId) {
   <p>You answered <b>${r.correctCount} of ${r.answers.length}</b> in this practice set, taken ${esc(r.takenAt)}.</p>
   <p class="muted">This describes observed practice only — never licensing eligibility, driving competence, or predicted success.</p></div>
   ${missed.length ? `<div class="card"><h2>Review these next</h2>${missed.map((a) => {
-    const opts = (a.options || []).map((o) => `<br>· <b>${esc(o.key)}.</b> ${esc(o.text)} — ${esc(o.rationale || "")}`).join("");
-    return `<p><b>Question:</b> ${esc(a.stem)}<br><b>You chose ${esc(a.picked || "(no answer)")}; correct answer ${esc(a.key)}.</b> ${esc(a.why)}${opts}</p>`; }).join("")}</div>`
+    const opts = (a.options || []).map((o) => `<br>· <b>${esc(o.key)}.</b> ${esc(o.text)}${o.rationale ? ` — ${esc(o.rationale)}` : ""}`).join("");
+    const imgHtml = a.signImg ? `<div class="sign-q-media"><img src="${esc(a.signImg)}" alt="Road sign"></div>` : "";
+    return `${imgHtml}<p><b>Question:</b> ${esc(a.stem)}<br><b>You chose ${esc(a.picked || "(no answer)")}; correct answer ${esc(a.key)}.</b> ${esc(a.why)}${opts}</p>`; }).join("")}</div>`
   : `<div class="card"><h2>Clean sweep</h2><p>Every answer matched. A useful next step: re-drill the flashcards from memory, then retake a practice form tomorrow.</p></div>`}
-  <p><a class="btn" href="${P()}practice">Back to practice tests</a> <a class="btn" href="${P()}">Back home</a></p>`;
+  <p>${r.formId && String(r.formId).startsWith("signs:") ? `<a class="btn" href="${P()}signs/test">Retake sign test</a> <a class="btn secondary" href="${P()}signs">Back to Road signs</a> ` : ""}<a class="btn" href="${P()}practice">Back to practice tests</a> <a class="btn" href="${P()}">Back home</a></p>`;
 }
 
 function vSettings() {
@@ -1152,12 +1322,103 @@ function vRealLesson() {
   <p><a class="btn" href="${P()}real-cards">Continue to the real flashcards</a></p>`;
 }
 
+let signSeedSeq = 1;
+function ensureSignSeed(code, fresh) {
+  if (fresh || !signAttemptSeed || !signAttemptSeed.startsWith(code + ":")) {
+    signAttemptSeed = code + ":" + (signSeedSeq++);
+  }
+  return signAttemptSeed;
+}
+
+function vSignsHub() {
+  if (!SIGNS_PKG) return vLoading("road signs");
+  const signs = stateSignList(ST.code);
+  const groups = SIGN_CATEGORIES.map((cat) => ({
+    ...cat,
+    items: signs.filter((s) => s.category === cat.id)
+  })).filter((g) => g.items.length > 0);
+  return `<h1>Road signs</h1>
+  <p class="muted">The ${signs.length} signs the ${esc(ST.name)} handbook expects you to know.</p>
+  <p><a class="btn" href="${P()}signs/cards">Study cards</a> <a class="btn secondary" href="${P()}signs/test">Sign test</a></p>
+  ${groups.map((g) => `<section class="card sign-cat-card" data-sign-category="${esc(g.id)}">
+    <h2>${esc(g.label)} — ${esc(g.rule)}</h2>
+    <div class="sign-hub-grid">${g.items.map((s) => s.image
+      ? `<a class="sign-hub-tile" href="${P()}signs/cards/${esc(s.id)}" data-sign-tile="${esc(s.id)}">
+          <span class="sign-hub-img"><img src="${esc(s.image.file)}" alt="${esc(s.name)}" loading="lazy"></span>
+          <span class="sign-hub-name">${esc(s.name)}</span>
+        </a>`
+      : `<a class="sign-hub-tile is-text-sign" href="${P()}signs/cards/${esc(s.id)}" data-sign-tile="${esc(s.id)}" data-sign-text-card="${esc(s.id)}">
+          <span class="sign-pic-coming">Picture coming</span>
+          <strong class="sign-hub-name">${esc(s.name)}</strong>
+          <span class="sign-hub-spec">${esc(s.spec)}</span>
+          <span class="sign-hub-meaning">${esc(s.meaning)}</span>
+        </a>`
+    ).join("")}</div>
+  </section>`).join("")}
+  <p class="muted">${esc(SIGN_PROVENANCE)}</p>`;
+}
+
+function vSignsCards(startSignId) {
+  if (!SIGNS_PKG) return vLoading("road sign flashcards");
+  const signs = stateSignList(ST.code);
+  return `<h1>Road signs — flashcards</h1>
+  <p class="muted">The ${signs.length} signs the ${esc(ST.name)} handbook expects you to know · ${esc(SIGN_PROVENANCE)}</p>
+  ${signs.map((s, i) => {
+    const hbCards = stateHandbookCardsForSign(ST.code, s.id);
+    const ruleHref = hbCards.length ? handbookRuleHref(hbCards) : "";
+    const hook = shortSignSpec(s.spec);
+    const catLabel = (SIGN_CAT_MAP[s.category] && SIGN_CAT_MAP[s.category].label) || s.category;
+    const rulePill = signColourRule(s);
+    const mediaHtml = s.image
+      ? `<div class="sign-q-media"><img src="${esc(s.image.file)}" alt="Road sign"></div>`
+      : `<div class="sign-text-box" data-sign-text-card="${esc(s.id)}"><span class="sign-pic-coming">Picture coming</span><p class="sign-spec-line">${esc(s.spec)}</p></div>`;
+    return `<div class="card${startSignId === s.id ? " is-target-sign" : ""}" data-sign-id="${esc(s.id)}" id="sign-card-${esc(s.id)}">
+      <h2>Sign ${i + 1} of ${signs.length}</h2>
+      ${mediaHtml}
+      <p>What does this sign mean?</p>
+      <p><button type="button" data-recall>Recall, then reveal</button></p>
+      <p class="muted" data-beat hidden>Take about 3 seconds to recall…</p>
+      <div hidden data-answer>
+        <p><b>${esc(s.name)}.</b> ${esc(s.meaning)}</p>
+        <p><b>Memory hook.</b> ${esc(hook)}</p>
+        <p class="muted">${esc(catLabel)} · ${esc(rulePill)} · ${esc(SIGN_PROVENANCE)}</p>
+        ${ruleHref ? `<p><a href="${esc(ruleHref)}" data-handbook-rule-link>See your handbook's rule →</a></p>` : ""}
+      </div>
+    </div>`;
+  }).join("")}
+  <p><a class="btn" href="${P()}signs/test">Continue to Sign test</a> <a class="btn secondary" href="${P()}signs">Back to Road signs</a></p>`;
+}
+
+function vSignsTest() {
+  if (!SIGNS_PKG) return vLoading("road signs test");
+  const seed = ensureSignSeed(ST.code, false);
+  const items = pickSignQuizItems(ST.code, seed, 20);
+  return `<h1>${esc(ST.name)} Road signs test</h1>
+  <p class="muted">20 questions drawn from the ${stateSignList(ST.code).length} road signs in the ${esc(ST.name)} handbook · ${esc(SIGN_PROVENANCE)} · Practice only — no official pass claim.</p>
+  <form data-rquiz="signs:${esc(seed)}">
+  ${items.map((it, i) => {
+    const right = (it.options || []).find((o) => o.correct) || (it.options || [])[0] || { key: "A" };
+    return `<div class="card" data-ritem="${esc(it.item_id)}" data-sign-img="${esc(it.image || "")}" data-correct="${esc(right.key)}" data-why="${esc(it.rationale || "")}" data-stem="${esc(it.stem)}">
+      <h2>Question ${i + 1} of ${items.length}</h2>
+      ${it.image ? `<div class="sign-q-media"><img src="${esc(it.image)}" alt="Road sign"></div>` : ""}
+      <p>${esc(it.stem)}</p>
+      <ol class="choices">${(it.options || []).map((o) => `<li><button type="button" class="option" data-key="${esc(o.key)}" data-otext="${esc(o.text)}" data-orationale=""><b>${esc(o.key)}.</b> ${esc(o.text)}</button></li>`).join("")}</ol>
+      <div hidden data-feedback></div>
+      <p class="muted">${esc(SIGN_PROVENANCE)}</p>
+    </div>`;
+  }).join("")}
+  <p><button type="submit">Check answers</button></p>
+  <div data-summary></div></form>
+  <p><a class="btn secondary" href="${P()}signs">Back to Road signs</a> <a class="btn secondary" href="${P()}practice">Practice tests</a></p>`;
+}
+
 function realGradeQuiz(form, formId, title) {
   const answers = [];
   form.querySelectorAll("[data-ritem]").forEach((box) => {
     const correct = box.dataset.correct;
     const why = box.dataset.why || "";
     const stem = box.dataset.stem || box.dataset.ritem;
+    const signImg = box.dataset.signImg || "";
     const pickedBtn = box.querySelector(".option[aria-pressed='true']");
     const picked = pickedBtn ? pickedBtn.dataset.key : null;
     const ok = picked === correct;
@@ -1165,10 +1426,10 @@ function realGradeQuiz(form, formId, title) {
     box.querySelectorAll(".option").forEach((b) => {
       options.push({ key: b.dataset.key, text: b.dataset.otext || b.textContent || "", rationale: b.dataset.orationale || "" });
     });
-    answers.push({ itemId: box.dataset.ritem, picked, correct: ok, stem, why, key: correct, options });
+    answers.push({ itemId: box.dataset.ritem, signImg, picked, correct: ok, stem, why, key: correct, options });
     const fb = box.querySelector("[data-feedback]");
     fb.hidden = false;
-    const optLines = options.map((o) => `<br>· <b>${esc(o.key)}.</b> ${esc(o.text)} — ${esc(o.rationale || "")}`).join("");
+    const optLines = options.map((o) => `<br>· <b>${esc(o.key)}.</b> ${esc(o.text)}${o.rationale ? ` — ${esc(o.rationale)}` : ""}`).join("");
     fb.innerHTML = picked
       ? (ok ? `<p class="result-good">Correct.</p>` : `<p class="result-bad">Not quite — you chose ${esc(picked)}.</p>`) + `<p><b>Why ${esc(correct)}:</b> ${esc(why)}${optLines}</p>`
       : `<p class="result-bad">No answer chosen.</p><p><b>Correct answer ${esc(correct)}:</b> ${esc(why)}${optLines}</p>`;
@@ -1182,6 +1443,7 @@ function realGradeQuiz(form, formId, title) {
   const correctCount = answers.filter((a) => a.correct).length;
   const attemptId = "attempt-" + Date.now().toString(36);
   saveResult({ attemptId, formId, title, answers, correctCount, takenAt: new Date().toISOString() });
+  if (String(formId || "").startsWith("signs:") && ST) ensureSignSeed(ST.code, true);
   form.querySelector("[data-summary]").innerHTML =
     `<div class="card"><h2>You answered ${correctCount} of ${answers.length}</h2>
     <p class="muted">Observed practice only — never licensing eligibility or predicted success.</p>
@@ -1269,6 +1531,14 @@ function wire(sub) {
   // sub = route parts after the state prefix (["lesson", unitId], …)
   if (ST && sub && sub[0] === "lesson" && sub[1]) markDone(sub[1], "lesson");
   if (ST && sub && sub[0] === "cards" && sub[1]) markDone(sub[1], "cards");
+  if (ST && sub && sub[0] === "signs" && !sub[1]) markDone("__signs__", "lesson");
+  if (ST && sub && sub[0] === "signs" && sub[1] === "cards") {
+    markDone("__signs__", "cards");
+    if (sub[2] && !window.NovaGate && view.querySelector) {
+      const targetEl = view.querySelector(`[data-sign-id="${CSS && CSS.escape ? CSS.escape(decodeURIComponent(sub[2])) : decodeURIComponent(sub[2])}"]`);
+      if (targetEl && targetEl.scrollIntoView) setTimeout(() => targetEl.scrollIntoView({ block: "start" }), 0);
+    }
+  }
   view.querySelectorAll(".option").forEach((b) => {
     b.addEventListener("click", () => {
       const scope = b.closest("[data-ritem]") || b.closest("[data-sitem]");
@@ -1329,7 +1599,33 @@ function stepInfo(unitId) {
 }
 
 function renderStepBar(sub) {
-  const p0 = sub[0], unitId = decodeURIComponent(sub[1] || "");
+  if (!view || !view.appendChild || !document.createElement) return;
+  const p0 = sub[0];
+  if (p0 === "signs") {
+    const saved = store.read();
+    const prog = (saved.progress || {}).__signs__ || {};
+    const quizDone = Object.values(saved.results || {}).some((r) => r && String(r.formId || "").startsWith("signs:"));
+    const curKey = sub[1] === "cards" ? "cards" : sub[1] === "test" ? "quiz" : "lesson";
+    const steps = [
+      { key: "lesson", label: "Lesson", href: P() + "signs", has: true, done: !!prog.lesson },
+      { key: "cards", label: "Flashcards", href: P() + "signs/cards", has: true, done: !!prog.cards },
+      { key: "quiz", label: "Quiz", href: P() + "signs/test", has: true, done: quizDone },
+    ];
+    const idx = steps.findIndex((s) => s.key === curKey);
+    const cur = steps[idx];
+    const next = steps.slice(idx + 1).find((s) => s.has);
+    const hubHref = P() + "chapters";
+    const bar = document.createElement("nav");
+    bar.className = "step-bar";
+    bar.setAttribute("aria-label", "Module steps");
+    bar.innerHTML = `<div class="sb-steps">${steps.map((s, i) => `${i ? '<span class="sb-sep" aria-hidden="true"></span>' : ""}<a class="sb-step" href="${esc(s.href)}" data-state="${s.key === curKey ? "current" : s.done ? "done" : "todo"}"${s.key === curKey ? ' aria-current="step"' : ""}><span class="sb-dot" aria-hidden="true">${s.done && s.key !== curKey ? "✓" : i + 1}</span><span class="sb-label">${s.label}</span></a>`).join("")}</div>
+      <div class="sb-actions"><a class="btn secondary" href="${esc(hubHref)}">Chapters</a>${curKey !== "quiz" && cur && !cur.done ? `<button class="btn secondary" type="button" data-mark-done="${esc(curKey)}">Mark done</button>` : ""}<a class="btn" href="${esc(next ? next.href : hubHref)}" data-next-step>${next ? "Next: " + next.label : "Finish module"} →</a></div>`;
+    view.appendChild(bar);
+    const mark = bar.querySelector("[data-mark-done]");
+    if (mark) mark.addEventListener("click", () => { markDone("__signs__", curKey); refreshStepBar(sub); });
+    return;
+  }
+  const unitId = decodeURIComponent(sub[1] || "");
   const info = stepInfo(unitId);
   if (!info.module) return;
   const steps = [
@@ -1365,6 +1661,64 @@ function lessonSlideElements() {
   return out;
 }
 
+const LESSON_TEMPLATE_META_RE = /(?:stated conditions?|source-grounded|supported wording|rule being reviewed|opening rule|altered rule|tempting alternative|mistaken alternative|proposed alternative|proposed response|mistaken shortcut|practice mistake|complete (?:rule|guidance|instruction|requirement|scope)|full (?:rule|correction)|source distinction|module guidance|cases distinct|scopes distinct|keep the distinctions|conditions? and (?:required )?actions?|conditions? guide the action|connect (?:scope|the related|the stated|the requirements)|carry the (?:rule|conditions|scope)|rules to (?:carry forward|remember)|start with the rule|check the (?:condition|distinction)|check your (?:recall|understanding)|retain the|bring the (?:topic|guidance)|begin by keeping|here is a quick check|a misconception would|where learners slip|what to remember|do not mix these up|apply the (?:guide|guidance|distinction)|described in the guidance|identify the situation|scope and purpose|key rules part|common (?:trap|mistake)|closing recap|lesson close|quick check)/i;
+function buildSegmentLabels(unit, mSlides) {
+  const uSlides = (unit && Array.isArray(unit.slides)) ? unit.slides : [];
+  const count = (Array.isArray(mSlides) ? mSlides.length : 0) || uSlides.length;
+  const trunc60 = (str) => {
+    const clean = String(str || "").replace(/\s+/g, " ").trim().replace(/[.!?]+$/, "").trim();
+    if (!clean) return "";
+    if (clean.length <= 60) return clean;
+    const cut = clean.slice(0, 59);
+    const wordCut = cut.replace(/[,;:\s]+\S*$/, "").trim();
+    return (wordCut.length >= 24 ? wordCut : cut.trim()) + "…";
+  };
+  const used = new Set();
+  const pickSentence = (text) => {
+    const raw = String(text || "").replace(/\s+/g, " ").trim();
+    if (!raw) return "";
+    const parts = raw.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [raw];
+    let firstValid = "";
+    for (const part of parts) {
+      const s = part.trim();
+      if (!s || s.length < 10 || !/^[A-Z0-9"“]/.test(s) || LESSON_TEMPLATE_META_RE.test(s)) continue;
+      const cand = trunc60(s);
+      if (!cand) continue;
+      if (!firstValid) firstValid = cand;
+      if (!used.has(cand)) return cand;
+    }
+    return firstValid;
+  };
+  const base = [];
+  for (let i = 0; i < count; i++) {
+    const sl = uSlides[i] || null;
+    const ms = (mSlides && mSlides[i]) || null;
+    const t = sl && sl.title && sl.title.text ? String(sl.title.text).trim() : "";
+    let chosen = (t && !LESSON_TEMPLATE_META_RE.test(t)) ? trunc60(t) : "";
+    if (!chosen && sl && Array.isArray(sl.lines)) {
+      for (const ln of sl.lines) { const s = pickSentence(ln && ln.text); if (s) { chosen = s; break; } }
+    }
+    if (!chosen && sl && sl.narration && sl.narration.text) chosen = pickSentence(sl.narration.text);
+    if (!chosen && sl && Array.isArray(sl.lines) && sl.lines[0] && sl.lines[0].text) {
+      const fl = String(sl.lines[0].text).trim();
+      if (fl && !LESSON_TEMPLATE_META_RE.test(fl)) chosen = trunc60(fl.charAt(0).toUpperCase() + fl.slice(1));
+    }
+    if (!chosen) {
+      const k = String((ms && ms.kind) || (sl && sl.kind) || "").replace(/_/g, " ").trim();
+      chosen = k ? (k.charAt(0).toUpperCase() + k.slice(1)) : ("Segment " + (i + 1));
+    }
+    used.add(chosen);
+    base.push(chosen);
+  }
+  const out = [];
+  let prev = null, dup = 1;
+  for (let i = 0; i < base.length; i++) {
+    if (base[i] === prev) { dup += 1; out.push(base[i] + " · " + dup); }
+    else { prev = base[i]; dup = 1; out.push(base[i]); }
+  }
+  return out;
+}
+
 let lpKeyHandler = null;
 function renderLessonPlayer(unitId, sub) {
   const vm = VIDEO_CACHE[ST && ST.code];
@@ -1374,7 +1728,8 @@ function renderLessonPlayer(unitId, sub) {
   const unit = sessionUnit(unitId);
   const slides = u.slides || [];
   const total = Number(u.duration) || 0;
-  const label = (i) => { const sl = unit && unit.slides && unit.slides[i]; const t = sl && sl.title && sl.title.text; return t || (slides[i] && slides[i].kind ? slides[i].kind.replace(/_/g, " ") : "Slide " + (i + 1)); };
+  const segLabels = buildSegmentLabels(unit, slides);
+  const label = (i) => segLabels[i] || ("Segment " + (i + 1));
   const wrap = document.createElement("section");
   wrap.className = "lesson-player";
   wrap.setAttribute("aria-label", "Lesson video");
@@ -1521,7 +1876,13 @@ function enhanceStudyFlow(sub) {
   READER = null; PLAYER = null;
   if (lpKeyHandler) { document.removeEventListener("keydown", lpKeyHandler); lpKeyHandler = null; }
   if (!ST || !sub || !sub[0]) return;
-  const p0 = sub[0], unitId = decodeURIComponent(sub[1] || "");
+  const p0 = sub[0];
+  if (p0 === "signs") {
+    if (view.querySelector("[data-gate-buy]")) return;
+    try { renderStepBar(sub); } catch (e) { console.warn("step bar:", e); }
+    return;
+  }
+  const unitId = decodeURIComponent(sub[1] || "");
   if (!STEP_ROUTES.has(p0) || !unitId) return;
   if (view.querySelector("[data-gate-buy]")) return; // store paywall panel: nothing to study here yet
   try { renderStepBar(sub); } catch (e) { console.warn("step bar:", e); }
@@ -1543,6 +1904,9 @@ function routeState(sub) {
   else if (p0 === "lesson") html = vLesson(decodeURIComponent(sub[1] || ""));
   else if (p0 === "cards") html = vCards(decodeURIComponent(sub[1] || ""));
   else if (p0 === "quiz") html = vQuiz(decodeURIComponent(sub[1] || ""));
+  else if (p0 === "signs" && sub[1] === "cards") { html = vSignsCards(decodeURIComponent(sub[2] || "")); nav = "chapters"; }
+  else if (p0 === "signs" && sub[1] === "test") { html = vSignsTest(); nav = "chapters"; }
+  else if (p0 === "signs") { html = vSignsHub(); nav = "chapters"; }
   else if (p0 === "practice" && sub[1]) { html = vPractice(decodeURIComponent(sub[1])); nav = "practice"; }
   else if (p0 === "practice") { html = vPractice(null); nav = "practice"; }
   else if (p0 === "results") html = vResults(decodeURIComponent(sub[1] || ""));
@@ -1636,6 +2000,7 @@ window.addEventListener("hashchange", route);
 loadStates()
   .then((st) => { STATES = st.list; STATES_FROM = st.from; })
   .then(() => loadData().then((d) => { D = d; }, () => { /* synthetic sample stays unavailable; the course still loads */ }))
+  .then(() => loadSigns().then((sg) => { SIGNS_PKG = sg; }, () => {}))
   .then(() => { route(); })
   .catch(() => {});
 </script>

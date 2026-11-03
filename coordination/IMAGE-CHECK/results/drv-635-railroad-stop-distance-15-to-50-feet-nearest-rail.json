@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-635-railroad-stop-distance-15-to-50-feet-nearest-rail",
+  "file": "drv-635-railroad-stop-distance-15-to-50-feet-nearest-rail.png",
+  "title": "Exact Railroad Crossing Stop Zone: Halt Between 15 Feet and 50 Feet From the Nearest Steel Rail!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "75a2a0ad48b3668cafb274a0f699669f9cc589631f44a9b0a2e09296bd631307",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6056,
+  "usage": {
+    "completion_tokens": 1090,
+    "prompt_tokens": 2272,
+    "total_tokens": 3362,
+    "completion_tokens_details": {
+      "reasoning_tokens": 700
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007472,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-635-railroad-stop-distance-15-to-50-feet-nearest-rail",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Foreground sedan and distant vehicles all face same direction of travel; no opposing vehicles share the same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; only exterior rear view of vehicles.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Railroad flasher on right shows left lens lit red, right lens dark - only one lit lens.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Foreground lane has double-yellow centerline on left and white edge line on right; traffic keeps right on both sides of crossing.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Crossbuck, diamond warnings, gate stripes and license plate are blank shapes with no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows vehicle halted in green safe zone behind stop bar at flashing railroad crossing with train passing, matching stop 15-50 feet concept.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct railroad stop-zone illustration with proper US lane geometry, blank signage, and single flashing red.",
+    "teaching_correct": {
+      "note": "Teaches stopping behind white stop bar in marked safe zone clear of tracks and train overhang.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A dark sedan stopped in a green box behind a white stop bar at a gated railroad crossing on the right lane, with a red locomotive passing left-to-right in foreground and flashing red crossing light on the right."
+  },
+  "error_body": null
+}

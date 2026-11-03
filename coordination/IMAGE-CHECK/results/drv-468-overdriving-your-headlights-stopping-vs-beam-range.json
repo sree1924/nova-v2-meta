@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-468-overdriving-your-headlights-stopping-vs-beam-range",
+  "file": "drv-468-overdriving-your-headlights-stopping-vs-beam-range.png",
+  "title": "Never 'Overdrive Your Headlights' at Night: You Must Be Able to Stop Completely Within the Distance Lit by Your Beams!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2367873dd27d1371dec61990b9eb8453e24a03fad8cdb0608cc73ed6cf226dff",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5400,
+  "usage": {
+    "completion_tokens": 1161,
+    "prompt_tokens": 2289,
+    "total_tokens": 3450,
+    "completion_tokens_details": {
+      "reasoning_tokens": 773
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007796,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-468-overdriving-your-headlights-stopping-vs-beam-range",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "One car per panel, both facing right, no oncoming vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in either nighttime panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both cars travel right in lower lane with yellow dashed centerline to their left/top and white edge line to their right/bottom.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; only green check icon top-left and red X icon bottom-left with blank road markings.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Top panel shows orange stopping bar ending inside headlight cone before fallen tree on right; bottom panel shows red stopping bar extending past beam into darkness past tree.",
+      "verdict": "MATCH"
+    },
+    "summary": "Two-panel night diagram correctly contrasts safe stopping inside beams vs overdriving beams past fallen tree, with no rule violations.",
+    "teaching_correct": {
+      "note": "Geometry teaches correctly: safe stop ends before obstacle within light, unsafe speed projects stopping distance beyond visible beam.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split nighttime highway view with a car approaching a fallen tree blocking the right lane; top shows blue car with short orange bar inside headlight cone and green check, bottom shows purple car with long red bar extending past light into darkness and red X."
+  },
+  "error_body": null
+}

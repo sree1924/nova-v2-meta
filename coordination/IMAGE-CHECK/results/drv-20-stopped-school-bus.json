@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-20-stopped-school-bus",
+  "file": "drv-20-stopped-school-bus.png",
+  "title": "Stopped School Bus Flashing Red Lights & Extended Stop Arm (Both Directions Stop)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "bf0d84cb76b3c9f90935027b993c484464f00eb604f38129ddc31e5f27395071",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6670,
+  "usage": {
+    "completion_tokens": 1479,
+    "prompt_tokens": 2118,
+    "total_tokens": 3597,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1082
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008933,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-20-stopped-school-bus",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Bus and blue car in right/east lane both face north; white car in left/west lane faces south alone. No head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only; no car interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal heads present; only vehicle head/taillights and bus flashers.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow center with southbound on west/left lane and northbound on east/right lane, white edge lines outside; correct US right-hand layout.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Multiple text elements visible: STOP on bus stop arm, and callout labels OPPOSING LANE STOPS, FLASHING RED + STOP ARM, STOP 20+ FT BACK.",
+        "verdict": "FAIL"
+      }
+    },
+    "scene_match": {
+      "note": "Shows school bus with flashing reds and extended stop arm, traffic stopped in both directions with children in crosswalk.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct two-direction stop geometry but fails zero-text rule due to legible labels and STOP legend.",
+    "teaching_correct": {
+      "note": "Both directions shown stopped back from bus with stop arm out, correctly teaching two-way stop.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down vector diagram of a two-lane road with a yellow school bus in the right lane and a white car and blue car stopped in opposite lanes around a crosswalk with three children."
+  },
+  "error_body": null
+}

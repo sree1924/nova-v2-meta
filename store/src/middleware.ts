@@ -1,8 +1,8 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
 import { NextResponse, type NextFetchEvent, type NextRequest } from "next/server";
 import FREE from "@/generated/free-paths.json";
 import { ENT_COOKIE, verifyEntitlementCookie } from "@/lib/entitlementCookie";
 import { isActive } from "@/lib/entitlements";
+import { localModeRequested, localRequestAllowed, localUrl } from "@/lib/localMode";
 
 // /app/** = the static learner shell (public/app, mirrored by tools/preview/sync-store.mjs).
 // Free allowlist (generated): the shell, registries/manifests, quarantine lists, and every
@@ -22,7 +22,7 @@ async function gateAppAsset(req: NextRequest, raw: string) {
   if (FREE_SET.has(rel)) return NextResponse.next();
   const owner = PAID.find((p) => rel.startsWith(p.prefix));
   if (!owner) return deny(404, "not_found");
-  const ent = await verifyEntitlementCookie(req.cookies.get(ENT_COOKIE)?.value);
+  const ent = await verifyEntitlementCookie(req.cookies.get(localModeRequested() ? "plp_local" : ENT_COOKIE)?.value);
   if (!ent) return deny(401, "sign_in_required", { state: owner.code });
   if (!isActive(ent.e[owner.code])) return deny(403, "not_entitled", { state: owner.code });
   const res = NextResponse.next();
@@ -32,16 +32,20 @@ async function gateAppAsset(req: NextRequest, raw: string) {
 
 // Clerk runs on pages, API routes and the shell document (/app/), so a signed-in visitor's
 // session is refreshed on page load before gate.js calls /api/me.
-const clerk = clerkMiddleware(async (_auth, req) => {
+const shellDocument = (req: NextRequest) => {
   const p = req.nextUrl.pathname;
-  if (p === "/app") return NextResponse.redirect(new URL("/app/" + req.nextUrl.search, req.url), 308);
-  if (p === "/app/") return NextResponse.rewrite(new URL("/app/index.html", req.url));
-});
+  const target = (path: string) => localModeRequested() ? localUrl(req, path) : new URL(path, req.url);
+  if (p === "/app") return NextResponse.redirect(target("/app/" + req.nextUrl.search), 308);
+  if (p === "/app/") return NextResponse.rewrite(target("/app/index.html"));
+};
 
 export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
+  if (localModeRequested() && !localRequestAllowed(req.headers)) return deny(403, "local_mode_requires_loopback");
   const p = req.nextUrl.pathname;
   if (p.startsWith("/app/") && p !== "/app/" && p !== "/app/index.html") return gateAppAsset(req, p.slice("/app/".length));
-  return clerk(req, ev);
+  if (localModeRequested()) return shellDocument(req) || NextResponse.next();
+  const { clerkMiddleware } = await import("@clerk/nextjs/server");
+  return clerkMiddleware(async (_auth, request) => shellDocument(request))(req, ev);
 }
 
 export const config = {

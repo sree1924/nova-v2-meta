@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-462-school-bus-danger-zone-ten-feet-all-sides",
+  "file": "drv-462-school-bus-danger-zone-ten-feet-all-sides.png",
+  "title": "10-Foot School Bus 'Danger Zone' Around All Four Sides (Especially Front Bumper & Right Rear Tires)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "069cb8744844528610c15e1dd2725776fd8bc827928c9c66ccd1a42489aa293a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5317,
+  "usage": {
+    "completion_tokens": 1060,
+    "prompt_tokens": 2282,
+    "total_tokens": 3342,
+    "completion_tokens_details": {
+      "reasoning_tokens": 653
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007358,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-462-school-bus-danger-zone-ten-feet-all-sides",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles (bus, blue SUV, red pickup, white SUV) face right in same direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only; no car interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Bus travels right on right-side (south) lane; double-yellow centerline on left/north side, curb/sidewalk on right/south side, queued traffic behind.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; stop sign blank red octagon, bus roof and vehicles blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Top-down yellow bus at curb with glowing red-amber halo surrounding all four sides, thickest at front and rear, children boarding, traffic stopped behind.",
+      "verdict": "MATCH"
+    },
+    "summary": "Top-down view correctly illustrates the 10-foot danger zone halo around a stopped school bus with compliant US traffic layout and zero text.",
+    "teaching_correct": {
+      "note": "Correctly shows danger zone on all sides, vulnerable front and rear areas, children in zone, and following traffic stopped back from bus.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down view of a yellow school bus stopped at a right curb surrounded by a glowing red-orange halo on all four sides, with five children boarding from the sidewalk foreground and three cars stopped behind to the left."
+  },
+  "error_body": null
+}

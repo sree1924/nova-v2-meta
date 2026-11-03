@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-314-never-block-the-box-intersection-gridlock",
+  "file": "drv-314-never-block-the-box-intersection-gridlock.png",
+  "title": "Anti-Gridlock Rule ('Don't Block the Box'): Wait Behind Stop Line Even on Green Until Space Clears Across!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "52cd7977e3b4dd2d94d3de8e2bbbfd1798a37fb119449db0014bfe84f97d0f27",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4115,
+  "usage": {
+    "completion_tokens": 947,
+    "prompt_tokens": 2283,
+    "total_tokens": 3230,
+    "completion_tokens_details": {
+      "reasoning_tokens": 555
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006879,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-314-never-block-the-box-intersection-gridlock",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan in foreground faces forward; oncoming vehicles are in separate lanes across the box, no head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear view of blue sedan and distant vehicles shown; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal at top center shows only single green lens lit, red and yellow dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Ego lane has double yellow centerline on left and white edge/curb line on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; license plate is blank gray rectangle, signals and signs blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan waits behind near stop line with X-hatched box and crosswalks clear on green while far-side traffic is backed up, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct anti-gridlock illustration: blue car waits behind stop line on green with clear box, all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Teaches correct behavior: wait behind stop line on green until exit clears, keeping box and crosswalks clear.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue sedan stopped in foreground behind white stop lines before a large X-hatched intersection box, with green traffic light overhead and backed-up traffic on far side at sunset."
+  },
+  "error_body": null
+}

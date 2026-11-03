@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-445-tow-truck-winch-cable-across-roadway",
+  "file": "drv-445-tow-truck-winch-cable-across-roadway.png",
+  "title": "Active Tow Recovery Scene: Watch for Taut Steel Winch Cables & Cones Across Lanes",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "b38f421d0ef802645cc6aa475a69b4bcd34c3679d2efadbcaa63c042bab9c6b9",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3822,
+  "usage": {
+    "completion_tokens": 896,
+    "prompt_tokens": 2263,
+    "total_tokens": 3159,
+    "completion_tokens_details": {
+      "reasoning_tokens": 498
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006637,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-445-tow-truck-winch-cable-across-roadway",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All lane vehicles face forward in same direction; ditched car is off-roadway in right ditch, not head-on in lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in wintry rural scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic queued in right lane viewed from behind; double-yellow centerline on left, white edge line on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All license plates are blank gray rectangles; no letters, numbers, or words on cones, trucks, or vests.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Yellow wrecker with amber lightbar winching car from right ditch with taut cable, orange cones, and approaching traffic stopped well back matches title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Tow recovery with cones and stopped traffic correctly depicts US right-hand traffic with no text or other violations.",
+    "teaching_correct": {
+      "note": "Shows correct behavior: traffic stopped well back of cones, workers in hi-vis, taut cable hazard visible; no wrong priority or geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A yellow tow truck on the right shoulder winches a silver car from a snowy ditch with a taut cable while two workers attend, orange cones line the wet road behind it, and three cars wait stopped in the lane at sunset."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-650-passing-bicyclist-cross-centerline-when-safe-legal",
+  "file": "drv-650-passing-bicyclist-cross-centerline-when-safe-legal.png",
+  "title": "Giving >=3 Feet (or Full Lane) to a Bicyclist: Cross Centerline Safely When Oncoming Sightline Is Clear!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2bbf34f63f69087669bcb2a3587ddd12a0c3c7b5fe56f213445de5ff504b95ce",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6051,
+  "usage": {
+    "completion_tokens": 1141,
+    "prompt_tokens": 2274,
+    "total_tokens": 3415,
+    "completion_tokens_details": {
+      "reasoning_tokens": 724
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007692,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-650-passing-bicyclist-cross-centerline-when-safe-legal",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "One sedan and one cyclist both facing forward away from viewer; no oncoming vehicle facing them in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior of blue sedan visible; no steering wheel or cabin interior shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the country road scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline on left of travel lane, white edge line on right; both car and cyclist travel forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plate is blank gray rectangle; sky, road, landscape contain no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan and cyclist on right present on clear-sightline road, but sedan shows no left turn signal and remains straddling center area, not cleanly over into open left lane as prompt requires.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean zero-text US right-hand scene, but fails to show left signal and full move into left lane for wide berth; needs human review.",
+    "teaching_correct": {
+      "note": "Shows forward passing with space but does not demonstrate signaling left and fully crossing centerline to give full lane, so learner does not see the required technique.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Rear view of a blue sedan in center of a sunny two-lane country road with a helmeted cyclist on the right shoulder edge ahead; yellow centerline on left, white edge line on right, clear sightline ahead."
+  },
+  "error_body": null
+}

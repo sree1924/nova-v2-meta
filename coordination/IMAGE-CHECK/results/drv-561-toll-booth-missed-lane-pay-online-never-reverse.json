@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-561-toll-booth-missed-lane-pay-online-never-reverse",
+  "file": "drv-561-toll-booth-missed-lane-pay-online-never-reverse.png",
+  "title": "Wrong Toll Lane or Missed Toll? Keep Driving Safely Forward & Resolve Electronically Later — NEVER Stop or Back Up at a Toll Plaza!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d24c2877b61b140f842e2d157bc2e836aec3209176827d7a3acbe9b3474b4a7c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5228,
+  "usage": {
+    "completion_tokens": 946,
+    "prompt_tokens": 2269,
+    "total_tokens": 3215,
+    "completion_tokens_details": {
+      "reasoning_tokens": 557
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006857,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-561-toll-booth-missed-lane-pay-online-never-reverse",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles face forward away from viewer in their lanes; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of vehicles shown; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead lane-use signals each show a single lit icon - green arrow center, red X left and right - on dark background.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Multi-lane forward travel with yellow line on left edge by barrier and white lane lines on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; license plates are blank white rectangles, X and arrows are lane-use icons.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan proceeds forward under green arrow while right-side swerving between cones is crossed by large red X, matching keep-forward never reverse prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Toll plaza scene correctly teaches to continue forward and not reverse or swerve, with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows correct behavior: continue smoothly forward in open lane; prohibited swerve/reverse across cones is crossed out.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan viewed from behind drives forward through a center toll lane under a green arrow, while to the right another SUV among cones with red curved arrows is crossed by a large red X."
+  },
+  "error_body": null
+}

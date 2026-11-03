@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-325-white-lane-arrows-mandatory-only-vs-shared",
+  "file": "drv-325-white-lane-arrows-mandatory-only-vs-shared.png",
+  "title": "White Pavement Turn Arrows: Dedicated Turn-Only Lane vs. Shared Straight-or-Turn Lane",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "652656d889bf2a8390468d708374da97d64ad530ffd83d7fc50fcb3634fdb84a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4817,
+  "usage": {
+    "completion_tokens": 959,
+    "prompt_tokens": 2266,
+    "total_tokens": 3225,
+    "completion_tokens_details": {
+      "reasoning_tokens": 538
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006908,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-325-white-lane-arrows-mandatory-only-vs-shared",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Oncoming traffic is in separate opposing lanes; no two vehicles face each other head-on within the same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interiors or steering wheels are visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Leftmost overhead signal shows two lit lenses at once: red ball on top and green left-arrow below, violating at-most-one-lit rule.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Three approach lanes drive on right with double-yellow centerline on left and curb/sidewalk on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Street signs, license plates, and pedestrian signal are blank shapes; no letters, numbers, or words visible on road or signs.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows exactly the requested 3-lane approach: left lane left-turn arrow with blue car, middle lane straight arrow, right lane combined straight+right arrow.",
+      "verdict": "MATCH"
+    },
+    "summary": "Lane arrow layout matches prompt and teaches correctly, but left traffic signal shows red and green arrow lit simultaneously, failing single-bulb rule, so REJECT.",
+    "teaching_correct": {
+      "note": "Lane-use arrows, vehicle positions behind stop line, and dedicated vs shared meanings are geometrically correct for instruction.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of three stopped vehicles at a sunset intersection: blue sedan in left lane over a left-turn arrow, white SUV in middle over straight arrow, red pickup in right lane over straight-right arrow, with overhead traffic lights above."
+  },
+  "error_body": null
+}

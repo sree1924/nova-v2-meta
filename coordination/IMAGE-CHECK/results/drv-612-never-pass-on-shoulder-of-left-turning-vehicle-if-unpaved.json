@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-612-never-pass-on-shoulder-of-left-turning-vehicle-if-unpaved",
+  "file": "drv-612-never-pass-on-shoulder-of-left-turning-vehicle-if-unpaved.png",
+  "title": "Waiting Behind a Left-Turning Car on Narrow Two-Lane Road: Slow/Stop in Lane — Never Swerve Into Ditch/Gravel Shoulder!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1f790d2c77e7648c299f17f8834b9f7693b0305dc82a1ffff64ce1f69b462d10",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4157,
+  "usage": {
+    "completion_tokens": 823,
+    "prompt_tokens": 2291,
+    "total_tokens": 3114,
+    "completion_tokens_details": {
+      "reasoning_tokens": 436
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006361,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-612-never-pass-on-shoulder-of-left-turning-vehicle-if-unpaved",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan and black pickup travel same direction in right lane; red SUV is in opposite lane, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exterior rear views shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal shows one amber lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Travel lane on right with double-yellow centerline on left and white edge line on right; oncoming traffic kept left.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All plates and yellow diamond sign are blank shapes; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Lead pickup with left blinker waits for oncoming red SUV while blue sedan stops behind in lane; large red X marks dirt shoulder on right.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows waiting in lane behind left-turning pickup with shoulder pass prohibited, with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Teaches to stay stopped in lane behind left-turner and not swerve onto gravel shoulder; no wrong priority or geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan stopped behind a black pickup with left blinker on a rural two-lane road, with oncoming red SUV ahead and a large red X over the dirt shoulder on the right foreground."
+  },
+  "error_body": null
+}

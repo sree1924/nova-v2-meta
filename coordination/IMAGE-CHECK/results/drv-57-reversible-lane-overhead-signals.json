@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-57-reversible-lane-overhead-signals",
+  "file": "drv-57-reversible-lane-overhead-signals.png",
+  "title": "Overhead Reversible Lane Control Signals (Red X, Yellow X, Green Down Arrow)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d9961dfc6f4c055116682f95ef5dd636f086a0663c9d68ef88c76c35e6011ca8",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7378,
+  "usage": {
+    "completion_tokens": 1433,
+    "prompt_tokens": 2300,
+    "total_tokens": 3733,
+    "completion_tokens_details": {
+      "reasoning_tokens": 968
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008965,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-57-reversible-lane-overhead-signals",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one sedan visible in right foreground lane traveling forward; no opposing or head-on vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only rear exterior of sedan shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Each of three gantry lane-control heads shows a single lit indication (Red X, Yellow X, Green Arrow) with no extra lit lenses.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow edge line on far left, white edge line on far right, and sedan travels forward on right side; consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; gantry symbols are icons only, license plate and background are blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows Red X left, Yellow X center, Green Arrow right over bridge with car in green lane, but missing center-lane vacating car and shows dusk/night not daylight as prompted.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct lane signals and lane use with no text or traffic-rule violations, but missing the yellow-X vacating vehicle and daylight setting; needs human review for partial prompt match.",
+    "teaching_correct": {
+      "note": "Lane discipline is correct: Red X and Yellow X lanes empty, Green Arrow lane used by sedan from behind; teaches Red=closed, Yellow=vacate, Green=allowed correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Dusk view forward on a three-lane bridge under a steel gantry with a red X left, yellow X center, and green down-arrow right; a single dark sedan seen from behind with red taillights travels in the right lane under the green arrow while left and center lanes are empty, city skyline ahead."
+  },
+  "error_body": null
+}

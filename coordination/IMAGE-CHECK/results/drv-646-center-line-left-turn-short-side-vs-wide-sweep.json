@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-646-center-line-left-turn-short-side-vs-wide-sweep",
+  "file": "drv-646-center-line-left-turn-short-side-vs-wide-sweep.png",
+  "title": "Opposing Vehicles Both Turning Left Simultaneously: Pass In Front of Each Other (Short Inside Turns) Unless Lanes Dictate Otherwise",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "e7c4ca56f53df3fa9bfaba727d8976a03c87a2a4d430340f927e5da000bdcb16",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 12886,
+  "usage": {
+    "completion_tokens": 2192,
+    "prompt_tokens": 2472,
+    "total_tokens": 4664,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1766
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.012406,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-646-center-line-left-turn-short-side-vs-wide-sweep",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue west car and red east car are in intersection turning, not head-on in same lane; north-south white cars are in separate opposing lanes.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only; no steering wheels or interiors visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Lower-left and lower-right signals show red, yellow and green all lit simultaneously; more than one lit lens per signal.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerlines in middle of roads with white stop lines and crosswalks; travel on right side consistent with US layout.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All sign blanks, plates, and road markings are blank shapes; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Title requires two opposing left turns passing in front with short inside arcs; image shows crossing X-shaped green arcs and west blue car's arrow continuing east rather than a clear left to north, conflicting with prompt's non-overlapping arcs.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Traffic signals show three lit lenses and left-turn paths cross/are misdirected, failing single-signal rule and teaching wrong left-turn geometry.",
+    "teaching_correct": {
+      "note": "Crossing/overlapping paths and blue car path not showing a left turn teaches wrong geometry for simultaneous short lefts, plus all-lit signals teach opposite of signal meaning.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Top-down four-way intersection with a blue sedan upper-left and red sedan lower-right with two large crossing green arrows, plus white cars waiting north and south and four traffic signals on corners."
+  },
+  "error_body": null
+}

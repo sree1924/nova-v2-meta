@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-323-white-right-fog-line-yellow-left-median-edge",
+  "file": "drv-323-white-right-fog-line-yellow-left-median-edge.png",
+  "title": "Divided Highway Edge Stripes: Solid YELLOW Always Marks Left Median Edge; Solid WHITE Marks Right Shoulder Edge",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d7021993bfcffb44e8bce1b39850c7f9b0825a18d4ecef6f614bc4fe3e6a71b7",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3767,
+  "usage": {
+    "completion_tokens": 898,
+    "prompt_tokens": 2269,
+    "total_tokens": 3167,
+    "completion_tokens_details": {
+      "reasoning_tokens": 530
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006653,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-323-white-right-fog-line-yellow-left-median-edge",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All forward vehicles travel same direction in same lanes; opposite traffic is separated by grassy median, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior hood visible from forward perspective; no cabin interior or steering wheel shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow solid line on LEFT median edge, white solid line on RIGHT shoulder edge; all lanes drive on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Green overhead sign and all other elements are blank shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Forward hood view on divided highway with magnified callouts showing solid yellow on left median and solid white on right shoulder as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct divided-highway edge marking illustration with yellow left and white right, no rule violations.",
+    "teaching_correct": {
+      "note": "Clearly teaches yellow = left median edge and white = right shoulder edge with correct geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Driver hood perspective cruising a sunny divided highway with cars ahead, solid yellow stripe along grassy median on left and solid white stripe along shoulder on right, each highlighted by a magnified circular callout."
+  },
+  "error_body": null
+}

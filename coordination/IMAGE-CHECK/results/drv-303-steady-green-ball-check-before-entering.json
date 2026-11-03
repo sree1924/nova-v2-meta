@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-303-steady-green-ball-check-before-entering",
+  "file": "drv-303-steady-green-ball-check-before-entering.png",
+  "title": "Steady Green Light: Scan Left-Right-Left & Let Vehicles/Pedestrians Already in Intersection Clear First!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "14ba08d54d1381d5efbe4d38c9290b4ac02a041f0d704a90db57e5558f498568",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4632,
+  "usage": {
+    "completion_tokens": 995,
+    "prompt_tokens": 2267,
+    "total_tokens": 3262,
+    "completion_tokens_details": {
+      "reasoning_tokens": 635
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007063,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-303-steady-green-ball-check-before-entering",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No head-on opposing vehicles in same lane; foreground is our hood, ahead vehicles travel away in same direction.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; view is over exterior hood only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal shows only bottom green lit, top and middle dark; side signal unlit.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double centerline on left of travel lane, white edge line/curb on right; traffic keeps right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; storefronts, plates, and signals are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Matches prompt: blue car POV stopped behind crosswalk under steady green while elderly man with cane finishes crossing.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly teaches yielding to pedestrian in intersection on steady green with proper US traffic and single green signal.",
+    "teaching_correct": {
+      "note": "Correctly shows waiting behind crosswalk for pedestrian to clear despite green light, scanning before entering.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Driver POV over blue hood stopped behind a crosswalk under a green overhead light while an elderly man with a cane crosses from right to left in the foreground."
+  },
+  "error_body": null
+}

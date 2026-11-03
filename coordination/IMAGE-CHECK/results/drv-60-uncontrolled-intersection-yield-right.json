@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-60-uncontrolled-intersection-yield-right",
+  "file": "drv-60-uncontrolled-intersection-yield-right.png",
+  "title": "Uncontrolled / 4-Way Intersection: Yielding Right-of-Way to Vehicle on the Right",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "84f3f4f81908b179a00c313bd24938e3320b6d154330ba72c274fced7c8beacf",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6611,
+  "usage": {
+    "completion_tokens": 1368,
+    "prompt_tokens": 2297,
+    "total_tokens": 3665,
+    "completion_tokens_details": {
+      "reasoning_tokens": 983
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008685,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-60-uncontrolled-intersection-yield-right",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan heading north and yellow sedan heading west are perpendicular, not facing each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; exterior bird's-eye view only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in this uncontrolled intersection.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both streets show double-yellow centerline on left of travel direction and white edge/curb on right; blue car in bottom right lane, yellow car in right lane from right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is blank rectangle, no signs.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue sedan from bottom stopped with brake lights yielding to yellow sedan from the right with green motion arrow at sign-free 4-way intersection.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts uncontrolled intersection yield-to-right with proper US lane markings, no text, and correct yielding behavior.",
+    "teaching_correct": {
+      "note": "Blue car stopped behind white stop line with brake lights yielding to vehicle on right, teaching yield-to-right correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated view of a residential four-way intersection with a blue sedan in the foreground stopped behind a white line with brake lights on, and a yellow sedan on the right side moving left with a green arrow ahead of it."
+  },
+  "error_body": null
+}

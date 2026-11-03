@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-429-semi-truck-mirror-rule-if-you-cant-see-mirrors",
+  "file": "drv-429-semi-truck-mirror-rule-if-you-cant-see-mirrors.png",
+  "title": "Truck Rear Blind-Spot Rule: 'If You Cannot See the Truck Driver's Side Mirrors, the Truck Driver Cannot See You!'",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "548b9dec2f67c94f269122ab5013a4610e1c775c6ba7bbfee598ce50df441289",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4962,
+  "usage": {
+    "completion_tokens": 1164,
+    "prompt_tokens": 2308,
+    "total_tokens": 3472,
+    "completion_tokens_details": {
+      "reasoning_tokens": 720
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007832,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-429-semi-truck-mirror-rule-if-you-cant-see-mirrors",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in both left and right panels viewed from behind traveling same direction; no oncoming or head-on vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior rear views of truck and sedan.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either highway panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show forward travel with yellow line on LEFT of lane and white edge line/guardrail on RIGHT, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank gray rectangles; no letters, numbers, or words visible. Red X and green check are graphic icons, not text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Split comparison matches prompt: left red-X car tucked against trailer rear in red blind zone, right green-check sedan well back with cyan sightlines to left and right cab mirrors.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split highway illustration correctly contrasts tailgating in rear blind spot versus safe following distance with mirror visibility, with no rule violations.",
+    "teaching_correct": {
+      "note": "Clearly teaches rear blind-spot rule: too close = invisible to mirrors, farther back = mirrors and sightlines visible. No wrong geometry or opposite message.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split-screen rear view of an 18-wheeler box trailer on a highway at sunset: left panel shows a dark sedan tailgating the trailer inside a red shaded zone with a red X icon, right panel shows the sedan following far back with cyan sightlines to both truck mirrors with a green check icon."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-173-failure-to-appear-pay-citation-suspension",
+  "file": "drv-173-failure-to-appear-pay-citation-suspension.png",
+  "title": "Failure to Appear in Court or Pay Traffic Citation Leads to License Suspension",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "b49d02f866724481afb6ea040069742c61768c12de8c646e084f120f2e9e55c1",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5955,
+  "usage": {
+    "completion_tokens": 920,
+    "prompt_tokens": 2243,
+    "total_tokens": 3163,
+    "completion_tokens_details": {
+      "reasoning_tokens": 572
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006714,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-173-failure-to-appear-pay-citation-suspension",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No vehicles shown, so no head-on same-lane conflict possible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in desk scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No road, lane markings, or vehicles shown; indoor desk scene only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "Calendar grid, license card, and books are blank shapes/icons with no letters, numbers, or words.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows flagged calendar and gavel on left with locked driver license card on right, matching ignored court date leading to suspension.",
+      "verdict": "MATCH"
+    },
+    "summary": "Editorial desk still-life correctly visualizes failure to appear leading to license lock with zero text violations.",
+    "teaching_correct": {
+      "note": "Flagged date plus gavel plus padlocked license correctly teaches suspension consequence, no opposite geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A desk calendar with a small red flag on one square sits left background beside a wooden gavel in foreground center, while a steel padlock holding a blank photo ID card sits right foreground."
+  },
+  "error_body": null
+}

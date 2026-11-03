@@ -169,3 +169,7 @@ extracted handbook text and a fresh issuer-page fetch; seed adopted as-is. Phase
 - 2026-10-29T16:40:02.974Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:73 for 19A.units (sec11-vehicle-registration-requirements) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
 
 - 2026-10-29T16:40:03.757Z lineage reset → 2026-10-28-rdmv-ca-class-c:lineage:74 for 19A.units (sec13-seniors-and-driving) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+FACTFIX CA HOLD 2026-10-29T21:46:26.974Z — actual Meta target citation support failure sec06-F08/sec06-R04; no blind retry; source21/22 composite needs owner resolution. All accepted history preserved.
+
+FACTFIX CA STOP 2026-10-29T22:18:44.446Z — all21native corrections complete;13Meta-supported;07/08await bounded multipage validation carrying genuine native secondary anchors. No shared flags/export clearance.

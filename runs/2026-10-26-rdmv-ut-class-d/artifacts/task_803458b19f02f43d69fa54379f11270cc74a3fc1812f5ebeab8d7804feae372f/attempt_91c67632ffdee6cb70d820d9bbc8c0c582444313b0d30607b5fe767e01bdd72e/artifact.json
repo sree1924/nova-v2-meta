@@ -1,0 +1,1272 @@
+{
+  "adapter": "pilot_adapter@0.4.0",
+  "artifact": "KnowledgeGraph",
+  "curriculum_unit_hints": [
+    {
+      "flashcard_strategy": "one fact per card, distance-color front, rule back",
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "media_slot_ids": [],
+      "module_id": "sec15-m01",
+      "node_ids": [
+        "sec15-F01",
+        "sec15-F02",
+        "sec15-F03",
+        "sec15-F04",
+        "sec15-F05",
+        "sec15-R01",
+        "sec15-R02"
+      ],
+      "quiz_strategy": "module quiz after hub, ADAS limits and brake traps first",
+      "session_strategy": "teach ADAS responsibility then test ban then brakes in path order",
+      "unit_id": "sec15-u01",
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ]
+    },
+    {
+      "flashcard_strategy": "one fact per card, lamp color-distance pairs with day-night contrast",
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "media_slot_ids": [],
+      "module_id": "sec15-m02",
+      "node_ids": [
+        "sec15-F06",
+        "sec15-F07",
+        "sec15-F08",
+        "sec15-F09",
+        "sec15-F10",
+        "sec15-F11",
+        "sec15-F12",
+        "sec15-F13",
+        "sec15-F14",
+        "sec15-F15",
+        "sec15-R03",
+        "sec15-R04",
+        "sec15-R05",
+        "sec15-R06"
+      ],
+      "quiz_strategy": "module quiz after hub, lamp visibility distances and colors",
+      "session_strategy": "teach wide-vehicle markers then head, tail, signal and fitment rules",
+      "unit_id": "sec15-u02",
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ]
+    }
+  ],
+  "department_pass": {
+    "kg01": {
+      "dynamic_concepts": [],
+      "gaps": [],
+      "merges": [],
+      "nodes_extracted": 21,
+      "origin": "inline@KG-01",
+      "verdict": "PASS"
+    },
+    "kg02": {
+      "acyclic": true,
+      "edge_types": [
+        {
+          "acyclic": true,
+          "definition": "learn the from-concept before the to-concept",
+          "directed": true,
+          "type": "prerequisite"
+        },
+        {
+          "acyclic": false,
+          "definition": "commonly swapped lamp, distance or ADAS pair",
+          "directed": false,
+          "type": "easily_confused"
+        }
+      ],
+      "node_types": [
+        {
+          "definition": "one accepted page-sourced vehicle-equipment rule",
+          "type": "rule"
+        }
+      ],
+      "origin": "inline@KG-02",
+      "placements": [],
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      }
+    },
+    "kg03": {
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": [],
+      "edges": [
+        {
+          "confidence": "high",
+          "from": "sec15-F01",
+          "origin": "sme_hint",
+          "to": "sec15-F02",
+          "type": "prerequisite"
+        },
+        {
+          "confidence": "high",
+          "from": "sec15-F01",
+          "origin": "domain_logic",
+          "to": "sec15-F03",
+          "type": "prerequisite"
+        },
+        {
+          "confidence": "high",
+          "from": "sec15-R02",
+          "origin": "sme_hint",
+          "to": "sec15-R01",
+          "type": "prerequisite"
+        },
+        {
+          "confidence": "medium",
+          "from": "sec15-F04",
+          "origin": "domain_logic",
+          "to": "sec15-F05",
+          "type": "prerequisite"
+        },
+        {
+          "confidence": "medium",
+          "from": "sec15-F06",
+          "origin": "domain_logic",
+          "to": "sec15-F13",
+          "type": "prerequisite"
+        },
+        {
+          "confidence": "medium",
+          "from": "sec15-F09",
+          "origin": "domain_logic",
+          "to": "sec15-F14",
+          "type": "prerequisite"
+        },
+        {
+          "confidence": "high",
+          "from": "sec15-F01",
+          "origin": "sme_hint",
+          "to": "sec15-R02",
+          "type": "easily_confused"
+        },
+        {
+          "confidence": "high",
+          "from": "sec15-F02",
+          "origin": "sme_hint",
+          "to": "sec15-R01",
+          "type": "easily_confused"
+        },
+        {
+          "confidence": "high",
+          "from": "sec15-F09",
+          "origin": "domain_logic",
+          "to": "sec15-F14",
+          "type": "easily_confused"
+        },
+        {
+          "confidence": "medium",
+          "from": "sec15-F06",
+          "origin": "domain_logic",
+          "to": "sec15-R03",
+          "type": "easily_confused"
+        },
+        {
+          "confidence": "medium",
+          "from": "sec15-F09",
+          "origin": "domain_logic",
+          "to": "sec15-R04",
+          "type": "easily_confused"
+        },
+        {
+          "confidence": "medium",
+          "from": "sec15-F14",
+          "origin": "domain_logic",
+          "to": "sec15-R05",
+          "type": "easily_confused"
+        },
+        {
+          "confidence": "medium",
+          "from": "sec15-F14",
+          "origin": "domain_logic",
+          "to": "sec15-R06",
+          "type": "easily_confused"
+        }
+      ],
+      "origin": "inline@KG-03"
+    },
+    "kg04": {
+      "domain_emphasis_check": [
+        {
+          "blueprint_pct": null,
+          "comparison_basis": "none",
+          "computed_pct": 100,
+          "domain": "Vehicle equipment",
+          "drift_pp": null,
+          "weight_status": "unknown",
+          "within_tolerance": null
+        }
+      ],
+      "origin": "inline@KG-04"
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "module_order": [
+          "sec15-m01",
+          "sec15-m02"
+        ],
+        "rule": "topological prerequisite order, then authored emphasis and high-yield"
+      },
+      "validation_assertions": {
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "orphan_nodes": null,
+        "path_check": null,
+        "prerequisite_violations": null
+      }
+    }
+  },
+  "dynamic_nodes": [],
+  "edges": [
+    {
+      "confidence": "high",
+      "from": "sec15-F01",
+      "origin": "sme_hint",
+      "to": "sec15-F02",
+      "type": "prerequisite"
+    },
+    {
+      "confidence": "high",
+      "from": "sec15-F01",
+      "origin": "domain_logic",
+      "to": "sec15-F03",
+      "type": "prerequisite"
+    },
+    {
+      "confidence": "high",
+      "from": "sec15-R02",
+      "origin": "sme_hint",
+      "to": "sec15-R01",
+      "type": "prerequisite"
+    },
+    {
+      "confidence": "medium",
+      "from": "sec15-F04",
+      "origin": "domain_logic",
+      "to": "sec15-F05",
+      "type": "prerequisite"
+    },
+    {
+      "confidence": "medium",
+      "from": "sec15-F06",
+      "origin": "domain_logic",
+      "to": "sec15-F13",
+      "type": "prerequisite"
+    },
+    {
+      "confidence": "medium",
+      "from": "sec15-F09",
+      "origin": "domain_logic",
+      "to": "sec15-F14",
+      "type": "prerequisite"
+    },
+    {
+      "confidence": "high",
+      "from": "sec15-F01",
+      "origin": "sme_hint",
+      "to": "sec15-R02",
+      "type": "easily_confused"
+    },
+    {
+      "confidence": "high",
+      "from": "sec15-F02",
+      "origin": "sme_hint",
+      "to": "sec15-R01",
+      "type": "easily_confused"
+    },
+    {
+      "confidence": "high",
+      "from": "sec15-F09",
+      "origin": "domain_logic",
+      "to": "sec15-F14",
+      "type": "easily_confused"
+    },
+    {
+      "confidence": "medium",
+      "from": "sec15-F06",
+      "origin": "domain_logic",
+      "to": "sec15-R03",
+      "type": "easily_confused"
+    },
+    {
+      "confidence": "medium",
+      "from": "sec15-F09",
+      "origin": "domain_logic",
+      "to": "sec15-R04",
+      "type": "easily_confused"
+    },
+    {
+      "confidence": "medium",
+      "from": "sec15-F14",
+      "origin": "domain_logic",
+      "to": "sec15-R05",
+      "type": "easily_confused"
+    },
+    {
+      "confidence": "medium",
+      "from": "sec15-F14",
+      "origin": "domain_logic",
+      "to": "sec15-R06",
+      "type": "easily_confused"
+    }
+  ],
+  "learning_path": [
+    "sec15-F01",
+    "sec15-R02",
+    "sec15-F02",
+    "sec15-R01",
+    "sec15-F03",
+    "sec15-F04",
+    "sec15-F05",
+    "sec15-F06",
+    "sec15-R03",
+    "sec15-F09",
+    "sec15-R04",
+    "sec15-F13",
+    "sec15-F14",
+    "sec15-R05",
+    "sec15-R06",
+    "sec15-F07",
+    "sec15-F08",
+    "sec15-F10",
+    "sec15-F11",
+    "sec15-F12",
+    "sec15-F15"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "topological prerequisite order; authored emphasis and high-yield break ties; dynamic nodes excluded"
+  },
+  "lineage": {
+    "candidate_lineage_id": "2026-10-26-rdmv-ut-class-d:lineage:154",
+    "input_manifest_sha256": "25b2ab66e8b2d66c1f614bb6cb3b2389467bcc47e4055f24ce91e8afbf0241ab"
+  },
+  "minted_by": {
+    "model": "gpt-6.1-sol",
+    "lane": "ChatGPT Pro subscription / Sol UT FIXER",
+    "pass": "Targeted repair only; original muse-spark-1.3 via Meta Model API credit retained in companion receipt. Meta validator only."
+  },
+  "modules": [
+    {
+      "domain": "Vehicle equipment",
+      "media_slot_ids": [],
+      "module_id": "sec15-m01",
+      "node_ids": [
+        "sec15-F01",
+        "sec15-F02",
+        "sec15-F03",
+        "sec15-F04",
+        "sec15-F05",
+        "sec15-R01",
+        "sec15-R02"
+      ],
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 42
+      },
+      "title": "Driver-assist limits and brakes"
+    },
+    {
+      "domain": "Vehicle equipment",
+      "media_slot_ids": [],
+      "module_id": "sec15-m02",
+      "node_ids": [
+        "sec15-F06",
+        "sec15-F07",
+        "sec15-F08",
+        "sec15-F09",
+        "sec15-F10",
+        "sec15-F11",
+        "sec15-F12",
+        "sec15-F13",
+        "sec15-F14",
+        "sec15-F15",
+        "sec15-R03",
+        "sec15-R04",
+        "sec15-R05",
+        "sec15-R06"
+      ],
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 76
+      },
+      "title": "Lamps, reflectors and fitment"
+    }
+  ],
+  "nodes": [
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F01",
+            "sec15-R02"
+          ],
+          "other_id": "sec15-R02",
+          "why": "both state assistance only aids the driver; sec15-F01 adds never assumes responsibility for operation while sec15-R02 adds never replaces attention"
+        }
+      ],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F01"
+      ],
+      "high_yield": true,
+      "id": "sec15-F01",
+      "label": "Driver-assist features only aid the driver",
+      "module_id": "sec15-m01",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.90",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0100",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F02",
+            "sec15-R01"
+          ],
+          "other_id": "sec15-R01",
+          "why": "both ban test-day aids; sec15-F02 names parking assist and cruise control aids while sec15-R01 states leave them off"
+        }
+      ],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F02"
+      ],
+      "high_yield": true,
+      "id": "sec15-F02",
+      "label": "Parking assist and cruise control banned on skills test",
+      "module_id": "sec15-m01",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.90",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0100",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F03",
+            "sec15-F01"
+          ],
+          "other_id": "sec15-F01",
+          "why": "both cover ADAS care; sec15-F03 requires manual, limits, clean sensors and current software while sec15-F01 states aids never assume responsibility"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F03"
+      ],
+      "high_yield": true,
+      "id": "sec15-F03",
+      "label": "Stay engaged and maintain assist systems",
+      "module_id": "sec15-m01",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.90",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0100",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F04",
+            "sec15-F05"
+          ],
+          "other_id": "sec15-F05",
+          "why": "both are brake rules; sec15-F04 requires brakes on all wheels with 3-axle truck exception while sec15-F05 requires steady firm ABS pressure not pumping"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F04"
+      ],
+      "high_yield": true,
+      "id": "sec15-F04",
+      "label": "Brakes on all wheels with truck exception",
+      "module_id": "sec15-m01",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.90",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0100",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F05",
+            "sec15-F04"
+          ],
+          "other_id": "sec15-F04",
+          "why": "both are brake rules; sec15-F05 requires steady firm ABS pressure on slick surface while sec15-F04 requires all-wheel brake coverage"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F05"
+      ],
+      "high_yield": true,
+      "id": "sec15-F05",
+      "label": "ABS slick stop uses steady firm pressure",
+      "module_id": "sec15-m01",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.90",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0100",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F06",
+            "sec15-R03"
+          ],
+          "other_id": "sec15-R03",
+          "why": "both cover wide-vehicle markers; sec15-F06 requires two amber front plus side and two red rear seen 500 feet while sec15-R03 summarizes amber front and red rear markers"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F06"
+      ],
+      "high_yield": true,
+      "id": "sec15-F06",
+      "label": "Wide bus RV trailer clearance lamps",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.91",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0101",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F07",
+            "sec15-F08"
+          ],
+          "other_id": "sec15-F08",
+          "why": "both are rear warning rules; sec15-F07 marks 4-foot extending loads with flags or lamps while sec15-F08 equips trucks and buses with flares reflectors and flags"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F07"
+      ],
+      "high_yield": true,
+      "id": "sec15-F07",
+      "label": "Extending-load flags and lamps",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.91",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0101",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F08",
+            "sec15-F07"
+          ],
+          "other_id": "sec15-F07",
+          "why": "both are rear warning rules; sec15-F08 requires three flares or reflectors plus two flags seen 600 feet while sec15-F07 requires two flags or lamps for extending loads"
+        }
+      ],
+      "difficulty": "hard",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F08"
+      ],
+      "high_yield": true,
+      "id": "sec15-F08",
+      "label": "Truck bus flares reflectors and flags",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.91",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0101",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F09",
+            "sec15-R04"
+          ],
+          "other_id": "sec15-R04",
+          "why": "both describe headlamps; sec15-F09 requires two white lamps 350 feet high and 100 feet low with indicator while sec15-R04 summarizes white far high and near low"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F09"
+      ],
+      "high_yield": true,
+      "id": "sec15-F09",
+      "label": "Headlight count color and distances",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.91",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0101",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "medium",
+      "confusable_with": [],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F10"
+      ],
+      "high_yield": false,
+      "id": "sec15-F10",
+      "label": "Horn and plate lamp distances",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 4
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.91",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0101",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "medium",
+      "confusable_with": [],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F11"
+      ],
+      "high_yield": false,
+      "id": "sec15-F11",
+      "label": "Mud flap weight and alteration triggers",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 4
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.91",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0101",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "medium",
+      "confusable_with": [],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F12"
+      ],
+      "high_yield": false,
+      "id": "sec15-F12",
+      "label": "Front red or blue light restriction",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 4
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.92",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0102",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F13",
+            "sec15-F06"
+          ],
+          "other_id": "sec15-F06",
+          "why": "both use amber front and red rear; sec15-F13 places side reflectors 15 to 60 inches seen 500 feet while sec15-F06 places wide-vehicle clearance lamps"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F13"
+      ],
+      "high_yield": true,
+      "id": "sec15-F13",
+      "label": "Side reflector color position and height",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.92",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0102",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-F14",
+            "sec15-R05"
+          ],
+          "other_id": "sec15-R05",
+          "why": "both cover rear red lamps; sec15-F14 requires two tail-stop lamps seen 500 feet daylight plus signals 100 feet while sec15-R05 summarizes red tail-stop seen far behind"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F14"
+      ],
+      "high_yield": true,
+      "id": "sec15-F14",
+      "label": "Tail stop and turn signal visibility",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.92",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0102",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "medium",
+      "confusable_with": [],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-F15"
+      ],
+      "high_yield": false,
+      "id": "sec15-F15",
+      "label": "Wiper count and post-1967 speeds",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 4
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.92",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0102",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-R01",
+            "sec15-F02"
+          ],
+          "other_id": "sec15-F02",
+          "why": "both ban test-day aids; sec15-R01 states leave parking assist and cruise control off while sec15-F02 states they must not be used during the skills test"
+        }
+      ],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-R01"
+      ],
+      "high_yield": true,
+      "id": "sec15-R01",
+      "label": "Leave parking and cruise aids off on test",
+      "module_id": "sec15-m01",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.90",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0100",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-R02",
+            "sec15-F01"
+          ],
+          "other_id": "sec15-F01",
+          "why": "both state assistance only supports the driver; sec15-R02 adds never replaces attention while sec15-F01 adds never assumes responsibility"
+        }
+      ],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-R02"
+      ],
+      "high_yield": true,
+      "id": "sec15-R02",
+      "label": "Assistance supports never replaces driver",
+      "module_id": "sec15-m01",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.90",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0100",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-R03",
+            "sec15-F06"
+          ],
+          "other_id": "sec15-F06",
+          "why": "both cover wide markers; sec15-R03 states amber front and red rear markers while sec15-F06 gives 80-inch width, counts and 500-foot distance"
+        }
+      ],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-R03"
+      ],
+      "high_yield": true,
+      "id": "sec15-R03",
+      "label": "For buses, recreational vehicles and trailers at least eighty inches wide, clearance lighting includes two amber front lamps and an amber lamp on each side, plus two red rear lamps and a red lamp on each side toward the rear. These lamps must be visible at night from five hundred feet.",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.91",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0101",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-R04",
+            "sec15-F09"
+          ],
+          "other_id": "sec15-F09",
+          "why": "both describe headlamps; sec15-R04 states white far high and near low while sec15-F09 adds two lamps, 350 and 100 feet and indicator"
+        }
+      ],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-R04"
+      ],
+      "high_yield": true,
+      "id": "sec15-R04",
+      "label": "Except for motorcycles, a vehicle needs at least two working white headlights, with one on either side. High beams must reach three hundred fifty feet, and low beams one hundred feet.",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.91",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0101",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "high",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-R05",
+            "sec15-F14"
+          ],
+          "other_id": "sec15-F14",
+          "why": "both cover rear red lamps; sec15-R05 states glow red seen far behind while sec15-F14 adds two lamps, 500 feet daylight and signal distance"
+        }
+      ],
+      "difficulty": "easy",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-R05"
+      ],
+      "high_yield": true,
+      "id": "sec15-R05",
+      "label": "Two red tail and stop lamps belong at the rear, visible in ordinary sunlight from five hundred feet behind. Motorcycles and certain vehicles built before nineteen fifty-six may instead have one tail and stop lamp.",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.92",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0102",
+        "tier": "official",
+        "url": null
+      }
+    },
+    {
+      "confidence": "medium",
+      "confusable_with": [
+        {
+          "fact_ids": [
+            "sec15-R06",
+            "sec15-F14"
+          ],
+          "other_id": "sec15-F14",
+          "why": "both cover signals; sec15-R06 allows red/yellow/amber rear lamps and white/yellow/amber front lamps, with stated counts, visibility and older-vehicle exception while sec15-F14 requires signals seen 100 feet in sunlight"
+        }
+      ],
+      "difficulty": "medium",
+      "domain": "Vehicle equipment",
+      "fact_ids": [
+        "sec15-R06"
+      ],
+      "high_yield": true,
+      "id": "sec15-R06",
+      "label": "Rear turn signals consist of two lamps colored red, yellow or amber; the two front lamps may be white, yellow or amber. They must be visible in normal sunlight from one hundred feet. Vehicles built before nineteen fifty-three need no turn signals if their width is less than eighty inches.",
+      "module_id": "sec15-m02",
+      "needs_review": false,
+      "no_confusable_reason": null,
+      "node_type": "rule",
+      "official_weight": {
+        "source_page": null,
+        "status": "unknown",
+        "value": null
+      },
+      "pedagogic_emphasis": {
+        "basis": "authored pedagogic emphasis from dossier high-yield ranks (product policy), not an exam weight",
+        "status": "authored",
+        "value": 6
+      },
+      "source_ref": {
+        "ref": "Utah Driver Handbook p.92",
+        "source_page": "src:rdmv-ut-class-d:utah-dld:handbook:pdf-0102",
+        "tier": "official",
+        "url": null
+      }
+    }
+  ],
+  "probe": "rdmv-ut-class-d",
+  "schema_version": "1.0.0",
+  "source_refs": {
+    "edge_set": "inline@KG-03",
+    "enriched_blueprint": "runs/2026-10-26-rdmv-ut-class-d/16/sec15-vehicle-equipment/426ecd64/16-compiled-dossier.json",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot",
+    "learning_loop": "runs/2026-10-26-rdmv-ut-class-d/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "ontology": "inline@KG-02",
+    "weighted_graph": "inline@KG-04"
+  },
+  "stage_id": "03.combined_kg",
+  "version": "0.4.0"
+}

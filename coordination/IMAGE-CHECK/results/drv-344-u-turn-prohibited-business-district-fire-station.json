@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-344-u-turn-prohibited-business-district-fire-station",
+  "file": "drv-344-u-turn-prohibited-business-district-fire-station.png",
+  "title": "Prohibited U-Turn Locations: Business Districts, In Front of Fire Stations, Freeways & Rail Crossings",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "ca3ec5e775fd723861234b9d5bd6e01841046f002357a68b5f32214960285f24",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5321,
+  "usage": {
+    "completion_tokens": 749,
+    "prompt_tokens": 2263,
+    "total_tokens": 3012,
+    "completion_tokens_details": {
+      "reasoning_tokens": 379
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006012,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-344-u-turn-prohibited-business-district-fire-station",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Fire engine in left bay and red SUV on road are not facing each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; SUV shown only from rear exterior.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal on right shows single green lens lit, others dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Red SUV drives on right side of road with double-yellow centerline on its left and white edge/curb on its right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; building, truck, and signs are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows brick firehouse with open bays and downtown shops with large red X over U-turn arrow in front of driveway.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts prohibited U-turn in front of fire station with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Clearly teaches no U-turn in front of fire station driveway via crossed-out loop; geometry and context are correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Brick firehouse with open red bay doors and fire engine on left foreground, downtown shops on right, with a large white U-turn arrow crossed by red X on the driveway and a red SUV on the road."
+  },
+  "error_body": null
+}

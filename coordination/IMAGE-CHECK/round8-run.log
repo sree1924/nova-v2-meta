@@ -1,0 +1,181 @@
+drv-61-t-intersection-through-road-yield: jpeg 293 KB, ~2820 tok in est, cap 4000 out -> worst case $0.021
+  REJECT       scene MATCH teach CORRECT FAIL:us_right_hand_traffic | in 2346 out 1786 $0.0105 11s
+  Yield relationship is depicted correctly but through-road pickup is on the wrong (left) side of the yellow centerline, failing US right-hand traffic, requiring REJECT.
+drv-66-hawk-pedestrian-hybrid-beacon: jpeg 348 KB, ~2822 tok in est, cap 4000 out -> worst case $0.021
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2349 out 1487 $0.0093 6s
+  Top-down view is traffic-compliant and teaches stopping behind line, but incomplete vs prompt: only one car and single-red beacon with no rapid-flashing beacons, requiring human review.
+drv-160-pulling-away-from-curb-signal-mirror-check: jpeg 329 KB, ~2797 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach QUESTIONABLE | in 2327 out 1069 $0.0075 6s
+  Correct US road layout, zero text, and left signal/shoulder check shown, but required passing red car for yield context is missing, needs human review.
+drv-183-color-blindness-signal-position-order: jpeg 259 KB, ~2800 tok in est, cap 4000 out -> worst case $0.021
+  REJECT       scene MATCH teach WRONG FAIL:single_bulb_signal | in 2325 out 1224 $0.0081 7s
+  Signals incorrectly show all three lenses lit simultaneously and teach impossible operation, requiring rejection despite correct layout and traffic.
+drv-284-two-way-traffic-yellow-arrows-sign: jpeg 295 KB, ~2771 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2308 out 1022 $0.0072 4s
+  Correct two-way lane discipline but missing required warning sign, needs human review.
+drv-315-single-point-urban-interchange-spui: jpeg 256 KB, ~2776 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach CORRECT FAIL:single_bulb_signal | in 2307 out 1158 $0.0078 7s
+  SPUI geometry and dotted guides are correct, but central signal illegally shows two green lights at once, requiring rejection.
+drv-348-turnabout-definition-safest-go-around-block: jpeg 304 KB, ~2780 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2315 out 2131 $0.0120 10s
+  Clean zero-text aerial correctly shows safe go-around-block loop, but omits the required red-X risky U-turn contrast, so partial match needs human review.
+drv-398-median-u-turn-wide-boulevard-truck-turn: jpeg 367 KB, ~2763 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2303 out 1416 $0.0089 10s
+  Image correctly shows sedan yielding in median U-turn pocket on US divided boulevard with no text or traffic violations.
+drv-400-scanning-left-right-left-at-every-intersection: jpeg 264 KB, ~2793 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2324 out 1129 $0.0077 5s
+  Blue sedan stopped correctly at intersection with left-right scanning arrows, all visual rules satisfied.
+drv-416-bicycle-riding-two-abreast-single-file-passing: jpeg 304 KB, ~2776 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2314 out 834 $0.0064 4s
+  Rural scene correctly teaches single-file courtesy with proper US lane geometry and zero text.
+drv-428-autocycle-three-wheel-enclosed-cabin: jpeg 201 KB, ~2770 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2320 out 1034 $0.0073 4s
+  Enclosed three-wheel autocycle correctly depicted with no text violations, but setting is indoor garage not boulevard driving scene.
+drv-434-truck-air-turbulence-rain-spray-passing: jpeg 217 KB, ~2789 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach QUESTIONABLE | in 2327 out 1318 $0.0085 8s
+  Core rain-pass with wind visualization matches, but key taught behaviors not visible and an interstate traffic light is incorrect, requiring human review.
+drv-436-school-bus-flashing-amber-prepare-to-stop: jpeg 238 KB, ~2800 tok in est, cap 4000 out -> worst case $0.021
+  REJECT       scene MATCH teach CORRECT FAIL:single_bulb_signal | in 2332 out 1255 $0.0082 8s
+  Bus amber scenario is correctly depicted, but traffic signal shows red and yellow lit simultaneously, failing single-bulb rule.
+drv-441-snowplow-wing-blade-snow-cloud-never-pass-right: jpeg 333 KB, ~2800 tok in est, cap 4000 out -> worst case $0.021
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2341 out 1091 $0.0076 5s
+  Correct US geometry and zero text with plow wing on right, but key NEVER-pass-on-right red X and blinding cloud missing, needs human review.
+drv-442-wide-farm-combine-overhanging-lane-ditches: jpeg 344 KB, ~2795 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach QUESTIONABLE | in 2331 out 2047 $0.0116 9s
+  Rules pass but turn direction is reversed from prompt: image shows right turn into right-side gate instead of left-turn trap, needs human review.
+drv-479-downhill-engine-braking-never-ride-foot-brakes: jpeg 236 KB, ~2802 tok in est, cap 4000 out -> worst case $0.021
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2332 out 1322 $0.0085 6s
+  Correct brake-temperature teaching with zero text, but mountain descent road context missing, requiring human review.
+drv-480-fog-zero-visibility-pull-completely-off-road-lights-off: jpeg 172 KB, ~2792 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene MATCH teach QUESTIONABLE | in 2327 out 1316 $0.0085 7s
+  Correct pull-off geometry but parked car shows bright brake lights on despite lights-off emergency guidance, needs human review.
+drv-483-deicing-salt-chemical-following-distance: jpeg 335 KB, ~2782 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2321 out 635 $0.0056 3s
+  Winter following scene correctly depicts staying back from salt truck with proper US lane markings and zero text.
+drv-492-earthquake-stop-clear-of-bridges-powerlines-trees: jpeg 385 KB, ~2784 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach QUESTIONABLE | in 2313 out 1137 $0.0077 5s
+  Open-area earthquake concept present but road context missing; requires human review for teaching use.
+drv-495-blackout-citywide-conserve-caution: jpeg 175 KB, ~2779 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG | in 2315 out 1267 $0.0083 7s
+  Night intersection rendered correctly for traffic and text rules, but fails blackout concept with a lit red signal and lit street/houses, teaching the opposite of dark-signal all-way stop.
+drv-497-bridge-expansion-joints-wet-steel-deck: jpeg 184 KB, ~2767 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach CORRECT FAIL:zero_text | in 2312 out 996 $0.0071 6s
+  Correct rainy steel-grate bridge scene and traffic geometry, but REJECT for zero-text violation due to numbers on dashboard gauges.
+drv-499-snowy-railroad-crossing-momentum-no-stopping-on-rails: jpeg 241 KB, ~2787 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG | in 2322 out 1282 $0.0084 7s
+  Snowy crossing scene is recognizable but teaches the opposite of the title: SUV is stopped on the rails under an active red flashing light with gate down, modeling stopping on tracks instead of checking clear and keeping steady momentum through.
+drv-505-sudden-headlight-failure-at-night: jpeg 173 KB, ~2794 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach WRONG | in 2329 out 1229 $0.0081 7s
+  Emergency pull-over concept shown but sedan is parked facing opposite traffic flow on right shoulder, teaching wrong orientation.
+drv-506-vehicle-engine-fire-pull-off-evacuate-never-open-hood: jpeg 393 KB, ~2825 tok in est, cap 4000 out -> worst case $0.021
+  REJECT       scene MATCH teach CORRECT FAIL:us_right_hand_traffic | in 2356 out 2039 $0.0116 11s
+  Teaches engine-fire response correctly but fails US road-marking geometry with white/yellow sides reversed for direction of travel.
+drv-513-about-to-be-hit-from-side-grip-wheel-prepare-recovery: jpeg 168 KB, ~2754 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MISMATCH teach WRONG | in 2293 out 1396 $0.0088 7s
+  Calm scenic interior drive with no side-impact or bracing depicted, failing to match title and teaching wrong lesson.
+drv-514-disabled-freeway-stay-buckled-or-behind-guardrail: jpeg 287 KB, ~2814 tok in est, cap 4000 out -> worst case $0.021
+  ACCEPT       scene MATCH teach CORRECT | in 2348 out 1451 $0.0091 10s
+  Disabled vehicle on shoulder with occupants safely behind guardrail; all visual rules pass and safety lesson is correct.
+drv-517-wasp-bee-insect-inside-car-pull-over-first: jpeg 166 KB, ~2781 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach QUESTIONABLE | in 2321 out 1449 $0.0091 7s
+  Parked-car with outside bee partially evokes pull-over concept but misses inside-cabin hazard and shoulder context; no rule fails, needs human review.
+drv-525-trailer-crossed-safety-chains-breakaway-hitch: jpeg 166 KB, ~2798 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG | in 2334 out 1298 $0.0084 7s
+  REJECT for incorrect teaching: hitch shown uncoupled and safety chains unattached dragging on ground despite correct X shape and zero-text compliance.
+drv-539-standardized-field-sobriety-tests-walk-one-leg-eye: jpeg 173 KB, ~2774 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG | in 2318 out 1624 $0.0098 8s
+  Shows in-car eye check instead of roadside outside-car SFST with walk-turn/one-leg stand, teaching incorrect procedure.
+drv-553-kinetic-energy-weight-times-speed-squared-curves-hills: jpeg 244 KB, ~2795 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2339 out 1078 $0.0075 5s
+  Four-panel physics chart correctly depicts gravity, curve inertia, traction, and kinetic energy with no text and correct US traffic geometry.
+drv-563-railroad-tracks-angled-crossing-two-wheel-90deg: jpeg 419 KB, ~2804 tok in est, cap 4000 out -> worst case $0.021
+  REJECT       scene PARTIAL teach WRONG | in 2340 out 896 $0.0067 4s
+  Top-down shows diagonal tracks but teaches straight shallow-angle crossing instead of S-curve to 90 degrees, which is unsafe and opposite of lesson; REJECT.
+drv-565-eye-movement-check-mirrors-every-5-to-8-seconds: jpeg 175 KB, ~2797 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2332 out 1513 $0.0093 6s
+  Interior shows correct LHD with mirror-check arrows and zero text, but missing highway/horizon context so only partial match; needs human review.
+drv-566-communicating-presence-tap-brakes-flash-lights-horn: jpeg 94 KB, ~2783 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2320 out 1530 $0.0094 6s
+  Concept of brake-tapping, light-flash and horn is conveyed with no text violations, but highway traffic context is absent, requiring human review.
+drv-574-roundabout-pedestrian-crosswalk-set-back-one-car: jpeg 283 KB, ~2782 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach QUESTIONABLE FAIL:single_bulb_signal | in 2315 out 1689 $0.0101 9s
+  Correct roundabout yield-to-pedestrian geometry but REJECT for signal rule: rightmost signal displays red and green together, plus an inappropriate signal at a roundabout.
+drv-580-move-over-disabled-personal-car-hazard-lights: jpeg 227 KB, ~2795 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2324 out 1214 $0.0081 5s
+  Overhead view correctly teaches move-over with disabled vehicle on shoulder with hazards and passing car giving buffer; all applicable visual rules pass.
+drv-587-snowplow-tandem-echelon-diagonal-formation: jpeg 299 KB, ~2788 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach WRONG FAIL:no_head_on_same_lane,single_bulb_signal,us_right_hand_traffic | in 2325 out 2515 $0.0136 13s
+  Core never-pass-between idea is present but image fails US traffic direction with opposing vehicles in same lanes and shows a signal with red+yellow lit together.
+drv-588-autonomous-self-driving-testing-awareness: jpeg 177 KB, ~2766 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MISMATCH teach WRONG | in 2299 out 1152 $0.0078 6s
+  Lidar-equipped sedan is correctly depicted with zero text, but scene is a parked garage not a boulevard with traffic, so it fails to teach obeying laws and maintaining safe space.
+drv-589-litter-unsecured-tarps-mattress-highway-hazard: jpeg 221 KB, ~2778 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2317 out 1149 $0.0078 5s
+  Split unsecured vs secured trailer comparison clearly teaches cargo liability with no rule violations.
+drv-601-alaska-northern-headlight-corridor-daytime: jpeg 306 KB, ~2775 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG FAIL:us_right_hand_traffic | in 2314 out 2186 $0.0122 10s
+  Headlights-on daytime concept present but right-lane cars drive wrong-way toward viewer and bidirectional traffic missing, plus out-of-place signal, so reject.
+drv-603-hurricane-flooded-coastal-causeway-crosswind: jpeg 205 KB, ~2759 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG | in 2307 out 1326 $0.0085 7s
+  Passes all mechanical rules but fails teaching intent: sunny pleasant bridge scene with headlights off and one-hand driving teaches safe conditions opposite of storm-surge/high-gust evacuation lesson.
+drv-608-wrong-way-driver-coming-at-you-on-divided-freeway: jpeg 181 KB, ~2792 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MISMATCH teach WRONG | in 2333 out 1031 $0.0073 5s
+  Normal night freeway with no wrong-way driver shown, so the required hazard and steer-right lesson are missing.
+drv-616-defensive-space-never-crowd-merge-point-hostilely: jpeg 267 KB, ~2759 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach QUESTIONABLE FAIL:us_right_hand_traffic | in 2303 out 2224 $0.0123 11s
+  Zipper-merge work-zone concept is recognizable but US lane markings are wrong with yellow dividing same-direction traffic, and alternating merge is not shown. Reject for traffic-marking fail.
+drv-620-changing-flat-tire-level-ground-wheel-chocks-never-under-jack: jpeg 302 KB, ~2799 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach CORRECT FAIL:single_bulb_signal,zero_text | in 2333 out 1402 $0.0089 7s
+  Tire-change teaching is correct but image fails zero-text due to 'P' letter and fails signal rule with red+green both lit.
+drv-624-brake-light-check-reflection-wall-garage: jpeg 178 KB, ~2769 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG FAIL:single_bulb_signal | in 2303 out 1859 $0.0108 10s
+  Mirror reflection concept present but set while driving on a street, with impossible self-view optics and a traffic signal showing multiple lit lenses, so reject.
+drv-625-parking-lights-illegal-substitute-for-headlights: jpeg 120 KB, ~2777 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2310 out 1206 $0.0080 6s
+  Correct light comparison but wrong setting (garage not twilight street), needs human review for scene fidelity.
+drv-630-pedestrian-hybrid-hawk-flashing-red-stop-then-proceed-clear: jpeg 277 KB, ~2799 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach QUESTIONABLE | in 2335 out 2026 $0.0115 10s
+  Stopped sedan and HAWK present but crosswalk not empty due to cyclist, and both reds shown lit, so clear-to-proceed phase not demonstrated.
+drv-631-flashing-yellow-beacon-above-warning-sign: jpeg 129 KB, ~2766 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene PARTIAL teach CORRECT | in 2300 out 990 $0.0071 5s
+  Close-up of correct beacon-on-warning-sign with zero text, but no road context or vehicle as prompted.
+drv-632-lane-control-flashing-yellow-x-left-turn-only: jpeg 261 KB, ~2803 tok in est, cap 4000 out -> worst case $0.021
+  REJECT       scene PARTIAL teach WRONG | in 2335 out 1514 $0.0094 8s
+  Blue car is shown driving straight through the flashing yellow-X lane instead of using it only to pause for a left turn, teaching the opposite of the rule.
+drv-639-freeway-collector-distributor-parallel-lanes: jpeg 277 KB, ~2773 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2310 out 2255 $0.0125 11s
+  Image correctly illustrates C-D separation with clean US traffic geometry, blank signage, and single green signal.
+drv-644-left-turn-from-one-way-onto-two-way-far-left-origin: jpeg 266 KB, ~2798 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MISMATCH teach WRONG FAIL:no_head_on_same_lane,us_right_hand_traffic | in 2339 out 2130 $0.0120 10s
+  Image shows a right-turn geometry and wrong-way cyclist head-on with car instead of the required far-left to left-turn from a one-way, violating right-hand traffic and same-lane rules.
+drv-645-left-turn-from-two-way-onto-one-way-nearest-left-lane: jpeg 196 KB, ~2780 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MISMATCH teach WRONG FAIL:us_right_hand_traffic | in 2323 out 2692 $0.0143 14s
+  Illustration shows left turn onto a two-way road with double-yellow instead of a one-way, with the turning car positioned on the wrong side of the centerline, teaching wrong-way entry.
+drv-646-center-line-left-turn-short-side-vs-wide-sweep: jpeg 207 KB, ~2792 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene MATCH teach QUESTIONABLE | in 2318 out 3023 $0.0157 14s
+  Geometry matches short inside left-turns but both turning cars show lit marker on the right side while making a left turn, opposite of correct left-blinker teaching.
+drv-651-pedestrian-hybrid-crosswalk-unmarked-rural-corner: jpeg 297 KB, ~2777 tok in est, cap 4000 out -> worst case $0.020
+  HUMAN_REVIEW scene MISMATCH teach QUESTIONABLE | in 2314 out 930 $0.0068 5s
+  Rural unmarked crossing with no signals or crosswalk fails to depict required signalized corner with two yielding turning vehicles; rules pass but scene mismatches.
+drv-665-lap-and-shoulder-belt-separate-older-car-both-required: jpeg 202 KB, ~2763 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG FAIL:no_rhd_cabin,single_bulb_signal | in 2308 out 1532 $0.0094 7s
+  Seat-belt comparison present but fails RHD cabin and single-bulb signal rules and adds unrelated road scene; teaching is confused.
+drv-666-airbag-warning-light-on-dash-service-immediately: jpeg 214 KB, ~2768 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach CORRECT FAIL:single_bulb_signal,zero_text | in 2302 out 1169 $0.0078 7s
+  Airbag warning and service concept is correct, but image fails zero-text due to speedometer numbers and fails single-signal due to red+yellow both lit.
+drv-667-abs-warning-light-regular-brakes-still-work: jpeg 223 KB, ~2774 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach CORRECT FAIL:single_bulb_signal,zero_text | in 2304 out 1636 $0.0098 7s
+  REJECT for zero-text failure from gauge numbers and signal failure from red+green both lit, though brake-to-mechanic concept is shown.
+drv-671-parking-brake-engaged-red-light-release-before-driving: jpeg 180 KB, ~2775 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach CORRECT FAIL:zero_text | in 2304 out 795 $0.0063 4s
+  Shows correct parking-brake release sequence and driving, but fails zero-text rule due to '0' numerals on dash instruments.
+drv-673-one-way-street-wrong-way-signs-backs-of-signs-clue: jpeg 276 KB, ~2779 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene PARTIAL teach WRONG | in 2327 out 1348 $0.0086 5s
+  One-way composition with uniform direction but fails key cue: shows yellow lane lines instead of all-white, teaching two-way color on a one-way.
+drv-678-bicyclist-left-turn-vehicular-vs-two-stage-box-turn: jpeg 217 KB, ~2790 tok in est, cap 4000 out -> worst case $0.020
+  ACCEPT       scene MATCH teach CORRECT | in 2328 out 1627 $0.0098 7s
+  Illustration correctly shows both legal left-turn methods with proper US traffic layout and no rule violations.
+drv-680-semi-truck-air-brake-lag-reaction-time: jpeg 180 KB, ~2777 tok in est, cap 4000 out -> worst case $0.020
+  REJECT       scene MATCH teach CORRECT FAIL:single_bulb_signal | in 2318 out 2491 $0.0135 12s
+  Illustrates air-brake lag well but REJECT for traffic-signal error with two lenses lit simultaneously.
+total priced this run: $0.5505

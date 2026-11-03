@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-453-bicycle-crosswalk-dismount-or-yield-speed",
+  "file": "drv-453-bicycle-crosswalk-dismount-or-yield-speed.png",
+  "title": "Bicyclists Using Sidewalks & Crosswalks: Slow to Walking Speed & Drivers Check Both Ways Before Turning Right!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "c6349283ba5e5c8879cb96a133f90572129b9dae259e506651589f20dae6e9d0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4975,
+  "usage": {
+    "completion_tokens": 1322,
+    "prompt_tokens": 2253,
+    "total_tokens": 3575,
+    "completion_tokens_details": {
+      "reasoning_tokens": 939
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008435,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-453-bicycle-crosswalk-dismount-or-yield-speed",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one sedan visible in center-right lane; no oncoming vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only; no car interior or steering wheel visible to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the aerial suburban scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "White sedan travels in right lane with yellow dashed centerline to its left and white edge line/curb to its right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate and surroundings are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows child on sidewalk on right and car near crosswalk, but car is going straight overhead, not making a right turn or scanning both ways at a corner/driveway ramp.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Rules pass with no text or traffic errors, but scene lacks the right-turn scanning action, so needs human review.",
+    "teaching_correct": {
+      "note": "Does not teach opposite or show wrong geometry, but does not demonstrate driver checking both ways before turning right.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Top-down view of a white sedan in the right lane approaching a crosswalk, with a helmeted child in yellow riding a bicycle south on the sidewalk to the right of the car."
+  },
+  "error_body": null
+}

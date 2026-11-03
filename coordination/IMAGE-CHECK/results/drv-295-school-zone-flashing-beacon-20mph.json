@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-295-school-zone-flashing-beacon-20mph",
+  "file": "drv-295-school-zone-flashing-beacon-20mph.png",
+  "title": "Active School Speed Zone When Amber Beacons Flash or Children Are Present",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "204510bea133d3c9b565700aa03201f4af84ed673a6eace48aca13ca9257c0c0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5854,
+  "usage": {
+    "completion_tokens": 1377,
+    "prompt_tokens": 2259,
+    "total_tokens": 3636,
+    "completion_tokens_details": {
+      "reasoning_tokens": 986
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008676,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-295-school-zone-flashing-beacon-20mph",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in right lane face forward away from viewer; no oncoming vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of vehicles shown; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Two separate amber beacon heads each show one lit lens; no multi-lens traffic signal with multiple lights lit.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles travel in right lane with double-yellow centerline on left and white edge line/curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "School sign is pictogram only, license plate is blank white rectangle; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Morning school frontage with pentagon school icon and flashing amber beacons on right post, slowed cars in right lane, children on right sidewalk.",
+      "verdict": "MATCH"
+    },
+    "summary": "Active school zone scene with flashing beacons, slowed traffic, and children on sidewalk; all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows brake-lit cars crawling in school zone while children use sidewalk - teaches slowing for flashing beacons/children present.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of queued SUVs/sedans with brake lights on in right lane beside a school, with a yellow school-crossing sign with two lit amber beacons on the right sidewalk where children with backpacks walk toward the building."
+  },
+  "error_body": null
+}

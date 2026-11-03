@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-129-mandatory-liability-insurance-card",
+  "file": "drv-129-mandatory-liability-insurance-card.png",
+  "title": "Mandatory Motor Vehicle Liability Insurance Proof (Paper or Digital Card in Vehicle)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "215558ebad54e946210254649d78e7cffd9667aa01816ba4a3eeedba2cdf3656",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5219,
+  "usage": {
+    "completion_tokens": 1127,
+    "prompt_tokens": 2253,
+    "total_tokens": 3380,
+    "completion_tokens_details": {
+      "reasoning_tokens": 805
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007606,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-129-mandatory-liability-insurance-card",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Background vehicles on right travel ahead same direction; no opposing vehicles facing each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior shows passenger-side glovebox and door, no steering wheel on right side visible.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the image.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Road on right shows double-yellow centerline on left of lane and white edge line on right, with traffic driving on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Folder, phone screen, plates and background contain only blank shapes and icons, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Open glovebox with paper insurance folder and hand-held smartphone both showing umbrella-car shield icon matches paper-or-digital proof concept.",
+      "verdict": "MATCH"
+    },
+    "summary": "Clean interior split showing paper and digital insurance proof with correct US road context and no text violations.",
+    "teaching_correct": {
+      "note": "Clearly teaches keeping paper folder in glovebox and digital version on phone; no misleading geometry or physics.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Open passenger glovebox on the left holds a blank folder with green umbrella-car shield icon, while a hand on the right holds a smartphone displaying the same glowing icon, with a coastal US road visible through the window."
+  },
+  "error_body": null
+}

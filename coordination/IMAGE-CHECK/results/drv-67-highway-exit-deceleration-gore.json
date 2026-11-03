@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-67-highway-exit-deceleration-gore",
+  "file": "drv-67-highway-exit-deceleration-gore.png",
+  "title": "Freeway Deceleration Exit Ramp & Never Crossing the Painted Gore Area",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "561da7505a6bc3d4e32a49eecf1d54cc168777113058f60444ee620017dd2e32",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6094,
+  "usage": {
+    "completion_tokens": 1324,
+    "prompt_tokens": 2300,
+    "total_tokens": 3624,
+    "completion_tokens_details": {
+      "reasoning_tokens": 934
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008502,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-67-highway-exit-deceleration-gore",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles travel same forward direction; opposite carriageway separated by barrier, no head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible to judge drive side.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles keep right on divided freeway; yellow line on far left, white dashed lanes and white edge line on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; green sign shows only white arrow icon, yellow signs show only black chevron icons, plates blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Aerial view shows northbound freeway with right exit ramp branching off and empty white-striped triangular gore between; blue sedan is cleanly on the ramp.",
+      "verdict": "MATCH"
+    },
+    "summary": "Exit ramp and empty gore correctly depicted with US traffic and zero text; teaches proper deceleration-lane use.",
+    "teaching_correct": {
+      "note": "Gore area is empty and off-limits, blue sedan uses deceleration lane to the right, teaching correct never-cross-gore behavior.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated view behind a blue sedan on a right-curving freeway exit ramp, with a white-striped triangular gore zone in the center separating the ramp from the main freeway lanes on the left at sunset."
+  },
+  "error_body": null
+}

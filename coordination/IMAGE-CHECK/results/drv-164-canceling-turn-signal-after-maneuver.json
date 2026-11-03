@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-164-canceling-turn-signal-after-maneuver",
+  "file": "drv-164-canceling-turn-signal-after-maneuver.png",
+  "title": "Make Sure Turn Signal Cancels Immediately After Completing a Lane Change or Turn",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "dbb6f18764fb97cdef3c2ea7618a68d946de069904df7ade6ce0010984511958",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6009,
+  "usage": {
+    "completion_tokens": 1381,
+    "prompt_tokens": 2260,
+    "total_tokens": 3641,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1011
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008694,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-164-canceling-turn-signal-after-maneuver",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one silver sedan visible from behind in its lane; no oncoming or opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Inset shows only stalk close-up with partial wheel rim; no right-hand-drive cabin layout visible.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicle travels on right side with double-yellow centerline on left and white edge line/guardrail on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; stalk shows only arrow icons and license plate is blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Rear view of straight silver sedan in right lane plus inset of hand returning stalk to center matches cancel-signal-after-maneuver prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows signal cancellation after lane is established with proper US traffic geometry and no text violations.",
+    "teaching_correct": {
+      "note": "Car is straight with no turn blinker active and inset demonstrates flicking stalk to off, teaching not to mislead trailing drivers.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a silver sedan driving straight in the right lane of a sunny coastal highway, with a circular inset at upper left showing a hand moving the steering-column turn-signal stalk with a yellow arrow."
+  },
+  "error_body": null
+}

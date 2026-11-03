@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-278-open-range-cattle-unfenced-highway",
+  "file": "drv-278-open-range-cattle-unfenced-highway.png",
+  "title": "Western Open-Range Highway: Unfenced Cattle/Sheep Roaming Across Pavement",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "9769ffdd412ea4e86037621f7c0a9611dea51c81c91b8adfaf2bffc9e066c9f1",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4648,
+  "usage": {
+    "completion_tokens": 995,
+    "prompt_tokens": 2269,
+    "total_tokens": 3264,
+    "completion_tokens_details": {
+      "reasoning_tokens": 607
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007065,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-278-open-range-cattle-unfenced-highway",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one pickup visible in foreground right lane; no oncoming vehicle or head-on conflict.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear view of pickup shown; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in prairie highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Pickup in right lane, double-yellow centerline on left of its lane, white edge line on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; cow diamond sign is silhouette only, plate is blank white rectangle, striped posts are blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows two-lane western highway with cattle guard, yellow cow sign on right, and pickup stopped in right lane for three brown cattle crossing.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image matches open-range cattle prompt with correct US lane geometry, zero text, and proper yielding behavior. Accept.",
+    "teaching_correct": {
+      "note": "Pickup stopped with brake lights giving wide calm space to cattle; teaches slow/stop for open-range livestock correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a dark blue pickup stopped in the right lane of a two-lane prairie highway, with three brown cattle walking across a steel cattle guard ahead and a yellow cow-silhouette diamond sign on the right."
+  },
+  "error_body": null
+}

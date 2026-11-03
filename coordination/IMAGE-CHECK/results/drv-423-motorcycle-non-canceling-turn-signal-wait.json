@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-423-motorcycle-non-canceling-turn-signal-wait",
+  "file": "drv-423-motorcycle-non-canceling-turn-signal-wait.png",
+  "title": "Motorcycle Turn Signals Often Do NOT Self-Cancel: Wait Until Rider Actually Begins Turning Before Pulling Out!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "9728963ca8734500ea74c9360bcf02478c58bf64b066125eab46cdc086a77aec",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6352,
+  "usage": {
+    "completion_tokens": 1246,
+    "prompt_tokens": 2275,
+    "total_tokens": 3521,
+    "completion_tokens_details": {
+      "reasoning_tokens": 850
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008139,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-423-motorcycle-non-canceling-turn-signal-wait",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan on left side-street perpendicular to motorcycle on main road; no head-on vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; top-down exterior view with dark windows only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the intersection scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Motorcycle travels north in right/east lane with double-yellow centerline on its left and white edge line on its right; side-street car waits at stop line.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license area is blank gray rectangle, no signs with text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows T-intersection with motorcycle approaching on main road with right blinker lit and side-street car waiting behind stop line, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Top-down T-intersection correctly depicts waiting car and signaling motorcycle with proper US lane geometry and no text.",
+    "teaching_correct": {
+      "note": "Car remains behind stop line while bike's blinker is on but bike has not yet slowed or turned, teaching to wait for actual turn.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down view of a blue sedan waiting on a left side-street behind a white stop line at a T-intersection while a motorcycle with its right rear blinker lit approaches northbound on the main road."
+  },
+  "error_body": null
+}

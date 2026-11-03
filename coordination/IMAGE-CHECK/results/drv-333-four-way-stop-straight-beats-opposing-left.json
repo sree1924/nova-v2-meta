@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-333-four-way-stop-straight-beats-opposing-left",
+  "file": "drv-333-four-way-stop-straight-beats-opposing-left.png",
+  "title": "Simultaneous Opposite Arrival at 4-Way Stop: Straight-Through / Right-Turning Car Goes Before Left-Turning Car",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1e8fde1d286fec52f2279e69bfc7e5aca2f3719c2341c49f6fb254f58bd13b7f",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9468,
+  "usage": {
+    "completion_tokens": 2143,
+    "prompt_tokens": 2278,
+    "total_tokens": 4421,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1673
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.011955,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-333-four-way-stop-straight-beats-opposing-left",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "White foreground car northbound and blue background car southbound face each other from opposite lanes divided by double-yellow center; not in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear/front views of cars; no interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No intersection traffic signal present; only blank stop signs and car headlights.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "North-south road has double-yellow centerline with yellow on left of each travel lane and white edge/curb on right, correct for US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Four red octagons are blank, license plates are blank white rectangles; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows opposite simultaneous arrival at 4-way stop with foreground white car going straight on green arrow while opposing blue car waits, but blue car's amber indicator appears on viewer's left / car's right side and no left-turn path is shown, so left-turn element is wrong/ambiguous.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "4-way stop priority (straight first) is depicted with correct road geometry and zero text, but opposing car's turn signal appears on the wrong side for a left turn, so needs human review.",
+    "teaching_correct": {
+      "note": "Priority is correct - straight white car proceeds while opposite car waits behind stop line - but amber signal on car's right suggests right turn, which would not need to yield to opposite straight, making the left-yields lesson ambiguous.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Elevated view of a 4-way stop with a foreground white sedan facing north with a bold green straight-ahead arrow and a background blue sedan facing south waiting at its stop line with one amber front light lit."
+  },
+  "error_body": null
+}

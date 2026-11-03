@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-210-riding-in-pickup-cargo-bed-prohibited",
+  "file": "drv-210-riding-in-pickup-cargo-bed-prohibited.png",
+  "title": "Passengers Prohibited From Riding Unrestrained in Open Pickup Truck Bed or Towed Trailer",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "04f39516b13ee87aa8e3853bd8ca31b5607386ec969517ae4cdbaff65758071c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5973,
+  "usage": {
+    "completion_tokens": 1351,
+    "prompt_tokens": 2268,
+    "total_tokens": 3619,
+    "completion_tokens_details": {
+      "reasoning_tokens": 964
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008577,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-210-riding-in-pickup-cargo-bed-prohibited",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Single pickup with towed trailer in one lane; no oncoming vehicle facing it head-on.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Cab interior visible through windshield shows driver on vehicle's left side holding wheel; no right-hand drive.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Truck travels on right side with double-yellow centerline on left of lane and road edge/guardrail on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is blank white shape, icons are symbol-only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows red prohibition over riders in open pickup bed center and in towed trailer left, green check over buckled occupants in enclosed cab right, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly illustrates prohibition of riding in pickup bed/trailer and approval of cab seating with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Clearly teaches that unrestrained bed/trailer riding is prohibited and cab seating is correct; no misleading geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A silver pickup towing a camper trailer on a sunny road, with two children sitting in the open cargo bed and two children inside the trailer both crossed by red prohibition circles, while three belted occupants in the enclosed cab are marked with a green check."
+  },
+  "error_body": null
+}

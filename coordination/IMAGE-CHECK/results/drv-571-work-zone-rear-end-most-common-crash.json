@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-571-work-zone-rear-end-most-common-crash",
+  "file": "drv-571-work-zone-rear-end-most-common-crash.png",
+  "title": "#1 Work-Zone Crash Type Is Rear-End Collisions From Following Too Closely — Leave Extra Following Space!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "dc3359be30c994f5a8ed2c9067db71b1080cc4a0a131547ee7f2fcec40c27fb6",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3771,
+  "usage": {
+    "completion_tokens": 695,
+    "prompt_tokens": 2248,
+    "total_tokens": 2943,
+    "completion_tokens_details": {
+      "reasoning_tokens": 328
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.005764,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-571-work-zone-rear-end-most-common-crash",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only pickup ahead traveling same direction in our lane; no oncoming vehicle facing us.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Left-hand-drive cabin view with steering wheel on left and driver hands at 9 and 3 o'clock; no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the scene, only orange warning lights on drums.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow dashed centerline on left of lane, white edge line on right; both vehicles travel on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; license plate is blank white rectangle, signs and screens blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Driver-view shows safe following distance behind slowing pickup in orange-drum daylight work zone as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Work-zone following scene with correct US geometry, zero text, and safe gap teaches rear-end avoidance correctly.",
+    "teaching_correct": {
+      "note": "Shows generous following space behind brake-lit pickup in work zone, correctly teaching extra space to avoid rear-end.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Driver-perspective from blue sedan interior following a gray pickup ahead in a right lane bordered on the right by orange work-zone drums and excavator with lake and mountains left."
+  },
+  "error_body": null
+}

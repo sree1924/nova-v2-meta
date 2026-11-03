@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-535-adult-per-se-bac-limit-008-utah-005-cdl-004",
+  "file": "drv-535-adult-per-se-bac-limit-008-utah-005-cdl-004.png",
+  "title": "Legal Per-Se BAC Thresholds: Adult Operator (0.08% / 0.05% UT), Commercial CDL (0.04%), and Under-21 Zero Tolerance",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "e347d442c3e820c5894cc385ffaac9166b9fa2dfe5aa3ea919bbd099b4402e0b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8086,
+  "usage": {
+    "completion_tokens": 1528,
+    "prompt_tokens": 2301,
+    "total_tokens": 3829,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1058
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.00937,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-535-adult-per-se-bac-limit-008-utah-005-cdl-004",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles ahead are viewed from behind in same direction; no oncoming vehicle facing viewer in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Three interior views left side show left-hand-drive steering wheels held by driver on left; no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Three roadside signals each show only top red lens lit, other two lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Left panels drive on right side of road with yellow center markings on left of lane and white edge/curb on right; no left-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates, diamond and pedestrian signs are blank shapes with pictograms only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows 3-tier comparison: top sedan + gauge, middle semi-truck + gauge, bottom youth/permit + gauge with progressively lower threshold marks, matching prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "All visual rules pass and 3-tier concept is present, but gauge levels do not clearly teach adult 0.08 > CDL 0.04 > under-21 zero, with middle gauge appearing equal/higher than top, requiring human review.",
+    "teaching_correct": {
+      "note": "Middle CDL gauge needle/red zone appears equal to or higher than top adult gauge, which could imply CDL allows equal/more alcohol opposite of 0.04 stricter rule; plus red lights beside moving highway traffic are confusing.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Three-row graphic: left shows driver POVs behind sedan, semi-truck, and at crosswalk; center shows circular gauges with red threshold marks; right shows white icons of sedan on red, semi on orange, graduate with card on green."
+  },
+  "error_body": null
+}

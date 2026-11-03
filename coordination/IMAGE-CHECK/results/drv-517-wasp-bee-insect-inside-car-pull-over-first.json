@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-517-wasp-bee-insect-inside-car-pull-over-first",
+  "file": "drv-517-wasp-bee-insect-inside-car-pull-over-first.png",
+  "title": "Bee / Wasp / Spilled Hot Drink Inside Moving Cabin: Stay Calm, Keep Eyes on Road & Pull Over Safely Before Handling!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "eb8340a45d26b9ccd64f74d79a78ae19070c2e31fc1402ac8b7eb3ac9c589ec3",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6410,
+  "usage": {
+    "completion_tokens": 1314,
+    "prompt_tokens": 2475,
+    "total_tokens": 3789,
+    "completion_tokens_details": {
+      "reasoning_tokens": 936
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008678,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-517-wasp-bee-insect-inside-car-pull-over-first",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in main lanes face same direction away from viewer; no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Left red-X inset shows car interior with steering wheel on right side of the frame to the right of the leaning driver, depicting a right-hand-drive cabin.",
+        "verdict": "FAIL"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the roadside scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Travel is on the right with yellow lines on far left and white edge line with right shoulder on right; all traffic faces forward.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Overhead green sign, license plate, and inset are blank shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows the prompted contrast: red-X inset of reaching to floor while moving vs sedan stopped safely on wide right shoulder.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct pull-over lesson but inset depicts right-hand-drive cabin, violating no-RHD rule.",
+    "teaching_correct": {
+      "note": "Teaches to not reach while moving and to pull to shoulder first, with correct stopped on shoulder geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Silver sedan stopped on the right highway shoulder in foreground right with traffic ahead, and a left inset with red X showing a driver bending to the floor while driving."
+  },
+  "error_body": null
+}

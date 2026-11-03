@@ -1,0 +1,150 @@
+{
+  "artifact": "SmeDossierEnvelope",
+  "schema_version": "0.4.0",
+  "stage_id": "02.dossier_sections",
+  "probe": "rdmv-tx-c",
+  "lineage": {
+    "input_manifest_sha256": "f7420949c1947f5d9a914a87720405c8d0642c6452496519ea14ed6aa2bfd9a7",
+    "candidate_lineage_id": "2026-10-28-rdmv-tx-class-c:lineage:79",
+    "source_registry_sha256": "73669019241a96617275447ad5e45b56c17a2d4bd395699448d85850cfc5bafb",
+    "source_liveness_sha256": "09f3b07a722a229b5a39dcb8c5d896c464ba2c2aace4fd45c8b20f536a767fd7"
+  },
+  "envelope_scope": {
+    "kind": "partial_chunk",
+    "assigned_section_ids": [
+      "C2"
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1
+  },
+  "section_char_limit": 12000,
+  "sections": [
+    {
+      "section_id": "C2",
+      "chunk_id": "C2.01",
+      "merge_seq": 1,
+      "domain": "Pedestrian Safety",
+      "heading": "C2 — Confusables and KG hints",
+      "learner_facing": false,
+      "markdown": "## C2 — Confusables and KG hints, Pedestrian Safety\n\nFACT_ID: sec12-R01 | anchor: A01\nSignals rule crossings from curb waits, mid-block crossings stay banned, and crosswalks keep right [A01].\nWhy it matters: group crossing-rules; difficulty low; prereq none; confusables sec12-F01, sec12-F02 [A01].\nSource: [A01 -> src:rdmv-tx-c:texas-department-of-public-safety-driver:handbook:pdf-0067]\n\nFACT_ID: sec12-R02 | anchor: A01\nSidewalks come first, left-side facing traffic comes without sidewalks, and stepping off comes with traffic [A01].\nWhy it matters: group walking-place; difficulty low; prereq none; confusables sec12-F03 [A01].\nSource: [A01 -> src:rdmv-tx-c:texas-department-of-public-safety-driver:handbook:pdf-0067]\n\nFACT_ID: sec12-R03 | anchor: A01\nCrossing outside crosswalks yields to all vehicles, as does skipping provided tunnels and overpasses [A01].\nWhy it matters: group crossing-yield; difficulty medium; prereq sec12-F02; confusables sec12-F04 [A01].\nSource: [A01 -> src:rdmv-tx-c:texas-department-of-public-safety-driver:handbook:pdf-0067]\n\nFACT_ID: sec12-R04 | anchor: A01\nWhite canes on public streets or highways are reserved for people who are blind, partially blind or disabled. Standing in the road to seek rides, donations or business is prohibited; charitable fundraising is allowed only with permission from the local authority responsible for that road [A01].\nWhy it matters: group pedestrian-conduct; difficulty low; prereq none; confusables sec12-F05 [A01].\nSource: [A01 -> src:rdmv-tx-c:texas-department-of-public-safety-driver:handbook:pdf-0067]\n\nFACT_ID: sec12-R05 | anchor: A01\nDarting stays banned, night wants light clothes and reflectors, and alcohol stays off walkways [A01].\nWhy it matters: group pedestrian-safety; difficulty low; prereq none; confusables sec12-F06 [A01].\nSource: [A01 -> src:rdmv-tx-c:texas-department-of-public-safety-driver:handbook:pdf-0067]\n\nFACT_ID: sec12-R06 | anchor: A01\nCrossing walkers earn slowed horned readiness, while cane walkers earn precautions up to mandatory full stops [A01].\nWhy it matters: group motorist-duties; difficulty medium; prereq none; confusables sec12-F07, sec12-F08 [A01].\nSource: [A01 -> src:rdmv-tx-c:texas-department-of-public-safety-driver:handbook:pdf-0067]\n",
+      "char_count": 2256,
+      "fact_ids": [
+        "sec12-R01",
+        "sec12-R02",
+        "sec12-R03",
+        "sec12-R04",
+        "sec12-R05",
+        "sec12-R06"
+      ],
+      "source_anchors": [
+        {
+          "anchor_id": "A01",
+          "source_page": "src:rdmv-tx-c:texas-department-of-public-safety-driver:handbook:pdf-0067"
+        }
+      ]
+    }
+  ],
+  "merge": {
+    "order_rule": "merge_seq_ascending",
+    "joiner": "concat_no_separator",
+    "expected_merged_sha256": null
+  },
+  "exam_facts": {
+    "exam_name": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "issuing_body": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "edition": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "effective_date": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "question_bank_size": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "n_questions": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "passing_standard": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "format": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    },
+    "time_limit": {
+      "value": null,
+      "status": "unknown",
+      "source_page": null
+    }
+  },
+  "high_yield_ranked": [
+    {
+      "chunk_id": "C2.01",
+      "domain": "Pedestrian Safety",
+      "ranked": [
+        {
+          "item_refs": [
+            "sec12-R01",
+            "sec12-R03"
+          ],
+          "label": "Crossing rule pairs",
+          "rank": 1
+        },
+        {
+          "item_refs": [
+            "sec12-R06"
+          ],
+          "label": "Motorist duty pairs",
+          "rank": 2
+        },
+        {
+          "item_refs": [
+            "sec12-R02",
+            "sec12-R04",
+            "sec12-R05"
+          ],
+          "label": "Conduct and safety pairs",
+          "rank": 3
+        }
+      ]
+    }
+  ],
+  "needs_dedicated_surface": {
+    "items": [],
+    "status": "unknown"
+  },
+  "corpus_stability": {
+    "assessment": "stable_le_1_per_year",
+    "blocked_probe": false,
+    "reason": "The Texas Driver Handbook is a periodically revised official edition, so Section Twelve pedestrian rules change at most with new editions."
+  },
+  "verification_debt": [],
+  "external_review_requests": [],
+  "market_signal": {
+    "origin": "sme",
+    "origin_note": "market signal is authored in part E",
+    "disposition": "scoped_out",
+    "chunk_ids": [],
+    "debt_refs": []
+  },
+  "g_matrix": []
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-59-electronic-toll-gantry-lane",
+  "file": "drv-59-electronic-toll-gantry-lane.png",
+  "title": "Open-Road Electronic Toll Gantry & Windshield Transponder (Keep Moving)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8038a20e4471e52c714ac0004d33c2fc4e4697239bc8a1abcc512f17cec78b79",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7492,
+  "usage": {
+    "completion_tokens": 1441,
+    "prompt_tokens": 2288,
+    "total_tokens": 3729,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1087
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008984,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-59-electronic-toll-gantry-lane",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles travel forward in same direction; no oncoming facing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; all cars seen from exterior rear.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic flows forward on right; yellow line on left edge, white lane markings and barrier on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates, gantry boxes, and background are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows divided toll expressway under electronic gantry with sensor pods and cyan radio arcs to transponder on silver sedan moving forward.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts open-road electronic tolling with keep-moving traffic and passes all visual rules.",
+    "teaching_correct": {
+      "note": "Teaches keep moving through gantry with transponder communication; no stopping, backing, or wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view looking forward along a multi-lane expressway under an overhead toll gantry with cyan radio-wave arcs, a silver sedan in the right foreground moving forward with other cars ahead."
+  },
+  "error_body": null
+}

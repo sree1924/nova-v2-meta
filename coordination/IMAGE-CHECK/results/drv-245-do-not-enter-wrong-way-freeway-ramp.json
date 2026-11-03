@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-245-do-not-enter-wrong-way-freeway-ramp",
+  "file": "drv-245-do-not-enter-wrong-way-freeway-ramp.png",
+  "title": "Wrong-Way Freeway Off-Ramp Prevention: Red Prohibitive Signs & Backing/Turning Safely Before Entering",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "132075c2af6dd2e7678d87438966b54ed85f6b5964101a822649acf04e1768f9",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6338,
+  "usage": {
+    "completion_tokens": 1347,
+    "prompt_tokens": 2276,
+    "total_tokens": 3623,
+    "completion_tokens_details": {
+      "reasoning_tokens": 941
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00857,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-245-do-not-enter-wrong-way-freeway-ramp",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one blue sedan visible from rear in foreground; no oncoming vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear view of blue sedan shown; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Right-side vertical signal shows only bottom green lens lit, upper lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow line on left of foreground lane, white edge line and curb on right; ramps curve correctly for right-hand travel.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs are blank shapes/icons: red circles, white arrow on green, black chevrons; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows daylight ramp mouth with two blank red-circle prohibitive plaques flanking left off-ramp and blue sedan positioned to take right-side on-ramp under green go signal.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows wrong-way prevention with blank prohibitive signs and proper right-hand geometry; no rule violations.",
+    "teaching_correct": {
+      "note": "Blue sedan waits before ramp split, avoiding left prohibited off-ramp and aligned to legal right on-ramp, teaching correct do-not-enter avoidance.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue sedan stopped at an intersection facing a freeway ramp split, with two blank red-circle signs on the left off-ramp and a curving on-ramp on the right under a green light."
+  },
+  "error_body": null
+}

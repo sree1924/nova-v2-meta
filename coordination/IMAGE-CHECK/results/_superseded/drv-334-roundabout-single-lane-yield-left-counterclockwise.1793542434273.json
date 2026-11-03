@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-334-roundabout-single-lane-yield-left-counterclockwise",
+  "file": "drv-334-roundabout-single-lane-yield-left-counterclockwise.png",
+  "title": "Single-Lane Roundabout Routine: Slow Down, Yield to Walkers & Left Circulating Traffic, Signal Right to Exit",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d5eeb9839fe7b2a7cd9252304065268ec376c8f407d7153a16ddc75c33ef7b7b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 13662,
+  "usage": {
+    "completion_tokens": 3052,
+    "prompt_tokens": 2285,
+    "total_tokens": 5337,
+    "completion_tokens_details": {
+      "reasoning_tokens": 2652
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.015827,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-334-roundabout-single-lane-yield-left-counterclockwise",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue entry car and red circulating car are on separate paths, not facing head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Bird's-eye exterior view only, no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal in scene, only street lamps and car lights.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue entry has yellow centerline on left and white edge on right; green arrows show counter-clockwise circulation.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Yield signs, pavements and plates are blank shapes, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Roundabout with yield and CCW arrows present, but red circulating car is on the right/east side of the entry, not approaching from the left as prompt requires.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Roundabout markings correct but circulating red car is positioned on the wrong side for a left-yield lesson, teaching incorrect priority.",
+    "teaching_correct": {
+      "note": "Blue at south entry should yield to traffic from left/west, but red conflict car is shown on right/east already past the entry, teaching yield to the wrong direction.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Bird's-eye view of a landscaped single-lane roundabout with central island, blue sedan stopped at shark-teeth yield line in foreground and red sedan circulating on the right side with green counter-clockwise arrows."
+  },
+  "error_body": null
+}

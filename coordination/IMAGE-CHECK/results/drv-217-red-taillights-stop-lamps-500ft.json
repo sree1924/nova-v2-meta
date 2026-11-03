@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-217-red-taillights-stop-lamps-500ft",
+  "file": "drv-217-red-taillights-stop-lamps-500ft.png",
+  "title": "Required Rear Lighting: Two Red Taillights & Bright Red Stop/Brake Lamps Visible 500 Feet",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "0ea1f75d3b170d09c691940b6a9fde649cd0ee7918ab5e96878023b4dfa3a3ee",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3052,
+  "usage": {
+    "completion_tokens": 707,
+    "prompt_tokens": 2273,
+    "total_tokens": 2980,
+    "completion_tokens_details": {
+      "reasoning_tokens": 320
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.005846,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-217-red-taillights-stop-lamps-500ft",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in foreground and background travel same direction away from viewer; no oncoming facing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear view shown; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Car centered in right-hand lane with double yellow centerline on left and white edge line/curb on right, traveling forward with traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; rear plate is blank white rectangle, no signs with text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Dusk rear view clearly shows sedan with both symmetrical red taillights and center high-mount brake lamp illuminated as described.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts required rear lighting with glowing taillights and third brake lamp, meets all visual rules with no text and correct US right-hand traffic geometry.",
+    "teaching_correct": {
+      "note": "Clearly teaches two red taillights plus bright center brake lamp visible from rear at dusk; geometry and lighting correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a silver sedan centered in the right lane at sunset on a coastal highway, with both red taillights and center high-mount brake light glowing brightly and blank license plate."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-251-lane-ends-merge-left-right-taper",
+  "file": "drv-251-lane-ends-merge-left-right-taper.png",
+  "title": "Right Lane Ends Taper Warning vs. Added Lane (Merge Without Stopping vs. Own Continuing Lane)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d525e19b8065e6a2704edde7ff00bae39545a57794ca8dc92ebabf22abe4d61a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4526,
+  "usage": {
+    "completion_tokens": 966,
+    "prompt_tokens": 2279,
+    "total_tokens": 3245,
+    "completion_tokens_details": {
+      "reasoning_tokens": 573
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006954,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-251-lane-ends-merge-left-right-taper",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in both panels travel same direction northbound; no opposing facing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of cars shown; no interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No pole-mounted traffic signals present; vehicle tail/turn lights do not count.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show forward same-direction traffic with yellow line on left and white lane lines / curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; yellow diamond shows only black narrowing icon, plates and road arrows are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left panel shows right-lane taper with cones and narrowing warning and blue car merging left; right panel shows entrance ramp continuing as own lane with no merge conflict.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split highway illustration correctly contrasts lane-ends merge vs added lane with zero text and correct US right-hand geometry.",
+    "teaching_correct": {
+      "note": "Merge arrow, signal use, taper with cones, and continuing added lane correctly teach merge vs own-lane concepts.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split aerial view of northbound highway: left panel shows right lane closed by orange cones with blue car and yellow merge arrow moving left past a yellow narrowing diamond; right panel shows entrance ramp becoming a continuous blue-shaded right lane."
+  },
+  "error_body": null
+}

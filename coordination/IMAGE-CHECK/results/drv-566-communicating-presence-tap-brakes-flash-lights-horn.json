@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-566-communicating-presence-tap-brakes-flash-lights-horn",
+  "file": "drv-566-communicating-presence-tap-brakes-flash-lights-horn.png",
+  "title": "Communicating With Other Road Users: Early Turn Signals, Tapping Brakes Early Before Slowdown & Brief Polite Horn/Flash",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "051b690b3de9b1affdeb29c3adcef0c2216fd55838f8aad2ba799a26004eb596",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4004,
+  "usage": {
+    "completion_tokens": 918,
+    "prompt_tokens": 2474,
+    "total_tokens": 3392,
+    "completion_tokens_details": {
+      "reasoning_tokens": 535
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006994,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-566-communicating-presence-tap-brakes-flash-lights-horn",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in foreground and background face forward away from viewer in same direction, none facing each other.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views shown; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "All lanes travel same forward direction; yellow line on left edge of left lane, white lane lines on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Overhead gantry signs are blank green shapes, plates are blank rectangles; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan in left foreground shows lit brake lights with pulse motif while slowed traffic is visible far ahead and a trailing SUV is close on right, matching early brake-tap warning.",
+      "verdict": "MATCH"
+    },
+    "summary": "Highway scene correctly shows early braking communication to follower with US traffic and blank signage; all rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows early brake-light warning well before queued traffic, teaching correct following-distance communication with no wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue sedan with glowing red brake lights in the left lane and a dark SUV close on the right, with queued slowed traffic ahead under a blank green overhead sign gantry in daylight."
+  },
+  "error_body": null
+}

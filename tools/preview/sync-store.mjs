@@ -40,19 +40,19 @@ const GEN = path.join(STORE, 'src', 'generated');
 const CHECK = process.argv.includes('--check');
 const ASSETS = path.join(STORE, 'learner-assets');
 const posix = (p) => p.split(path.sep).join('/');
-const walk = (dirAbs) => {
-  if (!fs.existsSync(dirAbs)) return [];
-  const out = [];
+const walk = (dirAbs, out = []) => {
+  if (!fs.existsSync(dirAbs)) return out;
   for (const name of fs.readdirSync(dirAbs)) {
     const p = path.join(dirAbs, name);
     const st = fs.statSync(p);
-    if (st.isDirectory()) out.push(...walk(p)); else out.push(p);
+    if (st.isDirectory()) walk(p, out); else out.push(p);
   }
   return out;
 };
-const SIGN_ASSETS = walk(path.join(ASSETS, 'signs')).map((f) => posix(path.relative(ASSETS, f))).sort();
 const VISUAL_ASSETS = walk(path.join(ASSETS, 'visuals')).map((f) => posix(path.relative(ASSETS, f))).sort();
-const STORE_ASSETS = ['gate.js', 'learner.css', ...SIGN_ASSETS, ...VISUAL_ASSETS];
+const FONT_ASSETS = walk(path.join(ASSETS, 'fonts')).map((f) => posix(path.relative(ASSETS, f))).filter((f) => !f.includes('.tmp')).sort();
+const DECK_ASSETS = walk(path.join(ASSETS, 'decks')).map((f) => posix(path.relative(ASSETS, f))).filter((f) => !f.includes('.tmp')).sort();
+const STORE_ASSETS = ['gate.js', 'learner.css', ...VISUAL_ASSETS, ...FONT_ASSETS, ...DECK_ASSETS];
 const KEEP = new Set(STORE_ASSETS);
 
 const die = (msg) => { console.error('sync-store: ' + msg); process.exit(1); };
@@ -66,8 +66,10 @@ const STATES = readJson('data/states.json');
 if (!Array.isArray(STATES) || !STATES.length) die('data/states.json is empty');
 const COMPLETE = STATES.filter((s) => s.status === 'complete');
 
-const copy = new Set(['styles.css', 'states-embedded.js', 'data/states.json', 'data-embedded.js', 'data/manifest.json']);
+const copy = new Set(['styles.css', 'signs-embedded.js', 'states-embedded.js', 'data/states.json', 'data-embedded.js', 'data/manifest.json']);
 for (const f of walk(path.join(SRC, 'data', 'synthetic'))) copy.add(relSrc(f));
+for (const f of walk(path.join(SRC, 'data', 'signs'))) if (f.endsWith('.json')) copy.add(relSrc(f));
+for (const f of walk(path.join(SRC, 'signs'))) if (f.endsWith('.png')) copy.add(relSrc(f));
 for (const s of COMPLETE) for (const f of walk(path.join(SRC, trim(s.data_root)))) copy.add(relSrc(f));
 const AUDIO_OK = (rel) => rel.endsWith('.mp3') || path.posix.basename(rel) === 'audio-manifest.json';
 const skippedAudio = [];
@@ -78,6 +80,7 @@ for (const f of walk(path.join(SRC, 'audio'))) {
 // lesson videos (2026-10-31): video/<xx>/{<unit>.mp4, <unit>.jpg, video-manifest.json}, written by tools/video/onboard-videos.mjs
 const VIDEO_OK = (rel) => rel.endsWith('.mp4') || rel.endsWith('.jpg') || path.posix.basename(rel) === 'video-manifest.json';
 if (fs.existsSync(path.join(SRC, 'video'))) for (const f of walk(path.join(SRC, 'video'))) { const rel = relSrc(f); if (VIDEO_OK(rel)) copy.add(rel); }
+const VIDEO_STATES = COMPLETE.filter((s) => fs.existsSync(path.join(SRC, 'video', s.code.toLowerCase(), 'video-manifest.json'))).map((s) => s.code).sort();
 const quarantineFiles = [];
 for (const name of fs.readdirSync(path.join(SRC, 'data'))) {
   const rel = 'data/' + name + '/quarantine.json';
@@ -93,12 +96,23 @@ for (const rel of copy) if (!fs.existsSync(path.join(SRC, rel))) die('missing so
 // undefined and the shell behaves exactly as before.
 const PATCHES = [
   {
+    name: 'shell: brand tab title before first route',
+    find: '<title>Driver Handbook — Written-Test Prep</title>',
+    replace: '<title>PassLearnersPermit</title>',
+  },
+  {
     name: 'load gate.js before the module script',
     find: '<script src="states-embedded.js" defer></script>\n',
     replace: '<script src="states-embedded.js" defer></script>\n'
       + '<!-- STORE PATCH (tools/preview/sync-store.mjs): paywall + quarantine gate.\n'
       + '     gate.js defines window.NovaGate; it exists only in store/public/app. -->\n'
       + '<script src="gate.js"></script>\n',
+  },
+  {
+    name: 'module: inject built video-state roster',
+    find: '<script type="module">\n',
+    replace: '<script type="module">\n'
+      + `window.__PLP_VIDEO_STATES = ${JSON.stringify(VIDEO_STATES)};\n`,
   },
   {
     name: 'loadReal: skip locked chapters, hide quarantined cards',
@@ -114,8 +128,9 @@ const PATCHES = [
       + '      const rel = relKey(root, e.file);\n'
       + '      files[rel] = await fetchJson(root + "/" + rel);\n'
       + '    }\n'
-      + '    // STORE PATCH: hide quarantined card ids from decks, card scripts and\n'
-      + '    // recaps in the loaded view model (the artifact files are untouched).\n'
+      + '    // STORE PATCH: lazy-load per-state deck overlay + visuals, apply overlay,\n'
+      + '    // and hide quarantined card ids in the loaded view model.\n'
+      + '    if (window.NovaGate && window.NovaGate.ensureDeckOverlay) await window.NovaGate.ensureDeckOverlay(s);\n'
       + '    if (window.NovaGate) window.NovaGate.hideQuarantined(s, files);\n'
       + '    if (window.NovaGate && window.NovaGate.ensureStateVisuals) await window.NovaGate.ensureStateVisuals(s);\n'
       + '    return { manifest, files, from: "fetch" };\n',
@@ -125,7 +140,7 @@ const PATCHES = [
     find: '// One state\'s course: sub = parts after "#/<xx>/".\nfunction routeState(sub) {\n',
     replace: '// STORE PATCH: read-only view helpers handed to gate.js.\n'
       + 'const GATE_VIEW = { esc, P: () => P(), HB: () => HB(), realNote: () => REAL_NOTE, sections: () => SECTIONS,\n'
-      + '  hasAudio: () => !!AUDIO_MANIFEST, stopAudio: () => stopAudio(), manifest: () => (R && R.manifest) || null, sectionMeta, sectionOfModule, sectionOfUnit, moduleForUnit, practiceForms };\n'
+      + '  hasAudio: () => !!AUDIO_MANIFEST, stopAudio: () => stopAudio(), manifest: () => (R && R.manifest) || null, sectionMeta, sectionOfModule, sectionOfUnit, moduleForUnit, modulesReal, practiceForms };\n'
       + '// One state\'s course: sub = parts after "#/<xx>/".\nfunction routeState(sub) {\n'
       + '  // STORE PATCH: chapter 1 is free; chapters 2+ (and their modules, lessons,\n'
       + '  // cards, quizzes, practice forms) render gate.js\'s buy panel unless the\n'
@@ -178,7 +193,15 @@ for (const rel of [...copy].sort()) {
     const ds = fs.statSync(d);
     if (ds.size === ss.size && ds.mtimeMs >= ss.mtimeMs) { skipped++; continue; }
   }
-  if (!CHECK) { fs.mkdirSync(path.dirname(d), { recursive: true }); fs.copyFileSync(s, d); }
+  if (!CHECK) {
+    fs.mkdirSync(path.dirname(d), { recursive: true });
+    if (rel.startsWith('video/') && (rel.endsWith('.mp4') || rel.endsWith('.jpg'))) {
+      if (fs.existsSync(d)) fs.unlinkSync(d);
+      try { fs.linkSync(s, d); } catch { fs.copyFileSync(s, d); }
+    } else {
+      fs.copyFileSync(s, d);
+    }
+  }
   copied++;
 }
 
@@ -205,11 +228,15 @@ if (writeIfChanged(path.join(DEST, 'quarantine-index.json'), qJson)) copied++;
 // clips (only Utah has minted audio today). Everything else under /app/ needs
 // an unexpired entitlement for the state that owns its prefix.
 const firstChapter = (s) => [...(s.chapters || [])].sort((a, b) => (a.n || 0) - (b.n || 0))[0] || null;
-const free = new Set(['', 'index.html', ...STORE_ASSETS, 'quarantine-index.json', 'styles.css', 'states-embedded.js', 'data-embedded.js', 'data/states.json', 'data/manifest.json']);
-for (const rel of copy) if (rel.startsWith('data/synthetic/') || rel.endsWith('/quarantine.json')) free.add(rel);
+const FREE_STORE_ASSETS = STORE_ASSETS.filter((rel) => !rel.startsWith('decks/audio/'));
+const free = new Set(['', 'index.html', ...FREE_STORE_ASSETS, 'quarantine-index.json', 'styles.css', 'signs-embedded.js', 'states-embedded.js', 'data-embedded.js', 'data/states.json', 'data/manifest.json']);
+for (const rel of copy) if (rel.startsWith('data/synthetic/') || rel.startsWith('data/signs/') || rel.startsWith('signs/') || rel.endsWith('/quarantine.json')) free.add(rel);
 const paidPrefixes = [];
 const catalog = [];
 const audioByState = {};
+const signsByState = (fs.existsSync(path.join(SRC, 'data', 'signs', 'by-state.json')) ? readJson('data/signs/by-state.json').states : null) || {};
+const signsCatalogDoc = fs.existsSync(path.join(SRC, 'data', 'signs', 'signs.json')) ? readJson('data/signs/signs.json') : null;
+const signsById = new Map(((signsCatalogDoc && signsCatalogDoc.signs) || []).map((sg) => [sg.id, sg]));
 for (const s of COMPLETE) {
   const root = trim(s.data_root);
   const ch1 = firstChapter(s);
@@ -224,16 +251,77 @@ for (const s of COMPLETE) {
   // held-back (quarantined) cards are not counted: the counts describe what renders
   const hidden = new Set(((qIndex.states[s.code] || {}).cards || []).map((c) => c.id));
   let cards = 0, heldBack = 0, items = 0, lessons = 0, forms = 0, quizzes = 0;
+  let ch1ModuleId = null, ch1UnitId = null, ch1ModuleTitle = null;
+  let sampleQuiz = null;
+  const ch1CardIds = [];
   const built = new Set();
+  const ch1OverlayIds = new Set();
   for (const e of manifest.files || []) {
     const rel = relOf(e.file);
     if (!copy.has(rel)) die(`${s.code}: manifest lists ${rel} but it is not in the copy set`);
     if (e.section_id && e.section_id === ch1.id) free.add(rel);
-    if (e.stage_id === '03.combined_kg') built.add(e.section_id);
+    if (e.stage_id === '03.combined_kg') {
+      built.add(e.section_id);
+      if (e.section_id === ch1.id) {
+        const kgDoc = readJson(rel);
+        const m0 = (kgDoc.modules || [])[0];
+        const u0 = (kgDoc.curriculum_unit_hints || [])[0];
+        if (m0 && m0.module_id) ch1ModuleId = m0.module_id;
+        if (m0 && m0.title && !ch1ModuleTitle) ch1ModuleTitle = m0.title;
+        if (u0 && u0.unit_id && !ch1UnitId) ch1UnitId = u0.unit_id;
+      }
+    }
     const doc = (e.stage_id === '04.cards' || e.stage_id === '06.exam_bank' || e.stage_id === '05.sessions') ? readJson(rel) : null;
-    if (e.stage_id === '04.cards') for (const d of doc.decks || []) for (const c of d.cards || []) { if (hidden.has(c.card_id)) heldBack++; else cards++; }
-    if (e.stage_id === '06.exam_bank') { items += (doc.items || []).length; forms += (doc.practice_forms || []).length; quizzes += (doc.module_quizzes || []).length; }
-    if (e.stage_id === '05.sessions') lessons += (doc.units || []).length;
+    if (e.stage_id === '04.cards') {
+      for (const d of doc.decks || []) for (const c of d.cards || []) {
+        if (hidden.has(c.card_id)) heldBack++;
+        else {
+          cards++;
+          if (e.section_id === ch1.id && c.card_id) ch1CardIds.push(c.card_id);
+        }
+        if (e.section_id === ch1.id && c.card_id) ch1OverlayIds.add(c.card_id);
+      }
+      if (e.section_id === ch1.id) {
+        const secPre = String(e.section_id).split('-')[0];
+        for (const r of doc.recaps || []) {
+          if (r && r.card_id) ch1OverlayIds.add(r.card_id);
+          if (r && r.module_id) {
+            ch1OverlayIds.add(r.module_id);
+            ch1OverlayIds.add(`${secPre}-recap-${r.module_id}`);
+          }
+        }
+      }
+    }
+    if (e.stage_id === '06.exam_bank') {
+      items += (doc.items || []).length;
+      forms += (doc.practice_forms || []).length;
+      quizzes += (doc.module_quizzes || []).length;
+      if (!sampleQuiz && e.section_id === ch1.id && Array.isArray(doc.items) && doc.items[0]) {
+        const it0 = doc.items[0];
+        sampleQuiz = {
+          stem: it0.stem,
+          correct_key: it0.correct_key,
+          rationale: it0.correct_rationale || '',
+          options: (it0.options || []).map((o) => ({ key: o.key, text: o.text })),
+        };
+      }
+    }
+    if (e.stage_id === '05.sessions') {
+      lessons += (doc.units || []).length;
+      if (e.section_id === ch1.id && doc.units && doc.units[0]) {
+        if (doc.units[0].unit_id) ch1UnitId = doc.units[0].unit_id;
+        if (doc.units[0].title && doc.units[0].title.text) ch1ModuleTitle = doc.units[0].title.text;
+      }
+    }
+  }
+  const deckAudioPrefix = 'decks/audio/' + s.code.toLowerCase() + '/';
+  const stateDeckAudio = DECK_ASSETS.filter((rel) => rel.startsWith(deckAudioPrefix));
+  if (stateDeckAudio.length) {
+    paidPrefixes.push({ prefix: deckAudioPrefix, code: s.code });
+    for (const rel of stateDeckAudio) {
+      const baseId = path.posix.basename(rel).replace(/\.(q|teach|recap|a)\.mp3$/, '');
+      if (ch1OverlayIds.has(baseId)) free.add(rel);
+    }
   }
   // audio (only when the state's manifest exists on disk)
   let audio = null;
@@ -266,18 +354,85 @@ for (const s of COMPLETE) {
     const vm = readJson(vroot + '/video-manifest.json');
     paidPrefixes.push({ prefix: vroot + '/', code: s.code });
     free.add(vroot + '/video-manifest.json');
-    let units = 0, freeUnits = 0;
+    let units = 0, freeUnits = 0, sampleVideo = null, samplePoster = null;
+    const preferred = ch1UnitId && vm.units ? vm.units[ch1UnitId] : null;
+    if (preferred && preferred.section_id === ch1.id) {
+      sampleVideo = preferred.file || null;
+      samplePoster = preferred.poster || null;
+    }
     for (const u of Object.values(vm.units || {})) {
       units++;
-      if (u.section_id === ch1.id) { if (u.file) free.add(u.file); if (u.poster) free.add(u.poster); freeUnits++; }
+      if (u.section_id === ch1.id) {
+        if (u.file) free.add(u.file);
+        if (u.poster) free.add(u.poster);
+        if (!sampleVideo && u.file) { sampleVideo = u.file; samplePoster = u.poster || null; }
+        freeUnits++;
+      }
     }
-    video = { units, free_units: freeUnits, duration_seconds: (vm.totals && vm.totals.duration_seconds) || null };
+    video = { units, free_units: freeUnits, duration_seconds: (vm.totals && vm.totals.duration_seconds) || null, sample_video: sampleVideo, sample_poster: samplePoster };
+  }
+  // per-state visual + Gen-Z overlay metadata for storefront truth & interactive previews
+  const stateSignsEntry = signsByState[s.code] || {};
+  const stateSignIds = Array.isArray(stateSignsEntry.signs) ? stateSignsEntry.signs : [];
+  const roadSignsCount = stateSignIds.length;
+  const imagedStateSigns = stateSignIds
+    .map((id) => signsById.get(id))
+    .filter((sg) => sg && sg.image && typeof sg.image.file === 'string' && sg.image.file.endsWith('.png'));
+  const codeSeed = (s.code.charCodeAt(0) || 0) * 7 + (s.code.charCodeAt(1) || 0);
+  const regPool = imagedStateSigns.filter((sg) => sg.category === 'regulatory');
+  const warnPool = imagedStateSigns.filter((sg) => sg.category === 'warning' || sg.category === 'school');
+  const pickedSigns = [];
+  if (regPool.length) pickedSigns.push(regPool[codeSeed % regPool.length]);
+  if (warnPool.length) pickedSigns.push(warnPool[codeSeed % warnPool.length]);
+  for (const sg of imagedStateSigns) {
+    if (pickedSigns.length >= 2) break;
+    if (!pickedSigns.some((p) => p.id === sg.id)) pickedSigns.push(sg);
+  }
+  const sampleSigns = pickedSigns.map((sg) => ({
+    id: sg.id,
+    name: sg.name,
+    category: sg.category,
+    file: sg.image.file,
+  }));
+  const signMappedCardSet = new Set(Object.values(stateSignsEntry.handbook_cards || {}).flat().filter(Boolean));
+  let mappedVisualCards = signMappedCardSet.size;
+  const stateVisualAbs = path.join(ASSETS, 'visuals', 'state', s.code.toLowerCase() + '.json');
+  if (fs.existsSync(stateVisualAbs)) {
+    const sv = JSON.parse(fs.readFileSync(stateVisualAbs, 'utf8'));
+    const svCards = Object.values((sv && sv.cards) || {}).filter((v) => v && !v.fallback && (v.scene || v.sign)).length;
+    if (svCards > mappedVisualCards) mappedVisualCards = svCards;
+  }
+  let hasGenZDeck = false;
+  let sampleCard = null;
+  const deckOvAbs = path.join(ASSETS, 'decks', s.code.toLowerCase() + '.json');
+  if (fs.existsSync(deckOvAbs)) {
+    const ov = JSON.parse(fs.readFileSync(deckOvAbs, 'utf8'));
+    if (ov && ov.cards && Object.keys(ov.cards).length > 0) {
+      hasGenZDeck = true;
+      const pickId = ch1CardIds.find((id) => ov.cards[id]) || Object.keys(ov.cards)[0];
+      const m = pickId ? ov.cards[pickId] : null;
+      if (m && m.front && m.expected_back) {
+        sampleCard = {
+          front: m.front,
+          answer: m.expected_back,
+          hook: m.memory_hook || '',
+          kicker: m.kicker || 'KEY TEST RULE',
+          pills: Array.isArray(m.pills) ? m.pills.slice(0, 3) : [],
+          audio_q: (m.audio_q && free.has(m.audio_q)) ? m.audio_q : (audio && audio.sample_card_q ? audio.sample_card_q : null),
+        };
+      }
+    }
   }
   catalog.push({
     code: s.code, registry_name: s.name, handbook: s.handbook, test: s.test, run_id: s.run_id,
     chapters: (s.chapters || []).map((c, i) => ({ id: c.id, n: c.n || i + 1, title: c.title || c.id, built: built.has(c.id) })),
     free_chapter: { id: ch1.id, n: ch1.n || 1, title: ch1.title || ch1.id },
-    counts: { chapters_built: built.size, chapters_total: (s.chapters || []).length, flashcards: cards, flashcards_held_back: heldBack, quiz_items: items, lessons, module_quizzes: quizzes, practice_forms: forms },
+    entry: { first_module_id: ch1ModuleId, first_unit_id: ch1UnitId, first_title: ch1ModuleTitle || ch1.title || ch1.id },
+    counts: { chapters_built: built.size, chapters_total: (s.chapters || []).length, flashcards: cards, flashcards_held_back: heldBack, quiz_items: items, lessons, module_quizzes: quizzes, practice_forms: forms, road_signs: roadSignsCount },
+    visuals: { mapped_cards: mappedVisualCards, has_genz_deck: hasGenZDeck },
+    sample_card: sampleCard,
+    sample_signs: sampleSigns,
+    sample_quiz: sampleQuiz,
     audio,
     video,
   });

@@ -38,6 +38,7 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const APP = path.join(ROOT, 'app-preview');            // expected model source
@@ -46,6 +47,8 @@ const UNDER = ROOT_ARG ? path.resolve(ROOT, ROOT_ARG) : APP; // shell under test
 const STORE = !!ROOT_ARG && fs.existsSync(path.join(UNDER, 'gate.js'));
 const HTTP_BASE = ((process.argv.find((a) => a.startsWith('--http=')) || '').slice('--http='.length)).replace(/\/+$/, '');
 const FETCH_MODE = !!HTTP_BASE || !!ROOT_ARG;
+const CUSTOMER_STATES_ARG = (process.argv.find((a) => a.startsWith('--customer-states=')) || '').slice('--customer-states='.length);
+const CUSTOMER_STATES = CUSTOMER_STATES_ARG ? new Set(CUSTOMER_STATES_ARG.toUpperCase().split(',')) : null;
 const fails = [];
 const ok = (name, cond, extra) => {
   if (cond) { console.log('PASS ' + name); }
@@ -113,6 +116,33 @@ for (const s of STATES) {
 const swin = {};
 vm.runInNewContext(fs.readFileSync(path.join(UNDER, 'states-embedded.js'), 'utf8'), { window: swin });
 ok('states-embedded.js matches states.json', JSON.stringify(swin.__STATES_EMBEDDED) === JSON.stringify(STATES), 'regenerate: node tools/preview/embed-states.mjs');
+const signsDisk = {
+  signs: JSON.parse(fs.readFileSync(path.join(UNDER, 'data/signs/signs.json'), 'utf8')),
+  byState: JSON.parse(fs.readFileSync(path.join(UNDER, 'data/signs/by-state.json'), 'utf8')),
+  quiz: JSON.parse(fs.readFileSync(path.join(UNDER, 'data/signs/quiz.json'), 'utf8')),
+};
+vm.runInNewContext(fs.readFileSync(path.join(UNDER, 'signs-embedded.js'), 'utf8'), { window: swin });
+ok('signs-embedded.js matches data/signs/*.json (93/51/178)',
+  !!(swin.__SIGNS_EMBEDDED
+    && Array.isArray(swin.__SIGNS_EMBEDDED.signs && swin.__SIGNS_EMBEDDED.signs.signs) && swin.__SIGNS_EMBEDDED.signs.signs.length === 93
+    && Object.keys((swin.__SIGNS_EMBEDDED.byState && swin.__SIGNS_EMBEDDED.byState.states) || {}).length === 51
+    && Array.isArray(swin.__SIGNS_EMBEDDED.quiz && swin.__SIGNS_EMBEDDED.quiz.items) && swin.__SIGNS_EMBEDDED.quiz.items.length === 178
+    && JSON.stringify(swin.__SIGNS_EMBEDDED.signs) === JSON.stringify(signsDisk.signs)
+    && JSON.stringify(swin.__SIGNS_EMBEDDED.byState) === JSON.stringify(signsDisk.byState)
+    && JSON.stringify(swin.__SIGNS_EMBEDDED.quiz) === JSON.stringify(signsDisk.quiz)),
+  'regenerate: node tools/preview/embed-signs.mjs');
+{
+  let imgCount = 0, nullCount = 0, badSha = [];
+  for (const sg of signsDisk.signs.signs || []) {
+    if (!sg.image) { nullCount++; continue; }
+    imgCount++;
+    const p = path.join(UNDER, sg.image.file);
+    if (!fs.existsSync(p)) { badSha.push(sg.id + ':missing'); continue; }
+    const got = crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+    if (got !== sg.image.sha256) badSha.push(sg.id + ':sha');
+  }
+  ok('signs package: 89 PNGs byte-match sha256 + 4 null-image text signs', imgCount === 89 && nullCount === 4 && badSha.length === 0, badSha.join(','));
+}
 const PFX = '#/ut/';
 
 // ---- load Utah's embedded data the way file:// does (expected model) ----
@@ -139,7 +169,7 @@ ok('audio: minted voice is honestly not Meta', !!(AM.minted_by && AM.minted_by.n
 const AM_BY_KEY = new Map(AM.entries.map((e) => [`${e.kind}|${e.id}`, e]));
 const AM_SLIDE = new Map(AM.entries.filter((e) => e.kind === 'slide').map((e) => [`${e.unit_id}|${e.slide_id}`, e]));
 const AM_FILES = new Set(AM.entries.map((e) => e.file_ref));
-const AUDIO_TAG = 'pre-generated (OpenAI TTS, not a Meta model)';
+const AUDIO_TAG = STORE ? 'Narration audio: pre-recorded lessons and flashcards.' : 'pre-generated (OpenAI TTS, not a Meta model)';
 const countTag = (h) => h.split(AUDIO_TAG).length - 1;
 
 // ---- sandbox (factory: STORE mode builds a second, signed-out one) ----
@@ -147,6 +177,7 @@ const html = fs.readFileSync(path.join(UNDER, 'index.html'), 'utf8');
 ok('index.html starts with a real doctype', html.startsWith('<!DOCTYPE html>'));
 ok('index.html no longer hard-loads Utah fallbacks', !/<script src="data-real-embedded\.js"/.test(html) && !/<script src="audio-manifest-embedded\.js"/.test(html));
 ok('index.html loads the states registry fallback', /<script src="states-embedded\.js"/.test(html));
+ok('index.html loads the signs package fallback', /<script src="signs-embedded\.js"/.test(html));
 const m = html.match(/<script type="module">([\s\S]*)<\/script>/);
 if (!m) { console.error('NO-MODULE-SCRIPT'); process.exit(2); }
 const driver = m[1] + '\n;globalThis.__go = (hash) => { location.hash = hash; route(); return { html: view.innerHTML, bannerClass: document.getElementById("banner").className, bannerText: document.getElementById("banner").textContent, hash: location.hash }; };'
@@ -174,7 +205,7 @@ function makeSandbox(getMe, override) {
   // are pre-run into the sandbox window the way a browser would; per-state
   // fallbacks are NOT pre-loaded — the app must inject them itself.
   const sandboxWindow = {
-    __PREVIEW_EMBEDDED: SYN, __STATES_EMBEDDED: swin.__STATES_EMBEDDED,
+    __PREVIEW_EMBEDDED: SYN, __STATES_EMBEDDED: swin.__STATES_EMBEDDED, __SIGNS_EMBEDDED: swin.__SIGNS_EMBEDDED,
     matchMedia: () => ({ matches: false }),
     scrollTo: () => {}, addEventListener: () => {},
   };
@@ -309,7 +340,7 @@ function buildExpected() {
   // ---- state picker at #/ ----
   await sandbox.__summaries();
   let r = go('#/');
-  ok('picker: REAL banner, audit pending', r.bannerClass === 'real-banner' && /belt-validated, audit pending/.test(r.bannerText), r.bannerClass + ' / ' + r.bannerText);
+  ok('picker: source banner, review pending', r.bannerClass === 'real-banner' && (STORE ? /independent review in progress/.test(r.bannerText) : /belt-validated, audit pending/.test(r.bannerText)), r.bannerClass + ' / ' + r.bannerText);
   const cardCodes = [...r.html.matchAll(/data-state-card="([A-Z]{2})"/g)].map((x) => x[1]);
   ok('picker: one card per states.json entry (' + STATES.length + ')', cardCodes.length === STATES.length && STATES.every((s) => cardCodes.includes(s.code)), cardCodes.join(','));
   ok('picker: Utah card links to #/ut/', /data-state-card="UT"[\s\S]*?href="#\/ut\/"/.test(r.html));
@@ -322,7 +353,7 @@ function buildExpected() {
     const files = REAL.manifest.files;
     const built = new Set(files.filter((e) => e.stage_id === '03.combined_kg').map((e) => e.section_id)).size;
     const card = (r.html.split('data-state-card="UT"')[1] || '').split('data-state-card=')[0];
-    const want = `${built} of ${(UT.chapters || []).length} chapters built · ${files.length} accepted artifacts · narration: ${AM.totals.cards} cards, ${AM.totals.slides} lesson slides, ${AM.totals.recaps} recaps (${AM.totals.clips} clips)`;
+    const want = `${built} of ${(UT.chapters || []).length} chapters built${STORE ? '' : ` · ${files.length} accepted artifacts`} · narration: ${AM.totals.cards} cards, ${AM.totals.slides} lesson slides, ${AM.totals.recaps} recaps (${AM.totals.clips} clips)`;
     ok('picker: Utah counts from its manifests', card.includes(want), want);
     if (STORE) ok('picker: STORE strips the reviewer-only trace link', !card.includes('href="trace.html"'));
     else ok('picker: trace link for Utah', card.includes('href="trace.html"'));
@@ -372,7 +403,7 @@ function buildExpected() {
     const sec = secIds[0];
     const mod0 = X.sections[sec].modules[0];
     const form0 = X.forms[0];
-    const legacy = ['#/chapters', '#/chapter/' + sec, '#/module/' + mod0.module_id, '#/lesson/' + mod0.unit_id, '#/cards/' + mod0.unit_id, '#/quiz/' + mod0.unit_id, '#/practice', '#/practice/' + (form0 ? form0.form_id : 'form-a'), '#/results/none', '#/settings', '#/dossier', '#/modules', '#/real-cards', '#/real-quiz', '#/real-lesson'];
+    const legacy = ['#/chapters', '#/chapter/' + sec, '#/module/' + mod0.module_id, '#/lesson/' + mod0.unit_id, '#/cards/' + mod0.unit_id, '#/quiz/' + mod0.unit_id, '#/signs', '#/practice', '#/practice/' + (form0 ? form0.form_id : 'form-a'), '#/results/none', '#/settings', '#/dossier', '#/modules', '#/real-cards', '#/real-quiz', '#/real-lesson'];
     for (const old of legacy) {
       const want = PFX + old.slice(2);
       const a = go(old);
@@ -383,8 +414,8 @@ function buildExpected() {
 
   // ---- Utah home (#/ut/): aggregate counts equal the exports ----
   r = go(PFX);
-  ok('home: REAL banner', r.bannerClass === 'real-banner' && /audit pending/.test(r.bannerText), r.bannerClass + ' / ' + r.bannerText);
-  ok('home: Utah banner text unchanged', r.bannerText === 'REAL — Utah Driver Handbook, belt-validated, audit pending', r.bannerText);
+  ok('home: source banner, review pending', r.bannerClass === 'real-banner' && (STORE ? /independent review in progress/.test(r.bannerText) : /audit pending/.test(r.bannerText)), r.bannerClass + ' / ' + r.bannerText);
+  ok('home: Utah banner names source honestly', r.bannerText === (STORE ? 'Built from the Utah Driver Handbook. Machine-checked; independent review in progress.' : 'REAL — Utah Driver Handbook, belt-validated, audit pending'), r.bannerText);
   const expectCounts = `${secIds.length} of 16 chapters built · ${X.totalCards} flashcards · ${X.totalItems} quiz items · ${X.totalLessons} lessons (${X.totalSlides} slides)`;
   ok('home: aggregate counts from exports', r.html.includes(expectCounts), expectCounts);
   if (STORE) ok('home: STORE strips the trace link', !/href="trace\.html"/.test(r.html));
@@ -467,14 +498,21 @@ function buildExpected() {
       r = go(PFX + 'cards/' + mod.unit_id);
       learnerRoutes.push(PFX + 'cards/' + mod.unit_id);
       if (deck.length) {
+        const utOv = (STORE && fs.existsSync(path.join(UNDER, 'decks', 'ut.json')))
+          ? JSON.parse(fs.readFileSync(path.join(UNDER, 'decks', 'ut.json'), 'utf8'))
+          : null;
         ok('cards ' + mod.unit_id + ': REAL banner', r.bannerClass === 'real-banner');
         ok('cards ' + mod.unit_id + ': count ' + deck.length, (r.html.match(/data-recall/g) || []).length === deck.length);
         for (const c of deck) {
-          if (!r.html.includes(escS(c.front))) ok('cards ' + mod.unit_id + ': front ' + c.card_id, false);
+          const ovc = utOv && utOv.cards && utOv.cards[c.card_id] && utOv.cards[c.card_id].expected_back === c.back ? utOv.cards[c.card_id] : null;
+          const ovs = ovc && utOv.scripts && utOv.scripts[c.card_id] ? utOv.scripts[c.card_id] : null;
+          const wantFront = (ovc && ovc.front) || c.front;
+          const wantHook = (ovc && ovc.memory_hook) || c.memory_hook;
+          const wantTeach = (ovs && ovs.teaching_text) || (X.scriptsByCard[c.card_id] && X.scriptsByCard[c.card_id].segments.teaching.text);
+          if (!r.html.includes(escS(wantFront))) ok('cards ' + mod.unit_id + ': front ' + c.card_id, false);
           if (!r.html.includes(escS(c.back))) ok('cards ' + mod.unit_id + ': back ' + c.card_id, false);
-          if (!r.html.includes(escS(c.memory_hook))) ok('cards ' + mod.unit_id + ': hook ' + c.card_id, false);
-          const t = X.scriptsByCard[c.card_id] && X.scriptsByCard[c.card_id].segments.teaching.text;
-          if (t && !r.html.includes(escS(t))) ok('cards ' + mod.unit_id + ': teaching ' + c.card_id, false);
+          if (!r.html.includes(escS(wantHook))) ok('cards ' + mod.unit_id + ': hook ' + c.card_id, false);
+          if (wantTeach && !r.html.includes(escS(wantTeach))) ok('cards ' + mod.unit_id + ': teaching ' + c.card_id, false);
         }
         console.log('PASS cards ' + mod.unit_id + ': ' + deck.length + '/' + deck.length + ' byte-exact fronts+backs+hooks+teaching');
         if (X.recaps[mod.module_id]) ok('cards ' + mod.unit_id + ': recap hook', /Deck recap/.test(r.html));
@@ -483,7 +521,14 @@ function buildExpected() {
         if (!thinkRef || !AM_FILES.has(thinkRef)) cardGaps.push('think:' + mod.section_id + '(absent-manifest)');
         else if (!r.html.includes(thinkRef)) cardGaps.push(thinkRef);
         for (const c of deck) {
+          const ovc = utOv && utOv.cards && utOv.cards[c.card_id] && utOv.cards[c.card_id].expected_back === c.back ? utOv.cards[c.card_id] : null;
           for (const k of ['card_q', 'card_a', 'card_teach']) {
+            const ovRef = k === 'card_q' ? (ovc && ovc.audio_q) : k === 'card_teach' ? (ovc && ovc.audio_teach) : null;
+            if (ovRef) {
+              if (!fs.existsSync(path.join(UNDER, ovRef))) cardGaps.push(ovRef + '(missing-disk)');
+              else if (!r.html.includes(ovRef)) cardGaps.push(ovRef);
+              continue;
+            }
             const e = AM_BY_KEY.get(k + '|' + c.card_id);
             if (!e) cardGaps.push(k + ':' + c.card_id + '(absent-manifest)');
             else if (!r.html.includes(e.file_ref)) cardGaps.push(e.file_ref);
@@ -491,9 +536,15 @@ function buildExpected() {
         }
         const rec = X.recaps[mod.module_id];
         if (rec) {
-          const e = AM_BY_KEY.get('recap|' + rec.card_id);
-          if (!e) cardGaps.push('recap:' + rec.card_id + '(absent-manifest)');
-          else if (!r.html.includes(e.file_ref)) cardGaps.push(e.file_ref);
+          const ovr = utOv && utOv.recaps && utOv.recaps[mod.module_id] ? utOv.recaps[mod.module_id] : null;
+          if (ovr && ovr.audio_recap) {
+            if (!fs.existsSync(path.join(UNDER, ovr.audio_recap))) cardGaps.push(ovr.audio_recap + '(missing-disk)');
+            else if (!r.html.includes(ovr.audio_recap)) cardGaps.push(ovr.audio_recap);
+          } else {
+            const e = AM_BY_KEY.get('recap|' + rec.card_id);
+            if (!e) cardGaps.push('recap:' + rec.card_id + '(absent-manifest)');
+            else if (!r.html.includes(e.file_ref)) cardGaps.push(e.file_ref);
+          }
         }
         ok('cards ' + mod.unit_id + ': every card+recap references manifest file_ref', cardGaps.length === 0, cardGaps.slice(0, 8).join(','));
         ok('cards ' + mod.unit_id + ': play button per card', (r.html.match(/data-card-audio/g) || []).length === deck.length);
@@ -558,7 +609,7 @@ function buildExpected() {
   // ---- settings + synthetic isolation ----
   r = go(PFX + 'settings');
   learnerRoutes.push(PFX + 'settings');
-  ok('settings: links synthetic sample', /#\/synthetic-sample/.test(r.html));
+  ok('settings: links source context', STORE ? /Handbook sources/.test(r.html) : /#\/synthetic-sample/.test(r.html));
   if (STORE) ok('settings: STORE strips the trace link and the free-for-all claim', !/href="trace\.html"/.test(r.html) && !/Everything is free, with no account/.test(r.html));
   else ok('settings: trace link', /href="trace\.html"/.test(r.html));
   ok('settings: no Nowhere', !/Nowhere/.test(r.html));
@@ -597,16 +648,62 @@ function buildExpected() {
   } else {
     ok('audio: lesson route has unit to test', false, vMod.unit_id);
   }
+  // ---- Road signs module (#/ut/signs, #/ut/signs/cards, #/ut/signs/test) ----
+  {
+    const utSignsEntry = signsDisk.byState.states.UT;
+    const utSignIds = utSignsEntry.signs;
+    const signById = Object.fromEntries(signsDisk.signs.signs.map((sg) => [sg.id, sg]));
+    const utTextIds = utSignIds.filter((id) => signById[id] && !signById[id].image);
+    const MUTCD_RE = /\b(?:R\d+-\d|W\d+-\d|S\d+-\d|M\d+-\d|D\d+-\d|G\d+-\d|E\d+-\d|OM\d-\d)\b/;
+
+    ok('entry: home lists Road signs module', go(PFX).html.includes('data-road-signs-entry') && go(PFX).html.includes(PFX + 'signs'));
+    ok('entry: chapters lists Road signs module', go(PFX + 'chapters').html.includes('data-road-signs-entry') && go(PFX + 'chapters').html.includes(PFX + 'signs'));
+    ok('entry: practice lists Road signs test', go(PFX + 'practice').html.includes('Road signs test') && go(PFX + 'practice').html.includes(PFX + 'signs/test'));
+
+    const sh = go(PFX + 'signs');
+    ok('signs hub: title + count intro + colour rules + provenance',
+      sh.html.includes('Road signs')
+      && sh.html.includes(`The ${utSignIds.length} signs the Utah handbook expects you to know.`)
+      && sh.html.includes('Red and white = you must obey')
+      && sh.html.includes('Yellow diamond = warning ahead')
+      && sh.html.includes('Study cards')
+      && sh.html.includes('Sign test')
+      && sh.html.includes('Sign standards: FHWA MUTCD 11th Ed.'));
+    ok('signs hub: renders every Utah sign tile (' + utSignIds.length + ')', (sh.html.match(/data-sign-tile="/g) || []).length === utSignIds.length);
+    ok('signs hub: null-image signs render Picture coming with no <img>',
+      utTextIds.length > 0 && utTextIds.every((id) => {
+        const mTile = sh.html.match(new RegExp(`data-sign-text-card="${id}"[\\s\\S]*?<\\/a>`));
+        return mTile && mTile[0].includes('Picture coming') && !/<img\b/i.test(mTile[0]);
+      }));
+    ok('signs hub: zero MUTCD codes or (verify)', !MUTCD_RE.test(sh.html) && !/\(verify\)/i.test(sh.html));
+
+    const sc = go(PFX + 'signs/cards');
+    ok('signs cards: one recall card per Utah sign (' + utSignIds.length + ')', (sc.html.match(/data-recall/g) || []).length === utSignIds.length);
+    ok('signs cards: prompt + handbook rule link + provenance',
+      sc.html.includes('What does this sign mean?')
+      && sc.html.includes('data-handbook-rule-link')
+      && sc.html.includes('Sign standards: FHWA MUTCD 11th Ed.'));
+    ok('signs cards: zero audio controls on sign flashcards', !/data-card-audio|data-plp-autoplay/.test(sc.html));
+    ok('signs cards: zero MUTCD codes or (verify)', !MUTCD_RE.test(sc.html) && !/\(verify\)/i.test(sc.html));
+
+    const st = go(PFX + 'signs/test');
+    ok('signs test: 20 questions rendered with sign images',
+      (st.html.match(/data-ritem="/g) || []).length === 20
+      && (st.html.match(/src="signs\/sign-/g) || []).length >= 20);
+    ok('signs test: zero MUTCD codes or (verify)', !MUTCD_RE.test(st.html) && !/\(verify\)/i.test(st.html));
+
+    learnerRoutes.push(PFX + 'signs', PFX + 'signs/cards', PFX + 'signs/test');
+  }
+
   // ---- spoken recall is gone from the app (founder 2026-10-28) ----
   const voiceHits = ['Say it', 'transcribe', 'MediaRecorder', 'Voice Transcribe'].filter((s) => html.includes(s));
   ok('no spoken-recall strings in app-preview/index.html (Say it, transcribe, MediaRecorder, Voice Transcribe)', voiceHits.length === 0, voiceHits.join(','));
 
   // ---- no device-voice string left in app-preview/ ----
-  const walkFiles = (dir) => {
-    const out = [];
+  const walkFiles = (dir, out = []) => {
     for (const name of fs.readdirSync(dir)) {
       const p = path.join(dir, name);
-      if (fs.statSync(p).isDirectory()) out.push(...walkFiles(p));
+      if (fs.statSync(p).isDirectory()) walkFiles(p, out);
       else out.push(p);
     }
     return out;
@@ -631,7 +728,7 @@ function buildExpected() {
   ok('no Nowhere/SYNTHETIC on any learner route (' + learnerRoutes.length + ' routes)', leaked.length === 0, leaked.join(','));
 
   // ---- shell: every in-course link is state-prefixed; Utah progress key kept ----
-  const LEGACY_HREF = /href="#\/(chapters|chapter\/|module\/|lesson\/|cards\/|quiz\/|practice|results\/|settings|dossier|modules|real-)/;
+  const LEGACY_HREF = /href="#\/(signs|chapters|chapter\/|module\/|lesson\/|cards\/|quiz\/|practice|results\/|settings|dossier|modules|real-)/;
   const unprefixed = [];
   for (const rt of [...learnerRoutes, PFX + 'dossier', PFX + 'modules', PFX + 'real-cards', PFX + 'real-quiz', PFX + 'real-lesson', PFX + 'results/harness-1']) {
     const x = go(rt);
@@ -642,6 +739,11 @@ function buildExpected() {
 
   // ---- STORE gate + quarantine (store/public/app only) ----
   if (STORE) {
+    const storeSignFiles = fs.readdirSync(path.join(UNDER, 'signs')).sort();
+    ok('STORE signs dir: 89 PNGs only, zero legacy .gif or sign-map.json',
+      storeSignFiles.length === 89
+      && storeSignFiles.every((f) => f.endsWith('.png'))
+      && !storeSignFiles.includes('sign-map.json'));
     ok('STORE: gate.js defined window.NovaGate', !!MAIN.gate);
     ok('STORE: index.html carries the STORE PATCH + gate.js tag', /STORE PATCH/.test(html) && html.includes('<script src="gate.js"></script>'));
     // (a) listed ids never render in the entitled run: no back text, no clip
@@ -699,12 +801,19 @@ function buildExpected() {
     ok('gate: deck says "1 card held back for a wording fix"', r1.html.includes('1 card held back for a wording fix'));
     for (const [label, hash] of [['chapter', 'chapter/' + ch2], ['module hub', 'module/' + m2.module_id], ['lesson', 'lesson/' + m2.unit_id], ['flashcards', 'cards/' + m2.unit_id], ['quiz', 'quiz/' + m2.unit_id]]) {
       const x = g(PFX + hash);
-      ok('gate: signed out, chapter 2 ' + label + ' renders the buy panel', /data-gate-buy="UT"/.test(x.html) && x.html.includes('$9.99') && x.html.includes('Narration audio: Utah only for now') && x.html.includes('/sign-in?redirect_url=') && !x.html.includes('data-recall') && !x.html.includes('Teacher says'), x.html.slice(0, 160));
+      ok('gate: signed out, chapter 2 ' + label + ' renders the buy panel', /data-gate-buy="UT"/.test(x.html) && x.html.includes('$9.99') && x.html.includes('Narration audio included') && x.html.includes('/sign-in?redirect_url=') && !x.html.includes('data-recall') && !x.html.includes('Teacher says'), x.html.slice(0, 160));
     }
     const f2 = X.forms.find((f) => f.section_id === ch2);
     if (f2) ok('gate: signed out, chapter 2 practice form renders the buy panel', /data-gate-buy="UT"/.test(g(PFX + 'practice/' + f2.form_id).html));
     const home = g(PFX);
-    ok('gate: signed out home marks chapter 1 free, chapter 2 locked', home.html.includes('data-gate-free="' + ch1 + '"') && home.html.includes('data-gate-locked="' + ch2 + '"'));
+    ok('gate: signed out home marks chapter 1 free, chapter 2 locked, road signs free',
+      home.html.includes('data-gate-free="' + ch1 + '"')
+      && home.html.includes('data-gate-locked="' + ch2 + '"')
+      && home.html.includes('data-road-signs-entry'));
+    for (const subRt of ['signs', 'signs/cards', 'signs/test']) {
+      const sx = g(PFX + subRt);
+      ok('gate: signed out Utah ' + subRt + ' is FREE (no buy panel)', !/data-gate-buy/.test(sx.html) && sx.html.includes('Road signs'));
+    }
     // Texas: same rule through its own registry entry
     const TX = STATES.find((s) => s.code === 'TX');
     if (TX) {
@@ -712,7 +821,52 @@ function buildExpected() {
       const t = [...TX.chapters].sort((a, b) => a.n - b.n);
       const a = g('#/tx/chapter/' + t[0].id), b = g('#/tx/chapter/' + t[1].id);
       ok('gate: Texas chapter 1 free, chapter 2 gated', !/data-gate-buy/.test(a.html) && /Open module hub/.test(a.html) && /data-gate-buy="TX"/.test(b.html));
+      for (const subRt of ['signs', 'signs/cards', 'signs/test']) {
+        const txS = g('#/tx/' + subRt);
+        ok('gate: signed out Texas ' + subRt + ' is FREE (no buy panel)', !/data-gate-buy/.test(txS.html) && txS.html.includes('Road signs'));
+      }
     }
+  }
+
+  if (STORE) {
+    // Inspect learner text from every state, including entitled routes. Internal
+    // ids in href/data attributes remain stable. A broad /belt/ would reject the
+    // actual road-safety subject "seat belt", so match factory phrasing only.
+    const jargon = /sec\d\d-|handbook nodes|artifact|lineage|\bclaude\b|\bgpt\b|\bmuse\b|\bopus\b|REAL\s*—|\b(?:factory|production|accepted|validated) belt\b|\bthe belt (?:has|accepts|accepted|validates|exports|generated)\b|\bbelt[- ](?:accepted|validated|trace)\b|\bclass d quest\b|\blevel \d+\s*·|\bspin again\b|\blocked \(\+25 xp\)/i;
+    const textOf = (h) => String(h).replace(/<[^>]*>/g, ' ').replace(/&(?:nbsp|amp|lt|gt|quot|#39);/g, ' ').replace(/\s+/g, ' ');
+    const allEntitlements = Object.fromEntries(STATES.map((s) => [s.code, FUTURE]));
+    const CUSTOMER = makeSandbox(() => ({ signedIn: true, entitlements: allEntitlements }));
+    const C = CUSTOMER.sandbox;
+    for (let i = 0; i < 200 && !C.__states(); i++) await tick();
+    await C.__summaries();
+    let checked = 0;
+    const bad = [];
+    const signsMutcdRe = /\b(?:R\d+-\d|W\d+-\d|S\d+-\d|M\d+-\d|D\d+-\d|G\d+-\d|E\d+-\d|OM\d-\d)\b|\(verify\)/i;
+    const inspect = (route) => {
+      const result = C.__go(route);
+      const text = textOf(result.html) + ' ' + result.bannerText;
+      const hit = text.match(jargon) || (/\/signs(?:\b|\/)/.test(route) ? text.match(signsMutcdRe) : null);
+      checked++;
+      if (hit && bad.length < 20) bad.push(route + ': ' + text.slice(Math.max(0, hit.index - 35), hit.index + 100));
+    };
+    inspect('#/');
+    for (const state of STATES.filter((s) => s.status === 'complete' && (!CUSTOMER_STATES || CUSTOMER_STATES.has(s.code)))) {
+      await C.__ensure(state.code.toLowerCase());
+      const prefix = '#/' + state.code.toLowerCase() + '/';
+      for (const route of ['', 'chapters', 'practice', 'settings', 'dossier', 'signs', 'signs/cards', 'signs/test']) inspect(prefix + route);
+      const man = JSON.parse(fs.readFileSync(path.join(UNDER, state.data_root, 'manifest.json'), 'utf8'));
+      for (const ch of state.chapters || []) inspect(prefix + 'chapter/' + ch.id);
+      for (const file of man.files || []) {
+        if (!['03.combined_kg', '06.exam_bank'].includes(file.stage_id)) continue;
+        const data = JSON.parse(fs.readFileSync(path.join(UNDER, file.file), 'utf8'));
+        if (file.stage_id === '03.combined_kg') {
+          for (const mod of data.modules || []) inspect(prefix + 'module/' + mod.module_id);
+          for (const unit of data.curriculum_unit_hints || []) for (const route of ['lesson/', 'cards/', 'quiz/']) inspect(prefix + route + unit.unit_id);
+        } else for (const form of data.practice_forms || []) inspect(prefix + 'practice/' + form.form_id);
+      }
+    }
+    ok('STORE customer text: no builder terms or raw ids (' + checked + ' routes, ' + (CUSTOMER_STATES_ARG || 'all states') + ')', bad.length === 0, bad.join(' | '));
+    ok('STORE customer lint preserves seat belt teaching', !jargon.test('Always wear your seat belt.'));
   }
 
   console.log(fails.length ? ('\nRESULT: ' + fails.length + ' FAILURES: ' + fails.join(' | ')) : '\nRESULT: ALL CHECKS PASSED');

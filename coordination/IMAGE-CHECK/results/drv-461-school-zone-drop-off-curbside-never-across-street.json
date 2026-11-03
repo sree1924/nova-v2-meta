@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-461-school-zone-drop-off-curbside-never-across-street",
+  "file": "drv-461-school-zone-drop-off-curbside-never-across-street.png",
+  "title": "School Drop-Off Safety: Unload Children Directly Onto the School-Side Sidewalk Curb (Never Mid-Block Across Traffic!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "831f972792d715a119ca09e42439532f1b57ce7ec81c06dd59218113b8e7fc84",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7359,
+  "usage": {
+    "completion_tokens": 1192,
+    "prompt_tokens": 2262,
+    "total_tokens": 3454,
+    "completion_tokens_details": {
+      "reasoning_tokens": 781
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007893,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-461-school-zone-drop-off-curbside-never-across-street",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible SUVs queued in same direction away from viewer in same lane; no opposing vehicles head-on.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Rear view with right rear door open shows door panel only; no steering wheel or driver cabin visible to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals, stoplights, or flashing beacons visible in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles travel on right side hugging right curb/sidewalk; double-yellow centerline is to the left, curb/white line to the right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; signs, poles, and plates are blank shapes; flag is graphic only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows child with backpack exiting right passenger door directly onto school-side sidewalk at school building, matching drop-off curb prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Curbside school drop-off correctly depicted with zero text and proper US right-hand geometry; safe for learners.",
+    "teaching_correct": {
+      "note": "Teaches correct behavior: unload on school-side curb onto sidewalk, not across traffic; vehicle stopped at curb, child not in roadway.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A gray SUV stopped at the right curb in front of an elementary school with its right rear door open as a girl with a backpack steps directly onto the concrete sidewalk; other cars queue behind and other children walk toward the school entrance on the right."
+  },
+  "error_body": null
+}

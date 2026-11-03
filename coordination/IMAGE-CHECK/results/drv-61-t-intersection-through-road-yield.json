@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-61-t-intersection-through-road-yield",
+  "file": "drv-61-t-intersection-through-road-yield.png",
+  "title": "T-Intersection: Terminating Side-Road Driver Yielding to Through-Street Traffic",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "28e5bf69f488e405cff194182e4056709c659d5f092c281aabedbd32c8859a98",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4604,
+  "usage": {
+    "completion_tokens": 971,
+    "prompt_tokens": 2500,
+    "total_tokens": 3471,
+    "completion_tokens_details": {
+      "reasoning_tokens": 598
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007252,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-61-t-intersection-through-road-yield",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Silver sedan faces north and red pickup faces east in different perpendicular lanes; no opposing vehicles share one lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No steering wheel or cabin interior is clearly visible in either vehicle.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Sedan is right of double-yellow with curb on right; pickup travels rightward south of through-road double-yellow, correct for US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs and license plate are blank geometric shapes; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Bottom side street ends at horizontal through road; silver sedan stopped at line with brake lights yielding while red pickup proceeds on through road.",
+      "verdict": "MATCH"
+    },
+    "summary": "T-intersection yield scene is correctly depicted with US right-hand geometry, blank signage, and proper yielding behavior.",
+    "teaching_correct": {
+      "note": "Terminating driver is stopped before crosswalk/stop line with brakes lit, yielding priority to through traffic as titled.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated view of a sunny T-intersection with a silver sedan stopped in the bottom side street with brake lights on and a red pickup traveling left-to-right on the horizontal through road above it."
+  },
+  "error_body": null
+}

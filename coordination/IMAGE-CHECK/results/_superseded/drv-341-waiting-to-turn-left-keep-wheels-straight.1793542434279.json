@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-341-waiting-to-turn-left-keep-wheels-straight",
+  "file": "drv-341-waiting-to-turn-left-keep-wheels-straight.png",
+  "title": "Waiting to Turn Left: Keep Front Wheels Pointed STRAIGHT Ahead Until Starting the Turn!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "92d187187aa909417f8b7b8b9bb3518ff04624c131c6c22556ed757677feae45",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4612,
+  "usage": {
+    "completion_tokens": 1116,
+    "prompt_tokens": 2282,
+    "total_tokens": 3398,
+    "completion_tokens_details": {
+      "reasoning_tokens": 719
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007595,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-341-waiting-to-turn-left-keep-wheels-straight",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan and oncoming SUV are in opposite lanes facing opposite directions, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; only exterior rear and front close-ups shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Both overhead signals show two lit lenses: top red lit and bottom green lit simultaneously in left and right panels.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Own lane has double-yellow on left and white edge/curb on right; oncoming traffic stays left of center, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; check/X symbols, blank plates, and painted turn arrows are icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Split diagram matches prompt: left green-check with front wheel straight, right red-X with front wheel cocked left, blue sedan waiting to turn left.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct left-turn wheel lesson but REJECT for signal fault with red and green lenses lit together.",
+    "teaching_correct": {
+      "note": "Teaches correct principle: straight wheels on left as safe, pre-turned wheels on right as unsafe; wheel angles clearly contrasted.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split sunset intersection with blue sedan waiting to turn left in foreground of both panels; left inset shows front wheel pointed straight, right inset shows front wheel turned left."
+  },
+  "error_body": null
+}

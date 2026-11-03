@@ -1,0 +1,103 @@
+{
+  "kind": "listed_target_source_supported_fact_correction",
+  "run_id": "2026-10-28-rdmv-ia-class-c",
+  "section": "sec12-vehicle-control-speed",
+  "part": "C",
+  "authority_ref": {
+    "path": "coordination/SOL-TARGETED-45-SEVEN-LANES-AUTHORITY-20261029.json",
+    "sha256": "3c9b842dea00bf4169fbf4ff23d39e44597e8bab1b496faec0f27a917683d08d"
+  },
+  "input_snapshot_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/input-snapshots/IA.json",
+    "sha256": "dbf40a82f9e287e3cc1cf687783ef92d600b5b097fc4fedda18a5206ef94c217"
+  },
+  "corrections_ref": {
+    "path": "coordination/FACT-CHECK/IA/corrections.json",
+    "sha256": "dbf40a82f9e287e3cc1cf687783ef92d600b5b097fc4fedda18a5206ef94c217"
+  },
+  "official_pdf_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/sources/private/download.pdf",
+    "sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80"
+  },
+  "source_text_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/sources/private/15-source-text.txt",
+    "sha256": "9598d6b10d955a65cd4a0f278bc91395f01e6aec9c76957cd8cc454cad71b070"
+  },
+  "direct_pdf_pages_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/batch45/IA/DIRECT-PDF-TARGET-PAGES.json",
+    "sha256": "02a157c3672df2d70d0c8e96d93499976d6d4b79899a0d01c0f1c0c2494e672f"
+  },
+  "target_facts": [
+    {
+      "section": "sec12-vehicle-control-speed",
+      "fact_id": "sec12-F15",
+      "kind": "MEANING",
+      "correct_pdf_page": 41,
+      "part": "C",
+      "chunk_id": "C.01",
+      "old_fact": {
+        "fact_id": "sec12-F15",
+        "text": "Past 40 mph stretch to four or five seconds, and on slick roads or behind view-blocking vehicles stretch to six or more.",
+        "statement": "Past 40 mph stretch to four or five seconds, and on slick roads or behind view-blocking vehicles stretch to six or more.",
+        "spoken_statement": "Past forty miles per hour stretch to four or five seconds, and on slick roads or behind view-blocking vehicles stretch to six or more.",
+        "status": "authored",
+        "acceptance_kind": "deterministic_validation_only",
+        "independent_audit_status": "pending",
+        "section": "C",
+        "chunk_id": "C.01",
+        "domain": "Vehicle Control and Speed",
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0041",
+        "pdf_page": 41,
+        "printed_page": "41",
+        "page_map_id": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0041",
+        "source_document_sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80",
+        "source_ref": {
+          "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+          "pdf_page": 41,
+          "printed_page": "41",
+          "page_map_id": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0041"
+        },
+        "source_span": {
+          "chunk_id": "C.01",
+          "start_line": 59,
+          "end_line": 61,
+          "markdown_sha256": "bcde6e698cd769577dac03d7734b55a2045d5525f7f84eec30fc9571c8753d9a",
+          "verbatim": "FACT_ID: sec12-F15 | anchor: A03\nPast 40 mph stretch to four or five seconds, and on slick roads or behind view-blocking vehicles stretch to six or more [A03].\nSource: [A03 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0041]"
+        },
+        "transformation": "Remove explicit fact-ID marker and declared inline source-anchor tokens; retain all wording and continuation lines."
+      },
+      "old_statement": "Past 40 mph stretch to four or five seconds, and on slick roads or behind view-blocking vehicles stretch to six or more.",
+      "old_spoken": "Past forty miles per hour stretch to four or five seconds, and on slick roads or behind view-blocking vehicles stretch to six or more.",
+      "statement": "At forty miles per hour, the guide recommends leaving four to five seconds behind another vehicle. Increase this gap to at least six seconds for slippery conditions or when that vehicle obstructs your view.",
+      "source_max_overlap": 3,
+      "correction_input": {
+        "section": "sec12-vehicle-control-speed",
+        "fact_id": "sec12-F15",
+        "kind": "MEANING",
+        "still_wrong": true,
+        "corrected_statement": "At forty miles per hour keep a four to five second following distance and use six or more seconds when roads are slippery or the vehicle ahead blocks your view.",
+        "correct_pdf_page": 41,
+        "note": "Changed past forty to at forty miles per hour to match the page."
+      }
+    }
+  ],
+  "full_descendant_plan": [
+    "fresh16 compile after all changed parts",
+    "03 exact target labels/repeated claims",
+    "04 target backs/repeated claims",
+    "05 actual target visual/narration/why-how",
+    "05 target script answer/equality/repeated claims",
+    "06 only actual wrong claims or required current-binding metadata; preserve questions/counts"
+  ],
+  "fixer_receipt_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/receipts/sol-factfix-IA-FIXER.json",
+    "sha256": "ace26c195c2c454fd2d14778bcfa6f53906df63a51c6cd727cb79b3d7c0072ad"
+  },
+  "preserve": "All non-target fact wording, citations, IDs, status/debt/flags, original attribution, source/edition/map and immutable accepted history. No source15 replay or gap repair.",
+  "recorded_by": {
+    "actor_id": "Sol/gpt-6.1-sol (ChatGPT Pro subscription, Iowa targeted FIXER)",
+    "session_id": "01a1849b-eb8e-70c1-9506-35b6a8cc50f7",
+    "provider_family": "openai"
+  },
+  "recorded_at": "2026-10-29T21:31:34.158Z"
+}

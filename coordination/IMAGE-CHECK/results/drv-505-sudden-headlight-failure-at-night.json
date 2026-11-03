@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-505-sudden-headlight-failure-at-night",
+  "file": "drv-505-sudden-headlight-failure-at-night.png",
+  "title": "Headlights Suddenly Go Out at Night: Try Dimmer/Parking/Hazard/Fog Switches Immediately & Brake Straight Onto Right Shoulder!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "f5c673acea5f5ea663ecd30148debd3d31bd038123789e0fb459eeab9b9b68c2",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4404,
+  "usage": {
+    "completion_tokens": 862,
+    "prompt_tokens": 2483,
+    "total_tokens": 3345,
+    "completion_tokens_details": {
+      "reasoning_tokens": 504
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006767,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-505-sudden-headlight-failure-at-night",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in foreground and background face away forward; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; windows dark, exterior views only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in nighttime highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic travels on right with taillights ahead; yellow centerline on left, white edge line on right under blue sedan on shoulder.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; license plates and surroundings are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan at night on right shoulder with amber hazards flashing illuminating white edge line, matching headlight-failure pull-over prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Nighttime pull-over correctly shown with hazards on right shoulder and correct US lane markings; no rule violations.",
+    "teaching_correct": {
+      "note": "Shows correct response: hazards on, straight onto right shoulder using edge line, no wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan at night pulled onto the right shoulder with amber hazard lights flashing, white edge line beneath it; police vehicle and stopped traffic visible ahead on the left."
+  },
+  "error_body": null
+}

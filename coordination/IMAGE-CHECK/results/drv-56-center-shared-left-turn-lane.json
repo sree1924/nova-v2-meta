@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-56-center-shared-left-turn-lane",
+  "file": "drv-56-center-shared-left-turn-lane.png",
+  "title": "Center Two-Way Shared Left-Turn Lane (Solid Outer + Dashed Inner Yellow Lines)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2f5721631ad32b31746221d6bc8fcbd87539b7fc28996d5e73b544b2542b2b92",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7656,
+  "usage": {
+    "completion_tokens": 1548,
+    "prompt_tokens": 2297,
+    "total_tokens": 3845,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1182
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.00945,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-56-center-shared-left-turn-lane",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one vehicle visible in center lane; no oncoming vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in image.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow lines central, white edge lines on outer rights; blue car correctly in center lane, no wrong-side driving.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; road, driveway and car are blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows center two-way left-turn lane with solid outer and dashed inner yellow on both sides, blue sedan with left blinker paused to turn left into left driveway.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct depiction of shared center left-turn lane use with proper markings and signaling, no rule violations.",
+    "teaching_correct": {
+      "note": "Car properly positioned fully in center lane signaling left to enter left driveway; teaches correct two-way left-turn lane use.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down aerial view of a multi-lane road with a center lane bounded by solid outer and dashed inner yellow lines, containing a blue sedan with left blinker on, adjacent to a driveway on the left."
+  },
+  "error_body": null
+}

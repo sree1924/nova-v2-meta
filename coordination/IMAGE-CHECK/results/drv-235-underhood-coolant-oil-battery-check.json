@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-235-underhood-coolant-oil-battery-check",
+  "file": "drv-235-underhood-coolant-oil-battery-check.png",
+  "title": "Routine Under-Hood Maintenance: Engine Oil, Coolant Reservoir, Brake Fluid & Battery Check",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "a323cd741552db1d315f2a60400012b262b0d56b65922d29afe67f9fca152fad",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6026,
+  "usage": {
+    "completion_tokens": 1460,
+    "prompt_tokens": 2258,
+    "total_tokens": 3718,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1058
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009028,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-235-underhood-coolant-oil-battery-check",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Single parked car with open hood in driveway; no second vehicle and no head-on conflict in a lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; view is under-hood and exterior windshield only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in driveway maintenance scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Driveway scene with no travel lane, centerline, or moving traffic to evaluate; no left-hand traffic shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; caps show only simple icons - yellow oil droplet on center cap and blue icon on lower-right cap, blank reservoirs and background.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Matches open-hood driveway check: owner holding yellow-handle dipstick with cloth, color-coded caps and translucent pink coolant tank on right.",
+      "verdict": "MATCH"
+    },
+    "summary": "Open-hood maintenance scene correctly shows oil dipstick check and fluid reservoirs with no text violations; ACCEPT.",
+    "teaching_correct": {
+      "note": "Shows correct oil-level check behavior with dipstick and rag and identifiable fluid reservoirs; no wrong geometry or opposite teaching.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A woman on the left holds a yellow-handle oil dipstick over a cloth beside an open-hood car in a sunny driveway, with engine cover, yellow oil icon cap in center foreground and translucent coolant and washer tanks on the right."
+  },
+  "error_body": null
+}

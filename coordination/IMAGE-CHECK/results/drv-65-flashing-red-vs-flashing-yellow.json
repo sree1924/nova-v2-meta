@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-65-flashing-red-vs-flashing-yellow",
+  "file": "drv-65-flashing-red-vs-flashing-yellow.png",
+  "title": "Flashing Red Signal (Full Stop) vs. Flashing Yellow Signal (Slow & Caution)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "3be8996277468b012fb7c02be4852d208d702d8245c99ffab30804ce8fa50fa0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5862,
+  "usage": {
+    "completion_tokens": 951,
+    "prompt_tokens": 2301,
+    "total_tokens": 3252,
+    "completion_tokens_details": {
+      "reasoning_tokens": 559
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006918,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-65-flashing-red-vs-flashing-yellow",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "One rear-view sedan per panel, no oncoming vehicle in same lane facing it.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of cars shown, no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Left signal top red lens only lit with rays, right signal middle amber lens only lit with rays, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show car in right lane, double-yellow centerline on left of lane, curb/sidewalk on right, correct US layout.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; yellow diamonds, plates, and backgrounds are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Two-panel comparison matches prompt: left red flashing with blue sedan stopped behind stop bar with brake lights, right yellow flashing with silver sedan proceeding with scan arrows.",
+      "verdict": "MATCH"
+    },
+    "summary": "Clean two-panel flashing red vs flashing yellow comparison with correct signals, stopping/scanning behavior, and no rule violations.",
+    "teaching_correct": {
+      "note": "Teaches full stop behind stop bar for flashing red and slow-cautious scanning for flashing yellow with correct geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Two side-by-side sunset intersection views from behind cars: left a blue sedan stopped behind a white stop bar under a red-lit signal, right a silver sedan under a yellow-lit signal with left-right scan arrows."
+  },
+  "error_body": null
+}

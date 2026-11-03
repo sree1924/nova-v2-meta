@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-138-vin-tampering-stolen-parts-check",
+  "file": "drv-138-vin-tampering-stolen-parts-check.png",
+  "title": "Vehicle Identification Plate (VIN) Inspection at Lower-Left Windshield Corner",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "7a4678fd8ce4e3abea2b380b0f91a3f9344eead05812ae15fe54da95458d51c5",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7297,
+  "usage": {
+    "completion_tokens": 1230,
+    "prompt_tokens": 2258,
+    "total_tokens": 3488,
+    "completion_tokens_details": {
+      "reasoning_tokens": 816
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00805,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-138-vin-tampering-stolen-parts-check",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Foreground sedan and background SUV face same direction of travel in inspection lane; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is clearly visible through dark windshield; RHD cannot be judged.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in DMV lane scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No left-hand traffic shown; vehicles queued in same-direction inspection lane with white edge line on right, no centerline violation.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, blue overhead boards, clipboard, and VIN plate bar are blank metallic shapes; shield shows only check icon, no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Inspector with penlight and blank clipboard illuminates lower windshield corner plate on sedan with magnified blank plate inset and green shield, matching VIN inspection prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Close-up DMV VIN check at windshield base with blank plate and verification icon; all applicable visual rules pass and teaching is correct.",
+    "teaching_correct": {
+      "note": "Correctly teaches VIN location at lower windshield corner and verification with blank plate, no misleading geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "An inspector in vest and cap on the right shines a penlight at the base of a dark sedan's windshield on the left side of the frame, with a magnified inset of a blank metallic VIN plate and a green shield check icon above, in a sunny DMV lane with queued cars in background."
+  },
+  "error_body": null
+}

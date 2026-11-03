@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-610-no-passing-on-hills-or-curves-500-to-1000ft-sight",
+  "file": "drv-610-no-passing-on-hills-or-curves-500-to-1000ft-sight.png",
+  "title": "Hillcrest & Blind Curve No-Passing Rule: Never Pass Where Sight Distance Is Under 500–1,000 Feet!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "65f76f75b5630a39f9bfccb6e960d443430b7b4d03f8b980bc0fd6ad6dc4da1e",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4182,
+  "usage": {
+    "completion_tokens": 939,
+    "prompt_tokens": 2276,
+    "total_tokens": 3215,
+    "completion_tokens_details": {
+      "reasoning_tokens": 572
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006836,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-610-no-passing-on-hills-or-curves-500-to-1000ft-sight",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan and red pickup are in opposite lanes across double yellow, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; both vehicles shown only exterior.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue sedan in right lane with double yellow centerline on its left and white edge line on its right; red pickup approaches in opposite lane.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; license plate is blank white rectangle.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows hillcrest two-lane with double solid yellow, blue sedan staying right and oncoming red pickup just beyond crest, matching prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Hillcrest no-passing scene correctly shows staying in lane with proper US markings and no text violations.",
+    "teaching_correct": {
+      "note": "Correctly teaches staying in right lane and not passing on blind hillcrest with hidden oncoming traffic.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Blue sedan viewed from rear in right lane approaching a hillcrest at sunset, with a red oncoming pickup cresting from the left background over a cutaway hillside."
+  },
+  "error_body": null
+}

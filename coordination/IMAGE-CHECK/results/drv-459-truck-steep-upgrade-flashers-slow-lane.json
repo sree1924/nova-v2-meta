@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-459-truck-steep-upgrade-flashers-slow-lane",
+  "file": "drv-459-truck-steep-upgrade-flashers-slow-lane.png",
+  "title": "Heavy Trucks Climbing Mountain Upgrades in Right Truck-Climbing Lane With 4-Way Flashers",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "dfcc52c3806fe89b0eb831854b8566d7030f57931704596f2940000c9960dc38",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4743,
+  "usage": {
+    "completion_tokens": 1152,
+    "prompt_tokens": 2277,
+    "total_tokens": 3429,
+    "completion_tokens_details": {
+      "reasoning_tokens": 753
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007742,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-459-truck-steep-upgrade-flashers-slow-lane",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All foreground vehicles travel same direction away from viewer; oncoming vehicles on left are in separated opposite lanes beyond barrier, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels are visible; only exterior rear views shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals are present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Travel lanes show double yellow on far left and white edge line on far right; all same-direction traffic drives on right with opposite traffic separated left of yellow.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank gray rectangles, no letters, numbers, or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Uphill mountain highway with 18-wheeler in far-right lane with hazard/marker lights on while sedans pass in left lanes, matching title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts slow truck in right climbing lane with flashers and passing cars on mountain upgrade with correct US markings and zero text.",
+    "teaching_correct": {
+      "note": "Shows correct behavior: slow heavy truck keeps right with hazards on upgrade while faster traffic passes left.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Sunset view from behind on an uphill mountain highway with a white 18-wheeler in the far-right lane and three passenger cars in the center and left lanes ahead, all moving away uphill."
+  },
+  "error_body": null
+}

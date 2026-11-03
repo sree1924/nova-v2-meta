@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-608-wrong-way-driver-coming-at-you-on-divided-freeway",
+  "file": "drv-608-wrong-way-driver-coming-at-you-on-divided-freeway.png",
+  "title": "Wrong-Way Driver Approaching on Divided Freeway (Most Often in Left Fast Lane at Night!): Steer Right & Flash/Honk!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8640372f07f5eec4b8be8d0b460defcd69a55a64b20265ffde52cd8ae6ab2dae",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3744,
+  "usage": {
+    "completion_tokens": 859,
+    "prompt_tokens": 2281,
+    "total_tokens": 3140,
+    "completion_tokens_details": {
+      "reasoning_tokens": 478
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006502,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-608-wrong-way-driver-coming-at-you-on-divided-freeway",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles seen from rear traveling same direction, no oncoming vehicle facing them in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible, only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in nighttime freeway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow line on far left at concrete median, white edge line and shoulder on right, all traffic driving forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles, no letters, numbers or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Prompt requires oncoming wrong-way car with headlights in far-left fast lane; image shows only same-direction taillights ahead, no oncoming vehicle.",
+      "verdict": "MISMATCH"
+    },
+    "summary": "Night freeway with correct markings but no wrong-way driver shown, so it fails to teach steer-right avoidance.",
+    "teaching_correct": {
+      "note": "Without any wrong-way vehicle, learner sees normal night driving, not steer right onto shoulder away from left lane.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Nighttime multi-lane divided freeway with city skyline ahead, four cars seen from behind with red taillights driving away, foreground silver sedan straddling the right white edge line onto the shoulder."
+  },
+  "error_body": null
+}

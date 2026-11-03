@@ -250,3 +250,26 @@ button[data-slide-audio], button[data-card-audio], button[data-recap-audio] { ma
   .reader .rd-nav .rd-status { order: -1; width: 100%; text-align: center; }
   .reader .rd-nav { flex-wrap: wrap; }
 }
+
+/* ---- Road signs module (hub, flashcards, sign test) ---- */
+.sign-yield-icon { vertical-align: -4px; margin-right: 4px; flex-shrink: 0; }
+.sign-hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(156px, 1fr)); gap: 12px; margin-top: 12px; }
+.sign-hub-tile { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 12px 10px; border: 1px solid var(--line, #cbd5e1); border-radius: 12px; background: var(--card, #fff); color: var(--ink, #1e293b); text-decoration: none; }
+.sign-hub-tile:hover { border-color: var(--teal, #0f766e); }
+.sign-hub-img { width: 100%; height: 112px; display: grid; place-items: center; background: #fff; border-radius: 8px; }
+.sign-hub-img img { max-width: 104px; max-height: 104px; width: auto; height: auto; object-fit: contain; }
+.sign-hub-name { font-weight: 600; font-size: .92rem; line-height: 1.25; }
+.sign-hub-tile.is-text-sign { align-items: flex-start; text-align: left; background: var(--paper, #f8fafc); }
+.sign-pic-coming { display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 2px 7px; border-radius: 999px; background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
+.sign-hub-spec { font-size: .82rem; color: var(--muted, #475569); line-height: 1.35; }
+.sign-hub-meaning { font-size: .82rem; color: var(--ink, #1e293b); line-height: 1.35; }
+.sign-q-media { display: flex; justify-content: center; align-items: center; background: #fff; border: 1px solid var(--line, #cbd5e1); border-radius: 12px; padding: 12px; margin: 8px 0 10px; max-width: 240px; }
+.sign-q-media img { max-width: 176px; max-height: 176px; width: auto; height: auto; object-fit: contain; display: block; }
+.sign-text-box { background: var(--paper, #f8fafc); border: 1px dashed var(--line, #94a3b8); border-radius: 12px; padding: 14px; margin: 8px 0 10px; }
+.sign-spec-line { margin: 8px 0 0; font-weight: 600; }
+.card.is-target-sign { outline: 2px solid var(--teal, #0f766e); }
+@media (max-width: 480px) {
+  .sign-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .sign-q-media { max-width: 100%; padding: 10px; }
+  .sign-q-media img { max-width: 152px; max-height: 152px; }
+}

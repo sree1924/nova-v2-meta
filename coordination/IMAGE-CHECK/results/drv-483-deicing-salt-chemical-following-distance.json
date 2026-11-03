@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-483-deicing-salt-chemical-following-distance",
+  "file": "drv-483-deicing-salt-chemical-following-distance.png",
+  "title": "Salt / Brine De-Icing Tanker Trucks: Stay Well Back From Corrosive Spray & Keep Washer Reservoir Full of Freeze-Proof Fluid",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "22f7f747e2f96078a6db0fd93c931891ec593aa57d5f9ba9f945a5c9a7b23b08",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6833,
+  "usage": {
+    "completion_tokens": 1372,
+    "prompt_tokens": 2475,
+    "total_tokens": 3847,
+    "completion_tokens_details": {
+      "reasoning_tokens": 935
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008925,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-483-deicing-salt-chemical-following-distance",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in our lane and left lane face forward away from viewer; no oncoming head-on vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior shows steering wheel and driver controls on left side of image (bottom left), consistent with US left-hand drive; no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Travel is forward on right side of road: yellow centerline to left of our lane, white edge line/guardrail to right; all vehicles face same direction.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plates, roadside sign, dashboard and truck rear are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows winter highway right lane behind orange salt-spreader fanning spray with washer fluid clearing windshield, matching title and prompt elements.",
+      "verdict": "MATCH"
+    },
+    "summary": "All visual rules pass with correct US traffic and blank signage, but following gap looks very short with heavy spray, so teaching of 'stay well back' is questionable and needs human review.",
+    "teaching_correct": {
+      "note": "Washer use is shown correctly, but following distance appears very close with truck filling windshield and heavy corrosive spray hitting glass, opposite of 'stay well back 200-ft' lesson.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Driver's-eye view from a left-hand-drive SUV following close behind an orange salt-spreader truck spraying brine on a snowy highway, with blue washer spray and wipers clearing the windshield and other cars ahead in the left lane."
+  },
+  "error_body": null
+}

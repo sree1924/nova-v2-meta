@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-100-drawbridge-ferry-red-signal-stop",
+  "file": "drv-100-drawbridge-ferry-red-signal-stop.png",
+  "title": "Movable Drawbridge / Ferry Crossing: Full Stop Behind Lowered Gate & Red Signal",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "4784ae7ae814c4b59c8d72582a97a3de4dd6a2e966e8033821e5fc5de3fe1433",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4827,
+  "usage": {
+    "completion_tokens": 1206,
+    "prompt_tokens": 2283,
+    "total_tokens": 3489,
+    "completion_tokens_details": {
+      "reasoning_tokens": 794
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007979,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-100-drawbridge-ferry-red-signal-stop",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one blue sedan visible, viewed from behind in its lane; no oncoming vehicle facing it in the same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; only exterior rear view of sedan.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Roadside signal on right shows one glowing red lens with other lens dark; no other traffic signal with multiple lit lenses.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue sedan travels in right lane with double-yellow centerline on LEFT and white edge line / railing on RIGHT, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate blank, no legible signs.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue sedan stopped behind white stop bar, lowered red-white gate, single red signal, raised drawbridge span with passing boat on right, matching title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts full stop behind lowered drawbridge gate and red signal with proper US lane geometry and no text violations.",
+    "teaching_correct": {
+      "note": "Vehicle is stopped well behind stop bar for raised bridge and red signal, teaching correct full-stop behavior.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue sedan stopped behind a white stop bar in the right lane of a bridge, with a lowered red-and-white striped gate ahead, a red signal lit on the right, and the raised drawbridge spans with a boat passing on the water to the right."
+  },
+  "error_body": null
+}

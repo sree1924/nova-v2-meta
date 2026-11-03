@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-319-yellow-lines-opposite-vs-white-lines-same",
+  "file": "drv-319-yellow-lines-opposite-vs-white-lines-same.png",
+  "title": "Core Pavement Line Rule: YELLOW Separates Opposite Directions; WHITE Separates Same-Direction Traffic",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "200a4afe5175c217e75d4b98ab5647d62cd6b208b3be2f40d7e623d97f882b67",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3986,
+  "usage": {
+    "completion_tokens": 919,
+    "prompt_tokens": 2278,
+    "total_tokens": 3197,
+    "completion_tokens_details": {
+      "reasoning_tokens": 533
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006753,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-319-yellow-lines-opposite-vs-white-lines-same",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Left side opposing traffic separated by double-yellow center; right side all vehicles face forward in separate lanes, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interiors or steering wheels visible; only exterior rear/front views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either half of split image.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Left: foreground lane has double-yellow on left, white edge on right. Right: multi-lane forward traffic with yellow on far left, white on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; license plates are blank blue/white rectangles.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left half shows two-way road with yellow center separating opposite directions; right half shows same-direction freeway with white dashed lane lines.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split image correctly teaches yellow for opposite directions and white for same direction with US right-hand geometry and no text.",
+    "teaching_correct": {
+      "note": "Correctly demonstrates yellow separates opposite traffic and white dashed separates same-direction traffic.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split widescreen view: left foreground blue SUV on two-lane mountain road with double-yellow center and oncoming cars left of line; right foreground white sedan on multi-lane city freeway with white dashed lines and all cars traveling forward."
+  },
+  "error_body": null
+}

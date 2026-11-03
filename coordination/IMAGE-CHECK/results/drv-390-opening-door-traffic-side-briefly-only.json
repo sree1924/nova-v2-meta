@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-390-opening-door-traffic-side-briefly-only",
+  "file": "drv-390-opening-door-traffic-side-briefly-only.png",
+  "title": "Never Leave a Vehicle Door Open on the Moving-Traffic Side Longer Than Needed to Load/Exit",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2c7315dab1b0960198ab13ad6f71ef6e7bf82a10ca2a65e58e51dd7496436e37",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4400,
+  "usage": {
+    "completion_tokens": 817,
+    "prompt_tokens": 2261,
+    "total_tokens": 3078,
+    "completion_tokens_details": {
+      "reasoning_tokens": 461
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006299,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-390-opening-door-traffic-side-briefly-only",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one parked car visible on right side; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; door open but cabin not shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Background signal on left shows only bottom green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Car parallel-parked at right curb with white edge line on right and double-yellow centerline on left of lane.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is blank white rectangle, no signage text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows driver stepping out of right-curb parked car and closing left street-side door as described.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows brisk exit and immediate closing of traffic-side door with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Correctly teaches to exit briskly and close traffic-side door immediately, not leaving it open.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A man in sunglasses steps out of the left rear-side door of a blue sedan parallel-parked at the right curb of a sunny coastal street, holding the open door as if to close it."
+  },
+  "error_body": null
+}

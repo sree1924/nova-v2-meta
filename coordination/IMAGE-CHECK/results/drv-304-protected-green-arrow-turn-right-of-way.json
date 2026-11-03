@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-304-protected-green-arrow-turn-right-of-way",
+  "file": "drv-304-protected-green-arrow-turn-right-of-way.png",
+  "title": "Steady Protected Green Arrow: Oncoming Traffic Stopped — Proceed Into Turn After Yielding to Any Remaining Walkers",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "b9758b6672a8740a30b8b25c846c41370646b0d579e824fe1bb5a15c94f8f398",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5617,
+  "usage": {
+    "completion_tokens": 794,
+    "prompt_tokens": 2271,
+    "total_tokens": 3065,
+    "completion_tokens_details": {
+      "reasoning_tokens": 386
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006213,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-304-protected-green-arrow-turn-right-of-way",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Teal sedan in left foreground in its own turn lane, oncoming queue in separate lanes to the right; no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear view of teal sedan shown, no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Left signal shows only green left arrow lit, center and right signals show only single red lens lit; other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Teal car drives on right side with yellow line on left curb and white lane markings, oncoming traffic holds on opposite side behind stop bar.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Overhead signs, pole sign, and license plate are blank solid shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Green left arrow, stopped oncoming cars behind stop bar, and teal sedan following dotted left-turn arc match protected turn prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Protected left-turn scene is geometrically correct and rule-compliant; learner sees green arrow means proceed while oncoming stays stopped.",
+    "teaching_correct": {
+      "note": "Shows correct protected left behavior: proceed on green arrow along arc while oncoming remains stopped.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A teal sedan in the left foreground follows a dotted white turn arc at a sunset multi-lane intersection, with a green left-arrow signal overhead and a queue of oncoming cars stopped at their stop bar on the right."
+  },
+  "error_body": null
+}

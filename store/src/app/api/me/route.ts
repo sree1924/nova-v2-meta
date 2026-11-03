@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
-import { auth, clerkClient } from "@clerk/nextjs/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { activeOnly, readEntitlements } from "@/lib/entitlements";
 import { ENT_COOKIE, ENT_COOKIE_TTL_S, signEntitlementCookie } from "@/lib/entitlementCookie";
+import { localModeRequested, localRequestAllowed } from "@/lib/localMode";
+import { readLocalSession, writeLocalCookies } from "@/lib/localSession";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -11,7 +12,13 @@ const cookieOpts = { httpOnly: true, secure: process.env.NODE_ENV === "productio
 // GET /api/me -> {signedIn, entitlements}. Entitlements come fresh from Clerk publicMetadata
 // (expired ones included, so the shell can say "your access ended"). Side effect: refreshes
 // (or clears) the signed plp_ent cookie that middleware.ts checks on paid /app/** files.
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (localModeRequested()) {
+    if (!localRequestAllowed(req.headers)) return NextResponse.json({ error: "local_only" }, { status: 403 });
+    const session = await readLocalSession(req);
+    return writeLocalCookies(NextResponse.json({ signedIn: !!session, entitlements: session?.e || {}, localMode: true }), session);
+  }
+  const { auth, clerkClient } = await import("@clerk/nextjs/server");
   const { userId } = await auth();
   if (!userId) {
     const res = NextResponse.json({ signedIn: false, entitlements: {} }, { headers: { "Cache-Control": "private, no-store" } });

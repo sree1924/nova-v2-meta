@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-340-dual-double-left-turn-lanes-stay-in-channel",
+  "file": "drv-340-dual-double-left-turn-lanes-stay-in-channel.png",
+  "title": "Dual / Multiple Left-Turn Lanes: Stay Strictly Between Dotted White Guide Stripes Through Entire Turn",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "764b9544679804fb5c756490251b5eff1ef40e710a0b73185abe4b397f456357",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6847,
+  "usage": {
+    "completion_tokens": 1311,
+    "prompt_tokens": 2276,
+    "total_tokens": 3587,
+    "completion_tokens_details": {
+      "reasoning_tokens": 932
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008417,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-340-dual-double-left-turn-lanes-stay-in-channel",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both vehicles face same forward direction side-by-side; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Cars viewed from rear exterior only; no interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead foreground signals show two lit lenses at once: top red lit and bottom green lit on same heads.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double yellow centerline on left of the two turning cars, white edge line/curb on right; right-hand traffic orientation.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; lane arrows are symbols and plates/signs are blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue sedan in left inner lane and silver SUV in right outer lane at intersection with left arrows and curved dotted white guide between, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct dual left-turn geometry but REJECT for signal fault with red and green lit together.",
+    "teaching_correct": {
+      "note": "Both cars stay in their own marked left-turn channels, teaching the stay-in-lane rule correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "High aerial rear view of a blue sedan on the left and silver SUV on the right stopped in two marked left-turn lanes with white left arrows and a dotted white divider, facing an intersection with overhead traffic lights."
+  },
+  "error_body": null
+}

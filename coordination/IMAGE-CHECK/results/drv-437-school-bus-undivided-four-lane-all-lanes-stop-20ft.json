@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-437-school-bus-undivided-four-lane-all-lanes-stop-20ft",
+  "file": "drv-437-school-bus-undivided-four-lane-all-lanes-stop-20ft.png",
+  "title": "Stopped School Bus on Two-Lane or UNDIVIDED Multi-Lane Road (Including Center Turn Lane): ALL Directions Must Stop >=20 Ft Away!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "6ec6ebaf1a3515b9db06d1638beb6f46db7780b3c843710c0c9adc34ca3ab14a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9734,
+  "usage": {
+    "completion_tokens": 2288,
+    "prompt_tokens": 2310,
+    "total_tokens": 4598,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1861
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.012611,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-437-school-bus-undivided-four-lane-all-lanes-stop-20ft",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Bus and blue car share northbound lane facing same direction; red car is in opposite lane. No head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No steering wheel or cabin interior detail visible through windshields.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in aerial view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Northbound bus and blue car east of double-yellow center, southbound red car west of center; white edge lines outward. Correct right-hand placement.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white shapes, stop paddle is blank red octagon, no letters/numbers/words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows undivided road with bus and both directions stopped, but shows 1 lane per direction (2-lane total) while prompt required 4-lane undivided.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct stopping principle for undivided road but wrong lane count for 4-lane prompt and following distance appears too close to demonstrate >=20 ft.",
+    "teaching_correct": {
+      "note": "Teaches both directions must stop correctly, but blue car behind bus appears ~1 car length back, not clearly >=20 ft, weakening distance rule.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Elevated aerial view of a 2-lane undivided road with double-yellow center; a yellow school bus stopped in the right lane with blank red paddle out, a blue car stopped close behind it and a red car stopped in the opposite lane."
+  },
+  "error_body": null
+}

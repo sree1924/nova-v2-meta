@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-147-road-test-vehicle-registration-lights-check",
+  "file": "drv-147-road-test-vehicle-registration-lights-check.png",
+  "title": "Road Skills Test Pre-Check: Examiner Verifies Brake Lights, Turn Signals, Horn & Valid Tags",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8fe45ffa5ba2c6496bb2b2b80015e4160e4e8da6e94471570570b0e527c3fd68",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5064,
+  "usage": {
+    "completion_tokens": 764,
+    "prompt_tokens": 2266,
+    "total_tokens": 3030,
+    "completion_tokens_details": {
+      "reasoning_tokens": 387
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006079,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-147-road-test-vehicle-registration-lights-check",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Foreground sedan and background sedan both face forward away from camera in same lane direction; no head-on facing.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior of sedan visible; no car interior or steering wheel shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal mast or head present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow line on left of lane, white edge/curb on right, vehicles oriented forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plate blank white rectangle, tablet blank, diamond sign blank yellow; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Uniformed examiner with blank tablet behind sedan giving thumbs-up while red brake lamps and amber signals lit, blank plate, DMV staging lane with cones.",
+      "verdict": "MATCH"
+    },
+    "summary": "Pre-check scene matches prompt with illuminated brake/turn lamps, blank plate/tablet, correct US lane markings, and no rule violations.",
+    "teaching_correct": {
+      "note": "Shows examiner behind vehicle verifying lit brake and turn signals with approval gesture, correctly teaching pre-check.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A uniformed examiner on the left holding a blank tablet and giving thumbs-up behind a silver sedan with red brake lights and amber turn signals lit and blank license plate in a cone-lined staging lane."
+  },
+  "error_body": null
+}

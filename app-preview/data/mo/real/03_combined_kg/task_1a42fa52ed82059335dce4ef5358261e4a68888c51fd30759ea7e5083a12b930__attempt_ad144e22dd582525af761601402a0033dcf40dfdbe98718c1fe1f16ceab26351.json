@@ -1,0 +1,3428 @@
+{
+  "artifact": "KnowledgeGraph",
+  "schema_version": "1.0.0",
+  "adapter": "pilot_adapter@0.4.0",
+  "stage_id": "03.combined_kg",
+  "minted_by": {
+    "model": "claude-opus-5-5",
+    "lane": "anthropic-subscription-state-worker",
+    "pass": "combined"
+  },
+  "probe": "rdmv-mo-f",
+  "version": "0.4.0",
+  "lineage": {
+    "input_manifest_sha256": "60230a928394a800408efb1a3f4a26c7f001f9b6f7555f1aca48f11f70660b77",
+    "candidate_lineage_id": "2026-10-28-rdmv-mo-class-f:lineage:101"
+  },
+  "source_refs": {
+    "enriched_blueprint": "runs/2026-10-28-rdmv-mo-class-f/16/sec03-driver-examination/5c2b56e8/16-compiled-dossier.json",
+    "learning_loop": "runs/2026-10-28-rdmv-mo-class-f/19-learning-loop.json",
+    "media_disposition": "contracts/media-disposition.json",
+    "weighted_graph": "inline@KG-04",
+    "edge_set": "inline@KG-03",
+    "ontology": "inline@KG-02",
+    "image_scout_pre_kg": "deferred:not_applicable_pilot"
+  },
+  "nodes": [
+    {
+      "id": "sec03-F01",
+      "label": "Four parts of the examination",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F01"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F17",
+          "why": "sec03-F01 lists the four parts of the examination; sec03-F17 says the driving test comes only after the written, vision and road sign tests are passed.",
+          "fact_ids": [
+            "sec03-F01",
+            "sec03-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F02",
+      "label": "Shortened route for out-of-state licenses",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F02"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R05",
+          "why": "sec03-F02 gives the shortened vision and road sign route; sec03-R05 stresses it needs the same license type and a license valid or expired less than one hundred eighty-four days.",
+          "fact_ids": [
+            "sec03-F02",
+            "sec03-R05"
+          ]
+        },
+        {
+          "other_id": "sec03-F03",
+          "why": "sec03-F02 lets an out-of-state driver take only two tests; sec03-F03 requires the full examination for a new license or one expired more than six months.",
+          "fact_ids": [
+            "sec03-F02",
+            "sec03-F03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F03",
+      "label": "When the examination is required",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F03"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F02",
+          "why": "sec03-F02 lets an out-of-state driver take only two tests; sec03-F03 requires the full examination for a new license or one expired more than six months.",
+          "fact_ids": [
+            "sec03-F03",
+            "sec03-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F04",
+      "label": "Revocations that require the examination",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F04"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F05",
+      "label": "Highway Patrol gives the examination",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F05"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F06",
+      "label": "Proof of name and age",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m01",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F06"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F07",
+      "label": "Class F written test: twenty-five questions",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F07"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F08",
+          "why": "sec03-F07 gives the Class F written test as twenty-five multiple-choice questions; sec03-F08 adds that it is not open book and leaves out the commercial chapter.",
+          "fact_ids": [
+            "sec03-F07",
+            "sec03-F08"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F08",
+      "label": "Not open book, no commercial chapter",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F08"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F07",
+          "why": "sec03-F07 gives the Class F written test as twenty-five multiple-choice questions; sec03-F08 adds that it is not open book and leaves out the commercial chapter.",
+          "fact_ids": [
+            "sec03-F08",
+            "sec03-F07"
+          ]
+        },
+        {
+          "other_id": "sec03-R04",
+          "why": "sec03-F08 says the Class F test is closed book without the commercial chapter; sec03-R04 says the Class E test is also closed book but includes that chapter.",
+          "fact_ids": [
+            "sec03-F08",
+            "sec03-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F09",
+      "label": "Class E for-hire written test",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F09"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R04",
+          "why": "sec03-F09 describes the Class E for-hire test; sec03-R04 contrasts it with the Class F test by the commercial chapter.",
+          "fact_ids": [
+            "sec03-F09",
+            "sec03-R04"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F10",
+      "label": "Acuity and side vision tests",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F10"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R01",
+          "why": "sec03-F10 names both the acuity and side vision tests; sec03-R01 stresses that passing one does not cover the other.",
+          "fact_ids": [
+            "sec03-F10",
+            "sec03-R01"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F11",
+      "label": "Standard acuity: twenty forty",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F11"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R01",
+          "why": "sec03-F11 sets the standard acuity at twenty or forty or better; sec03-R01 separates it from the side vision test.",
+          "fact_ids": [
+            "sec03-F11",
+            "sec03-R01"
+          ]
+        },
+        {
+          "other_id": "sec03-R03",
+          "why": "sec03-F11 is the standard passing acuity of twenty or forty; sec03-R03 says twenty or one hundred sixty is the cutoff for any license, not the passing level.",
+          "fact_ids": [
+            "sec03-F11",
+            "sec03-R03"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F12",
+      "label": "Standard side vision degrees",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F12"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R02",
+          "why": "sec03-F12 gives the two side vision routes; sec03-R02 adds the seventy-degree combined floor below which no license is possible.",
+          "fact_ids": [
+            "sec03-F12",
+            "sec03-R02"
+          ]
+        },
+        {
+          "other_id": "sec03-F15",
+          "why": "sec03-F12 is the standard side vision level; sec03-F15 is the seventy-degree combined floor below which no license is possible.",
+          "fact_ids": [
+            "sec03-F12",
+            "sec03-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F13",
+      "label": "Missing the vision standards",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F13"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F14",
+      "label": "Vision exam form after failing",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F14"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F15",
+      "label": "Vision cutoffs for any license",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m03",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F15"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R03",
+          "why": "sec03-F15 sets the cutoffs for holding any license; sec03-R03 stresses the acuity cutoff applies only when natural and corrected vision are both worse.",
+          "fact_ids": [
+            "sec03-F15",
+            "sec03-R03"
+          ]
+        },
+        {
+          "other_id": "sec03-F12",
+          "why": "sec03-F12 is the standard side vision level; sec03-F15 is the seventy-degree combined floor below which no license is possible.",
+          "fact_ids": [
+            "sec03-F15",
+            "sec03-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F16",
+      "label": "Road sign test",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F16"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F17",
+      "label": "Driving test comes last",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F17"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F01",
+          "why": "sec03-F01 lists the four parts of the examination; sec03-F17 says the driving test comes only after the written, vision and road sign tests are passed.",
+          "fact_ids": [
+            "sec03-F17",
+            "sec03-F01"
+          ]
+        },
+        {
+          "other_id": "sec03-F35",
+          "why": "sec03-F17 says an MSHP examiner gives the driving test; sec03-F35 says passing it earns only a results form, not a license.",
+          "fact_ids": [
+            "sec03-F17",
+            "sec03-F35"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F18",
+      "label": "Vehicle inspection before the test",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F18"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F19",
+          "why": "sec03-F18 says the examiner inspects the vehicle and refuses the test if it is not properly equipped; sec03-F19 lists equipment the vehicle needs.",
+          "fact_ids": [
+            "sec03-F18",
+            "sec03-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F19",
+      "label": "Test vehicle equipment, part one",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F19"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F20",
+          "why": "sec03-F19 covers plates, inspection sticker, seat belts, doors and the passenger seat; sec03-F20 covers the brakes, horn and proof of financial responsibility.",
+          "fact_ids": [
+            "sec03-F19",
+            "sec03-F20"
+          ]
+        },
+        {
+          "other_id": "sec03-F18",
+          "why": "sec03-F18 says the examiner inspects the vehicle and refuses the test if it is not properly equipped; sec03-F19 lists equipment the vehicle needs.",
+          "fact_ids": [
+            "sec03-F19",
+            "sec03-F18"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F20",
+      "label": "Test vehicle equipment, part two",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F20"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F19",
+          "why": "sec03-F19 covers plates, inspection sticker, seat belts, doors and the passenger seat; sec03-F20 covers the brakes, horn and proof of financial responsibility.",
+          "fact_ids": [
+            "sec03-F20",
+            "sec03-F19"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F21",
+      "label": "Conduct during the driving test",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F21"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F22",
+      "label": "Using the controls",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m04",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F22"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F23",
+      "label": "Pulling away from the curb",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F23"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F24",
+      "label": "Starting and stopping",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F24"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F25",
+      "label": "Parallel parking space size",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F25"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R07",
+          "why": "sec03-F25 gives the marked space as twenty-five by seven feet; sec03-R07 says only parallel parking uses a marked space.",
+          "fact_ids": [
+            "sec03-F25",
+            "sec03-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F26",
+      "label": "Parallel parking curb distance and time",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F26"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R06",
+          "why": "sec03-F26 limits parallel parking to eighteen inches from the curb; sec03-R06 notes hill parking uses the same limit.",
+          "fact_ids": [
+            "sec03-F26",
+            "sec03-R06"
+          ]
+        },
+        {
+          "other_id": "sec03-R07",
+          "why": "sec03-F26 includes the two-minute finish; sec03-R07 stresses that only parallel parking is timed.",
+          "fact_ids": [
+            "sec03-F26",
+            "sec03-R07"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F27",
+      "label": "Other parallel parking scoring points",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F27"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F28",
+      "label": "Backing in a straight line",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F28"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F29",
+      "label": "Right and left turns",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F29"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R10",
+          "why": "sec03-F29 lists how turns are graded; sec03-R10 restates the minimum of two right and two left turns.",
+          "fact_ids": [
+            "sec03-F29",
+            "sec03-R10"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F30",
+      "label": "Hill parking scoring",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m05",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F30"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R06",
+          "why": "sec03-F30 limits hill parking to eighteen inches from the curb; sec03-R06 notes parallel parking uses the same limit.",
+          "fact_ids": [
+            "sec03-F30",
+            "sec03-R06"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F31",
+      "label": "Intersection scoring",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F31"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R11",
+          "why": "sec03-F31 lists the intersection scoring points; sec03-R11 picks out the full stop at stop signs and yielding without blocking traffic.",
+          "fact_ids": [
+            "sec03-F31",
+            "sec03-R11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F32",
+      "label": "Continuous observation",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m06",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F32"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R12",
+          "why": "sec03-F32 lists what the examiner watches throughout; sec03-R12 adds noticing and obeying signs and signals.",
+          "fact_ids": [
+            "sec03-F32",
+            "sec03-R12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F33",
+      "label": "More than thirty points fails",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F33"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R08",
+          "why": "sec03-F33 fails a single test at more than thirty points; sec03-R08 separates that from the three-failure rule.",
+          "fact_ids": [
+            "sec03-F33",
+            "sec03-R08"
+          ]
+        },
+        {
+          "other_id": "sec03-R09",
+          "why": "sec03-F33 fails a test by points; sec03-R09 shows a test can also fail outright before the point limit.",
+          "fact_ids": [
+            "sec03-F33",
+            "sec03-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F34",
+      "label": "Errors that fail at once",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F34"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R09",
+          "why": "sec03-F34 lists errors that fail at once; sec03-R09 stresses they fail a test without reaching the point limit.",
+          "fact_ids": [
+            "sec03-F34",
+            "sec03-R09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F35",
+      "label": "Test results form is not a license",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F35"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F17",
+          "why": "sec03-F17 says an MSHP examiner gives the driving test; sec03-F35 says passing it earns only a results form, not a license.",
+          "fact_ids": [
+            "sec03-F35",
+            "sec03-F17"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F36",
+      "label": "One driving test per day",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F36"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F37",
+      "label": "After three failed driving tests",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m07",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-F37"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-R08",
+          "why": "sec03-F37 sets the rule after three failed tests; sec03-R08 separates it from the thirty-point limit of one test.",
+          "fact_ids": [
+            "sec03-F37",
+            "sec03-R08"
+          ]
+        },
+        {
+          "other_id": "sec03-R14",
+          "why": "sec03-F37 requires extra training after three failures; sec03-R14 says failed results go to the Department, which mails the training letter.",
+          "fact_ids": [
+            "sec03-F37",
+            "sec03-R14"
+          ]
+        },
+        {
+          "other_id": "sec03-R15",
+          "why": "sec03-F37 requires extra training and approval; sec03-R15 says an eligible driver gives the training and approval is needed before the next attempt.",
+          "fact_ids": [
+            "sec03-F37",
+            "sec03-R15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-F38",
+      "label": "Exam fraud penalty",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "module_id": "sec03-m02",
+      "node_type": "fact",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-F38"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R01",
+      "label": "Acuity versus side vision",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R01"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F10",
+          "why": "sec03-F10 names both the acuity and side vision tests; sec03-R01 stresses that passing one does not cover the other.",
+          "fact_ids": [
+            "sec03-R01",
+            "sec03-F10"
+          ]
+        },
+        {
+          "other_id": "sec03-F11",
+          "why": "sec03-F11 sets the standard acuity at twenty or forty or better; sec03-R01 separates it from the side vision test.",
+          "fact_ids": [
+            "sec03-R01",
+            "sec03-F11"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R02",
+      "label": "Two side vision routes and the floor",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R02"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F12",
+          "why": "sec03-F12 gives the two side vision routes; sec03-R02 adds the seventy-degree combined floor below which no license is possible.",
+          "fact_ids": [
+            "sec03-R02",
+            "sec03-F12"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R03",
+      "label": "Cutoff is not the passing level",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m03",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R03"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0021"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F11",
+          "why": "sec03-F11 is the standard passing acuity of twenty or forty; sec03-R03 says twenty or one hundred sixty is the cutoff for any license, not the passing level.",
+          "fact_ids": [
+            "sec03-R03",
+            "sec03-F11"
+          ]
+        },
+        {
+          "other_id": "sec03-F15",
+          "why": "sec03-F15 sets the cutoffs for holding any license; sec03-R03 stresses the acuity cutoff applies only when natural and corrected vision are both worse.",
+          "fact_ids": [
+            "sec03-R03",
+            "sec03-F15"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R04",
+      "label": "Class F versus Class E written test",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m02",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R04"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F08",
+          "why": "sec03-F08 says the Class F test is closed book without the commercial chapter; sec03-R04 says the Class E test is also closed book but includes that chapter.",
+          "fact_ids": [
+            "sec03-R04",
+            "sec03-F08"
+          ]
+        },
+        {
+          "other_id": "sec03-F09",
+          "why": "sec03-F09 describes the Class E for-hire test; sec03-R04 contrasts it with the Class F test by the commercial chapter.",
+          "fact_ids": [
+            "sec03-R04",
+            "sec03-F09"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R05",
+      "label": "Conditions for the shortened route",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R05"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F02",
+          "why": "sec03-F02 gives the shortened vision and road sign route; sec03-R05 stresses it needs the same license type and a license valid or expired less than one hundred eighty-four days.",
+          "fact_ids": [
+            "sec03-R05",
+            "sec03-F02"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R06",
+      "label": "Same eighteen-inch curb limit",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R06"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F26",
+          "why": "sec03-F26 limits parallel parking to eighteen inches from the curb; sec03-R06 notes hill parking uses the same limit.",
+          "fact_ids": [
+            "sec03-R06",
+            "sec03-F26"
+          ]
+        },
+        {
+          "other_id": "sec03-F30",
+          "why": "sec03-F30 limits hill parking to eighteen inches from the curb; sec03-R06 notes parallel parking uses the same limit.",
+          "fact_ids": [
+            "sec03-R06",
+            "sec03-F30"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R07",
+      "label": "Only parallel parking is timed",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R07"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F26",
+          "why": "sec03-F26 includes the two-minute finish; sec03-R07 stresses that only parallel parking is timed.",
+          "fact_ids": [
+            "sec03-R07",
+            "sec03-F26"
+          ]
+        },
+        {
+          "other_id": "sec03-F25",
+          "why": "sec03-F25 gives the marked space as twenty-five by seven feet; sec03-R07 says only parallel parking uses a marked space.",
+          "fact_ids": [
+            "sec03-R07",
+            "sec03-F25"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R08",
+      "label": "Point limit versus failure count",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "hard",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R08"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F33",
+          "why": "sec03-F33 fails a single test at more than thirty points; sec03-R08 separates that from the three-failure rule.",
+          "fact_ids": [
+            "sec03-R08",
+            "sec03-F33"
+          ]
+        },
+        {
+          "other_id": "sec03-F37",
+          "why": "sec03-F37 sets the rule after three failed tests; sec03-R08 separates it from the thirty-point limit of one test.",
+          "fact_ids": [
+            "sec03-R08",
+            "sec03-F37"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R09",
+      "label": "Failing without reaching the point limit",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R09"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F34",
+          "why": "sec03-F34 lists errors that fail at once; sec03-R09 stresses they fail a test without reaching the point limit.",
+          "fact_ids": [
+            "sec03-R09",
+            "sec03-F34"
+          ]
+        },
+        {
+          "other_id": "sec03-F33",
+          "why": "sec03-F33 fails a test by points; sec03-R09 shows a test can also fail outright before the point limit.",
+          "fact_ids": [
+            "sec03-R09",
+            "sec03-F33"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R10",
+      "label": "Minimum turns on the test",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m05",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "easy",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R10"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F29",
+          "why": "sec03-F29 lists how turns are graded; sec03-R10 restates the minimum of two right and two left turns.",
+          "fact_ids": [
+            "sec03-R10",
+            "sec03-F29"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R11",
+      "label": "Full stop and yielding at intersections",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R11"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F31",
+          "why": "sec03-F31 lists the intersection scoring points; sec03-R11 picks out the full stop at stop signs and yielding without blocking traffic.",
+          "fact_ids": [
+            "sec03-R11",
+            "sec03-F31"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R12",
+      "label": "Signs and signals throughout",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m06",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R12"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.22",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F32",
+          "why": "sec03-F32 lists what the examiner watches throughout; sec03-R12 adds noticing and obeying signs and signals.",
+          "fact_ids": [
+            "sec03-R12",
+            "sec03-F32"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R13",
+      "label": "Time to carry out directions",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m04",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "easy",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-R13"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.21",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0022"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R14",
+      "label": "Failed results go to the Department",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R14"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F37",
+          "why": "sec03-F37 requires extra training after three failures; sec03-R14 says failed results go to the Department, which mails the training letter.",
+          "fact_ids": [
+            "sec03-R14",
+            "sec03-F37"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R15",
+      "label": "Who gives the extra training",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m07",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 2,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; high-yield node weighted double"
+      },
+      "difficulty": "medium",
+      "high_yield": true,
+      "fact_ids": [
+        "sec03-R15"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.23",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0023"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [
+        {
+          "other_id": "sec03-F37",
+          "why": "sec03-F37 requires extra training and approval; sec03-R15 says an eligible driver gives the training and approval is needed before the next attempt.",
+          "fact_ids": [
+            "sec03-R15",
+            "sec03-F37"
+          ]
+        }
+      ],
+      "no_confusable_reason": null
+    },
+    {
+      "id": "sec03-R16",
+      "label": "Where to find testing locations",
+      "domain": "Driver examination thresholds and look-alike limits",
+      "module_id": "sec03-m01",
+      "node_type": "synthesis",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 1,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy), not an exam weight; standard weight"
+      },
+      "difficulty": "medium",
+      "high_yield": false,
+      "fact_ids": [
+        "sec03-R16"
+      ],
+      "source_ref": {
+        "ref": "Missouri Driver Guide (Revised August 2026), PDF p.20",
+        "tier": "official",
+        "url": null,
+        "source_page": "src:rdmv-mo-f:missouri-department-of-revenue:handbook:pdf-0020"
+      },
+      "confidence": "high",
+      "needs_review": false,
+      "confusable_with": [],
+      "no_confusable_reason": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "sec03-F02",
+      "to": "sec03-R05",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F08",
+      "to": "sec03-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F09",
+      "to": "sec03-R04",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F10",
+      "to": "sec03-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F11",
+      "to": "sec03-R01",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F12",
+      "to": "sec03-R02",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F15",
+      "to": "sec03-R03",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F01",
+      "to": "sec03-F17",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F21",
+      "to": "sec03-R13",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F25",
+      "to": "sec03-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F26",
+      "to": "sec03-R07",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F26",
+      "to": "sec03-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F30",
+      "to": "sec03-R06",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F29",
+      "to": "sec03-R10",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F31",
+      "to": "sec03-R11",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F32",
+      "to": "sec03-R12",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F33",
+      "to": "sec03-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F34",
+      "to": "sec03-R09",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F33",
+      "to": "sec03-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F37",
+      "to": "sec03-R08",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F37",
+      "to": "sec03-R14",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    },
+    {
+      "from": "sec03-F37",
+      "to": "sec03-R15",
+      "type": "prerequisite",
+      "origin": "domain_logic",
+      "confidence": "high"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "sec03-m01",
+      "title": "Exam parts and who must test",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 11,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec03-F01",
+        "sec03-F03",
+        "sec03-F04",
+        "sec03-F02",
+        "sec03-R05",
+        "sec03-F05",
+        "sec03-F06",
+        "sec03-R16"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m02",
+      "title": "Written and road sign tests",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec03-F07",
+        "sec03-F08",
+        "sec03-F09",
+        "sec03-R04",
+        "sec03-F16",
+        "sec03-F38"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m03",
+      "title": "The vision test",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 15,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec03-F10",
+        "sec03-F11",
+        "sec03-R01",
+        "sec03-F12",
+        "sec03-R02",
+        "sec03-F13",
+        "sec03-F14",
+        "sec03-F15",
+        "sec03-R03"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m04",
+      "title": "Test vehicle and conduct",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 9,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec03-F17",
+        "sec03-F18",
+        "sec03-F19",
+        "sec03-F20",
+        "sec03-F21",
+        "sec03-R13",
+        "sec03-F22"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m05",
+      "title": "Driving test maneuvers",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 15,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec03-F23",
+        "sec03-F24",
+        "sec03-F25",
+        "sec03-F26",
+        "sec03-F27",
+        "sec03-R07",
+        "sec03-F28",
+        "sec03-F29",
+        "sec03-R10",
+        "sec03-F30",
+        "sec03-R06"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m06",
+      "title": "Intersections and observation",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 6,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec03-F31",
+        "sec03-R11",
+        "sec03-F32",
+        "sec03-R12"
+      ],
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m07",
+      "title": "Scoring, failing and retests",
+      "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+      "official_weight": {
+        "value": null,
+        "status": "unknown",
+        "source_page": null
+      },
+      "pedagogic_emphasis": {
+        "value": 17,
+        "status": "authored",
+        "basis": "authored pedagogic emphasis (product policy): sum of member node emphasis"
+      },
+      "node_ids": [
+        "sec03-F33",
+        "sec03-F34",
+        "sec03-R09",
+        "sec03-F35",
+        "sec03-F36",
+        "sec03-F37",
+        "sec03-R08",
+        "sec03-R14",
+        "sec03-R15"
+      ],
+      "media_slot_ids": []
+    }
+  ],
+  "curriculum_unit_hints": [
+    {
+      "module_id": "sec03-m01",
+      "unit_id": "sec03-u01",
+      "node_ids": [
+        "sec03-F01",
+        "sec03-F03",
+        "sec03-F04",
+        "sec03-F02",
+        "sec03-R05",
+        "sec03-F05",
+        "sec03-F06",
+        "sec03-R16"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Open with the four parts of the examination, then who must take it, the shortened route for out-of-state licenses, who gives it and the identification you bring.",
+      "flashcard_strategy": "One card per rule; a contrast card for the out-of-state transfer route versus a new applicant.",
+      "quiz_strategy": "Hub-chosen quiz on which applicants take which parts of the examination.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m02",
+      "unit_id": "sec03-u02",
+      "node_ids": [
+        "sec03-F07",
+        "sec03-F08",
+        "sec03-F09",
+        "sec03-R04",
+        "sec03-F16",
+        "sec03-F38"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach what the Class F written test covers and that it is closed book, how the Class E test differs, the road sign test, and the penalty for exam fraud.",
+      "flashcard_strategy": "Cards for each test rule; a contrast card for Class F versus Class E written tests.",
+      "quiz_strategy": "Hub-chosen quiz on the written and road sign tests.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m03",
+      "unit_id": "sec03-u03",
+      "node_ids": [
+        "sec03-F10",
+        "sec03-F11",
+        "sec03-R01",
+        "sec03-F12",
+        "sec03-R02",
+        "sec03-F13",
+        "sec03-F14",
+        "sec03-F15",
+        "sec03-R03"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain the acuity and side vision tests, the standard passing levels, what happens after a failed screen, and the cutoffs below which no license is possible.",
+      "flashcard_strategy": "Cards for each standard; contrast cards for acuity versus side vision and for standard levels versus absolute cutoffs.",
+      "quiz_strategy": "Hub-chosen quiz matching vision results to outcomes.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m04",
+      "unit_id": "sec03-u04",
+      "node_ids": [
+        "sec03-F17",
+        "sec03-F18",
+        "sec03-F19",
+        "sec03-F20",
+        "sec03-F21",
+        "sec03-R13",
+        "sec03-F22"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Cover when the driving test comes, the vehicle inspection and equipment list, how to behave with the examiner, and how the use of controls is graded.",
+      "flashcard_strategy": "Cards for the equipment lists and the conduct rules.",
+      "quiz_strategy": "Hub-chosen quiz on whether a vehicle and a driver are ready for the test.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m05",
+      "unit_id": "sec03-u05",
+      "node_ids": [
+        "sec03-F23",
+        "sec03-F24",
+        "sec03-F25",
+        "sec03-F26",
+        "sec03-F27",
+        "sec03-R07",
+        "sec03-F28",
+        "sec03-F29",
+        "sec03-R10",
+        "sec03-F30",
+        "sec03-R06"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Walk through each graded maneuver: pulling away, starting and stopping, parallel parking, backing, turns and hill parking, with the distances and time limit that apply.",
+      "flashcard_strategy": "One card per maneuver; contrast cards for parallel versus hill parking limits.",
+      "quiz_strategy": "Hub-chosen quiz on what each maneuver is scored on.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m06",
+      "unit_id": "sec03-u06",
+      "node_ids": [
+        "sec03-F31",
+        "sec03-R11",
+        "sec03-F32",
+        "sec03-R12"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Teach how intersections are graded and what the examiner watches throughout the drive.",
+      "flashcard_strategy": "Cards for the intersection task and continuous observation.",
+      "quiz_strategy": "Hub-chosen quiz on intersection and observation scoring.",
+      "media_slot_ids": []
+    },
+    {
+      "module_id": "sec03-m07",
+      "unit_id": "sec03-u07",
+      "node_ids": [
+        "sec03-F33",
+        "sec03-F34",
+        "sec03-R09",
+        "sec03-F35",
+        "sec03-F36",
+        "sec03-F37",
+        "sec03-R08",
+        "sec03-R14",
+        "sec03-R15"
+      ],
+      "user_cycle": [
+        "session",
+        "flashcards",
+        "module_hub",
+        "module_quiz",
+        "missed_review",
+        "spaced_review"
+      ],
+      "hub_options": [
+        "module_quiz",
+        "flashcards",
+        "session"
+      ],
+      "session_strategy": "Explain the point limit, the errors that fail at once, what passing earns, the one-test-per-day rule, and the rules after three failed tests.",
+      "flashcard_strategy": "Cards for each scoring rule; contrast cards for the point limit versus the failure count.",
+      "quiz_strategy": "Hub-chosen quiz on scoring scenarios and retest rules.",
+      "media_slot_ids": []
+    }
+  ],
+  "learning_path": [
+    "sec03-F01",
+    "sec03-F03",
+    "sec03-F04",
+    "sec03-F02",
+    "sec03-R05",
+    "sec03-F05",
+    "sec03-F06",
+    "sec03-R16",
+    "sec03-F07",
+    "sec03-F08",
+    "sec03-F09",
+    "sec03-R04",
+    "sec03-F16",
+    "sec03-F38",
+    "sec03-F10",
+    "sec03-F11",
+    "sec03-R01",
+    "sec03-F12",
+    "sec03-R02",
+    "sec03-F13",
+    "sec03-F14",
+    "sec03-F15",
+    "sec03-R03",
+    "sec03-F17",
+    "sec03-F18",
+    "sec03-F19",
+    "sec03-F20",
+    "sec03-F21",
+    "sec03-R13",
+    "sec03-F22",
+    "sec03-F23",
+    "sec03-F24",
+    "sec03-F25",
+    "sec03-F26",
+    "sec03-F27",
+    "sec03-R07",
+    "sec03-F28",
+    "sec03-F29",
+    "sec03-R10",
+    "sec03-F30",
+    "sec03-R06",
+    "sec03-F31",
+    "sec03-R11",
+    "sec03-F32",
+    "sec03-R12",
+    "sec03-F33",
+    "sec03-F34",
+    "sec03-R09",
+    "sec03-F35",
+    "sec03-F36",
+    "sec03-F37",
+    "sec03-R08",
+    "sec03-R14",
+    "sec03-R15"
+  ],
+  "learning_path_rule": {
+    "dynamic_excluded": true,
+    "rule": "module order sec03-m01..sec03-m07; component facts before the synthesis (R) nodes that contrast them; no dynamic nodes exist"
+  },
+  "dynamic_nodes": [],
+  "department_pass": {
+    "kg01": {
+      "origin": "inline@KG-01",
+      "verdict": "PASS",
+      "gaps": [],
+      "nodes_extracted": 54,
+      "merges": [],
+      "dynamic_concepts": []
+    },
+    "kg02": {
+      "origin": "inline@KG-02",
+      "node_types": [
+        {
+          "type": "fact",
+          "definition": "one accepted handbook fact as an atomic node"
+        },
+        {
+          "type": "synthesis",
+          "definition": "one accepted C2 contrast fact joining the component facts it names"
+        }
+      ],
+      "edge_types": [
+        {
+          "type": "prerequisite",
+          "directed": true,
+          "acyclic": true,
+          "definition": "component fact must be learned before the contrast or dependent fact"
+        }
+      ],
+      "acyclic": true,
+      "weight_closure": {
+        "basis": "unknown",
+        "sum": null,
+        "within_tolerance": null
+      },
+      "placements": [
+        {
+          "concept_id": "sec03-F01",
+          "module_id": "sec03-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F02",
+          "module_id": "sec03-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F03",
+          "module_id": "sec03-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F04",
+          "module_id": "sec03-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F05",
+          "module_id": "sec03-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F06",
+          "module_id": "sec03-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F07",
+          "module_id": "sec03-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F08",
+          "module_id": "sec03-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F09",
+          "module_id": "sec03-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F10",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F11",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F12",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F13",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F14",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F15",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F16",
+          "module_id": "sec03-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F17",
+          "module_id": "sec03-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F18",
+          "module_id": "sec03-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F19",
+          "module_id": "sec03-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F20",
+          "module_id": "sec03-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F21",
+          "module_id": "sec03-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F22",
+          "module_id": "sec03-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F23",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F24",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F25",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F26",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F27",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F28",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F29",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F30",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F31",
+          "module_id": "sec03-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F32",
+          "module_id": "sec03-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F33",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F34",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F35",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F36",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F37",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-F38",
+          "module_id": "sec03-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R01",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R02",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R03",
+          "module_id": "sec03-m03",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R04",
+          "module_id": "sec03-m02",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R05",
+          "module_id": "sec03-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R06",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R07",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R08",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R09",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R10",
+          "module_id": "sec03-m05",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R11",
+          "module_id": "sec03-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R12",
+          "module_id": "sec03-m06",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R13",
+          "module_id": "sec03-m04",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R14",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R15",
+          "module_id": "sec03-m07",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        },
+        {
+          "concept_id": "sec03-R16",
+          "module_id": "sec03-m01",
+          "ambiguous": false,
+          "resolution": "sole module home"
+        }
+      ]
+    },
+    "kg03": {
+      "origin": "inline@KG-03",
+      "edges": [
+        {
+          "from": "sec03-F02",
+          "to": "sec03-R05",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F08",
+          "to": "sec03-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F09",
+          "to": "sec03-R04",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F10",
+          "to": "sec03-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F11",
+          "to": "sec03-R01",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F12",
+          "to": "sec03-R02",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F15",
+          "to": "sec03-R03",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F01",
+          "to": "sec03-F17",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F21",
+          "to": "sec03-R13",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F25",
+          "to": "sec03-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F26",
+          "to": "sec03-R07",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F26",
+          "to": "sec03-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F30",
+          "to": "sec03-R06",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F29",
+          "to": "sec03-R10",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F31",
+          "to": "sec03-R11",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F32",
+          "to": "sec03-R12",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F33",
+          "to": "sec03-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F34",
+          "to": "sec03-R09",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F33",
+          "to": "sec03-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F37",
+          "to": "sec03-R08",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F37",
+          "to": "sec03-R14",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        },
+        {
+          "from": "sec03-F37",
+          "to": "sec03-R15",
+          "type": "prerequisite",
+          "origin": "domain_logic",
+          "confidence": "high"
+        }
+      ],
+      "acyclic": true,
+      "cycles_resolved": [],
+      "dropped_hints": []
+    },
+    "kg04": {
+      "origin": "inline@KG-04",
+      "domain_emphasis_check": [
+        {
+          "domain": "The Missouri driver examination: written, vision, road sign and driving skills tests",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 63.4,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        },
+        {
+          "domain": "Driver examination thresholds and look-alike limits",
+          "blueprint_pct": null,
+          "weight_status": "unknown",
+          "computed_pct": 36.6,
+          "drift_pp": null,
+          "comparison_basis": "none",
+          "within_tolerance": null
+        }
+      ]
+    },
+    "kg05": {
+      "origin": "inline@KG-05",
+      "sequencing": {
+        "rule": "module order, then component facts before synthesis nodes",
+        "module_order": [
+          "sec03-m01",
+          "sec03-m02",
+          "sec03-m03",
+          "sec03-m04",
+          "sec03-m05",
+          "sec03-m06",
+          "sec03-m07"
+        ]
+      },
+      "validation_assertions": {
+        "prerequisite_violations": null,
+        "orphan_nodes": null,
+        "double_homes": null,
+        "dynamic_quarantined": null,
+        "path_check": null
+      }
+    }
+  }
+}

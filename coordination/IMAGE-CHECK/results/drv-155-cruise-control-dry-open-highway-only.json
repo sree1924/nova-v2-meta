@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-155-cruise-control-dry-open-highway-only",
+  "file": "drv-155-cruise-control-dry-open-highway-only.png",
+  "title": "Cruise Control: Safe on Dry Open Freeways, NEVER Use on Rain, Ice, Snow, or Winding Roads",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "3945a4bc2cb3f4ed24a798faf1aa26b79d3039c8ec2247b8c23b7f2184fdc759",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3379,
+  "usage": {
+    "completion_tokens": 619,
+    "prompt_tokens": 2270,
+    "total_tokens": 2889,
+    "completion_tokens_details": {
+      "reasoning_tokens": 252
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.005468,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-155-cruise-control-dry-open-highway-only",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both panels show single blue car from behind driving away, no oncoming vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior views of cars shown, no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show yellow line on left and white edge/guardrail on right of travel lane, correct for US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No text, letters, or numbers visible; icons are blank graphic check, X, and gauge symbols only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Split panel shows dry sunny open interstate with green check vs snowy slick road with red X and crossed gauge, exactly as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split-panel comparison correctly teaches cruise control use on dry vs snow, with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Correctly teaches cruise safe on dry open freeway and prohibited on slick snowy road.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split-panel rear view of a blue sedan: left on dry sunny desert interstate under green gauge and checkmark, right on snowy slushy highway under crossed-out gauge and red X."
+  },
+  "error_body": null
+}

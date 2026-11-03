@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-280-snowmobile-atv-trail-perpendicular-crossing",
+  "file": "drv-280-snowmobile-atv-trail-perpendicular-crossing.png",
+  "title": "Off-Highway Vehicle (ATV / Snowmobile) Perpendicular Road Crossing Rule",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "be5b277f6180d596f0b89599337819f01131f06c0644ca02fac1512feab02737",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7221,
+  "usage": {
+    "completion_tokens": 1525,
+    "prompt_tokens": 2265,
+    "total_tokens": 3790,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1124
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009312,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-280-snowmobile-atv-trail-perpendicular-crossing",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Multiple cars travel same direction in left lane; snowmobile is stopped on right shoulder, no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; only exteriors through windshields.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal appears in the winter rural scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline in middle, white edge line on right; oncoming cars use left side of center toward camera, correct for US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white shapes, roadside marker is blank orange rectangle, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Snowmobile stopped at snowy roadside yielding to highway cars matches, but vehicle is aligned roughly parallel to road, not turned to a clean 90-degree crossing angle.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Snowy yield scene is correct but snowmobile alignment does not demonstrate the required 90-degree perpendicular crossing.",
+    "teaching_correct": {
+      "note": "Shows stopping and yielding correctly, but parallel shoulder positioning fails to model the perpendicular crossing rule and could suggest riding along road.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "A helmeted rider on a snowmobile waits stopped in snow on the right shoulder of a snowy two-lane highway while three cars approach in the oncoming lane at sunset with mountains behind."
+  },
+  "error_body": null
+}

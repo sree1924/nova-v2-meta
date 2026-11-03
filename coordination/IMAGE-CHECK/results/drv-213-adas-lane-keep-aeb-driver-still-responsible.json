@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-213-adas-lane-keep-aeb-driver-still-responsible",
+  "file": "drv-213-adas-lane-keep-aeb-driver-still-responsible.png",
+  "title": "Advanced Driver-Assistance Systems (ADAS / AEB / Lane-Keep): Driver Remains 100% Responsible",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "52ab2942e834bbbfbc3cd939c53617040604d68224abbe928b9ab41c7c626f57",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3631,
+  "usage": {
+    "completion_tokens": 807,
+    "prompt_tokens": 2271,
+    "total_tokens": 3078,
+    "completion_tokens_details": {
+      "reasoning_tokens": 415
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006268,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-213-adas-lane-keep-aeb-driver-still-responsible",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in foreground and background travel same direction in separate lanes; no head-on facing.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-right inset shows LHD cabin from rear-right shoulder: steering wheel left of center display, driver on left with hands on wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway scene or inset.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Multi-lane highway with yellow line on far left and white edge/guardrail on right; all cars drive forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Overhead green sign, license plates, and center screen are blank solid shapes; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows sedan in right lane plus inset of attentive driver hands-on-wheel, but missing prompted cyan radar/camera waves scanning lane lines.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct LHD attentive-driver composition with no rule violations, but ADAS sensor visualization absent so only partial match to prompt.",
+    "teaching_correct": {
+      "note": "Inset correctly teaches driver keeps hands on wheel and eyes forward while ADAS assists, no opposite or unsafe geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Sunset highway view of a dark sedan in the right lane with traffic ahead, plus a top-right inset from the rear-right showing the driver with both hands on the wheel looking forward."
+  },
+  "error_body": null
+}

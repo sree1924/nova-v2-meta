@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-174-habitual-offender-repeat-convictions",
+  "file": "drv-174-habitual-offender-repeat-convictions.png",
+  "title": "Habitual Traffic Offender Status From Repeated Major Violations",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "f101b35604e17dda1b501ae17aece934e8e3ce26c35d2a0ff02db9a0ae3575d7",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4759,
+  "usage": {
+    "completion_tokens": 937,
+    "prompt_tokens": 2234,
+    "total_tokens": 3171,
+    "completion_tokens_details": {
+      "reasoning_tokens": 584
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006775,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-174-habitual-offender-repeat-convictions",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No vehicles or lanes present; no head-on encounter possible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel shown; central wheel is vault mechanism.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in illustration.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No road, lane markings, or vehicles shown; abstract warning illustration only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; driver card blank, calendars show empty grids only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows three red strikes left, chained vault lock with blank driver card center, and three calendar cycles right as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Abstract warning concept matches prompt with zero text violation; no traffic geometry to evaluate. Teaching of repeated violations leading to locked-away license is clear.",
+    "teaching_correct": {
+      "note": "Vault-locked blank card with three strikes and multiple calendars correctly teaches license loss from repeated major violations.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Center foreground shows a large chained vault door with padlock sealing a blank card, three red diagonal strikes on the left, and three blank spiral calendars stacked on the right."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-466-headlights-sunset-to-sunrise-and-wipers-on",
+  "file": "drv-466-headlights-sunset-to-sunrise-and-wipers-on.png",
+  "title": "When Headlights Are Required: Sunset to Sunrise, Visibility <500–1,000 Ft, AND Anytime Windshield Wipers Are In Use!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "c6788601102882740027097477ce8572bdb6c307e600c460d282460211b82ad9",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8130,
+  "usage": {
+    "completion_tokens": 1639,
+    "prompt_tokens": 2289,
+    "total_tokens": 3928,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1202
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009827,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-466-headlights-sunset-to-sunrise-and-wipers-on",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan and gray SUV travel same direction away from camera; oncoming white car is across yellow centerline in opposite lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel is visible; all cars shown only from exterior rear/front.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal appears in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles keep right; yellow double centerline is on left of the blue sedan's travel lane, white edge line/curb on right; oncoming traffic uses left side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; license plates are blank white shapes, mailbox and house show no text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Rainy wet road with taillights and oncoming headlights conveys wipers-on lighting, but rear-view of blue sedan shows only red taillights, not both white headlights and red taillights, and windshield wipers are not discernible.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct US traffic and zero text with rain and lights on, but rear viewpoint cannot show required both headlights and taillights on subject car, so only partial match.",
+    "teaching_correct": {
+      "note": "Shows taillights/headlights on in rain on wet road with correct lane use; no wrong geometry or opposite teaching.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear aerial view of a blue sedan with lit red taillights following a gray SUV on a rain-wet road, with an oncoming white car with headlights on across the yellow centerline."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-149-three-point-turn-narrow-street",
+  "file": "drv-149-three-point-turn-narrow-street.png",
+  "title": "Three-Point Turn (K-Turn / Y-Turn) Maneuver on Narrow Two-Way Street When Clear Both Ways",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "5cb1bc59ffa1f03b15d64ae62f16348b9af2ac35fdc71d93767bf9a68202fff3",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 10182,
+  "usage": {
+    "completion_tokens": 1817,
+    "prompt_tokens": 2290,
+    "total_tokens": 4107,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1399
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.010585,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-149-three-point-turn-narrow-street",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one blue sedan appears in all three panels; no second vehicle facing it in the same lane.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "Middle panel shows driver on left side of cabin; no steering wheel on right side visible.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal, traffic light, or lit lens present in any panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Panel 1 northbound car has double-yellow on its left and white edge on right; Panel 3 southbound car has double-yellow on its left/east and white edge on right/west. Correct US right-hand positioning.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plates and surroundings are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Three-panel elevated view shows (1) left turn across to opposite curb with yellow arrow, (2) reverse right with red arrow, (3) forward in new lane with green arrow on narrow two-way street.",
+      "verdict": "MATCH"
+    },
+    "summary": "Three-panel diagram correctly illustrates the three-point turn with proper US lane positioning and no text or rule violations.",
+    "teaching_correct": {
+      "note": "Sequence teaches correct K-turn: turn left across when clear, reverse right, then go forward in new right-hand lane, ending on correct side.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated three-panel view of a narrow two-way residential street with double-yellow center; a single blue sedan performs a three-point turn indicated by yellow, red-striped, and green arrows."
+  },
+  "error_body": null
+}

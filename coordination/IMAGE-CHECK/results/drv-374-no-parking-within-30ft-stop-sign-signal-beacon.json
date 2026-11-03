@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-374-no-parking-within-30ft-stop-sign-signal-beacon",
+  "file": "drv-374-no-parking-within-30ft-stop-sign-signal-beacon.png",
+  "title": "Do Not Park Within 30 Feet of Any Stop Sign, Yield Sign, Flashing Beacon, or Traffic Control Signal",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d738f55015202095f6b1f1e25d6ea4ee6410d1b0e9ae03b13c919f0da4dbc312",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8310,
+  "usage": {
+    "completion_tokens": 1727,
+    "prompt_tokens": 2271,
+    "total_tokens": 3998,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1300
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.010179,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-374-no-parking-within-30ft-stop-sign-signal-beacon",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Approach road ahead is empty; no other vehicles visible in foreground or background to create head-on conflict in same lane.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "Driver's perspective shows left-hand-drive cabin with steering wheel centered in front of driver, hands at 9 and 3 o'clock, no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic control signal or flashing beacon shown; only a blank red octagon stop sign.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Ego lane is on right side of road with double-yellow centerline on LEFT and curb/sidewalk on RIGHT, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Stop sign is blank red octagon, dashboard screen blank, mirrors and road markings show no letters, numbers, or words.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows sunny approach to blank red stop sign on right with glowing red curb buffer kept empty and no parked vehicles blocking visibility, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Interior driver's view approaching an empty red-curb no-parking buffer before a blank stop sign correctly illustrates keeping 30 ft clear.",
+    "teaching_correct": {
+      "note": "Empty red curb before stop sign keeps sign visible to approaching traffic, teaching the no-parking buffer correctly with no misplaced vehicles or geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "View from inside a car with driver's hands on the wheel looking down a sunny suburban street toward a blank red octagon stop sign on the right sidewalk with a glowing red curb buffer kept empty."
+  },
+  "error_body": null
+}

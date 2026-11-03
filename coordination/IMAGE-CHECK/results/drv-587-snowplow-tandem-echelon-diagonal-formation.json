@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-587-snowplow-tandem-echelon-diagonal-formation",
+  "file": "drv-587-snowplow-tandem-echelon-diagonal-formation.png",
+  "title": "Multi-Lane Echelon / Tandem Snowplows Clearing Highway Diagonal-Abreast: NEVER Pass Between Snowplows!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8f95732778a025c5fff3448033da59e6022660b4ef71227414da52adf986b503",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 10763,
+  "usage": {
+    "completion_tokens": 2402,
+    "prompt_tokens": 2479,
+    "total_tokens": 4881,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1945
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.013307,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-587-snowplow-tandem-echelon-diagonal-formation",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Plows face south toward camera while cars face north away; they are in adjacent lanes, not the exact same lane, so no same-lane head-on pair.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; only exterior windshields.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow line on image-left, white edge/guardrail on image-right implies northbound travel; background cars go north correctly but both foreground plows face south toward camera, i.e. wrong-way for those markings.",
+        "verdict": "FAIL"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plow top signs and plates are blank dark shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Two orange plows staggered with red X between them is present, but cars show rears facing away while plows show fronts facing toward camera, so cars read as ahead/oncoming rather than trailing far behind plows.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Plows drive wrong-way toward camera opposite trailing traffic, failing US right-hand traffic and teaching the echelon concept backwards despite correct zero-text and X symbol.",
+    "teaching_correct": {
+      "note": "Learner sees plows moving opposite to cars and cars positioned ahead of plows, opposite of 'plows lead, traffic stays far behind'; teaches wrong-way / wrong following geometry.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Two orange snowplows in the foreground face toward the camera pushing snow, with a large red X between them, while four cars in the background show rear taillights facing away on a snowy multi-lane highway at sunset."
+  },
+  "error_body": null
+}

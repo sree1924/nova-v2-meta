@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-687-insurance-lapse-surrender-plates-before-canceling",
+  "file": "drv-687-insurance-lapse-surrender-plates-before-canceling.png",
+  "title": "Taking a Stored Vehicle Off the Road? Turn In / Deactivate Registration Plates BEFORE Canceling Liability Insurance!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "76f2e7f3aaae32d7fbd7fc75aaf7c28571f01b98a317358dfa8843d1081e3080",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5834,
+  "usage": {
+    "completion_tokens": 1155,
+    "prompt_tokens": 2257,
+    "total_tokens": 3412,
+    "completion_tokens_details": {
+      "reasoning_tokens": 730
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00773,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-687-insurance-lapse-surrender-plates-before-canceling",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in lower road view travel same direction in right lane; no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Lower panel shows left-hand-drive cabin with steering wheel on left in front of driver; no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Center background signal shows only single green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Lower road view shows yellow centerline on left of travel lane and white edge line/curb on right, vehicles on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Plates, monitors, framed art, folder with umbrella icon appear as blank shapes/icons; no readable letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows Step 1 plate surrender at DMV counter on top and Step 2 umbrella insurance folder in lower panel, matching two-step sequence.",
+      "verdict": "MATCH"
+    },
+    "summary": "All visual rules pass and sequence is depicted, but Step 2 is shown as handling a folder while in the driver's seat of a car in traffic, which models distracted driving.",
+    "teaching_correct": {
+      "note": "Order plates-then-insurance is correct, but depicting closing/handling the insurance folder while actively driving teaches unsafe behavior and confuses stored-vehicle context.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Two-panel graphic: top a woman hands two blank plates across a DMV counter to a clerk; bottom the same woman in the driver seat holds a blue umbrella folder while stopped/in traffic on a tree-lined US road under a green light."
+  },
+  "error_body": null
+}

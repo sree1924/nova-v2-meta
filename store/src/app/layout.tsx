@@ -1,8 +1,31 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
+import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { COMPANY, SITE_NAME, SITE_URL } from "@/lib/product";
+import { localModeRequested } from "@/lib/localMode";
+import Telemetry from "@/components/Telemetry";
+
+const displayFont = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const sansFont = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const monoFont = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["500", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -12,21 +35,21 @@ export const metadata: Metadata = {
   authors: [{ name: COMPANY }],
   publisher: COMPANY,
   robots: { index: true, follow: true },
-  // No layout-level canonical: each page declares its own (a layout canonical is inherited
-  // by every child page and tells search engines they are duplicates of the home page).
   openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US", url: SITE_URL },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <ClerkProvider>
-      <html lang="en">
-        <body>
-          <SiteHeader />
-          <main className="wrap">{children}</main>
-          <SiteFooter />
-        </body>
-      </html>
-    </ClerkProvider>
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const document = (
+    <html lang="en" className={`${displayFont.variable} ${sansFont.variable} ${monoFont.variable}`}>
+      <body>
+        <Telemetry />
+        <SiteHeader />
+        <main className="wrap">{children}</main>
+        <SiteFooter />
+      </body>
+    </html>
   );
+  if (localModeRequested()) return document;
+  const { ClerkProvider } = await import("@clerk/nextjs");
+  return <ClerkProvider>{document}</ClerkProvider>;
 }

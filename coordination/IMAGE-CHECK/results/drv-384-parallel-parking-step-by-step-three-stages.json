@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-384-parallel-parking-step-by-step-three-stages",
+  "file": "drv-384-parallel-parking-step-by-step-three-stages.png",
+  "title": "3-Step Parallel Parking Geometry: Pull Even 2 Ft Beside Lead Car -> Reverse 45° -> Counter-Steer Straight",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "13ad10fd4ce528d0c9e903bf6f168a5924a416e723b0dd323c2d0a0f47e1f17d",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5452,
+  "usage": {
+    "completion_tokens": 1161,
+    "prompt_tokens": 2282,
+    "total_tokens": 3443,
+    "completion_tokens_details": {
+      "reasoning_tokens": 757
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007787,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-384-parallel-parking-step-by-step-three-stages",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Gray car at top-left faces opposite but is in left oncoming lane separated by yellow centerline; no head-on pair within same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Bottom interior views show left-hand drive with steering wheel on left in front of driver, no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in any panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Parking at right curb, yellow centerline on left of travel lane, travel on right side in all top-down panels.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All plates, mirrors, dash blank shapes; middle-panel arrow is graphic icon, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Top row shows Step1 pull even beside white lead car, Step2 reverse angled toward curb, Step3 centered between white and red cars; bottom row shows matching driver views.",
+      "verdict": "MATCH"
+    },
+    "summary": "Three-stage right-curb parallel parking sequence correctly illustrated with US traffic geometry and no text violations.",
+    "teaching_correct": {
+      "note": "Geometry teaches pull-even, back 45-degrees toward curb, counter-steer straight to center; no wrong wheel direction or priority error.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top row of three top-down views shows a blue car pulling alongside a white car, backing angled toward the right curb between white and red parked cars, then centered; bottom row shows three rear driver cabin views of the same maneuver."
+  },
+  "error_body": null
+}

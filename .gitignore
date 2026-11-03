@@ -42,3 +42,36 @@ app-preview/audio-bak/
 # per-state lesson videos + posters (studio renders): never commit binaries; video-manifest.json stays tracked
 app-preview/video/*/*.mp4
 app-preview/video/*/*.jpg
+# store deck audio overrides (Piper MP3 binaries): never commit binaries; JSON overlays stay tracked
+store/learner-assets/decks/audio/
+# Fable CDN drop-off staged binaries (NTFS hardlinks; JSON manifests & READY.json stay tracked)
+coordination/FABLE-DROPOFF/payload/
+
+# ---- public-flip hardening (2026-11-03): CODE ONLY. No media binaries, no secrets, no bundles.
+*.mp3
+*.mp4
+*.wav
+*.webm
+*.webp
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.pdf
+*.zip
+*.ttf
+*.woff
+*.woff2
+coordination/cloud/*.zip
+app-preview/audio/sessions/
+store/learner-assets/visuals/
+store/.vercel/
+.vercel/
+.env.cloudflare
+tools/deploy/worker/.wrangler/
+tools/deploy/worker/node_modules/
+# regenerable bulk (public-flip 2026-11-03): R2 ledgers rebuild via tools/deploy/r2-ledger.mjs; embeds via the shell rebuild
+coordination/R2-LEDGER.json
+coordination/R2-MISSING.txt
+coordination/R2-UPLOAD*.log
+app-preview/data/*/real-embedded.js

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-308-flashing-red-arrow-stop-then-yield-turn",
+  "file": "drv-308-flashing-red-arrow-stop-then-yield-turn.png",
+  "title": "Flashing Red Arrow: Come to a Complete Stop First, Then Turn Only When Safe & Clear",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "342bea55f3ca1646705613cdf62fc8bae78dd76f587a4790b570549951440686",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4952,
+  "usage": {
+    "completion_tokens": 1117,
+    "prompt_tokens": 2265,
+    "total_tokens": 3382,
+    "completion_tokens_details": {
+      "reasoning_tokens": 721
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007579,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-308-flashing-red-arrow-stop-then-yield-turn",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one sedan visible from behind; no oncoming or opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Rear exterior view only; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Vehicle signal on upper right shows only one lit red right-arrow with pulse rays, other lenses dark; ped signal shows single orange hand.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of lane, white edge line/curb on right, sedan in right-turn pocket driving on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plate, road markings, and signals are blank shapes/icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Sedan fully stopped behind white stop bar in right-turn lane at dusk under flashing red right-arrow, preparing to turn when clear.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows stop-behind-line behavior for flashing red arrow with proper US lane geometry and single lit arrow.",
+    "teaching_correct": {
+      "note": "Shows complete stop behind stop bar with brake lights on and yield-when-clear posture, matching stop-then-yield rule.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "At dusk a silver sedan viewed from behind is stopped behind a white stop bar in a right-turn lane, with a lit red right-arrow signal overhead on the right and a glowing orange hand ped signal on the sidewalk pole."
+  },
+  "error_body": null
+}

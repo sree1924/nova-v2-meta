@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-169-suspension-temporary-vs-revocation-terminated",
+  "file": "drv-169-suspension-temporary-vs-revocation-terminated.png",
+  "title": "Suspension (Temporary Pause) vs. Revocation (Complete Cancellation Requiring New Tests)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "36a69b0510af2b737647c7ff16618749b29082b9f179ca6b14cc5fc10c0b19b4",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 10183,
+  "usage": {
+    "completion_tokens": 1874,
+    "prompt_tokens": 2272,
+    "total_tokens": 4146,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1427
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.010804,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-169-suspension-temporary-vs-revocation-terminated",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No opposing vehicles facing each other; left shows one car ahead driving away, right shows one white car rear driving away.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Left foreground shows left-hand-drive cabin with driver on left and wheel on left; no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal heads visible in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Left road shows yellow centerline on left of lane and white edge on right with traffic ahead driving on right; right test lane shows car driving away on right with cones, no left-side driving.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All cards, papers, clipboard, plates and signs are blank shapes or simple icons (silhouette, star, hourglass-pause, X-cancel, car/cone pictograms); no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Split-panel matches prompt: left pause-hourglass with intact card for suspension, right shredded card with X, clipboard exam and cone road-test for revocation.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split-panel Suspension vs Revocation illustration correctly shows temporary pause vs shredded card requiring new exam, with no text and correct US left-hand-drive and lane geometry.",
+    "teaching_correct": {
+      "note": "Teaches temporary hold vs complete cancellation requiring new written and road test from scratch without reversed priority or geometry error.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split-panel graphic: left a driver in car with intact ID card and glowing hourglass-pause icon over a highway; right a stressed person writing with shredded ID card with red X, exam clipboard with car-cone diagram, examiner and coned white car behind."
+  },
+  "error_body": null
+}

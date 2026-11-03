@@ -129,3 +129,13 @@ Seeded 2026-10-28T06:59:51.145Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-29T16:40:28.653Z lineage reset → 2026-10-28-rdmv-ct-class-d:lineage:63 for 19A.units (sec09-rules-of-road) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
 
 - 2026-10-29T16:40:29.210Z lineage reset → 2026-10-28-rdmv-ct-class-d:lineage:64 for 19A.units (sec11-pavement-markings-signals) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+- 2026-10-29T19:26:44.879Z JAM-CT-PRIORITY-FACTFIX: sec10-R04 (physical41), then sec11-R10 (physical47), targeted singleton C2 source-supported correction under new factfix authority. Sol subscription authoring only; Meta API restricted to post-fix validation.
+
+- 2026-10-29T19:29:29.343Z JAM-CT-OWNER-RECEIPT: authorized field-only stale adapter receipt correction c3f9…→dd35…; current closure complete; old/new snapshots and cause runs/2026-10-28-rdmv-ct-class-d/receipts/FACTFIX-CT-ADAPTER-RECEIPT-BINDING.json. Executor config stays null; native calls will truthfully pass actual Sol chat ID.
+
+- 2026-10-29T19:38:32.366Z FACTFIX HOLD STOP 01a1849b-e37b-7c32-a2d7-92a5854ae05c: sec10-R04 local C2 schema failure from advisory lineage.note; subsequent missing-outbox guard stopped before dispatch.0 new native attempts/API calls. Original drafts/history preserved; only this own claim removed; cause scratch/sol-state-coordinator/factfix-20261029/CT/HOLD-CAUSE.json.
+
+- 2026-10-29T19:40:14.373Z FACTFIX RESUME 01a1849b-e37b-7c32-a2d7-92a5854ae05c: same CTsec10-R04 then sec11-R10 after root-reviewed local format stop. Preserve original draft/check/packet; remove only advisory lineage.note in a new candidate; no failed reset/cap/noncereplay.
+
+- 2026-10-29T20:12:53.706Z FACTFIX CT PRIORITY STOP: sec10-R04 native-fixed/validated SUPPORTED; sec11-R10 native-fixed but fresh validation PARTIALLY_SUPPORTED. Exactly two validation calls $0.054909; no paid authoring; no repeat. Assigned holds/applied flags unchanged. Preserved FINAL-CLOSURE-v2 and canonical handoff under scratch/sol-state-coordinator/factfix-20261029/CT/. Only this executor claim removed; root disposition required.

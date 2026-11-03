@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-567-merging-when-two-lanes-become-one-no-signs",
+  "file": "drv-567-merging-when-two-lanes-become-one-no-signs.png",
+  "title": "Unmarked Lane Merge: Vehicle in the Ending Lane Yields to Traffic in the Continuing Straight Lane",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2c666d02342b6c379a6d1b33c12e9be78d85efc90e004b0822040fe7d1a8dc8a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5608,
+  "usage": {
+    "completion_tokens": 1114,
+    "prompt_tokens": 2259,
+    "total_tokens": 3373,
+    "completion_tokens_details": {
+      "reasoning_tokens": 741
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007558,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-567-merging-when-two-lanes-become-one-no-signs",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both cars travel same direction away from camera in separate lanes, no head-on facing.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of cars shown, no interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline on left, white edge line/guardrail on right, both cars driving forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters or numbers; plates are blank white rectangles, roadside diamond shows only black arrow icon.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Right lane tapers and ends, white car in ending right lane signals left behind blue car in continuing left lane, as described.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct unmarked-style merge: ending-lane car signals and yields behind continuing-lane car with proper US lane geometry and no text.",
+    "teaching_correct": {
+      "note": "Shows proper yield-behind behavior with left signal from ending lane, no priority error.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear aerial view of two SUVs on a two-lane road at sunset, blue car ahead in left lane and white car behind in right ending lane signaling left, with a merge-arrow sign on the right guardrail."
+  },
+  "error_body": null
+}

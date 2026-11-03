@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-403-pedestrian-walking-facing-traffic-left-shoulder",
+  "file": "drv-403-pedestrian-walking-facing-traffic-left-shoulder.png",
+  "title": "Roads Without Sidewalks: Pedestrians Walk on the LEFT Shoulder Facing Oncoming Traffic",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "3b285fe7ee7e5f05d6ddc0662408388164cd7573740e4da9af1acab06de181c3",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 10410,
+  "usage": {
+    "completion_tokens": 2199,
+    "prompt_tokens": 2270,
+    "total_tokens": 4469,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1759
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.012183,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-403-pedestrian-walking-facing-traffic-left-shoulder",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one vehicle visible on the road; no two vehicles facing each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel visible; only rear exterior of SUV on right.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in rural road scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Car travels on right side of dashed yellow centerline with white edge line on right; correct US right-hand layout.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plate is blank white rectangle, diamond warning sign is blank yellow; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Rural two-lane road with no sidewalks and vest-wearing walker on far-left shoulder matches, but walker faces toward foreground while the adjacent left lane traffic would come toward foreground, so she is not facing oncoming traffic and no oncoming front-facing car is shown.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Walker is placed on left shoulder but faces the wrong way, walking with adjacent traffic rather than facing oncoming traffic, teaching the opposite of the rule.",
+    "teaching_correct": {
+      "note": "Left-shoulder walker faces toward camera/foreground while left-lane oncoming traffic would approach from behind her toward foreground; she walks with her back to oncoming traffic instead of facing it, teaching the unsafe direction.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "A woman in a yellow reflective vest walks on the grassy far-left shoulder facing the camera in the foreground, while a black SUV in the right lane drives away from the camera into the distance on a sunny rural two-lane road."
+  },
+  "error_body": null
+}

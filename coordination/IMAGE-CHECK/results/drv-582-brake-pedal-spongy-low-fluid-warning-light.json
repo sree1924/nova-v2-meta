@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-582-brake-pedal-spongy-low-fluid-warning-light",
+  "file": "drv-582-brake-pedal-spongy-low-fluid-warning-light.png",
+  "title": "Red Brake System Warning Icon or Spongy Pedal Sinking Toward Floor: Have Brakes Inspected Before Driving!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "3ccd45f6d0ca789a8ee4598e50f49d786eccf9eb57ebfdf4d0b8b4278c3daf29",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6595,
+  "usage": {
+    "completion_tokens": 1336,
+    "prompt_tokens": 2257,
+    "total_tokens": 3593,
+    "completion_tokens_details": {
+      "reasoning_tokens": 959
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008499,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-582-brake-pedal-spongy-low-fluid-warning-light",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one parked sedan on lift visible, no second vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; exterior service-bay view only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in service-bay scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Parked vehicle on lift inside service bay, no travel lanes, centerline or edge lines to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; left stand shows red circle-exclamation brake icon only, laptop and clipboard are blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows technician inspecting parked sedan's brake disc/caliper with fluid reservoir on bench and red brake-warning icon, exactly as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Service-bay brake inspection scene matches prompt and teaches inspection before driving with no text or traffic-rule violations.",
+    "teaching_correct": {
+      "note": "Correctly teaches to have brakes inspected rather than driving with spongy pedal; parked inspection geometry is appropriate.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A technician in a service bay inspects the front brake disc and caliper of a dark sedan on a lift, with brake parts on a bench and a red brake-warning icon on a stand at left."
+  },
+  "error_body": null
+}

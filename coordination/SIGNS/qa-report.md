@@ -1,0 +1,100 @@
+# Road-sign image QA — 2026-11-01
+
+93 reviewed · ACCEPT 89 · REJECT 4 · spend this run $0.000
+
+## Rejects
+- **sign-turn-right** (Turn (sharp)): legend read "none" — Shape and colour correct but arrow orientation is wrong for a right turn - arrow points down instead of to the right.
+- **sign-stop-ahead** (Stop Ahead): legend read "none" — REJECT because the small red octagon is blank; the required STOP legend is missing.
+- **sign-divided-highway-ends** (Divided Highway Ends): legend read "none" — REJECT: symbol shows three arrowheads instead of two joining arrows, failing the spec.
+- **sign-object-marker** (Object Marker (diagonal stripes)): legend read "none" — Stripe direction is reversed from spec; otherwise clean but must be REJECT.
+
+## Accepts
+- sign-stop: STOP
+- sign-yield: YIELD
+- sign-do-not-enter: DO NOT ENTER DO NOT ENTER
+- sign-wrong-way: WRONG WAY
+- sign-no-left-turn: none
+- sign-no-right-turn: none
+- sign-no-u-turn: none
+- sign-no-turn-on-red: NO TURN ON RED
+- sign-no-trucks: none
+- sign-no-bicycles: none
+- sign-no-pedestrians: none
+- sign-no-parking: P
+- sign-do-not-pass: DO NOT PASS
+- sign-pass-with-care: PASS WITH CARE
+- sign-keep-right: KEEP RIGHT
+- sign-keep-left: KEEP LEFT
+- sign-slower-traffic-keep-right: SLOWER TRAFFIC KEEP RIGHT
+- sign-speed-limit: SPEED LIMIT 55
+- sign-minimum-speed: MINIMUM SPEED 40
+- sign-one-way: ONE WAY
+- sign-divided-highway-crossing: none
+- sign-left-turn-only: LEFT LANE MUST TURN LEFT
+- sign-lane-use-control: none
+- sign-center-lane-left-turn-only: CENTER LANE LEFT TURN ONLY
+- sign-hov-lane: HOV 2+ ONLY
+- sign-reserved-parking-accessible: RESERVED PARKING
+- sign-road-closed: ROAD CLOSED
+- sign-walk-left-facing-traffic: WALK ON LEFT FACING TRAFFIC
+- sign-curve-right: none
+- sign-reverse-curve: none
+- sign-winding-road: none
+- sign-chevron: none
+- sign-large-arrow: none
+- sign-crossroad: none
+- sign-side-road: none
+- sign-t-intersection: none
+- sign-y-intersection: none
+- sign-roundabout-ahead: none
+- sign-yield-ahead: none
+- sign-signal-ahead: none
+- sign-merge: none
+- sign-lane-ends: none
+- sign-added-lane: none
+- sign-two-way-traffic: none
+- sign-divided-highway-begins: none
+- sign-hill: 8 %
+- sign-bump: BUMP
+- sign-dip: DIP
+- sign-pavement-ends: PAVEMENT ENDS
+- sign-slippery-when-wet: none
+- sign-loose-gravel: none
+- sign-low-shoulder: LOW SHOULDER
+- sign-bridge-ices: BRIDGE ICES BEFORE ROAD
+- sign-narrow-bridge: NARROW BRIDGE
+- sign-road-narrows: ROAD NARROWS
+- sign-low-clearance: 12 FT 6 IN
+- sign-railroad-advance: R R
+- sign-crossbuck: RAILROAD CROSSING
+- sign-pedestrian-crossing: none
+- sign-bicycle-crossing: none
+- sign-deer-crossing: none
+- sign-cattle-crossing: none
+- sign-truck-crossing: none
+- sign-playground: none
+- sign-fire-station: none
+- sign-dead-end: DEAD END
+- sign-no-outlet: NO OUTLET
+- sign-no-passing-zone: NO PASSING ZONE
+- sign-advisory-speed: 35 M.P.H.
+- sign-school: none
+- sign-school-crossing: none
+- sign-school-speed-limit: SCHOOL SPEED LIMIT 20 WHEN FLASHING
+- sign-road-work-ahead: ROAD WORK AHEAD
+- sign-workers-ahead: none
+- sign-flagger-ahead: none
+- sign-detour: DETOUR
+- sign-flagger-stop-paddle: STOP
+- sign-interstate-shield: INTERSTATE 80
+- sign-us-route: 66
+- sign-exit-sign: EXIT 24
+- sign-destination-distance: Springfield 12 Dayton 48
+- sign-hospital: H
+- sign-gas: none
+- sign-rest-area: REST AREA 1 MILE
+- sign-accessible: none
+- sign-recreation-brown: STATE PARK
+- sign-emergency-notification: REPORT PROBLEM OR EMERGENCY CROSSING ID 123456B
+- sign-slow-moving-vehicle: none
+- sign-keep-right-island: none

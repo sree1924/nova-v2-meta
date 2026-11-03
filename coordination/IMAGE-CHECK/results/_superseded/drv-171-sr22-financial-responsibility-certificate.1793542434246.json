@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-171-sr22-financial-responsibility-certificate",
+  "file": "drv-171-sr22-financial-responsibility-certificate.png",
+  "title": "SR-22 / Future Financial Responsibility High-Risk Insurance Filing Kept on Record",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "f9a8a21f5abcb7f36d61fb8c36731409f4e5cfe0a3d51525f731e8d69bf105a0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 13944,
+  "usage": {
+    "completion_tokens": 1759,
+    "prompt_tokens": 2255,
+    "total_tokens": 4014,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1326
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.010294,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-171-sr22-financial-responsibility-certificate",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles travel same direction; no head-on opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Blue car cabin on right foreground shows driver on left side of vehicle with no steering wheel on right side visible.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals, stop lights, or signal heads visible anywhere in illustration.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Background road on mid-right behind blue car shows solid yellow line on RIGHT edge of travel lanes with same-direction traffic, while white line is in middle - opposite of US rule requiring yellow on LEFT and white edge on RIGHT.",
+        "verdict": "FAIL"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; certificates, calendars, driver cards, building emblem, shield and plates are blank shapes with icons/checkmarks/locks only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows agent stamping gold-sealed certificate, three-calendar stack linking to DMV building, and locked driver card becoming unlocked, matching SR-22 filing prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration matches SR-22 filing concept and is text-free, but fails US right-hand traffic geometry due to yellow line on right edge of mid-right road.",
+    "teaching_correct": {
+      "note": "Concept of filing unlocking suspended license via DMV record is depicted correctly with no wrong driving geometry taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Left foreground woman stamps a gold-sealed certificate at a desk; center shows calendar icons arrowing to a DMV-like building and a locked card becoming unlocked; right foreground smiling driver in blue car holds a card with city roads behind."
+  },
+  "error_body": null
+}

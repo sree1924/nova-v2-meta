@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-63-u-turn-clear-vs-prohibited-curve",
+  "file": "drv-63-u-turn-clear-vs-prohibited-curve.png",
+  "title": "U-Turn Safety: Prohibited on Blind Curves/Crests vs. Clear Sightline Only",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8db0ea97589cb4f4fc3583aa0f3fe2a7621cbda011c4c5a44c53ba8908595d65",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6452,
+  "usage": {
+    "completion_tokens": 1082,
+    "prompt_tokens": 2298,
+    "total_tokens": 3380,
+    "completion_tokens_details": {
+      "reasoning_tokens": 672
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007471,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-63-u-turn-clear-vs-prohibited-curve",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No vehicles face each other in same lane; left panel empty, right panel vehicles in separate divided lanes.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exterior rear view of sedan.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show yellow center/left lines and white right edge; right panel divided boulevard shows traffic keeping right with left-turn bay on left.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Only graphic icons (X, check, U-turn arrows); no letters, numbers, or words on signs, plates, or road.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left shows mountain blind curve with double-yellow and no-U-turn icon, right shows clear suburban divided boulevard with sedan in left-turn bay and U-turn icon, matching prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split-panel correctly contrasts prohibited U-turn on blind mountain curve vs legal U-turn from left-turn bay with clear sightlines, with all applicable visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Teaches no U-turn where sight distance blocked and legal preparation from far-left lane with clear visibility; geometry and priority correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split image: left foreground mountain blind curve with double-yellow centerline and red X and no-U-turn icons; right foreground silver sedan from behind in left-turn bay of divided suburban boulevard with green check and U-turn icons."
+  },
+  "error_body": null
+}

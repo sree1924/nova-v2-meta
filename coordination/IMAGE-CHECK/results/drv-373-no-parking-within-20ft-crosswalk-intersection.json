@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-373-no-parking-within-20ft-crosswalk-intersection",
+  "file": "drv-373-no-parking-within-20ft-crosswalk-intersection.png",
+  "title": "Do Not Park Within 20 Feet of a Crosswalk or Intersection (Keep Corner Sightlines Open!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "53fa27ef3696203bb40f1ac1de691950331fd42c37e4bb3722b91122718771c2",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4590,
+  "usage": {
+    "completion_tokens": 1030,
+    "prompt_tokens": 2262,
+    "total_tokens": 3292,
+    "completion_tokens_details": {
+      "reasoning_tokens": 655
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007205,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-373-no-parking-within-20ft-crosswalk-intersection",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Oncoming vehicles are in left lanes across yellow centerline; no two vehicles face each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Foreground car interior shows steering wheel and driver on left side, left-hand drive.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Upper-right traffic signal shows only green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Travel is on right, yellow centerline on left of forward lane, white edge line and red curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; signs, plates, and signals are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Red clear-zone along right curb before crosswalk is empty, crosswalk and intersection corner visible with pedestrian.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration correctly shows empty red no-parking buffer before crosswalk keeping sightlines open, with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows empty corner buffer allowing driver and pedestrian to see each other, teaching the 20-ft rule correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "View from behind a left-hand-drive driver approaching a city crosswalk with a pedestrian on the right, a red-painted curb zone empty before the crosswalk, and oncoming traffic on the left under a green light."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-317-displaced-left-turn-continuous-flow",
+  "file": "drv-317-displaced-left-turn-continuous-flow.png",
+  "title": "Continuous Flow / Displaced Left-Turn (DLT) Intersection Channel",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "fdb0d955aa0561dd986bae01df93e9cf00d11e6359743d3189514e94de27daee",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5924,
+  "usage": {
+    "completion_tokens": 990,
+    "prompt_tokens": 2248,
+    "total_tokens": 3238,
+    "completion_tokens_details": {
+      "reasoning_tokens": 588
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007018,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-317-displaced-left-turn-continuous-flow",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one red SUV visible in center median bay; no opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear view of red SUV from aerial; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Three overhead signals: left and right show one red lit, center shows one green lit; other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Aerial boulevard with yellow center/median lines on left of travel lanes and white edge lines/curbs on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; diamond signs, road arrows, and pavement are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows channelized aerial boulevard with raised landscaped islands and dedicated signalized median U-turn bay with turning vehicle, as described.",
+      "verdict": "MATCH"
+    },
+    "summary": "Aerial DLT channel with single vehicle in median U-turn bay, correct signals and markings, no text, teaching the displaced left-turn maneuver correctly.",
+    "teaching_correct": {
+      "note": "Vehicle correctly positioned in median bay under green signal following yellow U-turn arrow; no stop-line violation or priority error; teaches DLT flow correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Aerial view of a channelized US boulevard intersection with raised landscaped islands and a single red SUV in the center median U-turn bay following a yellow left-turn arrow under overhead traffic signals."
+  },
+  "error_body": null
+}

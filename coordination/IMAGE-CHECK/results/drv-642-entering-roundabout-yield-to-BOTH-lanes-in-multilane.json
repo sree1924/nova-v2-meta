@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-642-entering-roundabout-yield-to-BOTH-lanes-in-multilane",
+  "file": "drv-642-entering-roundabout-yield-to-BOTH-lanes-in-multilane.png",
+  "title": "Entering a Multi-Lane Roundabout: You Must Yield to Circulating Vehicles in ALL Lanes (Both Inner & Outer Lanes!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "691c010e7b6528a35be7e7739ac1c01d5fe1666da7150b6f39dce4ed5e0f178c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 12736,
+  "usage": {
+    "completion_tokens": 2205,
+    "prompt_tokens": 2273,
+    "total_tokens": 4478,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1783
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.012212,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-642-entering-roundabout-yield-to-BOTH-lanes-in-multilane",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Red car and silver SUV circulate in separate lanes, blue sedan waits in entry lane; no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior top-oblique views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Left foreground signal shows only green lens lit, red and yellow dark; single bulb compliant.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Entry lane has yellow center left of blue car, white edge right; circulating traffic moves counter-clockwise with red car eastbound on south side and SUV northbound on east side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, plates, and signals are blank shapes or arrow icons; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan stopped behind shark-teeth yield line while inner-lane red car and outer-lane silver SUV circulate, exactly the yield-to-both-lanes situation.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows US counter-clockwise circulation with entering driver yielding to both lanes behind the yield line, with no text and compliant signal.",
+    "teaching_correct": {
+      "note": "Waiting behind yield line until both inner and outer circulating vehicles pass teaches the both-lanes yield rule with correct geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Oblique aerial of a two-lane roundabout with central island, blue sedan stopped at bottom behind shark-teeth yield line, red sedan and silver SUV circulating, yield sign on right and green traffic signal on left."
+  },
+  "error_body": null
+}

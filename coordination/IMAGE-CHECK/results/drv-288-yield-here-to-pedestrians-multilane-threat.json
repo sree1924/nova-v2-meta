@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-288-yield-here-to-pedestrians-multilane-threat",
+  "file": "drv-288-yield-here-to-pedestrians-multilane-threat.png",
+  "title": "Multi-Lane Crosswalk Multiple-Threat Hazard: NEVER Pass a Vehicle Stopped at a Crosswalk!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "69340012ef88a5812e622d553f2edb6d5783013bb3714ac3f92f22b9e512e465",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 10680,
+  "usage": {
+    "completion_tokens": 1617,
+    "prompt_tokens": 2297,
+    "total_tokens": 3914,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1183
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009744,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-288-yield-here-to-pedestrians-multilane-threat",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All foreground vehicles face same forward direction; oncoming vehicles are in separate lanes left of double-yellow, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Rear exterior view only of blue sedan left foreground and silver van right foreground; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Two pedestrian crossing beacons left and right each show one lit yellow lens with other lenses dark; at most one lit lens per signal.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "View from behind northbound lanes: double-yellow centerline on left of blue car, white edge line/curb on right of silver van; oncoming traffic left of center.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Pedestrian diamond signs show only black walking icon, license plates are blank white rectangles, no letters/numbers/words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows four-lane avenue mid-block crosswalk with yield-triangles, silver van in right lane and blue sedan in left lane both stopped parallel behind triangles for crossing pedestrian.",
+      "verdict": "MATCH"
+    },
+    "summary": "Both northbound vehicles correctly stopped before yield-triangles for pedestrian; US traffic geometry and zero-text rules satisfied.",
+    "teaching_correct": {
+      "note": "Both vehicles stopped behind yield line for pedestrian, demonstrating never pass stopped vehicle at crosswalk; no wrong priority or stop-past-line error.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue sedan in left lane and silver van in right lane both stopped before white yield-triangles at a mid-block zebra crosswalk where a woman crosses from right to left."
+  },
+  "error_body": null
+}

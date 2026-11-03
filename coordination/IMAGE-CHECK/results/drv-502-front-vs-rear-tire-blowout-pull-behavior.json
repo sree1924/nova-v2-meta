@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-502-front-vs-rear-tire-blowout-pull-behavior",
+  "file": "drv-502-front-vs-rear-tire-blowout-pull-behavior.png",
+  "title": "Front Tire Blowout (Pulls Hard Toward Flat Side) vs. Rear Tire Blowout (Sway / Fishtail Vibration)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "27f4f6b758f08795dffb5bd5022ddfc912331c14fb64dd1eeb80a662c5c86840",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4911,
+  "usage": {
+    "completion_tokens": 1034,
+    "prompt_tokens": 2270,
+    "total_tokens": 3304,
+    "completion_tokens_details": {
+      "reasoning_tokens": 663
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007232,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-502-front-vs-rear-tire-blowout-pull-behavior",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Top-left oncoming pickup is in opposite lane; all other vehicles in same lane travel same direction, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Both bottom cabin views show left-side driver seat and left-side steering wheel with two hands.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals visible in any of the four panels.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "All panels show yellow dashed centerline on left of travel lane and white edge line on right; opposing traffic stays left.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates, dashboard and road show as blank shapes with no legible letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Four-panel split shows front-right blowout pulling right vs rear blowout weaving, with driver steering views as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly contrasts front-tire pull and rear-tire sway with proper US road markings and no rule violations.",
+    "teaching_correct": {
+      "note": "Front flat shown pulling nose right countered straight, rear flat shown with tail weave and gentle correction, matching taught behavior.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Four-panel illustration with top-down highway views of a blue sedan with front-right flat and rear flat, plus two driver cabin views gripping the wheel straight."
+  },
+  "error_body": null
+}

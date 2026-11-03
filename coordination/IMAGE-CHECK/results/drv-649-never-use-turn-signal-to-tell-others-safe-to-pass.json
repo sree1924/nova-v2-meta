@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-649-never-use-turn-signal-to-tell-others-safe-to-pass",
+  "file": "drv-649-never-use-turn-signal-to-tell-others-safe-to-pass.png",
+  "title": "Never Use Your Turn Signal to Wave or Tell a Following Driver It Is Safe to Pass You!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d3c42f93fc1a0170e3d2b4aae15be6ad8eec184f60362adb8c49f50039c013f0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6357,
+  "usage": {
+    "completion_tokens": 1391,
+    "prompt_tokens": 2251,
+    "total_tokens": 3642,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1015
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008726,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-649-never-use-turn-signal-to-tell-others-safe-to-pass",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both main car and inset cars viewed from rear same direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views shown; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal / traffic light present; car blinkers do not count.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No lane markings or oncoming traffic to judge; no left-hand driving shown in garage setting.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plate is blank white rectangle; no letters, numbers, or words anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Core prohibition of blinker-to-invite-pass is shown, but setting is indoor parking garage, not elevated two-lane highway toward curve as prompted.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct prohibition concept but wrong setting (parking garage vs highway); no text or traffic violations, needs human review for location mismatch.",
+    "teaching_correct": {
+      "note": "Red prohibition over blinking lead car inviting blue trailing car to pass correctly teaches not to use signal to wave pass.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of gray sedan with right blinker lit in a parking garage, with a red prohibition inset on right showing a gray car signaling while a blue car overtakes."
+  },
+  "error_body": null
+}

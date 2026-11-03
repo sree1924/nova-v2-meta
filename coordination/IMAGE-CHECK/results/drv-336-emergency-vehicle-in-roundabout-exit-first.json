@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-336-emergency-vehicle-in-roundabout-exit-first",
+  "file": "drv-336-emergency-vehicle-in-roundabout-exit-first.png",
+  "title": "Emergency Vehicle Approaching While Inside a Roundabout: Do NOT Stop in Circle — Exit First, THEN Pull Right!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "ba7ddc4c2fe68712dd78e2c47235611f06970c3e4a92b46374d3adc689409d7d",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4654,
+  "usage": {
+    "completion_tokens": 910,
+    "prompt_tokens": 2273,
+    "total_tokens": 3183,
+    "completion_tokens_details": {
+      "reasoning_tokens": 500
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006709,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-336-emergency-vehicle-in-roundabout-exit-first",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Ambulance in foreground entry lane, red sedan inside circle and gray sedan at exit; no opposing vehicles facing each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; all vehicles seen from exterior rear/aerial.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in roundabout scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Ambulance travel lane has yellow line on left and white line/curb on right; circulation appears counter-clockwise for US right-hand roundabout.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All diamond signs, yield sign, and license plates are blank geometric shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Elevated roundabout shows ambulance approaching from bottom foreground while red sedan inside circle follows green arrow out exit to gray car pulled to right curb, with red X over stopping inside.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration correctly teaches exit-then-pull-right for emergency vehicle in roundabout with no rule violations.",
+    "teaching_correct": {
+      "note": "Correctly shows do-not-stop inside circle and exit first then pull right beyond splitter island; geometry and priority are accurate.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated view of a landscaped roundabout with an ambulance with flashing lights in the foreground entry lane and a red sedan inside the circle with a red X above it and a green arrow leading out to a gray sedan pulled to the right curb."
+  },
+  "error_body": null
+}

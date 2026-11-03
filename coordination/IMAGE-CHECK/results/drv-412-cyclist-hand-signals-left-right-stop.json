@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-412-cyclist-hand-signals-left-right-stop",
+  "file": "drv-412-cyclist-hand-signals-left-right-stop.png",
+  "title": "Bicyclist Hand Signals (Left Arm Straight Left; Left Arm Up OR Right Arm Straight Right; Left Arm Down to Stop)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "a136e7bf16673638a4bb403376c072b90d3921b70e177c948b443b96c303c24a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4658,
+  "usage": {
+    "completion_tokens": 983,
+    "prompt_tokens": 2281,
+    "total_tokens": 3264,
+    "completion_tokens_details": {
+      "reasoning_tokens": 604
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007029,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-412-cyclist-hand-signals-left-right-stop",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one cyclist per panel riding forward; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only rear view of cyclist.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Each panel shows one signal with single lit lens: left red, center green, right yellow; other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "All three panels show cyclist on right side with double-yellow centerline on left and white edge line / curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible on signals, road, clothing, or background; all shapes blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Matches 3-panel brief: left arm horizontal left, right arm horizontal right, left arm down for stop.",
+      "verdict": "MATCH"
+    },
+    "summary": "Three-panel cyclist hand-signal illustration meets all visual rules and correctly teaches left, right, and stop signals.",
+    "teaching_correct": {
+      "note": "Hand positions correctly demonstrate left turn, right turn with right arm, and slow/stop with left arm down.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Three side-by-side rear views of a helmeted cyclist in pink riding on the right side of a road, showing left arm extended left, right arm extended right, and left arm extended down, each beneath a traffic light."
+  },
+  "error_body": null
+}

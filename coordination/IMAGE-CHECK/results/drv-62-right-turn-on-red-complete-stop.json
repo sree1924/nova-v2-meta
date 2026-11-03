@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-62-right-turn-on-red-complete-stop",
+  "file": "drv-62-right-turn-on-red-complete-stop.png",
+  "title": "Right Turn on Red: Complete Stop Behind White Line & Yield to Crosswalk",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "0b0eac49659c325ae841c846580c10e721a7a7624e2c1e292cc8d817e796191d",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3979,
+  "usage": {
+    "completion_tokens": 985,
+    "prompt_tokens": 2294,
+    "total_tokens": 3279,
+    "completion_tokens_details": {
+      "reasoning_tokens": 617
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007054,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-62-right-turn-on-red-complete-stop",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one vehicle visible, teal sedan viewed from behind; no oncoming vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Car windows dark-tinted, no interior or steering wheel visible to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead 3-lens signal shows only top red lit, middle and bottom dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Car in rightmost lane with double-yellow on far left and white edge line/curb on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No text, letters, numbers or words visible on road, signs, or car.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Teal sedan stopped behind white stop bar before zebra crosswalk at red light with brake lights and right signal, yielding to crossing pedestrian.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct right-turn-on-red yield scene with proper markings, signal, and stop position; no rule violations.",
+    "teaching_correct": {
+      "note": "Car stopped fully behind stop bar before crosswalk yielding to pedestrian at red, correctly teaches complete stop and yield.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Overhead rear view of a teal sedan stopped behind a white stop bar before a zebra crosswalk, with a woman crossing ahead and an overhead signal showing red only."
+  },
+  "error_body": null
+}

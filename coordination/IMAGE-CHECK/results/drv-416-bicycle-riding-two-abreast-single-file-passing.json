@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-416-bicycle-riding-two-abreast-single-file-passing",
+  "file": "drv-416-bicycle-riding-two-abreast-single-file-passing.png",
+  "title": "Cyclists Riding Two Abreast vs. Single File When Impeding Faster Traffic",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1c54f36b12163f85ca66aa426e467b0eaa6940753044e862e840fe6a321ddda1",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9421,
+  "usage": {
+    "completion_tokens": 1777,
+    "prompt_tokens": 2468,
+    "total_tokens": 4245,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1348
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.010637,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-416-bicycle-riding-two-abreast-single-file-passing",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Dark sedan viewed from rear driving away and two cyclists facing camera occupy the same lane between yellow center and white edge, facing each other head-on.",
+        "verdict": "FAIL"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear of sedan visible, no steering wheel or cabin interior shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in rural road scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Cyclists on right edge ride toward camera while car in same lane drives away, placing cyclists wrong-way against traffic on wrong side of road.",
+        "verdict": "FAIL"
+      },
+      "zero_text": {
+        "note": "License plate is blank white rectangle, no letters, numbers or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Prompt requires two cyclists in neat single-file along right edge same direction as sedan preparing to pass; image shows cyclists side-by-side two-abreast riding toward camera opposite to sedan direction.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Cyclists shown two-abreast riding wrong-way head-on toward sedan in same lane instead of single-file with traffic, failing right-hand traffic and head-on rules and teaching opposite behavior.",
+    "teaching_correct": {
+      "note": "Teaches wrong-way riding and two-abreast impeding instead of single-file with traffic; shows head-on conflict in same lane opposite to title.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Sunny rural two-lane road with yellow center on left and white edge on right; a black sedan viewed from rear drives away in the center-left while two helmeted cyclists ride side-by-side toward the camera along the right edge."
+  },
+  "error_body": null
+}

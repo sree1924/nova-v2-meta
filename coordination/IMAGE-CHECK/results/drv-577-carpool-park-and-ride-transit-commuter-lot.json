@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-577-carpool-park-and-ride-transit-commuter-lot",
+  "file": "drv-577-carpool-park-and-ride-transit-commuter-lot.png",
+  "title": "Reducing Congestion & Emissions: Park-and-Ride Lots, Carpooling & Combining Errands Into One Warm-Engine Trip",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d47f1c616e81966dfb0b91d4f14bf30983b649eb6783c7c99ace485059a8fa83",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7725,
+  "usage": {
+    "completion_tokens": 1719,
+    "prompt_tokens": 2255,
+    "total_tokens": 3974,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1302
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.010124,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-577-carpool-park-and-ride-transit-commuter-lot",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Bus in foreground left of yellow center and distant car in background right of yellow center are in opposite lanes, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel is visible; only exteriors of parked cars, bus, and distant car.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the plaza scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline divides directions: southbound bus left of yellow facing camera with white edge at left curb, northbound car right of yellow driving away; correct US right-hand geometry.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All banners, bus graphics, and plates are blank shapes or leaf icons; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Sunny suburban park-and-ride with parked cars on left, commuters boarding green electric bus at solar shelter with leaf sustainability icons, matches title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Park-and-ride scene with correct US traffic geometry and zero text correctly teaches transit use for congestion reduction.",
+    "teaching_correct": {
+      "note": "Shows commuters parking and boarding bus cleanly at curb with proper lane use; teaches intended congestion/emissions lesson with no misleading geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Commuters walk from a left-side parking lot to board a white-green electric bus stopped at a solar-canopy shelter on the right, with leaf icons, trees, city and mountains behind."
+  },
+  "error_body": null
+}

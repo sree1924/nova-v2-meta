@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-447-never-pass-inside-safety-zone-streetcar-stop",
+  "file": "drv-447-never-pass-inside-safety-zone-streetcar-stop.png",
+  "title": "Never Drive Through or Over a Marked Pedestrian Safety Zone",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "9a7af2edbf8f702fd75f2760e9442ab5e6315aebfa6341619011477984210e75",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5216,
+  "usage": {
+    "completion_tokens": 1139,
+    "prompt_tokens": 2243,
+    "total_tokens": 3382,
+    "completion_tokens_details": {
+      "reasoning_tokens": 760
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007645,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-447-never-pass-inside-safety-zone-streetcar-stop",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles seen from rear traveling same direction; no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of cars and bus; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Distant signal heads show single lit lens each (green center, red left); bus tail lights are vehicle lights, not traffic signals.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic drives forward on right side; double-yellow on far left, white line and curb with safety zone on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles, shelter sign is blank blue shape; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Raised yellow buttons/white striping safety zone with tactile pad on right, pedestrians boarding, blue sedan foreground left stays clear of zone.",
+      "verdict": "MATCH"
+    },
+    "summary": "Blue sedan stays clear of marked boarding safety zone on right while pedestrians wait; all visual rules satisfied and teaching is correct.",
+    "teaching_correct": {
+      "note": "Demonstrates staying out of safety zone, no vehicle driving through it; geometry correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Sunset urban avenue with blue sedan in foreground left lane, raised yellow-button safety zone and transit bus on the right with pedestrians on the boarding platform."
+  },
+  "error_body": null
+}

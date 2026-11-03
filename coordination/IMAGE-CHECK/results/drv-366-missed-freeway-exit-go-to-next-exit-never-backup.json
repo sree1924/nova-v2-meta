@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-366-missed-freeway-exit-go-to-next-exit-never-backup",
+  "file": "drv-366-missed-freeway-exit-go-to-next-exit-never-backup.png",
+  "title": "Missed Your Freeway Exit? Keep Driving Forward to the Next Exit — NEVER Stop, Back Up, or Swirl Across Gore!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "da569281e0829d76921d7d7e8497b799d83a1f526c30e8f57980d3661d725f11",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3399,
+  "usage": {
+    "completion_tokens": 748,
+    "prompt_tokens": 2275,
+    "total_tokens": 3023,
+    "completion_tokens_details": {
+      "reasoning_tokens": 377
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006023,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-366-missed-freeway-exit-go-to-next-exit-never-backup",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles travel same forward direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels are visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals are present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Divided freeway with yellow line on far left, white lane lines and gore on right; traffic keeps right with exit ramp on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, chevrons, and plates are blank shapes with arrow icons only; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan goes straight with green arrow while gray car cutting across gore is crossed with red X, exactly the missed-exit scenario.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correctly teaches to continue to next exit; all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Correct geometry: straight-through is shown as safe, swerving across white gore stripes is marked wrong with red X.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Blue sedan in foreground center continues straight on a freeway marked by a green arrow, while a gray sedan on the right exit ramp cutting across white gore stripes is overlaid with a large red X at sunset."
+  },
+  "error_body": null
+}

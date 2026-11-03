@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-645-left-turn-from-two-way-onto-one-way-nearest-left-lane",
+  "file": "drv-645-left-turn-from-two-way-onto-one-way-nearest-left-lane.png",
+  "title": "Turning Left From a Two-Way Street Onto a One-Way Street: Turn Into the Leftmost Open Lane!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "67d0b57538caef7f3a1206bf0c70a3bf937a206e68265870df1de393eb4ee4eb",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 11392,
+  "usage": {
+    "completion_tokens": 2272,
+    "prompt_tokens": 2477,
+    "total_tokens": 4749,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1853
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.012752,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-645-left-turn-from-two-way-onto-one-way-nearest-left-lane",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Red SUV on left and teal sedan in center are in opposite lanes of two-way approach, no two vehicles nose-to-nose in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; windows dark.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead heads each show at most one lit lens - left head red only, adjacent head yellow only, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double centerline on left of travel lanes, white edge/curb on right, vehicles keep to right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All overhead signs, side sign, and license plates are blank geometric shapes with no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Prompt requires westbound 3-lane one-way avenue with no center yellow; image shows target through-street with double-yellow centerline indicating two-way, and teal sedan path does not clearly land in far-left lane.",
+      "verdict": "MISMATCH"
+    },
+    "summary": "Target street is painted as two-way with double-yellow center instead of one-way, so left-to-leftmost lesson is not depicted.",
+    "teaching_correct": {
+      "note": "Shows left turn onto a street with yellow centerline, teaching two-way geometry opposite of one-way left-into-leftmost rule.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Bird's-eye view of a teal sedan mid-left-turn at a signalized urban intersection with a red SUV and queued cars on the cross street, blank signs and plates."
+  },
+  "error_body": null
+}

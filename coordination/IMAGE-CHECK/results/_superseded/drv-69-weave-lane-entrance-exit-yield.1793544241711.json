@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-69-weave-lane-entrance-exit-yield",
+  "file": "drv-69-weave-lane-entrance-exit-yield.png",
+  "title": "Shared Freeway Weave Lane (Combined Entrance & Exit): Yield & Smooth Spacing",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "992d17e111cd1c3a4d04673aac9e5055c519fb3671cd9660bfcefe4ba827f96b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4712,
+  "usage": {
+    "completion_tokens": 1014,
+    "prompt_tokens": 2293,
+    "total_tokens": 3307,
+    "completion_tokens_details": {
+      "reasoning_tokens": 603
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007176,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-69-weave-lane-entrance-exit-yield",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both white car center-right and orange car bottom-right face north away from camera; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down aerial view with dark glass; no car interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in the aerial freeway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "All traffic faces north; yellow line on far left, white lane/edge lines on right, consistent with US right-hand travel.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, words, signs with text, or plates visible; road is blank geometry.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows right-side weave with entrance bottom-right and exit top-right and orange behind white, but missing signal indication and color-coded motion arrows; white car not clearly shown exiting.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Rules pass but key prompt elements (right signal and motion arrows showing yield path) are absent, so needs human review.",
+    "teaching_correct": {
+      "note": "Spacing shows entering orange behind through/exiting white with no wrong priority or geometry, so not teaching opposite, though yield intent is not explicitly visualized.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "High aerial top-down view of a multi-lane freeway with a weave/auxiliary lane on the right, a white car ahead in the right lane and an orange car behind on the entrance from bottom-right, with an exit diverging top-right."
+  },
+  "error_body": null
+}

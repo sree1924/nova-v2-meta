@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-224-conventional-non-abs-threshold-braking",
+  "file": "drv-224-conventional-non-abs-threshold-braking.png",
+  "title": "Vehicles Without ABS: Controlled Threshold / Squeeze Braking Without Locking Wheels",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "e8ecbafc49914f4c94b668b299f28f5eed81e26e595564e4fa947e70495d6aa5",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5362,
+  "usage": {
+    "completion_tokens": 1151,
+    "prompt_tokens": 2250,
+    "total_tokens": 3401,
+    "completion_tokens_details": {
+      "reasoning_tokens": 792
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007704,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-224-conventional-non-abs-threshold-braking",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Single tire close-up only; no two vehicles facing each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No steering wheel or cabin layout visible; only foot on pedal shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in image.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Close-up pedal and tire diagram with no travel lanes, centerline, or directional traffic to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No text, letters, numbers, or words visible; arrows are pure icons, pedal and surfaces blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left shows firm squeeze on brake pedal with green arrow, right shows rotating tire on wet asphalt, matching threshold braking without lockup.",
+      "verdict": "MATCH"
+    },
+    "summary": "Clean threshold-braking diagram with no text or traffic violations; correctly teaches controlled squeeze with rolling tire.",
+    "teaching_correct": {
+      "note": "Shows controlled firm pressure and continuing rotation on wet asphalt, correctly teaching squeeze short of lockup to retain steering.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split view: left foreground foot in blue shoe pressing a brake pedal with green down-arrow, right foreground black tire rolling on wet asphalt with blue rotation arrow and water spray."
+  },
+  "error_body": null
+}

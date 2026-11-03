@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-66-hawk-pedestrian-hybrid-beacon",
+  "file": "drv-66-hawk-pedestrian-hybrid-beacon.png",
+  "title": "Mid-Block Pedestrian Hybrid Beacon (HAWK) & Rapid-Flashing Crosswalk Stop",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "cdb9ae7214bf7c7332f2e81aa44b90a87c47d05b4064d46212e4bf681ec8701a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8583,
+  "usage": {
+    "completion_tokens": 1723,
+    "prompt_tokens": 2503,
+    "total_tokens": 4226,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1323
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.010452,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-66-hawk-pedestrian-hybrid-beacon",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All foreground vehicles seen from rear face forward same direction; no opposing vehicles share a lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel is visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead beacon shows two simultaneously lit red upper lenses, violating at-most-one-lit-lens rule.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles stopped on right side of road, double-yellow center on left, white lane/edge markings on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, beacons, and plates are blank shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows overhead HAWK with two reds, side yellow flashers, crosswalk, stopped SUV/sedan, and family crossing as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Scene matches HAWK description and teaches stopping, but overhead signal has two red lenses lit at once, failing single-bulb rule, so REJECT.",
+    "teaching_correct": {
+      "note": "Vehicles stopped for red beacon while family uses crosswalk teaches correct stop-behind-line behavior; no opposite priority shown.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A family of four crosses a mid-block white crosswalk viewed from behind, with a silver SUV and dark sedan stopped on the right and an overhead gantry showing two lit red lights above yellow roadside flashers."
+  },
+  "error_body": null
+}

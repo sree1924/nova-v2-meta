@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-156-manual-transmission-clutch-downshift",
+  "file": "drv-156-manual-transmission-clutch-downshift.png",
+  "title": "Manual Transmission Control: Smooth Clutch Engagement & Never Coasting in Neutral",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2cee6fc6301f8cefb894112ad939b0c0bb67521094a0eeaf8faefdd316ff28f8",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5578,
+  "usage": {
+    "completion_tokens": 1249,
+    "prompt_tokens": 2257,
+    "total_tokens": 3506,
+    "completion_tokens_details": {
+      "reasoning_tokens": 838
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008129,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-156-manual-transmission-clutch-downshift",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Interior footwell only; no external roadway or other vehicles visible to evaluate head-on conflict.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "Left-hand-drive layout visible: shifter and center console on right of driver, steering wheel centered above pedals; no right-side steering wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in interior view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No external road, centerline, or edge line visible; interior LHD layout only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No text, letters, numbers, or words visible; pedals, shifter, and trim are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows three-pedal manual footwell with hand on shifter, but missing prompted split mountain-road scene and red X crossing out coasting out-of-gear.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean manual interior with no text violations and correct LHD layout, but second half of prompt (mountain road and no-coasting X) is absent, requiring human review.",
+    "teaching_correct": {
+      "note": "Shows correct manual layout with left foot on clutch and hand on shifter in gear; does not show coasting in neutral or opposite teaching.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Driver viewpoint of car footwell with left foot on left pedal and right foot on right pedal, three pedals total, steering wheel top edge above and right hand gripping a manual shifter on the right."
+  },
+  "error_body": null
+}

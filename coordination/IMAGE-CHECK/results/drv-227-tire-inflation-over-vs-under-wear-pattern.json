@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-227-tire-inflation-over-vs-under-wear-pattern",
+  "file": "drv-227-tire-inflation-over-vs-under-wear-pattern.png",
+  "title": "Cold Tire Pressure Check: Properly Inflated vs. Overinflated (Center Wear) vs. Underinflated (Edge Wear)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d519091ed5e16c770734cd132c69c2c21362fe67fce24cad654305cf549f8849",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5485,
+  "usage": {
+    "completion_tokens": 1639,
+    "prompt_tokens": 2284,
+    "total_tokens": 3923,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1243
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009821,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-227-tire-inflation-over-vs-under-wear-pattern",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No vehicles present, only three static tire cross-sections; no head-on facing in a lane.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only tire exteriors.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the frame.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Close-up of tires on featureless asphalt texture; no travel lane, centerline, edge line, or driving direction to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No text, letters, numbers, or words visible on tires, asphalt, or sky.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows left edge-contact, middle full-contact, right center-contact matching wear concepts, but missing hand pressure gauge and X/check symbols specified in prompt.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Tire wear patterns are visually correct with edge vs full vs center contact, zero text, but missing pressure gauge and check/X marks, so partial match needs human review.",
+    "teaching_correct": {
+      "note": "Left shows underinflated edge contact, middle shows proper flat contact, right shows overinflated center contact; geometry teaches correct concept.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Three cutaway tires on wet asphalt at sunset: left tire touches on outer shoulders with red glow, middle tire sits flat with green glow, right tire touches in center with red glow."
+  },
+  "error_body": null
+}

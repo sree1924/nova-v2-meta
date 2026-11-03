@@ -1,0 +1,14 @@
+{
+  "name": "plp-app-gate",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync-free": "node -e \"require('fs').copyFileSync('../../../store/src/generated/free-paths.json','free-paths.json');console.log('free-paths.json synced from store/src/generated')\"",
+    "test": "node --test test/gate.test.mjs",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

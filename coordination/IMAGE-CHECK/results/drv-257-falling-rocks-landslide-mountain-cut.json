@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-257-falling-rocks-landslide-mountain-cut",
+  "file": "drv-257-falling-rocks-landslide-mountain-cut.png",
+  "title": "Falling Rocks / Rockslide Canyon Warning: Scan Roadbed Ahead for Boulders & Debris",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "4b75942692c68fb46ad55f1131620ef4e7eebe2be015c94e572625197c8cc5cf",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3003,
+  "usage": {
+    "completion_tokens": 653,
+    "prompt_tokens": 2267,
+    "total_tokens": 2920,
+    "completion_tokens_details": {
+      "reasoning_tokens": 271
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.005609,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-257-falling-rocks-landslide-mountain-cut",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Single SUV seen from rear in its lane, no oncoming vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior of SUV visible, no cabin interior or steering wheel shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in mountain highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of travel lane, white edge line on right, SUV traveling on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Warning diamond shows only black cliff-and-stones icon, license plate is blank shape, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Matches prompt: canyon highway with steep cliff on right, yellow diamond falling-rocks sign on right, SUV with small stones and boulders on right shoulder.",
+      "verdict": "MATCH"
+    },
+    "summary": "Mountain canyon scene correctly shows falling-rocks warning sign and roadside debris with proper US right-hand traffic and no text.",
+    "teaching_correct": {
+      "note": "Teaches scanning ahead for rockfall debris and heeding warning sign, with correct lane position and geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a dark SUV on a two-lane mountain highway curving ahead, with steep rocky cliff and boulders on the right foreground and a yellow diamond falling-rocks symbol sign on the right."
+  },
+  "error_body": null
+}

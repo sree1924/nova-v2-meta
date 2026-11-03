@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-221-headlight-aiming-alignment-wall-check",
+  "file": "drv-221-headlight-aiming-alignment-wall-check.png",
+  "title": "Properly Aimed & Clean Headlights (Misaligned Beams Blind Others & Cut Visibility)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "a3a1f1ca686609fa6afaee823c8080152e71323d7be48a911f79fc4183dd67d8",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3470,
+  "usage": {
+    "completion_tokens": 936,
+    "prompt_tokens": 2254,
+    "total_tokens": 3190,
+    "completion_tokens_details": {
+      "reasoning_tokens": 573
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006796,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-221-headlight-aiming-alignment-wall-check",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Single parked sedan in driveway, no second vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; exterior front view only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in garage driveway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Private garage driveway with no public road lanes; no centerline/edge line to judge, no driving violation.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No text, letters, or numbers visible; garage door, bottles, car are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Parked sedan projects two level cutoff beams on blank garage wall while man wipes headlamp with blue cloth, bucket beside.",
+      "verdict": "MATCH"
+    },
+    "summary": "Evening driveway shows level low-beam cutoffs on wall and headlamp cleaning as described, with no text or traffic violations.",
+    "teaching_correct": {
+      "note": "Shows correct level horizontal low-beam pattern and cleaning dirty lens to restore visibility without blinding others.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Evening garage driveway with a gray sedan on the right projecting two level beams onto a blank garage door on the left while a man crouches wiping the headlamp with a blue cloth."
+  },
+  "error_body": null
+}

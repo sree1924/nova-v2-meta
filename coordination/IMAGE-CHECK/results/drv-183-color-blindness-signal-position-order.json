@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-183-color-blindness-signal-position-order",
+  "file": "drv-183-color-blindness-signal-position-order.png",
+  "title": "Color-Vision Deficiency Compensation: Reading Standard Vertical & Horizontal Signal Positions",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "9aacb6cccb2e85cca290c723be7e1a3b81b5ea0e6b8f9649d6a2cb2434c4bb34",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8155,
+  "usage": {
+    "completion_tokens": 1703,
+    "prompt_tokens": 2479,
+    "total_tokens": 4182,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1304
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.010337,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-183-color-blindness-signal-position-order",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground/background face same direction away from viewer; no opposing head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of cars shown; no interiors or steering wheels visible to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Both signals show three lit lenses at once: left vertical has red+amber+green all bright, right horizontal has red+amber+green all bright, violates at most one lit.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Cars drive forward on right side with yellow dashed line on LEFT of travel lane and white lane markings on RIGHT, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible anywhere; signals, road, cars and sky are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows left vertical housing and right horizontal housing against sky with correct red-yellow-green order, matching described diagram.",
+      "verdict": "MATCH"
+    },
+    "summary": "Position order is correct but both signals show all three lenses lit simultaneously, failing single-bulb rule, requiring rejection.",
+    "teaching_correct": {
+      "note": "Vertical top-to-bottom red-yellow-green and horizontal left-to-right red-yellow-green order is standard and correct for color-vision position learning.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A large vertical traffic signal in left foreground and a horizontal signal on the right span a multi-lane road with several cars seen from behind driving away under a sunset sky."
+  },
+  "error_body": null
+}

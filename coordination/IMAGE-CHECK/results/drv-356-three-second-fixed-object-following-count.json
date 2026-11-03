@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-356-three-second-fixed-object-following-count",
+  "file": "drv-356-three-second-fixed-object-following-count.png",
+  "title": "Measuring Following Distance: Count Seconds From Lead Car Passing Fixed Roadside Post Until Your Front Bumper Reaches It",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2fc00bf1835897a9cada38a244279e1bb7a22578046aeed37f870cb474c290e7",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3598,
+  "usage": {
+    "completion_tokens": 745,
+    "prompt_tokens": 2268,
+    "total_tokens": 3013,
+    "completion_tokens_details": {
+      "reasoning_tokens": 379
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006001,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-356-three-second-fixed-object-following-count",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both red lead car and blue trailing car travel same direction in same lane; no oncoming vehicle.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exteriors of cars visible, no cabin interior or steering wheel shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both cars in right lane with double-yellow centerline on left and white edge line on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles; no letters, numbers, or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows red lead car ahead and blue trailing car with glowing gap arcs on two-lane road with wooden posts on right shoulder, illustrating fixed-object following count.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration correctly depicts three-second following gap with proper US lane markings and no text, matching prompt.",
+    "teaching_correct": {
+      "note": "Shows generous following space between lead and trailing car in same lane, correctly teaching following-distance concept.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue car following a red car on a sunny two-lane mountain road, with three glowing cyan arcs in the gap between them and wooden posts along the right shoulder."
+  },
+  "error_body": null
+}

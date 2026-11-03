@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-266-railroad-passive-vs-active-crossing",
+  "file": "drv-266-railroad-passive-vs-active-crossing.png",
+  "title": "Passive Railroad Crossing (Signs Only — Look, Listen & Yield) vs. Active Crossing (Gates & Flashing Red Lights)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "bd23244f9a2ce4166f144b998167473fde4564fe5423139999dc2d0ec79885c0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4918,
+  "usage": {
+    "completion_tokens": 1352,
+    "prompt_tokens": 2285,
+    "total_tokens": 3637,
+    "completion_tokens_details": {
+      "reasoning_tokens": 948
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008602,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-266-railroad-passive-vs-active-crossing",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Left panel blue car and oncoming SUV are in opposite lanes, not same lane head-on; right panel single car.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; both cars seen from rear exterior only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Both active-crossing masts show twin red housings with only one red lens lit and the other dark, as required.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show yellow centerline on left of travel lane and white line/curb on right, vehicles on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All crossbucks are blank white X shapes, license plates are blank white rectangles, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Split image shows rural passive crossing with only blank X crossbuck on left and urban active crossing with flashing red lights and lowered gate with train on right.",
+      "verdict": "MATCH"
+    },
+    "summary": "Passive vs active railroad crossing comparison correctly depicted with blank signage, proper US lane markings, and proper single-lens flashing signals.",
+    "teaching_correct": {
+      "note": "Both cars stopped before tracks/gate, passive side with yield behavior and active side waiting for train, teaches correct distinction.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split-panel view: left foreground blue sedan stopped before rural tracks with blank X crossbuck at sunset, right foreground red SUV stopped before lowered gate with flashing red lights as a train passes in a city at dusk."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-293-damaged-missing-knocked-down-stop-sign",
+  "file": "drv-293-damaged-missing-knocked-down-stop-sign.png",
+  "title": "Damaged, Obscured, or Knocked-Down Stop Sign: Treat Intersection With Extreme Yield/Stop Caution & Report",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "10a925e280d81b1d2d904eca4a11d55fa3c6d4fc59c16ba92c26fdcbfe32ff61",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3746,
+  "usage": {
+    "completion_tokens": 947,
+    "prompt_tokens": 2266,
+    "total_tokens": 3213,
+    "completion_tokens_details": {
+      "reasoning_tokens": 563
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006857,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-293-damaged-missing-knocked-down-stop-sign",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only the viewer's car is present approaching intersection; no oncoming vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior shows left-hand drive: driver seated left, steering wheel on left side of cabin.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the rural intersection scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double centerline is on left of travel lane, white edge line/curb on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, dashboard screen, and scenery contain no letters, numbers, or words; octagon is blank gray shape.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows post-storm rural corner with tilted knocked-down blank octagon post in grass on right and driver stopping defensively.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts a knocked-down blank stop sign at a storm-damaged rural intersection with proper US geometry and zero text.",
+    "teaching_correct": {
+      "note": "Clearly teaches to recognize missing/damaged sign hazard and stop defensively despite sign being down.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "From inside a car at sunset, a left-seated driver approaches a rural crossroad with storm-felled trees and a red barn; on the right foreground a blank octagon sign on a bent post lies tilted in grass."
+  },
+  "error_body": null
+}

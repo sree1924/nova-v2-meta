@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-226-tire-tread-penny-test-two-thirty-seconds",
+  "file": "drv-226-tire-tread-penny-test-two-thirty-seconds.png",
+  "title": "Minimum Tire Tread Depth (2/32 Inch): Coin Head Test & Built-In Tread Wear Bars",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8dbd33109f69daef2559b4e835514e19ad739e031a18179bcec49c7f1732fab3",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3573,
+  "usage": {
+    "completion_tokens": 834,
+    "prompt_tokens": 2285,
+    "total_tokens": 3119,
+    "completion_tokens_details": {
+      "reasoning_tokens": 470
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006401,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-226-tire-tread-penny-test-two-thirty-seconds",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Macro tire close-up only; no vehicles present to face each other.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel shown, only tire tread macro.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in image.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No roadway, lane markings, or driving scene visible; only tire tread macro.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; only graphic checkmark and X icons and blank coin silhouette.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Split view matches prompt: left deep tread burying coin head with green check, right worn tread with full head visible and red X.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split macro correctly contrasts good vs worn tread with coin test; no text violations.",
+    "teaching_correct": {
+      "note": "Correctly teaches deep tread covering head is good and exposed head/worn tread is bad.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split close-up of two tire treads with a copper coin in the groove: left side shows deep tread burying the coin's head under a green check icon, right side shows worn flat tread with full coin head visible under a red X icon."
+  },
+  "error_body": null
+}

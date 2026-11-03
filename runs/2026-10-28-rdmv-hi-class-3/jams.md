@@ -199,3 +199,22 @@ Dossier facts are authored only from the visible layer (clip-aware pdfminer pass
 - 2026-10-29T16:41:40.769Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:92 for 19A.units (sec15-freeway-driving-emergency-procedures) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
 
 - 2026-10-29T16:41:41.486Z lineage reset → 2026-10-28-rdmv-hi-class-3:lineage:93 for 19A.units (sec17-pedestrian-and-bicycle-safety) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+JAM 2026-10-29T21:31:15.143Z — remaining45 targeted HI repair only:53 listed targets/16sections. Original credit retained exactly; Sol FIXER via native filetransport; Meta only post-fix validation. Preserve all non-target facts/status/debt/gaps; no shared edits or source15 replay.
+
+
+JAM 2026-10-29T21:44:46.149Z — HI targeted repair STOP/HOLD after first section: C/C2+16+03+04+06+05lesson+05scripts accepted, original Claude credit retained, Sol FIXER receipt runs/2026-10-28-rdmv-hi-class-3/receipts/sol-targeted-HI-sec01-licensing-exemptions-types-obtaining-FIXER-HOLD.json. Fresh onecall Meta HTTP200/stop settled$0.038581 returns R03/R06/R11 PARTIALLY_SUPPORTED at listed citation pages; F01/R02/R08SUPPORTED. No retries or later sections. All applied flags/learnerholds kept. Own claim released; root source-bound diagnosis required.
+
+JAM 2026-10-29T21:51:25.584Z — explicit same-assignment disjoint continuation: preserve sec01 actualMeta citation holds/bill and accepted history; work only other15 assigned ready sections. Wait root evidence/helper before sec01 revisit. Same baseline and originalClaudecredit; SolFIXER.
+
+
+JAM 2026-10-29T21:56:37.891Z — HI disjoint continuation STOP native LINEAGE_ATTEMPT_LIMIT at sec03 C before new attempt/model/reservation. Existing lineage93 stage02 has2accepted sec01 C/C2 attempts; new task queued/0attempts. Validated draft/outbox archived by hash, no reset/retry. Prior sec01Meta3citationholds/bill preserved; root compoundsource resolution received but not executed due current capacity HOLD. Own claim released.
+
+JAM 2026-10-29T22:03:38.381Z — sameHI53 assignment resumed under exact accepted-only capacity authority; prove every relevant consumed attempt accepted, candidatezeroattempt/call/reservation and releasedsettled state. Ownlocked top-level CID/resetref advance only; no failedreset/nonce/sharededit or accepted-step replay. Sec01 secondary source revision/frozen validator authorized separately.
+
+JAM 2026-10-29T22:16:07.752Z — HI solewriter claim temporarily released for approved frozen sec01 multipage validation; native ownershipreleased/0lock/inflight/unsettled. Sameassignment retained; only sameHIscope may be reclaimed afterward.
+
+JAM 2026-10-29T22:19:31.373Z — reclaim sameHI53 assignment after frozen multipagevalidation complete/settled: R03/R06SUPPORTED, R11PARTIAL preserved; one genuine newprovenance call$0.041722, root collects privateSPEND. No narrowedwording/retry; continue otherassignedscopes.
+
+
+JAM 2026-10-29T23:56:29.752Z — Single sec13-R02 process proof STOP before native submission: current lineage96 stage02/role02 already has2accepted attempts, cap2. Exact scope pins config and forbids reset; no source/descendant changes, new native attempts, API calls or money. Physical PDF67 independently verified. Own claim released; appliedfalse and learnerholds preserved. Cause scratch/sol-state-coordinator/factfix-20261029/process-first-control/HI-sec13-one-live-proof/NATIVE-CAPACITY-CAUSE.json.

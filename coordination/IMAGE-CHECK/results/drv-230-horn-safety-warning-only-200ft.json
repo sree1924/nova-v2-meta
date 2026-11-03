@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-230-horn-safety-warning-only-200ft",
+  "file": "drv-230-horn-safety-warning-only-200ft.png",
+  "title": "Vehicle Horn: Audible 200 Feet & Used Strictly as a Reasonable Safety Warning (Never in Anger)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "e76da03f240e406c15e1ccfbb78b6aa5b0408b1b02459360f98cc88d522aca30",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5468,
+  "usage": {
+    "completion_tokens": 1328,
+    "prompt_tokens": 2275,
+    "total_tokens": 3603,
+    "completion_tokens_details": {
+      "reasoning_tokens": 925
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008488,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-230-horn-safety-warning-only-200ft",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No vehicles, lanes, or road depicted to evaluate head-on conflict.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "Only centered steering-wheel close-ups shown; no cabin layout visible to determine left- vs right-hand drive.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No road, lane markings, or traffic visible; image is close-up steering wheels only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; only green check and red X icons, sound waves, and lightning graphics.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Captures polite vs angry horn contrast but omits key prompt elements: distracted backing car in parking lot on left, and traffic jam / cyclist / horse context on right.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean zero-text polite-vs-angry horn contrast that teaches correct concept, but missing the backing-car and jam/cyclist scene context, needs human review.",
+    "teaching_correct": {
+      "note": "Left green-check polite tap vs right red-X angry blast correctly teaches warning-only, never in anger; no wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split close-up illustration of two steering wheels with a hand pressing the horn: left on green background with small blue sound waves and green check on top, right on red background with angry red-yellow lightning bolts and red X on top."
+  },
+  "error_body": null
+}

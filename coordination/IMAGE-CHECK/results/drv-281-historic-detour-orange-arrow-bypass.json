@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-281-historic-detour-orange-arrow-bypass",
+  "file": "drv-281-historic-detour-orange-arrow-bypass.png",
+  "title": "Temporary Orange Detour Arrow Route Around Road Closure",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "5dde1b854d90a782d486aa06c0ac9ae2eef9b05b83a57c4d7004822607f94397",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3963,
+  "usage": {
+    "completion_tokens": 847,
+    "prompt_tokens": 2249,
+    "total_tokens": 3096,
+    "completion_tokens_details": {
+      "reasoning_tokens": 437
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006411,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-281-historic-detour-orange-arrow-bypass",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Oncoming dark SUV is in opposite lane left of yellow centerline, not head-on in ego lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior view shows left-side driver position with steering wheel on left, US left-hand drive.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double yellow centerline on left of forward lane, white edge line on right of detour curve; traffic keeps right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, barricades, plates and dash appear as blank shapes or icons; orange sign shows black arrow only, no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Road straight ahead closed by orange-white Type-III barricades with dirt and excavator, bright orange right-arrow guides onto open side route lined with barrels, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Interior driver view of closed road with barricades and right-pointing orange detour arrow onto open curve; all visual rules satisfied and teaching matches title.",
+    "teaching_correct": {
+      "note": "Shows correct behavior: stop for closure and follow orange arrow onto detour to the right; no wrong priority or geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "View from behind a driver in a left-hand-drive car looking at a suburban road closed ahead by orange-white barricades, with a large orange sign with black right arrow guiding traffic onto a curving detour to the right lined with barrels."
+  },
+  "error_body": null
+}

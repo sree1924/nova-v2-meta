@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-414-never-drive-park-or-stop-in-marked-bike-lane",
+  "file": "drv-414-never-drive-park-or-stop-in-marked-bike-lane.png",
+  "title": "Reserved Bicycle Lane: Illegal to Drive, Cruise, Park, Wait, or Unload Inside a Marked Bike Lane!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "dd00fe4cc070153dbb6c5e7e207e6cd6201c95b8f1b2368377d40535413e21c4",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3484,
+  "usage": {
+    "completion_tokens": 757,
+    "prompt_tokens": 2268,
+    "total_tokens": 3025,
+    "completion_tokens_details": {
+      "reasoning_tokens": 377
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006052,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-414-never-drive-park-or-stop-in-marked-bike-lane",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All cyclists and van face forward away from viewer in same direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior of white van visible; no interior or steering wheel shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "One overhead signal in background shows single green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double centerline on left, green bike lane with white stripes along right curb, all travel forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; plate, pavement symbols are blank shapes and bicycle icon only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "White van stopped in right-side green bike lane crossed by bold red X while three cyclists ride, matching illegal to park in bike lane prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly teaches bike-lane prohibition with proper US traffic layout, blank signage, and single green signal.",
+    "teaching_correct": {
+      "note": "Red X over van in bike lane while cyclists use lane clearly teaches prohibition without wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Three cyclists ride forward in a green bike lane on the right curb marked with white bike symbol and arrow, while a white van sits in the lane on the right marked with a large red X, sunny city street ahead."
+  },
+  "error_body": null
+}

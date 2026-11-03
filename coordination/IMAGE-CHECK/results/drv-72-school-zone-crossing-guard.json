@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-72-school-zone-crossing-guard",
+  "file": "drv-72-school-zone-crossing-guard.png",
+  "title": "School Zone Crosswalk: Stopping for Adult Crossing Guard & Children",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "35fbfd82cf056474367bc36e28542d7f87bae36ac24769c87887fc82417aa7d5",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4168,
+  "usage": {
+    "completion_tokens": 830,
+    "prompt_tokens": 2284,
+    "total_tokens": 3114,
+    "completion_tokens_details": {
+      "reasoning_tokens": 453
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006383,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-72-school-zone-crossing-guard",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one blue SUV visible, stopped behind stop bar; no oncoming or opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only rear/top exterior of SUV.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of SUV lane, white edge line/curb on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "School sign is blank yellow shape with figure icons only, stop paddle is blank red octagon, no letters or numbers anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Overhead view from behind stopped blue SUV shows guard with red paddle and four children in crosswalk with school sign on right, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "School zone stop scene correctly depicts SUV stopped behind stop bar for guard and children with correct US markings and zero text.",
+    "teaching_correct": {
+      "note": "SUV stopped behind white stop bar for guard and children in crosswalk correctly teaches stopping for crossing guard.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Overhead view from behind a stopped blue SUV at a white stop bar, with an adult crossing guard in a neon vest holding a blank red paddle while four children with backpacks cross the zebra crosswalk."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-588-autonomous-self-driving-testing-awareness",
+  "file": "drv-588-autonomous-self-driving-testing-awareness.png",
+  "title": "Automated / Self-Driving Equipped Vehicles: Obey Same Traffic Laws & Maintain Normal Safe Space",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "449d500078ee8eb06e3a8025f0fbbf5c325bf0b1f1314b69b0cfdd62f0d53a0c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5454,
+  "usage": {
+    "completion_tokens": 940,
+    "prompt_tokens": 2453,
+    "total_tokens": 3393,
+    "completion_tokens_details": {
+      "reasoning_tokens": 545
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 1009
+    }
+  },
+  "usd_priced": 0.007061,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-588-autonomous-self-driving-testing-awareness",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground and background face forward away from viewer in same direction; no oncoming facing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel is visible; view is rear exterior of sedan and surrounding traffic.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Two overhead signals in foreground and distant signals show no lit lenses; zero lit is within at most one lit.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic travels forward on right side; double yellow centerline on left side of image, white lane/edge lines on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles, overhead street sign is blank white rectangle; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Center foreground silver sedan with rooftop lidar/sensor dome driving in lane with normal spacing among traffic on sunny urban boulevard matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image shows lidar-equipped sedan maintaining lane and spacing in US right-hand traffic with blank signage and compliant signals; all checks pass.",
+    "teaching_correct": {
+      "note": "Shows self-driving vehicle obeying lane discipline and maintaining safe space with traffic, consistent with title.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a silver sedan with a rooftop lidar dome centered in a multi-lane sunny urban boulevard with palm trees, surrounded by other cars and SUVs all traveling the same direction under overhead traffic lights."
+  },
+  "error_body": null
+}

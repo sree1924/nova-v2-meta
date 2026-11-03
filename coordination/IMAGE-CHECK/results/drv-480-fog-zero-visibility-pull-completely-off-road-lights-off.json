@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-480-fog-zero-visibility-pull-completely-off-road-lights-off",
+  "file": "drv-480-fog-zero-visibility-pull-completely-off-road-lights-off.png",
+  "title": "Pea-Soup Zero-Visibility Fog Emergency: Pull Far Off Pavement Into Parking Lot/Field & Avoid Tail-Light Homing Rear-End!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "192980b9bc2f65150d9284138e057719f60763c3480662b70471c2d0328601f7",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6168,
+  "usage": {
+    "completion_tokens": 1304,
+    "prompt_tokens": 2481,
+    "total_tokens": 3785,
+    "completion_tokens_details": {
+      "reasoning_tokens": 894
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 1009
+    }
+  },
+  "usd_priced": 0.008643,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-480-fog-zero-visibility-pull-completely-off-road-lights-off",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles face the same direction away from camera in background lane and foreground lot; no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; windows are dark tinted.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the foggy road/lot scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Background traffic drives on right side with yellow centerline on LEFT and white fog/edge line on RIGHT.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, store boards, pumps, and license plates are blank geometric shapes with no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan is completely off highway in country store lot on right foreground while through traffic remains in fog on left, matching pull-far-off description.",
+      "verdict": "MATCH"
+    },
+    "summary": "Scene matches pull-off location but fails core lesson: parked car shows bright tail/brake lights on, inviting tail-light homing instead of lights-off.",
+    "teaching_correct": {
+      "note": "Emergency fog pull-off requires lights OFF to avoid tail-light homing, but foreground blue sedan displays bright red/yellow rear lights ON while parked in lot, teaching the opposite.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "A blue sedan parked in a lit country store lot on the right foreground with bright rear lights on, while three cars with red taillights drive away into thick gray fog on the road to the left."
+  },
+  "error_body": null
+}

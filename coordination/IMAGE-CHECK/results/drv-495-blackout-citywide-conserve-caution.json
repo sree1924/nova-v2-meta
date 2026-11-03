@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-495-blackout-citywide-conserve-caution",
+  "file": "drv-495-blackout-citywide-conserve-caution.png",
+  "title": "Wide-Area Storm Power Outage at Night: Watch Unlit Crosswalks & Treat Every Dark Signal as an All-Way Stop",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "3b31be0ac079b6086fa24c70ef9cde91566ab6f3eb16b0399a06103c748c81f8",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6827,
+  "usage": {
+    "completion_tokens": 1501,
+    "prompt_tokens": 2469,
+    "total_tokens": 3970,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1123
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009465,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-495-blackout-citywide-conserve-caution",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Four cars from different approaches, none paired head-on in same lane; center black and white cars are on different approaches.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "All overhead traffic signals are dark with zero lit lenses, which satisfies at most one lit.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline on left foreground and white edge line on right; no wrong-side driving evident.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates, signals, houses are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows night intersection with dark signals, stopped cars, and walkers in crosswalk, but streetlights and house lights are lit, contradicting wide-area outage with unlit streetlights.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Night 4-way dark-signal stop with pedestrians is correctly depicted, but lit street and house lights contradict citywide blackout premise.",
+    "teaching_correct": {
+      "note": "Cars shown stopped and yielding to crosswalk walkers, consistent with treat dark signal as all-way stop.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Night suburban four-way intersection with dark overhead signals, four stopped cars with headlights on, and two dark-clothed pedestrians crossing in foreground crosswalk under lit streetlights."
+  },
+  "error_body": null
+}

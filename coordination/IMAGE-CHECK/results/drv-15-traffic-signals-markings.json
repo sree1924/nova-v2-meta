@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-15-traffic-signals-markings",
+  "file": "drv-15-traffic-signals-markings.png",
+  "title": "Single-Bulb Traffic Signals, Flashing Yellow Arrow & Yellow/White Markings",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "dc742da7292328e98af9ebd8f7cd230da9be3d9aca1b68c489a4d77c7271450c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5198,
+  "usage": {
+    "completion_tokens": 1255,
+    "prompt_tokens": 2127,
+    "total_tokens": 3382,
+    "completion_tokens_details": {
+      "reasoning_tokens": 805
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007992,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-15-traffic-signals-markings",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Top lane has two white cars both facing left; lower lanes have green and yellow cars both facing right. No head-on opposing vehicles share one lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Vehicles shown only as top-down exterior shapes; no cabin interior or steering wheel visible to judge drive side.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "All four hanging signals left to right show exactly one lit lens: red, solid yellow, flashing yellow left-arrow, green; other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Bottom lanes travel right with double-yellow to their left and solid white edge to their right; top lane travels left with yellow to its left/south and white edge to its right/north.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Visible words throughout: FULL STOP, CLEAR SAFELY, YIELD TURN, GO IF CLEAR under signals, and YELLOW = OPPOSING TRAFFIC and WHITE = SAME-WAY LANES & RIGHT EDGE on roadway.",
+        "verdict": "FAIL"
+      }
+    },
+    "scene_match": {
+      "note": "Image shows four single-bulb signals including flashing yellow arrow and top-down road with yellow center and white lane/edge markings matching title.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct traffic and single-bulb teaching but REJECT for text labels violating zero-text rule.",
+    "teaching_correct": {
+      "note": "Signal meanings and marking colors are correct: red stop, yellow clear, flashing yellow arrow yield-turn, yellow separates opposing, white separates same-way and edge.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Four hanging traffic signals above with one lit lens each, over a top-down four-lane road with two white cars on top, green and yellow cars below, double-yellow center and white dashed and edge lines."
+  },
+  "error_body": null
+}

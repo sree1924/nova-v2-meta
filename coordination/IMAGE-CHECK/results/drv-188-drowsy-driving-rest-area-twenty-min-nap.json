@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-188-drowsy-driving-rest-area-twenty-min-nap",
+  "file": "drv-188-drowsy-driving-rest-area-twenty-min-nap.png",
+  "title": "Drowsy Driving Cure: Pull Off at a Safe Lit Rest Area for Sleep or Switching Drivers (Not Open Windows)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "0792555ba6362713b99cf3ab2798fa591c1921ad285c9bbd5e2615fccb395314",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4991,
+  "usage": {
+    "completion_tokens": 1002,
+    "prompt_tokens": 2283,
+    "total_tokens": 3285,
+    "completion_tokens_details": {
+      "reasoning_tokens": 606
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007112,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-188-drowsy-driving-rest-area-twenty-min-nap",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one parked SUV in foreground right; no second vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; exterior view only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in rest-area parking scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Parked SUV in marked stall off highway; no active driving lane with wrong-side driving visible.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; blue sign shows only white bed pictogram, key fob and plates blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows lit rest-area with parked SUV and key swap between man left and woman right, but missing Zzz rest icon and missing red-X fake-cure graphic for windows/radio.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean rest-area driver-swap illustration with no rule violations, but missing required Zzz icon and crossed-out fake cures, so partial match needs human review.",
+    "teaching_correct": {
+      "note": "Shows correct cure of pulling off to lit rest area and switching drivers with parked SUV; no incorrect geometry or opposite teaching.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "At twilight in a lit rest-area parking lot, a man on the left hands a car key fob to a woman on the right beside a parked gray SUV, with a blue bed-icon sign and shelter in the background."
+  },
+  "error_body": null
+}

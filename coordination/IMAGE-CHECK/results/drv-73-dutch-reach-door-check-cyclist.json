@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-73-dutch-reach-door-check-cyclist",
+  "file": "drv-73-dutch-reach-door-check-cyclist.png",
+  "title": "'Dutch Reach' Street-Side Door Check: Looking Back for Approaching Bicyclist",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "e1c2e2f700b47b57a0f7035dc423aa65a9623ba72b6dd0e1bb33810827614173",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9025,
+  "usage": {
+    "completion_tokens": 1691,
+    "prompt_tokens": 2298,
+    "total_tokens": 3989,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1276
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.010059,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-73-dutch-reach-door-check-cyclist",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one parked car interior shown; cyclist approaches from behind in adjacent lane, no opposing head-on vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Driver occupies front-left seat next to left door; steering wheel is directly in front of him on left side of cabin, consistent with US left-hand drive.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in interior or street view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Car parallel-parked at right curb with cyclist in lane to left traveling forward, consistent with US right-hand traffic; no wrong-side driving.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; mirrors, street and car details are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Interior view shows driver twisted to look back while reaching for left door handle with far hand as helmeted cyclist approaches in left-side bike lane, matching Dutch Reach title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct Dutch Reach illustration with US left-hand drive, right-curb parking, and cyclist check; all applicable visual rules pass.",
+    "teaching_correct": {
+      "note": "Shows correct technique: far-hand on handle, head/shoulders turned to spot cyclist before opening, door still closed.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "From the back seat, a driver in the front-left seat twists to look back out the left window while reaching for the door handle, with a helmeted cyclist approaching behind in the side mirror and window on a sunny tree-lined street."
+  },
+  "error_body": null
+}

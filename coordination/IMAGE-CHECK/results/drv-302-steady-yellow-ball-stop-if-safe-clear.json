@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-302-steady-yellow-ball-stop-if-safe-clear",
+  "file": "drv-302-steady-yellow-ball-stop-if-safe-clear.png",
+  "title": "Steady Circular Yellow Signal: Green Has Ended — Stop Smoothly If Safe (Never Speed Up to Beat Red!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "c059cdd5f78058a698f1a4aabc65590d3127d716348157c9f3bf8055a0b93225",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3263,
+  "usage": {
+    "completion_tokens": 902,
+    "prompt_tokens": 2273,
+    "total_tokens": 3175,
+    "completion_tokens_details": {
+      "reasoning_tokens": 496
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006675,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-302-steady-yellow-ball-stop-if-safe-clear",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Silver sedan in foreground right lane faces forward; oncoming cars are in opposite lanes left of double-yellow, no head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exterior rear view and foot-pedal inset icon.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead foreground signal shows only middle amber-yellow lit, top and bottom dark; background signals dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of travel lane, white edge line and curb on right; sedan drives on right, oncoming on left.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; license plate is blank white rectangle, signals and icon have no text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Overhead steady yellow, silver sedan stopped behind white stop line with brake lights, red prohibition over gas-pedal inset matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows US right-hand approach stopping behind line on steady yellow with single amber lit and no-text prohibition on accelerating.",
+    "teaching_correct": {
+      "note": "Sedan stopped behind white line with brake lights on yellow, and gas pedal crossed out, correctly teaches stop if safe, do not speed up.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a silver sedan stopped behind a white stop line under an overhead yellow traffic light on a boulevard, with a red prohibition inset of a foot on a gas pedal at upper right."
+  },
+  "error_body": null
+}

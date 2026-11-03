@@ -189,3 +189,11 @@ Seeded 2026-10-28T07:01:29.980Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-29T16:41:28.772Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:92 for 19A.units (sec15-highways-interchanges-roundabouts) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
 
 - 2026-10-29T16:41:29.412Z lineage reset → 2026-10-28-rdmv-ia-class-c:lineage:93 for 19A.units (sec17-emergencies-crashes-law-enforcement) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+Targeted19 listed meaning fixes across11 sections only. Original Muse/Claude credits preserved; Sol FIXER; Meta validation only, independencefalse; no gap/full-state repair.
+
+SOL FACTFIX HOLD STOPPED 2026-10-29T21:54:31.267Z; ownership released; original credit and all source/status/debt/history retained. See scratch/sol-state-coordinator/factfix-20261029/batch45/IA/NATIVE-HANDOFF.json.
+
+Root authorized six actual unattempted disjoint sections; sec07 invalid Meta response and bill stay held, with no unchanged retry.
+
+SOL FACTFIX HOLD STOPPED 2026-10-29T22:15:59.586Z; ownership released; original credit and all source/status/debt/history retained. See scratch/sol-state-coordinator/factfix-20261029/batch45/IA/NATIVE-HANDOFF-disjoint-2026-10-29T22-15-56-172Z.json.

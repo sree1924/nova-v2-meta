@@ -1,10 +1,11 @@
-# Worker token ledger — generated 2026-10-29T14:44:31.328Z
+# Worker token ledger — generated 2026-10-30T20:37:47.330Z
 
 | worker | platform | rows | input | output | total (claude agents) | $ | states |
 |---|---|---|---|---|---|---|---|
 | muse | Muse Code subscription | 29 | 1,035,088,192 | 3,283,625 | 1,038,371,817 | $0.00 | AK AZ CA CO CT FL HI IA KY MT NM NY OK TX UT VA |
 | claude | Anthropic subscription (Claude Code subagent) | 103 | 0 | 0 | 26,317,839 | $0.00 | AL AR AZ CA CO CT DC FL FLEET IA IN KY KY/OK/CT/IA MD MI MN MO MS/WV/HI/RI/VT/AK/ND NC NJ NV NY OH OK OR SC STORE TN TX UT VA WA WI |
-| sol | ChatGPT Pro subscription | 177 | 0 | 0 | 1,261,040,548 | $0.00 | AK AL AR AZ CA CO CT DC DE FL GA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OR PA RI SC SD TN TX UT VA VT WA WI WV WY |
+| sol | ChatGPT Pro subscription | 210 | 0 | 0 | 1,716,240,818 | $0.00 | AK AL AR AZ CA CO CT DC DE FL GA HEAD HI IA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OR PA RI SC SD TN TX UT VA VT WA WI WV WY |
+| claude-cloud-session | Anthropic cloud session (Claude Code on the web) | 5 | 0 | 0 | 3,550,599 | $0.00 | HI VT WV |
 | meta-model-api | Meta Model API (free credit) | 1 | 24,986,074 | 2,789,556 | 27,775,630 | $44.09 | UT |
 
 | worker | model | state | task | input | cached | output | reasoning | total | tool uses | duration | $ |
@@ -318,4 +319,42 @@
 | sol | gpt-6.1-sol | MS | Genuine immutable accepted fact repair and current full-package native closure; source/debt/old ancestry preserved; supplied raw-originality and actual narration proof joins reconciled | — | 5,686,656 | — | — | 5,932,465 | — | — | $0.00 |
 | sol | gpt-6.1-sol | NH | Genuine immutable accepted fact repair and current full-package native closure; source/debt/old ancestry preserved; supplied raw-originality and actual narration proof joins reconciled | — | 3,980,416 | — | — | 4,005,867 | — | — | $0.00 |
 | sol | gpt-6.1-sol | — | Native compact progress check, genuine accepted-capacity cause resolution and same-chat continuation, scorecard/cursor persistence | — | 22,828,032 | — | — | 22,967,756 | — | — | $0.00 |
+| claude-cloud-session | claude-cloud-session | HI | cloud full belt: intake + SME + downstream — blocked at Phase 1 registration (missing pinned factory contracts 02/15/19); intake spec written | — | — | — | — | 230,000 | 52 | 25 min | $0.00 |
+| claude-cloud-session | claude-cloud-session | HI | cloud full belt HI class 3: intake + SME 02/16 + downstream 03/04/06/05.sessions/05.card_scripts, 17/17 sections, 710 facts, 709 cards, 1 merge, 0 holds, $0 file transport | — | — | — | — | 1,500,000 | 260 | 270 min | $0.00 |
+| claude-cloud-session | claude-cloud-session | VT | cloud phases 2+3: SME + downstream — BLOCKED at first 02 packet (missing ../sme-library/_MASTER-SME-TEMPLATE.md pin); setup only | — | — | — | — | 240,000 | 52 | 35 min | $0.00 |
+| claude-cloud-session | claude-cloud-session | VT | cloud phases 2+3: SME dossiers + compile (14 sections, 126 parts) and downstream 03/04/06/05.sessions/05.card_scripts (70 artifacts), $0 file transport | — | — | — | — | 490,000 | 130 | 48 min | $0.00 |
+| claude-cloud-session | claude-opus-5-5 | WV | cloud phases 2+3: SME + downstream | — | — | — | — | 1,090,599 | 192 | 700 min | $0.00 |
+| sol | gpt-6.1-sol | MA | Actual previous-state tail before scopedFACTFIX | — | 850,176 | — | — | 863,811 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NY | Targeted sec10-R02 native fix and validation; coordinator export pending | — | 6,818,304 | — | — | 7,401,888 | — | — | $0.00 |
+| sol | gpt-6.1-sol | FL | Targeted sec05-R07 native fix and validation; coordinator export pending | — | 7,127,040 | — | — | 7,332,756 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Actual head coordination tail since14:43 previous recording; includes preFACTFIX clarifications/setup plus targetedfix coordination, not stateauthoring | — | 33,802,112 | — | — | 34,232,670 | — | — | $0.00 |
+| sol | gpt-6.1-sol | NY | Actual trailing NY coordination/final-response usage before single Idaho pilot | — | 240,256 | — | — | 247,427 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | One listed F14 correction+necessary derivative bindings; Meta validation pass; no fullbelt or release | — | 3,923,584 | — | — | 4,001,572 | — | — | $0.00 |
+| sol | gpt-6.1-sol | ID | Actual final handoff/response tail after worker sample; no added to originalbaseline twice | — | 402,048 | — | — | 409,381 | — | — | $0.00 |
+| sol | gpt-6.1-sol | FL | Actual unrecorded prior-state tail before remaining45 assignment; CT includes stopped prior targetedwork, no passclaim | — | 402,560 | — | — | 409,578 | — | — | $0.00 |
+| sol | gpt-6.1-sol | CT | Actual unrecorded prior-state tail before remaining45 assignment; CT includes stopped prior targetedwork, no passclaim | — | 19,596,800 | — | — | 20,634,920 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Actual root coordination tail after previous20:03 receipt, including pilot and45-lane dispatch plus current recovery; not worker state authoring. | — | 32,903,808 | — | — | 33,274,015 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Actual root remaining45 heartbeat coordination/private blocker recovery, separate from worker state authoring | — | 4,366,592 | — | — | 4,422,047 | — | — | $0.00 |
+| sol | gpt-6.1-sol | IA | All19 listed Iowa corrections natively accepted and freshly Meta qualified; original credit preserved, Sol fixer | — | 17,352,064 | — | — | 17,674,202 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Head targeted45 orchestration, private validation repair controls, IA root closure, and founder cost/scope review; separate from worker state authoring. | — | 30,930,176 | — | — | 31,437,141 | — | — | $0.00 |
+| sol | gpt-6.1-sol | CA | All21 listed CA corrections accepted and freshly Meta qualified; original credits preserved, Sol fixer | — | 46,035,200 | — | — | 46,548,431 | — | — | $0.00 |
+| sol | gpt-6.1-sol | KY | All23 listed KY corrections accepted and freshly Meta qualified; original credits preserved, Sol fixer | — | 23,153,152 | — | — | 24,177,296 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Existing-scope coordination, lean final receipt checks and CA/KY closure, billing/accounting and budget hold; no new state dispatch. | — | 6,609,664 | — | — | 6,683,198 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Restart recovery, process hold/control, scoped API audit, private bounded executor preparation and coordination. Root only; helper/audit agents separately not included. | — | 6,924,160 | — | — | 7,101,190 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | One historical Idaho offline mechanical replay command and compact result. Excludes live native authoring/acceptance/Meta; not end-to-end savings proof. | — | 155,776 | — | — | 157,020 | — | — | $0.00 |
+| sol | gpt-6.1-sol | HI | Record existing HI repair/validation partial usage before isolated process comparison. Not a state pass. | — | 19,883,008 | — | — | 20,332,582 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Prior root tail and controlled comparison preparation; separate from live benchmark. | — | 1,470,080 | — | — | 1,493,588 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | One-fact proof scope, baseline reconciliation and dispatch/monitoring; all new states held. | — | 732,928 | — | — | 741,860 | — | — | $0.00 |
+| sol | gpt-6.1-sol | HI | Stopped one-fact comparison at existing all-accepted source capacity before new attempts or Meta; no completed lower-use proof. | — | 918,912 | — | — | 1,001,735 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Observed stopped candidate, verified all-accepted native source capacity and preserved cost-ceiling failure; no native mutation or Meta. | — | 1,933,696 | — | — | 1,953,704 | — | — | $0.00 |
+| sol | gpt-6.1-sol | — | Aggregate unrecorded root tail since last actual sample: founder dialogue/Google handoff, Argon receipt inspection, priority Meta validation, and single-chat R11 citation correction. Not an isolated R11 usage benchmark; precise split unavailable. | — | 19,939,968 | — | — | 20,141,248 | — | — | $0.00 |
+| sol | gpt-6.1-sol | HI | Root single-chat Hawaii page16 holds, six listed wording fixes, exact required descendants, final Meta validation and receipt; no subagents. Includes full-context coordination overhead. | — | 8,830,592 | — | — | 9,425,246 | — | — | $0.00 |
+| sol | gpt-6.1-sol | HI | Single-chat HI final verification, receipt/accounting and handoff tail; cached context included; not a savings benchmark. | — | 1,554,560 | — | — | 1,567,306 | — | — | $0.00 |
+| sol | gpt-6.1-sol | VA | Previously completed Virginia63 targeted repairs and validations; current root verification adds no native replay or Meta call. | — | 30,243,328 | — | — | 30,665,130 | — | — | $0.00 |
+| sol | gpt-6.1-sol | UT | Previously accepted targeted worker repairs and validations; later root operations accounted separately. | — | 21,104,896 | — | — | 21,641,979 | — | — | $0.00 |
+| sol | gpt-6.1-sol | TX | Previously accepted targeted worker repairs and validations; later root operations accounted separately. | — | 44,174,720 | — | — | 44,705,288 | — | — | $0.00 |
+| sol | gpt-6.1-sol | HEAD | Root remaining-fault inventory/discussion and VA/UT/TX targeted closeout since previous recorded HI-head sample; cached input included. Historical worker use separately recorded; no savings benchmark or exact allowance-percent attribution. | — | 19,134,464 | — | — | 19,594,726 | — | — | $0.00 |
+| sol | gpt-6.1-sol | HEAD | Root progress/evidence dialogue since three-state closeout, four-state accepted export verification/release and Argon handoff preparation. No native authoring or Meta calls; not an execution-only savings benchmark. | — | 18,962,304 | — | — | 19,254,184 | — | — | $0.00 |
+| sol | gpt-6.1-sol | HEAD | Root status/format-scope dialogue, exact CA/KY formatting preparation, native repair and export verification since prior recorded root sample. Includes earlier interrupted handoff preparation; not an execution-only savings claim. | — | 8,743,040 | — | — | 9,047,150 | — | — | $0.00 |
+| sol | gpt-6.1-sol | HEAD | Root fact-layer discussion/status and final VA/UT/TX export verification, canonical Utah path recovery, existing fallback mirror reconciliation and already-exported ID stale hold release since previous recorded root sample; no native authoring/Meta calls. Cached subset included in total; no account-allowance attribution. | — | 6,578,688 | — | — | 6,626,001 | — | — | $0.00 |
 | meta-model-api | muse-spark-1.3 | UT | belt authoring, 16 sections | 24,986,074 | — | 2,789,556 | — | — | — | — | $44.09 |

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-238-tv-video-screen-visible-to-driver-ban",
+  "file": "drv-238-tv-video-screen-visible-to-driver-ban.png",
+  "title": "Video Entertainment Screens Visible to Driver Prohibited While Driving (Navigation/Instrument Only)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "660d2b2542ba84bc44c12dc68ac746fedb390376af53beb31bfbcf51b48a2c80",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5400,
+  "usage": {
+    "completion_tokens": 1260,
+    "prompt_tokens": 2269,
+    "total_tokens": 3529,
+    "completion_tokens_details": {
+      "reasoning_tokens": 895
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008191,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-238-tv-video-screen-visible-to-driver-ban",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles ahead travel same direction in same lane; no oncoming vehicle facing driver.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Driver and steering wheel on left side of cabin, center dash screen to the right.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is visible in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicle travels in right lane; double-yellow centerline on left, white edge line and guardrail on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; plates, road sign arrow, nav screen and film-strip icons are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows left-driver interior with center dash navigation allowed and movie film-strip icon crossed with red X, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Interior driver view correctly contrasts prohibited video entertainment with navigation-only display, with US right-hand traffic and no text violations.",
+    "teaching_correct": {
+      "note": "Clearly teaches entertainment screens prohibited while navigation permitted; no wrong geometry or opposite message.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Over-left-shoulder view of a left-side driver following cars on a coastal two-lane road at sunset, with a red-X film-strip icon floating ahead and a center dash screen on the right showing a green turn-arrow map."
+  },
+  "error_body": null
+}

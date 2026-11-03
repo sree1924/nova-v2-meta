@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-386-snow-emergency-route-no-curb-parking",
+  "file": "drv-386-snow-emergency-route-no-curb-parking.png",
+  "title": "Winter Snow-Emergency Routes: Keep Curbs Clear for Municipal Snowplows",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "ee09482246b302228068cb46f1b58cbfa382f7aedc18825cae44a50a2f165b3d",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5921,
+  "usage": {
+    "completion_tokens": 1357,
+    "prompt_tokens": 2254,
+    "total_tokens": 3611,
+    "completion_tokens_details": {
+      "reasoning_tokens": 978
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008585,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-386-snow-emergency-route-no-curb-parking",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one vehicle (orange snowplow) visible, no opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exterior rear view of plow.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double yellow centerline on left, white edge line on right, plow traveling forward on right side of road.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible on buildings, truck, or street furniture.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Clear curbs and municipal orange plow clearing curb-to-curb matches title, but red-and-white snowflake curb plaque described in prompt is not visible.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean US right-hand winter scene with plow and clear curbs teaches correctly, but snow-emergency plaque missing so needs human review.",
+    "teaching_correct": {
+      "note": "Shows curbs kept clear of parked cars allowing plow to clear to curb; no incorrect parking or geometry taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "An orange municipal snowplow seen from behind clears snow along the right curb of a snowy city avenue at dusk, with curbs free of parked cars and a downtown skyline ahead."
+  },
+  "error_body": null
+}

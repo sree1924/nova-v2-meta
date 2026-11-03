@@ -1,0 +1,12 @@
+name = "plp-app-gate"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "plp-app"
+
+# Production route is added at cut-over (founder go), never on deploy:
+# routes = [{ pattern = "passlearnerspermit.com/app/*", zone_name = "passlearnerspermit.com" }]
+# Secret: `wrangler secret put ENTITLEMENT_COOKIE_SECRET` (same value as Vercel's env).

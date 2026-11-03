@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-395-right-turn-on-red-multi-lane-turn-lanes",
+  "file": "drv-395-right-turn-on-red-multi-lane-turn-lanes.png",
+  "title": "Dual Right-Turn Lanes on Red: Obey Posted Restrictions & Watch Swept Path of Adjacent Turning Vehicles",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1f6501c853a6cdaf3968db6aac9290242a550df790fc0a3b0c50f5745c8b0258",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5814,
+  "usage": {
+    "completion_tokens": 1410,
+    "prompt_tokens": 2255,
+    "total_tokens": 3665,
+    "completion_tokens_details": {
+      "reasoning_tokens": 983
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008811,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-395-right-turn-on-red-multi-lane-turn-lanes",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue SUV on left and red sedan on right both face forward in same direction in parallel lanes; no oncoming or head-on vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of both cars are shown; no interior or steering wheel is visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Two overhead signals each show exactly one lit green lens at bottom, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double yellow centerline on left of travel lanes, curb/sidewalk on right, both cars driving on right side and turning right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; overhead green sign is blank, license areas blank, road markings are white arrow icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows two marked right-turn lanes with curved dotted divider and two cars turning in parallel as prompted, but both signals are green while title specifies 'on Red'.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Lane geometry and all visual rules pass, but green signals do not match the 'on Red' title, so red-light teaching is not shown.",
+    "teaching_correct": {
+      "note": "Lane-keeping geometry is correct for dual turns, but green go display does not teach the stop-before-turn and yield and posted-restriction behavior required for turn on red.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Rear view of a blue SUV on the left and red sedan on the right in two right-turn lanes with white turn arrows and a dotted divider, facing an intersection with two green traffic signals overhead."
+  },
+  "error_body": null
+}

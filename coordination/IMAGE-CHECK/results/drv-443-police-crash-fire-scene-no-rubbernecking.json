@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-443-police-crash-fire-scene-no-rubbernecking",
+  "file": "drv-443-police-crash-fire-scene-no-rubbernecking.png",
+  "title": "Passing an Emergency or Crash Scene: Keep Eyes Forward & Traffic Moving (Never Rubberneck or Stop to Look!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "be731fb5fe0c22a7899a145329bd3107fb7f8db30ea09fcc179738405c18bda7",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4091,
+  "usage": {
+    "completion_tokens": 736,
+    "prompt_tokens": 2263,
+    "total_tokens": 2999,
+    "completion_tokens_details": {
+      "reasoning_tokens": 365
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.005957,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-443-police-crash-fire-scene-no-rubbernecking",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles on foreground lanes travel same direction; no opposing vehicles share a lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exteriors visible, no interiors or steering wheels shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Divided highway with yellow line on left at median and white edge/guardrail on right; foreground traffic drives forward on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates, emergency vehicles and signs are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Emergency/fire/police crash cordoned on opposite side across median left, while foreground right lanes keep moving forward with spacing.",
+      "verdict": "MATCH"
+    },
+    "summary": "Divided highway teaches no rubbernecking: opposite-side emergency scene with steady forward traffic, all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows correct behavior: keep eyes forward and traffic moving past opposite-side incident, no stopping or gawking.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Daylight divided highway with fire truck, police car, and ambulance at a crash on the left across the concrete median, while several cars and trucks in the right foreground lanes drive steadily forward away from camera."
+  },
+  "error_body": null
+}

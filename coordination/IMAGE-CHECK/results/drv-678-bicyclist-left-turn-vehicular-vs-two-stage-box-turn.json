@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-678-bicyclist-left-turn-vehicular-vs-two-stage-box-turn",
+  "file": "drv-678-bicyclist-left-turn-vehicular-vs-two-stage-box-turn.png",
+  "title": "Two Ways Bicyclists Legally Turn Left: Merging Early Into Left-Turn Lane OR Two-Stage Crosswalk/Box Turn",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "346b11e9d8b7a6b3eced2fa95c23f9e2634327c1ff3211016e93de6ce394b7d0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 12940,
+  "usage": {
+    "completion_tokens": 2312,
+    "prompt_tokens": 2482,
+    "total_tokens": 4794,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1860
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.012929,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-678-bicyclist-left-turn-vehicular-vs-two-stage-box-turn",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Bottom yellow taxi and dark sedan both face forward into intersection in adjacent lanes; top red car and white SUV both face toward intersection; no opposing vehicles share same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; all vehicles shown as exterior roofs/sides.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "One traffic signal visible at top-left curb shows single green lit lens, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Bottom traffic drives on right with yellow centerline on left side of image and white lane lines on right; cross traffic keeps to right of double-yellow centerline.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No legible letters, numbers, or words; signal head, plates, and pavement show only blank colors, arrows, and bike-box icon shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows both required paths: blue vehicular left-turn with cyclist signaling in left-turn pocket, and green straight-to-far-right box with second cyclist waiting in green turn box to pivot left.",
+      "verdict": "MATCH"
+    },
+    "summary": "Bird's-eye intersection correctly illustrates vehicular left-turn and two-stage box turn with US right-hand markings and no text or signal violations.",
+    "teaching_correct": {
+      "note": "Vehicular cyclist positioned in left-turn pocket signaling left; box-turn cyclist positioned in far-right green box facing cross direction; teaches both legal methods correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Aerial view of a US urban intersection with two cyclists: one in red in the center left-turn lane signaling left along a blue arrow turning left, and one in yellow waiting in a green box at the far-right corner along a green arrow going straight then pivoting."
+  },
+  "error_body": null
+}

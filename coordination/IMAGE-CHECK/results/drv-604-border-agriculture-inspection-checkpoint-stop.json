@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-604-border-agriculture-inspection-checkpoint-stop",
+  "file": "drv-604-border-agriculture-inspection-checkpoint-stop.png",
+  "title": "Official Highway Inspection / Agricultural / Weigh & Port-of-Entry Checkpoints: Slow & Follow Lane Arrows",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "164a8b8919a96f93ea438baeda59c5b268aeba7aa37e66b1f03c60994cc1d740",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4293,
+  "usage": {
+    "completion_tokens": 922,
+    "prompt_tokens": 2247,
+    "total_tokens": 3169,
+    "completion_tokens_details": {
+      "reasoning_tokens": 552
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006727,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-604-border-agriculture-inspection-checkpoint-stop",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible cars and trucks face away forward in same direction; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interiors or steering wheels are visible to evaluate.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Two overhead signals: left shows one green lit lens, right shows one red lit lens; other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Passenger lane has yellow line on left and white line on right; trucks use right scale lane, correct right-hand flow.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is blank white rectangle, booths and signs blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Sunny canopy inspection plaza with cars in left inspected lane obeying officers and commercial trucks routed right onto scale lane.",
+      "verdict": "MATCH"
+    },
+    "summary": "Inspection checkpoint scene correctly shows lane separation and officer control with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Teaches slow, stay in lane, and obey officers at inspection/weigh stations; geometry and priority are correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A sunny highway inspection canopy with uniformed officers directing a queue of black passenger SUVs in the left lane under a green signal, while white semi-trucks use the right scale lane under a red signal."
+  },
+  "error_body": null
+}

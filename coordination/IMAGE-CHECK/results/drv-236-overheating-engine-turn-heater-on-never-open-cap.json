@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-236-overheating-engine-turn-heater-on-never-open-cap",
+  "file": "drv-236-overheating-engine-turn-heater-on-never-open-cap.png",
+  "title": "Overheating Engine in Summer Traffic: Turn A/C Off, Cabin Heater ON, Pull Over & NEVER Open Hot Radiator Cap",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "262cfc069adb10884b978b247da07899da9663e2dd1852675ac659b9eded8520",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6622,
+  "usage": {
+    "completion_tokens": 1412,
+    "prompt_tokens": 2293,
+    "total_tokens": 3705,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1040
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008867,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-236-overheating-engine-turn-heater-on-never-open-cap",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one parked sedan visible; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Left inset shows dash vent and heater knob only; no steering wheel on right side visible.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in main scene or insets.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Parked sedan on right shoulder; double-yellow centerline on left, white edge line on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; license plate blank, check and X are graphic icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Steaming sedan pulled to shoulder plus heater-ON check inset and do-not-touch-cap X inset matches title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly teaches pull over, use cabin heat, and never open hot cap with proper US road layout and no text.",
+    "teaching_correct": {
+      "note": "Shows safe pull-over, heater ON to draw heat, and prohibition on touching hot pressurized cap.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A silver sedan with open hood steaming on the right shoulder of a sunny highway, with a green-check inset at upper left of a hand turning cabin heat on and a red-X inset at upper right of a hand reaching for a radiator cap."
+  },
+  "error_body": null
+}

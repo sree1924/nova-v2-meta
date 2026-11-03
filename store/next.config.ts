@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
+if (process.env.STORE_LOCAL_MODE === "1" && process.env.NODE_ENV === "production") {
+  throw new Error("STORE_LOCAL_MODE is development-only. Unset it before next build or production start.");
+}
+
 const nextConfig: NextConfig = {
+  // Next normally rewrites every loopback spelling to localhost, which changes the
+  // cookie origin in the local harness and makes 127.0.0.1 Origin checks fail.
+  skipMiddlewareUrlNormalize: process.env.STORE_LOCAL_MODE === "1",
   // /app/ must keep its trailing slash: the static shell resolves data/… relative to it.
   // middleware.ts redirects /app -> /app/ and rewrites /app/ -> /app/index.html.
   skipTrailingSlashRedirect: true,

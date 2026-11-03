@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-358-stopping-distance-perception-reaction-braking",
+  "file": "drv-358-stopping-distance-perception-reaction-braking.png",
+  "title": "Total Stopping Distance = Perception Distance + Reaction Distance + Braking Distance (Doubling Speed = 4x Braking!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "894dbc8be676b1d7d1c748c6067b4c4643e8c7b10859b6decf1de6bcd930ac43",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3450,
+  "usage": {
+    "completion_tokens": 919,
+    "prompt_tokens": 2284,
+    "total_tokens": 3203,
+    "completion_tokens_details": {
+      "reasoning_tokens": 544
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006761,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-358-stopping-distance-perception-reaction-braking",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Main sedan in right foreground lane braking; oncoming SUV in opposite lane left of double-yellow, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; exterior rear view only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of travel lane, white edge line/guardrail on right, oncoming traffic left of center.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, plate, icons blank shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows braking US sedan in right lane with deer hazard and 3-color bar with eye, foot-pedal, and tire icons for perception, reaction, braking.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly visualizes perception+reaction+braking distances with compliant US traffic geometry and zero text.",
+    "teaching_correct": {
+      "note": "Diagram correctly sequences blue perception, amber reaction, red braking segments with braking car reacting to deer.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "description: A silver sedan brakes hard with smoke in the right lane for a deer crossing at sunset, with a blue-amber-red bar overlay showing eye, foot-on-pedal, and tire icons."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-339-proper-left-turn-nearest-corresponding-lane",
+  "file": "drv-339-proper-left-turn-nearest-corresponding-lane.png",
+  "title": "Proper Left Turn Path: Turn From Leftmost Lane Into Nearest Legal Left Lane Without Cutting Corner!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "537aeb097aea7b26a3537ef8eba037b55ab26ae90bf0751ccb3bf5f461152875",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8714,
+  "usage": {
+    "completion_tokens": 1807,
+    "prompt_tokens": 2267,
+    "total_tokens": 4074,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1420
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.010514,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-339-proper-left-turn-nearest-corresponding-lane",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan south heading north and red car north heading south are in opposite lanes divided by yellow centerline, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Bird's-eye exterior view only; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Three signals visible: top shows one red lit, left and right each show one green lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both north-south approaches keep right of double-yellow center; cross street shows yellow center with lane markings consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; signs, plates, and road markings are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue car from just right of centerline follows green arc left into inside westbound lane north of yellow without cutting early.",
+      "verdict": "MATCH"
+    },
+    "summary": "Bird's-eye intersection correctly demonstrates proper left-turn path into nearest legal lane with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Green arc shows wide proper path entering nearest left/inside lane, not cutting corner or swinging wide.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Bird's-eye view of a four-way signalized intersection with a blue sedan at the bottom following a green arrow left into the westbound lane, while a red car waits at the top."
+  },
+  "error_body": null
+}

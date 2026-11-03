@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-166-driver-license-compact-interstate-record",
+  "file": "drv-166-driver-license-compact-interstate-record.png",
+  "title": "Driver License Compact (DLC) & Non-Resident Violator Compact (NRVC): One Record Nationwide",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "357de6480790d78eb9d69995b4053cffeea1f6b508a137d7460f0b8abee8d935",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5045,
+  "usage": {
+    "completion_tokens": 895,
+    "prompt_tokens": 2261,
+    "total_tokens": 3156,
+    "completion_tokens_details": {
+      "reasoning_tokens": 563
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00663,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-166-driver-license-compact-interstate-record",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No vehicles or lanes present; head-on scenario not applicable.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in map graphic.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No roadway or traffic depicted; stylized US map only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No text, letters, numbers, or abbreviations visible; states are blank colors, folder and icons blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Colorful US map with glowing cyan arcs from state nodes converging to single central driver folder matches one-record nationwide concept.",
+      "verdict": "MATCH"
+    },
+    "summary": "Map graphic correctly visualizes interstate record sharing with zero text and no traffic elements to violate.",
+    "teaching_correct": {
+      "note": "Clearly teaches that out-of-state violations connect to one home record via unified folder and arcs.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A colorful stylized US map including Alaska and Hawaii with glowing cyan arcs from dots in many states converging on a central yellow folder with a driver silhouette icon below it."
+  },
+  "error_body": null
+}

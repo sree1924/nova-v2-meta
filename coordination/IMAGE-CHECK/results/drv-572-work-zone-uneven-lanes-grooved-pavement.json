@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-572-work-zone-uneven-lanes-grooved-pavement",
+  "file": "drv-572-work-zone-uneven-lanes-grooved-pavement.png",
+  "title": "Work Zone Milled / Grooved Pavement & Uneven Lane Drop-Offs: Hold Wheel Steady & Change Lanes Carefully",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "67fc2b4e9b1c0e7680f45939c78f354b11b6aaa45a27dfdb4a40d0bd53d245dc",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 2778,
+  "usage": {
+    "completion_tokens": 796,
+    "prompt_tokens": 2267,
+    "total_tokens": 3063,
+    "completion_tokens_details": {
+      "reasoning_tokens": 406
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006217,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-572-work-zone-uneven-lanes-grooved-pavement",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground and background travel same direction forward; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior rear views of vehicles.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in the highway work zone scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "All traffic moves forward on right side; yellow line on far left, white lane line on right with cones.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white shapes, diamond sign shows only black uneven-lane icon, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows milled grooved lane adjacent to higher fresh blacktop, work equipment, cones, and orange uneven-lanes diamond on right with motorcycle and cars holding lane.",
+      "verdict": "MATCH"
+    },
+    "summary": "Work zone uneven-lane scene matches prompt with correct US traffic geometry and zero text; teaches steady control.",
+    "teaching_correct": {
+      "note": "Clearly depicts lane height drop-off and grooved surface with traffic holding steady, matching hold-wheel-steady lesson.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a motorcyclist on fresh blacktop on the left beside a lower milled gray lane on the right, with cars ahead, paving equipment, cones, and an orange diamond uneven-lane sign on the far right."
+  },
+  "error_body": null
+}

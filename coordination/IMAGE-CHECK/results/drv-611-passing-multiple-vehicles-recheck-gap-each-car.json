@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-611-passing-multiple-vehicles-recheck-gap-each-car",
+  "file": "drv-611-passing-multiple-vehicles-recheck-gap-each-car.png",
+  "title": "Passing a Line of Slow Cars on a Two-Lane Road: Pass One Vehicle at a Time When Safe Gap Exists!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "62d49cc6908fc359febcd02b6a80e0876355fce6411627b7f5692f70b66fcd2a",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7334,
+  "usage": {
+    "completion_tokens": 1858,
+    "prompt_tokens": 2270,
+    "total_tokens": 4128,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1426
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.010734,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-611-passing-multiple-vehicles-recheck-gap-each-car",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both vehicles face same direction upward; no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only, windows dark, no interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both cars travel same direction; far left yellow line, far right white edge line consistent with US right-side driving, no wrong-side driving visible.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No text, letters, numbers or words visible; road and surroundings are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows only one other car, not a line of three, and road has white dashed center with yellow on far left edge (multilane one-way appearance) instead of broken yellow two-way centerline; blue car remains in left lane, not tucking back to right-lane gap.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Top view shows single-car passing on multilane-appearing road, not a two-lane two-way line of cars with tuck-back, so needs human review for curriculum fit.",
+    "teaching_correct": {
+      "note": "Does not teach opposite or dangerous move, but road geometry is wrong for two-lane passing lesson and tuck-back is not shown, so learning is incomplete.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Top-down view of a blue sedan ahead in the left lane and a gray sedan behind in the right lane on a road with a solid yellow line on the far left and a white dashed lane divider in the middle."
+  },
+  "error_body": null
+}

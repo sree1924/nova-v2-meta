@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-596-never-licensed-vehicle-impound-immobilize",
+  "file": "drv-596-never-licensed-vehicle-impound-immobilize.png",
+  "title": "Operating a Vehicle Without Ever Holding a Valid License: Immediate Citation & Potential Vehicle Impoundment",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "5d9b9f29d2c5d5575bc1c7033d103d312baeb2764c681491d0604e10f0bd03ff",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6468,
+  "usage": {
+    "completion_tokens": 1080,
+    "prompt_tokens": 2252,
+    "total_tokens": 3332,
+    "completion_tokens_details": {
+      "reasoning_tokens": 731
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007405,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-596-never-licensed-vehicle-impound-immobilize",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Gray sedan is carried on flatbed, not facing tow truck head-on in a lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Windows are dark tinted; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in garage scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No public roadway, centerline or edge line visible; indoor garage impound only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "License plates and all signage are blank shapes; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows yellow flatbed with booted sedan for impound, but missing daylight roadside shoulder and patrol cruiser; set indoors in garage.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean impound image with boot, but indoor garage instead of prompted roadside enforcement with cruiser, needs human review.",
+    "teaching_correct": {
+      "note": "Wheel boot and flatbed impound correctly illustrate immobilization/impoundment consequence.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A yellow flatbed tow truck inside a garage carries a gray sedan with a yellow wheel-boot lock on its rear wheel."
+  },
+  "error_body": null
+}

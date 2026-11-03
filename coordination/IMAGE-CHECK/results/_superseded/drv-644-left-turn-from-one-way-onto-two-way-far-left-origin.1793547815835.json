@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-644-left-turn-from-one-way-onto-two-way-far-left-origin",
+  "file": "drv-644-left-turn-from-one-way-onto-two-way-far-left-origin.png",
+  "title": "Turning Left From a One-Way Street: Always Start From the Far-LEFT Curb Lane (Never From the Right/Middle Lane!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "ab85974f697b9edb66e5f0118808798c2dc12f7c6dc2b2fd3f1fc2e952e91052",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9744,
+  "usage": {
+    "completion_tokens": 2228,
+    "prompt_tokens": 2287,
+    "total_tokens": 4515,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1768
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.012328,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-644-left-turn-from-one-way-onto-two-way-far-left-origin",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No two vehicles face each other head-on within the same lane; northbound blue sedan at bottom and southbound cars at top are in separate approaches.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; all vehicles seen only from exterior bird's-eye view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal in center shows single green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Bottom vertical approach shows blue sedan heading north but positioned in the west/left lane, with yellow center implied to its right, and top approach shows four lanes all heading south straddling a yellow center line - driving on the left side, not the right.",
+        "verdict": "FAIL"
+      },
+      "zero_text": {
+        "note": "All signs, plates and storefronts appear as blank colored shapes with no legible letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan at bottom does show a left-turn arrow from far-left position onto cross street, but vertical street is depicted as two-way with opposing traffic top vs bottom, not a 3-lane one-way origin.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Fails right-hand traffic geometry with blue car on wrong side and lacks one-way depiction, teaching wrong-way positioning as correct.",
+    "teaching_correct": {
+      "note": "On a two-way street as drawn, starting a left turn from the far-left/wrong-side lane teaches wrong-way driving; cyclist riding on double-yellow center also models illegal position.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Bird's-eye view of an urban intersection with a blue sedan at the bottom in the left lane following a light-blue left-turn arrow onto an east-west street with double-yellow center where a cyclist and gray sedan travel."
+  },
+  "error_body": null
+}

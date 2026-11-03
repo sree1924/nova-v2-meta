@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-632-lane-control-flashing-yellow-x-left-turn-only",
+  "file": "drv-632-lane-control-flashing-yellow-x-left-turn-only.png",
+  "title": "Overhead Flashing Yellow 'X' Lane-Control Signal: Use This Center Reversible Lane ONLY for Turning Left (With Caution)!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "91fbb8da66806e440fb3aff6e48fe178ea421ff8dc08c6b009f35fe915c2213e",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6353,
+  "usage": {
+    "completion_tokens": 1365,
+    "prompt_tokens": 2489,
+    "total_tokens": 3854,
+    "completion_tokens_details": {
+      "reasoning_tokens": 983
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 1009
+    }
+  },
+  "usd_priced": 0.008913,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-632-lane-control-flashing-yellow-x-left-turn-only",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles face away from camera in same direction; no opposing head-on pair in one lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; subject absent.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Background vertical traffic signal on right shows two lit lenses at once - top amber/red and bottom green both illuminated.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow on left of travel lanes, curb/sidewalk on right, all traffic forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, signal backs, and license plates are blank geometric shapes; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Gantry shows red X left, flashing yellow X center, green arrow right with blue sedan pausing in center lane with left blinker to turn left.",
+      "verdict": "MATCH"
+    },
+    "summary": "Lane-use teaching is correct but background traffic signal shows two lit lenses simultaneously, failing single-bulb rule.",
+    "teaching_correct": {
+      "note": "Blue sedan correctly uses center flashing-yellow-X lane only to pause with signal on for left turn.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan with left blinker on pauses straddling a lane line under a steel gantry with red X, yellow X, and green arrow, while other cars drive ahead on a daylight urban arterial."
+  },
+  "error_body": null
+}

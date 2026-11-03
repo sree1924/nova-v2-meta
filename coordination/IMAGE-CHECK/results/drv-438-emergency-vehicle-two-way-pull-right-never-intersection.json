@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-438-emergency-vehicle-two-way-pull-right-never-intersection",
+  "file": "drv-438-emergency-vehicle-two-way-pull-right-never-intersection.png",
+  "title": "Approaching Fire Truck / Ambulance / Police With Siren: Clear Intersection First, Pull to Far RIGHT Edge & Full Stop!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1de8621cee64e0dde62e5b830baa1fa0d233e908a76008bb979c5b1cd318eb84",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4991,
+  "usage": {
+    "completion_tokens": 1125,
+    "prompt_tokens": 2278,
+    "total_tokens": 3403,
+    "completion_tokens_details": {
+      "reasoning_tokens": 739
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007629,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-438-emergency-vehicle-two-way-pull-right-never-intersection",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Fire engine and both SUVs all face same direction away from camera; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Fire engine travels in right lane with double-yellow centerline on its left and white edge line on its right; pulled-over cars are on right shoulder.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles; no letters, numbers, or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows fire engine approaching from behind with cars pulled to far right edge stopped, but no intersection is visible; title/prompt requirement to clear intersection first cannot be seen, and setting is rural wooded road not urban street.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct pull-right behavior shown but intersection context missing, requires human review.",
+    "teaching_correct": {
+      "note": "Pulling parallel to right edge to full stop and opening center corridor for fire truck is taught correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated rear view of a red fire engine with flashing lights driving in the right lane of a two-lane tree-lined road, while two SUVs are stopped parallel on the gravel shoulder to the right."
+  },
+  "error_body": null
+}

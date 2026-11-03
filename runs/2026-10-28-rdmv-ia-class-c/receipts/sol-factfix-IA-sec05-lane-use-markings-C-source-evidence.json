@@ -1,0 +1,102 @@
+{
+  "kind": "listed_target_source_supported_fact_correction",
+  "run_id": "2026-10-28-rdmv-ia-class-c",
+  "section": "sec05-lane-use-markings",
+  "part": "C",
+  "authority_ref": {
+    "path": "coordination/SOL-TARGETED-45-SEVEN-LANES-AUTHORITY-20261029.json",
+    "sha256": "3c9b842dea00bf4169fbf4ff23d39e44597e8bab1b496faec0f27a917683d08d"
+  },
+  "input_snapshot_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/input-snapshots/IA.json",
+    "sha256": "dbf40a82f9e287e3cc1cf687783ef92d600b5b097fc4fedda18a5206ef94c217"
+  },
+  "corrections_ref": {
+    "path": "coordination/FACT-CHECK/IA/corrections.json",
+    "sha256": "dbf40a82f9e287e3cc1cf687783ef92d600b5b097fc4fedda18a5206ef94c217"
+  },
+  "official_pdf_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/sources/private/download.pdf",
+    "sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80"
+  },
+  "source_text_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/sources/private/15-source-text.txt",
+    "sha256": "9598d6b10d955a65cd4a0f278bc91395f01e6aec9c76957cd8cc454cad71b070"
+  },
+  "direct_pdf_pages_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/batch45/IA/DIRECT-PDF-TARGET-PAGES.json",
+    "sha256": "02a157c3672df2d70d0c8e96d93499976d6d4b79899a0d01c0f1c0c2494e672f"
+  },
+  "target_facts": [
+    {
+      "section": "sec05-lane-use-markings",
+      "fact_id": "sec05-F04",
+      "kind": "MEANING",
+      "correct_pdf_page": 15,
+      "part": "C",
+      "chunk_id": "C.01",
+      "old_fact": {
+        "fact_id": "sec05-F04",
+        "text": "Yield lines are white triangles in a row aimed at oncoming drivers, marking where to yield for yield and yield-here-to-pedestrian signs.",
+        "statement": "Yield lines are white triangles in a row aimed at oncoming drivers, marking where to yield for yield and yield-here-to-pedestrian signs.",
+        "status": "authored",
+        "acceptance_kind": "deterministic_validation_only",
+        "independent_audit_status": "pending",
+        "section": "C",
+        "chunk_id": "C.01",
+        "domain": "Lane Use and Markings",
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0015",
+        "pdf_page": 15,
+        "printed_page": "15",
+        "page_map_id": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0015",
+        "source_document_sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80",
+        "source_ref": {
+          "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+          "pdf_page": 15,
+          "printed_page": "15",
+          "page_map_id": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0015"
+        },
+        "source_span": {
+          "chunk_id": "C.01",
+          "start_line": 16,
+          "end_line": 18,
+          "markdown_sha256": "2ca19548cbcbf509f521c82cbbc9ca03bcc9c3520b446cd857d28236be323332",
+          "verbatim": "FACT_ID: sec05-F04 | anchor: A01\nYield lines are white triangles in a row aimed at oncoming drivers, marking where to yield for yield and yield-here-to-pedestrian signs [A01].\nSource: [A01 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0015]"
+        },
+        "transformation": "Remove explicit fact-ID marker and declared inline source-anchor tokens; retain all wording and continuation lines."
+      },
+      "old_statement": "Yield lines are white triangles in a row aimed at oncoming drivers, marking where to yield for yield and yield-here-to-pedestrian signs.",
+      "old_spoken": "Yield lines are white triangles in a row aimed at oncoming drivers, marking where to yield for yield and yield-here-to-pedestrian signs.",
+      "statement": "Yield lines use white, solid triangular markings aimed at approaching traffic. They identify the yielding point for three signs: Yield Here to Pedestrians and Bicycles, Yield, and Yield Here To Pedestrians.",
+      "source_max_overlap": 6,
+      "correction_input": {
+        "section": "sec05-lane-use-markings",
+        "fact_id": "sec05-F04",
+        "kind": "MEANING",
+        "still_wrong": true,
+        "corrected_statement": "Yield lines are a row of solid white triangles pointing toward approaching vehicles that mark where to yield for yield signs, yield here to pedestrians signs, and yield here to pedestrians and bicycles signs.",
+        "correct_pdf_page": 15,
+        "note": "Added the missing yield here to pedestrians and bicycles sign type."
+      }
+    }
+  ],
+  "full_descendant_plan": [
+    "fresh16 compile after all changed parts",
+    "03 exact target labels/repeated claims",
+    "04 target backs/repeated claims",
+    "05 actual target visual/narration/why-how",
+    "05 target script answer/equality/repeated claims",
+    "06 only actual wrong claims or required current-binding metadata; preserve questions/counts"
+  ],
+  "fixer_receipt_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/receipts/sol-factfix-IA-FIXER.json",
+    "sha256": "ace26c195c2c454fd2d14778bcfa6f53906df63a51c6cd727cb79b3d7c0072ad"
+  },
+  "preserve": "All non-target fact wording, citations, IDs, status/debt/flags, original attribution, source/edition/map and immutable accepted history. No source15 replay or gap repair.",
+  "recorded_by": {
+    "actor_id": "Sol/gpt-6.1-sol (ChatGPT Pro subscription, Iowa targeted FIXER)",
+    "session_id": "01a1849b-eb8e-70c1-9506-35b6a8cc50f7",
+    "provider_family": "openai"
+  },
+  "recorded_at": "2026-10-29T21:31:34.110Z"
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-143-gdl-day-and-night-practice-hours-log",
+  "file": "drv-143-gdl-day-and-night-practice-hours-log.png",
+  "title": "Supervised Practice Driving Log: Daytime & Nighttime Hours Logged Before Road Test",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "494e263c807d030743f8f374b9f77d60ef82dc1e747100072b867766f3421896",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5933,
+  "usage": {
+    "completion_tokens": 1076,
+    "prompt_tokens": 2260,
+    "total_tokens": 3336,
+    "completion_tokens_details": {
+      "reasoning_tokens": 694
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007398,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-143-gdl-day-and-night-practice-hours-log",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No roadway or vehicles present; indoor kitchen-table scene only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel shown; only a key fob on table.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in image.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No road, lane markings, or driving visible; indoor kitchen scene only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; clipboard shows only sun icons, moon icons, checkmarks and bar, mugs show only sun/moon icons, key fob blank.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows parent and teen at kitchen table checking clipboard with sun-icon rows for day and moon-icon rows for night plus progress bar, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Indoor log-check scene matches prompt with day/night icons and no text; no traffic elements to violate rules.",
+    "teaching_correct": {
+      "note": "Correctly teaches separate logging of daytime and nighttime supervised hours with visual sun/moon rows and progress.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A teen girl in purple and an adult man in blue smile at a wooden kitchen table while she marks a clipboard showing yellow sun icons on top rows and blue crescent moons on bottom rows with checkmarks and a green progress bar."
+  },
+  "error_body": null
+}

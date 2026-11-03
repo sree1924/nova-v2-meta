@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-91-stuck-accelerator-neutral-coast",
+  "file": "drv-91-stuck-accelerator-neutral-coast.png",
+  "title": "Stuck Accelerator / Gas Pedal: Shift Immediately to Neutral, Brake & Pull Right",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "8064c2b879ee727328da5a1ba63fe44038d4789e393519cdecd318360631fdeb",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5197,
+  "usage": {
+    "completion_tokens": 1181,
+    "prompt_tokens": 2291,
+    "total_tokens": 3472,
+    "completion_tokens_details": {
+      "reasoning_tokens": 784
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007883,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-91-stuck-accelerator-neutral-coast",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground lane travel same direction; oncoming vehicle is on separate divided carriageway left, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No steering wheel visible; inset shows only hand on center console shifter, no cabin drive side to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Divided US highway with yellow centerline on left, white edge line on right, traffic driving on right and blue sedan coasting to right shoulder.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; plates blank, inset uses only colored dots and white arrows.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue sedan with brake/hazards coasting to right shoulder plus inset of hand shifting console to neutral, matching stuck-accelerator prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly teaches shift-to-neutral, brake, and pull right with no rule violations; accept.",
+    "teaching_correct": {
+      "note": "Correctly shows brake lights, hazards, steering to right shoulder, and neutral selection without turning off ignition.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan with glowing red brakes and amber hazards pulled onto the right paved shoulder of a divided highway in rear-three-quarter view, with a circular upper-left inset showing a hand on a center gear shifter with green/red dots and arrows."
+  },
+  "error_body": null
+}

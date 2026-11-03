@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-602-coastal-beach-sand-tide-driving-caution",
+  "file": "drv-602-coastal-beach-sand-tide-driving-caution.png",
+  "title": "Designated Coastal / Beach Access Driving: Watch Pedestrians, Tide Lines & Soft Sand",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "c9a456e4ed0f04bc18ac9b14c8eae1bd8f1cf53a0bd087abfdc34387735a14f7",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6858,
+  "usage": {
+    "completion_tokens": 1405,
+    "prompt_tokens": 2248,
+    "total_tokens": 3653,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1026
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008781,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-602-coastal-beach-sand-tide-driving-caution",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one SUV visible, no opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; exterior rear three-quarter view only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in beach scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Unmarked packed-sand access track with wooden posts, no yellow centerline, white edge line, or opposing traffic to judge driving side; no left-hand violation visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "License plate is blank white rectangle, no letters, numbers or words anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows 4WD SUV on packed sand with wooden posts and tide line, but beach walkers/pedestrians to yield to described in title and prompt are absent.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Beach SUV scene is clean of text and violations but missing the required pedestrians, so yielding lesson is not shown.",
+    "teaching_correct": {
+      "note": "Vehicle on sand near tide line is plausible, no wrong geometry, but without pedestrians the key yielding behavior is not taught.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "A light-green 4WD SUV viewed from rear three-quarter on packed beach sand between wooden posts, with ocean waves and sunset in background and no people visible."
+  },
+  "error_body": null
+}

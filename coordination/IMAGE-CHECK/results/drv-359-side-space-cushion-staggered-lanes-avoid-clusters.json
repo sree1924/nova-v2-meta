@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-359-side-space-cushion-staggered-lanes-avoid-clusters",
+  "file": "drv-359-side-space-cushion-staggered-lanes-avoid-clusters.png",
+  "title": "Side Space Cushion: Stagger Your Position on Multi-Lane Roads (Never Drive Side-by-Side in Packs or Blind Spots!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "98b7ff65e92fad17545069cc1acebf60645c7cc41df0a4fc5288ccc0caa16554",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3917,
+  "usage": {
+    "completion_tokens": 831,
+    "prompt_tokens": 2277,
+    "total_tokens": 3108,
+    "completion_tokens_details": {
+      "reasoning_tokens": 441
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006378,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-359-side-space-cushion-staggered-lanes-avoid-clusters",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground and background travel same direction forward; no oncoming or head-on vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; all views are exterior rear views with tinted windows.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals, stoplights, or signal heads present in freeway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic flows forward on right side; yellow line on far left, white edge line and guardrail on far right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All license plates are blank white rectangles; no letters, numbers, or words on road, signs, or vehicles.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan in center foreground with surrounding vehicles staggered diagonally ahead left, center, and right, leaving open side space, matching staggered-pocket description.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image shows staggered freeway positioning with side space cushion, with all applicable visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows correct staggered spacing with no side-by-side clustering, preserving escape space on both sides.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue sedan in the middle lane of a multi-lane freeway at sunset, with four other vehicles staggered ahead in left, center, and right lanes and open space around the blue car."
+  },
+  "error_body": null
+}

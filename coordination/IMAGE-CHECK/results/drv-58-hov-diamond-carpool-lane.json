@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-58-hov-diamond-carpool-lane",
+  "file": "drv-58-hov-diamond-carpool-lane.png",
+  "title": "High-Occupancy Vehicle (HOV) White Diamond Carpool Lane",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "13511584e35c1db08eb25eaa27b085d17063d5ae84c0b8092103a710d8b83ab5",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5799,
+  "usage": {
+    "completion_tokens": 966,
+    "prompt_tokens": 2303,
+    "total_tokens": 3269,
+    "completion_tokens_details": {
+      "reasoning_tokens": 574
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006984,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-58-hov-diamond-carpool-lane",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles on near side travel same forward direction; opposing traffic is separated by concrete median, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; all vehicles seen from exterior rear.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in freeway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Divided US freeway: solid yellow line on far left at median barrier, solid white buffer on right of HOV lane, traffic keeps right with opposing lanes separated.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Overhead gantry signs are blank green shapes, license plates are blank white rectangles; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Far-left carpool lane with white hollow diamond, family van from behind cruising, concrete median on left and general lanes on right matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "HOV diamond lane correctly depicted with compliant markings, blank signs, and proper US freeway geometry.",
+    "teaching_correct": {
+      "note": "Clearly teaches white diamond marks leftmost HOV/carpool lane with van cruising correctly in lane.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated rear view along a sunny divided freeway at sunset with a gray van in the far-left lane over a white hollow diamond marking, concrete barrier and yellow line on the left, and multi-lane traffic on the right."
+  },
+  "error_body": null
+}

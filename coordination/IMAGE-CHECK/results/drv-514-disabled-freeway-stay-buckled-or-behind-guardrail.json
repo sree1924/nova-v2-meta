@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-514-disabled-freeway-stay-buckled-or-behind-guardrail",
+  "file": "drv-514-disabled-freeway-stay-buckled-or-behind-guardrail.png",
+  "title": "Freeway Breakdown Pedestrian Survival: Never Stand Behind/Beside Car in Traffic — Wait Well Upstream Behind Guardrail or Buckled Inside!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "ff3888813dbbab14d521211e7ed0a60162e3cb958ac684e786b999c829d879c4",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 10894,
+  "usage": {
+    "completion_tokens": 1944,
+    "prompt_tokens": 2502,
+    "total_tokens": 4446,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1513
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.01139,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-514-disabled-freeway-stay-buckled-or-behind-guardrail",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Broken car in foreground and truck/car in background all face toward foreground in same direction; no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible; only exterior of broken car with open hood.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal is present in the freeway shoulder scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Disabled car is on right shoulder (viewer's left) with white edge line on travel-lane side and double-yellow on opposite side (viewer's right); background traffic travels same direction toward foreground.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; red X, warning triangle, and cloth are blank graphic shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows hood-up car on interstate shoulder with hazard triangle and family standing safely on grass behind guardrail, plus red-X inset of standing by traffic - exactly the prompted survival concept.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration correctly teaches waiting behind guardrail away from traffic with proper US right-hand geometry and zero text.",
+    "teaching_correct": {
+      "note": "Teaches correct behavior: passengers well behind guardrail upstream, unsafe roadside standing crossed out; car placement, triangle, and flashers support the lesson.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A white car with open hood and warning triangle sits on a freeway shoulder in foreground, while three people stand on grass behind a W-beam guardrail on the left and a red-X inset on the far left shows silhouettes standing by traffic."
+  },
+  "error_body": null
+}

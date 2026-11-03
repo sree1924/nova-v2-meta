@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-274-pilot-car-follow-me-work-zone",
+  "file": "drv-274-pilot-car-follow-me-work-zone.png",
+  "title": "Single-Lane Rural Work Zone: Waiting for & Following an Official Pilot Car",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "67abf9055609b66558456287bc1f58f132001e2555c4736c1b289a5407e1f3a5",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6648,
+  "usage": {
+    "completion_tokens": 1636,
+    "prompt_tokens": 2258,
+    "total_tokens": 3894,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1250
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009775,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-274-pilot-car-follow-me-work-zone",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Following lane all同一 direction; oncoming SUV is in separate left lane across double-yellow, not same-lane head-on.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in rural work-zone scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "File drives on right with double-yellow on left and white edge line on right; oncoming vehicle keeps left of yellows.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates and scene show blank shapes; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Orange pickup with amber beacon leading single file of sedans through cones and paving is shown, but opposite lane remains open with oncoming SUV, contradicting one-lane closure.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct pilot-car follow behavior but two-way traffic still open contradicts single-lane pilot operation, needs human review.",
+    "teaching_correct": {
+      "note": "Following without passing is correct, but showing oncoming traffic approaching while following pilot in a one-lane zone teaches wrong single-lane logic.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "A line of sedans follows an orange pickup with flashing amber beacon past cones and paving equipment on a rural two-lane road, with an oncoming SUV in the left lane."
+  },
+  "error_body": null
+}

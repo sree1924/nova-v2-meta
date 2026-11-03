@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-491-tornado-severe-thunderstorm-never-park-under-overpass",
+  "file": "drv-491-tornado-severe-thunderstorm-never-park-under-overpass.png",
+  "title": "Tornado / Extreme Windstorm Emergency: Seek Sturdy Building or Low Ditch — NEVER Park Blocking Under a Highway Overpass!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "b5a6aaf6caa443a52a00b8ed29a5f8dbedaa3f04b5bdc75c41c5fc59a18036d6",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5196,
+  "usage": {
+    "completion_tokens": 1108,
+    "prompt_tokens": 2268,
+    "total_tokens": 3376,
+    "completion_tokens_details": {
+      "reasoning_tokens": 665
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007544,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-491-tornado-severe-thunderstorm-never-park-under-overpass",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in both left overpass lanes and right highway lanes face same direction away from viewer; no opposing head-on pairing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of vehicles shown; no car interiors or steering wheels visible to judge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either stormy highway panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels show yellow line on left edge and white line on right edge with traffic moving forward on right side of road, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words on signs, plates, or buildings; plates are blank gray rectangles; large red X left and green check right are graphic icons per prompt, not text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left panel shows cars clustering under highway overpass under red X, right panel shows cars pulled off and people entering sturdy brick shelter under green check, exactly as title and prompt describe.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split storm-highway image correctly contrasts dangerous overpass parking versus safe brick shelter with correct US lane markings and no text violations.",
+    "teaching_correct": {
+      "note": "Clearly teaches to avoid blocking under overpass as wind-tunnel danger and to seek sturdy building, matching tornado emergency guidance.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split widescreen storm scene: left shows many cars stopped under a concrete highway overpass under a red X, right shows empty highway with cars pulled off and people walking to a small brick shelter building under a green check, with lightning and dark clouds above."
+  },
+  "error_body": null
+}

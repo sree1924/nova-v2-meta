@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-504-never-turn-ignition-to-lock-while-moving",
+  "file": "drv-504-never-turn-ignition-to-lock-while-moving.png",
+  "title": "CRITICAL Emergency Rule: NEVER Turn Ignition Key to 'Lock/Off' While Vehicle Is Moving — Steering Wheel Will Lock!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2ec4891a5ce62e78888a80967cf31f5c008b5563219f8f78c209d258981f01e1",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5072,
+  "usage": {
+    "completion_tokens": 1230,
+    "prompt_tokens": 2265,
+    "total_tokens": 3495,
+    "completion_tokens_details": {
+      "reasoning_tokens": 859
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008059,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-504-never-turn-ignition-to-lock-while-moving",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No road, lanes, or multiple vehicles visible to evaluate head-on conflict.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "no_rhd_cabin": {
+        "note": "Steering wheel and ignition shown centered close-up with no evidence of right-side driver placement.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in image.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Close-up interior graphic with no roadway, centerline, or edge line visible to evaluate.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; padlock, key, and prohibition are pure graphic shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows red prohibition over ignition key and padlock on steering wheel, but missing hand-twisting action and rolling highway context from prompt.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean zero-text prohibition graphic that teaches the lock hazard correctly, but lacks hand and moving-car context, requiring human review.",
+    "teaching_correct": {
+      "note": "Red prohibition plus yellow padlock on ignition clearly warns against locking steering, consistent with emergency rule.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Close-up of a black steering wheel with an ignition key inserted on the right side, overlaid by a large red prohibition circle-slash and a yellow padlock icon, on a blue-yellow burst background."
+  },
+  "error_body": null
+}

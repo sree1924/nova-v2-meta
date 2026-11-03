@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-428-autocycle-three-wheel-enclosed-cabin",
+  "file": "drv-428-autocycle-three-wheel-enclosed-cabin.png",
+  "title": "Three-Wheeled Motorcycles, Trikes & Autocycles (Steering Wheel + Seatbelts vs. Handlebars)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "32a32b634248ca9aa88656bb4bc99c9472ba8899cafad59357e1988714ef12e7",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5069,
+  "usage": {
+    "completion_tokens": 838,
+    "prompt_tokens": 2474,
+    "total_tokens": 3312,
+    "completion_tokens_details": {
+      "reasoning_tokens": 457
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006654,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-428-autocycle-three-wheel-enclosed-cabin",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground and background face forward in same direction; no opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Driver cockpit of foreground autocycle visible but no steering wheel on right side; no RHD car interior shown.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic travels forward on right side; double-yellow centerline on left, white edge/curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Road signs on right and license plates are blank shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Foreground shows sporty open three-wheeled autocycle with two front wheels, one rear wheel cruising in center of right lane on sunny boulevard as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts a three-wheeled autocycle in US right-hand traffic with no rule violations; suitable for teaching.",
+    "teaching_correct": {
+      "note": "Shows autocycle operating correctly in right lane with traffic flow, consistent with steering-wheel/seatbelt autocycle concept.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A black three-wheeled open autocycle with one rear wheel and two front wheels drives in the right lane of a sunny palm-lined boulevard, following cars ahead with blank signs on the right sidewalk."
+  },
+  "error_body": null
+}

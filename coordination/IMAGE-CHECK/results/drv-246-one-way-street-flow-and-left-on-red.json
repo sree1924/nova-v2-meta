@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-246-one-way-street-flow-and-left-on-red",
+  "file": "drv-246-one-way-street-flow-and-left-on-red.png",
+  "title": "One-Way Street Flow & Legal Left Turn on Red From One-Way Street Onto Another One-Way Street",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2caec535725c03201a3759d2d100b0d1bdadc98209daddd7be319cb47f13d9ca",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7169,
+  "usage": {
+    "completion_tokens": 991,
+    "prompt_tokens": 2299,
+    "total_tokens": 3290,
+    "completion_tokens_details": {
+      "reasoning_tokens": 575
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007085,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-246-one-way-street-flow-and-left-on-red",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one blue sedan visible in foreground bottom lane; no second vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Bird's-eye exterior view only; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Center signal shows single red lens lit on top, other two lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "One-way streets with white dashed lanes; bottom northbound car has yellow line on left curb and white on right, cross-street arrows both point left/west with no wrong-way driving.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; arrow plaques and road markings are blank arrow shapes only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows elevated intersection of two one-way streets, blue sedan stopped behind stop bar at red in far-left lane turning left into westbound one-way as described.",
+      "verdict": "MATCH"
+    },
+    "summary": "Bird's-eye shows correct one-way to one-way left on red setup with proper stop position and signaling; all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Car stopped behind white stop bar and crosswalk, left lane to leftmost lane turn on red, models legal procedure correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated bird's-eye view of a blue sedan stopped behind the white stop bar in the far-left lane of a bottom northbound one-way street at a red light, with a blue arrow showing a left turn into the westbound one-way cross street marked by left-pointing arrow plaques."
+  },
+  "error_body": null
+}

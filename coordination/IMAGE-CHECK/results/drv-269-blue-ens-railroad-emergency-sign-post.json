@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-269-blue-ens-railroad-emergency-sign-post",
+  "file": "drv-269-blue-ens-railroad-emergency-sign-post.png",
+  "title": "Blue Emergency Notification System (ENS) Sign Posted at Every Highway-Rail Grade Crossing",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2d08440c11c2776103ddf6445aa857c3c2418ff0130bd117c0befa2d190ca627",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6010,
+  "usage": {
+    "completion_tokens": 1285,
+    "prompt_tokens": 2273,
+    "total_tokens": 3558,
+    "completion_tokens_details": {
+      "reasoning_tokens": 841
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008303,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-269-blue-ens-railroad-emergency-sign-post",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only a single freight train on the tracks in background; no two vehicles facing each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; scene shows a man standing outdoors by a signal post.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Left mast shows one red lit and one dark; foreground mast shows one red lit lens with adjacent lens dark/unlit; at most one lit lens per signal.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "No roadway travel lane, centerline, or road vehicles visible; only railroad tracks and grassy verge.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; blue plaque shows only white phone-handset icon, crossbuck and signals are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue phone-icon plaque on railroad signal post with man calling and train passing, but plaque is vertical and lacks barcode-style locator bar, and is not horizontal as prompted.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Image is text-free and signal-compliant showing a blue ENS-type phone plaque at a rail crossing, but plaque orientation is vertical and missing the locator bar, requiring human review.",
+    "teaching_correct": {
+      "note": "Teaches learner to locate blue emergency phone sign on gate mast and call from safe position off tracks; no wrong geometry or opposite lesson.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A man stands in grass in foreground beside a railroad signal mast with flashing red lights, looking at a vertical royal-blue plaque with a white telephone handset icon while holding a phone to his ear, with a freight train passing on tracks behind at sunset."
+  },
+  "error_body": null
+}

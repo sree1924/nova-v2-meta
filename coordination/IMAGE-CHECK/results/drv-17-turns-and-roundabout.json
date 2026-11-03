@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-17-turns-and-roundabout",
+  "file": "drv-17-turns-and-roundabout.png",
+  "title": "Proper U.S. Lane-to-Lane Left/Right Turns & Counter-Clockwise Roundabout",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "99f84813c6d78202e20606aef5f4c718c1705909e2cdf01629557fab7c606ef9",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9638,
+  "usage": {
+    "completion_tokens": 2070,
+    "prompt_tokens": 2123,
+    "total_tokens": 4193,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1672
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.011451,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-17-turns-and-roundabout",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No opposing vehicles facing each other in same lane; left cars side-by-side northbound, right cars in different positions.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down vehicles only, no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Vehicles keep right with double-yellow center to left of approach lanes; turns land in correct halves and roundabout circulates counter-clockwise.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Clear text present: ROUNDABOUT: COUNTER-CLOCKWISE at top-right, YIELD AT ENTRY mid-left, TURN NEAREST PROPER LANE at bottom-left.",
+        "verdict": "FAIL"
+      }
+    },
+    "scene_match": {
+      "note": "Left panel shows lane-to-lane left and right turns, right panel shows counter-clockwise roundabout with yield entry as titled.",
+      "verdict": "MATCH"
+    },
+    "summary": "Geometry and teaching are correct for US lane-to-lane turns and CCW roundabout, but image contains prohibited text labels, requiring REJECT.",
+    "teaching_correct": {
+      "note": "Left turn to nearest left lane, right turn to nearest right lane, and CCW circulation with yield at entry are geometrically correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Two-panel top-down vector diagram: left shows two cars making left and right turns at a cross intersection, right shows a roundabout with a yellow car circulating and a blue car yielding at entry."
+  },
+  "error_body": null
+}

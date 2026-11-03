@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-345-yielding-on-unpaved-road-entering-paved-highway",
+  "file": "drv-345-yielding-on-unpaved-road-entering-paved-highway.png",
+  "title": "Unpaved / Dirt / Gravel Road Intersecting a Paved Highway: Unpaved-Road Driver Must Yield!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "a08cb90150358ccec82eb2767f5bd97c1032b98b7959de3bc74138eaf7fbc11c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4248,
+  "usage": {
+    "completion_tokens": 814,
+    "prompt_tokens": 2272,
+    "total_tokens": 3086,
+    "completion_tokens_details": {
+      "reasoning_tokens": 452
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.0063,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-345-yielding-on-unpaved-road-entering-paved-highway",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Pickup and sedan both face away forward in separate areas, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of vehicles; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in rural junction scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Paved highway shows double-yellow centerline and white right edge line; sedan travels in right lane.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates and backgrounds are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Tan gravel lane meets dark-asphalt highway with pickup stopped at edge yielding to sedan on highway, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Rural junction correctly depicts unpaved driver stopped and yielding to paved-highway traffic with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Pickup stopped before white edge line yielding priority to highway sedan teaches yield rule correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A beige pickup waits stopped on a tan gravel lane in the left foreground at the edge of a paved two-lane highway, while a dark sedan drives away on the highway to the right with barn and fields in background."
+  },
+  "error_body": null
+}

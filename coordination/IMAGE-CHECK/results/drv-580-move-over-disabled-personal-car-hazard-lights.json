@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-580-move-over-disabled-personal-car-hazard-lights",
+  "file": "drv-580-move-over-disabled-personal-car-hazard-lights.png",
+  "title": "Expanded Move-Over Protection: Change Lanes or Slow Down for ANY Disabled Motorist Displaying Flashing Hazard Lights!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d98d51cc4b6040541359dcbec154c95d8924469ff038928ec590157b7e971e28",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6441,
+  "usage": {
+    "completion_tokens": 1417,
+    "prompt_tokens": 2478,
+    "total_tokens": 3895,
+    "completion_tokens_details": {
+      "reasoning_tokens": 976
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00912,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-580-move-over-disabled-personal-car-hazard-lights",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles (blue sedan foreground left and two distant cars) face away from viewer in same direction; no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No steering wheel or driver cabin details visible to judge drive side; interior only glimpsed through minivan side window.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in highway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue sedan travels forward with solid yellow line on its RIGHT side between travel lane and shoulder where minivan is stopped; US requires yellow on LEFT and white edge on RIGHT.",
+        "verdict": "FAIL"
+      },
+      "zero_text": {
+        "note": "Overhead green gantry signs are blank shapes and license plate is blank white rectangle; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows disabled minivan on right shoulder with flashing amber hazards and woman at door, with blue sedan in left lane giving buffer, matching move-over for disabled motorist; rear hatch open instead of front hood but still conveys disabled vehicle.",
+      "verdict": "MATCH"
+    },
+    "summary": "Move-over action is clear but road marking is wrong with yellow line on right side of travel lane, failing US right-hand traffic.",
+    "teaching_correct": {
+      "note": "Move-over buffer and hazard-light cue are taught correctly; minivan fully off travel lane and passing car left giving space.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A silver minivan with open rear hatch and glowing amber hazards is stopped on the right shoulder with a woman leaning at its side door, while a blue sedan passes in the lane to its left on a sunny palm-lined highway with blank overhead signs."
+  },
+  "error_body": null
+}

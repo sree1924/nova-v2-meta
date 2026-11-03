@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-377-no-parking-blocking-driveway-sidewalk-bridge-tunnel",
+  "file": "drv-377-no-parking-blocking-driveway-sidewalk-bridge-tunnel.png",
+  "title": "Never Park Across a Sidewalk, In Front of a Driveway, On a Bridge/Overpass, or Inside a Tunnel",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "3b944048b4e60cc61c331e59a425f0a914eee14dfed1b9f9b450d280baa272fb",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4966,
+  "usage": {
+    "completion_tokens": 1148,
+    "prompt_tokens": 2266,
+    "total_tokens": 3414,
+    "completion_tokens_details": {
+      "reasoning_tokens": 749
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007711,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-377-no-parking-blocking-driveway-sidewalk-bridge-tunnel",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No vehicles facing each other in same lane; left panel car parked perpendicular across sidewalk, right panel traffic separated with oncoming truck in left lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only vehicle exteriors visible; no cabins or steering wheels shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in either panel.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Right bridge panel shows correct US layout: double yellow centerline on left of travel lane, white edge line on right by railing; left residential panel shows no opposing traffic violation.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white shapes, no letters or numbers; red X prohibition icons are graphic symbols, not text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left panel shows car across sidewalk blocking driveway apron with pedestrian blocked; right panel shows car parked on bridge deck, both marked with red X as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Two-panel prohibition matches prompt and teaches no parking on sidewalk/driveway and bridge correctly with no rule violations.",
+    "teaching_correct": {
+      "note": "Clearly depicts prohibited parking locations with red X, pedestrian blocked on sidewalk and car stopped on bridge shoulder.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split image: left a silver sedan parked across a concrete sidewalk blocking a residential driveway as a person with stroller passes; right a dark sedan parked on the shoulder of a bridge with traffic moving."
+  },
+  "error_body": null
+}

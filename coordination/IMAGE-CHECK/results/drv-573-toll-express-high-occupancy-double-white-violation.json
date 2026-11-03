@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-573-toll-express-high-occupancy-double-white-violation",
+  "file": "drv-573-toll-express-high-occupancy-double-white-violation.png",
+  "title": "Express / Managed Lanes: Enter and Exit ONLY at Designated Dashed Access Zones (Never Cross Solid Barrier Stripes!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "da6b01210754da8f69f3c7c273148d085d546b53d5f0607a7f1623494eb5448f",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7211,
+  "usage": {
+    "completion_tokens": 1361,
+    "prompt_tokens": 2253,
+    "total_tokens": 3614,
+    "completion_tokens_details": {
+      "reasoning_tokens": 971
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008601,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-573-toll-express-high-occupancy-double-white-violation",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground/center lanes show rear views traveling forward same direction; no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Right roadside vertical signal shows only bottom green lens lit, upper lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Main traffic travels forward on right side of divided freeway, opposite traffic beyond left concrete median, white edge line on right shoulder.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All overhead signs, roadside signs, and license plates are blank solid colors; diamond is simple icon, no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows multi-lane freeway with right express lane separated by long double-solid-white with posts, mainline cars holding lane until dashed access opens ahead.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration correctly shows staying out of express lane across double-solid barrier until dashed access, with no rule violations.",
+    "teaching_correct": {
+      "note": "Cars wait in general lanes and do not cross solid barrier stripes; demonstrates enter/exit only at dashed zone.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of cars in center freeway lanes at sunset with a separated express lane on the right divided by double-solid-white lines and posts, blank green signs and a green signal on the right shoulder."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-160-pulling-away-from-curb-signal-mirror-check",
+  "file": "drv-160-pulling-away-from-curb-signal-mirror-check.png",
+  "title": "Entering Traffic From Right Curb: Left Signal, Mirror + Left Shoulder Check & Yield",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1d12c0db5f0eaa0dc068a1139a9a8828ea8be9d324bdcf78e24e96ca52cf8a24",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6422,
+  "usage": {
+    "completion_tokens": 1097,
+    "prompt_tokens": 2275,
+    "total_tokens": 3372,
+    "completion_tokens_details": {
+      "reasoning_tokens": 658
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007506,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-160-pulling-away-from-curb-signal-mirror-check",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one blue sedan visible from behind parked at right curb; no oncoming or opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Inset top-right shows left-hand-drive cabin with driver holding wheel on left side and looking over left shoulder; no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No intersection traffic signal present; only the car's left amber turn signal is lit, which is not a traffic signal lens.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on LEFT of view, right concrete curb and sidewalk on RIGHT, blue car parked on right side facing forward.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is a blank gray rectangle, street and houses have no text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows parked blue sedan at right curb with left signal and left shoulder check, but the passing red car to yield to described in prompt/title is absent; lane ahead is empty.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct right-curb parking, left signal and shoulder-check details with US traffic and zero text, but missing the passing red car to yield to, so PARTIAL match requires human review.",
+    "teaching_correct": {
+      "note": "Shows correct technique: waiting at right curb with left signal on and left shoulder check; no wrong priority or geometry taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan viewed from behind parked at the right curb with its left amber blinker on, on a sunny street with double-yellow on the left; an inset circle top-right shows the male driver looking over his left shoulder."
+  },
+  "error_body": null
+}

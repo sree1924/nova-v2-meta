@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-119-license-classes-cdl-vs-operator",
+  "file": "drv-119-license-classes-cdl-vs-operator.png",
+  "title": "Driver License Classes: Standard Passenger Car vs. Heavy Commercial Truck/Bus Tiers",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "1827d9b3ad6585df8655ff9a7480620d25692998683d20085347e46b338173e5",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4052,
+  "usage": {
+    "completion_tokens": 931,
+    "prompt_tokens": 2275,
+    "total_tokens": 3206,
+    "completion_tokens_details": {
+      "reasoning_tokens": 569
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006801,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-119-license-classes-cdl-vs-operator",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles shown from rear in separate color bands, none facing each other in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interiors or steering wheels are visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals are present in the chart.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "No roadway, lane markings, or traffic direction depicted; studio chart background only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "zero_text": {
+        "note": "All license plates are blank gray rectangles; no letters, numbers, or words anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Matches all 4 tiers: Tier 1 sedan+SUV with glow, Tier 2 tractor-trailer, Tier 3 dump truck+bus, Tier 4 motorcycle.",
+      "verdict": "MATCH"
+    },
+    "summary": "Clean 4-tier license-class chart matches prompt with zero text and no traffic-rule violations.",
+    "teaching_correct": {
+      "note": "Correctly distinguishes operator-class cars from tractor-trailer, straight truck/bus, and motorcycle tiers.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Four horizontal color bands showing rear views of vehicles: top yellow band with white sedan and blue SUV, blue band with white box trailer, green band with red dump truck and white bus, purple band with a motorcyclist."
+  },
+  "error_body": null
+}

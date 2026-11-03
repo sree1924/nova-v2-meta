@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-606-amber-silver-alert-highway-sign-call-handsfree",
+  "file": "drv-606-amber-silver-alert-highway-sign-call-handsfree.png",
+  "title": "Overhead Highway Alert Bulletins: Note Vehicle Details Safely & Pull Over Before Calling 911!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "4562e025337505837972a665e4a3744a9f8dd6c01da8254939354f50a103c4b6",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5183,
+  "usage": {
+    "completion_tokens": 944,
+    "prompt_tokens": 2253,
+    "total_tokens": 3197,
+    "completion_tokens_details": {
+      "reasoning_tokens": 569
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006828,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-606-amber-silver-alert-highway-sign-call-handsfree",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Single blue SUV parked in rest-stop stall, no opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; exterior rear view only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Highway on left shows double-yellow centerline on left side of travel and white edge line/guardrail on right; parked stall on right shoulder consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Overhead matrix shows only yellow child pictogram, license plate is blank white rectangle, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Overhead alert board, safely pulled-over SUV in scenic rest-stop stall, driver stopped and calling matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Driver safely pulled into rest-stop stall after alert board and calls while parked; all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows correct behavior: notice bulletin, pull fully off highway into marked stall before calling, not using phone while driving.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A man stands behind a parked blue SUV in a scenic interstate rest-stop stall talking on a phone, with an overhead highway matrix board showing a yellow child icon above the highway to the left."
+  },
+  "error_body": null
+}

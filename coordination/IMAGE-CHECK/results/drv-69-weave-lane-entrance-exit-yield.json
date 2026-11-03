@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-69-weave-lane-entrance-exit-yield",
+  "file": "drv-69-weave-lane-entrance-exit-yield.png",
+  "title": "Shared Freeway Weave Lane (Combined Entrance & Exit): Yield & Smooth Spacing",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "60cb5b469ba17376cc3b647be0a3ce3cd40a583340b69976b8c026bf89f0a0e0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6496,
+  "usage": {
+    "completion_tokens": 1281,
+    "prompt_tokens": 2293,
+    "total_tokens": 3574,
+    "completion_tokens_details": {
+      "reasoning_tokens": 854
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.008311,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-69-weave-lane-entrance-exit-yield",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both visible vehicles travel same direction northbound away from bottom of frame, no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only with dark glass, no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in aerial freeway view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow line on far left, white lane/edge lines on right, both cars facing northbound forward in correct lanes.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No text, letters, numbers, or words visible; road and vehicles are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Weave/auxiliary lane geometry with entrance bottom-right and exit top-right is present, but white vehicle is a sedan not an SUV, no right-turn signal visible, and no color-coded motion arrows shown.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Aerial weave-lane geometry is correct with proper markings and spacing, but key prompt elements (exiting SUV signaling, yielding interaction, motion arrows) are missing, requiring human review.",
+    "teaching_correct": {
+      "note": "Shows safe spacing with both vehicles northbound and separated, no wrong-way or opposite teaching, but fails to visually demonstrate signal, yield, and non-conflicting paths.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Elevated aerial view of a multi-lane freeway with a right-side auxiliary lane, a white sedan in the through lane near the top-center and an orange hatchback in the weave lane at the bottom-right, both facing north."
+  },
+  "error_body": null
+}

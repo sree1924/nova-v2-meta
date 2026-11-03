@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-364-no-passing-100ft-bridge-tunnel-intersection-rail",
+  "file": "drv-364-no-passing-100ft-bridge-tunnel-intersection-rail.png",
+  "title": "Prohibited No-Passing Zones: Within 100 Feet of Any Bridge, Viaduct, Tunnel, Intersection, or Railroad Crossing",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "173976f40ab354a6f786278997f32d9a2e99b1cb0cb8b2ce064cf613fff744cb",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4402,
+  "usage": {
+    "completion_tokens": 943,
+    "prompt_tokens": 2282,
+    "total_tokens": 3225,
+    "completion_tokens_details": {
+      "reasoning_tokens": 512
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00686,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-364-no-passing-100ft-bridge-tunnel-intersection-rail",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Each panel shows one rear-view car in foreground lane and one oncoming car in opposite lane; no head-on facing vehicles share same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear and front views of vehicles shown; no steering wheel or cabin interior visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Middle panel traffic signal shows single red lens lit on top, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "All three panels show foreground car in right lane with double yellow centerline on LEFT and white edge line on RIGHT, oncoming traffic on left.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; top prohibition icons, yellow diamond warning signs, and license plates are blank shapes/icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Three panels directly illustrate prompted situations: left concrete/steel river bridge, middle four-way intersection with signal, right tunnel portal, all with no-passing overlay.",
+      "verdict": "MATCH"
+    },
+    "summary": "Three-panel no-passing illustration correctly shows bridge, intersection, and tunnel with US right-hand geometry, blank signs/plates, and single red signal.",
+    "teaching_correct": {
+      "note": "Teaches no passing in bridge/intersection/tunnel zones with double solid yellow and red-X over pass arrow; lane positions and priority are correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Three side-by-side road views from behind a car: left on a river bridge, middle at a four-way intersection with a red light, right entering a lit tunnel, each topped by a red-circle no-passing arrow icon."
+  },
+  "error_body": null
+}

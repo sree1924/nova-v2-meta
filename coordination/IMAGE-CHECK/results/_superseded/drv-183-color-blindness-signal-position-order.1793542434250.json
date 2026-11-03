@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-183-color-blindness-signal-position-order",
+  "file": "drv-183-color-blindness-signal-position-order.png",
+  "title": "Color-Vision Deficiency Compensation: Reading Standard Vertical & Horizontal Signal Positions",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "32da370dac4fc0fc570620d4ad3c692fa2a5272827abe7d15a67ba25441b08fa",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6028,
+  "usage": {
+    "completion_tokens": 1223,
+    "prompt_tokens": 2273,
+    "total_tokens": 3496,
+    "completion_tokens_details": {
+      "reasoning_tokens": 820
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008039,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-183-color-blindness-signal-position-order",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Oncoming vehicles on left are in separate lane divided by double-yellow; no head-on facing within same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; only exterior rear views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Both inset housings show three lit lenses at once: left vertical has top red, middle yellow, bottom green all illuminated; right horizontal has far-left red, middle yellow, far-right green all illuminated.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Travel lane on right with white edge line/curb on far right; double-yellow centerline on left of travel lane with oncoming traffic left of it.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates, sky and road are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Image shows the requested left vertical and right horizontal signal housings against sky over highway, matching the described layout.",
+      "verdict": "MATCH"
+    },
+    "summary": "Shows correct vertical/horizontal signal layouts but violates single-lit-lens rule by lighting all three lenses in both housings, teaching incorrect signal operation.",
+    "teaching_correct": {
+      "note": "Both housings illuminate all three lenses simultaneously, which never occurs in operation and defeats color-blind position learning.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Top insets show a vertical traffic signal on the left and horizontal signal on the right with all lenses lit, over a sunset multi-lane highway with cars driving away in the foreground."
+  },
+  "error_body": null
+}

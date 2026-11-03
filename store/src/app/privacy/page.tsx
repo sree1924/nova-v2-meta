@@ -13,12 +13,15 @@ export default function Privacy() {
         <li><b>Account (only if you sign in):</b> your email address and sign-in details, held by our sign-in provider, Clerk. On your account record we store which states you bought and when that access ends.</li>
         <li><b>Payments (only if you buy):</b> processed by Stripe. Stripe holds your payment details; we receive the purchase record (amount, date, state bought, your account id and email), never your full card number.</li>
         <li><b>Study progress and practice scores:</b> stored only in your browser on your device. We do not receive them.</li>
+        <li><b>Anonymous course activity:</b> page visits, state selected, free-chapter starts, lesson completions, purchase-panel views, sign-in and checkout starts, purchases and refunds. These events contain a random anonymous id, a time, a page path and optional campaign labels. They contain no email address, account id, payment details, answers or practice score.</li>
+        <li><b>Local preview:</b> simulated activity is saved in a local event log and marked as test data. It is excluded from real sales or conversion results. A production analytics service is not connected yet.</li>
         <li><b>Server logs:</b> our host (Vercel) keeps standard request logs (such as IP address and pages requested) for security and operations.</li>
       </ul>
       <h2>Cookies</h2>
       <ul>
         <li>Clerk&apos;s sign-in cookies, to keep you signed in.</li>
         <li>One cookie of ours (<code>plp_ent</code>), set after sign-in, that tells the course which states your account has unlocked. It expires within 12 hours and is refreshed when you open the course.</li>
+        <li>First-party cookies keep a random anonymous visitor id and the campaign labels from your first visit for up to 30 days, so we can understand the path from a free chapter to a purchase. These cookies are not shared with advertisers.</li>
         <li>No advertising cookies and no third-party ad trackers.</li>
       </ul>
       <h2>What we do not do</h2>

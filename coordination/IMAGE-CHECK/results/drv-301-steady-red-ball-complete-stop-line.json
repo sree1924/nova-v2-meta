@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-301-steady-red-ball-complete-stop-line",
+  "file": "drv-301-steady-red-ball-complete-stop-line.png",
+  "title": "Steady Circular Red Signal: Come to a Complete Stop Behind White Stop Line & Remain Stopped",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "b9b3ec2029cc40a5bdefd1f955258ba23537751836455f34c3ea8fcc576597aa",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3657,
+  "usage": {
+    "completion_tokens": 818,
+    "prompt_tokens": 2276,
+    "total_tokens": 3094,
+    "completion_tokens_details": {
+      "reasoning_tokens": 473
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006321,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-301-steady-red-ball-complete-stop-line",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Single blue sedan viewed from rear; no oncoming vehicle facing it in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior of sedan visible; no cabin interior or steering wheel shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead 3-lens signal shows only top circular red lit, middle and bottom dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of lane, white edge line and curb on right; right-lane travel.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates, buildings and signals are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan held stopped behind white stop bar at urban intersection under steady red ball, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows steady red stop-behind-line with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Vehicle is fully stopped behind thick white stop bar under red signal, teaching complete stop and remain stopped.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a blue sedan stopped in the right lane behind a white stop bar at a sunny palm-lined intersection, with an overhead signal showing red."
+  },
+  "error_body": null
+}

@@ -1,0 +1,102 @@
+{
+  "kind": "listed_target_source_supported_fact_correction",
+  "run_id": "2026-10-28-rdmv-ia-class-c",
+  "section": "sec13-turning-lanes-passing",
+  "part": "C2",
+  "authority_ref": {
+    "path": "coordination/SOL-TARGETED-45-SEVEN-LANES-AUTHORITY-20261029.json",
+    "sha256": "3c9b842dea00bf4169fbf4ff23d39e44597e8bab1b496faec0f27a917683d08d"
+  },
+  "input_snapshot_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/input-snapshots/IA.json",
+    "sha256": "dbf40a82f9e287e3cc1cf687783ef92d600b5b097fc4fedda18a5206ef94c217"
+  },
+  "corrections_ref": {
+    "path": "coordination/FACT-CHECK/IA/corrections.json",
+    "sha256": "dbf40a82f9e287e3cc1cf687783ef92d600b5b097fc4fedda18a5206ef94c217"
+  },
+  "official_pdf_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/sources/private/download.pdf",
+    "sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80"
+  },
+  "source_text_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/sources/private/15-source-text.txt",
+    "sha256": "9598d6b10d955a65cd4a0f278bc91395f01e6aec9c76957cd8cc454cad71b070"
+  },
+  "direct_pdf_pages_ref": {
+    "path": "scratch/sol-state-coordinator/factfix-20261029/batch45/IA/DIRECT-PDF-TARGET-PAGES.json",
+    "sha256": "02a157c3672df2d70d0c8e96d93499976d6d4b79899a0d01c0f1c0c2494e672f"
+  },
+  "target_facts": [
+    {
+      "section": "sec13-turning-lanes-passing",
+      "fact_id": "sec13-R10",
+      "kind": "MEANING",
+      "correct_pdf_page": 44,
+      "part": "C2",
+      "chunk_id": "C2.01",
+      "old_fact": {
+        "fact_id": "sec13-R10",
+        "text": "Far lanes hide rival mergers, while near checks miss them.",
+        "statement": "Far lanes hide rival mergers, while near checks miss them.",
+        "status": "authored",
+        "acceptance_kind": "deterministic_validation_only",
+        "independent_audit_status": "pending",
+        "section": "C2",
+        "chunk_id": "C2.01",
+        "domain": "Turning, Lanes, Passing",
+        "source_page": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0044",
+        "pdf_page": 44,
+        "printed_page": "44",
+        "page_map_id": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0044",
+        "source_document_sha256": "d63dc18471cc5e345ebd5919b0ac019a76af77f012ced96438e481ef795dfb80",
+        "source_ref": {
+          "ref": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook",
+          "pdf_page": 44,
+          "printed_page": "44",
+          "page_map_id": "src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0044"
+        },
+        "source_span": {
+          "chunk_id": "C2.01",
+          "start_line": 48,
+          "end_line": 51,
+          "markdown_sha256": "e8100289cf3d1b822d0d97cf7d721ee29d0281257892c662e6613c533746644a",
+          "verbatim": "FACT_ID: sec13-R10 | anchor: A02\nFar lanes hide rival mergers, while near checks miss them [A02].\nWhy it matters: group_hint lane-change; prereq_hint none; difficulty_hint one; confusable_with sec13-F19.\nSource: [A02 -> src:rdmv-ia-c:iowa-department-of-transportation-iowa-d:handbook:pdf-0044]"
+        },
+        "transformation": "Remove explicit fact-ID marker and declared inline source-anchor tokens; retain all wording and continuation lines."
+      },
+      "old_statement": "Far lanes hide rival mergers, while near checks miss them.",
+      "old_spoken": "Far lanes hide rival mergers, while near checks miss them.",
+      "statement": "Before a lane change, check an additional lane farther over, if one exists: a driver there could be trying to enter the same lane you intend to use.",
+      "source_max_overlap": 4,
+      "correction_input": {
+        "section": "sec13-turning-lanes-passing",
+        "fact_id": "sec13-R10",
+        "kind": "MEANING",
+        "still_wrong": true,
+        "corrected_statement": "When changing lanes, be sure to check the far lane if there is one because someone in that lane may plan to move into the same lane you want to enter.",
+        "correct_pdf_page": 44,
+        "note": "Replaced vague hiding language with the actual far lane same lane reason."
+      }
+    }
+  ],
+  "full_descendant_plan": [
+    "fresh16 compile after all changed parts",
+    "03 exact target labels/repeated claims",
+    "04 target backs/repeated claims",
+    "05 actual target visual/narration/why-how",
+    "05 target script answer/equality/repeated claims",
+    "06 only actual wrong claims or required current-binding metadata; preserve questions/counts"
+  ],
+  "fixer_receipt_ref": {
+    "path": "runs/2026-10-28-rdmv-ia-class-c/receipts/sol-factfix-IA-FIXER.json",
+    "sha256": "ace26c195c2c454fd2d14778bcfa6f53906df63a51c6cd727cb79b3d7c0072ad"
+  },
+  "preserve": "All non-target fact wording, citations, IDs, status/debt/flags, original attribution, source/edition/map and immutable accepted history. No source15 replay or gap repair.",
+  "recorded_by": {
+    "actor_id": "Sol/gpt-6.1-sol (ChatGPT Pro subscription, Iowa targeted FIXER)",
+    "session_id": "01a1849b-eb8e-70c1-9506-35b6a8cc50f7",
+    "provider_family": "openai"
+  },
+  "recorded_at": "2026-10-29T21:31:34.180Z"
+}

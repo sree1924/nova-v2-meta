@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-660-warning-signs-of-drowsy-driving-rumble-drift-missing-exits",
+  "file": "drv-660-warning-signs-of-drowsy-driving-rumble-drift-missing-exits.png",
+  "title": "Red-Flag Warning Signs You Are Too Drowsy to Drive: Drifting Lanes, Hitting Rumble Strips, Missing Exits & Not Remembering Last Miles!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "99c670d8beaa5b9b55fd020e403fcb0447d71c6adfaa4920b98175c2ec48a518",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5167,
+  "usage": {
+    "completion_tokens": 1287,
+    "prompt_tokens": 2277,
+    "total_tokens": 3564,
+    "completion_tokens_details": {
+      "reasoning_tokens": 889
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008316,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-660-warning-signs-of-drowsy-driving-rumble-drift-missing-exits",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in same lane travel same direction; opposite-direction headlights are on separated divided roadway left of guardrail.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exterior rear view.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow centerline on LEFT, white edge/rumble strip on RIGHT, foreground car travels on right side toward rest area.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; signs and plate are blank shapes; only ? symbol in thought cloud which is not a letter/number/word.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows car touching right shoulder rumble strip with thought-cloud ? and arrow into illuminated rest area ahead at twilight, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Twilight highway scene correctly depicts drowsy-driving cue and safe rest-area response with correct US traffic geometry and no text violations.",
+    "teaching_correct": {
+      "note": "Correctly teaches rumble-strip contact/confusion as drowsy red flag and immediate pull into rest area, no wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a dark sedan at twilight touching the right white edge line with sparks, a ? thought cloud above it, and a white arrow directing it into an illuminated rest area on the right foreground."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-185-hearing-awareness-no-headphones-earbuds",
+  "file": "drv-185-hearing-awareness-no-headphones-earbuds.png",
+  "title": "Hearing Safety: Never Wear Dual Headphones or Earbuds Over Both Ears While Driving",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "a9cca818104cc2689f72f866d9ef881b77b3a7c95362a67d1244a3f2ae9279c6",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8080,
+  "usage": {
+    "completion_tokens": 1465,
+    "prompt_tokens": 2274,
+    "total_tokens": 3739,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1060
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009069,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-185-hearing-awareness-no-headphones-earbuds",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Fire engine ahead is in the oncoming lane left of center, not same lane as viewer; no same-lane head-on facing.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior shows left-hand drive: driver on left, steering wheel on left, hands on wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Railroad crossing signal post on right foreground shows two red lenses lit at once, exceeding one lit lens.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Ego lane on right side of road with double-yellow centerline to its left and white edge line/curb to its right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; signs, fire engine, train and icons are blank shapes; crossbuck X is a geometric icon.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows left-seat alert driver with prohibition icons over headphones left and earbuds right, hearing soundwaves from fire engine and train ahead.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct hearing-safety scene and traffic geometry, but REJECT for railroad signal showing two lit red lenses at once.",
+    "teaching_correct": {
+      "note": "Teaches to keep ears uncovered and listen for siren and train horn; geometry and priority are correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view over left-seat driver inside car looking forward to a fire engine on the left and a train at a crossing on the right, with red-slashed headphone and earbud prohibition icons top left and right."
+  },
+  "error_body": null
+}

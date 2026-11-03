@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-624-brake-light-check-reflection-wall-garage",
+  "file": "drv-624-brake-light-check-reflection-wall-garage.png",
+  "title": "Solo Pre-Trip Brake-Light Check: Tap Brake Pedal & Verify Red Glow Reflection Against Garage Door or Storefront Glass",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "f507dfb0061014b4f640ac0662143d3a919345dd2ccafd4e830075d5997567cd",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4844,
+  "usage": {
+    "completion_tokens": 955,
+    "prompt_tokens": 2457,
+    "total_tokens": 3412,
+    "completion_tokens_details": {
+      "reasoning_tokens": 589
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 1009
+    }
+  },
+  "usd_priced": 0.00713,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-624-brake-light-check-reflection-wall-garage",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only driver's own vehicle and a distant SUV driving away; no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Driver and steering wheel visible on left side of cabin foreground, consistent with left-hand drive.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in driveway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Driveway scene with no left-hand traffic; SUV on right side of curved street, curb on right, no wrong-side driving.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; garage door, mailbox, plate, and screen are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Interior driver's view shows three red brake-light reflections on white garage door, also seen in rearview mirror, matching solo reflection check.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration correctly depicts solo brake-light reflection check with no text or traffic violations.",
+    "teaching_correct": {
+      "note": "Shows tapping brakes to verify three red glows reflected on garage door, teaching the intended solo pre-trip check.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "From the left-seat driver cabin, three red brake-light glows reflect on the white garage door ahead, with the car's lit taillights also visible in the centered rearview mirror."
+  },
+  "error_body": null
+}

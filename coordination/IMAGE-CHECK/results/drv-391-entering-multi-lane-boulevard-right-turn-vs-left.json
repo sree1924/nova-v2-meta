@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-391-entering-multi-lane-boulevard-right-turn-vs-left",
+  "file": "drv-391-entering-multi-lane-boulevard-right-turn-vs-left.png",
+  "title": "Turning Onto a Multi-Lane Divided Highway: Watch Fast Cross-Traffic & Never Cut Across Multiple Lanes at Once",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "a25ffc96567b85f0ea976d9065ba3c12a6f26d35328dfa29ea9ac63b2e41c548",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4647,
+  "usage": {
+    "completion_tokens": 1140,
+    "prompt_tokens": 2270,
+    "total_tokens": 3410,
+    "completion_tokens_details": {
+      "reasoning_tokens": 718
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007683,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-391-entering-multi-lane-boulevard-right-turn-vs-left",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in all three panels face forward in same direction; no oncoming facing pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-right inset shows driver cabin interior from behind with no steering wheel visible on right side; no RHD violation.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal mast or gantry present; only car brake/turn lamps, so rule not triggered.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "All lanes travel same forward direction with yellow line on far left and white edge/curb on far right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Yellow diamond sign, license plates, and road markings are blank shapes; no letters, numbers, or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Three-panel sequence shows red car turning from side street into nearest right lane, proceeding straight, then signaling and checking mirror/blind-spot for a single lane change.",
+      "verdict": "MATCH"
+    },
+    "summary": "Three-panel diagram correctly teaches turn-into-nearest-lane-first then separate signaled lane change, with all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows correct technique: establish in nearest right lane first, then signal and check blind spot for later lane change; no cut across multiple lanes.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Three-panel overhead view of a multi-lane boulevard where a red sedan in foreground turns right into the nearest lane, drives straight, then signals left while insets show mirror and over-shoulder blind-spot check."
+  },
+  "error_body": null
+}

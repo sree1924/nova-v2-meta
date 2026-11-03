@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-496-sun-glare-behind-you-check-mirrors-brake-early",
+  "file": "drv-496-sun-glare-behind-you-check-mirrors-brake-early.png",
+  "title": "Low Sun Directly BEHIND Your Car: Drivers Ahead/Facing You Are Blinded by Glare & May Miss Your Turn Signals!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "61c447b922aee7b6067b86cfead41f266df41e7592967edb6b515bb02cdb8cc0",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7140,
+  "usage": {
+    "completion_tokens": 1143,
+    "prompt_tokens": 2268,
+    "total_tokens": 3411,
+    "completion_tokens_details": {
+      "reasoning_tokens": 724
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007693,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-496-sun-glare-behind-you-check-mirrors-brake-early",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan in lower right lane and red car in upper left lane are in opposite lanes, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in the aerial road scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double centerline in middle, white edge lines on outsides; each vehicle keeps to right side of center for its direction.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, words, signs, or plates with text visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows low sun glow behind blue sedan toward oncoming red car, but missing key prompt elements: no visible early turn signal, headlights-on indication, or blinded/squinting oncoming driver.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct US lane geometry and zero text, but aerial view omits early signaling, headlights, and glare-blinded driver teaching points.",
+    "teaching_correct": {
+      "note": "Geometry and sun-behind position are not wrong, but picture does not demonstrate signaling extra early or headlights-on, so core behavior is not taught.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Top-down aerial view of a two-lane road at sunset with a blue sedan in the lower right lane driving toward a red oncoming car in the upper left lane, with bright golden sun glare glowing from behind the blue car."
+  },
+  "error_body": null
+}

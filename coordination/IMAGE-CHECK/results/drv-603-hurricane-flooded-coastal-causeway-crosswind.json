@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-603-hurricane-flooded-coastal-causeway-crosswind",
+  "file": "drv-603-hurricane-flooded-coastal-causeway-crosswind.png",
+  "title": "Low-Lying Coastal Causeways in Storm Surge: Watch Spray, High Gusts & Early Evacuation Closure Gates",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "cbf7c66faa035c3c0a3dd55d5ada9479879c10237d77ab080493bc547a03a45f",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 11780,
+  "usage": {
+    "completion_tokens": 2255,
+    "prompt_tokens": 2461,
+    "total_tokens": 4716,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1819
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.01266,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-603-hurricane-flooded-coastal-causeway-crosswind",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Gray sedan in center-left foreground faces camera with headlights on while dark SUV directly behind it in same lane faces away showing red taillights, head-on in same lane.",
+        "verdict": "FAIL"
+      },
+      "no_rhd_cabin": {
+        "note": "Red foreground car driver holds wheel on car's left side (viewer's right due to head-on view); no right-hand-drive cabin visible.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in bridge causeway scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow line on left edge of roadway, white dashed lane line center and right parapet/curb on right, consistent with US right-hand marking placement.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; bridge, water, sky and car fronts/plates are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows windy bay causeway with whitecaps spraying over left parapet and sedans with headlights on, matching prompt, but no early evacuation closure gates from title visible.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Coastal causeway with spray and headlights is depicted with correct markings and no text, but opposing directions share the same lane head-on and closure gates are missing, teaching wrong-way geometry.",
+    "teaching_correct": {
+      "note": "Shows two directions of traffic head-on in the same lane, teaching opposite of one-lane same-direction rule and implying wrong-way driving is normal.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Sunset view of a suspension bay causeway with whitecap spray over the left parapet and several sedans with headlights on in the foreground and background."
+  },
+  "error_body": null
+}

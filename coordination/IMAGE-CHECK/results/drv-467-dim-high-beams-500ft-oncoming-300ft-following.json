@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-467-dim-high-beams-500ft-oncoming-300ft-following",
+  "file": "drv-467-dim-high-beams-500ft-oncoming-300ft-following.png",
+  "title": "Dim High Beams to Low Beams: Within 500 Ft of Oncoming Vehicle AND Within 200–300 Ft When Following Behind Another Car!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "93479a93db92edc72d52ba3f3cf78e116c3913cef1822ee14bcd3b2c1c8ccb34",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5405,
+  "usage": {
+    "completion_tokens": 1113,
+    "prompt_tokens": 2287,
+    "total_tokens": 3400,
+    "completion_tokens_details": {
+      "reasoning_tokens": 688
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007589,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-467-dim-high-beams-500ft-oncoming-300ft-following",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Left panel oncoming car is in opposite lane left of double-yellow; right panel car is ahead same direction. No head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Driver POV shows centered steering wheel with left and right hands; no steering wheel on right side of interior.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in either nighttime highway panel, only headlights/taillights and inset stalk icons.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels drive on right: double-yellow centerline on left of travel lane, white edge line/guardrail on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; license plates blank, only pictographic headlight icons and arrows in insets.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Two-panel night diagram matches prompt: left oncoming car, right following car ahead, with high-to-low beam stalk insets.",
+      "verdict": "MATCH"
+    },
+    "summary": "Two-panel night driving diagram correctly shows dimming to low beams for oncoming and following traffic with correct US lane geometry and no text.",
+    "teaching_correct": {
+      "note": "Shows high-beam straight rays switching to downward low-beam to avoid blinding oncoming and leading driver; geometry and beam direction correct.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Two-panel nighttime driver-POV illustration: left shows an oncoming car with bright headlights on a two-lane road, right shows following behind an SUV's taillights, each topped with hand-on-stalk insets switching headlight icons."
+  },
+  "error_body": null
+}

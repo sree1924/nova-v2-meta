@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-535-adult-per-se-bac-limit-008-utah-005-cdl-004",
+  "file": "drv-535-adult-per-se-bac-limit-008-utah-005-cdl-004.png",
+  "title": "Legal Per-Se BAC Thresholds: Adult Operator (0.08% / 0.05% UT), Commercial CDL (0.04%), and Under-21 Zero Tolerance",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "daed6f62de432b6493655b433ecd0cf789e7443e7d9709b20e08b44026fcb49c",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8155,
+  "usage": {
+    "completion_tokens": 1778,
+    "prompt_tokens": 2301,
+    "total_tokens": 4079,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1363
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.010433,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-535-adult-per-se-bac-limit-008-utah-005-cdl-004",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles shown follow same direction; no oncoming vehicle facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Three driver interiors on left all show left-hand-drive steering wheels held by driver on left side.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Three roadside signals each show only top red lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "All lanes show yellow centerline on left of travel lane and white edge/curb on right, driving on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates blank, signs are blank diamond or pictogram silhouette only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows 3-tier comparison with gauges plus right-column icons for sedan, 18-wheeler, and graduate with card, matching prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Despite passing visual rules and matching icons, gauges invert strictness with commercial needle higher than adult, teaching opposite of CDL 0.04 stricter than adult.",
+    "teaching_correct": {
+      "note": "Commercial middle gauge shows higher needle/ larger red zone than adult top gauge, implying CDL allows more alcohol when CDL 0.04 is stricter than adult 0.08; teaches thresholds backwards.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Three-row graphic with left driver interiors, center road views of sedan, box truck, and crosswalk, plus center gauges and right icons for car, semi-truck, and graduate holding a card."
+  },
+  "error_body": null
+}

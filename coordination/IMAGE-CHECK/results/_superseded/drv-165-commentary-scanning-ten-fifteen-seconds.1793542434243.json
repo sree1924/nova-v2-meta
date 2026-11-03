@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-165-commentary-scanning-ten-fifteen-seconds",
+  "file": "drv-165-commentary-scanning-ten-fifteen-seconds.png",
+  "title": "Visual Lead Time: Scan 10–15 Seconds Ahead (1 City Block / Quarter-Mile on Highway)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "84a9ebf0e0134c0fd682f47b7b99d3c48db72b06023ff2ba62425b3ca23275b9",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7070,
+  "usage": {
+    "completion_tokens": 1251,
+    "prompt_tokens": 2274,
+    "total_tokens": 3525,
+    "completion_tokens_details": {
+      "reasoning_tokens": 872
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008159,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-165-commentary-scanning-ten-fifteen-seconds",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground lane travel same direction; no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only rear exteriors shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Overhead signal shows two lit lenses: red on top and green on bottom simultaneously.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double centerline on left of blue sedan, white edge line on right; traffic on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates, banners, and diamond sign are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan with cyan forward-vision arc one block ahead spotting brake lights, crosswalk pedestrian left, and van right matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Scene matches visual lead-time concept but signal violates single-bulb rule with red and green lit together, requiring REJECT.",
+    "teaching_correct": {
+      "note": "Forward scanning arc and early hazard detection teach 10-15 second lead correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of blue sedan in foreground center with translucent cyan arc projecting forward over an urban boulevard at sunset, covering a crosswalk pedestrian on the left, stopped cars with brake lights center, and a white van on the right under a hanging traffic light."
+  },
+  "error_body": null
+}

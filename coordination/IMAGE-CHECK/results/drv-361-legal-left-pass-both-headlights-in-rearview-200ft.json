@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-361-legal-left-pass-both-headlights-in-rearview-200ft",
+  "file": "drv-361-legal-left-pass-both-headlights-in-rearview-200ft.png",
+  "title": "Completing a Safe Left Pass: Return Right Only When BOTH Headlights of Passed Car Appear in Inside Mirror & >=200 Ft From Oncoming!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "f63aca53bfe5a6874cc71d5f028f41998b04e5d7729c312b3adee97e416e050b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7558,
+  "usage": {
+    "completion_tokens": 1657,
+    "prompt_tokens": 2293,
+    "total_tokens": 3950,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1238
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009909,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-361-legal-left-pass-both-headlights-in-rearview-200ft",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan ahead and viewpoint car face forward in same direction; black oncoming truck is in separate opposite lane left of yellow line, not same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior shows left-hand drive: driver and steering wheel on left side of cabin.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene, only vehicle turn indicators.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Broken yellow centerline on left of travel lanes, white edge line/guardrail on right; left-hand drive, oncoming traffic kept left.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All plates, screens, and controls are blank shapes; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Interior POV shows right signal active and interior rearview mirror clearly displaying both headlights of white car behind with distant oncoming traffic, matching safe-return-after-pass concept.",
+      "verdict": "MATCH"
+    },
+    "summary": "Interior view correctly depicts signaling right to return after confirming both headlights in rearview with clear oncoming distance; all applicable visual rules pass.",
+    "teaching_correct": {
+      "note": "Learner sees correct cue: both headlights visible in inside mirror, right signal on, and clear distance from oncoming before returning right.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "From the left-seat driver interior at sunset, the car signals right behind a blue sedan also signaling right, while the interior rearview mirror shows both headlights of a white car behind with distant oncoming traffic on the left."
+  },
+  "error_body": null
+}

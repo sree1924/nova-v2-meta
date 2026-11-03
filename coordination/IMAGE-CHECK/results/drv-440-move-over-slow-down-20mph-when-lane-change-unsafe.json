@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-440-move-over-slow-down-20mph-when-lane-change-unsafe",
+  "file": "drv-440-move-over-slow-down-20mph-when-lane-change-unsafe.png",
+  "title": "Move-Over Law Fallback: When Traffic Blocks Moving Left, Slow Well Below Posted Speed & Give Maximum Room Inside Lane!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "0538ed4e3b789f75ef024361e41a8c27647e887728249337c845f876e4d4f654",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8329,
+  "usage": {
+    "completion_tokens": 2077,
+    "prompt_tokens": 2283,
+    "total_tokens": 4360,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1677
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.011681,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-440-move-over-slow-down-20mph-when-lane-change-unsafe",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles on foreground carriageway face same forward direction; opposing traffic is barrier-separated on left.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interiors or steering wheels are visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals are present in the scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow line on far left of travel side, white edge line on far right, opposing traffic divided by barrier.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white shapes; no letters, numbers, or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows stopped car on right shoulder with tire change, warning triangle, braking and heavy adjacent traffic, but blue sedan appears in left lane rather than right lane hugging left edge as prompted.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Rules pass with no signals or interiors shown, teaching of slow and give room is correct, but lane placement of subject car differs from prompt so needs human review.",
+    "teaching_correct": {
+      "note": "Shows brake lights on, staying in lane, maximizing clearance to shoulder worker, consistent with slow-and-give-room fallback.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated divided highway at sunset with dense forward traffic; a blue sedan with brake lights on travels in the left foreground lane while a gray sedan is stopped on the right shoulder ahead with a kneeling person changing a tire beside a warning triangle."
+  },
+  "error_body": null
+}

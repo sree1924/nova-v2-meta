@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-337-signal-100ft-city-200-300ft-highway",
+  "file": "drv-337-signal-100ft-city-200-300ft-highway.png",
+  "title": "Advance Turn-Signal Distance: 100 Feet in City Streets & 200–300 Feet (5 Seconds) on Higher-Speed Highways",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "dfdba0db60c22634fe95e0884780542e5b0a42b3808f48b9af86842c2473bbee",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4116,
+  "usage": {
+    "completion_tokens": 842,
+    "prompt_tokens": 2270,
+    "total_tokens": 3112,
+    "completion_tokens_details": {
+      "reasoning_tokens": 469
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006416,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-337-signal-100ft-city-200-300ft-highway",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "One sedan per panel viewed from rear, same direction of travel; no oncoming vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior of sedans shown; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal / stoplight present in either panel; vehicle blinkers do not count.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both panels drive on right: yellow centerline on left, white edge line/curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Yellow diamond, green overhead gantry, and both license plates are blank shapes; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Split view matches prompt: left urban sedan with right blinker before intersection, right highway sedan with right blinker far upstream.",
+      "verdict": "MATCH"
+    },
+    "summary": "Split city/highway comparison correctly shows advance right-blinker use with US right-hand geometry and zero text.",
+    "teaching_correct": {
+      "note": "Both sedans signal early from correct lane position; teaches advance signaling distance without wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Split widescreen rear view of a gray sedan with right amber blinker lit; left foreground city street approaching a corner, right foreground highway curving ahead at sunset."
+  },
+  "error_body": null
+}

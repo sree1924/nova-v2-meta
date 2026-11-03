@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-415-left-turn-yield-to-oncoming-bicyclist-speed-trap",
+  "file": "drv-415-left-turn-yield-to-oncoming-bicyclist-speed-trap.png",
+  "title": "Left-Turn Collision Trap: Never Turn Left Directly in Front of an Oncoming Bicyclist (Judge Their Speed Carefully!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "e3bb19e67177a81f1eb547f6bd4be9b491ac96217807e478445031e2467b31c4",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 10114,
+  "usage": {
+    "completion_tokens": 1872,
+    "prompt_tokens": 2261,
+    "total_tokens": 4133,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1485
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.010782,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-415-left-turn-yield-to-oncoming-bicyclist-speed-trap",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No two vehicles face each other head-on in the same lane; blue sedan and cyclist are on different paths.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible to judge drive side.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Foreground signal shows only one lit red lens with other lenses dark; no signal shows multiple lit lenses.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue car has double-yellow on its left and white lane line/curb on its right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; plates, diamond sign and signals are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Blue sedan is waiting in left-turn bay yielding, but cyclist is shown side-on crossing perpendicular rather than approaching straight through from the opposite direction as titled and prompted.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Yield behavior is shown but cyclist approach direction does not match oncoming-through requirement, needing human review.",
+    "teaching_correct": {
+      "note": "Car correctly holds and yields, but cyclist geometry is cross-traffic not oncoming, muddling the left-turn-yield-to-oncoming lesson.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "A blue sedan waits stationary in a left-turn lane in the foreground while a cyclist rides sideways across the middle of a four-way signalized intersection."
+  },
+  "error_body": null
+}

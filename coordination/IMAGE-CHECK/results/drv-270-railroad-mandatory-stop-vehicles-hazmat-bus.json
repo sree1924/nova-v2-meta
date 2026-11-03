@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-270-railroad-mandatory-stop-vehicles-hazmat-bus",
+  "file": "drv-270-railroad-mandatory-stop-vehicles-hazmat-bus.png",
+  "title": "School Buses & Hazmat Tanker Trucks Stop at ALL Railroad Crossings (Never Tailgate or Pass Them!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "682adc9600637af9416dd1d8c8bab54e364e85a5bd05cbc37364e7b4c85841be",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4812,
+  "usage": {
+    "completion_tokens": 1278,
+    "prompt_tokens": 2279,
+    "total_tokens": 3557,
+    "completion_tokens_details": {
+      "reasoning_tokens": 915
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00828,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-270-railroad-mandatory-stop-vehicles-hazmat-bus",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Bus and blue sedan face same forward direction in same lane; train crosses perpendicular, no head-on vehicles.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views shown; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Railroad flasher on right shows one red lit lens on right, left lens dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on left of travel lane, white edge line on right; both vehicles in right lane.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; crossbuck, signal box and license plates are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Yellow school bus stopped with flashers before tracks and blue sedan stopped patiently behind it at rural crossing, as prompt describes.",
+      "verdict": "MATCH"
+    },
+    "summary": "Bus stopped correctly before tracks with sedan waiting behind; all visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Shows mandatory bus stop at crossing and correct following behavior: stop behind, do not pass or tailgate.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a yellow school bus stopped before a railroad crossing with a train passing left to right, and a blue sedan stopped behind the bus in the same lane."
+  },
+  "error_body": null
+}

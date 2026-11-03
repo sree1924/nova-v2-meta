@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-551-ipde-sipde-see-think-do-defensive-loop",
+  "file": "drv-551-ipde-sipde-see-think-do-defensive-loop.png",
+  "title": "Defensive Driving Mental Loop (SIPDE / IPDE): Scan/Identify -> Predict -> Decide -> Execute Safely",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "24fb028e40fdfb541a98503e2639028755c88730d91eab9512fb47b5b28b5704",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4583,
+  "usage": {
+    "completion_tokens": 954,
+    "prompt_tokens": 2265,
+    "total_tokens": 3219,
+    "completion_tokens_details": {
+      "reasoning_tokens": 554
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.006886,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-551-ipde-sipde-see-think-do-defensive-loop",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Foreground sedan faces forward in its lane; oncoming dark SUV on left is in separate opposite lane, no head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel visible; only exterior rear and front views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Right foreground vertical signal shows only middle amber lit, other lenses dark; background signals dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Ego sedan travels on right side with double-yellow centerline on left and curb/sidewalk edge on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, diamond sign, license plate area, and icons are blank shapes with no legible letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows 4-step icon sequence eye -> branching arrows -> shield-lightbulb -> steering/brake above sedan scanning intersection as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration correctly depicts SIPDE/IPDE scan-to-execute loop with proper US traffic, blank signage, and single-lit signal.",
+    "teaching_correct": {
+      "note": "Scanning fan and hazard boxes over cars, pedestrian and cyclist correctly teach Identify-Predict-Decide-Execute without wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a sedan in foreground projecting a blue scan fan over an intersection with cars, pedestrian and cyclist boxed, with four large icons above: eye, branching arrows, shield-lightbulb, steering wheel-foot."
+  },
+  "error_body": null
+}

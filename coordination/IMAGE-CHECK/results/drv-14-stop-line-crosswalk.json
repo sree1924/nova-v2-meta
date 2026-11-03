@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-14-stop-line-crosswalk",
+  "file": "drv-14-stop-line-crosswalk.png",
+  "title": "Stop Line -> Crosswalk -> Intersection Sightline & 4-Way Stop",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "40b2fe0b8db86a622046cc58e3694c57fcd19b275c2228c3627a39ade92205f7",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7995,
+  "usage": {
+    "completion_tokens": 1631,
+    "prompt_tokens": 2123,
+    "total_tokens": 3754,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1234
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.009586,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-14-stop-line-crosswalk",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "White car facing south, blue car facing north in opposite lanes, green car facing east alone; no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only; no car interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "One signal at top-right shows single red lit lens, other two lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue northbound car has yellow center left and white edge right; white southbound car has yellow left; eastbound green car south of center yellow.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Clear text labels present bottom-left: '2. CLEAR CROSSWALK', '1. STOP AT WHITE LINE', 'FULL STOP BEHIND LINE'.",
+        "verdict": "FAIL"
+      }
+    },
+    "scene_match": {
+      "note": "Top-down 4-way intersection with stop lines, crosswalks, signal and staged cars illustrates stop-line to crosswalk sequence.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct stop-line teaching and traffic geometry but fails zero-text rule due to three labeled callouts.",
+    "teaching_correct": {
+      "note": "Blue car shown fully behind white stop line and crosswalk, staged as step 1 then 2; no wrong priority or past-line stop.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down vector intersection with four crosswalks, white stop lines, three cars (white top, green center, blue bottom), a red traffic light, and three text callout labels at bottom-left."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-516-shoulder-dropoff-do-not-jerk-straddle-25deg-return",
+  "file": "drv-516-shoulder-dropoff-do-not-jerk-straddle-25deg-return.png",
+  "title": "Right Wheels Drop Off Pavement Edge: Do NOT Jerk Left Instantly — Ease Off Gas, Slow Straight, Check Traffic & Steer 25° Back On!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "95177e17a3a680fff1ddd8aafc6559e5a53e5ca5cd89851eaa900ba01fefc734",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4281,
+  "usage": {
+    "completion_tokens": 1113,
+    "prompt_tokens": 2308,
+    "total_tokens": 3421,
+    "completion_tokens_details": {
+      "reasoning_tokens": 705
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007615,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-516-shoulder-dropoff-do-not-jerk-straddle-25deg-return",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Single blue car in lane, no oncoming or second vehicle facing it head-on.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Top-down exterior view only; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in rural road scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Car travels on right side of road with double-yellow centerline on its left and white edge line/gravel shoulder on its right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plate is blank white rectangle, no signs.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows Step 2 gentle return with shallow green arrow, but missing requested 2-step diagram and red X prohibiting violent jerk into oncoming traffic.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct US traffic geometry and zero text, but only shows the gentle return step, omitting the hold-straight/slow and do-not-jerk warning, so needs human review.",
+    "teaching_correct": {
+      "note": "Depicted recovery is a shallow-angle steer back onto asphalt while straddling edge, consistent with easing off and returning once slow; no wrong geometry taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down view of a blue sedan straddling the right white edge line with right wheels on gravel shoulder, with a green arrow curving shallowly back onto the asphalt lane left of center yellows."
+  },
+  "error_body": null
+}

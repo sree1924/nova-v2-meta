@@ -1,0 +1,18 @@
+# CLI deploy ignore (store/ is deployed from the local tree, never from git).
+# /app/** is served by the Cloudflare Worker plp-app-gate from R2; Vercel only needs the
+# four shell files the prebuild check (scripts/check-sync.mjs) asserts.
+public/app/*
+!public/app/index.html
+!public/app/gate.js
+!public/app/quarantine-index.json
+!public/app/data
+public/app/data/*
+!public/app/data/states.json
+node_modules
+.next
+.env
+.env*
+.local-data
+*.tsbuildinfo
+learner-assets
+.vercel

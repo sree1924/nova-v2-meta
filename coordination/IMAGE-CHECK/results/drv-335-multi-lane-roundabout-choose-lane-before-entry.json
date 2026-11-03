@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-335-multi-lane-roundabout-choose-lane-before-entry",
+  "file": "drv-335-multi-lane-roundabout-choose-lane-before-entry.png",
+  "title": "Multi-Lane Roundabout: Choose Correct Lane BEFORE Entering, Never Change Lanes Inside or Crowd Trucks!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "adf2c367fbfc07a74e680d5f7400398e21a46c474aa6b8cc4c250e0995d6bd1f",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 13059,
+  "usage": {
+    "completion_tokens": 1410,
+    "prompt_tokens": 2276,
+    "total_tokens": 3686,
+    "completion_tokens_details": {
+      "reasoning_tokens": 968
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008837,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-335-multi-lane-roundabout-choose-lane-before-entry",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only two cars visible in foreground entry lanes traveling same direction toward roundabout; no opposing vehicles head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Aerial exterior view shows only roofs/rears of two cars; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Signal pole on right mid-background shows one lit green lens, other lenses dark; at most one lit lens.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Foreground entry has two lanes on right of yellow-lined median with white edge line/curb on far right; no left-hand driving evident.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words visible; yield sign on right is blank red/white triangle, plates and road markings are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows U.S. two-lane roundabout with brick truck apron and two yielding cars, but missing required green/cyan lane-path overlays and semi-truck; key instructional elements absent.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Roundabout geometry and traffic rules pass, but colored lane-choice paths and truck from prompt are missing and an atypical signal is present, requiring human review.",
+    "teaching_correct": {
+      "note": "Shows proper yield-on-entry positioning but fails to teach choose-lane-before-entry / don't crowd trucks, and green traffic signal at roundabout entry is atypical and could confuse learners.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Elevated aerial view of a landscaped two-lane roundabout with brick center apron, yield sign on right foreground, and blue and green SUVs waiting to enter from the bottom approach."
+  },
+  "error_body": null
+}

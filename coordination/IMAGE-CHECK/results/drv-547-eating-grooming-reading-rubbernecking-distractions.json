@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-547-eating-grooming-reading-rubbernecking-distractions",
+  "file": "drv-547-eating-grooming-reading-rubbernecking-distractions.png",
+  "title": "Everyday Non-Phone Cabin Distractions: Eating Messy Food, Grooming/Makeup, Reaching Into Backseat & Tuning Controls",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "fe9a2197a6f153c334ac699c263f98928b17b8534321881000cdd0aa2339f912",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8100,
+  "usage": {
+    "completion_tokens": 1476,
+    "prompt_tokens": 2288,
+    "total_tokens": 3764,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1019
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009133,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-547-eating-grooming-reading-rubbernecking-distractions",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Main forward view shows same-direction blue SUV ahead in our lane; oncoming black pickup is separated by double-yellow in opposite lane, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "All interiors show left-hand drive: main POV wheel left-center, top-right and bottom-right drivers seated left with wheel ahead, no wheel on right side of cabin.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Single traffic signal at top-center-right shows only green lens lit, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Forward driving view has double-yellow centerline on LEFT of travel lane, white edge line/curb on RIGHT, forward traffic on right, cyclist on far right shoulder.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; license plates, dash screen and mirrors are blank shapes; four red-X icons are graphic symbols as required by prompt, not text.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Image shows attentive forward driving plus four red-X panels exactly as prompted: burger/coffee, vanity-mirror brushing, twisting to backseat bag, staring at dashboard sliders.",
+      "verdict": "MATCH"
+    },
+    "summary": "All five visual rules pass, scene fully matches the four non-phone distractions, and teaching correctly marks them as prohibited with attentive driving as contrast.",
+    "teaching_correct": {
+      "note": "Four distracting behaviors are clearly crossed out with red-X while main panel models both hands on wheel and eyes forward; teaches correct avoidance.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Driver POV of a US road with oncoming truck left and cyclist right, bordered by four red-X inset panels showing eating burger/coffee, grooming in vanity mirror, reaching to backseat bag, and tuning dashboard controls."
+  },
+  "error_body": null
+}

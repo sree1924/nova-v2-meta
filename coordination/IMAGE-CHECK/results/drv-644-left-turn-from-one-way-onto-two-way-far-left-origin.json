@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-644-left-turn-from-one-way-onto-two-way-far-left-origin",
+  "file": "drv-644-left-turn-from-one-way-onto-two-way-far-left-origin.png",
+  "title": "Turning Left From a One-Way Street: Always Start From the Far-LEFT Curb Lane (Never From the Right/Middle Lane!)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "5be9224cfdcb43ac11a5824a1b6d67ea5909ea26c8576ae539c654b6b7059bcb",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6894,
+  "usage": {
+    "completion_tokens": 1366,
+    "prompt_tokens": 2493,
+    "total_tokens": 3859,
+    "completion_tokens_details": {
+      "reasoning_tokens": 972
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 1137
+    }
+  },
+  "usd_priced": 0.008922,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-644-left-turn-from-one-way-onto-two-way-far-left-origin",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in foreground and background face the same direction within their road; no head-on opposing pair in one lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels are clearly visible to judge drive side.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Two signals visible, each shows only one red lens lit with other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Markings show yellow center on left of travel and white lane lines on right; vehicles keep to right side, no left-hand driving evident.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Signboards, plates and signals appear as blank geometric shapes; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Left turn from one-way onto two-way is depicted, but blue sedan originates from far-right curb lane, not the required far-left lane.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Blue sedan incorrectly turns left from the far-right lane instead of far-left, teaching the opposite of the title despite passing visual rules.",
+    "teaching_correct": {
+      "note": "Shows left turn starting from right-most lane and cutting across middle/left lanes to turn left, directly contradicting far-left origin rule.",
+      "verdict": "WRONG"
+    },
+    "what_i_see": "Bird's-eye urban corner with a blue sedan in the foreground right lane arcing left across the intersection while a white van, red car and black car queue to its left."
+  },
+  "error_body": null
+}

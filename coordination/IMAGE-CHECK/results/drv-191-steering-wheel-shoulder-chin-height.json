@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-191-steering-wheel-shoulder-chin-height",
+  "file": "drv-191-steering-wheel-shoulder-chin-height.png",
+  "title": "Steering Wheel Tilt Adjustment: Top of Wheel at/Below Shoulder Level & Below Chin",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "aeafc0ba423d9df7cb81276e6b1e71da511ae367a4f0ca7337bb7bcb018a1246",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7994,
+  "usage": {
+    "completion_tokens": 1566,
+    "prompt_tokens": 2274,
+    "total_tokens": 3840,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1177
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009498,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-191-steering-wheel-shoulder-chin-height",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No oncoming head-on pair in same lane; foreground sedan in profile facing left, background cars receding on far right curve.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Left-hand-drive visible: driver seated left-front with wheel ahead of her, viewed from left exterior.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Background right traffic light shows single green lens lit, upper lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Background traffic keeps right of yellow centerline on curving road; foreground side-view does not show wrong-side driving.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No readable letters or numbers; diamond sign, plates, and signals are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows driver at wheel in side view but missing required instructional elements: no cutaway, no cyan alignment lines confirming top rim below chin and at/below shoulders.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean driving scene passes visual rules but fails to illustrate the steering-wheel tilt measurement, needing human review.",
+    "teaching_correct": {
+      "note": "Wheel appears low but without alignment lines or tilt emphasis learner cannot verify top-below-chin and at/below-shoulder rule; not wrong, but not instructive.",
+      "verdict": "QUESTIONABLE"
+    },
+    "what_i_see": "Silver left-hand-drive sedan in left-side profile on a coastal sunset road with a female driver holding the wheel, background traffic and a green traffic light on the right."
+  },
+  "error_body": null
+}

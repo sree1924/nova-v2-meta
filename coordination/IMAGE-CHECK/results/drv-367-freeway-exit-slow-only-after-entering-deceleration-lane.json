@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-367-freeway-exit-slow-only-after-entering-deceleration-lane",
+  "file": "drv-367-freeway-exit-slow-only-after-entering-deceleration-lane.png",
+  "title": "Exiting a Freeway: Move Into Right Lane Early & Do NOT Brake Until Fully Inside the Deceleration Lane!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "928a227083174f34020ed322590cdfe2f0fac673b9fba75d0889a8b5645198ff",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3637,
+  "usage": {
+    "completion_tokens": 994,
+    "prompt_tokens": 2266,
+    "total_tokens": 3260,
+    "completion_tokens_details": {
+      "reasoning_tokens": 570
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007057,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-367-freeway-exit-slow-only-after-entering-deceleration-lane",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All vehicles in foreground and background travel same direction; opposite-direction lanes are separated by barrier, no head-on facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear views of vehicles shown, no car interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in freeway exit scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic drives on right, yellow line on far left edge, white edge line and guardrail on right, correct for US northbound freeway.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Green overhead sign shows only white arrow icon, plates are blank white rectangles, diamond and chevron signs are blank shapes with arrow icons, no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows teal sedan path with dashed arrows moving right into deceleration/exit lane on right, brake lights lit only on car fully inside exit lane.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly teaches to move into deceleration lane early and brake only after clearing main lane, with all applicable visual rules passing.",
+    "teaching_correct": {
+      "note": "Foreground and center teal cars in through lanes show no brake lights, exit-lane teal car on right shows red brake lights, teaching delayed braking correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Aerial rear view of a multi-lane US freeway at sunset with a right-side exit ramp; three teal sedans in foreground trace a dashed path into the exit lane where only the car fully inside shows red brake lights."
+  },
+  "error_body": null
+}

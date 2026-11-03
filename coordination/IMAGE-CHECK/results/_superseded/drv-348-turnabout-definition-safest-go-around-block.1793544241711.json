@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-348-turnabout-definition-safest-go-around-block",
+  "file": "drv-348-turnabout-definition-safest-go-around-block.png",
+  "title": "Safest Way to Reverse Direction in Busy Traffic: Drive Around the Block Instead of Mid-Street Turnabout!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "9f5e70f69f04318a36e1ebf4e41eb17f13e9e254cd1b0f5003548fd4159f1c8b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8975,
+  "usage": {
+    "completion_tokens": 1656,
+    "prompt_tokens": 2263,
+    "total_tokens": 3919,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1286
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.009867,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-348-turnabout-definition-safest-go-around-block",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only one blue sedan visible; no opposing vehicle in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Aerial exterior view only; no car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals visible in aerial diagram.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Clockwise loop uses correct side: eastbound on south side of top road, southbound on west side of right road, etc., with yellow centerlines.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; markings are blank crosswalks and lines.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue sedan and green clockwise right-turn loop around block, but risky mid-block U-turn with red X described in prompt is absent.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Clean U.S. right-hand aerial go-around-the-block diagram with no text violations, but missing the contrasting red-X U-turn element, requiring human review.",
+    "teaching_correct": {
+      "note": "Loop demonstrates four right turns to reverse direction safely with correct lane positions; no wrong geometry taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down aerial of a square city block with a blue sedan on the top road and thick green arrows forming a clockwise loop around the central building via four right turns."
+  },
+  "error_body": null
+}

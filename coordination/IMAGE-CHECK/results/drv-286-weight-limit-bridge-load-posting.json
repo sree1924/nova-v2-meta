@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-286-weight-limit-bridge-load-posting",
+  "file": "drv-286-weight-limit-bridge-load-posting.png",
+  "title": "Bridge Gross Weight / Axle Load Restriction Routing Heavy Trucks Away",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d65c9049875c75f0367708e44149862b510286539f2b02282a9ab3238f2f9052",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6035,
+  "usage": {
+    "completion_tokens": 1393,
+    "prompt_tokens": 2247,
+    "total_tokens": 3640,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1011
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008729,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-286-weight-limit-bridge-load-posting",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Dump truck alone on right bypass; cars on bridge in separate divided lanes, no opposing vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; all vehicles seen from exterior.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Bridge has double-yellow center with cars keeping right by direction; bypass lane has yellow on left and white edge on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "Overhead sign shows only truck-on-scale pictogram and arrow; all plates and signs are blank shapes, no letters or numbers.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Loaded red dump truck on scale/bypass to right per sign icon while light sedans cross creek bridge to left, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Rural creek bridge with cars crossing while heavy dump truck is diverted to weigh/bypass lane; all visual rules satisfied and teaching is correct.",
+    "teaching_correct": {
+      "note": "Clearly teaches heavy trucks routed off weight-restricted bridge while light vehicles cross; correct priority and geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A red loaded dump truck on a weigh pad/bypass on the right foreground under an overhead sign with truck-on-scale and arrow icons, while three light cars cross a small stone creek bridge on the left background."
+  },
+  "error_body": null
+}

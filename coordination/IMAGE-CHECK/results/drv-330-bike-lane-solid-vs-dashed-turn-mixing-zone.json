@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-330-bike-lane-solid-vs-dashed-turn-mixing-zone",
+  "file": "drv-330-bike-lane-solid-vs-dashed-turn-mixing-zone.png",
+  "title": "Right Turn Across a Bike Lane: Check Right Blind Spot, Yield to Cyclists & Merge Into Dashed Mixing Zone First!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "12830dc723c7c70910d100f75724a4015284234fb0cf8345dfb8e3899c18eb64",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5808,
+  "usage": {
+    "completion_tokens": 1265,
+    "prompt_tokens": 2294,
+    "total_tokens": 3559,
+    "completion_tokens_details": {
+      "reasoning_tokens": 850
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008244,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-330-bike-lane-solid-vs-dashed-turn-mixing-zone",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan and cyclist travel same direction in separate lanes; no oncoming head-on vehicles in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only exterior rear three-quarter view of sedan shown; no cabin interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Right-side vertical signal shows only bottom green lens lit; red and yellow lenses are dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double yellow centerline on left of blue sedan, dashed bike lane and curb/white edge on right; both road users travel forward on right side.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plate is blank white rectangle; no letters, numbers, or words on signs, road, or buildings.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Dashed green bike lane, blue sedan, and ahead cyclist present, but sedan is still left of dashed line yielding and has not yet merged into mixing zone near curb to turn.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct US traffic, zero text, and single green signal with proper yield positioning, but merge-into-dashed-zone action not yet shown, needs human review.",
+    "teaching_correct": {
+      "note": "Car holds behind cyclist rather than right-hooking across bike lane, teaching correct yield; no wrong geometry or opposite lesson.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan viewed from rear-left follows behind a cyclist on the right at sunset, with a dashed green bike lane on the right curb and a green traffic light on the right sidewalk."
+  },
+  "error_body": null
+}

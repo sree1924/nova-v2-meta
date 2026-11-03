@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-360-splitting-the-difference-between-two-hazards",
+  "file": "drv-360-splitting-the-difference-between-two-hazards.png",
+  "title": "Splitting the Difference vs. Separating Hazards One-at-a-Time (Oncoming Car + Parked Car/Cyclist)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d09e73432cf59c5496bd0c1cf724cbad53fceedad738049f010e89c04ce327b9",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7191,
+  "usage": {
+    "completion_tokens": 1346,
+    "prompt_tokens": 2282,
+    "total_tokens": 3628,
+    "completion_tokens_details": {
+      "reasoning_tokens": 947
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008573,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-360-splitting-the-difference-between-two-hazards",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan in right lane facing forward, red SUV in left lane facing opposite; no head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exterior rear/front views.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue car travels in right lane, oncoming in left lane; double-yellow centerline on left of travel lane, white edge line/curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white shapes, diamond sign is blank yellow; no letters, numbers, or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows blue sedan behind, oncoming car in left lane, parked SUV with open door/pedestrian on right, with path arrows to pass after oncoming clears.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly depicts US right-hand traffic with blank signage and separate-hazards geometry; teaches yielding to oncoming before going around parked car.",
+    "teaching_correct": {
+      "note": "Blue car remains in lane while oncoming passes first, then arrow shows wide move around parked car with clearance; no wrong priority or geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of blue sedan in foreground center on two-lane road at sunset, red oncoming SUV in left lane ahead, white parked SUV with open door and woman on right sidewalk."
+  },
+  "error_body": null
+}

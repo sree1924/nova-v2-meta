@@ -279,3 +279,13 @@ Seeded 2026-10-28T07:24:05.831Z by intake-state.mjs from 2026-10-26-rdmv-ut-clas
 - 2026-10-29T16:40:49.974Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:127 for 19A.units (sec13-road-conditions) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
 
 - 2026-10-29T16:40:50.668Z lineage reset → 2026-10-28-rdmv-id-class-d:lineage:128 for 19A.units (sec15-driving-record) under standing authority; cause: one lineage per section for 19A.units: the ledger allows two attempts per lineage+stage (C28); deterministic executor makes one $0 attempt per section
+
+JAM 2026-10-29T20:41:27.573Z — one-state targeted pilot sec11-F14 only: add required five seconds OR100feet signaling on physical87; preserve original coverage gaps and all non-target content. Sol subscription authoring; one bounded Meta validation only.
+
+
+JAM 2026-10-29T20:46:16.099Z — Idaho one-target F14 pilot STOP/HOLD: accepted02/16/03/04 correction, then binding-only06 local native check06.OFFICIAL_MIRROR rejected original verified40-question practice-form flags against unknown/null exam_facts_view. Original bank/lesson/script unchanged; no native06 submission, Meta validation, unassigned repairs or repeated retry. Evidence scratch/sol-state-coordinator/factfix-20261029/pilot-ID/HOLD-06-OFFICIAL-MIRROR.json. Own claim released; root/founder trial review required.
+
+JAM 2026-10-29T20:51:28.347Z — same Idaho F14 pilot resumed under derivative-mirror recovery authority; align only two unsupported derivative n_questions fields to actual unknown safe view, preserve all source/config/items/productcounts/gaps and old failed proof. No accepted-step replay.
+
+
+JAM 2026-10-29T20:55:37.499Z — Idaho F14 one-target pilot PASS native+Meta, awaiting founder trial review: accepted02/16/03/04/06/05sessions/05scripts. Exact five seconds OR100feet correction and necessary two derivative mirror unknown alignments; original54 section gaps/F14 missingitem preserved. Meta onecall HTTP200/stop all61SUPPORTED, $0.031906, independent:true by actual Sol author proof. applied:false/learnerhold retained; own claim released; no anotherstate.

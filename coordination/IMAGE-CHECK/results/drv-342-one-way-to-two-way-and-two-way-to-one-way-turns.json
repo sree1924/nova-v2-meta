@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-342-one-way-to-two-way-and-two-way-to-one-way-turns",
+  "file": "drv-342-one-way-to-two-way-and-two-way-to-one-way-turns.png",
+  "title": "Turning Between One-Way & Two-Way Streets: Correct Entry and Exit Lane Positioning",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "fd655bf8fa6cd7c268e0a6bd0a5dea12f03428eee1ec363e469483afe1042f5e",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 12414,
+  "usage": {
+    "completion_tokens": 2670,
+    "prompt_tokens": 2275,
+    "total_tokens": 4945,
+    "completion_tokens_details": {
+      "reasoning_tokens": 2307
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.014191,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-342-one-way-to-two-way-and-two-way-to-one-way-turns",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "One car per panel, no opposing vehicles sharing a lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Bird's-eye roofs only, no cabin interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Left signal shows only green lit, right signal shows only red lit; other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Both green arcs end north of double-yellow moving west, with centerline left of travel; white edges at curb.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; arrows and lights are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Clean 2-panel bird's-eye diagram shows one-way to two-way left/right turns with green arcs as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Two-panel overhead shows correct lane positioning for turns between one-way and two-way streets with proper US markings and single-lens signals.",
+    "teaching_correct": {
+      "note": "Both arcs enter the correct right-of-yellow lane for westbound travel; no wrong-way geometry taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Two-panel bird's-eye intersection with a red car left turning north to west and a blue car right turning south to west, both with green turn arcs, traffic lights, trees and buildings."
+  },
+  "error_body": null
+}

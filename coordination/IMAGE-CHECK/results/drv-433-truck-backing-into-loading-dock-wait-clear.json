@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-433-truck-backing-into-loading-dock-wait-clear",
+  "file": "drv-433-truck-backing-into-loading-dock-wait-clear.png",
+  "title": "Semi-Truck Backing Across Street Into Loading Bay: Stop Early & Give Full Roadway Room",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d9b063e9d16920172f5bd310c2077f912d21be1da5834e5cfe4670fd98888f01",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 9517,
+  "usage": {
+    "completion_tokens": 1150,
+    "prompt_tokens": 2269,
+    "total_tokens": 3419,
+    "completion_tokens_details": {
+      "reasoning_tokens": 763
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.007724,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-433-truck-backing-into-loading-dock-wait-clear",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Blue sedan faces forward away from viewer; truck cab faces toward viewer but is angled across lanes backing to dock on right, not head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; rear window of sedan is dark tinted, truck cab exterior only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Blue sedan in right lane with double-yellow centerline on its left and white edge line/curb on its right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plate is blank gray rectangle, no letters, numbers, or words visible anywhere.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "18-wheeler angled backward into warehouse loading dock on right with hazards flashing while blue sedan stops far back, matching title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Image correctly shows truck backing into dock with sedan waiting back, with no text and correct US road layout. Accept.",
+    "teaching_correct": {
+      "note": "Sedan stopped far back with clear zone, giving backing truck full roadway room, teaches correct yielding behavior.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A blue sedan viewed from behind stopped in the right lane while an 18-wheeler ahead angles backward across the road into a loading dock on the right."
+  },
+  "error_body": null
+}

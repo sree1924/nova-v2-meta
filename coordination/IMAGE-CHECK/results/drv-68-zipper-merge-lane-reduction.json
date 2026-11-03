@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-68-zipper-merge-lane-reduction",
+  "file": "drv-68-zipper-merge-lane-reduction.png",
+  "title": "Congested Lane Closure: Cooperative Alternate 'Zipper Merge' at Taper",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "689daea967644b737010292b0480ed0c5507392fb2c01d3c492d392fdfba8117",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5187,
+  "usage": {
+    "completion_tokens": 1072,
+    "prompt_tokens": 2280,
+    "total_tokens": 3352,
+    "completion_tokens_details": {
+      "reasoning_tokens": 656
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007406,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-68-zipper-merge-lane-reduction",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All northbound vehicles in foreground face away from camera; opposing traffic on left is on separate roadway divided by grass median, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interiors or steering wheels visible; view is exterior rear aerial.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No intersection traffic signal present; construction arrow board with multiple amber dots is not a standard signal lens.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Northbound lanes show solid yellow on left by grass median and white lane/edge lines on right, all vehicles keep right and face forward.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles, arrow board shows only light dots, barrels and barriers are blank shapes, no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Elevated view of two-lane highway with right lane closed by orange-white barrels at taper, vehicles in both lanes facing forward merging alternately.",
+      "verdict": "MATCH"
+    },
+    "summary": "Aerial zipper-merge scene matches prompt with correct US lane markings, blank plates/signs, and no rule violations; teaches cooperative alternate merge.",
+    "teaching_correct": {
+      "note": "Shows two lanes merging one-by-one at cone taper with spacing and red taillights ahead, correct zipper behavior.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Elevated rear view of two northbound lanes at sunset with cars facing away and red taillights, orange-white barrels closing the right lane ahead while oncoming traffic passes on a separate left roadway."
+  },
+  "error_body": null
+}

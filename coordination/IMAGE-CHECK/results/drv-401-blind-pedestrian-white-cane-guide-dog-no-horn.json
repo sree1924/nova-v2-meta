@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-401-blind-pedestrian-white-cane-guide-dog-no-horn",
+  "file": "drv-401-blind-pedestrian-white-cane-guide-dog-no-horn.png",
+  "title": "Blind Pedestrian With White Cane (Red Tip) or Guide Dog: Full Stop, NEVER Honk & Wait Until Completely Across",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "475a41309be605aa7d958d94bf3d7499dbe346bb8b10cc0b51e2418c9ab28a4e",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4435,
+  "usage": {
+    "completion_tokens": 956,
+    "prompt_tokens": 2295,
+    "total_tokens": 3251,
+    "completion_tokens_details": {
+      "reasoning_tokens": 555
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006932,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-401-blind-pedestrian-white-cane-guide-dog-no-horn",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Only viewer vehicle in lane; no oncoming vehicle facing it head-on.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Interior foreground shows left-side steering wheel, correct LHD, no right-side wheel.",
+        "verdict": "PASS"
+      },
+      "single_bulb_signal": {
+        "note": "Vertical signal on right shows only top red lit, yellow/green dark; ped signal shows single white walker.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double centerline left of travel lane, curb/sidewalk on right, crosswalk markings correct for US right-hand.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; signs are blank or pure icons (horn icon, walk icon).",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "View from stopped blue car shows man with white cane with red tip plus harnessed golden retriever in crosswalk and no-horn symbol top-left, as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Correct blind pedestrian yield scene with cane, guide dog, stop position, and no-honk icon; all visual rules pass.",
+    "teaching_correct": {
+      "note": "Car stopped before crosswalk waiting for blind walker and dog with no-honk message, teaches full stop and wait correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "View over blue hood/dash from driver seat stopped at crosswalk where a man with sunglasses holds a white cane with red tip and walks beside a harnessed golden retriever; red no-horn icon top-left."
+  },
+  "error_body": null
+}

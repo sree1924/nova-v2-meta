@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-134-fees-nonrefundable-payment-receipt",
+  "file": "drv-134-fees-nonrefundable-payment-receipt.png",
+  "title": "Application & Licensing Fee Payment at Counter (Non-Refundable Exam/Credential Fee)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "d1053671f0e0c9424441deefa971033fe3427aa2b90f00f786aade6b01f46ef6",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6422,
+  "usage": {
+    "completion_tokens": 1153,
+    "prompt_tokens": 2257,
+    "total_tokens": 3410,
+    "completion_tokens_details": {
+      "reasoning_tokens": 778
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007722,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-134-fees-nonrefundable-payment-receipt",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Background cars through left window are in separate lanes; no head-on pair in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only distant exteriors through window.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in DMV interior or background.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Background road through left window shows yellow centerline to left and vehicles keeping right; no left-hand traffic violation.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, card, terminal screen, receipt, folder, and badge are blank or icon-only (car icon, checkmark); no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Close-up shows customer tapping chip card on terminal with green checkmark, printed icon-only receipt, and permit folder at DMV counter.",
+      "verdict": "MATCH"
+    },
+    "summary": "DMV payment scene matches prompt with zero text and correct US traffic context; teaching is clear and correct.",
+    "teaching_correct": {
+      "note": "Shows successful fee payment at counter with receipt and folder; does not misrepresent refundability or procedure.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A woman at a DMV counter taps a blank card on a terminal showing a green checkmark with an icon-only receipt printing, while a clerk smiles behind the counter."
+  },
+  "error_body": null
+}

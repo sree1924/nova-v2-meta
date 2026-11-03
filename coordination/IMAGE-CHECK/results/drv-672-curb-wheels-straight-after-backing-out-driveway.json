@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-672-curb-wheels-straight-after-backing-out-driveway",
+  "file": "drv-672-curb-wheels-straight-after-backing-out-driveway.png",
+  "title": "Backing Out of a Driveway Onto a Two-Way Street: Back Into Nearest Right Lane & Stop Completely Before Shifting to Drive!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "158678145903edd6123c8a8d742c04ae0967166e086c17c59ee86398eb568e0b",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 6982,
+  "usage": {
+    "completion_tokens": 1415,
+    "prompt_tokens": 2277,
+    "total_tokens": 3692,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1007
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.00886,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-672-curb-wheels-straight-after-backing-out-driveway",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No panels show two vehicles facing each other head-on in the same lane; background traffic is same-direction.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel is visible in any panel; subject absent.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Bottom row shows overhead signals with only one green lens lit per signal head, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "All street views show double-yellow centerline on left of travel lane and white edge line/curb on right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; license plates are blank rectangles, blue arrows are graphic icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Top row matches backing out of right-side driveway into nearest right lane; bottom three panels add a signalized through-street with overhead traffic lights not described in prompt.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Top sequence correctly illustrates driveway back-out, but unexplained bottom signal sequence makes scene only partial to prompt.",
+    "teaching_correct": {
+      "note": "Top panels show backing into nearest right lane without crossing yellow line; brake lights then off suggests stop-then-go, no reversed priority or bad geometry taught.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Six-panel grid shows a gray sedan backing out of a right-side home driveway into the right lane in the top row, then viewed from behind driving forward under green traffic lights in the bottom row."
+  },
+  "error_body": null
+}

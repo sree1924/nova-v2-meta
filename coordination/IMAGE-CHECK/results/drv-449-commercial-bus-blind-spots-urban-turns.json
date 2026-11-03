@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-449-commercial-bus-blind-spots-urban-turns",
+  "file": "drv-449-commercial-bus-blind-spots-urban-turns.png",
+  "title": "Long City & Intercity Motorcoaches: Wide Turning Tail-Swing & Rear Blind Zones",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "f43e346ed2b15906e88b564249007360412145baa325a79b9f02adf7ecb1c287",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 3931,
+  "usage": {
+    "completion_tokens": 921,
+    "prompt_tokens": 2245,
+    "total_tokens": 3166,
+    "completion_tokens_details": {
+      "reasoning_tokens": 554
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.00672,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-449-commercial-bus-blind-spots-urban-turns",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "All visible vehicles in foreground and background travel same direction; no oncoming facing in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; bus and sedans show only exteriors.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Right foreground signal shows only bottom green lens lit, upper red and middle lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Traffic travels forward on right side; double yellow centerline on left, white edge/curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "License plates are blank white rectangles, pedestrian signal is blank dark square; no letters, numbers or words visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Long white motorcoach making wide right turn on urban corner with sedans held well back matches title and prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Urban right-turn by long coach with following traffic held back correctly depicts tail-swing awareness; all visual rules pass.",
+    "teaching_correct": {
+      "note": "Shows coach occupying wide turn path and cars staying back from rear blind zone, teaching correct following distance.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A long white motorcoach turns right at a sunset urban intersection while two sedans wait well behind it; a green traffic light and pedestrians are on the right sidewalk."
+  },
+  "error_body": null
+}

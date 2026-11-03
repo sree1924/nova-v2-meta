@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth, clerkClient } from "@clerk/nextjs/server";
 import { stripe } from "@/lib/stripe";
 import { stateByCode } from "@/lib/catalog";
 import { isActive, readEntitlements } from "@/lib/entitlements";
 import { purchaseMetadata } from "@/lib/purchasePolicy";
 import { CURRENCY, PRICE_CENTS, PRODUCT_NAME, SITE_URL } from "@/lib/product";
+import { localModeRequested, localRequestAllowed, localUrl } from "@/lib/localMode";
+import { readLocalSession } from "@/lib/localSession";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -14,6 +15,16 @@ export const dynamic = "force-dynamic";
 // 303-redirects to it. Already entitled -> back to the course, no second charge.
 // Idempotency key buckets repeat clicks (10 min) onto the same session.
 export async function GET(req: NextRequest) {
+  if (localModeRequested()) {
+    if (!localRequestAllowed(req.headers)) return NextResponse.json({ error: "local_only" }, { status: 403 });
+    const st = stateByCode(req.nextUrl.searchParams.get("state") || "");
+    if (!st) return NextResponse.json({ error: "unknown_state" }, { status: 400 });
+    const session = await readLocalSession(req);
+    if (!session) return NextResponse.json({ error: "sign_in_required" }, { status: 401 });
+    if (isActive(session.e[st.code])) return NextResponse.redirect(localUrl(req, st.appPath), 303);
+    return NextResponse.redirect(localUrl(req, "/purchase/local?state=" + st.code), 303);
+  }
+  const { auth, clerkClient } = await import("@clerk/nextjs/server");
   const { userId } = await auth();
   if (!userId) return NextResponse.json({ error: "sign_in_required" }, { status: 401 });
   const st = stateByCode(req.nextUrl.searchParams.get("state") || "");

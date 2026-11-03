@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-305-steady-red-arrow-no-turn-allowed",
+  "file": "drv-305-steady-red-arrow-no-turn-allowed.png",
+  "title": "Steady Red Arrow Signal: Stop & NEVER Turn in Direction of Arrow (Even After Stopping)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "cad7bd1ef40c25e2fcc97d3ea425b677cc36b37ed6879bc9e73d6e741444c056",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 4663,
+  "usage": {
+    "completion_tokens": 860,
+    "prompt_tokens": 2256,
+    "total_tokens": 3116,
+    "completion_tokens_details": {
+      "reasoning_tokens": 467
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.006475,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-305-steady-red-arrow-no-turn-allowed",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Our sedan faces forward in turn lane; oncoming cars are in separate opposite lanes, no head-on in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Only rear exterior of sedan visible, no steering wheel or interior shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Left signal shows only red arrow lit, center and right signals show only one red ball lit each, other lenses dark.",
+        "verdict": "PASS"
+      },
+      "us_right_hand_traffic": {
+        "note": "Yellow double line on LEFT of our lane, white edge/curb on RIGHT; oncoming traffic left of center.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "All signs, signals, and license plate are blank shapes; no letters or numbers visible.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "View from behind stopped sedan in left-turn bay with steady red left arrow and large red X prohibiting turn, exactly as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Illustration correctly shows a stopped sedan in a left-turn lane under a single steady red arrow with prohibitive X, satisfying all visual rules and teaching no turn on red arrow.",
+    "teaching_correct": {
+      "note": "Car remains stopped behind intersection for red arrow, teaching stop and no turn in arrow direction.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a dark sedan stopped in a left-turn lane under three overhead red signals, the leftmost a red left-arrow overlaid with a large red X, with oncoming traffic and mountains ahead."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-89-oncoming-wrongway-escape-right",
+  "file": "drv-89-oncoming-wrongway-escape-right.png",
+  "title": "Oncoming Vehicle Drifting Into Your Lane: Brake, Honk & Escape RIGHT (Never Left)",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "2c517b2cc2ae0930cbec58b4dfd8a1b94ab00fb8b841ef71d894bc9e1ad07e85",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 7614,
+  "usage": {
+    "completion_tokens": 1162,
+    "prompt_tokens": 2306,
+    "total_tokens": 3468,
+    "completion_tokens_details": {
+      "reasoning_tokens": 751
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.007821,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-89-oncoming-wrongway-escape-right",
+    "overall": "HUMAN_REVIEW",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Teal car in right foreground lane and dark car in left background lane are in separate lanes divided by double-yellow; no same-lane head-on.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible; only exteriors shown.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on LEFT of foreground lane, white edge line and shoulder on RIGHT; traffic keeps right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; plates and surroundings are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows braking teal car escaping RIGHT to shoulder with green arrow, but oncoming dark car remains fully in its own left lane, not drifting across double-yellow, and red-X left-arrow is missing.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Correct right-escape and braking depicted with proper US markings and no text, but oncoming intrusion and left-prohibition not shown, needs human review.",
+    "teaching_correct": {
+      "note": "Teaches correct response - brake and escape right onto shoulder - with correct geometry; does not teach opposite, though threat is understated.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Rear view of a teal sedan in the right foreground lane braking with lights on and following a large green arrow onto the right gravel shoulder, while a dark oncoming car approaches in the left background lane on a two-lane mountain highway."
+  },
+  "error_body": null
+}

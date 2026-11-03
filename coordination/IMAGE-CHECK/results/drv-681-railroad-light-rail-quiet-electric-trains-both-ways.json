@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-681-railroad-light-rail-quiet-electric-trains-both-ways",
+  "file": "drv-681-railroad-light-rail-quiet-electric-trains-both-ways.png",
+  "title": "Urban Light-Rail Electric Trains Are Whisper-Quiet & Accelerate Rapidly — Obey Dedicated White T-Bar / Arrow Signals!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "128bd5fa46c5183360241c33a2844403ef73dd499f052714ca96ebbc15784e09",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5814,
+  "usage": {
+    "completion_tokens": 1369,
+    "prompt_tokens": 2263,
+    "total_tokens": 3632,
+    "completion_tokens_details": {
+      "reasoning_tokens": 993
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 753
+    }
+  },
+  "usd_priced": 0.008647,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-681-railroad-light-rail-quiet-electric-trains-both-ways",
+    "overall": "REJECT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "No opposing vehicles in same lane; train crosses perpendicular, cars queue same direction.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No car interior or steering wheel visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "Top arrow has one lit lens, but both railroad flashers show two lit red lenses at once, left background and right foreground.",
+        "verdict": "FAIL"
+      },
+      "us_right_hand_traffic": {
+        "note": "Queued cars on right side, double-yellow centerline on left, white edge line/curb on right.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers or words; plates, crossbuck and signs are blank shapes.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Shows quiet urban light-rail crossing with red arrow holding cars, but dedicated white T-Bar/arrow transit signal not visible.",
+      "verdict": "PARTIAL"
+    },
+    "summary": "Light-rail crossing scene is largely correct but fails single-bulb rule due to two lit railroad lights and omits the white T-bar signal.",
+    "teaching_correct": {
+      "note": "Waiting behind gate for train with red arrow is correct behavior; no wrong stop position or priority error.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "A sleek light-rail train crosses a city boulevard behind a lowered gate while two cars wait behind and a cyclist rides in the left foreground under a red left-arrow signal."
+  },
+  "error_body": null
+}

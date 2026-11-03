@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-172-driving-while-suspended-revoked-arrest",
+  "file": "drv-172-driving-while-suspended-revoked-arrest.png",
+  "title": "Driving While License Is Suspended or Revoked: Extended Loss, Impound & Jail Risk",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "4fbb650152ef673185459b73d4377b3ca0c81028037f39f909e49388856e3d97",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 5006,
+  "usage": {
+    "completion_tokens": 679,
+    "prompt_tokens": 2267,
+    "total_tokens": 2946,
+    "completion_tokens_details": {
+      "reasoning_tokens": 320
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.005719,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-172-driving-while-suspended-revoked-arrest",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Both sedan and cruiser face forward away from viewer on shoulder; no head-on facing.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "No vehicle interior or steering wheel visible; exterior rear view only.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signal present in scene.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Double-yellow centerline on far left, white edge line on right, both vehicles stopped on right shoulder facing forward.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words; plates are blank gray rectangles, padlock is pure icon.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Dusk right-shoulder stop with patrol cruiser with red-blue strobes behind stopped car plus padlock icon matches prompt.",
+      "verdict": "MATCH"
+    },
+    "summary": "Dusk enforcement stop correctly depicts suspended-license risk with proper US traffic geometry and zero text.",
+    "teaching_correct": {
+      "note": "Shows patrol stop on shoulder as consequence for driving while suspended; geometry and symbolism teach correctly.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "At sunset a police cruiser with red-blue lights is stopped behind a silver sedan on the gravel right shoulder of a two-lane road, with a white padlock icon in a circle at upper right."
+  },
+  "error_body": null
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "nova-image-fact-check.v1",
+  "id": "drv-324-shared-center-turn-lane-200ft-no-passing",
+  "file": "drv-324-shared-center-turn-lane-200ft-no-passing.png",
+  "title": "Center Shared Left-Turn Lane Rules: Travel Max 200–300 Ft, Never Use for Passing or Through Driving!",
+  "model": "muse-spark-1.3",
+  "model_returned": "muse-spark-1.3",
+  "image_sha256": "7599ce0a5562f518337a7705d4f94af6feae58a6a5bf78f36aa2da049e834e54",
+  "sent_width": 1280,
+  "http_status": 200,
+  "finish_reason": "stop",
+  "elapsed_ms": 8396,
+  "usage": {
+    "completion_tokens": 1572,
+    "prompt_tokens": 2279,
+    "total_tokens": 3851,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1127
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usd_priced": 0.00953,
+  "price_basis": "contracts/meta-pricing-snapshot.v0.4.0.json",
+  "parse_error": null,
+  "result": {
+    "id": "drv-324-shared-center-turn-lane-200ft-no-passing",
+    "overall": "ACCEPT",
+    "rules": {
+      "no_head_on_same_lane": {
+        "note": "Center lane contains only one blue car; left through lane only red car; right through lane only one blue car; no opposing faces in same lane.",
+        "verdict": "PASS"
+      },
+      "no_rhd_cabin": {
+        "note": "Aerial exterior view only; no car interiors or steering wheels visible.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "single_bulb_signal": {
+        "note": "No traffic signals present in aerial diagram.",
+        "verdict": "NOT_APPLICABLE"
+      },
+      "us_right_hand_traffic": {
+        "note": "Lane markings show yellow center TWLTL in middle, white edge lines/curbs on outer rights; left-side red car southbound with yellow on its left and white on its right, consistent with US right-hand traffic.",
+        "verdict": "PASS"
+      },
+      "zero_text": {
+        "note": "No letters, numbers, or words visible; markings are blank shapes, arrows, check and X icons only.",
+        "verdict": "PASS"
+      }
+    },
+    "scene_match": {
+      "note": "Aerial boulevard with solid-outer dashed-inner yellow center lane, green check for short left into shop lot on left, red X over long straight arrow in center lane, exactly as prompted.",
+      "verdict": "MATCH"
+    },
+    "summary": "Aerial TWLTL diagram correctly contrasts allowed short left turn vs prohibited through/passing use, with all applicable visual rules satisfied.",
+    "teaching_correct": {
+      "note": "Teaches short entry for left turn as correct and long center-lane travel/passing as prohibited, matching 200-300 ft rule; no wrong geometry.",
+      "verdict": "CORRECT"
+    },
+    "what_i_see": "Top-down aerial of a boulevard with a yellow-lined center two-way left-turn lane; a blue car in the center with a green curved arrow left into a parking lot marked with green check, and a long red straight arrow through the center marked with red X."
+  },
+  "error_body": null
+}
