@@ -60,3 +60,9 @@ a broad submission-use license regardless.
 gh repo edit sree1924/nova-v2-meta --visibility public --accept-visibility-change-consequences
 ```
 Then open the repo signed out and confirm README renders and `app-preview/trace.html` is reachable via raw/Pages if linked.
+
+## History rewrite DONE 2026-11-03 ~17:55Z (founder: "Rewrite history first")
+- Backup bundle: D:/nova/_backups/nova-v2-meta-pre-rewrite-2026-11-03.bundle (449 MB, verified) — the only copy of the old history once GitHub gc runs.
+- git filter-repo --invert-paths over ALL 8 branches (main, sol/store-local, 6 cloud/*): *.mp3 *.mp4 *.wav *.png *.jpg *.webp *.zip, */sources/private/*, coordination/muse-launch-*.jsonl, scratch/. 2,099 private-source objects + 1,513 media blobs purged; 0 remain. Pack 488 -> 264 MiB. HEAD tree unchanged (167,887 files).
+- New SHAs: main = sol/store-local = 2e13e00c1. Force-push of all branches in progress at time of writing.
+- Note: GitHub may serve old commits by direct SHA until its gc; nothing secret was in them (audio + handbook page scans).

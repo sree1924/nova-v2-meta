@@ -41,3 +41,6 @@
 | 14:48Z | ks | 8,077 | 5.11 | 29m41s | PASS (md5 8077 files) |
 | 15:04Z | nv | 4,161 | 2.35 | 16m3s | PASS (md5 4161 files) |
 | 15:22Z | nm | 4,154 | 2.80 | 18m25s | PASS (md5 4154 files) |
+| 18:32Z | id | 6,571 | 4.45 | 26m41s | PASS (md5 6571 files) |
+| 17:47Z | ne | 14,420 | 29.33 | 2h25m9s | PASS (md5 14420 files) — row restored from R2-UPLOAD.log (file reset by the history rewrite checkout) |
+| 18:05Z | wv | 4,633 | 2.88 | 18m15s | PASS (md5 4633 files) — row restored from R2-UPLOAD.log |
