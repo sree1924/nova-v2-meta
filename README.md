@@ -71,10 +71,19 @@ Nine numbered bugs, each with what fixed it: `coordination/BUGS/INDEX.md`. Among
 rendered before the picture library was final (BUG-008, all re-rendered and re-hashed). Nothing was hand-edited to close
 a bug; the belt was re-run.
 
-**Honest limits.** Content is belt-validated and Meta-fact-checked, not reviewed by a human subject-matter expert; the app says
-so on every screen. Narration is pre-generated (OpenAI TTS for the first Utah pass, offline Piper for the fleet), never live;
-Meta has no text-to-speech. The handbook PDFs stay private; only page anchors and authored text are published. Store copy,
-prices and the free tier were set by the founder; everything else was artifacts.
+## The thesis, by design
+
+- **No human reviewed the content, and that is the point.** A model wrote it, a second model pass re-read every fact
+  against its cited page, a validator the model cannot argue with decided what exists, and every decision left a receipt.
+  Meta's model was the one trusted to check everyone's work. The founder reviewed mechanics, never content, and the app says
+  on every screen exactly what checked it.
+- **Nothing is generated while a learner is in the room.** Every clip, picture and card was produced on the belt and
+  hash-sealed before the learner arrives; the store plays files. The same money that would have bought one live session
+  bought a permanent dataset.
+- **The source stays sovereign.** The handbook PDFs never leave the private run folders; what ships is the page anchor and
+  the authored, validated text, so every sentence can be checked against the page it cites, by anyone.
+- **The human sets the frame, not the facts.** Store copy, prices and the free tier were the founder's. Everything else was
+  an artifact that passed a check or did not exist.
 
 ## The dataset is the product
 
