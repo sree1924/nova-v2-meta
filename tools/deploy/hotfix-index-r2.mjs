@@ -21,6 +21,11 @@ const DST = `r2:${env.R2_BUCKET}/app/index.html`;
 const r = spawnSync(RCLONE, ['copyto', SRC, DST, '--s3-no-check-bucket'], { env: rcloneEnv, stdio: 'inherit' });
 if (r.status !== 0) { console.error('rclone rc=' + r.status); process.exit(r.status || 1); }
 console.log('uploaded app/index.html to R2');
+// 2026-11-04: gate.js ships with the shell (state-journey cookie + dashboard sign-in link). Edge caches it 1 h — purge by URL after.
+const GATE = path.join(ROOT, 'store/public/app/gate.js');
+const g = spawnSync(RCLONE, ['copyto', GATE, `r2:${env.R2_BUCKET}/app/gate.js`, '--s3-no-check-bucket'], { env: rcloneEnv, stdio: 'inherit' });
+if (g.status !== 0) { console.error('rclone (gate.js) rc=' + g.status); process.exit(g.status || 1); }
+console.log('uploaded app/gate.js to R2');
 
 // Optional edge-cache purge for the one URL (CLOUDFLARE_API_TOKEN + zone id in .env.cloudflare; skipped if absent).
 const ZONE = env.CLOUDFLARE_ZONE_ID || 'a893c88a887fbac05eae199f76245909';

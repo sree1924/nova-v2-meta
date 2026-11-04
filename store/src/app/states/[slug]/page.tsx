@@ -5,6 +5,7 @@ import { buyHref } from "@/lib/buy";
 import { PRICE_LABEL, REFUND_WINDOW_DAYS, SUPPORT_EMAIL } from "@/lib/product";
 import { StateChapterRoadmap, StateUnlockCard } from "@/components/StateUnlockCard";
 import { StateAudioPreview } from "@/components/StateAudioPreview";
+import { RememberState } from "@/components/RememberState";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -38,6 +39,7 @@ export default async function StatePage({
 
   return (
     <div data-state-code={s.code}>
+      <RememberState code={s.code} />
       <a className="back-link" href="/#states">
         ← All 51 state manuals
       </a>

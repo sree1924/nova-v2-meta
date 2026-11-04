@@ -1362,6 +1362,8 @@
       if (!slot) return;
       if (s && s.code) {
         var slug = String(s.code).toLowerCase();
+        // Remember the learner's state so /dashboard can offer "Continue your <State> journey" after sign-up/sign-in.
+        try { document.cookie = "plp_state=" + String(s.code).toUpperCase() + "; path=/; max-age=31536000; samesite=lax" + (location.protocol === "https:" ? "; secure" : ""); } catch (e) { /* no-op */ }
         if (entitled(s.code)) {
           slot.innerHTML = '<a class="hdr-pass-badge is-unlocked" href="#/' + esc(slug) + '/"><span class="hdr-live-dot" aria-hidden="true"></span>' + esc(s.code) + ' Pass Active</a>';
         } else {
@@ -1374,7 +1376,7 @@
         slot.innerHTML = '<span class="hdr-pass-badge"><span class="hdr-live-dot" aria-hidden="true"></span>'
           + (activeCodes.length ? esc(activeCodes.join(", ")) + ' Pass Active' : 'Test Learner') + '</span>';
       } else {
-        slot.innerHTML = '<a class="hdr-signin-pill" href="/sign-in?redirect_url=%2Fapp%2F%23%2F">Sign in</a>';
+        slot.innerHTML = '<a class="hdr-signin-pill" href="/sign-in?redirect_url=%2Fdashboard">Sign in</a>';
       }
     } catch (e) { /* no DOM in harness */ }
   }

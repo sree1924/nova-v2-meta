@@ -1,5 +1,6 @@
 "use client";
 import { useMemo, useRef, useState } from "react";
+import { rememberState } from "@/lib/journey";
 
 export interface HeroStateOption {
   code: string;
@@ -105,6 +106,7 @@ export function HeroRecallDemo({ states, defaultCode = "ND", priceLabel }: Props
   function onSelectState(nextCode: string) {
     stopMedia();
     setSelectedCode(nextCode);
+    rememberState(nextCode);
     setFlipped(false);
     setPicked(null);
     if (typeof window !== "undefined") {

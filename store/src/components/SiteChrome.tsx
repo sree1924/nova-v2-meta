@@ -24,6 +24,7 @@ export async function SiteHeader() {
     const unlockedCodes = session ? Object.keys(activeOnly(session.e)) : [];
     account = session ? (
       <div className="header-account-cluster">
+        <a href="/dashboard" className="nav-ghost-btn">Dashboard</a>
         <span className="account-badge">
           <span className="account-dot" aria-hidden="true" />
           {unlockedCodes.length ? `${unlockedCodes.join(", ")} Pass Active` : "Test Learner"}
@@ -39,7 +40,7 @@ export async function SiteHeader() {
     const { Show, UserButton } = await import("@clerk/nextjs");
     account = (
       <>
-        <Show when="signed-in"><UserButton /></Show>
+        <Show when="signed-in"><a href="/dashboard" className="nav-ghost-btn">Dashboard</a><UserButton /></Show>
         <Show when="signed-out"><a className="nav-signin-btn" href="/sign-in">Sign in</a></Show>
       </>
     );

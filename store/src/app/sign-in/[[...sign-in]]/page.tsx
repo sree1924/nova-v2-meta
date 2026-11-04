@@ -8,7 +8,8 @@ import { PRICE_LABEL } from "@/lib/product";
 export const metadata = { title: "Sign in", robots: { index: false, follow: true } };
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ redirect_url?: string }> }) {
-  const destination = safeRedirect((await searchParams).redirect_url);
+  // No explicit destination (header "Sign in", Clerk's own links) → the dashboard, which continues the remembered state.
+  const destination = safeRedirect((await searchParams).redirect_url, "/dashboard");
   const stateMatch = destination.match(/[?&]state=([A-Za-z]{2})/);
   const targetState = stateMatch ? stateByCode(stateMatch[1]) : null;
 
