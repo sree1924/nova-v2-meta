@@ -70,6 +70,16 @@ export function readCookie(header, name) {
   return undefined;
 }
 
+// Cache policy per object (2026-11-04, BUG-010 follow-up): the app shell (`index.html` / the /app/ root) is served
+// `no-cache` and never put in the edge cache, so a shell hotfix reaches every browser on its next reload. Everything
+// else keeps the old rule: free objects cached, paid objects private.
+export function isShellKey(rel) { return rel === '' || rel === 'index.html'; }
+export function cacheControlFor(rel, free) {
+  if (isShellKey(rel)) return 'no-cache, must-revalidate';
+  return free ? 'public, max-age=3600, stale-while-revalidate=86400' : 'private, no-store';
+}
+export function edgeCacheable(rel, free) { return free && !isShellKey(rel); }
+
 // Full decision: { status: 200 | 400 | 401 | 403 | 404, error?, state?, tier?: 'free'|'paid' }
 export async function decide(rel, cookieHeader, classify, secret, now = Date.now()) {
   const c = classify(rel);

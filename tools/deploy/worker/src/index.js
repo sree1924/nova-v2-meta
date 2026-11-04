@@ -3,7 +3,7 @@
 // Free objects: edge-cached, public. Paid objects: signed plp_ent cookie (HMAC, shared secret with the store), never cached.
 // Error bodies are the same JSON the store's middleware returns, so gate.js in the shell behaves identically.
 import FREE_PATHS from '../free-paths.json';
-import { makeTierRule, decide } from './gate.js';
+import { makeTierRule, decide, cacheControlFor, edgeCacheable } from './gate.js';
 
 const classify = makeTierRule(FREE_PATHS);
 const MIME = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', js: 'text/javascript; charset=utf-8', mjs: 'text/javascript; charset=utf-8',
@@ -24,9 +24,10 @@ export default {
 
     const key = 'app/' + (rel === '' ? 'index.html' : rel);
     const free = d.tier === 'free';
+    const cacheable = edgeCacheable(rel, free); // the shell is never edge-cached (hotfixes must land on next reload)
     const cacheKey = new Request(url.toString(), { method: 'GET' });
     const cache = caches.default;
-    if (free) {
+    if (cacheable) {
       const hit = await cache.match(cacheKey);
       if (hit) return request.method === 'HEAD' ? new Response(null, hit) : hit;
     }
@@ -38,7 +39,7 @@ export default {
     headers.set('etag', obj.httpEtag);
     headers.set('accept-ranges', 'bytes');
     headers.set('x-content-type-options', 'nosniff');
-    headers.set('cache-control', free ? 'public, max-age=3600, stale-while-revalidate=86400' : 'private, no-store');
+    headers.set('cache-control', cacheControlFor(rel, free));
     let status = 200;
     if (range && obj.range) {
       const { offset, length } = obj.range;
@@ -50,7 +51,7 @@ export default {
       headers.set('content-length', String(obj.size));
     }
     const res = new Response(request.method === 'HEAD' ? null : obj.body, { status, headers });
-    if (free && status === 200 && request.method === 'GET') ctx.waitUntil(cache.put(cacheKey, res.clone()));
+    if (cacheable && status === 200 && request.method === 'GET') ctx.waitUntil(cache.put(cacheKey, res.clone()));
     return res;
   },
 };

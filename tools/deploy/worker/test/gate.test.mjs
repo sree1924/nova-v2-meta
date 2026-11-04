@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { makeTierRule, decide, signEntitlementCookie, ENT_COOKIE } from '../src/gate.js';
+import { makeTierRule, decide, signEntitlementCookie, ENT_COOKIE, cacheControlFor, edgeCacheable, isShellKey } from '../src/gate.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const FREE = JSON.parse(fs.readFileSync(path.join(here, '../free-paths.json'), 'utf8'));
@@ -35,4 +35,20 @@ test('every paid prefix has a 2-letter code and no free path falls under a paid 
   const leaks = FREE.free.filter((f) => FREE.paid_prefixes.some((p) => f.startsWith(p.prefix)));
   // chapter-1 files legitimately live under paid prefixes (that is the free allowlist's job); just report the count
   assert.ok(leaks.length > 0);
+});
+
+// 2026-11-04 (BUG-010 follow-up): the shell is never cached; everything else keeps its rule.
+test('shell key: index.html and the /app/ root are no-cache and never edge-cached', () => {
+  for (const rel of ['', 'index.html']) {
+    assert.equal(isShellKey(rel), true);
+    assert.equal(cacheControlFor(rel, true), 'no-cache, must-revalidate');
+    assert.equal(edgeCacheable(rel, true), false);
+  }
+});
+test('non-shell free objects stay public+cached; paid objects stay private', () => {
+  assert.equal(isShellKey('gate.js'), false);
+  assert.equal(cacheControlFor('gate.js', true), 'public, max-age=3600, stale-while-revalidate=86400');
+  assert.equal(edgeCacheable('gate.js', true), true);
+  assert.equal(cacheControlFor('data/ne/real/04_cards/x.json', false), 'private, no-store');
+  assert.equal(edgeCacheable('data/ne/real/04_cards/x.json', false), false);
 });
