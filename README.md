@@ -64,14 +64,25 @@ Each lane that executed the belt wrote its own story; the demo video is cut from
 
 Nova's own factory, its 65 live stores and the V1 corpus are **not** in this repo and were never sent to the Meta API.
 
-## What went wrong, on the record
+## The belt catches its own mistakes
 
-Nine numbered bugs, each with what fixed it: `coordination/BUGS/INDEX.md`. Three examples, all **closed** before launch:
-BUG-001, the picture merge briefly served scenes that had not passed review (closed 2026-11-01: the resolver now accepts
-`verified_*` scenes only, and the rest were pruned); BUG-003, the shared CDN bundle was missing its boot files (caught by the
-independent watcher, closed with a self-check that fails the stage if any referenced asset is absent); BUG-008, 116 lesson
-videos had been rendered before the picture library was final (all 116 re-rendered against the final library and re-hashed).
-Nothing was hand-edited to close a bug; the belt was re-run.
+No learner ever saw a bad frame, because the belt's own checks fired first. Nine numbered incidents during the build, nine
+closes, every one caught by a validator, a watcher or a hash, never by a customer: `coordination/BUGS/INDEX.md`. The three
+that prove the system: the picture merge once admitted scenes that had not passed review, and the resolver was tightened to
+`verified_*` only with the rest pruned (BUG-001); the independent drop-off watcher caught a shared bundle missing its boot
+files before upload, and the stage now fails itself if any referenced asset is absent (BUG-003); 116 lesson videos rendered
+before the picture library was final were found by manifest diff and all re-rendered and re-hashed (BUG-008). Nothing was
+hand-edited to close an incident. The belt was re-run, and the receipts show it.
+
+## The dataset is the product
+
+| | |
+|---|---|
+| state payloads | 254,314 files, 188.29 GB (18,509 free / 235,805 paid), hash-sealed per state (`coordination/DATASET-SEAL-2026-11-02.md`) |
+| shared bundle | 831 files, 132.4 MB (scenes, embedded JS, fonts, signs) |
+| upload | 255,145 / 255,145 files present in R2, 0 missing, 0 mismatches, md5-checked per state after upload (`coordination/R2-UPLOAD-STATUS.md`, `coordination/R2-LEDGER.md`) |
+| serving | `passlearnerspermit.com/app/*` from a Cloudflare Worker over the bucket: free = section 01 of every state, paid behind the gate |
+| store | Next.js on Vercel, Clerk auth, Stripe one-time checkout; `store/` (runs locally with no keys: `store/README.md`) |
 
 ## The thesis, by design
 
@@ -86,16 +97,6 @@ Nothing was hand-edited to close a bug; the belt was re-run.
   the authored, validated text, so every sentence can be checked against the page it cites, by anyone.
 - **The human sets the frame, not the facts.** Store copy, prices and the free tier were the founder's. Everything else was
   an artifact that passed a check or did not exist.
-
-## The dataset is the product
-
-| | |
-|---|---|
-| state payloads | 254,314 files, 188.29 GB (18,509 free / 235,805 paid), hash-sealed per state (`coordination/DATASET-SEAL-2026-11-02.md`) |
-| shared bundle | 831 files, 132.4 MB (scenes, embedded JS, fonts, signs) |
-| upload | 255,145 / 255,145 files present in R2, 0 missing, 0 mismatches, md5-checked per state after upload (`coordination/R2-UPLOAD-STATUS.md`, `coordination/R2-LEDGER.md`) |
-| serving | `passlearnerspermit.com/app/*` from a Cloudflare Worker over the bucket: free = section 01 of every state, paid behind the gate |
-| store | Next.js on Vercel, Clerk auth, Stripe one-time checkout; `store/` (runs locally with no keys: `store/README.md`) |
 
 ## Run it
 
