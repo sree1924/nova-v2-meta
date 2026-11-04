@@ -1,27 +1,14 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { COMPANY, SITE_NAME, SITE_URL } from "@/lib/product";
 import { localModeRequested } from "@/lib/localMode";
 import Telemetry from "@/components/Telemetry";
 
-const displayFont = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const sansFont = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-// 2026-11-04: JetBrains Mono dropped from the Google-Fonts build fetch (it broke a Vercel build with a null match).
-// --font-mono is only the third fallback of --font-tag; a system mono stack is set in globals.css instead.
+// 2026-11-04: no build-time font fetch. Vercel's build failed twice inside next/font's Google loader (null match for
+// JetBrains Mono, then Space Grotesk). The site's primary faces are the self-hosted "PLP …" @font-face files; the Google
+// families are secondary and now load at runtime via <link> below, so a Google outage can never fail a deploy again.
+const GOOGLE_FONTS_CSS = "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -36,7 +23,12 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const document = (
-    <html lang="en" className={`${displayFont.variable} ${sansFont.variable}`}>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href={GOOGLE_FONTS_CSS} />
+      </head>
       <body>
         <Telemetry />
         <SiteHeader />
