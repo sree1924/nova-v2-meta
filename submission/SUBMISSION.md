@@ -1,6 +1,6 @@
 # PassLearnersPermit — submission copy (Meta Global AI Developer Hackathon, indie track)
 
-Status: READY 2026-11-04 (video public, store live, repo public) · deadline 2026-11-04 21:00 EST (2026-11-05 02:00Z) · form submission is the founder's.
+Status: SUBMITTED 2026-11-04 ~21:45Z on cerebralvalley.ai/e/meta-ai-developer-hackathon (team DataPig, Indie Developer Track, Build for Your World; editable via "Update Project" until 2026-11-05 02:00Z).
 Every number here is sourced in `EVIDENCE.md`; do not raise a figure without a pointer.
 
 ## Project name
