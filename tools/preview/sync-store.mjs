@@ -116,18 +116,17 @@ const PATCHES = [
   },
   {
     name: 'loadReal: skip locked chapters, hide quarantined cards',
-    find: '    for (const e of manifest.files || []) {\n'
-      + '      const rel = relKey(root, e.file);\n'
-      + '      files[rel] = await fetchJson(root + "/" + rel);\n'
-      + '    }\n'
+    // HOTFIX 2026-11-04 (BUG-010): the builder loop is now a pool of 12; the store patch keeps the canLoad filter.
+    find: '    const wanted = manifest.files || [];\n',
+    replace: '    // STORE PATCH: chapters the visitor has not unlocked are not fetched\n'
+      + '    // (the server refuses them too); chapter 1 always loads.\n'
+      + '    const wanted = (manifest.files || []).filter((e) => !(window.NovaGate && !window.NovaGate.canLoad(s, e.section_id)));\n',
+  },
+  {
+    name: 'loadReal: deck overlay, quarantine, visuals after the pooled fetch',
+    find: '    await Promise.all(Array.from({ length: Math.min(POOL, wanted.length) }, worker));\n'
       + '    return { manifest, files, from: "fetch" };\n',
-    replace: '    for (const e of manifest.files || []) {\n'
-      + '      // STORE PATCH: chapters the visitor has not unlocked are not fetched\n'
-      + '      // (the server refuses them too); chapter 1 always loads.\n'
-      + '      if (window.NovaGate && !window.NovaGate.canLoad(s, e.section_id)) continue;\n'
-      + '      const rel = relKey(root, e.file);\n'
-      + '      files[rel] = await fetchJson(root + "/" + rel);\n'
-      + '    }\n'
+    replace: '    await Promise.all(Array.from({ length: Math.min(POOL, wanted.length) }, worker));\n'
       + '    // STORE PATCH: lazy-load per-state deck overlay + visuals, apply overlay,\n'
       + '    // and hide quarantined card ids in the loaded view model.\n'
       + '    if (window.NovaGate && window.NovaGate.ensureDeckOverlay) await window.NovaGate.ensureDeckOverlay(s);\n'
