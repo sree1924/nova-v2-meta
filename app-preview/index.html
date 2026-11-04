@@ -292,9 +292,9 @@ async function loadReal(s) {
     const manifest = await fetchJson(root + "/manifest.json");
     if (manifest.run_id && manifest.run_id !== s.run_id) return { manifest: null, files: {}, from: "run-mismatch" };
     const files = {};
-    // HOTFIX 2026-11-04: ~220 files per state; fetch in a pool of 12, not one at a time (39 s → 3.7 s at the edge).
+    // HOTFIX 2026-11-04: ~220 files per state; fetch in a pool of 32, not one at a time (39 s → 1.6 s at the edge).
     const wanted = manifest.files || [];
-    const POOL = 12;
+    const POOL = 32;
     let next = 0;
     const worker = async () => {
       while (next < wanted.length) {
