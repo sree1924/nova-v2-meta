@@ -130,3 +130,8 @@ Reference: `coordination/DEPLOY-ARCHITECTURE-2026-11-02.md`.
 - 51 states + shared uploaded state by state, every unit md5-verified by `rclone check` after upload; 0 retries, 0 give-ups across the run (04:35Z -> 22:47Z, ~18 h at ~3.3 MB/s; NE 29.3 GB took 2h25m).
 - Full ledger (`tools/deploy/r2-ledger.mjs`, bucket listing vs all 51 cdn-manifests + shared): **255,145 / 255,145 present, 0 missing, 0 size mismatch, 188,426,371,152 bytes** (= 188.43 GB, matches the manifests byte for byte). Per-state table in coordination/R2-LEDGER.md; R2-MISSING.txt empty.
 - The live Worker was already serving from this bucket during the upload; every state is now fully backed.
+
+## Shipped 2026-11-04 ~21:00Z — /dashboard (continue your state journey)
+- Vercel: store deploy with `/dashboard`, plp_state cookie writers (hero, state pages), sign-in/sign-up default → /dashboard, runtime Google-font link (next/font removed after two Vercel build failures in its Google loader).
+- R2: `app/gate.js` (journey cookie from the app header; Sign in pill → /dashboard) + shell; edge purged by URL.
+- Verified live: /dashboard signed-out → 307 to sign-in with redirect back; gate.js at edge carries plp_state; shell POOL=32.
