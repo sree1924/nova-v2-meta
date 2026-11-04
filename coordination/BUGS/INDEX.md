@@ -22,4 +22,4 @@ quarantine/think) · 0 paid file in the free allowlist · ND paid prefixes prese
 
 ## FLEET DROP-OFF COMPLETE (2026-11-02 18:11Z)
 51/51 states READY_FOR_FABLE, every READY.json independently verified by Fable's watcher: 0 issues, 0 missing, 0 sha mismatches, free tier = section 01 only. States payload 254314 files / 188.29 GB (18509 free / 235805 paid; 4987 lesson videos, 37967 flashcards); shared bundle 770 files / 125.4 MB (723 scenes, embedded JS + fonts). Nothing picked up to a CDN yet (external_publish gate = founder).
-| BUG-010 | P0 | Fable | CLOSED | unlocked state fetched ~220 JSON files one at a time (Utah 39 s before audio/overlays → "Loading…" after purchase); shell now fetches in a pool of 12 (3.7 s); founder uploads `app/index.html` via tools/deploy/hotfix-index-r2.mjs |
+| BUG-010 | P0 | Fable | CLOSED + no-cache shell shipped | unlocked state fetched ~220 JSON files one at a time (Utah 39 s before audio/overlays → "Loading…" after purchase); shell now fetches in a pool of 12 (3.7 s); founder uploads `app/index.html` via tools/deploy/hotfix-index-r2.mjs |

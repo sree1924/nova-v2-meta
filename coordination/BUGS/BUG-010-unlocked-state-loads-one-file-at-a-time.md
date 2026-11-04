@@ -27,3 +27,6 @@ Per-chapter lazy loading (fetch a chapter when it is opened) would make the paid
 
 ## Lesson (2026-11-04)
 Every pre-launch verification ran as a free visitor, which loads chapter 1 only. The paid path (all chapters, all files) was never exercised end to end until the founder's own purchase. Rule: before any launch, run `demo/paid-shell-probe.mjs <ST>` (entitled headless load) for at least three states.
+
+## Follow-up shipped (2026-11-04 ~20:27Z)
+Worker `plp-app-gate` now serves `index.html` and the `/app/` root with `cache-control: no-cache, must-revalidate` and never writes them to the edge cache (`tools/deploy/worker/src/gate.js` `cacheControlFor` / `edgeCacheable`, tests 11/11). Verified live: shell no-cache ×3 with sha `0f889a78477e2a35`, free data file still `public, max-age=3600`, paid file still `401 private, no-store`, entitled UT load renders in ~7 s. Deployed by the founder via `tools/deploy/deploy-worker.mjs`. Remaining v2 item: per-chapter lazy loading.
