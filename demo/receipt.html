@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>receipt</title>
+<style>
+  :root { --bg:#0e0f12; --panel:#15171c; --ink:#e8e6df; --dim:#8b8f98; --hl:#ffd54a; --hlbg:#3a2f00; --accent:#f3c969; }
+  html,body { margin:0; background:var(--bg); color:var(--ink); font:22px/1.45 "Cascadia Mono","JetBrains Mono",Consolas,monospace; }
+  header { position:sticky; top:0; z-index:3; background:var(--panel); border-bottom:1px solid #2a2d35; padding:18px 36px; display:flex; gap:28px; align-items:baseline; }
+  header .path { color:var(--accent); font-size:26px; }
+  header .meta { color:var(--dim); font-size:18px; }
+  pre { margin:0; padding:28px 36px 60vh; white-space:pre-wrap; word-break:break-word; }
+  .ln { display:block; padding:1px 10px; border-radius:6px; }
+  .ln.hl { background:var(--hlbg); color:var(--hl); outline:2px solid var(--hl); }
+  .ln.hl2 { background:#1b2a1b; }
+  .num { color:#4a4e58; display:inline-block; width:4.2ch; margin-right:1.5ch; user-select:none; }
+  footer { position:fixed; bottom:0; left:0; right:0; padding:10px 36px; background:linear-gradient(transparent, var(--bg) 40%); color:var(--dim); font-size:17px; }
+</style>
+<header><span class="path" id="path"></span><span class="meta" id="meta"></span></header>
+<pre id="body">loading…</pre>
+<footer>receipt on disk — D:/nova/fb-ai-hackathon/<span id="foot"></span></footer>
+<script>
+(async () => {
+  const q = new URLSearchParams(location.search);
+  const f = q.get('f'); const hl = q.get('hl'); const soft = q.get('soft');
+  const path = document.getElementById('path'), meta = document.getElementById('meta'), body = document.getElementById('body');
+  path.textContent = f; document.getElementById('foot').textContent = f;
+  const r = await fetch('/' + f, {cache:'no-store'});
+  let text = await r.text();
+  if (f.endsWith('.json')) { try { text = JSON.stringify(JSON.parse(text), null, 2); } catch {} }
+  if (f.endsWith('.jsonl')) { text = text.split('\n').filter(Boolean).map(l => { try { return JSON.stringify(JSON.parse(l)); } catch { return l; } }).join('\n'); }
+  const lines = text.replace(/\r/g,'').split('\n');
+  const re = hl ? new RegExp(hl) : null, re2 = soft ? new RegExp(soft) : null;
+  meta.textContent = `${lines.length} lines · ${(text.length/1024).toFixed(1)} KB`;
+  const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  body.innerHTML = lines.map((l,i) => {
+    const cls = re && re.test(l) ? 'ln hl' : (re2 && re2.test(l) ? 'ln hl2' : 'ln');
+    return `<span class="${cls}" id="L${i+1}"><span class="num">${i+1}</span>${esc(l)}</span>`;
+  }).join('');
+  window.__ready = true;
+})();
+</script>

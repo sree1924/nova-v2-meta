@@ -91,3 +91,6 @@ The dataset is now CLOSED in full: 51 state payloads + shared bundle. Nothing mo
 ## What this means
 Content authoring, fact-checking, image review, audio and video for v1 are DONE. Defects found from here go to
 `coordination/BUGS/` as v2 notes. What remains is deployment, demo, repo flip, submission.
+
+## R2 upload closed 2026-11-03 22:58Z
+Ledger: 255,145/255,145 present, 0 missing, 0 mismatch, 188.43 GB. See coordination/R2-LEDGER.md.

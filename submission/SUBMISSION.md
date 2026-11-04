@@ -11,7 +11,7 @@ PassLearnersPermit — a Meta-verified learner-permit course for all 51 US juris
 
 ## Links
 - Repository: https://github.com/sree1924/nova-v2-meta `[flip to PUBLIC before submitting — see REPO-PUBLIC-CHECKLIST.md]`
-- Video (3 min): `[ ]`
+- Video (3 min): https://youtu.be/T_3b0C4A2uk (PUBLIC, personal channel Sree V, uploaded 2026-11-04)
 - Live store: https://passlearnerspermit.com `[only if the CDN cut-over + Vercel deploy land; otherwise write "local build, see video"]`
 - Contributors: see `CONTRIBUTORS.md` (one human; AI tooling listed)
 
