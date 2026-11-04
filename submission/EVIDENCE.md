@@ -1,6 +1,15 @@
 # Evidence ledger for the submission (every number → where it is on disk)
 
-Compiled 2026-11-02 ~18:45Z by Fable from the lane repo (`D:/nova/fb-ai-hackathon`). "(verify)" = not re-derived today.
+Compiled 2026-11-02 ~18:45Z by Fable from the lane repo; shipped rows added 2026-11-04. "(verify)" = not re-derived that day.
+
+## Shipped (2026-11-03/04)
+| figure | value | source |
+|---|---|---|
+| dataset in R2 | 255,145 / 255,145 files present, 0 missing, 0 mismatches, 188.43 GB; md5 `rclone check` per state | `coordination/R2-LEDGER.md`, `coordination/R2-UPLOAD-STATUS.md` |
+| dataset seal | state seal `ed1c97a9…` (254,314 files) + shared seal `34f51e3f…` (831 files) | `coordination/DATASET-SEAL-2026-11-02.md` |
+| live store | https://passlearnerspermit.com (Vercel + Clerk + Stripe; `/app/*` from a Cloudflare Worker over R2; free 200 / paid 401 verified) | `coordination/FOUNDER-SIGNUP-CHECKLIST-2026-11-02.md` |
+| demo video | https://youtu.be/T_3b0C4A2uk, 2:58, lanes narrate; every spoken clip transcribed back and matched | `VIDEO-SCRIPT.md`, `demo/narration/STT-CHECK.json` |
+| repo | public 2026-11-04; code + course JSON for 51 states; no media, no keys, no handbook sources | `REPO-PUBLIC-CHECKLIST.md` |
 
 ## Fleet content (shell + store)
 | figure | value | source |
@@ -56,7 +65,7 @@ Compiled 2026-11-02 ~18:45Z by Fable from the lane repo (`D:/nova/fb-ai-hackatho
 |---|---|---|
 | price / free tier | $9.99 one state one year, one-time; chapter 1 free everywhere | `store/README.md` |
 | domain | passlearnerspermit.com (Porkbun, paid through 2027-10-28) | `coordination/PORKBUN-ORDER-12309781.json` |
-| gates still founder's | Vercel project + domain, Clerk prod, Stripe product + webhook, support@ MX, GSC sitemap | `store/README.md` |
+| founder gates | Vercel project + domain, Clerk prod, Stripe product + webhook relay, support@ MX, GSC sitemap — all closed 2026-11-03 | `coordination/FOUNDER-SIGNUP-CHECKLIST-2026-11-02.md` |
 
 ## Bugs found and closed during the build (judges like this)
 `coordination/BUGS/INDEX.md`: BUG-001 unreviewed pictures served (closed), 002 id with a space (closed), 003 shared bundle

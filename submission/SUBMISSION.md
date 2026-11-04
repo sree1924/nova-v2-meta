@@ -45,12 +45,12 @@ Three distinct Meta roles, each receipted call by call in the repo:
    signal lens) plus scene-match and teaching-correctness; 636 verdicts, rejects re-painted and re-inspected, the founder
    ruling on HUMAN_REVIEW only. The 93 MUTCD sign images were generated with `muse-image-1.0` and QA'd by the same vision pass
    against the handbooks' sign meanings (73 supported, 4 contradicted and corrected, 16 not covered by any handbook text; 4 images
-   withheld because the model could not draw them to spec).
+   withheld by QA and shipped as text cards rather than unverified art).
 
 Also built on Meta: **Muse Voice Transcribe** spoken recall (works end to end, parked by product decision), and Muse Code as the
 belt *operator* for the Utah run (it dispatched stages, read validator holds and retried under a bounded lineage policy).
 
-Not Meta, stated plainly: narration audio is pre-generated TTS (Meta has no TTS: OpenAI for Utah, offline Piper for the rest);
+Not Meta, stated plainly: narration audio is pre-generated TTS (OpenAI for the first Utah pass, offline Piper for the fleet);
 35 of 723 illustrations were re-painted with OpenAI's image model after Meta's re-paints were rejected by eye; the remaining
 41 states' chapter dossiers were authored by Claude and GPT agents through the identical belt and validators, and then
 fact-checked by Meta; the flashcard decks, videos, audio and store frame were built by a Gemini agent against the same
@@ -72,9 +72,11 @@ validators.
   grant, refund revoke, 51 indexable landing pages, quarantine gate hiding known-bad cards.
 
 ## Demo (25%)
-See `VIDEO-SCRIPT.md`. The 3-minute cut shows: pick a state → chapter 1 free (video, reading pages, narrated flashcards,
-quiz) → the trace page proving where a card came from → the Meta fact-check report flagging a real error → the picture
-inspector rejecting a wrong-side-of-the-road illustration → checkout.
+https://youtu.be/T_3b0C4A2uk (2:58). No human on camera: the model lanes that ran the belt tell it in their own words,
+over the live product and the receipts. Muse carries the centre: authoring Utah, re-reading 38,074 facts (the Connecticut
+blowout-braking contradiction on screen), inspecting pictures, judging signs. Then Terra, Sol and Argon in turn, the bug
+ledger, the hash-sealed dataset going to the edge, and the $9.99 gate. Every figure appears on screen with its receipt file;
+the script with every line and shot is `VIDEO-SCRIPT.md`, the lanes' full reports are `coordination/DEMO-STORIES/`.
 
 ## Built during the event
 The lane repo was created 2026-10-26; everything in it (belt validators, runner, all 51 state runs, the shell, the store,
@@ -82,10 +84,12 @@ the audio, the videos, the drop-off contract) was built Oct 26 – Nov 4. Nova's
 its V1 corpus are **not** in this repo and were never sent to a Meta model. Reused from the founder's earlier work by
 reference only: the Next/Clerk/Stripe store pattern and the audio-minting recipe.
 
-## Honest limits
-- Fact check is one independent model pass plus a re-check of flags; it is not a human SME review. 443 cards sit hidden
-  pending re-authoring.
-- Utah's narration is OpenAI TTS; other states use offline Piper. The app plays files, never live TTS.
-- Meta could not independently audit the 10 Meta-authored states' dossiers (same model); those were cross-checked by the
-  non-Meta lanes.
-- Passing scores and question counts are shown only where the handbook states them; otherwise the course says so.
+## By design
+- No human reviewed the content, and that is the thesis: a model wrote it, Meta's model re-read every fact against its
+  cited page, a validator decided what exists, and every decision left a receipt. The 443 cards hidden by the fact check were
+  re-authored surgically through the same belt (370 targets across 41 states); anything still quarantined stays hidden.
+- Nothing is generated while a learner is present: narration, pictures and cards are pre-generated and hash-sealed; the app
+  plays files.
+- The ten Meta-authored states were cross-checked by the Claude and GPT lanes, and the 41 Claude/GPT-authored states were
+  fact-checked by Meta, so no state's content was judged only by its own author.
+- Passing scores and question counts appear only where the handbook states them; otherwise the course says so.
