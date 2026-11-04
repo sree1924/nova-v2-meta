@@ -1,6 +1,6 @@
 # PassLearnersPermit — submission copy (Meta Global AI Developer Hackathon, indie track)
 
-Status: SUBMITTED 2026-11-04 ~21:45Z on cerebralvalley.ai/e/meta-ai-developer-hackathon (team DataPig, Indie Developer Track, Build for Your World; editable via "Update Project" until 2026-11-05 02:00Z).
+Status: SUBMITTED 2026-11-04 — confirmation email from Cerebral Valley Hackathons: team DataPig, team number 3144, Indie Developer Track, Build for Your World. FINAL; no further edits (founder).
 Every number here is sourced in `EVIDENCE.md`; do not raise a figure without a pointer.
 
 ## Project name
