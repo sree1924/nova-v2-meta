@@ -1,6 +1,6 @@
 # BUG-010 — unlocked state loads ~220 JSON files one at a time ("Loading…" for 40–60 s after purchase)
 
-Status: FIX READY, awaiting founder upload (external-publish gate) · Severity: P0 (first real purchase, learner sees "Loading
+Status: CLOSED 2026-11-04 ~20:00Z — founder uploaded via hotfix-index-r2.mjs; edge cache purged by URL in the dashboard (API token lacks purge scope); live shell sha256 18f4a14fe4f17f66 matches local · Severity: P0 (first real purchase, learner sees "Loading
 the Utah course" for about a minute and reads it as stuck) · Lane: Fable · Found: 2026-11-04, founder's own $9.99 Utah purchase.
 
 ## What happens

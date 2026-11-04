@@ -96,4 +96,4 @@ Content authoring, fact-checking, image review, audio and video for v1 are DONE.
 Ledger: 255,145/255,145 present, 0 missing, 0 mismatch, 188.43 GB. See coordination/R2-LEDGER.md.
 
 ## Hotfix 1 — 2026-11-04 (BUG-010)
-`index.html` in the shared bundle changes: the unlocked-state loader fetches manifest files in a pool of 12 instead of one at a time. State payloads untouched; state seals unchanged. New shared-bundle sha for `index.html`: see `tools/deploy/hotfix-index-r2.mjs` run log after the founder uploads.
+`index.html` in the shared bundle changes: the unlocked-state loader fetches manifest files in a pool of 12 instead of one at a time. State payloads untouched; state seals unchanged. Live `index.html` sha256 (first 16): `18f4a14fe4f17f66`, verified at the edge 2026-11-04 after a dashboard cache purge.
