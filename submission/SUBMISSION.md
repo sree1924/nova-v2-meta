@@ -1,6 +1,6 @@
 # PassLearnersPermit — submission copy (Meta Global AI Developer Hackathon, indie track)
 
-Status: READY 2026-11-04 (video public, store live, repo swept and awaiting the founder's public flip) · deadline 2026-11-04 21:00 EST (2026-11-05 02:00Z) · form submission is the founder's.
+Status: READY 2026-11-04 (video public, store live, repo public) · deadline 2026-11-04 21:00 EST (2026-11-05 02:00Z) · form submission is the founder's.
 Every number here is sourced in `EVIDENCE.md`; do not raise a figure without a pointer.
 
 ## Project name
@@ -10,7 +10,7 @@ PassLearnersPermit — a Meta-verified learner-permit course for all 51 US juris
 51 state driver handbooks → 51 complete study courses in 8 days, with Meta models as the author, the fact-checker and the picture inspector.
 
 ## Links
-- Repository: https://github.com/sree1924/nova-v2-meta (code + course JSON for all 51 states, no media, no keys; final sweep clean 2026-11-04 — founder flips it public)
+- Repository: https://github.com/sree1924/nova-v2-meta (PUBLIC since 2026-11-04; code + course JSON for all 51 states, no media, no keys)
 - Video (3 min): https://youtu.be/T_3b0C4A2uk (PUBLIC, personal channel Sree V, uploaded 2026-11-04)
 - Live store: https://passlearnerspermit.com (live since 2026-11-03; chapter 1 free in every state)
 - Contributors: see `CONTRIBUTORS.md` (one human; AI tooling listed)
