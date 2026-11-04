@@ -1,6 +1,6 @@
 # BUG-010 — unlocked state loads ~220 JSON files one at a time ("Loading…" for 40–60 s after purchase)
 
-Status: CLOSED 2026-11-04 ~20:00Z — founder uploaded via hotfix-index-r2.mjs; edge cache purged by URL in the dashboard (API token lacks purge scope); live shell sha256 18f4a14fe4f17f66 matches local · Severity: P0 (first real purchase, learner sees "Loading
+Status: CLOSED 2026-11-04 ~20:00Z — founder uploaded via hotfix-index-r2.mjs; edge cache purged by URL in the dashboard (API token lacks purge scope); live shell sha256 0f889a78477e2a35 (pool 32) matches local; entitled headless loads UT/NE/TX render in 3–7 s · Severity: P0 (first real purchase, learner sees "Loading
 the Utah course" for about a minute and reads it as stuck) · Lane: Fable · Found: 2026-11-04, founder's own $9.99 Utah purchase.
 
 ## What happens
@@ -24,3 +24,6 @@ recorded in `coordination/DATASET-SEAL-2026-11-02.md` as hotfix 1.
 
 ## Follow-up (v2)
 Per-chapter lazy loading (fetch a chapter when it is opened) would make the paid first paint the same as the free one.
+
+## Lesson (2026-11-04)
+Every pre-launch verification ran as a free visitor, which loads chapter 1 only. The paid path (all chapters, all files) was never exercised end to end until the founder's own purchase. Rule: before any launch, run `demo/paid-shell-probe.mjs <ST>` (entitled headless load) for at least three states.
