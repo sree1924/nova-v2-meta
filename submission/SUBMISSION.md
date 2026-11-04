@@ -47,7 +47,7 @@ Three distinct Meta roles, each receipted call by call in the repo:
    against the handbooks' sign meanings (73 supported, 4 contradicted and corrected, 16 not covered by any handbook text; 4 images
    withheld by QA and shipped as text cards rather than unverified art).
 
-Also built on Meta: **Muse Voice Transcribe** spoken recall (works end to end, parked by product decision), and Muse Code as the
+Also built on Meta: **Muse Voice Transcribe** spoken recall (built and verified end to end), and Muse Code as the
 belt *operator* for the Utah run (it dispatched stages, read validator holds and retried under a bounded lineage policy).
 
 Not Meta, stated plainly: narration audio is pre-generated TTS (OpenAI for the first Utah pass, offline Piper for the fleet);

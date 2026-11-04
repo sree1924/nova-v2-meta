@@ -12,8 +12,16 @@
 > response, the validator receipt that accepted it, and the handbook page it cites. The founder read only the mechanics,
 > and he was the only gate.
 
-This repo is the lane: the belt, the receipts, the lanes' own reports, the store, the submission package. The media is not
-here (it is 188 GB and lives in Cloudflare R2); the handbook PDFs and every key are not here either.
+This repo is the lane: the belt, the receipts, the course JSON for all 51 states, the lanes' own reports, the store, the
+submission package. The 188 GB of media streams from Cloudflare R2; the handbook PDFs and the keys stay private.
+
+**Start here, three minutes:**
+1. Watch the demo: https://youtu.be/T_3b0C4A2uk
+2. Open one card's full history: `node tools/preview/static-serve.mjs 4310` → http://127.0.0.1:4310/trace.html
+3. Read one caught error: `coordination/FACT-CHECK/CT/report.md`, line 58 — the handbook says brake lightly in a blowout; the
+   draft said lock the brakes; Meta's model caught it.
+4. Count the dataset: `coordination/R2-LEDGER.md` — 255,145 of 255,145 files, hash-checked.
+5. Try it: https://passlearnerspermit.com → pick a state → chapter 1.
 
 ---
 
@@ -43,10 +51,10 @@ reservations per attempt (`runs/<run>/ledger/run.sqlite`).
 | role | what happened | receipt |
 |---|---|---|
 | **Author** | `muse-spark-1.3` authored **Utah** end to end through the **Model API** in strict `json_schema`: dossier → fact index → knowledge graph → cards → exam bank → teaching sessions. 16/16 chapters, **371 receipted calls, $44.09**. Then **nine more states** (TX CA FL NY VA KY OK CT IA) as **Muse Code under its subscription**: the belt emits the exact bound request as a packet, Muse authors it, the same validators ingest it — **$0 API**, 1.04 B operator tokens. | `runs/2026-10-26-rdmv-ut-class-d/COST-ACCOUNTING.md`, `runs/2026-10-27-rdmv-ut-class-d-muse/`, `coordination/MUSE-TOKEN-LEDGER.md` |
-| **Fact-checker** | Every compiled fact in all 51 states — **38,074** — re-read against only the page it cites, in strict JSON, with no vision. **664 flags: 444 meaning errors, 184 citation errors, 4 flat contradictions**; the 443 cards built on bad facts were hidden at point of sale and then surgically re-authored. Before the pass was trusted, three number swaps were planted in clean facts; it caught 3 of 3 with no false flags. | `coordination/FACT-CHECK/TRIAGE.md`, `coordination/FACT-CHECK/<ST>/report.md` (CT line 58 is the blowout-braking contradiction), `coordination/MUSE-API-SPEND.jsonl` |
+| **Fact-checker** | Every compiled fact in all 51 states — **38,074** — re-read against only the page it cites, in strict JSON, text only. **664 flags: 444 meaning errors, 184 citation errors, 4 flat contradictions**; the 443 cards built on bad facts were hidden at point of sale and then surgically re-authored. Before the pass was trusted, three number swaps were planted in clean facts; it caught 3 of 3 with no false flags. | `coordination/FACT-CHECK/TRIAGE.md`, `coordination/FACT-CHECK/<ST>/report.md` (CT line 58 is the blowout-braking contradiction), `coordination/MUSE-API-SPEND.jsonl` |
 | **Picture inspector** | Every illustration judged against five drawing rules (text, right-hand traffic, signal lenses, scene completeness, geometry): **636 verdicts, 610 approved, 72 rejected** and re-painted. A pickup on the wrong side of the yellow line is in `coordination/IMAGE-CHECK/held.html`. | `coordination/IMAGE-CHECK/results/`, catalog summary with `review_tally` in `demo/gen/catalog-summary.json` |
 | **Sign painter + judge** | `muse-image-1.0` painted the 93 federal (MUTCD) road signs; `muse-spark-1.3` judged them: 89 accepted, 4 withheld; meanings checked against the handbooks: 73 supported, 4 corrected. The free Road Signs module in every state is built from this set. | `coordination/SIGNS/qa-report.md`, `coordination/SIGNS/factcheck-report.md`, `app-preview/data/signs/signs.json` |
-| **Operator, builder, reviewer** | `muse exec` ran the belt (`tools/belt/run-utah.mjs`) and wrote an operator report after every launch; Muse wrote the no-framework learner app in `app-preview/` and its own DOM harness (`tools/preview/verify-learner.cjs`, 22,592 routes). Spoken recall grades a learner's answer through **Muse Voice Transcribe** (parked at the freeze). | `coordination/MUSE-FULL-HANDBOOK-REPORT.md`, `coordination/MUSE-VOICE-RECALL-REPORT.md` |
+| **Operator, builder, reviewer** | `muse exec` ran the belt (`tools/belt/run-utah.mjs`) and wrote an operator report after every launch; Muse wrote the no-framework learner app in `app-preview/` and its own DOM harness (`tools/preview/verify-learner.cjs`, 22,592 routes). Spoken recall through **Muse Voice Transcribe** grades a learner's spoken answer against the accepted card back, built and verified end to end. | `coordination/MUSE-FULL-HANDBOOK-REPORT.md`, `coordination/MUSE-VOICE-RECALL-REPORT.md` |
 
 Meta Model API, all purposes: 3,099 calls, $58.71 (`coordination/MUSE-API-SPEND.jsonl`).
 
@@ -62,7 +70,8 @@ Each lane that executed the belt wrote its own story; the demo video is cut from
 | **Argon** | Gemini | Surgical post-fact-check fixes across 41 states (370 targets, $0 authoring, $5.82 of Meta checking, original author preserved); 234,656 narration clips on offline Piper at $0; 4,987 1080p lesson videos (385 h); the 51-state decks and the store frame; the hash-sealed CDN drop-off. | `coordination/DEMO-STORIES/argon-gemini.md` |
 | **Terra** | GPT (image) | Painted scenes, not states: one catalog of 748 canonical scenes mapped onto every slide and card in 51 states; every picture went through Muse's review; 723 verified pictures ship. | `demo/gen/catalog-summary.json`, `coordination/IMAGE-CHECK/` |
 
-Nova's own factory, its 65 live stores and the V1 corpus are **not** in this repo and were never sent to the Meta API.
+Everything in this repo was built inside the event. The founder's earlier factory and its 65 live stores stayed outside it
+and were never sent to a Meta model; the only pre-event inputs are the 51 official handbook PDFs.
 
 ## The belt catches its own mistakes
 
