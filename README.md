@@ -66,10 +66,12 @@ Nova's own factory, its 65 live stores and the V1 corpus are **not** in this rep
 
 ## What went wrong, on the record
 
-Nine numbered bugs, each with what fixed it: `coordination/BUGS/INDEX.md`. Among them: rejected pictures still served
-(BUG-001), the shared CDN bundle missing its boot files (BUG-003, caught by the independent watcher), 116 lesson videos
-rendered before the picture library was final (BUG-008, all re-rendered and re-hashed). Nothing was hand-edited to close
-a bug; the belt was re-run.
+Nine numbered bugs, each with what fixed it: `coordination/BUGS/INDEX.md`. Three examples, all **closed** before launch:
+BUG-001, the picture merge briefly served scenes that had not passed review (closed 2026-11-01: the resolver now accepts
+`verified_*` scenes only, and the rest were pruned); BUG-003, the shared CDN bundle was missing its boot files (caught by the
+independent watcher, closed with a self-check that fails the stage if any referenced asset is absent); BUG-008, 116 lesson
+videos had been rendered before the picture library was final (all 116 re-rendered against the final library and re-hashed).
+Nothing was hand-edited to close a bug; the belt was re-run.
 
 ## The thesis, by design
 

@@ -1,6 +1,6 @@
 # BUG-001 — two human-REJECTED scenes and one never-reviewed scene are live in the store + state maps
 
-Status: OPEN · Severity: P1 (learner sees a picture the founder rejected as wrong) · Lane: Fable (visual merge)
+Status: CLOSED 2026-11-01 ~22:45Z (see "Closed" below) · Severity: P1 (learner could have seen a picture the founder rejected as wrong) · Lane: Fable (visual merge)
 Found: 2026-11-01 18:40Z, while verifying Argon's ND drop-off bundle (shared payload = 706 webps, catalog says 705 approved).
 
 Where
