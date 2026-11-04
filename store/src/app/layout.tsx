@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { COMPANY, SITE_NAME, SITE_URL } from "@/lib/product";
@@ -20,12 +20,8 @@ const sansFont = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const monoFont = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["500", "700"],
-  variable: "--font-mono",
-  display: "swap",
-});
+// 2026-11-04: JetBrains Mono dropped from the Google-Fonts build fetch (it broke a Vercel build with a null match).
+// --font-mono is only the third fallback of --font-tag; a system mono stack is set in globals.css instead.
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -40,7 +36,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const document = (
-    <html lang="en" className={`${displayFont.variable} ${sansFont.variable} ${monoFont.variable}`}>
+    <html lang="en" className={`${displayFont.variable} ${sansFont.variable}`}>
       <body>
         <Telemetry />
         <SiteHeader />
